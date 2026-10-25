@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tile Calculator</title>
+	<meta name="description" content="This calculator estimates the number of tiles needed to cover an area such as a floor, wall, or roof. It can also account for the gap or overlap between tiles." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tile-calculator.html" itemprop="item"><span itemprop="name">tile calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Tile Calculator</h1>
+<p>The following tool estimates the total number of tiles necessary to cover a floor, roof, wall, or any other surface. It also considers the gap or overlap between tiles for better accuracy, as shown in the figure below.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table cellpadding="5" align="center" width="100%" cellspacing="0">
+	<tr bgcolor="#b2d8fb">
+			<td align="right" valign="top" style="padding-top:12px;"><b>Tile Size:</b></td><td>			<table>
+				<tr><td>Length</td><td>
+					<input type="text" name="tilelength" value="12" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+					<select name="tilelengthunit" >
+					<option value="inch" selected>inches</option>
+					<option value="foot" >feet</option>
+					<option value="meter" >meters</option>
+					<option value="cm" >cm</option>
+					<option value="yard" >yards</option>
+					</select>
+				</td></tr>
+				<tr><td>Width</td><td>
+					<input type="text" name="tilewidth" value="12" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+					<select name="tilewidthunit" >
+					<option value="inch" selected>inches</option>
+					<option value="foot" >feet</option>
+					<option value="meter" >meters</option>
+					<option value="cm" >cm</option>
+					<option value="yard" >yards</option>
+					</select>
+				</td></tr>
+			</table>
+		</td>
+	</tr>
+	<tr valign="top" bgcolor="#cefab0">
+			<td align="right" style="padding-top:12px;"><b>Area to Cover:</b></td><td>			<div><label for="areasetting2" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting2" value="d" checked onClick="shArea('d');" /><span class="rbmark"></span>Use Dimensions</label> &nbsp;
+			<label for="areasetting1" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting1" value="a"  onClick="shArea('a');" /><span class="rbmark"></span>Use Total Area</label></div>
+			<div id="totalareaid" style="display:none;padding-top:5px;">
+				Total Area <input type="text" name="totalarea" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="totalareaunit" >
+					<option value="foot" selected>square feet</option>
+					<option value="meter" >square meters</option>
+					<option value="yard" >square yards</option>
+					<option value="inch" >square inches</option>
+					<option value="centimeter" >square centimeters</option>
+				</select>
+			</div>
+			<div id="dimensionid"><table>
+				<tr><td>Length</td><td>
+					<input type="text" name="totallength" value="20" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					<select name="totallengthunit" >
+					<option value="foot" selected>feet</option>
+					<option value="meter" >meters</option>
+					<option value="inch" >inches</option>
+					<option value="cm" >cm</option>
+					<option value="yard" >yards</option>
+					</select>
+				</td></tr>
+				<tr><td>Width</td><td>
+				<input type="text" name="totalwidth" value="15" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="totalwidthunit" >
+					<option value="foot" selected>feet</option>
+					<option value="meter" >meters</option>
+					<option value="inch" >inches</option>
+					<option value="cm" >cm</option>
+					<option value="yard" >yards</option>
+				</select>
+				</td></tr>
+			</table>
+			</div>
+		</td>
+	</tr>
+	<tr bgcolor="#b2d8fb">
+			<td align="right"><b>Gap Size:</b></td><td>			<input type="text" name="gapsize" value="0.25" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'n');">
+			<select name="gapsizeunit" >
+			<option value="inch" selected>inches</option>
+			<option value="cm" >cm</option>
+			<option value="mm" >mm</option>
+			<option value="foot" >feet</option>
+			<option value="meter" >meters</option>
+			<option value="yard" >yards</option>
+		</select> <span class="smalltext">tile grout spacing, use negative value for overlaps.</span>
+		</td>
+	</tr>
+	<tr bgcolor="#cefab0">
+			<td align="right"><b>Box Size (optional):</b></td><td>			<input type="text" name="boxsize" value="12" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pi');"> tiles per box
+		</td>
+	</tr>
+	<tr bgcolor="#b2d8fb">
+			<td align="right"><b>Price (optional):</b></td><td>			<input type="text" name="price" value="" class="inhalf indollar" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<select name="priceunit" >
+				<option value="tile" selected>per tile</option>
+				<option value="box" >per box</option>
+				<option value="foot" >per square foot</option>
+				<option value="inch" >per square inch</option>
+				<option value="yard" >per square yard</option>
+				<option value="meter" >per square meter</option>
+				<option value="cm" >per square cm</option>
+			</select>
+		</td>
+	</tr>
+	<tr bgcolor="#eeeeee">
+			<td>&nbsp;</td><td>			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function shArea(inval){
+	if (inval == "d"){
+		document.getElementById("totalareaid").style.display = 'none';
+		document.getElementById("dimensionid").style.display = 'block';
+	}else{
+		document.getElementById("dimensionid").style.display = 'none';
+		document.getElementById("totalareaid").style.display = 'block';
+	}
+	return false;
+}
+shArea("d");
+</script>
+
+<fieldset><legend>Related</legend>
+<a href="/square-footage-calculator.html">Square Footage Calculator</a> |
+<a href="/area-calculator.html">Area Calculator</a> |
+<a href="/roofing-calculator.html">Roofing Calculator</a>
+</fieldset>
+
+<h3>Gap Size</h3>
+<p>Floor or wall tiles are typically installed with gaps between the tiles because the average tile may look quite similar to the next tile, but they are often not uniform in shape and size, and would not fit properly if installed without any gaps. These gaps are most commonly filled with grout, and as such, are often referred to as grout size, or grout lines. Grout is a form of concrete, and the gap between tiles can range from anywhere between one-sixteenth of an inch to half an inch in size. Different sized tiles, materials, and design needs all affect the size of the gaps. Although it is typically more difficult to have small gaps between tiles due to lack of a uniform shape and size, the use of rectified tiles (tiles that undergo additional processing to ensure that they are uniform) can allow for smaller spacing, though at an additional cost. For more uniformly cut tiles such as granite, smaller grout spacing can result in less visibility of grout lines between each tile.</p>
+<p>In some cases, such as with roofing tile or the wood siding of a wall, rather than having a gap between them, tiles overlap to prevent leakage. The tile calculator can account for both of these situations. Either enter a positive value if there is a gap between the tiles being used, or a negative value if the tiles overlap. </p>
+<p style="text-align:center;"><img src="/img/tile/tile-gap.svg" width="280" height="220" alt="tile gap"></p>
+
+<h3>Tile Installation Options</h3>
+<p><b>Size</b></p>
+<p>Tile size can range anywhere from smaller mosaics that are 3/8", to 24" &#215; 48" slab tiles and everything in between. Square sizes (same width and length) are the most popular, accessible, and easiest to install. While straight edge tiles (rectangular, square, parallelogram) are the most common, unique tile shapes also exist, though installation is not as easy. Large tile sizes can make smaller rooms appear bigger, as well as more open and clean because there are fewer grout lines. However, installing larger tiles results in more wastage, while using smaller tiles can help add texture to a room. </p>
+<p><b>Material</b></p>
+<p>There are a number of different classifications of tiles, including ceramic, porcelain, glass, quarry, and stone. Ceramic and porcelain tiles are the most cost efficient, and come in a variety of different styles. Glass tiles, while not appropriate for flooring because they crack under pressure, are visually unique and interesting; they are most commonly used for kitchen and bathroom backsplashes. Quarry tiles have rough surfaces that are good for floors that require grip, and are commonly used outdoors and in restaurant kitchens. Stone tiles include marble and granite, which provide unique and natural stone patterns, textures, and colors that are difficult to achieve using ceramics. They also offer the illusion of blending into grout edges, giving off an overall uniform look. </p>
+<p><b>Layout Pattern</b></p>
+<p>There are many different patterns used when installing tiles. The most common pattern  used is a linear grid, with square or rectangular tiles, or a pattern involving angled squares or rectangles that form a typical diamond shape.</p>
+<p>Running bond layouts (like those used with brick walls) involve offset rows or columns of tiles, usually with a 2:1 length to edge ratio. Running bonds generally use about 10% more material. </p>
+<p>Herringbones involve aligning tiles in angled patterns, usually 45 or 90 degrees. Similar to running bond layouts, herringbone layouts use more material than linear layouts.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

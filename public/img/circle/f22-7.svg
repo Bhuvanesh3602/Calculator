@@ -1,0 +1,17 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.161ex" height="5.176ex" style="vertical-align: -1.838ex;" viewBox="0 -1437.2 1361 2228.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">StartFraction 22 Over 7 EndFraction</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-STIXWEBMAIN-32" d="M474 137l-54 -137h-391v12l178 189c94 99 130 175 130 260c0 91 -54 141 -139 141c-72 0 -107 -32 -147 -130l-21 5c21 117 85 199 208 199c113 0 185 -77 185 -176c0 -79 -39 -154 -128 -248l-165 -176h234c42 0 63 11 96 67Z"></path>
+<path stroke-width="1" id="E1-STIXWEBMAIN-37" d="M449 646l-212 -654h-65l198 596h-215c-58 0 -75 -14 -117 -82l-18 9l60 147h369v-16Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="1121" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-STIXWEBMAIN-32"></use>
+ <use xlink:href="#E1-STIXWEBMAIN-32" x="500" y="0"></use>
+</g>
+ <use xlink:href="#E1-STIXWEBMAIN-37" x="310" y="-686"></use>
+</g>
+</g>
+</svg>

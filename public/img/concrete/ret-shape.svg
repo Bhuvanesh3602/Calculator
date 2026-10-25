@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="95" height="65" viewBox="0 0 95 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="1,49 21,29 81,29" stroke-dasharray="2, 2" style="stroke:black;stroke-width:1" />
+<line x1="21" y1="29" x2="21" y2="1" stroke-dasharray="2, 2" style="stroke:black;stroke-width:1" />
+<polyline points="1,21 1,49 61,49 61,21 1,21 21,1 81,1 81,29 61,49" style="stroke:black;stroke-width:1" />
+<line x1="61" y1="21" x2="81" y2="1" style="stroke:black;stroke-width:1" />
+<g style="font: 18px Arial, sans-serif; fill: #00f;">
+<text x="29" y="64">l</text>
+<text x="75" y="47">w</text>
+<text x="83" y="23">h</text>
+</g>
+</svg>

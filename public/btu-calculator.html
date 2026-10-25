@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BTU Calculator</title>
+	<meta name="description" content="Two free calculators estimate the number of BTUs needed to cool or heat a room or house based on its size, insulation, and some other conditions." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/btu-calculator.html" itemprop="item"><span itemprop="name">btu calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>BTU Calculator</h1>
+
+<h2>AC BTU Calculator</h2>
+<p>Use this calculator to estimate the cooling needs of a typical room or house, such as finding out the power of a window air conditioner needed for an apartment room or the central air conditioner for an entire house.</p>
+<form name="calcf1" action="/btu-calculator.html">
+<table class="panel" >
+	<tr>
+		<td>Size</td><td>			<input type="text" name="roomsize1" value="150" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="roomsize1unit" >
+				<option value="feet" selected>square feet</option>
+				<option value="meters">square meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Room Ceiling Height</td><td>			<input type="text" name="ceilingheight1" value="9" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="ceilingheight1unit" class="inhalf">
+				<option value="feet" selected>feet</option>
+				<option value="meters">meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Number of People <br>Inside Regularly</td><td>			<input type="text" name="people1" value="2" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
+		</td>
+	</tr>
+	<tr>
+		<td>Type</td><td>			<select name="roomtype1" class="infull">
+				<option value="bedroom" selected>Bedroom</option>
+				<option value="living">Living Room</option>
+				<option value="kitchen">Kitchen</option>
+				<option value="house">Entire House</option>
+				<option value="first">Entire First Floor</option>
+				<option value="second">Entire Second Floor or Above</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Insulation Condition</td><td>			<select name="insulation1" class="infull">
+				<option value="good">Good (very few leakages or windows)</option>
+				<option value="normal" selected>Average</option>
+				<option value="poor">Poor (many leakages or windows)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Sun Exposure</td><td>			<select name="sunexposure1" class="infull">
+				<option value="shaded">Heavily shaded</option>
+				<option value="normal" selected>Average</option>
+				<option value="sunny">Very sunny</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Climate</td><td>			<select name="climate1" class="infull">
+				<option value="cold">Cold (e.g. Boston)</option>
+				<option value="normal" selected>Average</option>
+				<option value="hot">Hot (e.g. Houston)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input type="hidden" name="ctype" value="room">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf1);">
+		</td>
+	</tr>
+</table></form>
+
+<br><a name="housebtu"></a>
+<h2>General Purpose AC or Heating BTU Calculator</h2>
+<p>This is a general purpose calculator that helps estimate the BTUs required to heat or cool an area. The desired temperature change is the necessary increase/decrease from outdoor temperature to reach the desired indoor temperature. As an example, an unheated Boston home during winter could reach temperatures as low as -5&deg;F. To reach a temperature of 75&deg;F, it requires a desired temperature increase of 80&deg;F. This calculator can only gauge rough estimates.</p>
+
+<table class="panel" >
+	<form name="calcf2" action="/btu-calculator.html#housebtu">
+	<tr>
+		<td>Room/House Width</td><td>			<input type="text" name="roomwidth" value="12" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="roomwidthunit">
+				<option value="feet" selected>feet</option>
+				<option value="meters">meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Room/House Length</td><td>			<input type="text" name="roomlength" value="12" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="roomlengthunit">
+				<option value="feet" selected>feet</option>
+				<option value="meters">meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Ceiling Height</td><td>			<input type="text" name="ceilingheight" value="9" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="ceilingheightunit">
+				<option value="feet" selected>feet</option>
+				<option value="meters">meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Insulation Condition</td><td>			<select name="insulation" >
+				<option value="good">good (very few leakages or windows)</option>
+				<option value="normal" selected>normal</option>
+				<option value="poor">poor (many leakages or windows)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">Desired Temperature <br>Increase or Decrease</td><td>			<input type="text" name="temperature" value="50" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="temperatureunit">
+				<option value="f" selected>Fahrenheit</option>
+				<option value="c">Celsius</option>
+			</select><div class="smalltext">e.g. 75&deg;F for Boston winter, 45&deg;F for Atlanta winter.</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top: 8px;">
+			<input type="hidden" name="ctype" value="house">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+		</td>
+	</tr>
+</table></form>
+<br><br>
+<h3>What is a BTU?</h3>
+<p>The British Thermal Unit, or BTU, is an energy unit. It is approximately the energy needed to heat one pound of water by 1 degree Fahrenheit. 1 BTU = 1,055 joules, 252 calories, 0.293 watt-hours, or the energy released by burning one match. 1 watt is approximately 3.412 BTU per hour.</p>
+<p>BTU is often used as a point of reference for comparing different fuels. Even though they're physical commodities and are quantified accordingly, such as by volume or barrels, they can be converted to BTUs depending on the energy or heat content inherent in each quantity. BTU as a unit of measurement is more useful than physical quantity because of fuel's intrinsic value as an energy source. This allows many different commodities with intrinsic energy properties, such as natural gas and oil, to be compared and contrasted.</p>
+<p>BTU can also be used pragmatically as a point of reference for the amount of heat that an appliance generates; the higher the BTU rating of an appliance, the greater the heating capacity. As for air conditioning in homes, even though ACs are meant to cool homes, BTUs on the technical label refer to how much heat the air conditioner can remove from their respective surrounding air. </p>
+
+<h3>Size and Ceiling Height</h3>
+<p>Unsurprisingly, a smaller room requires fewer BTUs to cool/heat. Typically, BTU usage is measured based on the volume of the space.</p>
+<p>The following is a rough estimation of the cooling capacity a cooling system would need to effectively cool a room/house based only on the square footage of the room/house, as provided by EnergyStar.gov.</p>
+<table class="cinfoT" align="center">
+<tr><td class="cinfoHd">Area To Be Cooled (square feet)</td><td class="cinfoHdL">Capacity Needed (BTUs per hour)</td></tr>
+<tr><td>100 to 150</td><td>5,000</td></tr>
+<tr><td>150 to 250</td><td>6,000</td></tr>
+<tr><td>250 to 300</td><td>7,000</td></tr>
+<tr><td>300 to 350</td><td>8,000</td></tr>
+<tr><td>350 to 400</td><td>9,000</td></tr>
+<tr><td>400 to 450</td><td>10,000</td></tr>
+<tr><td>450 to 550</td><td>12,000</td></tr>
+<tr><td>550 to 700</td><td>14,000</td></tr>
+<tr><td>700 to 1,000</td><td>18,000</td></tr>
+<tr><td>1,000 to 1,200</td><td>21,000</td></tr>
+<tr><td>1,200 to 1,400</td><td>23,000</td></tr>
+<tr><td>1,400 to 1,500</td><td>24,000</td></tr>
+<tr><td>1,500 to 2,000</td><td>30,000</td></tr>
+<tr><td>2,000 to 2,500</td><td>34,000</td></tr>
+</table>
+
+<h3>Insulation Condition</h3>
+<p>Thermal insulation is defined as the reduction of heat transfer between objects in thermal contact or in the range of radiative influence. The importance of insulation lies in its ability to lower BTU usage by managing the loss of heat due to its entropic nature &ndash; heat tends to flow from areas of warmer air to cooler air until there is no longer a difference in temperature between the adjacent areas.</p>
+<p>Generally, newer homes have better insulating ability than older homes due to technological advances as well as stricter building codes. Owners of older homes with dated insulation who decide to upgrade their insulation may not only benefit from lower utility bills, but may also see an appreciation in the value of their homes.</p>
+<p>Thermal resistance, which is a measure of a material's resistance to heat flow, is indicated by a material's R-value. The higher the R-value of a certain material, the more resistant it is to heat transfer. In other words, when shopping for home insulation, higher R-value products are better at insulating, though they're usually more expensive.</p>
+<p>When deciding on the proper input for the "insulation condition" field in the calculator, use generalized assumptions. A beach bungalow built in the 1800s with no renovations should probably be classified as poor. A 3-year-old home inside a newly developed community most likely deserves a good rating. Windows normally have poorer thermal resistance than walls. Therefore, a room with lots of windows normally means poor insulation. When possible, try to install double-glazed windows to improve insulation.</p>
+
+<h3>Desired Temperature Increase or Decrease</h3>
+<p>To find the desired change in temperature to input into the calculator, find the difference between the unaltered outdoor temperature and the desired temperature. As a general rule of thumb, a temperature between 70 and 80&deg;F is a comfortable temperature for most people. </p>
+<p>For example, a home owner in Atlanta might want to determine their BTU usage during winter. Atlanta winters tend to hover around 45&deg;F and temperatures may fall as low as 30&deg;F occasionally. Given that the desired temperature of the residents is 75&deg;F, the desired temperature increase would be 75&deg;F - 30&deg;F = 45&deg;F.</p>
+<p>Homes in more extreme climates are subject to larger fluctuations in temperature, which typically results in higher BTU usage. For instance, heating a home in Alaska during winter, or cooling a home during a Houston summer will require more BTUs than heating or cooling a home in Honolulu, where temperatures tend to stay around 80&deg;F year-round.</p>
+
+<h3>Other Factors</h3>
+<p>Along with the factors discussed above and their effect on BTU usage, there are other factors to keep in mind:</p>
+<ul>
+	<li>The number of residents. A person's body dissipates heat into the surrounding atmosphere, so the more people there are, the more BTUs required to cool the room, and the fewer BTUs required to warm the room.</li>
+	<li>Location of the air conditioner condenser. Try to place the air conditioner condenser on the shadiest side of the house (typically north or east). The more the condenser is exposed to direct sunlight, the harder it must work due to the higher surrounding air temperature, which consumes more BTUs. Not only will placing it in a shadier area result in greater efficiency, but it will extend the life of the equipment. It is possible to try and place shady trees around the condenser, but keep in mind that condensers also require good surrounding airflow for best efficiency. Make sure neighboring vegetation does not interfere with the condenser, blocking air flow into the unit and choking it.</li>
+	<li>Size of air conditioning condenser. Units too big cool homes too rapidly. Therefore, they don't go through the intended cycles they were designed for. This may shorten the lifespan of the air conditioner. On the other hand, if the unit is too small, it will run too often throughout the day.</li>
+	<li>Ceiling fan usage. Ceiling fans can help with lowering BTU usage by improving air circulation. Any home or room may be subject to dead spots, or specific areas of improper airflow. This can be the back corner of the living room behind a couch, the bathroom with no vent and a big window, or the laundry room. Thermostats placed in dead spots can inaccurately manage the temperatures of homes. Running fans can help to distribute temperatures evenly across the whole room or house.</li>
+	<li>The color of the roof. A darker surface absorbs more radiant energy than a lighter one. Even dirty white roofs (with noticeably darker shades) compared to newer, cleaner surfaces, can result in noticeable differences.</li>
+	<li>Decreasing efficiency over the life of the heater or air conditioner. Like most appliances, the efficiency of a heater or air conditioner decreases with usage. It is not uncommon for an air conditioner to lose 50% or more of its efficiency when running with insufficient liquid refrigerant.</li>
+	<li>Shape of the home. A long narrow house has more walls than a square house with the same square footage, which means heat loss.</li>
+</ul>
+
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

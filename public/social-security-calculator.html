@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Social Security Calculator</title>
+	<meta name="description" content="Free Social Security calculator to find the best age to start SS benefits, or to compare the differences between starting SS at different ages in the U.S." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/social-security-calculator.html" itemprop="item"><span itemprop="name">social security calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Social Security Calculator</h1>
+
+<p><a href="https://www.ssa.gov/benefits/calculators/">The U.S. Social Security website provides calculators for various purposes</a>. While they are all useful, there currently isn't a way to help determine the ideal (financially speaking) age at which a person between the ages of 62-70 should apply for their Social Security retirement benefits. This tool is designed specifically for this purpose. Please note that this calculator is intended for U.S. Social Security purposes only.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><a name="bestappage"></a><h2 class="h2red">Determine the ideal application age</h2>Use the following calculation to determine the ideal age to apply for Social Security retirement benefits based on age, life expectancy, and average investment performance.</p><form name="calform" action="/social-security-calculator.html#bestappage"><table id="calinputtable" class="panel" align="center">
+<tr><td>Your birth year</td><td align="right"><input type="text" name="cbirthyear" value="1970" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Your life expectancy</td><td align="right"><input type="text" name="clifeexpectancy" value="83" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Your investment return</td><td align="right"><input type="text" name="creturn" value="5" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td>Cost of living adjustment<sup>*</sup></td><td align="right"><input type="text" name="ccola" value="3" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td colspan="2" align="right" style="padding-top:8px;"><input type="hidden" name="ctype" value="1">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td><td>&nbsp;</td></tr>
+</table>
+</form><br><a name="comparetwoage"></a><h2 class="h2red">Compare two application ages</h2><p>Use the following calculation to compare the financial difference between two Social Security retirement benefit application ages. <a href="https://www.ssa.gov">The U.S. Social Security website</a> provides estimated benefit payment amounts of different claim ages.</p><form name="calform2" action="/social-security-calculator.html#comparetwoage"><table id="calinputtable" class="panel" align="center">
+<tr><td colspan="3" id="sectitle">Social security claim option 1</td></tr>
+<tr><td>Retirement age</td><td align="right"><input type="text" name="cretirementage1" value="62" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Monthly payment</td><td align="right"><input type="text" name="cmonthlyincome1" id="cmonthlyincome1" value="1600" class="innormal indollar"></td><td>per month</td></tr>
+
+<tr><td colspan="3" id="sectitle">Social security claim option 2 (work longer)</td></tr>
+<tr><td>Retirement age</td><td align="right"><input type="text" name="cretirementage2" value="70" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Monthly payment</td><td align="right"><input type="text" name="cmonthlyincome2" id="cmonthlyincome2" value="2810" class="innormal indollar"></td><td>per month</td></tr>
+
+<tr><td colspan="3" id="sectitle">Other information</td></tr>
+
+<tr><td>Your investment return</td><td align="right"><input type="text" name="creturn" value="5" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td>Cost of living adjustment<sup>*</sup></td><td align="right"><input type="text" name="ccola" value="3" class="innormal inpct"></td><td>per year</td></tr>
+
+<tr><td colspan="2" align="right" style="padding-top:8px;"><input type="hidden" name="ctype" value="2">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td><td>&nbsp;</td></tr>
+</table>
+
+</form>
+<br><br>
+
+<fieldset><legend>Related</legend><a href="/retirement-calculator.html">Retirement Calculator</a> | <a href="/pension-calculator.html">Pension Calculator</a> | <a href="/401k-calculator.html">401K Calculator</a></fieldset>
+
+<br>
+
+<p>The term "Social Security" is used in the U.S. to refer to the system that provides monetary assistance to people with inadequate or no income. The term can be better understood by thinking of it as the "financial security of society." Although they may not go by the same name, there are many similar government systems in place throughout the world. This calculator is specifically intended for U.S. Social Security purposes.</p>
+
+<h3>Social Security in the U.S.</h3>
+<p>Before Social Security (SS), care for the elderly or disabled in the U.S. wasn't a federal responsibility; if they weren't cared for by family, it fell into the hands of municipalities or states. This changed in 1935 when the Social Security Act (originally named the Economic Security Act) was first established in the U.S. by President Franklin Roosevelt. The first taxes were collected starting in January 1937, which enabled monetary assistance to qualified Americans with inadequate or no income. Originally, SS was just a program that paid out retirement benefits, but a 1939 change added survivors benefits for a retiree's spouse and children. In addition, in 1956, disability benefits were added.</p>
+<p>Today, SS in the U.S. plays a very important role in keeping a lot of older Americans out of poverty. For most Americans in retirement, it is their major source of income, and for a significant percentage, it is their only source of income, even though SS was never intended to be a full replacement of income. On average, SS pays lower-wage earners higher relative benefits than higher-wage earners. In addition, lower-wage earners tend to pay less tax and are more likely to receive social insurance disability income and survivor benefits. SS is sometimes referred to as Old Age, Survivors, and Disability Insurance (OASDI).</p>
+<p><b>Social Security Facts</b></p>
+<ul>
+	<li>About 169 million Americans pay SS taxes.</li>
+	<li>About 65 million Americans collect monthly benefits, which is about 1 in 5 Americans.</li>
+	<li>About one out of four families receive benefits from SS.</li>
+	<li>More than three out of five SS beneficiaries rely on their benefits for more than half of their income, while one-third rely on it for all of their income.</li>
+	<li>The administrative costs of SS add up to roughly 1% of total expenditure from the Old-Age & Survivors Insurance and Disability Insurance trust funds.</li>
+</ul>
+
+<h3>Cost-of-Living Adjustment</h3>
+<p>SS benefits increase slightly from year to year as a result of the cost-of-living adjustment (COLA), a measure applied in order to account for inflation. COLA's purpose is to ensure that the purchasing power of SS and Supplemental Security Income (SSI) is equivalent to previous years.</p>
+<p>COLA's calculation is based on the Consumer Price Index for Urban Wage Earners and Clerical Workers (CPI-W) from the third quarter of the last year to the third quarter of the current year. If there is no increase from year to year, there is no COLA.</p>
+
+<h3>Social Security Tax</h3>
+<p>The program is mainly operated on a pay-as-you-go system, which means that today's workforce pays the SS taxes, and the monthly income is distributed to today's beneficiaries. Most funds come from employee/employer contributions that are withheld from paychecks in the form of payroll taxes, which are collected under the authority of the Federal Insurance Contributions Act (FICA), hence why they are often called FICA taxes. The Social Security Administration (SSA), which is the federal organization in charge of SS, levies a 12.4% tax on earnings, which is usually split in half between employee and employer (self-employed taxpayers will pay the full amount in the form of a self-employment tax).</p>
+<p>The amount of tax a person has to pay is capped above a certain income level; in 2026, the cap is $184,500. Earnings above this level of income are not subject to social security tax. This means that regardless of how much money a person earns, anyone who earns at least $184,500 will pay a maximum of $11,439 for employees and $22,878 for self-employed in 2026. This limit is subject to change annually in order to stay up-to-date with inflation.</p>
+<p>FICA taxes also include a separate welfare program called Medicare, which is a federal health program for people aged 65 or older. Although payroll taxes account for roughly 90% of SS income, it is not the only source; SS also receives contributions from income taxes on benefits paid to higher-income earners and interest earned on reserves, which are held in trusts and invested into U.S. treasury bonds. These sources of revenue are pooled together and are distributed to people who qualify for benefits.</p>
+<p><b>Income Tax on Benefits</b></p>
+<p>Another way that SS generates revenue is by taxing the benefits of select people, a practice that was introduced in 1983. Whether or not SS benefits are taxable depends on the combined income. If a person has forms of income other than SS in retirements, such as a 401(k), self-employment income, investment income from interest, dividends, or capital gains, annuity income, rental property, or an IRA, then it is likely that SS benefits will be taxed because these additional sources of retirement income will result in a combined annual income over the limits set by the SSA for tax-free benefits. Roth IRA withdrawals do not apply when considering a person's combined income in retirement. The combined income is measured as the sum of adjusted gross income, nontaxable interest, and half of SS benefits.</p>
+<p>For 2026, a single filer with a combined income of less than $25,000 (married filers: $32,000) will not have their SS benefits taxed. A single filer with a combined income between $25,000 and $34,000 (married filers: $32,000 and $44,000) may need to pay income tax on up to 50% of the SS benefits value. Federal income tax will be applied on up to 85% of the SS benefits value for those individuals with a combined income of more than $34,000 (married filers: more than $44,000).</p>
+<p>Below is a breakdown of how FICA taxes are typically spent. Roughly, for every dollar contributed towards SS:</p>
+<ul>
+	<li>72 cents go into a trust fund that pays monthly benefits to retirees and their families.</li>
+	<li>16 cents go towards disability benefits.</li>
+	<li>9 cents go towards survivor's benefits.</li>
+	<li>Less than 1 cent is used for administrative costs.</li>
+</ul>
+<p>Any income from tax dollars or interest on investments that is not to be paid out as benefits gets loaned to the U.S. treasury, which invests the funds in federal bonds.</p>
+<p><b>People exempt from paying social security tax:</b></p>
+<ul>
+	<li>Those who are disabled, dead, or are members of a religious group that opposes receiving Social Security benefits during retirement.</li>
+	<li>Some state and local employees whose employers provide their own public pension systems that operate similarly to SS. This allows employees to fund their employer's plans instead.</li>
+	<li>Nonresident aliens, such as international employees working in the U.S. or international students in the U.S. temporarily.</li>
+	<li>Students employed at the same school in which they are enrolled whose employment is contingent on continued enrollment.</li>
+</ul>
+
+<h3>Social Security for Retirement</h3>
+<p>The biggest determinant of retirement benefit amount is lifetime earnings since the benefit is based largely on the average of a person's 35 highest-earning years. Because the SS tax is regressive, in retirement, lower-income earners will have a higher portion of their SS retirement benefits paid out in relation to their lifetime earnings than higher-income earners. Another important determinant of benefit amount is the age at which a person applies for retirement benefits.</p>
+<p>SS is designed to replace about 40% of the average American worker's pre-retirement income. This value is dependent on each individual's work history; higher-income earners will receive larger SS checks than lower-income earners, but the check will be a smaller percentage (compared to lower-income earners) of their pre-retirement income. SS is not intended to be a sole source of retirement income, and as such, it is advisable to have other forms of income in retirement. This can take the form of anything from rental property income to annuities, mutual funds, or even tax-shielded retirement plans such as a 401(k) and/or IRAs.</p>
+<p><b>Full Retirement Age</b></p>
+<p>Full Retirement Age (FRA), sometimes called normal retirement age, is the minimum age at which a person is entitled to full or unreduced retirement benefits from SS. The FRA is 67 for those born in 1960 or later. For those born between 1943 and 1960, the FRA is between 66 and 67. A person can receive retirement benefits before their FRA as early as age 62. However, the benefits will be reduced based on when a person chooses to receive their benefits relative to their FRA. While a person choosing to receive benefits prior to their FRA results in reduced benefits, delaying retirement past FRA results in delayed retirement credits, which increases SS benefits by a certain percentage, up until the age of 70. After 70, further delaying retirement no longer increases benefits. FRA is different when calculating a survivor's benefit; the earliest a widow or widower can receive a survivor's benefit is 60, and benefits do not increase if delayed past FRA.</p>
+<p><b>Retirement Benefits While Working</b></p>
+<p>Receiving SS retirement benefits while working is possible, but there are key rules to take note of. Workers that are younger than their FRA that also make more than a yearly earnings limit set by the SSA will have their benefits reduced. For every $2 earned above an annual limit, $1 is deducted from retirement benefits. However, as soon as FRA is reached, the reduction of benefits will stop, no matter how much is earned.</p>
+<p><b>When to Apply for Social Security Retirement Benefits</b></p>
+<p>It is possible to apply for SS retirement benefits as early as 61 years and 9 months old, even though the earliest possible age to receive benefits is 62. This is because the SSA will only process an application a maximum of four months before benefits begin. When determining the ideal age to apply for SS retirement benefits, there are multiple factors that should be considered:</p>
+<ul>
+	<li>The immediate need for cash</li>
+	<li>Life expectancy</li>
+	<li>Current earned income</li>
+	<li>Marital status</li>
+	<li>Relative age, income, and health of spouse</li>
+</ul>
+<p>Given these factors, each individual needs to evaluate their unique situations to determine the ideal age to apply for benefits. A 62-year-old with no income that is struggling to make ends meet will probably find it beneficial to claim SS. In addition, if they don't expect to live long, receiving benefits sooner rather than later should theoretically provide more income before death. A marriage in which one spouse was the high-earner but the second spouse, who is expected to live longer, didn't earn as much in their working years, may want to hold off on applying until as late as possible. Not all people can wait until age 70 for maximum benefit payout. However, in general, people with adequate amounts in their savings who are in good health and have high life expectancies may find it more financially desirable to apply for benefits later in life (just not past the age of 70). It is possible to withdraw an application within 12 months of starting benefits provided that all of the received distributions are repaid. However, SSA only allows this reconsideration once.</p>
+<p><b>Social Security Credits</b></p>
+<p>Each year, a worker earns credits to become eligible for benefits after retirement. It is possible to earn a maximum of four credits per year, and the total number of credits required to be eligible for benefits is typically 40, but this can depend on when the application was filed and the type of benefit. At the earliest, a person can earn enough credits to be eligible for benefits in 10 years of work.</p>
+<p>In 2026, each credit is earned by earning $1,890 in taxable income, meaning that earning $7,560 is sufficient to acquire all four credits for the year. This amount is based on the average yearly wage and typically increases each year. It is not possible to lose credits once they have been earned. Also, certain jobs that don't require the payment of Social Security taxes cannot earn credits. This applies to state and local government workers who can choose to contribute to a different type of retirement plan. Also, anyone born in or before 1929 may have different rules regarding SS credits.</p>
+<p><b>Receiving Retirement Benefits Outside of the U.S.</b></p>
+<p>It is possible to receive SS income while living outside of the U.S., given that a person is eligible for benefits. SS checks can be deposited in a U.S. bank account, or in some cases, sent to a foreign country. However, Medicare benefits are only available in the U.S., and filing tax returns (and state tax returns where appropriate) is still mandatory, even for retirees living abroad. Depending on the country, SS benefits may be affected by its tax laws. The information above only applies to U.S. citizens; there are different rules for resident aliens and undocumented immigrants.</p>
+
+<h3>Social Security for the Disabled</h3>
+<p>People who are disabled, are dependents of retired or disabled workers, or are surviving spouses/children may also receive benefits. Note that this is supplementary information and that the Social Security Calculator only provides calculations for retirement benefits.</p>
+<p>The SSA's definition of disability refers to total disability, so partial or short-term disabilities are not qualified for benefits. Under the SSA's rules, a person is disabled only if they meet all of the following conditions:</p>
+<ul>
+	<li>They cannot do work they did before</li>
+	<li>The SSA decides that they cannot adjust to other work because of their medical condition</li>
+	<li>The disability has lasted or is expected to last at least one year or to result in death</li>
+</ul>
+<p>Benefits usually continue until beneficiaries are able to work again. Disability beneficiaries that reach full retirement age will have their benefits converted into retirement benefits, with the amount remaining the same. It is against the law to receive both disability and retirement benefits at the same time.</p>
+<p><b>Social Security Disability Insurance</b></p>
+<p>Qualifying for SS disability insurance (SSDI) requires medical eligibility that meets the SSA's definition of disability. In general, SSDI benefits are only available to Americans with disabilities that interfere with basic work-related activities that make them unable to perform substantial gainful activity for at least one year. Most applications for SSDI are denied, partly because they do not meet these requirements. Qualified applicants will have to endure a five-month waiting period (that starts on the date the SSA says the claimant became disabled) for the first payment of benefits. A compassionate allowance is an exception that expedites SSDI for people with severe medical conditions that will certainly be judged to meet the SSA's definition of disability. Keep in mind that SSDI benefits still require work credits; the amount required depends on the age at which the applicant becomes disabled, with younger workers requiring fewer credits. Credit requirements range from 6 to 40, but generally, 40 credits are required, 20 of which must be earned within the last 10 years, ending in the year that the person becomes disabled.</p>
+<p><b>Supplemental Security Income</b></p>
+<p>There is another form of SS disability insurance called Supplemental Security Income (SSI). The main difference between SSI and SSDI is in regard to eligibility. While the former is aimed at those who have contributed to SS through taxable income (and thus earned credits), SSI is intended for those with limited means who may not qualify for SSDI. Also, while SSDI benefits are funded using FICA taxes, SSI is funded through general taxes. SSI does not require work credits, as it is based on whether or not a person meets general income restrictions (one of which is $2,000 or less in cash or combined bank accounts). SSI can also be expedited by a compassionate allowance. In most states, disabled workers who receive benefits from SSI are also automatically eligible for Medicaid.</p>
+<p>In some situations, it is possible to receive both SSDI and SSI. This usually happens when a qualified application for SSDI is granted low enough an SSDI benefit (either because of low wages or because the beneficiary did not work for a sufficient period of time) to make the applicant also eligible for SSI.</p>
+
+<h3>Social Security for Spouses and Survivors</h3>
+<p>Spousal benefits are available to current or widowed spouses aged 62 or older. Applications for spousal benefits are not valid until the other spouse files for their own benefits. It is possible for a non-working spouse to be eligible for a spousal benefit based on their working spouse's benefit. Based on the working spouse's age of retirement, the spousal benefit can be up to half of the working spouse's benefit.</p>
+<p>A widow or widower can collect a survivor benefit as early as age 60, given that the marriage lasted more than nine months. This requirement is waived if the widow or widower has a child under the age of 16. In the case where both individuals in a married couple are receiving SS benefits, and one dies, the widow or widower can continue receiving their own benefit or their spouse's, but not both. It is also possible for a widow or widower to switch benefits in retirement. For instance, if the deceased spouse was scheduled to receive larger benefit amounts at age 70, the widow or widower can first file for their own benefits, then claim their former spouse's benefits later in order to maximize payments.</p>
+<p>A person who is divorced, who was married for more than 10 years and has not remarried, can receive benefits based on their ex-spouse's work history as long as the divorced person meets all of the following conditions:</p>
+<ul>
+	<li>unmarried</li>
+	<li>age 62 or older</li>
+	<li>their ex-spouse is entitled to SS retirement or disability benefits</li>
+	<li>their benefit based on their own work is less than what they would receive based on their ex-spouse's work</li>
+</ul>
+<p>The ex-spouse's benefits can also be claimed even if the ex-spouse has not filed for their own benefits, as long as both parties are above age 62.</p>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cmonthlyincome1");
+proComma2("cmonthlyincome2");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

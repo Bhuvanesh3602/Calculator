@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Exponent Calculator</title>
+	<meta name="description" content="This free exponent calculator determines the result of exponentiation, including expressions that use the irrational number e as a base." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/exponent-calculator.html" itemprop="item"><span itemprop="name">exponent calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Exponent Calculator</h1>
+<p>Enter values into any two of the input fields to solve for the third.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" border="0" >
+	<tr>
+		<td><br><input type="text" name="base" id="base" value="2" class="inlong" style="text-align: right;"></td>
+		<td class="verybigtext"><b>^</b></td>
+		<td valign="top"><input type="text" name="exponent" value="5" class="inlong" style="text-align: left;"></td>
+		<td class="verybigtext" valign="middle"><b>&nbsp;= <input type="text" name="fresult" value="" class="inlong" style="text-align: left;"></b></td>
+	</tr>
+	<tr>
+		<td colspan="4"><a href="#" onClick="document.getElementById('base').value='e';return false;">use e as base</a></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center"><br>
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<p><fieldset><legend>Related</legend><a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/log-calculator.html">Log Calculator</a> | <a href="/root-calculator.html">Root Calculator</a></fieldset></p>
+
+<br>
+<h3>What is an exponent?</h3>
+<p>Exponentiation is a mathematical operation, written as <b>a<sup>n</sup></b>, involving the base <b>a</b> and an exponent <b>n</b>. In the case where <b>n</b> is a positive integer, exponentiation corresponds to repeated multiplication of the base, <b>n</b> times.</p>
+<p align="center">
+		a<sup>n</sup> = a &#215; a &#215; ... &#215; a<br>
+		&nbsp; &nbsp; &nbsp; &nbsp;
+		n times
+</p>
+<p>The calculator above accepts negative bases, but does not compute imaginary numbers. It also does not accept fractions, but can be used to compute fractional exponents, as long as the exponents are input in their decimal form.</p>
+
+<h3>Basic exponent laws and rules</h3>
+<p>When exponents that share the same base are multiplied, the exponents are added.</p>
+<p align="center">
+	a<sup>n</sup> &#215; a<sup>m</sup> = a<sup>(n+m)</sup><br>
+	EX:	2<sup>2</sup> &#215; 2<sup>4</sup> = 4 &#215; 16 = 64<br>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 	2<sup>2</sup> &#215; 2<sup>4</sup> = 2<sup>(2 + 4)</sup> = 2<sup>6</sup> = 64
+</p>
+
+<p>When an exponent is negative, the negative sign is removed by reciprocating the base and raising it to the positive exponent.</p>
+<table align="center"><tr>
+<td>a<sup>(-n)</sup>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>a<sup>n</sup></td></tr></table></td>
+</tr></table>
+<table align="center"  class="compacttable"><tr>
+<td>EX: 2<sup>(-3)</sup> = 1 &divide; 2 &divide; 2 &divide; 2 </td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>8</td></tr></table></td>
+</tr></table>
+<table align="center"><tr>
+<td>EX: 2<sup>(-3)</sup>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>2<sup>3</sup></td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>8</td></tr></table></td>
+</tr></table>
+
+<p>When exponents that share the same base are divided, the exponents are subtracted.</p>
+<table align="center"><tr>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>a<sup>m</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>a<sup>n</sup></td></tr></table></td>
+<td>&nbsp;= a<sup>(m - n)</sup></td>
+</tr></table>
+<table align="center"><tr>
+<td>EX: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>2<sup>4</sup></td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>16</td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>4</td></tr></table></td>
+<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+</tr></table>
+<table align="center"><tr>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>2<sup>4</sup></td></tr></table></td>
+<td>&nbsp;= 2<sup>(2-4)</sup> = 2<sup>-2</sup> =&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>2<sup>2</sup></td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>4</td></tr></table></td>
+</tr></table>
+
+<p>When exponents are raised to another exponent, the exponents are multiplied.</p>
+<p align="center">
+		(a<sup>m</sup>)<sup>n</sup> = a<sup>(m &#215; n)</sup><br>
+	EX:	 (2<sup>2</sup>)<sup>4</sup> = 4<sup>4</sup> = 256<br>
+		(2<sup>2</sup>)<sup>4</sup> = 2<sup>(2 &#215; 4)</sup> = 2<sup>8</sup> = 256
+</p>
+
+<p>When multiplied bases are raised to an exponent, the exponent is distributed to both bases.</p>
+<p align="center">
+		(a &#215; b)<sup>n</sup> = a<sup>n</sup> &#215; b<sup>n</sup><br>
+
+	EX:	 (2 &#215; 4)<sup>2</sup> = 8<sup>2</sup> = 64<br>
+		(2 &#215; 4)<sup>2</sup> = 2<sup>2</sup> &#215; 4<sup>2</sup> = 4 &#215; 16 = 64
+</p>
+
+<p>Similarly, when divided bases are raised to an exponent, the exponent is distributed to both bases.</p>
+
+<table align="center"><tr>
+<td>(</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>a</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>b</td></tr></table></td>
+<td>)<sup>n</sup></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>a<sup>n</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>b<sup>n</sup></td></tr></table></td>
+</tr></table>
+
+<table align="center"><tr>
+<td>EX: (</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>5</td></tr></table></td>
+<td>)<sup>2</sup></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>5</td></tr></table></td>
+<td>&nbsp;&#215;&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>5</td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>25</td></tr></table></td>
+</tr></table>
+
+<table align="center"><tr>
+<td>(</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>5</td></tr></table></td>
+<td>)<sup>2</sup></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>2<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>5<sup>2</sup></td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr align="center"><td>4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>25</td></tr></table></td>
+</tr></table>
+
+<p>When an exponent is 1, the base remains the same.</p>
+<p align="center">
+		a<sup>1</sup> = a
+</p>
+
+<p>When an exponent is 0, the result of the exponentiation of any base will always be 1, although some
+debate surrounds 0<sup>0</sup> being 1 or undefined. For many applications, defining 0<sup>0</sup> as 1 is convenient.</p>
+<p align="center">
+		a<sup>0</sup> = 1
+</p>
+
+<p>Shown below is an example of an argument for a<sup>0</sup>=1 using one of the previously mentioned exponent laws.</p>
+<p align="center">
+	If	 a<sup>n</sup> &#215; a<sup>m</sup> = a<sup>(n+m)</sup><br>
+	Then	a<sup>n</sup> &#215; a<sup>0</sup> = a<sup>(n+0)</sup> = a<sup>n</sup>
+</p>
+
+<p>Thus, the only way for <b>a<sup>n</sup></b> to remain unchanged by multiplication, and this exponent law to remain true, is for a<sup>0</sup> to be 1.</p>
+
+<p>When an exponent is a fraction where the numerator is 1, the n<sup>th</sup> root of the base is taken. Shown below is an example with a fractional exponent where the numerator is not 1. It uses both the rule displayed, as well as the rule for multiplying exponents with like bases discussed above. Note that the calculator can calculate fractional exponents, but they must be entered into the calculator in decimal form.</p>
+<p align="center"><img src="/img/exponent/equation1.svg" width="300" height="66" alt="exponent example 1"></p>
+
+<p>It is also possible to compute exponents with negative bases. They follow much the same rules as exponents with positive bases. Exponents with negative bases raised to positive integers are equal to their positive counterparts in magnitude, but vary based on sign. If the exponent is an even, positive integer, the values will be equal regardless of a positive or negative base. If the exponent is an odd, positive integer, the result will again have the same magnitude, but will be negative. While the rules for fractional exponents with negative bases are the same, they involve the use of imaginary numbers since it is not possible to take any root of a negative number. An example is provided below for reference, but please note that the calculator provided cannot compute imaginary numbers, and any inputs that result in an imaginary number will return the result "NAN," signifying "not a number." The numerical solution is essentially the same as the case with a positive base, except that the number must be denoted as imaginary.</p>
+<p align="center"><img src="/img/exponent/equation2.svg" width="170" height="64" alt="exponent example 2"></p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

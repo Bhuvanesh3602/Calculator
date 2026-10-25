@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fraction Calculator</title>
+	<meta name="description" content="This free fraction calculator supports fraction addition, subtraction, multiplication, division, and conversion." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><style>
+.calitem {width:40px;height:25px;margin:2px;background-color:#C8D8E8;font-size: 18px;border:1px solid #000;}
+#fcoutput td {font-size:18px;}
+</style>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fraction-calculator.html" itemprop="item"><span itemprop="name">fraction calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Fraction Calculator</h1>
+
+<p>Below are multiple fraction calculators capable of addition, subtraction, multiplication, division, simplification, and conversion between fractions and decimals. Fields above the solid black line represent the numerator, while fields below represent the denominator.</p>
+
+
+<form action="/fraction-calculator.html" name="calform">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td align="center"><input type="text" name="t1" id="t1" value="2" class="innormal" maxlength="8"></td>
+	<td rowspan="3" align="center" valign="middle"><select name="op" id="op" style="width:60px;">
+		<option value="+" selected> + </option>
+		<option value="-" > - </option>
+		<option value="*" > x </option>
+		<option value="/" > / </option>
+	</select></td>
+	<td align="center"><input type="text" name="t2" id="t2" value="3" class="innormal" maxlength="8"></td>
+	<td rowspan="3" align="center" valign="middle" class="verybigtext"> <b>=</b> </td>
+	<td align="center" class="verybigtext">?</td>
+</tr>
+<tr>
+	<td bgcolor="#000000" height="2"></td>
+	<td bgcolor="#000000" height="2"></td>
+	<td bgcolor="#000000" height="2"></td>
+</tr>
+<tr>
+	<td align="center"><input type="text" name="b1" id="b1" value="7" class="innormal" maxlength="8"></td>
+	<td align="center"><input type="text" name="b2" id="b2" value="8" class="innormal" maxlength="8"></td>
+	<td align="center" class="verybigtext">?</td>
+</tr>
+<tr>
+	<td align="center" colspan="5" style="padding-top:10px;">
+		<input name="ctype" value="1" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+
+<a name="mixednumbers"></a>
+<br><h2>Mixed Numbers Calculator</h2>
+<form action="/fraction-calculator.html#mixednumbers" name="calform5">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td align="center"><input type="text" name="c5num1" id="c5num1" value="-2 3/4" class="inlonger" maxlength="10"></td>
+	<td align="center" valign="middle" ><select name="c5op" id="c5op" style="width:60px;">
+		<option value="+" selected> + </option>
+		<option value="-" > - </option>
+		<option value="*" > x </option>
+		<option value="/" > / </option>
+	</select></td>
+	<td align="center"><input type="text" name="c5num2" id="c5num2" value="3 5/7" class="inlonger" maxlength="10"></td>
+	<td align="center" valign="middle" class="verybigtext"> <b>= ?</b> </td>
+</tr>
+<tr>
+	<td align="center" colspan="4" style="padding-top:10px;">
+		<input name="ctype" value="5" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform5);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+
+<a name="simplify"></a>
+<br><h2>Simplify Fractions Calculator</h2>
+<form action="/fraction-calculator.html#simplify" name="calform4">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td rowspan="3" align="center" valign="middle"><input type="text" name="c4l1" id="c4l1" value="2" class="inlong" maxlength="10"></td>
+	<td align="center"><input type="text" name="c4t1" id="c4t1" value="21" class="inlong" maxlength="10"></td>
+	<td rowspan="3" align="center" valign="middle" class="verybigtext"> <b>=</b>
+	?</td>
+</tr>
+<tr>
+	<td bgcolor="#000000" height="2"></td>
+</tr>
+<tr>
+	<td align="center"><input type="text" name="c4b1" id="c4b1" value="98" class="inlong" maxlength="10"></td>
+</tr>
+<tr>
+	<td align="center" colspan="3" style="padding-top:10px;">
+		<input name="ctype" value="4" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+
+	</td>
+</tr>
+</table>
+</form>
+
+
+<a name="decimal2fraction"></a>
+<br><h2>Decimal to Fraction Calculator</h2>
+<form action="/fraction-calculator.html#decimal2fraction" name="calform2">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td rowspan="3" align="center" valign="middle" class="verybigtext">
+		<input type="text" name="c2d1" id="c2d1" value="1.375" class="inlonger">
+		<b>=</b>
+	</td>
+	<td align="center" class="verybigtext">?</td>
+</tr>
+<tr>
+	<td bgcolor="#000000" height="2"></td>
+</tr>
+<tr>
+	<td align="center" class="verybigtext">?</td>
+</tr>
+<tr>
+	<td align="center" colspan="2">
+		<input name="ctype" value="2" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+<a name="fraction2decimal"></a>
+<br><h2>Fraction to Decimal Calculator</h2>
+<form action="/fraction-calculator.html#fraction2decimal" name="calform3">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td align="center"><input type="text" name="c3t1" id="c3t1" value="2" class="inlonger"></td>
+	<td rowspan="3" align="center" valign="middle" class="verybigtext"> <b>=</b> ?</td>
+</tr>
+<tr>
+	<td bgcolor="#000000" height="2"></td>
+</tr>
+<tr>
+	<td align="center"><input type="text" name="c3b1" id="c3b1" value="7" class="inlonger"></td>
+</tr>
+<tr>
+	<td align="center" colspan="2" style="padding-top:10px;">
+		<input name="ctype" value="3" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+<a name="bignumber"></a>
+<br><h2>Big Number Fraction Calculator</h2>
+<p>Use this calculator if the numerators or denominators are very big integers.</p>
+<form action="/fraction-calculator.html#bignumber" name="calform6">
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+<tr>
+	<td align="center"><input type="text" name="c6t1" value="1234" class="inlongest"></td>
+	<td rowspan="3" align="center" valign="middle"><select name="c6op" style="width:60px;">
+		<option value="+" selected> + </option>
+		<option value="-" > - </option>
+		<option value="*" > x </option>
+		<option value="/" > / </option>
+	</select></td>
+	<td align="center"><input type="text" name="c6t2" value="33434421132232234333" class="inlongest"></td>
+	<td rowspan="3" align="center" valign="middle" class="verybigtext">= ?</td>
+</tr>
+<tr>
+	<td bgcolor="#000000" height="2"></td>
+	<td bgcolor="#000000" height="2"></td>
+</tr>
+<tr>
+	<td align="center"><input type="text" name="c6b1" value="748892928829" class="inlongest"></td>
+	<td align="center"><input type="text" name="c6b2" value="8877277388288288288" class="inlongest"></td>
+</tr>
+<tr>
+	<td align="center" colspan="4" style="padding-top:10px;">
+		<input name="ctype" value="6" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform6);">
+	</td>
+</tr>
+</table>
+</form>
+
+<br><br>
+<img src="/img/fraction/fraction-pie.svg" width="165" height="168" alt="3 over 8" align="right">
+<p>In mathematics, a fraction is a number that represents a part of a whole. It consists of a numerator and a denominator. The numerator represents the number of equal parts of a whole, while the denominator is the total number of parts that make up said whole. For example, in the fraction of <span class="frac"><span class="fracnum">3</span><span class="fracden">8</span></span>, the numerator is 3, and the denominator is 8. A more illustrative example could involve a pie with 8 slices. 1 of those 8 slices would constitute the numerator of a fraction, while the total of 8 slices that comprises the whole pie would be the denominator. If a person were to eat 3 slices, the remaining fraction of the pie would therefore be <span class="frac"><span class="fracnum">5</span><span class="fracden">8</span></span> as shown in the image to the right. Note that the denominator of a fraction cannot be 0, as it would make the fraction undefined. Fractions can undergo many different operations, some of which are mentioned below.</p>
+
+
+<h3>Addition:</h3>
+<p>Unlike adding and subtracting integers such as 2 and 8, fractions require a common denominator to undergo these operations. One method for finding a common denominator involves multiplying the numerators and denominators of all of the fractions involved by the product of the denominators of each fraction. Multiplying all of the denominators ensures that the new denominator is certain to be a multiple of each individual denominator. The numerators also need to be multiplied by the appropriate factors to preserve the value of the fraction as a whole. This is arguably the simplest way to ensure that the fractions have a common denominator. However, in most cases, the solutions to these equations will not appear in simplified form (the provided calculator computes the simplification automatically). Below is an example using this method.</p>
+
+<div style="text-align: center;">
+	<span class="frac"><span class="fracnum">a</span><span class="fracden">b</span></span> +
+	<span class="frac"><span class="fracnum">c</span><span class="fracden">d</span></span> =
+	<span class="frac"><span class="fracnum">a&#215;d</span><span class="fracden">b&#215;d</span></span> +
+	<span class="frac"><span class="fracnum">c&#215;b</span><span class="fracden">d&#215;b</span></span> =
+	<span class="frac"><span class="fracnum">ad + bc</span><span class="fracden">bd</span></span>
+</div>
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> +
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> =
+	<span class="frac"><span class="fracnum">3&#215;6</span><span class="fracden">4&#215;6</span></span> +
+	<span class="frac"><span class="fracnum">1&#215;4</span><span class="fracden">6&#215;4</span></span> =
+	<span class="frac"><span class="fracnum">22</span><span class="fracden">24</span></span> =
+	<span class="frac"><span class="fracnum">11</span><span class="fracden">12</span></span>
+</div>
+
+<p>This process can be used for any number of fractions. Just multiply the numerators and denominators of each fraction in the problem by the product of the denominators of all the other fractions (not including its own respective denominator) in the problem.</p>
+
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">4</span></span> +
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> +
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">2</span></span> =
+	<span class="frac"><span class="fracnum">1&#215;6&#215;2</span><span class="fracden">4&#215;6&#215;2</span></span> +
+	<span class="frac"><span class="fracnum">1&#215;4&#215;2</span><span class="fracden">6&#215;4&#215;2</span></span> +
+	<span class="frac"><span class="fracnum">1&#215;4&#215;6</span><span class="fracden">2&#215;4&#215;6</span></span> =
+	<span class="frac"><span class="fracnum">12</span><span class="fracden">48</span></span> +
+	<span class="frac"><span class="fracnum">8</span><span class="fracden">48</span></span> +
+	<span class="frac"><span class="fracnum">24</span><span class="fracden">48</span></span> =
+	<span class="frac"><span class="fracnum">44</span><span class="fracden">48</span></span> =
+	<span class="frac"><span class="fracnum">11</span><span class="fracden">12</span></span>
+</div>
+
+<p>An alternative method for finding a common denominator is to determine the <a href="/lcm-calculator.html">least common multiple (LCM)</a> for the denominators, then add or subtract the numerators as one would an integer. Using the least common multiple can be more efficient and is more likely to result in a fraction in simplified form. In the example above, the denominators were 4, 6, and 2. The least common multiple is the first shared multiple of these three numbers.</p>
+<table align="center">
+	<tr><td>Multiples of 2: 2, 4, 6, 8 10, <b>12</b></td></tr>
+	<tr><td>Multiples of 4: 4, 8, <b>12</b></td></tr>
+	<tr><td>Multiples of 6: 6, <b>12</b></td></tr>
+</table>
+<p>The first multiple they all share is 12, so this is the least common multiple. To complete an addition (or subtraction) problem, multiply the numerators and denominators of each fraction in the problem by whatever value will make the denominators 12, then add the numerators.</p>
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">4</span></span> +
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> +
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">2</span></span> =
+	<span class="frac"><span class="fracnum">1&#215;3</span><span class="fracden">4&#215;3</span></span> +
+	<span class="frac"><span class="fracnum">1&#215;2</span><span class="fracden">6&#215;2</span></span> +
+	<span class="frac"><span class="fracnum">1&#215;6</span><span class="fracden">2&#215;6</span></span> =
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">12</span></span> +
+	<span class="frac"><span class="fracnum">2</span><span class="fracden">12</span></span> +
+	<span class="frac"><span class="fracnum">6</span><span class="fracden">12</span></span> =
+	<span class="frac"><span class="fracnum">11</span><span class="fracden">12</span></span>
+</div>
+
+<h3>Subtraction:</h3>
+<p>Fraction subtraction is essentially the same as fraction addition. A common denominator is required for the operation to occur. Refer to the addition section as well as the equations below for clarification.</p>
+<div style="text-align: center;">
+	<span class="frac"><span class="fracnum">a</span><span class="fracden">b</span></span> &ndash;
+	<span class="frac"><span class="fracnum">c</span><span class="fracden">d</span></span> =
+	<span class="frac"><span class="fracnum">a&#215;d</span><span class="fracden">b&#215;d</span></span> &ndash;
+	<span class="frac"><span class="fracnum">c&#215;b</span><span class="fracden">d&#215;b</span></span> =
+	<span class="frac"><span class="fracnum">ad &ndash; bc</span><span class="fracden">bd</span></span>
+</div>
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> &ndash;
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> =
+	<span class="frac"><span class="fracnum">3&#215;6</span><span class="fracden">4&#215;6</span></span> &ndash;
+	<span class="frac"><span class="fracnum">1&#215;4</span><span class="fracden">6&#215;4</span></span> =
+	<span class="frac"><span class="fracnum">14</span><span class="fracden">24</span></span> =
+	<span class="frac"><span class="fracnum">7</span><span class="fracden">12</span></span>
+</div>
+
+<h3>Multiplication:</h3>
+<p>Multiplying fractions is fairly straightforward. Unlike adding and subtracting, it is not necessary to compute a common denominator in order to multiply fractions. Simply, the numerators and denominators of each fraction are multiplied, and the result forms a new numerator and denominator. If possible, the solution should be simplified. Refer to the equations below for clarification. </p>
+<div style="text-align: center;">
+	<span class="frac"><span class="fracnum">a</span><span class="fracden">b</span></span> &#215;
+	<span class="frac"><span class="fracnum">c</span><span class="fracden">d</span></span> =
+	<span class="frac"><span class="fracnum">ac</span><span class="fracden">bd</span></span>
+</div>
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> &#215;
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> =
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">24</span></span> =
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">8</span></span>
+</div>
+
+<h3>Division:</h3>
+<p>The process for dividing fractions is similar to that for multiplying fractions. In order to divide fractions, the fraction in the numerator is multiplied by the reciprocal of the fraction in the denominator. The reciprocal of a number <b>a</b> is simply <span class="frac"><span class="fracnum">1</span><span class="fracden">a</span></span>. When a is a fraction, this essentially involves exchanging the position of the numerator and the denominator. The reciprocal of the fraction <span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> would therefore be <span class="frac"><span class="fracnum">4</span><span class="fracden">3</span></span>. Refer to the equations below for clarification. </p>
+<div style="text-align: center;">
+	<span class="frac"><span class="fracnum">a</span><span class="fracden">b</span></span> /
+	<span class="frac"><span class="fracnum">c</span><span class="fracden">d</span></span> =
+	<span class="frac"><span class="fracnum">a</span><span class="fracden">b</span></span> &#215;
+	<span class="frac"><span class="fracnum">d</span><span class="fracden">c</span></span> =
+	<span class="frac"><span class="fracnum">ad</span><span class="fracden">bc</span></span>
+</div>
+<div style="text-align: center;">EX:
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> /
+	<span class="frac"><span class="fracnum">1</span><span class="fracden">6</span></span> =
+	<span class="frac"><span class="fracnum">3</span><span class="fracden">4</span></span> &#215;
+	<span class="frac"><span class="fracnum">6</span><span class="fracden">1</span></span> =
+	<span class="frac"><span class="fracnum">18</span><span class="fracden">4</span></span> =
+	<span class="frac"><span class="fracnum">9</span><span class="fracden">2</span></span>
+</div>
+
+<h3>Simplification:</h3>
+<p>It is often easier to work with simplified fractions. As such, fraction solutions are commonly expressed in their simplified forms. <span class="frac"><span class="fracnum">220</span><span class="fracden">440</span></span> for example, is more cumbersome than <span class="frac"><span class="fracnum">1</span><span class="fracden">2</span></span>. The calculator provided returns fraction inputs in both improper fraction form as well as mixed number form. In both cases, fractions are presented in their lowest forms by dividing both numerator and denominator by their greatest common factor.</p>
+
+<h3>Converting between fractions and decimals:</h3>
+<p>Converting from decimals to fractions is straightforward. It does, however, require the understanding that each decimal place to the right of the decimal point represents a power of 10; the first decimal place being 10<sup>1</sup>, the second 10<sup>2</sup>, the third 10<sup>3</sup>, and so on. Simply determine what power of 10 the decimal extends to, use that power of 10 as the denominator, enter each number to the right of the decimal point as the numerator, and simplify. For example, looking at the number 0.1234, the number 4 is in the fourth decimal place, which constitutes 10<sup>4</sup>, or 10,000. This would make the fraction <span class="frac"><span class="fracnum">1234</span><span class="fracden">10000</span></span>, which simplifies to <span class="frac"><span class="fracnum">617</span><span class="fracden">5000</span></span>, since the greatest common factor between the numerator and denominator is 2.</p>
+
+<p>Similarly, fractions with denominators that are powers of 10 (or can be converted to powers of 10) can be translated to decimal form using the same principles. Take the fraction <span class="frac"><span class="fracnum">1</span><span class="fracden">2</span></span> for example. To convert this fraction into a decimal, first convert it into the fraction of <span class="frac"><span class="fracnum">5</span><span class="fracden">10</span></span>. Knowing that the first decimal place represents 10<sup>-1</sup>, <span class="frac"><span class="fracnum">5</span><span class="fracden">10</span></span> can be converted to 0.5. If the fraction were instead <span class="frac"><span class="fracnum">5</span><span class="fracden">100</span></span>, the decimal would then be 0.05, and so on. Beyond this, converting fractions into decimals requires the operation of long division.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

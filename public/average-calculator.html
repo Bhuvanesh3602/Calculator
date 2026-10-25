@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Average Calculator</title>
+	<meta name="description" content="Free calculator to determine the average, or the arithmetic mean, of a given data set. It also returns the calculation steps, sum, count, and more." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/average-calculator.html" itemprop="item"><span itemprop="name">average calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Average Calculator</h1><p>Please provide numbers separated by a comma to calculate the average of the numbers.</p>
+<table class="panel" align="center"><tr><td align="center">
+<form name="calform">
+<textarea name="numberinputs" class="infulltxarea" rows="3">10, 2, 38, 23, 38, 23, 21</textarea>
+<div style="margin-top:20px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</div>
+</form>
+</td></tr></table>
+<br>
+<p><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a></fieldset></p>
+
+<br><h3>What is an average?</h3>
+
+<p>The term average has a number of different meanings. Most generally, it is a single number that is used to represent a collection of numbers. In the context of mathematics, "average" refers to the mean, specifically, the arithmetic mean. It is a relatively simple statistical concept that is widely used in many areas.</p>
+
+<p>The equation below is one of the more commonly understood definitions of the average:</p>
+
+<table align="center">
+<tr>
+	<td>Average =&nbsp;</td>
+	<td><table cellpadding="0" cellspacing="0"><tr><td align="center">Sum</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Count</td></tr></table></td>
+</tr>
+</table>
+
+<p>where the sum is the result of adding all of the given numbers, and the count is the number of values being added. For example, given the 5 numbers, 2, 7, 19, 24, and 25, the average can be calculated as such:</p>
+
+<table align="center">
+<tr>
+	<td>Average =&nbsp;</td>
+	<td><table cellpadding="0" cellspacing="0"><tr><td align="center">2 + 7 + 19 + 24 + 25</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">5</td></tr></table></td>
+</tr>
+<tr>
+	<td align="right">=&nbsp;</td>
+	<td><table cellpadding="0" cellspacing="0"><tr><td align="center">77</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">5</td></tr></table></td>
+</tr>
+<tr>
+	<td align="right">=&nbsp;</td>
+	<td>15.4</td>
+</tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

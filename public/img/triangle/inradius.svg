@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="145" version="1.1" viewBox="0 0 200 145" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="145" x="0" y="0" fill="#fff" />
+<polygon points="3,142 197,142 128,3" style="fill:none;stroke:black;stroke-width:2" />
+<circle r="49" cx="116" cy="92" stroke="blue" fill="none" stroke-width="1"  />
+<circle r="2" cx="116" cy="92" fill="black" stroke-width="0"  />
+<g style="fill:none;stroke:#000;stroke-width:1">
+<line x1="116" y1="92" x2="150" y2="58" />
+<polygon points="145,60 150,58 148,63" style="fill:#000;" />
+</g>
+<g font-family="sans-serif" fill="#000" font-size="16px" stroke-width="0">
+	<text x="88" y="105">inradius</text>
+</g>
+</svg>

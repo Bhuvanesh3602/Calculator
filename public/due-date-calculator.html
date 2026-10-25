@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Due Date Calculator</title>
+	<meta name="description" content="This free due date calculator estimates the due date based on the menstrual cycle, ultrasound, conception date, or IVF transfer date." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/due-date-calculator.html" itemprop="item"><span itemprop="name">due date calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Due Date Calculator</h1>
+<p>The Due Date Calculator estimates the delivery date of a pregnant woman based on her last menstrual period (LMP), ultrasound, conception date, or IVF transfer date.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel"><form name="calform"><table align="center">
+  <tr>
+	<td>Estimate Based On:		<select name="ccalcmethod" onChange="switchSel(this.value);">
+			<option value="last period" selected>Last Period</option>
+			<option value="ultrasound" >Ultrasound</option>
+			<option value="conception date" >Conception Date</option>
+			<option value="ivf" >IVF Transfer Date</option>
+		</select>
+    </td>
+  </tr>
+  <tr>
+  	<td style="padding:10px 0px;">
+  		<table id="cilastperiod"><tr>
+			<td valign="middle"><b>First Day</b> of Your Last Period:</td><td valign="middle"><script>DateInput('cLastPeriodDay', true, 'MM/DD/YYYY', '08/26/2026')</script></td></tr><tr><td valign="middle">Average Length of Your Cycles:</td><td valign="middle">			<select name="cCycleLength">
+	    <option value="22">22 days</option><option value="23">23 days</option><option value="24">24 days</option><option value="25">25 days</option><option value="26">26 days</option><option value="27">27 days</option><option value="28" selected>28 days</option><option value="29">29 days</option><option value="30">30 days</option><option value="31">31 days</option><option value="32">32 days</option><option value="33">33 days</option><option value="34">34 days</option><option value="35">35 days</option><option value="36">36 days</option><option value="37">37 days</option><option value="38">38 days</option><option value="39">39 days</option><option value="40">40 days</option><option value="41">41 days</option><option value="42">42 days</option><option value="43">43 days</option><option value="44">44 days</option>    	</select>
+	   	</td></tr></table>
+
+  		<table id="ciconceptiondate" style="display:none"><tr>
+			<td valign="middle">Conception Date:</td><td valign="middle"><script>DateInput('cConceptionDay', true, 'MM/DD/YYYY', '09/09/2026')</script>	   	</td></tr></table>
+
+  		<table id="ciultrasound" style="display:none"><tr>
+			<td valign="middle">Ultrasound Date:</td><td valign="middle"><script>DateInput('cUltrasoundDate', true, 'MM/DD/YYYY', '10/25/2026')</script></td></tr><tr><td valign="middle">Length of Pregnancy<Br>at the Time:</td><td valign="middle">			<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<input type="text" name="cUltrasoundWeek" value="22" class="inlongesthalf inuiinch"><span class="inuiinchspan">weeks</span>
+			</td><td>&nbsp;</td><td>
+				<input type="text" name="cUltrasoundDay" value="6" class="inlongesthalf inuiinch"><span class="inuiinchspan">days</span>
+			</td></tr></table>
+	   	</td></tr></table>
+
+  		<table id="civf" style="display:none"><tr>
+			<td valign="middle">Transfer Date:</td><td valign="middle"><script>DateInput('cIVFDay', true, 'MM/DD/YYYY', '08/31/2026')</script>		  </td></tr><tr>
+			<td valign="middle">Embryo Age:</td><td valign="middle">				<label for="civfage1" class="cbcontainer"><input type="radio" name="civfage" id="civfage1" value="3"  /><span class="rbmark"></span> day 3</label> &nbsp;
+				<label for="civfage3" class="cbcontainer"><input type="radio" name="civfage" id="civfage3" value="5" checked /><span class="rbmark"></span> day 5</label> &nbsp;
+				<label for="civfage4" class="cbcontainer"><input type="radio" name="civfage" id="civfage4" value="6"  /><span class="rbmark"></span> day 6</label>
+	   	</td></tr></table>
+	   	<script>
+	   		function switchSel(inVal){
+					document.getElementById("cilastperiod").style.display = 'none';
+					document.getElementById("ciconceptiondate").style.display = 'none';
+					document.getElementById("ciultrasound").style.display = 'none';
+					document.getElementById("civf").style.display = 'none';
+					if (inVal=="conception date"){
+						document.getElementById("ciconceptiondate").style.display = 'block';
+					}else if (inVal=="ultrasound"){
+						document.getElementById("ciultrasound").style.display = 'block';
+					}else if (inVal=="ivf"){
+						document.getElementById("civf").style.display = 'block';
+					}else{
+						document.getElementById("cilastperiod").style.display = 'block';
+					}
+	   		}
+	   		switchSel('last period');
+	   	</script>
+    </td>
+  </tr>
+  <tr>
+  	<td align="center">
+  		<input name="printit" value="0" type="hidden">
+  		<input type="submit" name="x" value="Calculate">
+  	</td>
+  </tr>
+</table></form></div>
+<p><br><fieldset><legend>Related</legend><a href="/pregnancy-calculator.html">Pregnancy Calculator</a> | <a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain Calculator</a></fieldset></p>
+
+<h3>Estimation of due date</h3>
+<p>The due date, also known as the estimated date of confinement, is an estimation of when a pregnant woman will deliver her baby. While the due date is often estimated as a single date, it can be helpful to consider a range of due dates, since only 4% of births occur on the estimated due date.<sup>1</sup></p>
+<p>Due dates can be estimated using a number of different methods, including the last menstrual period, ultrasound, conception date, and IVF transfer date.</p>
+<p><b>Last menstrual period</b></p>
+<p>The default for this calculator bases the calculation on a woman's last menstrual period (LMP), under the assumption that childbirth on average occurs at a gestational age (age of a pregnancy calculated from the woman's last menstrual period) of 280 days, or 40 weeks. Although there is some debate regarding when pregnancy technically begins, whether at fertilization of the egg (conception), or when the egg adheres to the uterus (implantation), gestational age does not vary based on different definitions of pregnancy since it is based on LMP. In terms of gestational age, pregnancies typically last between 37 and 42 weeks, with 40 weeks often being used as an estimate in calculations. Thus, the due date is usually estimated by calculating the date that is 40 weeks from the start of a woman's LMP.</p>
+<p><b>Ultrasound</b></p>
+<p>Estimating due date based on ultrasound involves the use of soundwaves to look inside the body and compare the growth of the fetus to typical growth rates of babies around the world. It is a simple process that can be performed quickly and easily, that has no known risk to babies, and can be an accurate estimate of the due date early in the pregnancy.</p>
+<p><b>Conception date</b></p>
+<p>Using conception date to estimate due date is similar to using the last menstrual period. There is a difference of about two weeks between using these two methods that is based on the timing between the last menstrual period and the date of conception.</p>
+<p><b><i>In vitro</i> fertilization (IVF)</b></p>
+<p>When using <i>in vitro</i> fertilization, the estimation of the due date is generally more precise than calculating the due date based on natural conception, since the exact transfer date is known. It still uses the average gestational age at birth of 40 weeks from a woman's last menstrual period, as do the other methods. In the case of IVF, however, the due date estimate can be made based on LMP, day of ovulation, egg retrieval, insemination, as well as the date of the 3-day or 5-day embryo transfer. In this calculator, the embryo transfer date is used.</p>
+
+<h3>Due date as a reference point</h3>
+<p>Generally, the point within the 37 to 42-week window at which the baby is born is not a cause for concern. Babies born between 37-39 weeks, 39-41 weeks, and 41-42 weeks are considered early term, full-term, and late-term, respectively. Under normal circumstances, babies born within any of these ranges can be healthy, though full-term babies generally have better outcomes.<sup>2</sup> Babies born before 37 weeks are considered preterm, or premature, while those born after 42 weeks are postterm. These ranges are important as a reference for doctors to determine whether or not any action is necessary. For example, if a woman goes into labor too early at 33 weeks, doctors may stop labor to avoid a preterm baby that can have a host of health issues due to underdevelopment. Conversely, if a woman has not gone into labor after 42 weeks, doctors may induce labor. One possible complication of allowing the pregnancy to proceed beyond 42 weeks is that the placenta, which is responsible for providing nutrition and oxygen to the baby, can stop functioning properly, while the baby continues growing (requiring more nutrients and oxygen), which would eventually lead to a point in the pregnancy where the baby can no longer be adequately supported.<sup>3</sup></p>
+
+<br><ol class="reference">
+<li>Moore, Keith. 2015. "How accurate are 'due dates'?" BBC, February 3, 2015. www.bbc.com/news/magazine-31046144.</li>
+<li>Wikipedia: The Free Encyclopedia. 2017. en.wikipedia.org/wiki/Pregnancy.</li>
+<li>PubMed Health. 2014. "Pregnancy and birth: When your baby's due date has passed." www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072755/.</li>
+</ol>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<polyline points="1,81 21,61 81,61" stroke-dasharray="2, 2" style="stroke:black;stroke-width:1" />
+	<line x1="21" y1="61" x2="21" y2="1" stroke-dasharray="2, 2" style="stroke:black;stroke-width:1" />
+	<polyline points="1,21 1,81 61,81 61,21 1,21 21,1 81,1 81,61 61,81" style="stroke:black;stroke-width:1" />
+	<line x1="61" y1="21" x2="81" y2="1" style="stroke:black;stroke-width:1" />
+	<text x="30" y="80" fill="#4c7b25" font-size="18">a</text>
+</svg>

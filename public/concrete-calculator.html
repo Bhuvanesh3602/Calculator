@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Concrete Calculator</title>
+	<meta name="description" content="This free concrete calculator estimates the amount of concrete necessary for a project and can account for different shapes and quantities." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/concrete-calculator.html" itemprop="item"><span itemprop="name">concrete calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Concrete Calculator</h1>
+
+<p>The Concrete Calculator estimates the volume and weight of concrete necessary to cover a given area. Purchasing slightly more concrete than the estimated result can reduce the probability of having insufficient concrete.</p>
+
+<h2>Slabs, Square Footings, or Walls</h2>
+<form name="calcf1" action="/concrete-calculator.html">
+<table ><tr><td>
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Length (l)</td><td align="right">		<input type="text" name="slablength" id="slablength" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="slablengthunit" name="slablengthunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Width (w)</td><td align="right">		<input type="text" name="slabwidth" id="slabwidth" value="2.5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="slabwidthunit" name="slabwidthunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Thickness or Height (h)</td><td align="right">		<input type="text" name="slabthick" id="slabthick" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="slabthickunit" name="slabthickunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Quantity</td><td>		<input type="text" name="slabquantity" id="slabquantity" value="1" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td style="padding-top: 8px;">		<input type="submit" name="slabcal" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf1);">
+		</td>
+	</tr>
+</table>
+</td><td valign="top" align="center"><img src="/img/concrete/ret-shape.svg" hspace="5" width="95" height="65" alt="Slabs"></td></tr></table>
+</form>
+
+<a name="hole"></a>
+<h2>Hole, Column, or Round Footings</h2>
+<form name="calcf2" action="/concrete-calculator.html#hole">
+<table ><tr><td>
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Diameter (d)</td><td align="right">		<input type="text" name="holediameter" id="holediameter" value="2.5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="holediameterunit" name="holediameterunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Depth or Height (h)</td><td align="right">		<input type="text" name="holedepth" id="holedepth" value="6" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="holedepthunit" name="holedepthunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Quantity</td><td>		<input type="text" name="holequantity" id="holequantity" value="1" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td style="padding-top: 8px;">			<input type="submit" name="holecal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+		</td>
+	</tr>
+</table>
+</td><td valign="top" align="center"><img src="/img/concrete/col-shape.svg" hspace="5" width="95" height="71" alt="Column"></td></tr></table>
+</form>
+
+<a name="tube"></a>
+<h2>Circular Slab or Tube</h2>
+<form name="calcf3" action="/concrete-calculator.html#tube">
+<table ><tr><td>
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Outer Diameter (d<sub>1</sub>)</td><td align="right">		<input type="text" name="tubediameter" id="tubediameter" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="tubediameterunit" name="tubediameterunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Inner Diameter (d<sub>2</sub>)</td><td align="right">		<input type="text" name="tubeindiameter" id="tubeindiameter" value="4" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="tubeindiameterunit" name="tubeindiameterunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Length or Height (h)</td><td align="right">		<input type="text" name="tubedepth" id="tubedepth" value="6" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select id="tubedepthunit" name="tubedepthunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Quantity</td><td>		<input type="text" name="tubequantity" id="tubequantity" value="1" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td style="padding-top: 8px;">		<input type="submit" name="circcal" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf3);">
+		</td>
+	</tr>
+</table>
+</td><td valign="top" align="center"><img src="/img/concrete/tube-shape.svg" hspace="5" width="82" height="100" alt="tube"></td></tr></table>
+</form>
+
+<a name="curb"></a>
+<h2>Curb and Gutter Barrier</h2>
+<form name="calcf4" action="/concrete-calculator.html#curb">
+<table ><tr><td>
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Curb Depth</td><td align="right">		<input type="text" name="curbdepth" value="4" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="curbdepthunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Gutter Width</td><td align="right">		<input type="text" name="curbgwidth" value="10" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="curbgwidthunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Curb Height</td><td align="right">		<input type="text" name="curbheight" value="4" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="curbheightunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Flag Thickness</td><td align="right">		<input type="text" name="curbfthick" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="curbfthickunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Length</td><td align="right">		<input type="text" name="curblength" value="10" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="curblengthunit"><option value="foot" selected>feet</option><option value="inch" >inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Quantity</td><td>		<input type="text" name="curbquantity" value="1" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td style="padding-top: 8px;">		<input type="submit" name="curbccal" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf4);">
+		</td>
+	</tr>
+</table>
+</td><td valign="top" align="center"><img src="/img/concrete/curb-shape.svg" hspace="5" width="200" height="120" alt="curb"></td></tr></table>
+</form>
+
+<a name="stairs"></a>
+<h2>Stairs</h2>
+<form name="calcf5" action="/concrete-calculator.html#stairs">
+<table ><tr><td>
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Run</td><td align="right">		<input type="text" name="stairrun" value="12" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="stairrununit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Rise</td><td align="right">		<input type="text" name="stairrise" value="6" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="stairriseunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Width</td><td align="right">		<input type="text" name="stairwidth" value="50" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="stairwidthunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Platform Depth</td><td align="right">		<input type="text" name="stairpdepth" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> <select name="stairpdepthunit"><option value="foot" >feet</option><option value="inch" selected>inches</option><option value="yard" >yards</option><option value="meter" >meters</option><option value="centimeter" >centimeters</option></select></td>
+	</tr>
+	<tr>
+		<td align="right">Number of Risers</td><td>		<input type="text" name="stairquantity" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pi');"></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td style="padding-top: 8px;">		<input type="submit" name="staircal" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf5);">
+		</td>
+	</tr>
+</table>
+</td><td valign="top" align="center"><img src="/img/concrete/stair-shape.svg" hspace="5" width="200" height="141" alt="stair"></td></tr></table>
+</form>
+
+<br><p><fieldset><legend>Related</legend><a href="/volume-calculator.html">Volume Calculator</a></fieldset></p>
+
+<br><p>Concrete is a material comprised of a number of coarse aggregates (particulate materials such as sand, gravel, crushed stone, and slag) bonded with cement. Cement is a substance that is used to bind materials, such as aggregate, by adhering to said materials, then hardening over time. While there are many types of cement, Portland cement is the most commonly used cement, and is an ingredient in concrete, mortar, and plasters.</p>
+<p>Concrete can be purchased in multiple forms, including in 60 or 80-pound bags, or delivered in large amounts by specialized concrete mixer trucks. Proper mixing is essential for the production of strong, uniform concrete. It involves mixing water, aggregate, cement, and any desired additives. Production of concrete is time-sensitive, and the concrete must be placed before it hardens since it is usually prepared as a viscous fluid. Some concretes are even designed to harden more quickly for applications that require rapid set time. Alternatively, in some factory settings, concrete is mixed into dryer forms to manufacture precast concrete products such as concrete walls.</p>
+<p>The process of concrete hardening once it has been placed is called curing, and is a slow process. It typically takes concrete around four weeks to reach over 90% of its final strength, and the strengthening can continue for up to three years. Ensuring that the concrete is damp can increase the strength of the concrete during the early stages of curing. This is achieved through techniques such as spraying concrete slabs with compounds that create a film over the concrete that retains water, as well as ponding, where concrete is submerged in water and wrapped in plastic.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

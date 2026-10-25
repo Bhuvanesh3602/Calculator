@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gas Mileage Calculator</title>
+	<meta name="description" content="This free gas mileage calculator estimates gas mileage based on odometer readings, gas price per gallon, and the amount of gas in the tank." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/gas-mileage-calculator.html" itemprop="item"><span itemprop="name">gas mileage calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Gas Mileage Calculator</h1>
+<p>An easy way to calculate gas mileage is to remember the odometer reading or to reset the mileage counter when filling up a gas tank. When doing so next time, obtain the mileage accrued between the two gas fill-ups. Then divide the mileage figure by the amount of gas filled the second time to obtain the gas mileage.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><span id="ucframe"></span>
+<table ><tr><td>
+<form name="calcf">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li><li><a href="#" onclick="popMenu('metric');">metric units</a></li><li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<input type="hidden" name="ctype" id="ctype" value="standard">
+<table class="panel2" id="standard">
+  <tr>
+		<td align="right">Current Odometer Reading</td><td>    <input type="text" name="uscodreading" id="uscodreading" value="12360" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> miles</td>
+  </tr>
+  <tr>
+		<td align="right">Previous Odometer Reading</td><td>    <input type="text" name="uspodreading" id="uspodreading" value="12000" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> miles</td>
+  </tr>
+  <tr>
+		<td align="right">Gas Added to the Tank</td><td>    <input type="text" name="usgasputin" id="usgasputin" value="15" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> gallons</td>
+  </tr>
+  <tr>
+		<td align="right">Gas Price (Optional)</td><td>    <input type="text" name="usgasprice" id="usgasprice" value="3" class="inlong indollar" onKeyUp="iptfieldCheck(this, '', 'pn');"> per gallon</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding-top: 8px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+    </td>
+  </tr>
+</table>
+<table class="panel2" id="metric" style="display: none;">
+  <tr>
+		<td align="right">Current Odometer Reading</td><td>    <input type="text" name="mucodreading" id="mucodreading" value="18900" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> kilometer</td>
+  </tr>
+  <tr>
+		<td align="right">Previous Odometer Reading</td><td>    <input type="text" name="mupodreading" id="mupodreading" value="18300" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> kilometer</td>
+  </tr>
+  <tr>
+		<td align="right">Gas Added to the Tank</td><td>    <input type="text" name="mugasputin" id="mugasputin" value="50" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> liter</td>
+  </tr>
+  <tr>
+		<td align="right">Gas Price (Optional)</td><td>    <input type="text" name="mugasprice" id="mugasprice" value="1" class="inlong indollar" onKeyUp="iptfieldCheck(this, '', 'pn');"> per liter</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding-top: 8px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+    </td>
+  </tr>
+</table>
+</form>
+</td></tr></table>
+<br>
+<p><fieldset><legend>Related</legend><a href="/mileage-calculator.html">Mileage Calculator</a> | <a href="/fuel-cost-calculator.html">Fuel Cost Calculator</a></fieldset></p>
+
+
+<h3>How to Improve Gas Mileage?</h3>
+<p>Carpooling, public transport, or walking/bicycling are the best options for someone looking for the best possible gas mileage, or fuel efficiency. If not viable, here are some pointers to getting the most fuel efficiency:</p>
+<ol>
+	<li><b>Drive a fuel-efficient vehicle</b>&ndash;Please visit <a href="https://www.fueleconomy.gov/feg/bestworst.shtml" target="_blank" rel="nofollow">fueleconomy.gov/feg/bestworst.shtml</a> for the fuel efficiency comparison between different vehicles. Overall, 4-wheel drive vehicles tend to be less fuel efficient than FWD or RWD. By powering all four wheels, the engine works harder to move a car the same speed at higher speeds.</li>
+	<li><b>Tires</b>&ndash;Under-inflated tires can lower gas mileage by 0.3% per PSI drop due to wasteful transfer of energy dissipating into the mushiness of the tires when they are underinflated. Rigidity in tires allows for greater frictional interaction between rubber and the road, imparting forward momentum. It is best to consult the driver's manual (also usually available online) or the side markings of the tires to find the optimal PSI range. Also, ensure that wheels are properly aligned.</li>
+	<li><b>When allowed by speed limits, 55 MPH (90 km/h) is best for gas vehicles</b>&ndash;According to studies by the U.S. Department of Energy, the optimal speed for fuel efficiency is 55 MPH, but this may vary depending on the given vehicle. Use cruise control when possible, such as on long, straight, and rural highways. According to the Department of Energy, maintaining constant speeds using cruise control helps reduce unnecessary acceleration and deceleration, which improves fuel efficiency. Relative to the optimal speed of 55 MPH, on average, a vehicle is:</li>
+	<ul>
+		<li>3% less efficient at 60 MPH (97 km/h)</li>
+		<li>8% less efficient at 65 MPH (105 km/h)</li>
+		<li>17% less efficient at 70 MPH (113 km/h)</li>
+		<li>23% less efficient at 75 MPH (121 km/h)</li>
+		<li>28% less efficient at 80 MPH (129 km/h)</li>
+	</ul>
+	<li><b>Don't be aggressive</b>&ndash;Steadiness and consistency win the race when it comes to fuel efficiency. Aggressive acceleration churns the engine harder, siphoning more oil. Try not to have as heavy a foot as steady acceleration is not only much safer but is more efficient and is kinder to the depreciation of the vehicle. Also, aggressive braking can have a toll on fuel efficiency because drastic drops in speed will only promote drastic increases in speed, on top of faster wear and tear on brakes. Adhering to these principles can improve gas mileage by roughly 15% to 30% at highway speeds and 10% to 40% in stop-and-go traffic.</li>
+	<li><b>Keep vehicles in good shape</b>&ndash;It is possible to improve gas mileage by 1-2% simply by using the recommended motor oil. If the driver's manual states 5W-30 as the recommended, do not use 10W-30! Keep the engine properly tuned, ensure the oxygen sensor is in good shape, and solve any failed emissions test right away. Also, check air filters every few months to see if they are clogged; a lot of times, debris from outside gets sucked into them, depriving proper airflow into the engine.</li>
+	<li><b>Remove unnecessary weight</b>&ndash;This is based on an important physics principle &ndash; the heavier the object, the more energy (fuel, in our case) is required to move it. When aiming for the best fuel efficiency, driving a smaller, lighter car can be a good start, but anyone can benefit from removing weight from their current car; try to remove any heavy items that are not being used. For example, hitching a trailer to the back of a vehicle when it is not being used on your everyday commute unnecessarily increases the weight of the car, which decreases fuel efficiency.</li>
+	<li><b>Roll up the windows</b>&ndash;Open windows add extra resistance to moving vehicles. Because highway driving involves such high speeds, a massive burden in the form of drag pushes against the forward momentum of a traveling car, causing the engine to work harder in order to maintain the same speed. Highway driving is usually more fuel efficient when the windows are rolled up to alleviate drag, even with the AC on instead. However, drag doesn't only apply to open windows. A roof rack or bike rack not only adds weight to the vehicle, but also increases drag, decreasing fuel efficiency.</li>
+	<li><b>Air-conditioning</b>&ndash;Fuel economy suffers in especially hot climates because of the partitioning of oil required to power the air-conditioning. A vehicle's fuel economy can drop by 25% in hot climates due to AC usage. It can be helpful not to have the AC unnecessarily high, especially when the car is idle; AC systems are more efficient when the car is moving.</li>
+	<li><b>Avoid unnecessary idling</b>&ndash;An idle vehicle gets 0 mpg.</li>
+</ol>
+<p>Not only do these tips save drivers money on fuel and maintenance on their vehicles, but being conscious of fuel economy has many positive environmental impacts.</p>
+
+
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standard").style.display = 'none';
+		document.getElementById("metric").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standard").style.display = 'block';
+		document.getElementById("metric").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard");</script></script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Height Calculator</title>
+	<meta name="description" content="This free height calculator predicts a child's adult height based on linear regression analysis. It can also convert between different units of height." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/height-calculator.html" itemprop="item"><span itemprop="name">height calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Height Calculator</h1>
+		<p>This is a children's adult height prediction calculator based on a linear regression analysis method or parent's height.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<span id="ucframe"></span>
+<form name="calform" action="/height-calculator.html">
+<table  cellpadding="0" cellspacing="0" border="0"><tr><td>
+<div id="topmenuout"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div></div>
+<div class="panel2">
+<table id="calinputtable">
+<tr>
+		<td width="120">Child's Age</td><td>	<input type="text" name="cage" id="cage" value="5.2" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td>
+</tr>
+<tr>
+		<td>Child's Gender</td><td>	<center><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>male</label> <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>female</label></center></td>
+</tr>
+</table>
+<table id="standardheightweight">
+<tr>
+		<td width="120">Child's Height</td><td>		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="3" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="8" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+		<td>Child's Weight</td><td>		<input type="text" name="cpound" id="cpound" value="40" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+<tr>
+		<td>Mother's Height</td><td>		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="mcheightfeet" id="mcheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="mcheightinch" id="mcheightinch" value="5" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+
+	</td>
+</tr>
+<tr>
+		<td>Father's Height</td><td>		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="fcheightfeet" id="fcheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="fcheightinch" id="fcheightinch" value="10" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+</table>
+<table id="metricheightweight">
+<tr>
+		<td width="120">Child's Height</td><td>		<input type="text" name="cheightmeter" id="cheightmeter" value="112" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+		<td>Child's Weight</td><td>		<input type="text" name="ckg" id="ckg" value="18" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+<tr>
+		<td>Mother's Height</td><td>		<input type="text" name="mcheightmeter" id="mcheightmeter" value="164" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr>
+		<td>Father's Height</td><td>		<input type="text" name="fcheightmeter" id="fcheightmeter" value="178" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+</table>
+<table align="center" style="margin-top:10px;">
+<tr>
+	<td>
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="hidden" name="ptype" id="ptype" value="1">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</div>
+</td></tr></table></form>
+
+
+<a name="parentonly"></a>
+<br><h2>Predicting Based on the Parents' Heights Only</h2>
+<p>This calculator uses the parents' height only. It can be used to predict the future heights of unborn children or very young infants.</p>
+<span id="ucframe2"></span>
+<form name="calform2" action="/height-calculator.html#parentonly">
+<table  cellpadding="0" cellspacing="0" border="0"><tr><td>
+<div id="topmenuout2"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu2('standard');">US units</a></li> <li><a href="#" onclick="popMenu2('metric');">metric units</a></li> <li><a href="#" onclick="popMenu2('other');">other units</a></li></ul></div></div>
+<div class="panel2">
+<input type="hidden" name="ctype2" id="ctype2" value="standard">
+<input type="hidden" name="ptype" id="ptype" value="2">
+<table id="standardheightweight2">
+<tr>
+		<td>Mother's Height</td><td>		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="mcheightfeet2" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="mcheightinch2" value="2" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+
+	</td>
+</tr>
+<tr>
+		<td>Father's Height</td><td>		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="fcheightfeet2" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="fcheightinch2" value="10" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+</table>
+<table id="metricheightweight2">
+<tr>
+		<td>Mother's Height</td><td>		<input type="text" name="mcheightmeter2" value="164" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr>
+		<td>Father's Height</td><td>		<input type="text" name="fcheightmeter2" value="178" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+</table>
+<table align="center" style="margin-top:10px;">
+<tr>
+	<td>
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td>
+</tr>
+</table>
+</div>
+</td></tr></table></form>
+<br>
+<h2>Height Converter</h2>
+<p>The following converter can be used to convert the body height between the metric unit and the unit used in the United States.</p>
+<form><table cellpadding="8" >
+<tr>
+	<td colspan="2"><b>US unit convert to metric unit:</b></td>
+</tr>
+<tr bgcolor="#dddddd">
+	<td>
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="convertfeet" id="convertfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="convertinch" id="convertinch" value="5" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+		<td><input type="button" value="Convert to Metric Unit" onclick="converttometric('coutputusunit',1)" class="infull" style="text-align:center;background-color: #4c7b25;"></td>
+</tr>
+<tr>
+	<td colspan="2"><div id="coutputusunit"></div></td>
+</tr>
+<tr>
+	<td colspan="2"><br><b>Metric unit convert to US unit:</b></td>
+</tr>
+<tr bgcolor="#dddddd">
+	<td><input type="text" name="convertcm" id="convertcm" value="178" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+		<td><input type="button" value="Convert to US Unit" onclick="converttousunit('coutputmetricunit',1)" class="infull" style="text-align:center;background-color: #4c7b25;"></td>
+</tr>
+<tr>
+	<td colspan="2"><div id="coutputmetricunit"></div></td>
+</tr>
+</table></form>
+
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = '<div id="topmenu" class="topmenucenter"><ul>' + htmlVal + "</ul></div>";
+		document.getElementById("ucframe").innerHTML ="";
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = '<div id="topmenu" class="topmenucenter"><ul>' + htmlVal + "</ul></div>";
+		document.getElementById("ucframe").innerHTML ="";
+	}else{
+		htmlVal = document.getElementById("topmenuout").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenuout").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard");
+
+function popMenu2(inval){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu2('standard');\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu2('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu2('other');\">Other Units</a></li>";
+		document.getElementById("ctype2").value="metric";
+		document.getElementById("standardheightweight2").style.display = 'none';
+		document.getElementById("metricheightweight2").style.display = 'block';
+		htmlVal = '<div id="topmenu" class="topmenucenter"><ul>' + htmlVal + "</ul></div>";
+		document.getElementById("ucframe2").innerHTML ="";
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu2('standard');\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu2('metric');\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu2('other');\">Other Units</a></li>";
+		document.getElementById("ctype2").value="standard";
+		document.getElementById("standardheightweight2").style.display = 'block';
+		document.getElementById("metricheightweight2").style.display = 'none';
+		htmlVal = '<div id="topmenu" class="topmenucenter"><ul>' + htmlVal + "</ul></div>";
+		document.getElementById("ucframe2").innerHTML ="";
+	}else{
+		htmlVal = document.getElementById("topmenuout2").innerHTML ;
+		document.getElementById("ucframe2").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenuout2").innerHTML = htmlVal;
+	return false;
+}
+popMenu2("standard");
+function converttometric(objToShow,showTitle){
+	convertfeet = trimAll(document.getElementById("convertfeet").value);
+	convertinch = trimAll(document.getElementById("convertinch").value);
+	if (!isNumber(convertfeet) || !isNumber(convertinch)){
+		showquickobjmsg("please provide numeric values",true,objToShow);
+		return;
+	}
+	convertfeet=parseFloat(convertfeet);
+	convertinch=parseFloat(convertinch);
+	finalresult = (convertfeet * 30.48) + (convertinch * 2.54);
+
+	if (showTitle==1) convertfeet = '<h2 class="h2result">Result</h2>' + convertfeet;
+	document.getElementById(objToShow).innerHTML = convertfeet + " feet, " + convertinch + " inchs = <font color=green><b>" + finalresult.toFixed(2) + "</b></font> centimeters";
+}
+
+function converttousunit(objToShow,showTitle){
+	convertcm = trimAll(document.getElementById("convertcm").value);
+	if (!isNumber(convertcm)){
+		showquickobjmsg("please provide numeric values",true,objToShow);
+		return;
+	}
+	convertcm=parseFloat(convertcm);
+	convertinch = convertcm/2.54;
+	convertfootfloor = Math.floor(convertcm/30.48);
+	convertinchremaining = convertinch - (convertfootfloor*12);
+
+	if (showTitle==1) convertcm = '<h2 class="h2result">Result</h2>' + convertcm;
+	document.getElementById(objToShow).innerHTML = convertcm + " centimeters = <font color=green><b>" + convertfootfloor + "</b></font> feet, <font color=green><b>" + convertinchremaining.toFixed(2) + "</b></font> inchs";
+}
+</script>
+
+<br>
+<h3>How tall will I be?</h3>
+<p>"How tall will I be?" or "how tall will my child be?" are questions that are often asked. The height of a person is determined by a combination of genetics and environmental factors. The precise contribution from these two factors is complex. Some studies suggest that genetics contributes 60%-80%. Normally, a child's height is based on parental heights subject to regression toward the mean. This means that very tall or short parents are likely to have a taller or shorter child than average, but the child is likely to be closer to the average height than their parents.</p>
+<p>Other important factors that contribute to a child's adult height include nutrition, health, sports activities, health and age of the mother during pregnancy, etc.</p>
+<p>Infants and toddlers grow the fastest. The growth rate declines rapidly from birth to roughly age 2 and declines more slowly thereafter. During puberty, the growth rate increases again to a second maximum, after which it slowly declines to zero. This is typically referred to as the pubertal growth spurt. On average, female and male growth trails off to zero at about 15 and 18 years old, respectively.</p>
+<p>In some cases, a person's height begins to shrink in middle age, though shrinkage of stature is largely universal in the very elderly. This is due to factors such as the decreased height of intervertebral discs as well as changes due to degenerative diseases.</p>
+
+<h3>Predicting a child's adult height</h3>
+<p>Many different methods have been developed to predict a child's adult height, some more accurate than others. Regardless of how accurate the method, height prediction is not an exact science, and it is possible that a child's height can deviate significantly from what is predicted.</p>
+<p><b>Bone age, skeletal maturity method</b></p>
+<p>Bone age can be used to predict height and is considered more accurate than the other methods listed below. One such method is the Greulich-Pyle method that involves left hand and wrist radiographs to measure bone age. This method compares the radiograph of the patient to that of the nearest standard radiograph in the Greulich-Pyle atlas, a compilation of bone age data. Based on bone age, the height of the child, and the data compiled in the atlas, it is possible to predict height based on the percentage of height growth remaining at a given bone age. Note that the data in the atlas were obtained between 1931 and 1942 from Caucasian children, which may limit how accurately the Greulich-Pyle method can be used for current children.<sup>1</sup></p>
+<p><b>The Khamis-Roche method</b><sup>2</sup></p>
+<p>The Khamis-Roche method is considered to be one of the more accurate height prediction methods that do not require the measurement of bone age. It is based on the child's stature, weight, and the average stature of the two parents. The first calculator above is mainly based on this method.</p>
+<p>Note that it is most applicable to Caucasian children between the ages of 4 and 9 who are free from any growth-related condition or disease.</p>
+<p><b>Using growth charts</b></p>
+<p><a href="https://www.cdc.gov/GrowthCharts/">CDC Growth Charts of the United States</a> are good sources of information to evaluate the growth situation of a child. These growth charts consist of percentile curves illustrating the distribution of specific body measurements of children in the United States. In total, there are 16 charts that contain data that can be used to compare the growth of a child over time. Measurements such as height, weight, and head circumference of a child can be compared to the expected values based on data from these growth charts of children of the same age and sex. In general, children maintain a fairly constant growth curve, which is why these charts can be used to predict the adult height of a child to a certain extent.</p>
+<p><b>Simple methods</b></p>
+<p>There are also some very simple, but less accurate, methods available. One of them is adding 2.5 inches (7.6 cm) to the average of the parent's height for a boy and subtracting 2.5 inches (7.6 cm) for a girl. The second calculator above is based on this method.</p>
+<p>Another simple method is to double the height achieved by the child by age 2 for a boy, or age 18 months for a girl.</p>
+
+<h3>How to get taller?</h3>
+<p>Height, for better or for worse, is largely (60-80%) determined by genetics. As mentioned above, very tall parents are more likely to have a taller child, while very short parents are more likely to have a shorter child, with the child being more likely than their parents to be closer to average height. After the growth spurt during puberty, which differs slightly for girls and boys, neither will typically grow much more, and girls typically stop growing by 15, while boys stop at around 18 years of age.</p>
+<p>That being said, there are environmental factors that can affect the height of a child. Some of these may be within the control of the child, while many may not. Nutrition and health of the mother during pregnancy can affect the height of their unborn child. Nutrition as well as exercise after birth can also affect height.</p>
+<p>Recommendations for providing the best conditions for your body to grow follow typical guidelines for healthy living (in no particular order):</p>
+<ol>
+	<li>Eat as many unprocessed foods as possible such as fresh fruits, vegetables, whole grains, proteins, and dairy.</li>
+	<li>Avoid eating foods that are high in sugar, trans fats, saturated fats, and sodium.</li>
+	<li>Exercise regularly to strengthen bones and muscles, maintain a healthy weight, and reduce the risk of diseases such as osteoporosis and other issues that could arise from poor health, which could in turn affect growth and height.</li>
+	<li>Pay attention to good posture. Aside from looking shorter due to poor posture, it can affect actual height in the long term if the back starts curving to accommodate a regular slouching posture.</li>
+	<li>Sleep regularly. Human growth hormone, a factor that affects growth, is released while you sleep. A regularly poor sleeping schedule during adolescence can affect growth in the long term. How much a person should sleep is dependent on their age, with more sleep being recommended the younger the child is.</li>
+</ol>
+<p>In fringe cases, it is possible that some disease or condition could be hampering your growth, and it is possible that a doctor may be able to assist you in such a case, which may in turn affect height. For the most part however, peak height is reached by the time a child has gone through puberty, and it is likely that any child past puberty will maintain their height throughout adulthood.</p>
+
+<br><ol class="reference">
+	<li>Mari Satoh, "Bone age: assessment methods and clinical applications", <i>Clinical Pediatric Endocrinology</i>, 2015</li>
+	<li>Khamis HJ, Roche AF, "Predicting adult stature without using skeletal age: the Khamis-Roche method", <i>Pediatrics</i>, 1994</li>
+</ol>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

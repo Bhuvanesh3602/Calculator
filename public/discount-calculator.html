@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Discount Calculator</title>
+	<meta name="description" content="Online calculator to determine the final price after discount, the amount saved, or the original price before discount related to a discounted purchase." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/discount-calculator.html" itemprop="item"><span itemprop="name">discount calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Discount Calculator</h1>
+<p>Please provide any 2 values below to calculate.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calform">
+<table class="panel" >
+	<tr>
+		<td>Price before discount</td>
+		<td><input type="text" name="pricebefore" id="fmpricebefore" class="inhalf indollar" value="59.99" /></td>
+	</tr>
+	<tr>
+		<td>Discount</td>
+		<td><input type="text" name="discount" id="discountinput" class="inhalf" value="15" /></td>
+	</tr>
+	<tr>
+		<td>Price after discount</td>
+		<td><input type="text" name="priceafter" id="fmpriceafter" class="inhalf indollar" value="" /></td>
+	</tr>
+	<tr>
+		<td><div id="savedamountlabel">You saved</div></td>
+		<td><input type="text" name="savedamount" id="savedamountinput" class="inhalf indollar" value="" /></td>
+	</tr>
+	<tr><td colspan="2">
+		<table><tr>
+			<td valign="top" style="padding-top:5px;">Discount type &nbsp;</td>
+			<td>
+				<div><label for="format1" class="cbcontainer"><input type="radio" name="format" id="format1" value="p" checked onClick="formatChange('p');" /><span class="rbmark"></span>Percent off</label></div>
+				<div><label for="format2" class="cbcontainer"><input type="radio" name="format" id="format2" value="f"  onClick="formatChange('f');" /><span class="rbmark"></span>Fixed amount off</label></div>
+			</td>
+		</tr></table>
+	</td></tr>
+	<tr><td colspan="2" align="center">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td></tr>
+</table></form>
+<script>
+function formatChange(fcV){
+	if (fcV=="p"){
+		document.getElementById("savedamountlabel").style.display = "block";
+		document.getElementById("savedamountinput").style.display = "block";
+		document.getElementById("discountinput").classList.remove("indollar");
+		document.getElementById("discountinput").classList.add("inpct");
+	}else{
+		document.getElementById("savedamountlabel").style.display = "none";
+		document.getElementById("savedamountinput").style.display = "none";
+		document.getElementById("discountinput").classList.remove("inpct");
+		document.getElementById("discountinput").classList.add("indollar");
+	}
+	return false;
+}
+formatChange("p");
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("fmpricebefore");
+proComma2("fmpriceafter");
+proComma2("savedamountinput");
+</script>
+
+<br>
+<p>The term discount can be used to refer to many forms of reduction in the price of a good or service. The two most common types of discounts are discounts in which you get a percent off, or a fixed amount off.</p>
+<p>A percent off of a price typically refers to getting some percent, say 10%, off of the original price of the product or service. For example, if a good costs $45, with a 10% discount, the final price would be calculated by subtracting 10% of $45, from $45, or equivalently, calculating 90% of $45:</p>
+<p style="text-align:center;">10% of $45 = 0.10 &#215; 45 = $4.50</p>
+<p style="text-align:center;">$45 &ndash; $4.50 = $40.50</p>
+<p style="text-align:center;">or</p>
+<p style="text-align:center;">90% of $45 = 0.90 &#215; 45 = $40.50</p>
+<p>In this example, you are saving 10%, or $4.50.</p>
+<p>A fixed amount off of a price refers to subtracting whatever the fixed amount is from the original price. For example, given that a service normally costs $95, and you have a discount coupon for $20 off, this would mean subtracting $20 from $95 to get the final price:</p>
+<p style="text-align:center;">$95 - $20 = $75</p>
+<p>In this example, you are saving the fixed amount of $20.</p>
+<p>The above examples are two of the most common discount methods. There are numerous others that can be more confusing, such as stackable discounts where you can get 20% off the original price, then 15% more off of that discounted price. If you need to do these kinds of calculations, refer to the <a href="/percent-off-calculator.html">Percent Off Calculator</a>.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

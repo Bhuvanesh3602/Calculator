@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Wind Chill Calculator</title>
+	<meta name="description" content="This calculator estimates wind chill temperature based on air temperature and wind speed. It also estimates the exposure time that will cause frostbite." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/wind-chill-calculator.html" itemprop="item"><span itemprop="name">wind chill calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Wind Chill Calculator</h1>
+<p>This calculator estimates the temperature felt by the body as a result of wind speed and actual air temperature. The calculator works for air temperatures between -50&deg;F and 50&deg;F.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right"><b>Wind Speed</b></td><td>			<input type="text" name="windspeed" value="15" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="windspeedunit" >
+			<option value="mph" selected>mph</option>
+			<option value="kmh" >km/h</option>
+			<option value="ms" >m/s</option>
+			<option value="knots" >knots</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Air Temperature</b></td><td>			<input type="text" name="airtemperature" value="10" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'n');">
+			<select name="airtemperatureunit" >
+			<option value="fahrenheit" selected>Fahrenheit &deg;F</option>
+			<option value="celsius" >Celsius &deg;C</option>
+			<option value="kelvin" >Kelvin</option>
+			</select>
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center" style="padding-top: 10px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+<br>
+<p><fieldset><legend>Related</legend><a href="/heat-index-calculator.html">Heat Index Calculator</a> | <a href="/dew-point-calculator.html">Dew Point Calculator</a></fieldset></p>
+
+<br>
+<h3>What is wind chill?</h3>
+<p>In winter, the temperature felt by the body is typically lower than the actual air temperature. This is similar to the body feeling a higher temperature under high humidity conditions in the summer. Refer to the <a href="/heat-index-calculator.html">Heat Index Calculator</a> for further detail.</p>
+<p>A surface, such as the skin on a person's body, loses heat through conduction, convection, and radiation. Although conduction and radiation are relevant to heat transfer, wind chill temperature is mostly a result of convection. Convection is defined as heat transfer due to the bulk movement of molecules within fluids such as gases and liquids, such as wind. Essentially, as the air around a body moves, it disrupts the warm air surrounding the body, allowing cooler air to replace the warm air. The faster the wind speed, and thus the movement of the surrounding air, the faster the surface cools. The result of wind chill is to increase the rate at which heat loss occurs. The physiological response of the body to an increased rate of heat loss is the generation of more heat to maintain surface temperature, resulting in the perception of lower temperatures due to greater heat loss.</p>
+
+<h3>How to calculate wind chill</h3>
+<p>The perception of lower temperatures caused by wind led to the development of many different formulas that attempt to qualitatively predict the effect of wind on this perceived temperature. Because wind chill temperature is not an exact science, weather services in different countries use standards relevant to their particular region, and thus its estimates may differ from those provided by local weather services in other regions. This calculator uses the formula developed by the National Weather Service in the United States, which was listed below.</p>
+<p>Wind Chill Temperature = 35.74 + 0.6215&#215;T - 35.75&#215;V<sup>0.16</sup> + 0.4275&#215;T&#215;V<sup>0.16</sup></p>
+<ul>where T is the actual air temperature in Fahrenheit, V is the wind speed in mph.</ul>
+<p align="center"><img src="/img/wind-chill.png" class="scaleimg" width="730" height="368" alt="wind chill chart"></p>
+<br>
+
+<h3>Frostbite</h3>
+<p>Frostbite can occur when skin or other tissue is exposed to low temperatures. Usually, the first signs of frostbite involve numbness, discoloration of the skin, and feeling cold, typically in the extremities of the body. More serious complications include hypothermia (which will be discussed below) and compartment syndrome, a condition that results in insufficient blood supply to tissue in a particular space.</p>
+<p>How quickly frostbite occurs is dependent on the temperature and level of exposure. Frostbite is most likely to affect people who are exposed to low temperatures for long periods of time, such as those who participate in winter sports, work jobs that involve being outside in cold temperatures for extended periods of time, and those who are homeless.</p>
+
+<p><b>Signs and symptoms:</b></p>
+<p>Frostbite has historically been described in terms of degrees of frostbite, similar to that of burns:</p>
+<p>First-degree frostbite:</p>
+<ul>
+	<li>Superficial damage that usually isn't permanent</li>
+	<li>Numbness/loss of sensation in the skin with possible swelling</li>
+	<li>Skin may slough off in the coming weeks</li>
+</ul>
+<p>Second-degree frostbite:</p>
+<ul>
+	<li>Blisters form and the surface of the skin hardens</li>
+	<li>Blistered skin dries, blackens, and peels in the coming weeks</li>
+	<li>Possible permanent cold sensitivity and numbness</li>
+</ul>
+<p>Third-degree frostbite:</p>
+<ul>
+	<li>Tissue below the skin freezes</li>
+	<li>Blisters and bluish discoloration of the skin occur</li>
+	<li>Blackened crust develops while pain persists in the coming weeks</li>
+	<li>Long term damage to growth plates and ulceration can occur</li>
+</ul>
+<p>Fourth-degree frostbite:</p>
+<ul>
+	<li>Tendon, bone, and muscle are affected</li>
+	<li>Hard skin texture and a colorless appearance result, and re-warming occurs without pain</li>
+	<li>Skin later becomes black and mummified and the extent of permanent damage may not be known for up to a month</li>
+</ul>
+
+<p><b>Prevention:</b></p>
+<p>Frostbite can be prevented by taking certain precautions when circumstances put a person in a situation that involves low temperatures. These include:</p>
+<ul>
+	<li>Covering the skin and scalp, avoiding constrictive footwear and clothing, and remaining active</li>
+	<li>Avoiding temperatures below -15&deg;C</li>
+	<li>Avoiding alcohol and drugs</li>
+	<li>Layering clothing</li>
+	<li>Using warming devices</li>
+	<li>Being aware of early signs of frostnip (similar to frostbite but does not involve ice crystal formation in the skin)</li>
+</ul>
+
+<h3>Hypothermia</h3>
+<p>Hypothermia occurs when the body dissipates more heat than it absorbs, leading to a reduction of body temperature. In humans, hypothermia is defined as a core temperature below 95.0&deg;F (35.0&deg;C). Symptoms can range from mild shivering to cardiac arrest.</p>
+<p>Hypothermia most commonly occurs as a result of exposure to extreme cold. It can also occur from other conditions such as alcohol intoxication, low blood sugar, anorexia, and advanced age.</p>
+<p>Mild hypothermia:</p>
+<ul>
+	<li>Physiological responses to preserve body heat
+	<ul>
+		<li>Shivering</li>
+		<li>Increased heart rate and respiratory rate</li>
+		<li>Increased blood pressure</li>
+	</ul></li>
+	<li>Increased urine production</li>
+	<li>Mental confusion</li>
+</ul>
+
+<p>Moderate hypothermia:</p>
+<ul>
+	<li>Further mental confusion</li>
+	<li>Amnesia</li>
+	<li>Slurred speech</li>
+	<li>Loss of fine motor skills and decreased reflexes</li>
+</ul>
+
+<p>Severe hypothermia:</p>
+<ul>
+	<li>Physiological systems start to fail, resulting in decreased heart rate, respiratory rate, and blood pressure.</li>
+	<li>Paradoxical undressing&mdash;undressing that occurs as a result of the person suffering from moderate to severe hypothermia being disoriented and confused. This accounts for 25-50% of deaths caused by hypothermia.</li>
+	<li>Terminal burrowing&mdash;behavior that occurs in the final stages of hypothermia where the person suffering from hypothermia enters small, enclosed spaces.</li>
+</ul>
+
+<h3>Dress Warmly for Winter</h3>
+<p>Frostbite and hypothermia can both occur as a result of low temperatures, and can lead to serious permanent, and sometimes life-threatening complications. As such, it is important to dress appropriately and understand the risks associated with exposure to low temperatures for extended periods of time. Below is some general advice on how to stay warm and safe in varying degrees of low temperatures. Below certain temperatures, staying out should be entirely avoided due to serious risks to a person's health.</p>
+<p><b>32 to 15&deg;F (0 to -10&deg;C):</b> Dress warmly, with the outside temperature in mind.</p>
+<p><b>15 to -15&deg;F (-10 to -25&deg;C):</b> There is a risk of hypothermia if you stay outside for long periods of time without adequate protection. Dress in layers of warm clothing. A thin, wicking layer to remove perspiration from the skin is a good start, followed by a thicker layer of fleece, polyester, or wool that will insulate the body. The outer layer should be wind-resistant, and ideally waterproof depending on the weather. Wear a hat, mittens, and scarf.</p>
+<p><b>-15 to -50&deg;F (-25 to -45&deg;C):</b> There is a risk of frostbite on exposed skin and a risk of hypothermia if you stay outside for long periods of time without adequate protection. Similar to how you would dress in 15 to -15&deg;F, a thin wicking base layer, fleece, wind, and water-resistant outer layer should be worn. Cover all exposed skin, particularly the face and hands. Layers can be added if necessary, such as a synthetic or down jacket for further insulation.</p>
+<p><b>-50 to -75&deg;F (-45 to -60&deg;C):</b> Exposed skin may freeze (frostbite) in minutes, which can cause lasting, potentially permanent damage. There is a serious risk of hypothermia if you stay outside for too long. Dress in layers of very warm clothing, as described in the previous temperature ranges, with more insulating layers, and a wind and water-resistant outer layer. Cover all exposed skin, particularly the face and hands. Limit outdoor activities to short periods of time or, ideally, cancel outdoor activities entirely.</p>
+<p><b>-75&deg;F (-60&deg;C) and colder:</b> Outdoor conditions are hazardous. Exposed skin may freeze in less than two minutes. Stay indoors.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Margin Calculator</title>
+	<meta name="description" content="Three free calculators for profit margin, stock trading margin, or currency exchange margin calculations. Learn the different definitions of margin in finance." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/margin-calculator.html" itemprop="item"><span itemprop="name">margin calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Margin Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2 class="h2red">Profit Margin Calculator</h2><p>Calculate the profit margin of making, trading products, or doing business in general. Please provide any two of the following to calculate the rest values.</p>
+<div class="leftinput"><div  class="panel">
+<form name="calform" action="/margin-calculator.html#profit">
+<table align="center">
+<tr><td>Cost</td><td><input type="text" name="ccost" id="ccost" value="120" class="inlonger indollar"></td></tr>
+<tr><td>Revenue</td><td><input type="text" name="csale" id="csale" value="160" class="inlonger indollar"></td></tr>
+<tr><td>Margin</td><td><input type="text" name="cmargin" id="cmargin" value="" class="inlonger inpct"></td></tr>
+<tr><td>Profit</td><td><input type="text" name="cprofit" id="cprofit" value="" class="inlonger indollar"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="ctype" value="1" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table></form></div>
+</div><div class="rightresult"><a name="profit"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TWFyZ2luIENhbGN1bGF0b3I=', 1, 'UHJvZml0IE1hcmdpbg==', '', '');"></h2><table class="bigtext"><tr><td><b>Margin:</b></td><td align="right"><b>25.00%</b></td></tr><tr><td>Profit:</td><td align="right">$40.00</td></tr><tr><td>Markup:</td><td align="right">33.33%</td></tr></table><div style="text-align:center;"><g onclick="ttline2HideTT();"><svg width="250" height="100"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 61 8 A 42 42 0 1 1 19 50 L 61 50 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Cost <br>$120.00 (75%)');" onmouseout="ttpieHideTT();" /><line x1="61" y1="50" x2="61" y2="8" class="mcpline" /><path d="M 19 50 A 42 42 0 0 1 61 8 L 61 50 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Profit margin <br>$40.00 (25%)');" onmouseout="ttpieHideTT();" /><line x1="61" y1="50" x2="19" y2="50" class="mcpline" /><line x1="61" y1="50" x2="61" y2="8" class="mcpline" /><circle cx="61" cy="50" r="14.7" fill="white" /><text x="80.092" y="69.092" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Cost <br>$120.00 (75%)');" onmouseout="ttpieHideTT();">75%</text><text x="41.908" y="30.908" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Profit margin <br>$40.00 (25%)');" onmouseout="ttpieHideTT();">25%</text><rect x="122" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="147" y="19" class="mcplegend">Cost</text><rect x="122" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="147" y="37" class="mcplegend">Profit margin</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div></div><div id="clear"></div>
+<p>
+<div><b>Cost:</b> The cost of the product.</div>
+<div><b>Revenue:</b> The income generated by selling the product.</div>
+<div><b>Profit:</b> The money left after deducting cost from revenue.</div>
+<div><b>Margin:</b> The percentage of profit vs. revenue.</div>
+<div><b>Markup:</b> The percentage of profit vs. cost.</div>
+</p>
+<h2 class="h2red"><br>Stock Trading Margin Calculator</h2><p>Calculate the required amount or maintenance margin needed for investors to make securities purchase on margin.</p><div class="leftinput"><div  class="panel">
+<form name="calform2" action="/margin-calculator.html#stock">
+<table align="center">
+<tr><td>Stock price</td><td align="right"><input type="text" name="cprice" id="cprice" value="18.3" class="inhalf indollar"></td></tr>
+<tr><td>Number of shares</td><td align="right"><input type="text" name="cshares" id="cshares" value="100" class="inhalf"></td></tr>
+<tr><td>Margin requirement</td><td align="right"><input type="text" name="cmarginratio" id="cmarginratio" value="30" class="inhalf inpct"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="ctype" value="3" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</table>
+</form></div>
+</div><div class="rightresult"><a name="stock"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TWFyZ2luIENhbGN1bGF0b3I=', 2, 'U3RvY2sgVHJhZGluZyBNYXJnaW4=', '', '');"></h2><p class="bigtext">Amount required: <font color="green"><b>$549.00</b></font></p></div><div id="clear"></div>
+<p>
+<div><b>Stock price:</b> The per-share stock price.</div>
+<div><b>Number of shares:</b> The number of shares you want to purchase.</div>
+<div><b>Margin requirement:</b> The percentage required by the broker to make the margin purchase.</div>
+<div><b>Amount required:</b> The minimum amount required in your account to purchase.</div>
+</p>
+<h2 class="h2red"><br>Currency Exchange Margin Calculator</h2><p>Calculate the minimum amount to maintain in the margin account to make currency trading.</p><div class="leftinput"><div  class="panel">
+<form name="calform3" action="/margin-calculator.html#currency">
+<table align="center">
+<tr><td>Exchange rate</td><td><input type="text" name="cexchange" id="cexchange" value="1.3"  class="inhalf"></td></tr>
+<tr><td>Margin ratio</td><td>
+<select name="cratio" class="inhalf">
+	<option value="1" >1:1</option>
+	<option value="5" >5:1</option>
+	<option value="10" >10:1</option>
+	<option value="20" selected>20:1</option>
+	<option value="25" >25:1</option>
+	<option value="30" >30:1</option>
+	<option value="40" >40:1</option>
+	<option value="50" >50:1</option>
+</select>
+</td></tr>
+<tr><td>Units</td><td><input type="text" name="cunits" id="cunits" value="100" class="inhalf"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="ctype" value="2" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+</td></tr>
+</table>
+</form></div>
+</div><div class="rightresult"><a name="currency"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TWFyZ2luIENhbGN1bGF0b3I=', 3, 'Q3VycmVuY3kgRXhjaGFuZ2UgTWFyZ2lu', '', '');"></h2><p class="bigtext">Amount required: <font color="green"><b>6.500</b></font></p></div><div id="clear"></div>
+<p>
+<div><b>Exchange rate:</b> The exchange rate of the currency to purchase in your home currency. For example, if you plan to purchase 100 EUR and your home currency is USD. In the currency market, 1 EUR = 1.22 USD, then the exchange rate is 1.22.</div>
+<div><b>Margin ratio:</b> The ratio of margin to use.</div>
+<div><b>Units:</b> The amount of currency to purchase.</div>
+<div><b>Amount required:</b> The amount required in your home currency to make the purchase.</div>
+</p>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("ccost");
+proComma2("csale");
+proComma2("cprofit");
+proComma2("cprice");
+proComma2("cshares");
+proComma2("cunits");
+</script>
+<br><br>
+<p>The word "margin" has many different definitions within different contexts, such as referring to the edge or border of something or the amount by which an item falls short or surpasses another item. Financially, margin can refer to several specific things. The first is that it can be the difference between a product or service's selling price and its cost of production (what is used by the first calculation), or it can be the ratio between a company's revenues and expenses. It can also refer to the amount of equity contributed by an investor as a percentage of the current market value of securities held in a margin account (related to the second and third calculation), or the portion of the interest rate on an adjustable-rate mortgage added to the adjustment-index rate.</p>
+
+<h3>Profit Margin</h3>
+<p>Profit margin is the amount by which revenue from sales exceeds costs in a business, usually expressed as a percentage. It can also be calculated as net income divided by revenue or net profit divided by sales. For instance, a 30% profit margin means there is $30 of net income for every $100 of revenue. Generally, the higher the profit margin, the better, and the only way to improve it is by decreasing costs and/or increasing sales revenue. For many businesses, this means either increasing the price of products or services or reducing the cost of goods sold.</p>
+<p>Profit margin can be useful in several ways. For starters, it is commonly used as a way to gauge the financial health of a business. For instance, a year that is off track with respect to typical profit margins in past years can be an indication of something wrong, such as the mismanagement of expenses relative to net sales. Secondly, the profit margin is a measure of efficiency, as it helps answer the question: how much profit is received for each dollar earned as revenue?</p>
+<p>Profit margin can also be compared to the performance of competing companies in order to determine relative performance as made transparent by industry standards. It is important that the companies being compared are fairly similar in terms of size and industry. For example, comparing the profit margins of a small family restaurant to that of a Fortune 500 chemical company would not yield particularly relevant results because of the differences in industry and scale.</p>
+
+<h3>Margin Trading</h3>
+<p>Margin trading is the practice of using borrowed funds from brokers to trade financial assets; this essentially means investing with borrowed money. Usually, there is collateral involved, such as stocks or other financial assets of value.</p>
+<p>Buying stocks using borrowed money is known as "trading on margin." Margin trading tends to amplify gains and/or losses; for instance, when the price of assets in an account rises, trading on margin allows investors to use leverage to increase their gains. However, when the prices of these assets fall, the loss in value is much greater than the regular trading of assets. Regardless, federal regulations only allow investing borrowers to borrow up to 50% of the total cost of any purchase as the initial margin requirement. Afterward, Federal Reserve Regulation T requires maintenance margin requirements of at least 25%, though brokerage firms generally require more. Keep in mind that initial margin requirements are different from maintenance margin requirements.</p>
+<p>This form of margin investing is highly risky, and investors (borrowers) should familiarize themselves with the risks first.</p>
+
+<h3>Currency Exchange Margin</h3>
+<p>In the context of currency exchange, margin can be thought of as a good faith deposit required to maintain open positions, similar to a security deposit that is required for renting. However, it is not a fee but a portion of account equity that is allocated as a margin deposit.</p>
+<p>A margin requirement is the leverage offered by a broker, and is usually updated at least once a month to account for market volatility or currency exchange rates. A 2% margin requirement is the equivalent of offering a 50:1 leverage, which allows an investor to trade with $10,000 in the market by setting aside only $200 as a security deposit. As another example, a 1% margin requirement is referred to as a 100:1 leverage, and allows $10,000 to be traded in the market with a $100 security deposit. In the foreign exchange market, traders tend to trade with leverages of 50:1, 100:1, or 200:1, depending on broker and regulations.</p>
+
+<p><b>Margin Call</b></p>
+<p>If the market moves against a trader, resulting in losses such that there is an insufficient amount of margin, an automatic margin call will apply. This usually happens because there is no more money in the account to withstand the loss in value of equities, and the broker starts to become responsible for losses. In this scenario, unless the account holder deposits funds to bring the account back up to the minimum maintenance required, the broker closes all of the account holder's positions in the market and places limits on the losses for the account holder in order to stop the account from turning into a negative balance.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<!-- Google tag (gtag.js) -->
+
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-762WZF75BL');
+</script>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

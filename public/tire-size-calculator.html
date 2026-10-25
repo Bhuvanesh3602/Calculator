@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tire Size Calculator</title>
+	<meta name="description" content="Free calculator to find the dimensions of a tire based on its code. It also helps in choosing alternative tire sizes based on rim size or comparing two tires." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tire-size-calculator.html" itemprop="item"><span itemprop="name">tire size calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Tire Size Calculator</h1>
+<p>Use the following calculators to find the dimensions of a tire based on its code. It can also provide a comparison of alternative tires that are compatible with a given wheel size.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form action="/tire-size-calculator.html" name="calform">
+<table class="panel" ><tr><td>
+	<table align="center">
+		<tr>
+			<td align="center">
+				<b>Tire Size:</b>
+				<input type="text" name="ctw" class="innormal" value="265" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">/</span>
+				<input type="text" name="car" class="in4char" value="70" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">R</span>
+				<input type="text" name="cws" class="in4char" value="17" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			</td>
+		</tr>
+		<tr>
+			<td align="center" style="padding: 15px 0px;">
+				Change to a new wheel size?
+				<br>
+				<label for="cc1" class="cbcontainer"><input type="radio" name="cc" id="cc1" value="y"  onClick="shNewSize('y');" /><span class="rbmark"></span>Yes</label> &nbsp;
+				<label for="cc2" class="cbcontainer"><input type="radio" name="cc" id="cc2" value="n" checked onClick="shNewSize('n');" /><span class="rbmark"></span>No</label>
+
+				<div id="newwheelinput" style="padding-top: 8px;display:none;">
+					New Wheel Size/Diameter:
+					<input type="text" name="cnws" value="19" class="inlong inuiinch" onKeyUp="iptfieldCheck(this, '', 'pn');"><span class="inuiinchspan">inches</span>
+				</div>
+<script>
+function shNewSize(inval){
+	if (inval == "y"){
+		document.getElementById("newwheelinput").style.display = 'block';
+	}else{
+		document.getElementById("newwheelinput").style.display = 'none';
+	}
+	return false;
+}
+shNewSize('n');</script>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<input name="ctype" value="1" type="hidden">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</td></tr></table></form>
+
+
+<a name="compare"></a>
+<br><h2>Tire Size Comparison Calculator</h2>
+<p>Use this calculator to compare the sizes of two tires both numerically and visually.</p>
+<form action="/tire-size-calculator.html#compare" name="calform2">
+<table class="panel" ><tr><td>
+	<table align="center">
+		<tr>
+			<td align="center">
+				<b>Tire 1:</b>
+				<input type="text" name="ctw1" class="innormal" value="265" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">/</span>
+				<input type="text" name="car1" class="in4char" value="70" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">R</span>
+				<input type="text" name="cws1" class="in4char" value="17" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<b>Tire 2:</b>
+				<input type="text" name="ctw2" class="innormal" value="265" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">/</span>
+				<input type="text" name="car2" class="in4char" value="40" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+				<span class="bigtext">R</span>
+				<input type="text" name="cws2" class="in4char" value="23" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" style="padding-top: 8px;">
+				<input name="ctype" value="2" type="hidden">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+			</td>
+		</tr>
+	</table>
+</td></tr></table></form>
+<br><br>
+
+<h3>Tire code</h3>
+<p>Car tires are described by an alphanumeric code, as shown in the figure below. Being able to read the tire code can be important, particularly when considering getting new wheels or tires, as being able to read the tire code is necessary for calculating things like tire size. Each part of the code describes some characteristic of the tire; refer to the figure below.</p>
+<p style="text-align:center;"><img src="/img/tire/tire-code.svg" width="456" height="322" alt="tire code" class="scaleimg"></p>
+<p><b>Intended use:</b> The first part of the code is made up of 1 or 2 letters (P, LT, ST, T) that describe the type of vehicle that the tire is intended to be used with. There are 4 vehicle classes:</p>
+<ul>
+	<li><b>P</b> stands for passenger car. Tires with the P specification are intended for use with cars, SUVs, crossovers, minivans, and smaller pickup trucks.</li>
+	<li><b>LT</b> stands for light truck. Tires with the LT specification are designed to carry heavy loads and are capable of towing trailers.</li>
+	<li><b>ST</b> stands for special trailer. These types of tires are used for trailers such as boat trailers, utility trailers, and travel trailers.</li>
+	<li><b>T</b> stands for temporary. Tires with the T specification are usually spare tires that are not intended for everyday use.</li>
+</ul>
+<p><b>Nominal section width:</b> The second part of the code is a 3-digit number that describes the nominal section width of the tire in millimeters (mm). The nominal section width is the widest point of the tire or the width from sidewall to sidewall. In the figure above, the 215 means that the nominal section width of the tire is 215 mm.</p>
+<p><b>Aspect ratio:</b> The next part of the code follows the forward slash ( / ). It is a 2- or 3-digit number that indicates the ratio of the tire's section height to its width. The section height is the height of the tire measured from the rim to the outer edge of the tire; the section width is the width from sidewall to sidewall. A tire with the code xxx/65 indicates that the section height of the tire is 65% of its width. For example, for a tire with code 200/65, the section height is 200 &#215; 65% = 130 mm.</p>
+<p><b>Internal construction:</b> The next part of the code is a single letter (B, D, R) that indicates the internal construction of the tire. The inside of a tire is made up of plies of cord, referred to as the tire's carcass. The internal construction is largely responsible for the strength and durability of a tire. It is an optional letter in the tire code, and if it is omitted, it is assumed that the tire is a cross-ply tire.</p>
+<ul>
+	<li><b>R</b> stands for radial. Almost all passenger cars use tires with radial internal construction. In a radial internal construction, the cords run along the circumference of the tire, perpendicular to the direction of travel (or axis of rotation).</li>
+	<li><b>D</b> stands for diagonal. In this type of tire construction, the cords run along the circumference of the tire at a 30-40&deg; angle from bead (the part of the tire that contacts the rim of the wheel) to bead, and the layers crisscross over each other.</li>
+	<li><b>B</b> indicates a bias-belted tire. This type of tire is similar in construction to diagonal tires except that a bias-belted tire has an additional layer above the topmost layer of ply. This additional layer is comprised of stabilizer belts, typically made of steel or other corded material applied at different angles relative to the topmost layer of ply. This offers additional support and makes the tire stiffer.</li>
+	<li>Cross-ply tires are tires whose internal construction is made of nylon cord placed diagonally across each other, usually at an angle of 55&deg;.</li>
+</ul>
+<p><b>Diameter of the wheel:</b> The next part of the code is a 1- or 2-digit number that indicates the diameter of the wheel, in units of inches, that the tire is designed to fit. There are many different tire sizes, and the same wheel (rim) can be used with different tire sizes, as long as the middle of the tire is the correct size for the rim.</p>
+<p><b>Load index:</b> The next part of the code is a 2- or 3-digit number referred to as the load index of the tire. The load index indicates the maximum weight that a tire can carry at a given inflation level. For example, a load index of 95 means that a tire can carry 1,520 lb (690 kg) at a tire pressure of 42 psi.</p>
+<p><b>Speed rating:</b> The last part of the code is a 1- or 2-digit/letter that indicates the speed rating of the tire. The speed rating of a tire is the maximum speed at which a tire can carry a load that corresponds to its load index. For example, a tire with a load index of 95 and speed rating of H can carry 1,520 lb (690 kg) at a tire pressure of 42 psi and a speed of 130 mph (210 km/h).</p>
+<p>Note that tires have many additional marks or codes, such as the DOT code.</p>
+<p><b>DOT code:</b> the DOT code is a required code in the United States that specifies the company, factory, batch, mold, and date of production of the tire. The date of production of a tire is particularly important, and is specified with 2 digits for the week of the year, and 2 digits for the year. For example, the code "1326" in the figure above means that the tire was produced on the 13<sup>th</sup> week of the year 2026. When purchasing new tires, it may be important to note the date of production. Due to the aging of the rubber and other building materials, tires that were produced more than 10 years prior should not be used regardless of their conditions. Some manufacturers recommend replacing tires every six years regardless of the number of miles driven.</p>
+
+<h3>How is tire size calculated?</h3>
+<p>The dimensions computed by our calculator use the following equations:</p>
+<p style="text-align:center;">Section Height = Aspect Ratio &#215; Tire Width</p>
+<p style="text-align:center;">Tire Diameter = Wheel Diameter + 2 &#215; Section Height</p>
+<p>The aspect ratio and tire width are measurements acquired from the tire code. The tire width is the 3-digit number preceding the forward slash ( / ) in the tire code in units of millimeters. The aspect ratio is the 2- or 3-digit number immediately following the forward slash. Their product is the section height.</p>
+<p>Once the section height is computed, the tire diameter can be calculated using the section height and the wheel diameter. The wheel diameter is another measurement that is given by the tire code. It is the 1- or 2-digit number after the letter that indicates the internal construction of the tire. In some cases, the internal construction is not noted, and the wheel diameter immediately follows the aspect ratio in the tire code. Wheel diameter is specified in units of inches. The tire diameter is the sum of the wheel diameter and twice the section height.</p>
+
+<h3>What to consider when changing tire/wheel size?</h3>
+<p>There are many reasons that a person may change their tire/wheel size. Often, it is done for aesthetic reasons. When changing the size of a tire or wheel, it is important to take certain things into consideration. Otherwise, there can be significant consequences, such as increased wear and tear to the vehicle's suspension and brake components (particularly anti-lock brakes), which can affect handling or cause other mechanical issues affecting the transmission of the car.</p>
+<p>There are many different sizes of tires, and different sized tires can be used on the same rim, as long as the middle of the tire is the correct size. A common change is to increase the size of the rims. One of the key considerations when increasing the size of the rims of a car is the change to the tire size. Generally, larger rims must be used with thinner tires because the tires must be small enough to fit inside the wheel well of the car. Generally, it is recommended to go with tires that have a diameter within 3% difference from the factory recommended tires.</p>
+<p>On top of replacing tires for aesthetic reasons, people also change their tires as a result of blowouts or wear and tear. When replacing tires, it is ideal to change all of the tires at the same time. If this is not possible, at least the front two or back two tires should be changed together, depending on whether the tire that must be replaced is in the front or back. If only one or some of the tires are being changed, it is highly recommended that the tire(s) be of the same type and brand. Differences in tires can cause a number of issues including loss of control or spinouts when driving, inaccurate speedometer readings, or even damage to the vehicle's stability system calibrations.</p>
+<p>Changing tires also affects the speedometers and odometers of a car, since they are calibrated based on stock tires. Thus, while it is possible to safely use different-sized rims and tires on a car, it will still result in changes to the car. Larger rims and tires increase the total circumference of the wheel, which in turn increases the distance around the tire. This results in inaccurate speedometer and odometer readings because both are based on how many revolutions the tire makes. Specifically, a larger tire will result in a speedometer reading that is lower than the actual speed that the car is traveling; similarly, it will result in an odometer reading that is lower than the actual distance traveled. Conversely, a smaller tire will result in a speedometer reading that is higher than the actual speed the car is traveling, and an odometer reading that is higher than the distance traveled.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

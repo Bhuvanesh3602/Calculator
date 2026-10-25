@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Percent Error Calculator</title>
+	<meta name="description" content="This free percent error calculator computes the percentage error between an observed value and the true value of a measurement." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/percent-error-calculator.html" itemprop="item"><span itemprop="name">percent error calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Percent Error Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calform"><table class="panel" >
+<tr>
+	<td>Observed Value</td>
+	<td><input type="text" name="observedvalue" id="observedvalue" value="10" class="inhalf"></td>
+</tr>
+<tr>
+	<td>True Value</td>
+	<td><input type="text" name="truevalue" id="truevalue" value="11" class="inhalf"></td>
+</tr>
+<tr>
+	<td colspan="2" align="center" style="padding-top:8px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+
+<br><br>
+<p><fieldset><legend>Related</legend><a href="/percent-calculator.html">Percentage Calculator</a> | <a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/statistics-calculator.html">Statistics Calculator</a></fieldset></p>
+
+<h3>Percentage Error</h3>
+<p>Percentage error is a measurement of the discrepancy between an observed (measured) and a true (expected, accepted, known etc.) value. It is typically used to compare measured vs. known values as well as to assess whether the measurements taken are valid.</p>
+<p>When measuring data, whether it be the density of some material, standard acceleration due to gravity of a falling object, or something else entirely, the measured value often varies from the true value. Error can arise due to many different reasons that are often related to human error, but can also be due to estimations and limitations of devices used in measurement. Calculating the percentage error provides a means to quantify the degree by which a measured value varies relative to the true value. A small percentage error means that the observed and true value are close while a large percentage error indicates that the observed and true value vary greatly. In most cases, a small percentage error is desirable, while a large percentage error may indicate an error or that an experiment or measurement technique may need to be re-evaluated. If, for example, the measured value varies from the expected value by 90%, there is likely an error, or the method of measurement may not be accurate.</p>
+
+<h3>Computing percentage error</h3>
+<p>The computation of percentage error involves the use of the absolute error, which is simply the difference between the observed and the true value. The absolute error is then divided by the true value, resulting in the relative error, which is multiplied by 100 to obtain the percentage error. Refer to the equations below for clarification.</p>
+<table align="center"><tr>
+<td>Absolute error = |V<sub>observed</sub> &ndash; V<sub>true</sub>|</td>
+</tr></table>
+<table align="center"><tr>
+<td>Relative error = </td>
+<td><table cellpadding="0" cellspacing="0"><tr align="center"><td>|V<sub>observed</sub> &ndash; V<sub>true</sub>|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>V<sub>true</sub></td></tr></table></td>
+</tr></table>
+<table align="center"><tr>
+<td>Percentage error = </td>
+<td><table cellpadding="0" cellspacing="0"><tr align="center"><td>|V<sub>observed</sub> &ndash; V<sub>true</sub>|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>V<sub>true</sub></td></tr></table></td>
+<td>&#215; 100%</td>
+</tr></table>
+<p>For example, if the observed value is 56.891 and the true value is 62.327, the percentage error is:</p>
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr align="center"><td style="padding-bottom: 2px;">|56.891 &ndash; 62.327|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>62.327</td></tr></table></td>
+<td>&#215; 100% = 8.722%</td>
+</tr></table>
+<p>The equations above are based on the assumption that true values are known. True values are often unknown, and under these situations, standard deviation is one way to represent the error. Please refer to the <a href="/standard-deviation-calculator.html">standard deviation calculator</a> for further details.</p>
+
+<h3>Negative percentage error</h3>
+<p>Based on the formula above, when the true value is positive, percentage error is always positive due to the absolute value. In most cases, only the error is important, and not the direction of the error. However, it is possible to have a negative percentage error. This occurs if we do not take the absolute value of the error, the observed value is smaller than the true value, and the true value is positive. For example, given an observed value of 7, a true value of 9, and allowing for a negative percentage, the percentage error is:</p>
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr align="center"><td>v<sub>observed</sub> &ndash; v<sub>true</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>v<sub>true</sub></td></tr></table></td>
+<td>&#215; 100% =</td>
+<td><table cellpadding="0" cellspacing="0"><tr align="center"><td>7 &ndash; 9</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>9</td></tr></table></td>
+<td>&#215; 100%</td>
+</tr>
+<tr>
+<td colspan="2" align="right">= </td>
+<td colspan="2">-22.222%</td>
+</tr></table>
+<p>A negative percentage error simply means that the observed value is smaller than the true value. If the observed value is larger than the true value, the percentage error will be positive. Thus, in the context of an experiment, a negative percentage error just means that the measured value is smaller than expected. It does not indicate that the observed value is somehow better than expected, since the best possible outcome for percentage error is that the observed and true values are equal, resulting in a percentage error of 0.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

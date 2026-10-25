@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Prime Factorization Calculator</title>
+	<meta name="description" content="This free prime factorization calculator finds the prime factors as well the factor tree of a given integer." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/prime-factorization-calculator.html" itemprop="item"><span itemprop="name">prime factorization calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Prime Factorization Calculator</h1><p>Please provide an integer to find its prime factors as well as a factor tree.</p>
+<form name="calc">
+<div class="panel">
+<table align="center">
+  <tr>
+    <td><input type="text" name="cvar" value="100" class="infull" maxlength="14"></td>
+	    <td align="center"><div style="padding:15px 5px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calc);">
+    </div></td>
+  </tr>
+</table></div>
+</form>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/factor-calculator.html">Factor Calculator</a> | <a href="/common-factor-calculator.html">Common Factor Calculator</a></fieldset></p>
+
+<br><h3>What is a prime number?</h3>
+<p>Prime numbers are natural numbers (positive whole numbers that sometimes include 0 in certain definitions) that are greater than 1, that cannot be formed by multiplying two smaller numbers. An example of a prime number is 7, since it can only be formed by multiplying the numbers 1 and 7. Other examples include 2, 3, 5, 11, etc.</p>
+<p>Numbers that can be formed with two other natural numbers, that are greater than 1, are called composite numbers. Examples of this include numbers like, 4, 6, 9, etc.</p>
+<p>Prime numbers are widely used in number theory due to the fundamental theorem of arithmetic. This theorem states that natural numbers greater than 1 are either prime, or can be factored as a product of prime numbers. As an example, the number 60 can be factored into a product of prime numbers as follows:</p>
+<p style="text-align:center;">60 = 5 &#215; 3 &#215; 2 &#215; 2</p>
+<p>As can be seen from the example above, there are no composite numbers in the factorization.</p>
+
+<h3>What is prime factorization?</h3>
+<p>Prime factorization is the decomposition of a composite number into a product of prime numbers. There are many factoring algorithms, some more complicated than others.</p>
+<p><b>Trial division:</b></p>
+<p>One method for finding the prime factors of a composite number is trial division. Trial division is one of the more basic algorithms, though it is highly tedious. It involves testing each integer by dividing the composite number in question by the integer, and determining if, and how many times, the integer can divide the number evenly. As a simple example, below is the prime factorization of 820 using trial division:</p>
+<p style="text-align:center;">820 &#247; 2 = 410</p>
+<p style="text-align:center;">410 &#247; 2 = 205</p>
+<p>Since 205 is no longer divisible by 2, test the next integers. 205 cannot be evenly divided by 3. 4 is not a prime number. It can however be divided by 5:</p>
+<p style="text-align:center;">205 &#247; 5 = 41</p>
+<p>Since 41 is a prime number, this concludes the trial division. Thus:</p>
+<p style="text-align:center;">820 = 41 &#215; 5 &#215; 2 &#215; 2</p>
+<p>The products can also be written as:</p>
+<p style="text-align:center;">820 = 41 &#215; 5 &#215; 2<sup>2</sup></p>
+<p>This is essentially the "brute force" method for determining the prime factors of a number, and though 820 is a simple example, it can get far more tedious very quickly.</p>
+<p><b>Prime decomposition:</b></p>
+<p>Another common way to conduct prime factorization is referred to as prime decomposition, and can involve the use of a factor tree. Creating a factor tree involves breaking up the composite number into factors of the composite number, until all of the numbers are prime. In the example below, the prime factors are found by dividing 820 by a prime factor, 2, then continuing to divide the result until all factors are prime. The example below demonstrates two ways that a factor tree can be created using the number 820:</p>
+<table align="center"><tr valign="top">
+<td>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;820</div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \</div>
+<div>&nbsp; &nbsp; &nbsp; 410 &nbsp;2</div>
+<div>&nbsp; &nbsp; &nbsp; / &nbsp; \</div>
+<div> &nbsp; &nbsp;205 &nbsp;2</div>
+<div>&nbsp; &nbsp;/ &nbsp; \</div>
+<div>41 &nbsp; 5</div>
+</td>
+<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td>
+<div>&nbsp; &nbsp; &nbsp; 820</div>
+<div>&nbsp; &nbsp; &nbsp;/ &nbsp; &nbsp; &nbsp;\</div>
+<div>&nbsp; 205 &nbsp; &nbsp; 4</div>
+<div>&nbsp; / &nbsp; \ &nbsp; &nbsp; / &nbsp; \</div>
+<div>41 &nbsp;5 &nbsp; 2 &nbsp; &nbsp;2</div>
+</td>
+</tr></table>
+
+<p>Thus, it can be seen that the prime factorization of 820, in either case, again is:</p>
+<p style="text-align:center;">820 = 41 &#215; 5 &#215; 2 &#215; 2</p>
+<p>While these methods work for smaller numbers (and there are many other algorithms), there is no known algorithm for much larger numbers, and it can take a long period of time for even machines to compute the prime factorizations of larger numbers; in 2009, scientists concluded a project using hundreds of machines to factor the 232-digit number, RSA-768, and it took two years.</p>
+
+<h3>Prime factorization of common numbers</h3>
+<p>The following are the prime factorizations of some common numbers.</p>
+
+<div>Prime factorization of 2: prime number</div>
+<div>Prime factorization of 3: prime number</div>
+<div>Prime factorization of 4: 2<sup>2</sup></div>
+<div>Prime factorization of 5: prime number</div>
+<div>Prime factorization of 6: 2 &#215; 3</div>
+<div>Prime factorization of 7: prime number</div>
+<div>Prime factorization of 8: 2<sup>3</sup></div>
+<div>Prime factorization of 9: 3<sup>2</sup></div>
+<div>Prime factorization of 10: 2 &#215; 5</div>
+<div>Prime factorization of 11: prime number</div>
+<div>Prime factorization of 12: 2<sup>2</sup> &#215; 3</div>
+<div>Prime factorization of 13: prime number</div>
+<div>Prime factorization of 14: 2 &#215; 7</div>
+<div>Prime factorization of 15: 3 &#215; 5</div>
+<div>Prime factorization of 16: 2<sup>4</sup></div>
+<div>Prime factorization of 17: prime number</div>
+<div>Prime factorization of 18: 2 &#215; 3<sup>2</sup></div>
+<div>Prime factorization of 19: prime number</div>
+<div>Prime factorization of 20: 2<sup>2</sup> &#215; 5</div>
+<div>Prime factorization of 21: 3 &#215; 7</div>
+<div>Prime factorization of 22: 2 &#215; 11</div>
+<div>Prime factorization of 23: prime number</div>
+<div>Prime factorization of 24: 2<sup>3</sup> &#215; 3</div>
+<div>Prime factorization of 25: 5<sup>2</sup></div>
+<div>Prime factorization of 26: 2 &#215; 13</div>
+<div>Prime factorization of 27: 3<sup>3</sup></div>
+<div>Prime factorization of 28: 2<sup>2</sup> &#215; 7</div>
+<div>Prime factorization of 29: prime number</div>
+<div>Prime factorization of 30: 2 &#215; 3 &#215; 5</div>
+<div>Prime factorization of 31: prime number</div>
+<div>Prime factorization of 32: 2<sup>5</sup></div>
+<div>Prime factorization of 33: 3 &#215; 11</div>
+<div>Prime factorization of 34: 2 &#215; 17</div>
+<div>Prime factorization of 35: 5 &#215; 7</div>
+<div>Prime factorization of 36: 2<sup>2</sup> &#215; 3<sup>2</sup></div>
+<div>Prime factorization of 37: prime number</div>
+<div>Prime factorization of 38: 2 &#215; 19</div>
+<div>Prime factorization of 39: 3 &#215; 13</div>
+<div>Prime factorization of 40: 2<sup>3</sup> &#215; 5</div>
+<div>Prime factorization of 41: prime number</div>
+<div>Prime factorization of 42: 2 &#215; 3 &#215; 7</div>
+<div>Prime factorization of 43: prime number</div>
+<div>Prime factorization of 44: 2<sup>2</sup> &#215; 11</div>
+<div>Prime factorization of 45: 3<sup>2</sup> &#215; 5</div>
+<div>Prime factorization of 46: 2 &#215; 23</div>
+<div>Prime factorization of 47: prime number</div>
+<div>Prime factorization of 48: 2<sup>4</sup> &#215; 3</div>
+<div>Prime factorization of 49: 7<sup>2</sup></div>
+<div>Prime factorization of 50: 2 &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 51: 3 &#215; 17</div>
+<div>Prime factorization of 52: 2<sup>2</sup> &#215; 13</div>
+<div>Prime factorization of 53: prime number</div>
+<div>Prime factorization of 54: 2 &#215; 3<sup>3</sup></div>
+<div>Prime factorization of 55: 5 &#215; 11</div>
+<div>Prime factorization of 56: 2<sup>3</sup> &#215; 7</div>
+<div>Prime factorization of 57: 3 &#215; 19</div>
+<div>Prime factorization of 58: 2 &#215; 29</div>
+<div>Prime factorization of 59: prime number</div>
+<div>Prime factorization of 60: 2<sup>2</sup> &#215; 3 &#215; 5</div>
+<div>Prime factorization of 61: prime number</div>
+<div>Prime factorization of 62: 2 &#215; 31</div>
+<div>Prime factorization of 63: 3<sup>2</sup> &#215; 7</div>
+<div>Prime factorization of 64: 2<sup>6</sup></div>
+<div>Prime factorization of 65: 5 &#215; 13</div>
+<div>Prime factorization of 66: 2 &#215; 3 &#215; 11</div>
+<div>Prime factorization of 67: prime number</div>
+<div>Prime factorization of 68: 2<sup>2</sup> &#215; 17</div>
+<div>Prime factorization of 69: 3 &#215; 23</div>
+<div>Prime factorization of 70: 2 &#215; 5 &#215; 7</div>
+<div>Prime factorization of 71: prime number</div>
+<div>Prime factorization of 72: 2<sup>3</sup> &#215; 3<sup>2</sup></div>
+<div>Prime factorization of 73: prime number</div>
+<div>Prime factorization of 74: 2 &#215; 37</div>
+<div>Prime factorization of 75: 3 &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 76: 2<sup>2</sup> &#215; 19</div>
+<div>Prime factorization of 77: 7 &#215; 11</div>
+<div>Prime factorization of 78: 2 &#215; 3 &#215; 13</div>
+<div>Prime factorization of 79: prime number</div>
+<div>Prime factorization of 80: 2<sup>4</sup> &#215; 5</div>
+<div>Prime factorization of 81: 3<sup>4</sup></div>
+<div>Prime factorization of 82: 2 &#215; 41</div>
+<div>Prime factorization of 83: prime number</div>
+<div>Prime factorization of 84: 2<sup>2</sup> &#215; 3 &#215; 7</div>
+<div>Prime factorization of 85: 5 &#215; 17</div>
+<div>Prime factorization of 86: 2 &#215; 43</div>
+<div>Prime factorization of 87: 3 &#215; 29</div>
+<div>Prime factorization of 88: 2<sup>3</sup> &#215; 11</div>
+<div>Prime factorization of 89: prime number</div>
+<div>Prime factorization of 90: 2 &#215; 3<sup>2</sup> &#215; 5</div>
+<div>Prime factorization of 91: 7 &#215; 13</div>
+<div>Prime factorization of 92: 2<sup>2</sup> &#215; 23</div>
+<div>Prime factorization of 93: 3 &#215; 31</div>
+<div>Prime factorization of 94: 2 &#215; 47</div>
+<div>Prime factorization of 95: 5 &#215; 19</div>
+<div>Prime factorization of 96: 2<sup>5</sup> &#215; 3</div>
+<div>Prime factorization of 97: prime number</div>
+<div>Prime factorization of 98: 2 &#215; 7<sup>2</sup></div>
+<div>Prime factorization of 99: 3<sup>2</sup> &#215; 11</div>
+<div>Prime factorization of 100: 2<sup>2</sup> &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 101: prime number</div>
+<div>Prime factorization of 102: 2 &#215; 3 &#215; 17</div>
+<div>Prime factorization of 103: prime number</div>
+<div>Prime factorization of 104: 2<sup>3</sup> &#215; 13</div>
+<div>Prime factorization of 105: 3 &#215; 5 &#215; 7</div>
+<div>Prime factorization of 106: 2 &#215; 53</div>
+<div>Prime factorization of 107: prime number</div>
+<div>Prime factorization of 108: 2<sup>2</sup> &#215; 3<sup>3</sup></div>
+<div>Prime factorization of 109: prime number</div>
+<div>Prime factorization of 110: 2 &#215; 5 &#215; 11</div>
+<div>Prime factorization of 111: 3 &#215; 37</div>
+<div>Prime factorization of 112: 2<sup>4</sup> &#215; 7</div>
+<div>Prime factorization of 113: prime number</div>
+<div>Prime factorization of 114: 2 &#215; 3 &#215; 19</div>
+<div>Prime factorization of 115: 5 &#215; 23</div>
+<div>Prime factorization of 116: 2<sup>2</sup> &#215; 29</div>
+<div>Prime factorization of 117: 3<sup>2</sup> &#215; 13</div>
+<div>Prime factorization of 118: 2 &#215; 59</div>
+<div>Prime factorization of 119: 7 &#215; 17</div>
+<div>Prime factorization of 120: 2<sup>3</sup> &#215; 3 &#215; 5</div>
+<div>Prime factorization of 121: 11<sup>2</sup></div>
+<div>Prime factorization of 122: 2 &#215; 61</div>
+<div>Prime factorization of 123: 3 &#215; 41</div>
+<div>Prime factorization of 124: 2<sup>2</sup> &#215; 31</div>
+<div>Prime factorization of 125: 5<sup>3</sup></div>
+<div>Prime factorization of 126: 2 &#215; 3<sup>2</sup> &#215; 7</div>
+<div>Prime factorization of 127: prime number</div>
+<div>Prime factorization of 128: 2<sup>7</sup></div>
+<div>Prime factorization of 129: 3 &#215; 43</div>
+<div>Prime factorization of 130: 2 &#215; 5 &#215; 13</div>
+<div>Prime factorization of 131: prime number</div>
+<div>Prime factorization of 132: 2<sup>2</sup> &#215; 3 &#215; 11</div>
+<div>Prime factorization of 133: 7 &#215; 19</div>
+<div>Prime factorization of 134: 2 &#215; 67</div>
+<div>Prime factorization of 135: 3<sup>3</sup> &#215; 5</div>
+<div>Prime factorization of 136: 2<sup>3</sup> &#215; 17</div>
+<div>Prime factorization of 137: prime number</div>
+<div>Prime factorization of 138: 2 &#215; 3 &#215; 23</div>
+<div>Prime factorization of 139: prime number</div>
+<div>Prime factorization of 140: 2<sup>2</sup> &#215; 5 &#215; 7</div>
+<div>Prime factorization of 141: 3 &#215; 47</div>
+<div>Prime factorization of 142: 2 &#215; 71</div>
+<div>Prime factorization of 143: 11 &#215; 13</div>
+<div>Prime factorization of 144: 2<sup>4</sup> &#215; 3<sup>2</sup></div>
+<div>Prime factorization of 145: 5 &#215; 29</div>
+<div>Prime factorization of 146: 2 &#215; 73</div>
+<div>Prime factorization of 147: 3 &#215; 7<sup>2</sup></div>
+<div>Prime factorization of 148: 2<sup>2</sup> &#215; 37</div>
+<div>Prime factorization of 149: prime number</div>
+<div>Prime factorization of 150: 2 &#215; 3 &#215; 5<sup>2</sup></div>
+<br>
+<div>Prime factorization of 200: 2<sup>3</sup> &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 300: 2<sup>2</sup> &#215; 3 &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 400: 2<sup>4</sup> &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 500: 2<sup>2</sup> &#215; 5<sup>3</sup></div>
+<div>Prime factorization of 600: 2<sup>3</sup> &#215; 3 &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 700: 2<sup>2</sup> &#215; 5<sup>2</sup> &#215; 7</div>
+<div>Prime factorization of 800: 2<sup>5</sup> &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 900: 2<sup>2</sup> &#215; 3<sup>2</sup> &#215; 5<sup>2</sup></div>
+<div>Prime factorization of 1000: 2<sup>3</sup> &#215; 5<sup>3</sup></div>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

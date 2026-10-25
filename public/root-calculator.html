@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Root Calculator</title>
+	<meta name="description" content="This free root calculator determines the roots of numbers, including common roots such as a square root or a cubed root." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/root-calculator.html" itemprop="item"><span itemprop="name">root calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Root Calculator</h1>
+<h2>Square Root Calculator</h2>
+<form name="calform" action="/root-calculator.html"><div class="panel">
+<table cellpadding="0" cellspacing="0" >
+  <tr>
+    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
+    <td height="1" bgcolor="#000"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="padding:3px;"><input type="text" name="cvar1" value="" class="inlonger"></td>
+    <td class="verybigtext"> &nbsp; = ?</td>
+  </tr>
+  <tr>
+	<td align="center" colspan="3" style="padding-top: 10px;">
+		<input name="ctype" value="1" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+    </td>
+  </tr>
+</table>
+</div></form>
+
+
+<a name="cubic"></a>
+<h2>Cube Root Calculator</h2>
+<form name="calform2" action="/root-calculator.html#cubic"><div class="panel">
+<table cellpadding="0" cellspacing="0" >
+  <tr>
+    <td valign="top" style="font-size: 36px;" rowspan="3">&#8731;</td>
+    <td height="1" bgcolor="#000"></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="1"></td>
+  </tr>
+  <tr>
+    <td><input type="text" name="cvar2" value="" class="inlonger"></td>
+    <td class="verybigtext"> &nbsp; = ?</td>
+  </tr>
+  <tr>
+	<td align="center" colspan="3" style="padding-top: 10px;">
+		<input name="ctype" value="2" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+    </td>
+  </tr>
+</table>
+</div></form>
+
+<a name="general"></a>
+<h2>General Root Calculator</h2>
+<form name="calform3" action="/root-calculator.html#general"><div class="panel">
+<table cellpadding="0" cellspacing="0" >
+  <tr>
+    <td valign="top" rowspan="3"><input type="text" name="cvar3" value="" class="innormal" style="text-align: right;"></td>
+    <td height="15" colspan="3"></td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
+    <td height="1" bgcolor="#000"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="padding:3px;"><input type="text" name="cvar4" value="" class="inlonger"></td>
+    <td class="verybigtext"> &nbsp; = ?</td>
+  </tr>
+  <tr>
+	<td align="center" colspan="3" style="padding-top: 10px;">
+		<input name="ctype" value="3" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+    </td>
+  </tr>
+</table>
+</div></form>
+<br><p><fieldset><legend>Related</legend><a href="/exponent-calculator.html">Exponent Calculator</a> | <a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/log-calculator.html">Log Calculator</a></fieldset></p>
+
+
+<br><br>
+<p>In mathematics, the general root, or the <b>n</b><sup>th</sup> root of a number <b>a</b> is another number <b>b</b> that when multiplied by itself <b>n</b> times, equals <b>a</b>. In equation format:</p>
+<p class="bigtext" align="center">
+	<sup>n</sup>&radic;<span style="text-decoration:overline;">a</span> = b<br>
+	b<sup>n</sup> = a<br>
+</p>
+
+<h3>Estimating a Root</h3>
+<p>Some common roots include the square root, where <b>n</b> = 2, and the cubed root, where <b>n</b> = 3. Calculating square roots and <b>n</b><sup>th</sup> roots is fairly intensive. It requires estimation and trial and error. There exist more precise and efficient ways to calculate square roots, but below is a method that does not require a significant understanding of more complicated math concepts. To calculate &radic;<span style="text-decoration:overline;">a</span>:</p>
+<ol>
+<li>Estimate a number <b>b</b></li>
+<li>Divide <b>a</b> by <b>b</b>. If the number <b>c</b> returned is precise to the desired decimal place, stop.</li>
+<li>Average <b>b</b> and <b>c</b> and use the result as a new guess</li>
+<li>Repeat step two</li>
+</ol>
+
+<table align="center"><tr>
+<td>EX: &nbsp;</td><td>Find &radic;<span style="text-decoration:overline;">27</span> to 3 decimal places</td></tr>
+<tr><td>&nbsp;</td><td>
+Guess: 5.125<br>
+27 &#247; 5.125 = 5.268<br>
+(5.125 + 5.268)/2 = 5.197<br>
+27 &#247; 5.197 = 5.195<br>
+(5.195 + 5.197)/2 = 5.196<br>
+27 &#247; 5.196 = 5.196
+</td></tr></table>
+
+<h3>Estimating an n<sup>th</sup> Root</h3>
+<p>Calculating <b>n</b><sup>th</sup> roots can be done using a similar method, with modifications to deal with <b>n</b>. While computing square roots entirely by hand is tedious. Estimating higher <b>n</b><sup>th</sup> roots, even if using a calculator for intermediary steps, is significantly more tedious. For those with an understanding of series, refer <a href="https://en.wikipedia.org/wiki/Nth_root">here</a> for a more mathematical algorithm for calculating <b>n</b><sup>th</sup> roots. For a simpler, but less efficient method, continue to the following steps and example. To calculate <sup>n</sup>&radic;<span style="text-decoration:overline;">a</span>:</p>
+<ol>
+<li>Estimate a number <b>b</b></li>
+<li>Divide <b>a</b> by <b>b</b><sup>n-1</sup>. If the number <b>c</b> returned is precise to the desired decimal place, stop.</li>
+<li>Average: <b>[b &#215; (n-1) + c] / n </b></li>
+<li>Repeat step two </li>
+</ol>
+<table align="center"><tr>
+<td>EX: &nbsp;</td><td>Find <sup>8</sup>&radic;<span style="text-decoration:overline;">15</span> to 3 decimal places</td></tr>
+<tr><td>&nbsp;</td><td>
+Guess: 1.432<br>
+15 &#247; 1.432<sup>7</sup> = 1.405<br>
+(1.432 &#215; 7 + 1.405)/8 = 1.388<br>
+15 &#247; 1.388<sup>7</sup> = 1.403<br>
+(1.403 &#215; 7 + 1.388)/8 = 1.402
+</td></tr></table>
+<p>It should then be clear that computing any further will result in a number that would round to 1.403, making 1.403 the final estimate to 3 decimal places.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

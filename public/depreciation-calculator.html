@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Depreciation Calculator</title>
+	<meta name="description" content="Free depreciation calculator using the straight line, declining balance, or sum of the year's digits methods with the option of partial year depreciation." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/depreciation-calculator.html" itemprop="item"><span itemprop="name">depreciation calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div><h1>Depreciation Calculator</h1>The following calculator is for depreciation calculation in accounting. It takes the straight line, declining balance, or sum of the year' digits method. If you are using the double declining balance method, just select declining balance and set the depreciation factor to be 2. It can also calculate partial-year depreciation with any accounting year date setting.<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<table id="calinputtable" class="panel" align="center">
+<form name="calform">
+<tr><td>
+		Depreciation method</td><td><select name="cmethod" onChange="shDRate(this.value);" class="infull">
+	<option value="straight" selected>Straight Line</option>
+	<option value="declining" >Declining Balance</option>
+	<option value="sum" >Sum of the Year's Digits</option>
+</select>
+</td></tr>
+<tr><td>
+		Asset cost</td><td><input type="text" name="ccost" id="ccost" value="11000" class="infull indollar"></td></tr>
+<tr><td>
+		Salvage value</td><td><input type="text" name="csalvage" id="csalvage" value="1000" class="infull indollar"></td></tr>
+<tr><td>
+		Depreciation years</td><td><input type="text" name="cyears" id="cyears" value="5" class="infull"></td></tr>
+<tr><td><div id="cfactordiv1">Depreciation factor</div></td><td><div id="cfactordiv2"><input type="text" name="cfactor" class="infull" id="cfactor" value="2"></div></td></tr>
+<tr><td colspan="2">
+	<div style="padding-top:5px;">
+		Round to dollars? &nbsp;
+		<label for="cround1" class="cbcontainer"><input name="cround" id="cround1" value="yes" checked type="radio"><span class="rbmark"></span>Yes</label> &nbsp;
+		<label for="cround2" class="cbcontainer"><input name="cround" id="cround2" value="no" type="radio" ><span class="rbmark"></span>No</label>
+	</div>
+	<div style="padding-top:5px;">
+		Partial year depreciation? &nbsp;
+		<label for="cpartical1" class="cbcontainer"><input name="cpartical" id="cpartical1" value="yes"  type="radio" onclick="shParticalYear('yes');"><span class="rbmark"></span>Yes</label> &nbsp;
+		<label for="cpartical2" class="cbcontainer"><input name="cpartical" id="cpartical2" value="no" type="radio" checked onclick="shParticalYear('no');"><span class="rbmark"></span>No</label>
+	</div>
+	<div id="cparticalinputs" style="padding-top:10px;display: none;">
+		<table>
+			<tr><td>
+			Convention</td><td>			<select name="cparticalmethod">
+				<option value="day" >Count Every Day</option>
+				<option value="halfmonth" selected>Half-Month</option>
+				<option value="fullmonth" >Full-Month</option>
+				<option value="halfquarter" >Half-Quarter</option>
+				<option value="fullquarter" >Full-Quarter</option>
+				<option value="halfyear" >Half-Year</option>
+			</select></td></tr>
+			<tr><td>
+			Start of asset service</td><td>			<input type="date" name="startday" value="2026-10-25">
+			</td></tr>
+			<tr><td>
+				Start of accounting year</td><td>				<select name="caymonth">
+					<option value="1" selected>January</option>
+					<option value="2" >February</option>
+					<option value="3" >March</option>
+					<option value="4" >April</option>
+					<option value="5" >May</option>
+					<option value="6" >June</option>
+					<option value="7" >July</option>
+					<option value="8" >August</option>
+					<option value="9" >September</option>
+					<option value="10" >October</option>
+					<option value="11" >November</option>
+					<option value="12" >December</option>
+				</select>
+				<select name="cayday">
+					<option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>				</select>
+		</table>
+	</div>
+</td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+<script type="text/javascript">
+<!--
+function shParticalYear(inVal){
+	if (inVal=='yes'){
+		document.getElementById("cparticalinputs").style.display = 'block';
+	}else{
+		document.getElementById("cparticalinputs").style.display = 'none';
+	}
+}
+function shDRate(inVal){
+	if (inVal=='declining'){
+		document.getElementById("cfactordiv1").style.display = 'block';
+		document.getElementById("cfactordiv2").style.display = 'block';
+	}else{
+		document.getElementById("cfactordiv1").style.display = 'none';
+		document.getElementById("cfactordiv2").style.display = 'none';
+	}
+}
+
+shParticalYear("no");shDRate("straight");
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("ccost");
+proComma2("csalvage");
+-->
+</script>
+<br><br>
+
+<h2>Depreciation</h2>
+<p>Conceptually, depreciation is the reduction in the value of an asset over time due to elements such as wear and tear. For instance, a widget-making machine is said to "depreciate" when it produces fewer widgets one year compared to the year before it, or a car is said to "depreciate" in value after a fender bender or the discovery of a faulty transmission.</p>
+<p>For accounting, in particular, depreciation concerns allocating the cost of an asset over a period of time, usually its useful life. When a company purchases an asset, such as a piece of equipment, such large purchases can skewer the income statement confusingly. Instead of appearing as a sharp jump in the accounting books, this can be smoothed by expensing the asset over its useful life. Within a business in the U.S., depreciation expenses are tax-deductible. </p>
+
+<h2>Methods of Depreciation</h2>
+<p>There are many methods of distributing depreciation amount over its useful life. The following are some of the widely used methods. The total amount of depreciation for any asset will be identical in the end no matter which method of depreciation is chosen; only the timing of depreciation will be altered. Keep in mind that accelerated depreciation methods (such as declining balance or sum of the years' digits) can artificially reduce profit in the near term, followed by higher profits in later terms, which can influence reported cash flows.</p>
+
+<h3>Straight-Line Depreciation Method</h3>
+<p>Straight-line depreciation is the most widely used and simplest method. It is a method of distributing the cost evenly across the useful life of the asset. The following is the formula:</p>
+<table align="center"><tr>
+<td>Depreciation per year =&nbsp;</td>
+<td><table cellpadding="0"><tr><td>Asset Cost - Salvage Value</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Useful life</td></tr></table></td>
+</tr></table>
+
+<h3>Declining Balance Depreciation Method</h3>
+<p>For specific assets, the newer they are, the faster they depreciate in value. As these assets age, their depreciation rates slow over time. In these situations, the declining balance method tends to be more accurate than the straight-line method at reflecting book value each year.</p>
+<p align="center">Depreciation per year = Book value &#215 Depreciation rate</p>
+<p>Double declining balance is the most widely used declining balance depreciation method, which has a depreciation rate that is twice the value of straight line depreciation for the first year. Use a depreciation factor of two when doing calculations for double declining balance depreciation. Regarding this method, salvage values are not included in the calculation for annual depreciation. However, depreciation stops once book values drop to salvage values.</p>
+
+<h3>Sum of the Years' Digits Depreciation Method</h3>
+<p>Similar to declining balance depreciation, sum of the years' digits (SYD) depreciation also results in faster depreciation when the asset is new. It is generally more useful than straight-line depreciation for certain assets that have greater ability to produce in the earlier years, but tend to slow down as they age.</p>
+
+<table align="center">
+<tr><td colspan="2">Depreciation for the Year = (Asset Cost - Salvage Value) &#215 factor</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr>
+	<td align="right">1st year: factor =</td>
+	<td><table cellpadding="0"><tr><td align="center">n</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1+2+3+...+ n</td></tr></table></td>
+</tr>
+<tr>
+	<td align="right">2nd year: factor =</td>
+	<td><table cellpadding="0"><tr><td align="center">n - 1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1+2+3+...+ n</td></tr></table></td>
+</tr>
+<tr>
+	<td align="right">3rd year: factor =</td>
+	<td><table cellpadding="0"><tr><td align="center">n - 2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1+2+3+...+ n</td></tr></table></td>
+</tr>
+<tr><td>&nbsp;</td><td>...</td></tr>
+<tr>
+	<td align="right">last year: factor =</td>
+	<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1+2+3+...+ n</td></tr></table></td>
+</tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2">n is the asset's useful life in years.</td></tr>
+</table>
+
+
+<h3>Units of Production Depreciation Method</h3>
+<p>With this method, the depreciation is expressed by the total number of units produced vs. the total number of units that the asset can produce.</p>
+<table align="center"><tr>
+<td>Depreciation per year =&nbsp;</td>
+<td><table cellpadding="0"><tr><td>(Asset Cost - Salvage Value) &#215 Actual Production</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Estimated Total Production in Life Time</td></tr></table></td>
+</tr></table>
+
+
+<h2>Partial Year Depreciation</h2>
+<p>Not all assets are purchased conveniently at the beginning of the accounting year, which can make the calculation of depreciation more complicated. Depending on different accounting rules, depreciation on assets that begins in the middle of a fiscal year can be treated differently. One method is called partial year depreciation, where depreciation is calculated exactly at when assets start service. Simply select "Yes" as an input in order to use partial year depreciation when using the calculator.</p>
+
+<h2>Salvage Value</h2>
+<p>In regards to depreciation, salvage value (sometimes called residual or scrap value) is the estimated worth of an asset at the end of its useful life. If the salvage value of an asset is known (such as the amount it can be sold as for parts at the end of its life), the cost of the asset can subtract this value to find the total amount that can be depreciated. Assets with no salvage value will have the same total depreciation as the cost of the asset.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

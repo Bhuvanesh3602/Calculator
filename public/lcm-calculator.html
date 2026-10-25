@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Least Common Multiple Calculator</title>
+	<meta name="description" content="This free LCM calculator determines the least common multiple of a given set of numbers. Also, learn more about the different methods for finding the LCM." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/lcm-calculator.html" itemprop="item"><span itemprop="name">least common multiple calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Least Common Multiple Calculator</h1><p>Please provide numbers separated by a comma "," and click the "Calculate" button to find the LCM.</p><form name="calform">
+<table class="panel" align="center"><tr><td align="center">
+<textarea name="numberinputs" class="infulltxarea" rows="5">330, 75, 450, 225</textarea>
+<br><br>
+<input type="submit" name="x" value="Calculate">
+<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr></table>
+</form>
+<br>
+<p><fieldset><legend>Related</legend><a href="/gcf-calculator.html">GCF Calculator</a> | <a href="/factor-calculator.html">Factor Calculator</a></fieldset></p>
+
+<br>
+<h3>What is the Least Common Multiple (LCM)?</h3>
+<p>In mathematics, the least common multiple, also known as the lowest common multiple of two (or more) integers <b>a</b> and <b>b</b>, is the smallest positive integer that is divisible by both. It is commonly denoted as LCM(a, b).</p>
+
+<h3>Brute Force Method</h3>
+<p>There are multiple ways to find a least common multiple. The most basic is simply using a "brute force" method that lists out each integer's multiples.</p>
+
+<table align="center"><tr>
+<td valign="top">EX: &nbsp;</td><td>
+Find LCM(18, 26)<br>
+18: 18, 36, 54, 72, 90, 108, 126, 144, 162, 180, 198, 216, 234<br>
+26: 52, 78, 104, 130, 156, 182, 208, 234
+</td></tr></table>
+
+<p>As can be seen, this method can be fairly tedious, and is far from ideal.</p>
+
+<h3>Prime Factorization Method</h3>
+<p>A more systematic way to find the LCM of some given integers is to use prime factorization. Prime factorization involves breaking down each of the numbers being compared into its product of prime numbers. The LCM is then determined by multiplying the highest power of each prime number together. Note that computing the LCM this way, while more efficient than using the "brute force" method, is still limited to smaller numbers. Refer to the example below for clarification on how to use prime factorization to determine the LCM:</p>
+
+<table align="center"><tr>
+<td valign="top">EX: &nbsp;</td><td>
+Find LCM(21, 14, 38)<br>
+21 = 3 &#215; 7<br>
+14 = 2 &#215; 7<br>
+38 = 2 &#215; 19<br><br>
+The LCM is therefore:<br>
+3 &#215; 7 &#215; 2 &#215; 19 = 798
+</td></tr></table>
+
+<h3>Greatest Common Divisor Method</h3>
+<p>A third viable method for finding the LCM of some given integers is using the <a href="/gcf-calculator.html">greatest common divisor</a>. This is also frequently referred to as the greatest common factor (GCF), among other names. Refer to the link for details on how to determine the greatest common divisor. Given LCM(a, b), the procedure for finding the LCM  using GCF is to divide the product of the numbers <b>a</b> and <b>b</b> by their GCF, i.e. (a &#215; b)/GCF(a,b). When trying to determine the LCM of more than two numbers, for example LCM(a, b, c) find the LCM of <b>a</b> and <b>b</b> where the result will be <b>q</b>. Then find the LCM of <b>c</b> and <b>q</b>. The result will be the LCM of all three numbers. Using the previous example:</p>
+
+<table align="center"><tr>
+<td valign="top">EX: &nbsp;</td><td>
+Find LCM(21, 14, 38)<br>
+<br>GCF(14, 38) = 2<br>
+<table cellpadding="0" cellspacing="0"><tr><td>LCM(14, 38) =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">38 &#215; 14</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table></td><td>&nbsp; = 266</td></table>
+
+<br>GCF(266, 21) = 7<br>
+<table cellpadding="0" cellspacing="0"><tr><td>LCM(266, 21) =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">266 &#215; 21</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">7</td></tr></table></td><td>&nbsp; = 798</td></table>
+<br>
+LCM(21, 14, 38) = 798
+</td></tr></table>
+
+
+<p>Note that it is not important which LCM is calculated first as long as all the numbers are used, and the method is followed accurately. Depending on the particular situation, each method has its own merits, and the user can decide which method to pursue at their own discretion.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

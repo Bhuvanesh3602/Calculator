@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fat Intake Calculator</title>
+	<meta name="description" content="This free fat intake calculator estimates the amount of dietary fat a person should consume daily based on age, height, weight, and activity." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fat-intake-calculator.html" itemprop="item"><span itemprop="name">fat intake calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Fat Intake Calculator</h1>
+<p>The Fat Intake Calculator estimates the amount of dietary fat a person should consume on a daily basis. The results are based on an estimation of daily caloric needs determined using the provided information. The calculator also considers the maximum recommended levels of saturated fats a person should consume to reduce the risk of heart disease.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<span id="ucframe"></span>
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li><li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+
+<div class="panel2" style="padding:10px;">
+<form name="calform"><table id="calinputtable" width="440" bgcolor="#eeeeee">
+<tr>
+	<td width="70">Age</td>
+	<td width="370"><input type="text" name="cage" id="cage" value="25"  onKeyUp="iptfieldCheck(this, 'r', 'pn');" class="inlongesthalf"> ages 18 - 80</td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>female</label></td>
+</tr>
+</table>
+<table width="440" id="standardheightweight" bgcolor="#eeeeee">
+<tr>
+	<td width="70">Height</td>
+	<td width="370">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" onKeyUp="iptfieldCheck(this, '', 'pzn');" class="inlongesthalf"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" onKeyUp="iptfieldCheck(this, '', 'pzn');" class="inlongesthalf"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Weight</td>
+	<td><input type="text" name="cpound" id="cpound" value="160" onKeyUp="iptfieldCheck(this, 'r', 'pn');" class="inlongest inuipound"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="440" id="metricheightweight" bgcolor="#eeeeee">
+<tr>
+	<td width="70">Height</td>
+	<td width="370"><input type="text" name="cheightmeter" id="cheightmeter" value="180" onKeyUp="iptfieldCheck(this, 'r', 'pn');" class="inlongest inuick"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="60" onKeyUp="iptfieldCheck(this, 'r', 'pn');" class="inlongest inuick"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="620" bgcolor="#eeeeee">
+<tr>
+	<td width="70">Activity</td>
+	<td width="550">
+		<select id="cactivity" name="cactivity">
+			<option value="1.2" >Sedentary: little or no exercise</option>
+			<option value="1.375" selected>Light: exercise 1-3 times/week</option>
+			<option value="1.465" >Moderate: exercise 4-5 times/week</option>
+			<option value="1.55" >Active: daily exercise or intense exercise 3-4 times/week</option>
+			<option value="1.725" >Very Active: intense exercise 6-7 times/week</option>
+			<option value="1.9" >Extra Active: very intense exercise daily, or physical job</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="70">&nbsp;</td>
+	<td width="550">
+		<div id="ccsettingtitle" style="margin: 10px 0px;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
+		<div id="ccsettingcontent" style="display: none;">
+			<input type="hidden" name="cmop" id="cmoreoption" value="0">
+			<div><b>BMR estimation formula:</b> <img class="ttimg" src="/img/svg/help.svg" onmouseover="tooltip.show('The Katch-McArdle Formula can be more accurate if you are lean and know your body fat percentage.', '');" onmouseout="tooltip.hide();"></div>
+			<div>
+				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="m" checked /><span class="rbmark"></span> Mifflin St Jeor</label></div>
+				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="k"  /><span class="rbmark"></span> Katch-McArdle</label> &nbsp; <a href="/body-fat-calculator.html">Body Fat:</a> <input type="text" name="cfatpct" value="20" class="in4char inpct" onKeyUp="iptfieldCheck(this, '', 'pn');"></div>
+			</div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td style="padding-top: 8px 0px;">
+		<input name="printit" value="0" type="hidden">
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+<ul style="margin-top:0px;margin-left:-20px;">
+	<li class="smalltext"><b>Exercise:</b> 15-30 minutes of elevated heart rate activity.</li>
+	<li class="smalltext"><b>Intense exercise:</b> 45-120 minutes of elevated heart rate activity.</li>
+	<li class="smalltext"><b>Very intense exercise:</b> 2+ hours of elevated heart rate activity.</li>
+</ul>
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard",0);
+function cshmoreoption(optVar){
+	if (optVar==1){
+		document.getElementById("ccsettingcontent").style.display = 'block';
+		document.getElementById("cmoreoption").value = "1";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
+	}else{
+		document.getElementById("ccsettingcontent").style.display = 'none';
+		document.getElementById("cmoreoption").value = "0";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
+	}
+	return false;
+}
+cshmoreoption(0);
+</script>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/calorie-calculator.html">Calorie Calculator</a> | <a href="/carbohydrate-calculator.html">Carbohydrate Calculator</a> | <a href="/protein-calculator.html">Protein Calculator</a></fieldset></p>
+
+<br>
+<h2>Different Types of Fat</h2>
+<p>Fat, along with carbohydrates and proteins, is one of three macronutrients that provide the energy necessary for a person's metabolic system to function, and can be acquired through consuming various foods. There are numerous types of dietary fat, including saturated fat, trans fat, monounsaturated fat, polyunsaturated fat, and omega-3 fatty acids. While dietary fat is essential to proper body function, excess dietary fat leads to weight gain, and excess weight is linked to poor health outcomes. Refer to the <a href="/body-fat-calculator.html">Body Fat Calculator</a> for more information regarding excess fat. </p>
+
+<h3>Unhealthy Dietary Fat</h3>
+<p><b>Saturated Fat</b></p>
+<p>Certain types of dietary fat are more harmful than others. Saturated fat is one of the more harmful types of fat and is mostly found in sources of food derived from animals; red meat, poultry, and dairy products. Saturated fat can also be found in various nuts, oils, and seeds. There exists some controversy surrounding the effects of saturated fat on the risk of disease, but saturated fat is largely considered harmful. Sources such as Mayo Clinic and the American Heart Association, among many others, recommend a diet that is low in saturated fat, arguing that saturated fat raises the levels of "bad" low-density lipoprotein (LDL) cholesterols, and can increase the risk of cardiovascular disease and type 2 diabetes.</p>
+
+<p><b>Trans Fat</b></p>
+<p>Trans fat is a type of dietary fat that occurs naturally in small amounts in some foods, but most of the trans fat that people encounter is the result of a food processing method called partial hydrogenation. Highly processed foods, such as fast food, tend to have high amounts of trans fats, and reducing consumption of these types of food is generally beneficial to a person's health. </p>
+
+<p>Trans fats are commonly regarded as the "worst" type of dietary fat, are not essential, and have no known benefits to human health. Trans fats have been shown to increase the risk of coronary artery disease by increasing levels of LDL cholesterols, while decreasing the levels of "good" high-density lipoproteins (HDL) cholesterols. It can also increase the risk of obesity and type 2 diabetes. Note that by law, a serving of food that contains less than 0.5 grams of trans fat can be labeled as having 0 grams of trans fat. It is possible to fully avoid trans fat from processed foods by ensuring that any food labeled as having 0 grams of trans fat also has no ingredient involving the term "partially hydrogenated."</p>
+
+<h3>Healthier Dietary Fat</h3>
+<p>Monounsaturated and polyunsaturated fat are two types of unsaturated fat that are typically found in a variety of foods and oils, with polyunsaturated fat more commonly being found in plant-based foods and oils. Studies have shown that both of these types of unsaturated fat, in small amounts, can help reduce LDL cholesterol, while potentially increasing HDL cholesterol levels in the bloodstream. Furthermore, omega-3 fatty acids, a type of polyunsaturated fat that is rich in certain fish, have been found to decrease the risk of coronary artery disease.</p>
+
+
+<h2>Daily Fat Intake</h2>
+<p>So far, there is no golden rule guiding daily fat intake. Generally, some fat intake, particularly intake of unsaturated fats, can have beneficial effects on the human body. Children especially need some fat in their diets to be healthy. It's generally recommended that a child drink whole milk instead of low fat or no-fat milk once they stop breastfeeding. However, any type of fat, including these healthier dietary fats, can have negative effects when consumed in excess. Below are some guidelines regarding the amount and types of fat a person should consume. </p>
+
+<ul>
+	<li>Consume less than 10% of daily caloric needs in the form of saturated fats. Limiting consumption to less than 7% has been shown to reduce the risk of heart disease.</li>
+	<li>Replace saturated fats with unsaturated fats if possible.</li>
+	<li>Minimize consumption of trans fats.</li>
+	<li>Consume less than 300 mg of dietary cholesterol each day.</li>
+</ul>
+
+<div style="text-align:center;"><b>Fat Intake by Age</b></div>
+<table class="cinfoT" width="320" align="center">
+	<tr><td class="cinfoHd">Age</td><td class="cinfoHdL">Suggested Fat Intake Limit</td></tr>
+	<tr><td>2 - 3</td><td class="cinfoBodL">30% to 40% of Total Calories</td></tr>
+	<tr><td>4 - 18</td><td class="cinfoBodL">25% to 35% of Total Calories</td></tr>
+	<tr><td>19+</td><td class="cinfoBodL">20% to 35% of Total Calories</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

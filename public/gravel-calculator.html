@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gravel Calculator</title>
+	<meta name="description" content="This free gravel calculator estimates the amount of gravel needed to cover an area. It can also estimate the cost." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/gravel-calculator.html" itemprop="item"><span itemprop="name">gravel calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Gravel Calculator</h1>
+<p>The following calculator helps estimate the amount of gravel needed to cover an area based on the density and desired depth of the gravel. It also estimates the cost of purchasing a given amount of gravel.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table cellpadding="5" align="center" class="panel" cellspacing="0">
+	<tr valign="top">
+			<td align="right" style="padding-top:16px;"><b>Area to Cover:</b></td><td>			<div style="padding:6px 0px;">
+				<label for="areasetting1" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting1" value="a" checked onClick="shArea('a');" /><span class="rbmark"></span>Use total area</label> &nbsp;
+				<label for="areasetting2" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting2" value="r"  onClick="shArea('r');" /><span class="rbmark"></span>Rectangle</label> &nbsp;
+				<label for="areasetting3" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting3" value="c"  onClick="shArea('c');" /><span class="rbmark"></span>Circle</label>
+			</div>
+			<div id="totalareaid">
+				Total Area: <input type="text" name="totalarea" value="200" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="totalareaunit" >
+					<option value="f" selected>square feet</option>
+					<option value="m" >square meters</option>
+					<option value="y" >square yards</option>
+					<option value="a" >acres</option>
+				</select>
+			</div>
+			<div id="rectangleid" style="display:none;">
+				<table>
+					<tr><td>Length</td><td>
+						<input type="text" name="totallength" value="20" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+						<select name="totallengthunit" >
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+						<option value="y" >yards</option>
+						</select>
+					</td></tr>
+					<tr><td>Width</td><td>
+					<input type="text" name="totalwidth" value="15" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					<select name="totalwidthunit" >
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+						<option value="y" >yards</option>
+					</select>
+					</td></tr>
+				</table>
+			</div>
+			<div id="circleid" style="display:none;">
+				<table>
+					<tr><td>Diameter: </td><td>
+						<input type="text" name="totaldiameter" value="10" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+						<select name="totaldiameterunit">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+						<option value="y" >yards</option>
+						</select>
+					</td></tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+			<td align="right"><b>Depth of Gravel:</b></td><td>			<input type="text" name="gdepth" value="3" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="gdepthunit" >
+			<option value="i" selected>inches</option>
+			<option value="c" >cm</option>
+			<option value="f" >feet</option>
+			<option value="m" >meters</option>
+			<option value="y" >yards</option>
+		</select>
+					</td>
+	</tr>
+	<tr>
+			<td align="right" valign="top" style="padding-top: 8px;"><b>Gravel Density:</b></td><td>			<select name="gdensityselect" onchange="popDensity(this.value)" >
+				<option value="g" selected>Gravel (0.2 - 2" or 0.5 - 5 cm)</option>
+				<option value="gs" >Gravel with sand</option>
+				<option value="ds" >Dry sand</option>
+				<option value="ws" >Wet sand</option>
+				<option value="own" >Use your own density</option>
+			</select>
+			<div id="densityinput" style="display:none; padding-top:6px;">
+			<div style="text-align: left;">Density:</div>
+			<input type="text" name="gdensity" value="1600" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="gdensityunit" >
+				<option value="kgm" selected>kg/m&sup3;</option>
+				<option value="gcm" >g/cm&sup3;</option>
+				<option value="lbf" >lbs/ft&sup3;</option>
+			</select>
+			</div>
+					</td>
+	</tr>
+	<tr>
+			<td align="right" valign="top" style="padding-top: 8px;"><b>Price (optional):</b></td><td>			<input type="text" name="price" value="" class="inhalf indollar" onKeyUp="iptfieldCheck(this, '', 'pn');">
+			<select name="priceunit" onchange="popBag(this.value)" >
+				<option value="f" selected>per cubic foot</option>
+				<option value="y" >per cubic yard</option>
+				<option value="m" >per cubic meter</option>
+				<option value="l" >per liter</option>
+				<option value="p" >per pound</option>
+				<option value="st" >per short ton</option>
+				<option value="k" >per kg</option>
+				<option value="t" >per metric ton</option>
+				<option value="b" >per bag</option>
+			</select>
+			<div id="bagsizeinput" style="display:none;padding-top: 6px;">
+			<div style="text-align: left;">Bag Size:</div>
+			<input type="text" name="gbagsize" value="1" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="gbagsizeunit" >
+				<option value="f" selected>cubic feet per bag</option>
+				<option value="b" >lbs per bag</option>
+				<option value="l" >liter per bag</option>
+				<option value="k" >kg per bag</option>
+			</select>
+			</div>
+					</td>
+	</tr>
+	<tr>
+			<td>&nbsp;</td><td>			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function shArea(inval){
+	if (inval == "a"){
+		document.getElementById("totalareaid").style.display = 'block';
+		document.getElementById("rectangleid").style.display = 'none';
+		document.getElementById("circleid").style.display = 'none';
+	}else if (inval == "r"){
+		document.getElementById("totalareaid").style.display = 'none';
+		document.getElementById("rectangleid").style.display = 'block';
+		document.getElementById("circleid").style.display = 'none';
+	}else{
+		document.getElementById("totalareaid").style.display = 'none';
+		document.getElementById("rectangleid").style.display = 'none';
+		document.getElementById("circleid").style.display = 'block';
+	}
+	return false;
+}
+shArea("a");
+function popDensity(thisVal){
+	if (thisVal == "own"){
+		document.getElementById("densityinput").style.display = 'block';
+	}else{
+		document.getElementById("densityinput").style.display = 'none';
+	}
+}
+popDensity("g");
+function popBag(thisVal){
+	if (thisVal == "b"){
+		document.getElementById("bagsizeinput").style.display = 'block';
+	}else{
+		document.getElementById("bagsizeinput").style.display = 'none';
+	}
+}
+popBag("f");
+</script>
+
+<br>
+<fieldset><legend>Related</legend><a href="/volume-calculator.html">Volume Calculator</a>
+| <a href="/square-footage-calculator.html">Square Footage Calculator</a> |
+<a href="/area-calculator.html">Area Calculator</a>
+</fieldset>
+
+<br>
+<p>Gravel is a loose mixture of rock fragments formed as a result of erosion. Gravel, along with other types of rock fragments such as sand and crushed stone, is commonly used for construction purposes, though it has other uses as well.</p>
+<p>Rock fragments are typically classified based on the size of the individual pieces that make up the aggregate. For example, sand is made up of rock fragments smaller than those in gravel, while gravel is smaller than cobbles, and cobbles are smaller than boulders. Size classifications of rock fragments (and gravel) can vary. Two commonly used standards are the Udden-Wentworth scale (a scale commonly used by geologists in the US) and the international standard, ISO 14688. In the Udden-Wentworth scale, gravel is categorized as granular gravel if it is 2-44 mm (0.079-0.157 in) in diameter or pebble gravel if it is 4-66 mm (0.2-2.5 in) in diameter. On the other hand, ISO 14688-1:2002 classifies gravel as fine (2.0-6.3 mm), medium (6.3-20 mm), or coarse gravel (20-63 mm).</p>
+
+<h3>How much gravel do I need?</h3>
+<p>The amount of gravel required for a given project is dependent on what the project is. The calculator above can be used to estimate the amount of gravel necessary given a number of factors. Note that the price estimate provided by the calculator is solely an estimate based on the cost of materials. Any other costs associated with a project (labor, delivery of materials, etc.) are not included in the estimate.</p>
+<p>To determine how much gravel you need, determine the volume that the gravel must cover. To find the volume needed, determine the amount of area to be covered by gravel as well as the desired depth of the gravel. The ideal depth of gravel varies depending on the application, but a minimum of 2-4 inches of gravel is a workable baseline. Multiplying the area to be covered by the desired depth yields the volume of gravel you will need. Once the volume of gravel necessary is known, the known density of the given type of gravel can be used to calculate the mass of gravel needed to complete the project.</p>
+
+<h3>What is gravel used for?</h3>
+<p>Gravel is a widely used commercial product that has a number of applications ranging from decorative purposes to large-scale construction, such as roads. Gravel and sand in billions of tons are produced for construction purposes worldwide each year.</p>
+
+<p><b>Construction</b></p>
+<p>Almost half of the produced gravel in the US is used as aggregate for concrete. Construction aggregate is a relatively broad category of materials made up of rock fragments that range from medium to coarse. In addition to sand and gravel, aggregates may include materials such as crushed stone, slag, recycled concrete, and others. On top of being used to make concrete, gravel and sand are also used for road construction, mixing with asphalt, as construction fill, and for producing materials such as pipes, bricks, and concrete blocks.</p>
+<p>Gravel can also be used to make roof coverings, a walkway, or a driveway: a mixture of sand and gravel can be used to make shingles; walkways can be made out of a mix of gravel and stone; a driveway may be built using gravel alone or with a mixture of gravel and asphalt.</p>
+<p>Gravel is also commonly used for drainage areas both in large-scale professional construction projects as well as in backyard projects. This is because it provides a solid foundation while also containing enough cracks and spaces to allow water and excess moisture to drain.</p>
+
+<p><b>Landscaping and decoration</b></p>
+<p>Because gravel comes in a number of different shapes, sizes, and colors, it may be used in landscaping as a decoration or an accent while also providing potential benefits such as drainage. For example, it serves well as a border for a flower garden to shore up areas that may be at risk of soil erosion. It can also be used as a patio base or to line a walkway or driveway.</p>
+<p>In certain cases, gravel can also be used as a substitute for organic mulch. One of the advantages of using gravel over organic mulch is that it is more durable than organic mulches and requires less attention and replacement, while still providing protection for soil through heat retention and prevention of evaporation. Unlike many organic mulch types, gravel is also less prone to moving, so it is more likely to retain a desired shape or form when subjected to the elements.</p>
+
+<p><b>Water treatment and agricultural uses</b></p>
+<p>Gravel is used as part of the water filtration process to remove precipitates (suspended solids). Note that gravel filters do not decontaminate water. The use of gravel filters is just one step in the water treatment process and only removes solid particles that cannot physically pass through the gravel filter. It does not remove contaminants that may be in the water unless those contaminants are removed along with the filtered particles.</p>
+<p>Certain types of gravel can also be ground or pulverized for agricultural use. For example, limestone or chalk is pulverized to make agricultural lime, a soil additive that can reduce the acidity of the soil in order to promote crop growth. Ground gravel is also used as a form of mineral feed for poultry such as chickens and turkeys since poultry requires small rocks and minerals as part of their diet to properly break down their food.</p>
+
+<h3>Types of gravel</h3>
+<p>There are many different types of gravel. Generally, gravel is categorized based on the size of the individual rock fragments that make up the gravel, as well as how the gravel is procured or produced. In some cases, gravel is distinguished from other types of rock fragments based on whether rock fragments are mechanically crushed or a result of natural erosion.</p>
+<p>Gravel formed as a result of natural erosion tends to be smoother and rounder while crushed stone will have rougher edges and be less smooth. This distinction is not always made, however, and because of the many different ways in which gravel is categorized, it is good practice to clarify exactly what kind of rock fragments are being used since different types of rock fragments or gravel have advantages and disadvantages depending on what they are being used for. Below are some examples of different types of gravel.</p>
+
+<p><b>Bank gravel</b></p>
+<p>Bank gravel, also referred to as bank run or river run, is a type of gravel that is found next to rivers and streams. It is comprised of a mixture of large and small rock fragments, sand, and clay. Bank gravel has high water draining capacity, so it helps prevent soil erosion and also allows plants to take root and grow. It is typically used for filling in gaps in the landscape, and can also act as a foundation for concrete.</p>
+
+<p><b>River stone</b></p>
+<p>River stone, also referred to as river rock, is one of the largest types of gravel. River, creek, and beach stones are all the same form of naturally eroded stone. They tend to be used for decorative purposes due to their smooth surfaces and the variety of colors in which they can be found. For example, they may be used in landscaping or for lining water fixtures, creeks, and ponds due to their high draining capacity.</p>
+
+<p><b>Pea gravel</b></p>
+<p>Pea gravel is one of the smaller types of gravel that gets its name from its size (it is similar in size to garden peas). It is also one of the most inexpensive types of gravel, so it is used for many different applications. For example, it is commonly used as part of an aggregate for building roads and driveways as well as for making concrete.</p>
+<p>Pea gravel is also often used in landscaping because it offers some color as well as texture since it is made up of a combination of chipped and rounded rock fragments. It also has a high draining capacity, so it may be used around plants and is also used in aquariums.</p>
+
+<p><b>Crushed stone</b></p>
+<p>Crushed stone is a type of medium-sized gravel that is formed by mechanically crushing stone. Most commonly, limestone, dolomite, or granite is crushed to form the crushed stone. In certain definitions of the term, crushed stone is not considered gravel since it is a processed rather than naturally-occurring rock fragment. One of the key differences between crushed stone and gravel that has been formed by erosion is that crushed stone has a rougher surface and sharper edges. Gravel formed by erosion tends to be smooth and rounded.</p>
+<p>Crushed stone is most often used as part of a concrete aggregate. It can have different colors and textures based on the type of stone that is crushed to make it. There are also different categories of crushed stone based on size.</p>
+<p>Crushed stone, like concrete, is typically used for surfacing roads and driveways. It may also be used for landscaping purposes, but its sharper edges can be less visually appealing. Unlike other types of gravel, it is also not as commonly used for walkways or pathways since the sharper edges can make it more difficult to walk on as well as more hazardous than its smoother gravel counterparts.</p>
+
+<p><b>Pay gravel</b></p>
+<p>Pay gravel, also referred to as pay dirt, is a type of gravel that can be made up of more or less any type of rock. The distinguishing characteristic of pay gravel is that it contains significant concentrations of precious metals, such as gold. It is rarely used for purposes other than gold panning since it contains precious metals.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

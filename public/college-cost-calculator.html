@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>College Cost Calculator</title>
+	<meta name="description" content="Free calculator to estimate how much college will cost in the U.S. using either the latest average college cost data or self-defined data." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/college-cost-calculator.html" itemprop="item"><span itemprop="name">college cost calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>College Cost Calculator</h1>
+<h2>How Much Does College Cost?</h2>
+
+<p>The College Cost Calculator can help determine rough estimates of what to expect from college costs, and in turn, how much to begin budgeting for it. To estimate the costs of more specific colleges, the <a href="https://nces.ed.gov/collegenavigator/">College Navigator</a> can be used to get more precise annual college costs data. This calculator is mainly intended for use in the U.S.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" align="center">
+<tr><td>Today's annual college costs:</td><td><input type="text" name="todaycost" id="todaycost" value="30990" class="inhalf indollar"></td><td nowrap>or<select name="useaverage" onChange="document.getElementById('todaycost').value=this.value;">
+		<option value="30990" selected>Select an Average</option>
+		<option value="65470" >4-year private: $65,470</option>
+		<option value="30990" selected>4-year in-state public: $30,990</option>
+		<option value="50920" >4-year out-of-state public: $50,920</option>
+		<option value="21320" >2-year public: $21,320</option>
+	</select>
+</td></tr>
+<tr><td>College cost increase rate:</td><td><input type="text" name="costincrease" value="5" class="inhalf inpct"></td><td class="smalltext">5% recommended</td></tr>
+<tr><td>Expected college attendance duration:</td><td><input type="text" name="collegelength" value="4" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td><td>&nbsp;</td></tr>
+<tr><td>Percent of costs from savings:</td><td><input type="text" name="savingpercent" value="35" class="inhalf inpct"></td><td>&nbsp;</td></tr>
+<tr><td>College savings balance now:</td><td><input type="text" name="balancenow" id="balancenow" value="0" class="inhalf indollar"></td><td class="smalltext">amount saved so far</td></tr>
+<tr><td>Interest or investment return rate:</td><td><input type="text" name="returnrate" value="5" class="inhalf inpct"></td><td>&nbsp;</td></tr>
+<tr><td>Tax rate on interest or investment return:</td><td><input type="text" name="interesttaxrate" value="25" class="inhalf inpct"></td><td class="smalltext">Including federal, state, and local tax<br>use 0% for 529 plan savings</td></tr>
+<tr><td>College will start in:</td><td><input type="text" name="startin" value="3" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td><td>&nbsp;</td></tr>
+<tr><td colspan="3" align="center" style="padding-top:8px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table></form>
+
+<p><fieldset><legend>Related</legend><a href="/student-loan-calculator.html">Student Loan Calculator</a> | <a href="/budget-calculator.html">Budget Calculator</a></fieldset></p>
+
+<h2>Reference:</h2>
+<p><b>Average Annual U.S. College Cost, Including Tuition, Fee, and Living Cost for 2025-2026</b>
+<table class="cinfoT">
+	<tr><td>4-year private:</td><td class="cinfoBodL">$65,470</td></tr>
+	<tr><td>4-year public (in-state):</td><td class="cinfoBodL">$30,990</td></tr>
+	<tr><td>4-year public (out-of-state):</td><td class="cinfoBodL">$50,920</td></tr>
+	<tr><td>2-year public:</td><td class="cinfoBodL">$21,320</td></tr>
+</table>
+<div>Source: the college board, <a href="https://nces.ed.gov/collegenavigator/">click here</a> for school-specific information.</div>
+
+<br><br>
+<h3>College-Specific Net Price Calculators</h3>
+<p>It is now required under U.S. law that every college and university have their own net price calculator available on college websites. They all serve the same purpose, which is to help students estimate how much it costs to attend a specific college. Usually, it requires spending several minutes filling out basic student information, sometimes requiring documents such as tax returns and W2s, or academic information such as SAT scores and GPA; some will be more comprehensive than others. It's important to use these calculators only as rough estimates of the amount required for each prospective institution because although they often consider potential to receive financial aid, there are many other considerations that aren't accounted for. In addition, many of the calculators do things differently, so it can help prospective students to be precise when computing final figures for comparison. The College Cost Calculator above can be used in conjunction with official college net price calculators to figure out the cost of attending college.</p>
+
+<h3>Higher Education in the U.S.</h3>
+<p>50 years ago, only 10% of the population attended college, mainly because it was generally reserved for a privileged few, and high school education was sufficient to enter the job market and build a comfortable career. Due to many different factors, this is no longer the case today, and the percentage of the population that has a college education has risen to more than 65%. In this period of time, the cost of tuition skyrocketed and continues to do so. In recent years, college tuition has risen almost six percent above the rate of inflation and increases at a rate of roughly 100% each decade. In the U.S., total student loan debt is twice the amount of total credit card debt.</p>
+<p>On average, students that graduate with college degrees earn significantly more throughout their lifetime and are more likely to hold a job than those with only a high school degree. In addition, jobs that require at least a bachelor's degree tend to have benefits such as healthcare, retirement investment accounts, and other perks. There are many other benefits that come with higher education; college graduates have lower smoking rates (leading to a healthier life), show fewer symptoms of depression, and participate in exercise more regularly than people who do not graduate from college. While the debt of student loans can be burdensome, it should be weighed against the benefits that come with higher education.</p>
+<p>In the U.S., higher education is largely independent of federal government regulation, allowing for all types of colleges to satisfy the needs of a diverse student population. There are public and private colleges, religious colleges, technical or trade colleges, liberal arts colleges, and more. In the U.S., the word "college" generally refers to a two-year associate's degree program or a four-year undergraduate program. The word "university" generally refers to the graduate-level study and a group of schools after secondary school.</p>
+
+<h3>How Much Does College Cost?</h3>
+<ul>
+	<li><b>Tuition and Fees</b>&mdash;This is the price paid for academic instruction at a college, and can vary drastically based on university or college, academic program, the number of credit hours, and whether a student is considered in-state or out-of-state. For most students, tuition and fees will be the highest cost associated with college. Tuition at public colleges tends to be lower for state residents, while students from other states often have to pay double. Fees can include enrollment or access to facilities such as gyms and libraries.</li>
+	<li><b>Room and Board</b>&mdash;Colleges typically provide a variety of living options for students who choose to live on campus. This cost generally includes meal plans, whether as a set number of meals per day or unlimited access to the college's dining room. Students that live off-campus with parents will not have a room and board cost, but some colleges make living on campus mandatory for the first year.</li>
+	<li><b>Textbooks and School Supplies</b>&mdash;Textbooks and course materials are usually required for classes. Similar to tuition, college-level textbooks have increased in price considerably over the years. These costs may be lowered by buying used textbooks or renting instead. In some cases, scholarships can cover the cost of textbooks and supplies.</li>
+</ul>
+<p>Although these three categories make up the bulk of most students' college costs, there can be other expenses such as dining, furniture, electronics, entertainment, and miscellaneous personal expenses. There is also the cost of transportation, which may include public transportation subscriptions, maintenance of a car, and fuel. Some colleges charge something called comprehensive fees, which combine tuition, fees, and room and board.</p>
+
+<h3>Financial Aid</h3>
+<p>Although the cost of higher education in the U.S. is increasing, financial aid exists to help students and their families pay for college. Most colleges will require that students apply for financial aid before they are admitted. As a result, students may not have to pay the full price tag advertised for their college costs because of the various sources of financial aid available. Students that qualify for subsidized loans are granted a grace period for the repayment of their student loans. There are four basic types of financial aid: grants, loans, scholarships, or work-studies, and students are generally allowed to use any combination of them all. Each type of financial aid may be offered by federal or state programs, by private agencies, or by private firms.</p>
+<p><b>Loans</b></p>
+<p>As the most popular form of financial aid, loans may come from the federal or state government, or from the college itself. Loans can even come from private sources. They bear interest, though interest rates on student loans are generally on the lower end, relative to other types of loans. The most common loan in the U.S. is the federally mandated Direct Subsidized Loan for students with demonstrated financial need; this loan allows for repayment to be deferred until after graduation. Unsubsidized loans are available to students regardless of financial need, but students are responsible for repayment with no grace period. The <a href="/student-loan-calculator.html">Student Loan Calculator</a> can be used to estimate figures associated with student loans or to get more information on the various types of student loans.</p>
+<p><b>Grants</b></p>
+<p>A grant is a type of financial aid that doesn't require repayment. Grants in the U.S. are generally awarded by the federal government, and in some cases, state governments or other institutions. Grants may be merit-based, need-based, or student-specific. Examples of the latter include grants for minorities, women, and students with disabilities. Pell grants, which are awarded to undergraduate students who have not earned a bachelor's or professional degree, are the most common. Federal Supplemental Educational Opportunity Grants (FSEOG) are for undergraduate students with exceptional financial needs. Teacher Education Assistance for College and Higher Education Grants (TEACH) can help pay for students studying to become teachers who will teach in high-need fields in low-income areas.</p>
+<p><b>Scholarships</b></p>
+<p>A scholarship is a payment awarded to support a student's education. Similar to grants, they may also be provided by government agencies, educational institutions, or other organizations. They also do not require repayment the way loans do, making them akin to free money towards college. Scholarships can be awarded solely on the basis of financial needs. Other scholarships are merit-based: these are grants or scholarships to students who have shown excellence in academics or who have special talents or achievements in some area (such as sports, music, art, or leadership). Merit scholarships are not limited to students who have financial needs.</p>
+<p><b>Work-Study</b></p>
+<p>Work-study jobs are subsidized by the federal government and are intended for students who have financial needs. The type of work usually consists of various administrative tasks on campus, such as at the student center, athletic department, and residence halls. Work-study jobs typically don't pay well, and students may need to find a job elsewhere. But work-study jobs have their advantages; earnings don't reduce a student's future financial aid awards, and their schedules are generally worked out so that their classes aren't affected. Also, they are typically on campus, so students don't have to worry about time or money lost in commuting. However, work-study jobs are generally restricted to fifteen hours of work per week because that is the recommended amount of time a student should work.</p>
+<p>Each college's financial aid package will offer scholarships, loans, and work-study jobs. It is up to each student to determine what combination of financial aid will work best for them, and there is usually a financial aid office available for help on the campus of most colleges.</p>
+<p><b>Calculating Financial Aid</b></p>
+<p>Applications at various colleges are likely to include an application to Federal Student Aid (FSA), the government agency that administers many types of federal financial aid programs. The key to the entire process, and the place to start, is the calculation of an Expected Family Contribution (EFC). The EFC is the expected amount of money a family can contribute to paying for college and is based on many factors, including income and assets. Individual colleges apply the EFC to their own fee structures to assess individual, demonstrated financial needs, which is determined by the difference between the cost of a particular college and an applicant's EFC. If a student's EFC is $7,000, and a given college costs $10,000 per year, there is a good chance they will receive $3,000 per year in financial aid. If the college costs $20,000 per year, there can be $10,000 in aid or just part of that sum. Each college may put together personalized financial aid packages, which show how the college plans to meet the financial need of the student. Taking the time to work through the evaluation process can potentially lead to financial aid that one may not have received otherwise.</p>
+
+<h3>The 529 Savings Plan</h3>
+<p>One method of saving for college education is through a 529 Savings Plan, which is a college savings account that can be opened at any point. This plan is named after Section 529 of the Internal Revenue Code, which was added in 1996 to authorize tax-free status for qualified tuition programs. 529 Savings Plans are offered at the state level; while almost all 50 states sponsor their own 529 plans, in most cases, anyone residing in the U.S. can invest in a 529 Savings Plan sponsored by any state. For example, a resident of California can choose to invest in a 529 plan in Vermont in order to attend a college in the state of New York.</p>
+<p>There are some tax advantages associated with 529 savings plans. Although contributions are not federally tax-deductible, certain states may offer state income tax deductions and tax credits for contributions to that state's 529 plan. Also, earnings in a 529 plan are tax-advantaged, meaning that they are not subject to federal tax, and in most cases, are not subject to state tax when the money is used for qualified education expenses. In addition, 529 Savings Plans that are owned by a parent or dependent student will be considered a parental asset by the Free Application for Federal Student Aid (FAFSA). Approximately the first $20,000 of parental assets won't be counted toward the EFC. In cases where parents save more than the given allowance, only a maximum of 5.64% of parental assets is counted in comparison to other student assets, where up to 20% may be counted. This means that the 529 savings plan is more favorable than certain other options. It results in a lower EFC.</p>
+<p>Contributions to 529 plans can be withdrawn at any time. However, the earnings portion of a non-qualified distribution will usually be subject to ordinary income tax and a 10% tax penalty, though there are some exceptions to this rule.</p>
+<p>529 Savings Plans are based on contributions to mutual funds or similar investments, making them similar to retirement savings plans (more specifically the Roth IRA), except that the savings are intended for college instead of retirement. Also, just like retirement savings, savings plans are generally managed for age-based asset allocation so that the underlying investments become more conservative as the person involved gets closer to college (or retirement) age. As a result, 529 Savings Plans are generally most beneficial when they are started as early as possible, and the account holder makes consistent contributions. Like any other investment tied to financial markets, there are risks associated with 529 savings plans.</p>
+<p><b>Qualified Expenses</b></p>
+<p>Accrued savings in 529 Savings Plans, both contributions and earnings, can be withdrawn when used for approved educational expenses, which includes:</p>
+<ul>
+	<li>tuition and fees</li>
+	<li>textbooks and learning materials</li>
+	<li>room and board for students enrolled at least half-time</li>
+	<li>computers and internet access</li>
+	<li>special needs equipment</li>
+</ul>
+<p>Transportation costs, health insurance, and student loan repayments are not qualified expenses. The tax reform package in 2017 expanded the definition of qualified higher education expenses to include computers and up to $10,000 annually for K-12 tuition.</p>
+
+<h3>529 Prepaid Plan</h3>
+<p>While 529 Savings Plans tend to be more common, there exists another form of saving for college called the 529 Prepaid Plan. In a prepaid plan, tuition credits are purchased through either a lump-sum payment or monthly installments at current costs. These tuition credits can be redeemed in the future based on average tuition rates at a selected group of schools. 529 prepaid plans have the benefit of helping hedge against inflation in the cost of college. Like regular 529 savings plans, the earnings also grow tax-free and are not taxed on withdrawal as long as the funds are used for qualified education expenses.</p>
+<p>Prepaid plans are generally available in the states of Virginia, Maryland, Massachusetts, Mississippi, Florida, Washington, Michigan, Nevada, Illinois, Pennsylvania, and Texas.</p>
+<p>There are some drawbacks associated with prepaid plans compared to the 529 Savings Plan. The first is that the 529 Prepaid Plan generally appreciates in value at a relatively slower rate compared to the savings plan. Secondly, they tend to only cover tuition and fees, while 529 Savings Plans can be used for other expenses (listed above). Thirdly, they often require students to attend in-state public schools. Last but not least, 529 Prepaid Plans are generally not as portable as 529 Savings Plans, which can become a hindrance if the beneficiary does not use the funds. If the account holder wants to cancel the prepaid plan, most plans will only give back what was originally contributed and will reduce or not pay any interest earned. Some plans also charge a cancellation fee.</p>
+<p>It is possible to have both a 529 Savings Plan and 529 Prepaid Plan. The Private College 529 Plan is a separate prepaid plan for private colleges, sponsored by more than 250 private colleges.</p>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("todaycost");
+proComma2("balancenow");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

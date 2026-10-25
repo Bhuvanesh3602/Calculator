@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dice Roller</title>
+	<meta name="description" content="Online virtual dice roller that is capable of simultaneously rolling up to 100 dice randomly. A virtual dice roller with any number of sides is also provided." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/dice-roller.html" itemprop="item"><span itemprop="name">dice roller</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Virtual Dice Roller</h1>
+
+
+<div id="resultid" style="padding:10px 0px;"></div>
+<form name="calform" onsubmit="return rollDice();">
+<table  class="panel">
+<tr>
+	<td valign="top" style="padding-top:8px;">Number of Dice:</td><td>		<input type="number" name="lennumber" value="2" class="infull" style="text-align:left;" onChange="return doInput(this.value);">
+		<div><input type="range" name="lenrange" min="1" max="100" value="2" class="infull" oninput="return doSliding(this.value);" onChange="return doSliding(this.value);"></div>
+	</td>
+</tr>
+<tr><td  colspan="2" align="center" style="padding-top:10px;">
+	<input type="submit" name="submit1" value="Roll Dice" onClick="return rollDice();">
+</td></tr>
+</table>
+</form>
+<script>
+function genMathRand(){if (window.crypto){var tempGRArray = new Uint32Array(1);return (window.crypto.getRandomValues(tempGRArray)/65536/65536);}else{return Math.random();}}
+function preShow(){
+	var rdAmt = parseInt(document.calform.lennumber.value);
+	var outImgs = '';
+	for (i=0; i<rdAmt; i++) {
+		var tempid = Math.floor((genMathRand()*6))+1;
+		outImgs += '<span id="rdice'+i+'" style="display: inline-block;width:110px; height:110px;"><img src="/img/dice/dice'+tempid+'.svg" width="110" height="110" alt="dice '+tempid+'"></span>';
+	}
+	document.getElementById("resultid").innerHTML = outImgs+'<div id="summulti" style="padding:10px 10px 0px 10px;"></div>';
+}
+preShow();
+function doInput(diin){
+	var frm = document.calform;
+	if (diin<1){
+		frm.lenrange.value = 1;
+		frm.lennumber.value = 1;
+	}else if (diin>100){
+		frm.lenrange.value = 100;
+		frm.lennumber.value = 100;
+	}else{
+		frm.lenrange.value = diin;
+	}
+	preShow();
+}
+function doSliding(dsin){
+	var frm = document.calform;
+	frm.lennumber.value = dsin;
+	preShow();
+}
+var dCounter = 0;
+function delayAndShow(){
+	var rdAmt = parseInt(document.calform.lennumber.value);
+	if ((dCounter++)<30){
+		for (i=0; i<rdAmt; i++) {
+			var tempid = Math.floor((genMathRand()*6))+1;
+			document.getElementById("rdice"+i).innerHTML = '<img src="/img/dice/dice'+tempid+'.svg" width="110" height="110" alt="dice '+tempid+'">';
+		}
+		setTimeout(delayAndShow, 50);
+	}else{
+		var rSum = 0;
+		var rMultiple = 1;
+		for (i=0; i<rdAmt; i++) {
+			var tempid = Math.floor((genMathRand()*6))+1;
+			document.getElementById("rdice"+i).innerHTML = '<img src="/img/dice/dice'+tempid+'.svg" width="110" height="110" alt="dice '+tempid+'">';
+			rSum += tempid;
+			rMultiple *= tempid;
+		}
+		if (rdAmt>1){
+			document.getElementById("summulti").innerHTML = 'Sum: '+rSum+'<br>Product: '+rMultiple;
+		}else{
+			document.getElementById("summulti").innerHTML = '';
+		}
+	}
+}
+function rollDice(){
+	dCounter = 0;
+	document.getElementById("summulti").innerHTML = '';
+	setTimeout(delayAndShow, 50);
+	return false;
+}
+</script>
+<div style="display:none"><img src="/img/dice/dice1.svg" width="110" height="110" alt="dice 1"><img src="/img/dice/dice2.svg" width="110" height="110" alt="dice 2"><img src="/img/dice/dice3.svg" width="110" height="110" alt="dice 3"><img src="/img/dice/dice4.svg" width="110" height="110" alt="dice 4"><img src="/img/dice/dice5.svg" width="110" height="110" alt="dice 5"><img src="/img/dice/dice6.svg" width="110" height="110" alt="dice 6"></div>
+
+<br><h2>Non-Conventional Dice Roller</h2>
+<p>Use the following virtual dice roller to mimic dice that have a different number of faces from the conventional 6-faced die. The most common physical dice have 4, 6, 8, 10, 12, and 20 faces respectively, with 6-faced die comprising the majority of dice. This virtual dice roller can have any number of faces and can generate random numbers simulating a dice roll based on the number of faces and dice.</p>
+<div id="resultid2" class="verybigtext" style="padding:10px 0px;"></div>
+<form name="calform2" onsubmit="return rollDice2();">
+<table  class="panel">
+<tr>
+	<td valign="top" style="padding-top:8px;">Sides on a Dice:</td><td><input type="number" name="diceside" value="8" class="inhalf" style="text-align:left;" onChange="inValidation();"></td>
+</tr>
+<tr>
+	<td valign="top" style="padding-top:8px;">Number of Dice:</td><td><input type="number" name="dicenum" value="2" class="inhalf" style="text-align:left;" onChange="inValidation();"></td>
+</tr>
+<tr><td colspan="2" align="center" style="padding-top:10px;">
+	<input type="submit" name="submit2" value="    Start    " onClick="return rollDice2();">
+</td></tr>
+</table>
+</form>
+<script>
+var showStop = 0;
+function inValidation(){
+	var rdAmt = parseInt(document.calform2.dicenum.value);
+	var rdSide = parseInt(document.calform2.diceside.value);
+	if (isNaN(rdSide)||(rdSide<2)) document.calform2.diceside.value = 2;
+	if (isNaN(rdAmt)||(rdAmt<1)) document.calform2.dicenum.value = 1;
+	if (rdAmt>10000) document.calform2.dicenum.value = 10000;
+}
+
+function delayAndShow2(){
+	var rdAmt = parseInt(document.calform2.dicenum.value);
+	var rdSide = parseInt(document.calform2.diceside.value);
+
+	if (showStop==1){
+		var allNums = [];
+		for (i=0; i<rdAmt; i++) {
+			allNums.push(Math.floor((genMathRand()*rdSide))+1);
+		}
+		document.getElementById("resultid2").innerHTML = allNums.join(", ");
+		setTimeout(delayAndShow2, 50);
+	}else{
+		var allNums = [];
+		var aSum = 0;
+		var aProd = 1;
+		for (i=0; i<rdAmt; i++) {
+			var tempIndex = Math.floor((genMathRand()*rdSide))+1;
+			allNums.push(tempIndex);
+			aSum += tempIndex;
+			aProd *= tempIndex;
+		}
+		document.getElementById("resultid2").innerHTML = allNums.join(", ")+'<div style="padding-top:10px;">Sum: '+aSum+'<br>Product: '+aProd+'</div>';
+	}
+}
+
+function rollDice2(){
+	inValidation();
+	if (showStop == 0){
+		showStop = 1;
+		document.calform2.submit2.value = "    Stop    ";
+		document.calform2.submit2.style.backgroundColor = "#cc3333";
+		setTimeout(delayAndShow2, 50);
+	}else{
+		showStop = 0;
+		document.calform2.submit2.value = "    Start    ";
+		document.calform2.submit2.style.backgroundColor = "#417516";
+	}
+	return false;
+}
+</script>
+
+<br><p>A dice is typically a small, throwable object that has multiple faces (most commonly six) and possible positions that indicate a number (or something else), used for generating random numbers and events. They are typically used for tabletop games, which include a wide variety of games, as well as for gambling. Examples of tabletop games that involve the use of dice include games like backgammon, Boggle, and Yahtzee, where dice are a central component of the game. Some other well-known tabletop games include Monopoly, Risk, Dungeons and Dragons, and Settlers of Catan. There are however, numerous others.</p>
+
+<img src="/img/dice.jpg" align="right" width="320" height="396" alt="dice" hspace="5"><h3>Dice shapes</h3>
+<p>The most commonly used dice shapes are shown in the image, and listed below.</p>
+<ul>
+	<li>Tetrahedron: 4 faces &ndash; the blue die</li>
+	<li>Cube: 6 faces &ndash; the orange, cubic die</li>
+	<li>Octahedron: 8 faces &ndash; the green die</li>
+	<li>Pentagonal trapezohedron: 10 faces &ndash; the orange, non-cubic die</li>
+	<li>Dodecahedron: 12 faces &ndash; the yellow die</li>
+	<li>Icosahedron: 20 faces &ndash; the purple die</li>
+</ul>
+<p>Although the image shows some of the more common die shapes, there are many other polyhedral dice, or dice of other shapes. There are also non-numeric dice, dice that do not follow a counting sequence that begins at one, and spherical dice.</p>
+
+<h3>How random is a dice?</h3>
+<p>Based on probability, a die should have an equal probability of landing on each of its faces. However, this is not necessarily the case with mass produced dice as they cannot be truly random, since it is difficult to mass produce dice that are uniform, and there may be differences in the symmetry of the dice. Each dice, particularly d20 (20-sided polyhedral dice) and d8 (8-sided polyhedral dice) is often unbalanced, and more likely to roll certain numbers.</p>
+<p><b>How to test how random your dice is:</b></p>
+<p>Although it may not be the most accurate way to test how random your dice is, one relatively quick test you can do involves just a container, some water, and some salt:</p>
+<ol>
+	<li>Get a container that can fit the die you want to test</li>
+	<li>Fill the container with water, then add salt and the die to the water &ndash; if the die doesn't float, add more salt until the die floats</li>
+	<li>Flick the die and take note of which side faces upwards &ndash; repeatedly flick the dice and record the results</li>
+</ol>
+<p>For a well-balanced die, you can expect a variety of numbers. If it is not well balanced, you will be more likely to notice certain numbers occurring more often. However, unless this test is performed numerous times, or the dice is heavily unbalanced, the user is not likely to notice a significant difference.</p>
+<p>There are a number of companies that manufacture dice, and some more rigorous tests (than the one described above) have been performed on dice manufactured by different companies in an effort to determine how truly random the dice (mostly d20 dice) are. These studies confirmed that even dice manufactured within the same company under the same conditions could vary significantly from each other, and are not truly random. Some companies produced dice that were more random than others, but even then, they were not found to be truly random.</p>
+<p>Virtual dice, like the one above, are almost always based on pseudo-random number generating algorithms, which are also not truly random. However, a virtual dice roll is likely more close to true randomness than most physical dice.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

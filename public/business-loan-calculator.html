@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Business Loan Calculator</title>
+	<meta name="description" content="Free business loan calculator that deals with complex repayment options and returns real APR/cost of a business or SBA loan. Learn more about business loans." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script src="/js/repayment.js" async></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/business-loan-calculator.html" itemprop="item"><span itemprop="name">business loan calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Business Loan Calculator</h1>
+
+<p>The Business Loan Calculator calculates the payback amount and the total costs of a business loan. The calculator can also take the fees into account to determine the true annual percentage rate, or APR for the loan. The APR gives borrowers a more accurate assessment of a loan's actual cost.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput">
+<form name="calform" action="/business-loan-calculator.html#business-result">
+<table id="calinputtable" class="panel" align="center">
+<tr><td>Loan amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="10000" class="inhalf indollar"></td></tr>
+<tr><td>Interest rate</td><td><input type="text" name="cinterestrate" id="cinterestrate" value="10" class="inhalf inpct"></td></tr>
+<tr><td>Compound</td><td><select name="ccompound" id="ccompound">
+<option value="annually">Annually (APY)</option>
+<option value="semiannually">Semi-annually</option>
+<option value="quarterly">Quarterly</option>
+<option value="monthly" selected>Monthly (APR)</option>
+<option value="semimonthly">Semi-monthly</option>
+<option value="biweekly">Biweekly</option>
+<option value="weekly">Weekly</option>
+<option value="daily">Daily</option>
+<option value="continuously">Continuously</option></select></td></tr>
+
+<tr><td valign="top"><div style="padding-top:8px;">Loan term</div></td><td><input type="text" name="cyears" id="cyears" value="5" class="inhalf inuiyear"><span class="inuiyearspan">years</span><br>
+						<input type="text" name="cmonths" id="cmonths" value="0" class="inhalf inuipound"><span class="inuipoundspan">months</span></td></tr>
+
+<tr><td>Pay back</td><td><select name="cpayback" id="cpayback">
+<option value="daily">Every Day</option>
+<option value="weekly">Every Week</option>
+<option value="biweekly">Every 2 Weeks</option>
+<option value="halfmonth">Every Half Month</option>
+<option value="month" selected>Every Month</option>
+<option value="quarter">Every Quarter</option>
+<option value="halfyear">Every 6 Months</option>
+<option value="year">Every Year</option>
+<option value="interest">Interest Only</option>
+<option value="end">In the End</option></select></td></tr>
+
+<tr><td>Origination fee</td><td><input type="text" name="coriginationfee" id="coriginationfee" value="5" class="inhalf inpct"></td></tr>
+<tr><td>Documentation fee</td><td><input type="text" name="cdocumentationfee" id="cdocumentationfee" value="750" class="inhalf indollar"</td></tr>
+<tr><td>Other fees</td><td><input type="text" name="cotherfee" id="cotherfee" value="0" class="inhalf indollar"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+</div><div class="rightresult"><a name="business-result"> </a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('QnVzaW5lc3MgTG9hbiBDYWxjdWxhdG9y', 0, 'QnVzaW5lc3MgTG9hbiBDYWxjdWxhdG9y', '', '');"></h2><table cellpadding="3" width="100%" style="padding-top:8px;"><tr><td>Payback every month</td><td align="right">$212.47</td></tr><tr><td>Total of 60 loan payments</td><td align="right">$12,748.23</td></tr><tr><td>Interest</td><td align="right">$2,748.23</td></tr><tr><td>Interest + fee</td><td align="right">$3,998.23</td></tr><tr><td>Real rate (APR)</td><td align="right">15.931%</td></tr></table><div style="text-align:center;padding:8px;"><g onclick="ttline2HideTT();"><svg width="250" height="106"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 61 8 A 45 45 0 1 1 17.123 62.988 L 61 53 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$10,000.00 (71%)');" onmouseout="ttpieHideTT();" /><line x1="61" y1="53" x2="61" y2="8" class="mcpline" /><path d="M 17.123 62.988 A 45 45 0 0 1 37.056 14.899 L 61 53 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$2,748.23 (20%)');" onmouseout="ttpieHideTT();" /><line x1="61" y1="53" x2="17.123" y2="62.988" class="mcpline" /><path d="M 37.056 14.899 A 45 45 0 0 1 61 8 L 61 53 Z" fill="#910000"  onmousemove="ttpieShowTT(evt, '#910000', 'Fee <br>$1,250.00 (9%)');" onmouseout="ttpieHideTT();" /><line x1="61" y1="53" x2="37.056" y2="14.899" class="mcpline" /><line x1="61" y1="53" x2="61" y2="8" class="mcpline" /><circle cx="61" cy="53" r="15.75" fill="white" /><text x="84.45" y="71.711" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$10,000.00 (71%)');" onmouseout="ttpieHideTT();">71%</text><text x="33.286" y="41.513" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$2,748.23 (20%)');" onmouseout="ttpieHideTT();">20%</text><text x="52.694" y="24.173" class="mcplabel" stroke="#910000" onmousemove="ttpieShowTT(evt, '#910000', 'Fee <br>$1,250.00 (9%)');" onmouseout="ttpieHideTT();">9%</text><rect x="122" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="147" y="19" class="mcplegend">Principal</text><rect x="122" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="147" y="37" class="mcplegend">Interest</text><rect x="122" y="44" rx="3" ry="3" width="20" height="14" style="fill:#910000;" /><text x="147" y="55" class="mcplegend">Fee</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div><p style="text-align:center;"><a href="#" onClick="return showAmo(10000, 0.0083333333333333, 60, 212.47044711268, 'month', 'lcamotable1');">View Amortization Table</a></p></div>
+<div id="clear"></div>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cdocumentationfee");
+proComma2("cotherfee");
+</script>
+<div id="lcamotable1"></div><br><p><fieldset><legend>Related</legend><a href="/loan-calculator.html">Loan Calculator</a> | <a href="/interest-calculator.html">Interest Calculator</a></fieldset></p>
+<br>
+<p>Business loans, like the name implies, are loans intended for business purposes. Like other loans, the terms require the borrower to pay back both the principal and the interest. Most business loans will require monthly repayments, though some may call for weekly, daily, or interest-only payments. A select few can require repayment when the loans mature.</p>
+<p>Business loans also come in many different forms. The following is a list of common loan options for U.S. businesses:</p>
+
+<h3>SBA Loans</h3>
+<p>Small Business Administration (SBA) loans, or loans federally regulated by the U.S. Small Business Administration, are designed to meet the financing needs of many different business types. Depending on the type of SBA loan, borrowers can use them for various purposes, including:</p>
+<ul>
+	<li>Business start-ups</li>
+	<li>Acquisitions</li>
+	<li>Working capital</li>
+	<li>Real estate</li>
+	<li>Franchise financing</li>
+	<li>Debt refinancing</li>
+	<li>Improvements</li>
+	<li>Renovations</li>
+</ul>
+<p>The actual SBA loan funds are not provided by the government, but by banks, local community organizations, or other financial institutions. The SBA guarantees these lenders 75% to 90% of the loan amount in case of default. This encourages loans by reducing lender risk. However, SBA loans require additional paperwork and extra fees. Moreover, approval may take longer, and their strict regulations tend to give business owners less freedom. Additionally, maximum loan limits may fall short of covering the more costly needs of some businesses.</p>
+
+<h3>SBA Loan Types</h3>
+<p>The SBA offers four types of small business loans:</p>
+<p><b>7(a) Loan</b></p>
+<p>This is the primary small business loan offered by the SBA, and it is usually what one means when referring to an "SBA loan."</p>
+<p>7(a) loans make up more than 75% of all SBA loans, and borrowers utilize them for varied purposes. These may include working capital or different types of purchases. Such acquisitions may consist of machinery, equipment, land, or new buildings. Borrowers can also use the funds for debt financing. They may take out loans as large as $5 million for up to 10 years for working capital or 25 years for fixed assets.</p>
+<p><b>Microloan</b></p>
+<p>These loans are intended for new or growing small businesses. Borrowers can utilize microloans for everything covered under 7(a) loans except paying off existing debt or purchasing real estate. Lenders can approve microloans for as much as $50,000, though the average of these loans is no more than $15,000. The maximum allowable term is six years.</p>
+<p><b>Real Estate & Equipment Loan (CDC/504)</b></p>
+<p>Borrowers typically take out CDC/504 Loans for long-term fixed-rate financing of real estate or equipment and debt refinancing. Due to their limited scope, they cannot utilize these loans for working capital or inventory. The maximum loan amount is $5.5 million with possible terms of 10, 20, or 25 years.</p>
+<p><b>Disaster Loan</b></p>
+<p>Business owners can use these loans to repair machinery, property, equipment, inventory, or business assets damaged or destroyed by a declared disaster. The maximum loan amount is $2 million, and possible disasters can include earthquakes, storms, flooding, fires (natural or man-made), or civil unrest.</p>
+
+<h3>Other Loan Types</h3>
+<p><b>Conventional Loans</b></p>
+<p>Most conventional business loans come from banks or other financial institutions. Unlike SBA loans, conventional loans do not offer governmental insurance for lenders. They typically involve higher rates and shorter terms. Hence, borrowers with lower credit scores or a lack of available funding may find SBA loans more attractive. However, personal loans may carry low interest rates for borrowers with excellent credit. Moreover, such loans involve a quicker, less regulated process, increasing their appeal to some borrowers.</p>
+<p>Banks offer conventional loans in many different forms, such as mezzanine financing, asset-based financing, invoice financing, business cash advances, and cash flow loans.</p>
+
+<p><b>Personal Loans</b></p>
+<p>Borrowers can sometimes use personal loans for small business purposes. In some cases, new businesses without established histories and reputations may turn to such loans to avoid the high interest rates on business loans. Refer to the <a href="/personal-loan-calculator.html">Personal Loan Calculator</a> for more information or to run calculations involving personal loans.</p>
+
+<p><b>Interest-Only</b></p>
+<p>An interest-only loan differs from standard loans in that borrowers pay only interest for the duration of the loan. The entire principal balance comes due at the loan's maturity date. An interest-only loan allows for lower payments during the loan term and might make sense when borrowers expect higher income in the future.</p>
+
+<h3>Business Loan Fees</h3>
+<p>Like many other types of loans, business loans usually involve fees besides interest. Banks typically charge these fees to cover the costs of verifying the borrower's information, filling out paperwork, and other loan-related expenses. The most common fees are the origination fee and the documentation fee.</p>
+
+<p><b>Origination Fee</b></p>
+<p>Banks charge this fee for the processing and approval of a loan application, a process that may include verification of a borrower's information. Banks may apply a flat fee or a percentage of the loan amount, generally between 1% and 6%. They often roll the origination fee into the cost of the loan.</p>
+
+<p><b>Documentation Fee</b></p>
+<p>This is a common fee associated with loans that banks charge to cover the cost of processing paperwork.</p>
+<p>Besides the origination fee and documentation fee, some lenders may also charge an application fee upfront to review the application.</p>
+<p>Banks may also charge other fees over the course of the loan. These may include:</p>
+<ul>
+	<li>Monthly administrative fees</li>
+	<li>Annual fees</li>
+	<li>Service or processing fees</li>
+	<li>Prepayment penalties</li>
+	<li>Referral fees</li>
+	<li>Late payment fees</li>
+	<li>Wire transfer fees</li>
+</ul>
+<p>Not all lenders charge these fees. Also, some expenses, such as the late payment fee or the prepayment penalty, will only apply in certain situations.</p>
+
+<p><b>The Bottom Line</b></p>
+<p>All these fees can make the actual cost or rate of the loans higher than the interest rate given by the lenders. The calculator above can account for these expenses and compute the loan's actual cost with fees included, allowing borrowers to understand the full implications of taking out such a loan.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

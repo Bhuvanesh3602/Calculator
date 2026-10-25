@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Big Number Calculator</title>
+	<meta name="description" content="This free big number calculator can perform calculations involving very large integers or decimals at a high level of precision." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/big-number-calculator.html" itemprop="item"><span itemprop="name">big number calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Big Number Calculator</h1><p>The calculator below can compute very large numbers. Acceptable formats include: integers, decimal, or the E-notation form of scientific notation, i.e. 23E18, 3.5e19, etc.</p><form name="calc" action="big-number-calculator.html">
+<table class="panel" >
+	<tr valign="top">
+		<td>
+		X = </td><td>		<textarea name="cx" rows="2" wrap="virtual" class="infulltxarea" maxlength="199999"></textarea></td>
+	</tr>
+	<tr valign="top">
+		<td>
+		Y = </td><td><textarea name="cy" rows="2" wrap="virtual" class="infulltxarea" maxlength="199999"></textarea></td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>		<td>
+		<br><table border="0" cellpadding="0" cellspacing="0"><tr><td>Precision:&nbsp;</td><td><input type="text" name="cp" value="20" class="innormal" maxlength="4"></td><td>&nbsp;digits
+			after the decimal place in the result			</td></tr></table>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>		<td id="submitbtn"><br>
+			<div style="text-align:center;">Click the buttons below to calculate</div>
+			<div style="padding: 3px 0px;">
+			<button type="submit" name="co" value="plus" onClick="return checkGetPost();">X + Y</button>
+			<button type="submit" name="co" value="minus" onClick="return checkGetPost();">X &ndash; Y</button>
+			<button type="submit" name="co" value="multiple" onClick="return checkGetPost();">X &#215; Y</button>
+						<button type="submit" name="co" value="divide" onClick="return checkGetPost();">X / Y</button>
+			<button type="submit" name="co" value="pow" onClick="return checkGetPost();">X^Y</button>
+			<button type="submit" name="co" value="sqrt" onClick="return checkGetPost();">&radic;X</button>
+			<button type="submit" name="co" value="square" onClick="return checkGetPost();">X ^ 2</button>
+						<button type="submit" name="co" value="factor" onClick="return checkGetPost();">X!</button>
+			<button type="submit" name="co" value="mod" onClick="return checkGetPost();">MOD</button>
+			<button type="submit" name="co" value="gcd" onClick="return checkGetPost();">GCD</button>
+			<button type="submit" name="co" value="lcm" onClick="return checkGetPost();">LCM</button>
+			</div>
+		</td>
+	</tr>
+</table>
+</form>
+<style>
+#submitbtn input, #submitbtn button{
+	border: 0px;
+	border-radius: 3px;
+	background:#417516;
+	padding: 8px 9px;
+	font-size:16px;
+	color:#fff;
+}
+#submitbtn input:hover, #submitbtn button:hover{
+	background:#444;
+	color:#fff;
+}
+</style>
+<script>
+function checkGetPost(){
+	var allInputsVal = document.calc.cx.value + "|" + document.calc.cy.value + "|" + document.calc.cp.value;
+	if (allInputsVal.length>1950) document.calc.method = "post";
+	return true;
+}
+</script>
+<br>
+<p>Most scientific and graphing calculators can only display possibly up to 10 decimal places of accuracy. While this is enough in most instances of everyday use, it can be fairly limiting for applications where higher standards of accuracy are necessary. Hence the existence of big number calculators such as the one above, that can provide far higher levels of accuracy. Big numbers are more likely to be used in fields such as cosmology, astronomy, mathematics, cryptography, and statistical mechanics.</p>
+
+<p>Some big numbers that people are exposed to in everyday life include the number of bits on a computer's hard disk, the number of cells and neuronal connections in the body, Avogadro's constant, the estimated number of atoms in the observable universe, and combinatorial processes.</p>
+
+<p>In some cases, the numbers worked with are so large that special notations such as Knuth's up-arrow notation, the Conway chained arrow notation, and Steinhaus-Moser notation were conceived. Nevertheless, there are certainly scientific uses for big number calculators today, and even if a person may not have any need to use one, it can certainly be entertaining to sate one's curiosity of what 10,000 factorial looks like on a screen. Below is a table that shows big numbers in terms of powers of 10 as well as their respective names.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Powers of 10</td><td class="cinfoHdL">Name</td></tr>
+	<tr><td>10<sup>9</sup></td><td>Billion</td></tr>
+	<tr><td>10<sup>12</sup></td><td>Trillion</td></tr>
+	<tr><td>10<sup>15</sup></td><td>Quadrillion</td></tr>
+	<tr><td>10<sup>18</sup></td><td>Quintillion</td></tr>
+	<tr><td>10<sup>21</sup></td><td>Sextillion</td></tr>
+	<tr><td>10<sup>24</sup></td><td>Septillion</td></tr>
+	<tr><td>10<sup>27</sup></td><td>Octillion</td></tr>
+	<tr><td>10<sup>30</sup></td><td>Nonillion</td></tr>
+	<tr><td>10<sup>33</sup></td><td>Decillion</td></tr>
+	<tr><td>10<sup>36</sup></td><td>Undecillion</td></tr>
+	<tr><td>10<sup>39</sup></td><td>Duodecillion</td></tr>
+	<tr><td>10<sup>42</sup></td><td>Tredecillion</td></tr>
+	<tr><td>10<sup>45</sup></td><td>Quattuordecillion</td></tr>
+	<tr><td>10<sup>48</sup></td><td>Quindecillion</td></tr>
+	<tr><td>10<sup>51</sup></td><td>Sexdecillion</td></tr>
+	<tr><td>10<sup>54</sup></td><td>Septendecillion</td></tr>
+	<tr><td>10<sup>57</sup></td><td>Octodecillion</td></tr>
+	<tr><td>10<sup>60</sup></td><td>Novemdecillion</td></tr>
+	<tr><td>10<sup>63</sup></td><td>Vigintillion</td></tr>
+	<tr><td>10<sup>100</sup></td><td>Googol</td></tr>
+	<tr><td>10<sup>303</sup></td><td>Centillion</td></tr>
+	<tr><td>10<sup>googol</sup></td><td>Googolplex</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

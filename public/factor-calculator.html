@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Factor Calculator</title>
+	<meta name="description" content="This free factor calculator computes the factors and prime factors of a given integer." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/factor-calculator.html" itemprop="item"><span itemprop="name">factor calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Factor Calculator</h1><p>Please provide an integer to calculate its factors and prime factors.</p>
+<form name="calform">
+<div class="panel">
+<table align="center">
+  <tr>
+    <td><input type="text" name="cvar" value="120" class="infull" maxlength="14"></td>
+	    <td align="center"><div style="padding:15px 5px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+    </div></td>
+  </tr>
+</table></div>
+</form>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/lcm-calculator.html">LCM Calculator</a> | <a href="/gcf-calculator.html">GCF Calculator</a></fieldset></p>
+
+<br><h3>What is a factor?</h3>
+<p>In multiplication, factors are the integers that are multiplied together to find other integers. For example, 6 &#215; 5 = 30. In this example, 6 and 5 are the factors of 30. 1, 2, 3, 10, 15, and 30 would also be factors of 30. Essentially, an integer <b>a</b> is a factor of another integer <b>b</b>, so long as <b>b</b> can be divided by <b>a</b> with no remainder. Factors are important when working with fractions, as well as when trying to find patterns within numbers. </p>
+
+<p>Prime factorization involves finding the prime numbers that, when multiplied, return the number being addressed. For example, prime factorization of 120 results in 2 &#215; 2 &#215; 2 &#215; 3 &#215; 5. It can be helpful to use a factor tree when computing the prime factorizations of numbers. Using 120: </p>
+
+<table align="center"><tr><td>
+<div>&nbsp;120</div>
+<div>&nbsp;/ &nbsp; \</div>
+<div>2 &nbsp; 60</div>
+<div> &nbsp; &nbsp; / &nbsp; \</div>
+<div> &nbsp; &nbsp;2  &nbsp; 30</div>
+<div> &nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; \</div>
+<div> &nbsp; &nbsp; &nbsp; 2 &nbsp; 15</div>
+<div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / &nbsp; \</div>
+<div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3 &nbsp; &nbsp;5</div>
+</td></tr></table>
+
+<p>From the simple example of 120, it is clear that prime factorization can become quite tedious fairly quickly. Unfortunately, there is currently no known algorithm for prime factorization that is efficient for very large numbers. Many calculators, including the one on this page, cannot calculate prime factorizations beyond a certain magnitude. One concerted effort between several researchers to factor RSA-768, a 232-digit number, took 2 years using hundreds of machines.</p>
+
+<p>Although no efficient algorithm has been found, it also has yet to be proven that no such algorithm exists, leaving room for anyone interested in having their name in a mathematical algorithm to formulate one (or prove in some self-named theorem that one doesn't exist)! </p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

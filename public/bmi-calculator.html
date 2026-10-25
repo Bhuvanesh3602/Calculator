@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BMI Calculator</title>
+	<meta name="description" content="Free Body Mass Index calculator gives out the BMI value and categorizes BMI based on provided information from WHO and CDC for both adults and children." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/bmi-calculator.html" itemprop="item"><span itemprop="name">bmi calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>BMI Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<span id="ucframe"></span>
+<div class="leftinput">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<div class="panel2">
+<table border="0" cellpadding="0" cellspacing="0" align="center"><tr><td>
+<form name="calform">
+<table id="calinputtable" width="300">
+<tr>
+	<td width="60">Age</td>
+	<td width="240"><input type="text" name="cage" id="cage" value="25" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> &nbsp;ages: 2 - 120</td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>Male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>Female</label></td>
+</tr>
+</table>
+<table width="300" id="standardheightweight" bgcolor="#eeeeee">
+<tr>
+	<td width="60">Height</td>
+	<td width="240">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Weight</td>
+	<td><input type="text" name="cpound" id="cpound" value="160" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="300" id="metricheightweight" bgcolor="#eeeeee">
+<tr>
+	<td width="60">Height</td>
+	<td width="240"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="65" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="264">
+<tr>
+	<td colspan="2" align="right" style="padding-top:8px;">
+		<input name="printit" value="0" type="hidden">
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</td></tr></table>
+
+</div>
+</div>
+<div class="rightresult">
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Qk1JIENhbGN1bGF0b3I=', 0, 'Qk1JIENhbGN1bGF0b3I=', 'Qk1J', 'MjM=');"></h2><div class="bigtext" style="margin-top:5px;"><b>BMI = 23 kg/m<sup>2</sup></b> &nbsp; (<font color='green'><b>Normal</b></font>)</div><div style="padding-top:10px;text-align:center;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300px" height="163px" viewBox="0 0 300 163" ><g transform="translate(18,18)" style="font-family:arial,helvetica,sans-serif;font-size: 12px;"><defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" /></marker><path id="curvetxt1" d="M-4 140 A140 140, 0, 0, 1, 284 140" style="fill: none;"/><path id="curvetxt2" d="M33 43.6 A140 140, 0, 0, 1, 280 140" style="fill: #none;"/><path id="curvetxt3" d="M95 3 A140 140, 0, 0, 1, 284 140" style="fill: #none;"/><path id="curvetxt4" d="M235.4 33 A140 140, 0, 0, 1, 284 140" style="fill: #none;"/></defs><path d="M0 140 A140 140, 0, 0, 1, 6.9 96.7 L140 140 Z" fill="#bc2020" /><path d="M6.9 96.7 A140 140, 0, 0, 1, 12.1 83.1 L140 140 Z" fill="#d38888" /><path d="M12.1 83.1 A140 140, 0, 0, 1, 22.6 63.8 L140 140 Z" fill="#ffe400" /><path d="M22.6 63.8 A140 140, 0, 0, 1, 96.7 6.9 L140 140 Z" fill="#008137" /><path d="M96.7 6.9 A140 140, 0, 0, 1, 169.1 3.1 L140 140 Z" fill="#ffe400" /><path d="M169.1 3.1 A140 140, 0, 0, 1, 233.7 36 L140 140 Z" fill="#d38888" /><path d="M233.7 36 A140 140, 0, 0, 1, 273.1 96.7 L140 140 Z" fill="#bc2020" /><path d="M273.1 96.7 A140 140, 0, 0, 1, 280 140 L140 140 Z" fill="#8a0101" /><path d="M45 140 A90 90, 0, 0, 1, 230 140 Z" fill="#fff" /><circle cx="140" cy="140" r="5" fill="#666" /><g style="paint-order: stroke;stroke: #fff;stroke-width: 2px;"><text x="25" y="111"  transform="rotate(-72, 25, 111)">16</text><text x="30" y="96"  transform="rotate(-66, 30, 96)">17</text><text x="35" y="83"  transform="rotate(-57, 35, 83)">18.5</text><text x="97" y="29"  transform="rotate(-18, 97, 29)">25</text><text x="157" y="20"  transform="rotate(12, 157, 20)">30</text><text x="214" y="45"  transform="rotate(42, 214, 45)">35</text><text x="252" y="95"  transform="rotate(72, 252, 95)">40</text></g><g style="font-size: 14px;"><text><textPath xlink:href="#curvetxt1">Underweight</textPath></text><text><textPath xlink:href="#curvetxt2">Normal</textPath></text><text><textPath xlink:href="#curvetxt3">Overweight</textPath></text><text><textPath xlink:href="#curvetxt4">Obesity</textPath></text></g><line x1="140" y1="140" x2="65" y2="140" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"><animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 140 140" to="60 140 140" dur="1s" fill="freeze" repeatCount="1"/></line><text x="67" y="120" style="font-size: 30px;font-weight:bold;color:#000;">BMI = 23</text></g></svg></div><ul style='margin-left:8px;padding-left:8px;'><li>Healthy BMI range: 18.5 kg/m<sup>2</sup> - 25 kg/m<sup>2</sup></li><li>Healthy weight for the height: 128.9 lbs - 174.2 lbs</li><li>BMI Prime: 0.92</li><li>Ponderal Index: 12.9 kg/m<sup>3</sup></li></ul></div>
+<div id="clear"></div>
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other',0);\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other',0);\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard",0);
+</script>
+<br>
+<p>The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration. Use the "Metric Units" tab for the International System of Units or the "Other Units" tab to convert units into either US or metric units. Note that the calculator also computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
+
+<br><h3>BMI introduction</h3>
+<p>BMI is a measurement of a person's leanness or corpulence based on their height and weight, and is intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a healthy body weight for their height. Specifically, the value obtained from the calculation of BMI is used to categorize whether a person is underweight, normal weight, overweight, or obese depending on what range the value falls between. These ranges of BMI vary based on factors such as region and age, and are sometimes further divided into subcategories such as severely underweight or very severely obese. Being overweight or underweight can have significant health effects, so while BMI is an imperfect measure of healthy body weight, it is a useful indicator of whether any additional testing or action is required. Refer to the table below to see the different categories based on BMI that are used by the calculator.</p>
+<h3>BMI table for adults</h3>
+<p>This is the World Health Organization's (WHO) recommended body weight based on BMI values for adults. It is used for both men and women, age 20 or older.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Classification</td><td class="cinfoHdL">BMI range - kg/m<sup>2</sup></td></tr>
+	<tr><td>Severe Thinness</td><td align="center">&lt; 16</td></tr>
+	<tr><td>Moderate Thinness</td><td align="center">16 - 17</td></tr>
+	<tr><td>Mild Thinness</td><td align="center">17 - 18.5</td></tr>
+	<tr><td>Normal</td><td align="center">18.5 - 25</td></tr>
+	<tr><td>Overweight</td><td align="center">25 - 30</td></tr>
+	<tr><td>Obese Class I</td><td align="center">30 - 35</td></tr>
+	<tr><td>Obese Class II</td><td align="center">35 - 40</td></tr>
+	<tr><td>Obese Class III</td><td align="center">&gt; 40</td></tr>
+</table>
+
+<h3>BMI chart for adults</h3>
+<p>This is a graph of BMI categories based on the World Health Organization data. The colors represent the major BMI categories, and the gray contour lines represent integer BMI values for different height&ndash;weight combinations.</p>
+<p style="text-align:center;"><img src="/img/bmi-chart.png" width="500" height="320" class="scaleimg" alt="BMI categories" /></p>
+
+<h3>BMI table for children and teens, age 2-20</h3>
+<p>The Centers for Disease Control and Prevention (CDC) recommends BMI categorization for children and teens between age 2 and 20.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Category</td><td class="cinfoHdL">Percentile Range</td></tr>
+	<tr><td>Underweight</td><td align="center">&lt;5%</td></tr>
+	<tr><td>Healthy weight</td><td align="center">5% - 85%</td></tr>
+	<tr><td>At risk of overweight</td><td align="center">85% - 95%</td></tr>
+	<tr><td>Overweight</td><td align="center">&gt;95%</td></tr>
+</table>
+
+<h3>BMI chart for children and teens, age 2-20</h3>
+<p>The Centers for Disease Control and Prevention (CDC) BMI-for-age percentiles growth charts.</p>
+<a href="/pdf/bmi-chart-boys.pdf">Chart for boys</a><br />
+<a href="/pdf/bmi-chart-girls.pdf">Chart for girls</a>
+
+<h3>Risks associated with being overweight</h3>
+<p>Being overweight increases the risk of a number of serious diseases and health conditions. Below is a list of said risks, according to the Centers for Disease Control and Prevention (CDC):</p>
+<ul>
+	<li>High blood pressure</li>
+	<li>Higher levels of LDL cholesterol, which is widely considered "bad cholesterol," lower levels of HDL cholesterol, considered to be good cholesterol in moderation, and high levels of triglycerides</li>
+	<li>Type II diabetes</li>
+	<li>Coronary heart disease</li>
+	<li>Stroke</li>
+	<li>Gallbladder disease</li>
+	<li>Osteoarthritis, a type of joint disease caused by breakdown of joint cartilage</li>
+	<li>Sleep apnea and breathing problems</li>
+	<li>Certain cancers (endometrial, breast, colon, kidney, gallbladder, liver)</li>
+	<li>Low quality of life</li>
+	<li>Mental illnesses such as clinical depression, anxiety, and others</li>
+	<li>Body pains and difficulty with certain physical functions</li>
+	<li>Generally, an increased risk of mortality compared to those with a healthy BMI</li>
+</ul>
+<p>As can be seen from the list above, there are numerous negative, in some cases fatal, outcomes that may result from being overweight. Generally, a person should try to maintain a BMI below 25 kg/m<sup>2</sup>, but ideally should consult their doctor to determine whether or not they need to make any changes to their lifestyle in order to be healthier.</p>
+
+<h3>Risks associated with being underweight</h3>
+<p>Being underweight has its own associated risks, listed below:</p>
+<ul>
+	<li>Malnutrition, vitamin deficiencies, anemia (lowered ability to carry blood vessels)</li>
+	<li>Osteoporosis, a disease that causes bone weakness, increasing the risk of breaking a bone</li>
+	<li>A decrease in immune function</li>
+	<li>Growth and development issues, particularly in children and teenagers</li>
+	<li>Possible reproductive issues for women due to hormonal imbalances that can disrupt the menstrual cycle. Underweight women also have a higher chance of miscarriage in the first trimester</li>
+	<li>Potential complications as a result of surgery</li>
+	<li>Generally, an increased risk of mortality compared to those with a healthy BMI</li>
+</ul>
+<p>In some cases, being underweight can be a sign of some underlying condition or disease such as anorexia nervosa, which has its own risks. Consult your doctor if you think you or someone you know is underweight, particularly if the reason for being underweight does not seem obvious.</p>
+
+<h3>Limitations of BMI</h3>
+<p>Although BMI is a widely used and useful indicator of healthy body weight, it does have its limitations. BMI is only an estimate that cannot take body composition into account. Due to a wide variety of body types as well as distribution of muscle, bone mass, and fat, BMI should be considered along with other measurements rather than being used as the sole method for determining a person's healthy body weight.</p>
+
+<p><b>In adults:</b></p>
+<p>BMI cannot be fully accurate because it is a measure of excess body weight, rather than excess body fat. BMI is further influenced by factors such as age, sex, ethnicity, muscle mass, body fat, and activity level, among others. For example, an older person who is considered a healthy weight, but is completely inactive in their daily life may have significant amounts of excess body fat even though they are not heavy. This would be considered unhealthy, while a younger person with higher muscle composition of the same BMI would be considered healthy. In athletes, particularly bodybuilders who would be considered overweight due to muscle being heavier than fat, it is entirely possible that they are actually at a healthy weight for their body composition. Generally, according to the CDC:</p>
+<ul>
+	<li>Older adults tend to have more body fat than younger adults with the same BMI.</li>
+	<li>Women tend to have more body fat than men for an equivalent BMI.</li>
+	<li>Muscular individuals and highly trained athletes may have higher BMIs due to large muscle mass.</li>
+</ul>
+
+<p><b>In children and adolescents:</b></p>
+<p>The same factors that limit the efficacy of BMI for adults can also apply to children and adolescents. Additionally, height and level of sexual maturation can influence BMI and body fat among children. BMI is a better indicator of excess body fat for obese children than it is for overweight children, whose BMI could be a result of increased levels of either fat or fat-free mass (all body components except for fat, which includes water, organs, muscle, etc.). In thin children, the difference in BMI can also be due to fat-free mass.</p>
+<p>That being said, BMI is fairly indicative of body fat for 90-95% of the population, and can effectively be used along with other measures to help determine an individual's healthy body weight.</p>
+
+<h3>BMI formula</h3>
+<p>Below are the equations used for calculating BMI in the International System of Units (SI) and the US customary system (USC) using a 5'10", 160-pound individual as an example:</p>
+
+<table align="center">
+	<tr><td style="padding-top:5px;"><b>USC Units:</b></td></tr>
+	<tr><td style="padding-left: 15px;">
+		<table cellspacing="0" cellpadding="0"><tr>
+		<td>BMI = 703&#215;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>mass (lbs)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>height<sup>2</sup> (in)</td></tr></table></td>
+		<td>&nbsp;= 703&#215;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>160</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>70<sup>2</sup></td></tr></table></td>
+		<td>&nbsp;= 23.0</td>
+		</tr></table>
+	</td></tr>
+	<tr><td style="padding-top:15px;"><b>SI, Metric Units:</b></td></tr>
+	<tr><td style="padding-left: 15px;">
+		<table cellspacing="0" cellpadding="0"><tr>
+		<td>BMI =&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>mass (kg)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>height<sup>2</sup> (m)</td></tr></table></td>
+		<td>&nbsp;=&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>72.57</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1.778<sup>2</sup></td></tr></table></td>
+		<td>&nbsp;= 23.0</td>
+		</tr></table>
+	</td></tr>
+</table>
+
+<h3>BMI Prime</h3>
+<p>BMI prime is the ratio of a person's measured BMI to the upper limit of BMI that is considered "normal," by institutions such as the WHO and the CDC. Though it may differ in some countries, such as those in Asia, this upper limit, which will be referred to as BMI<sub>upper</sub> is 25 kg/m<sup>2</sup>.</p>
+<p>The BMI prime formula is:</p>
+<table align="center"><tr>
+<td>BMI prime =&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td>&nbsp;BMI&nbsp;</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">25</td></tr></table></td>
+</tr></table>
+<p>Since BMI prime is a ratio of two BMI values, BMI prime is a dimensionless value. A person who has a BMI prime less than 0.74 is classified as underweight; from 0.74 to 1 is classified as normal; greater than 1 is classified as overweight; and greater than 1.2 is classified as obese. The table below shows a person's weight classification based on their BMI prime:</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Classification</td><td class="cinfoHdL" align="center">BMI</td><td class="cinfoHdL">BMI Prime</td></tr>
+	<tr><td>Severe Thinness</td><td align="center">&lt; 16</td><td align="center">&lt; 0.64</td></tr>
+	<tr><td>Moderate Thinness</td><td align="center">16 - 17</td><td align="center">0.64 - 0.68</td></tr>
+	<tr><td>Mild Thinness</td><td align="center">17 - 18.5</td><td align="center">0.68 - 0.74</td></tr>
+	<tr><td>Normal</td><td align="center">18.5 - 25</td><td align="center">0.74 - 1</td></tr>
+	<tr><td>Overweight</td><td align="center">25 - 30</td><td align="center">1 - 1.2</td></tr>
+	<tr><td>Obese Class I</td><td align="center">30 - 35</td><td align="center">1.2- 1.4</td></tr>
+	<tr><td>Obese Class II</td><td align="center">35 - 40</td><td align="center">1.4 - 1.6</td></tr>
+	<tr><td>Obese Class III</td><td align="center">&gt; 40</td><td align="center">&gt; 1.6</td></tr>
+</table>
+<p>BMI prime allows us to make a quick assessment of how much a person's BMI differs from the upper limit of BMI that is considered normal. It also allows for comparisons between groups of people who have different upper BMI limits.</p>
+
+<h3>Ponderal Index</h3>
+<p>The Ponderal Index (PI) is similar to BMI in that it measures the leanness or corpulence of a person based on their height and weight. The main difference between the PI and BMI is the cubing rather than squaring of the height in the formula (provided below). While BMI can be a useful tool when considering large populations, it is not reliable for determining leanness or corpulence in individuals. Although the PI suffers from similar considerations, the PI is more reliable for use with very tall or short individuals, while BMI tends to record uncharacteristically high or low body fat levels for those on the extreme ends of the height and weight spectrum. Below is the equation for computing the PI of an individual using USC, again using a 5'10", 160-pound individual as an example:</p>
+
+<table align="center">
+	<tr><td style="padding-top:5px;"><b>USC Units:</b></td></tr>
+	<tr><td style="padding-left: 15px;">
+		<table cellspacing="0" cellpadding="0"><tr>
+		<td>PI =&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td align="center">height (in)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td><span class="bigtext">&#8731;</span><span style="text-decoration:overline;">mass (lbs)</span></td></tr></table></td>
+		<td>&nbsp;=&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td align="center">70</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td><span class="bigtext">&#8731;</span><span style="text-decoration:overline;">160</span></td></tr></table></td>
+		<td>&nbsp;= 12.9</td>
+		</tr></table>
+	<tr><td style="padding-top:15px;"><b>SI, Metric Units:</b></td></tr>
+	<tr><td style="padding-left: 15px;">
+		<table cellspacing="0" cellpadding="0"><tr>
+		<td>PI =&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>mass (kg)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>height<sup>3</sup> (m)</td></tr></table></td>
+		<td>&nbsp;=&nbsp;</td>
+		<td><table cellspacing="0" cellpadding="0"><tr><td>72.57</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>1.778<sup>3</sup></td></tr></table></td>
+		<td>&nbsp;= 12.9</td>
+		</tr></table>
+	</td></tr>
+</table>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

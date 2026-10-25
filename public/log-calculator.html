@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Log Calculator</title>
+	<meta name="description" content="This free log calculator solves for the unknown portions of a logarithmic expression using base e, 2, 10, or any other desired base." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/log-calculator.html" itemprop="item"><span itemprop="name">log calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Log Calculator (Logarithm)</h1>
+<p>Please provide any two values to calculate the third in the logarithm equation <span class="verybigtext"><b>log<sub>b</sub>x=y</b></span>. It can accept "e" as a base input.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>	<form name="calform"><table class="panel" >
+		<tr>
+			<td class="verybigtext"><b>log</b></td>
+			<td><input type="text" name="xv" value="100" class="inlong" style="text-align:left;">
+				<div style="padding-top:3px;"><input type="text" name="base" value="e" class="inlong" style="text-align:left;"></div>
+			</td>
+			<td class="verybigtext"><b>&nbsp;=&nbsp;</b></td>
+			<td><input type="text" name="yv" value="" class="inlong"></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center" style="padding-top: 10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table></form>
+<p><fieldset><legend>Related</legend><a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/exponent-calculator.html">Exponent Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Log?</h3>
+<p>The logarithm, or log, is the inverse of the mathematical operation of <a href="/exponent-calculator.html">exponentiation</a>. This means that the log of a number is the number that a fixed base has to be raised to in order to yield the number. Conventionally, log implies that base 10 is being used, though the base can technically be anything. When the base is e, ln is usually written, rather than log<sub>e</sub>. log<sub>2</sub>, the <a href="/binary-calculator.html">binary</a> logarithm, is another base that is typically used with logarithms. If, for example:</p>
+<p align="center" class="bigtext">x = b<sup>y</sup>; then y = log<sub>b</sub>x; where b is the base</p>
+<p>Each of the mentioned bases is typically used in different applications. Base 10 is commonly used in science and engineering, base e in math and physics, and base 2 in computer science. </p>
+
+<h3>Basic Log Rules</h3>
+<p>When the argument of a logarithm is the product of two numerals, the logarithm can be re-written as the addition of the logarithm of each of the numerals. </p>
+<p align="center" class="bigtext">log<sub>b</sub>(x &#215; y) = log<sub>b</sub>x + log<sub>b</sub>y<br>
+	EX: log(1 &#215; 10) = log(1) + log(10) = 0 + 1 = 1</p>
+<p>When the argument of a logarithm is a fraction, the logarithm can be re-written as the subtraction of the logarithm of the 	numerator minus the logarithm of the denominator. </p>
+<p align="center" class="bigtext">log<sub>b</sub>(x / y) = log<sub>b</sub>x - log<sub>b</sub>y<br>
+	EX: log(10 / 2) = log(10) - log(2) = 1 - 0.301 = 0.699</p>
+<p>If there is an exponent in the argument of a logarithm, the exponent can be pulled out of the logarithm and multiplied.</p>
+<p align="center" class="bigtext">log<sub>b</sub>x<sup>y</sup> = y &#215; log<sub>b</sub>x <br>
+	EX: log(2<sup>6</sup>) = 6 &#215; log(2) = 1.806</p>
+<p>It is also possible to change the base of the logarithm using the following rule. </p>
+<table align="center"><tr>
+<td class="bigtext">log<sub>b</sub>(x) =&nbsp;</td>
+<td><table cellpadding="0"><tr><td class="bigtext">log<sub>k</sub>(x)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td class="bigtext">log<sub>k</sub>(b)</td></tr></table></td>
+</tr></table>
+<table align="center"><tr>
+<td class="bigtext">EX: log<sub>10</sub>(x) =&nbsp;</td>
+<td><table cellpadding="0"><tr><td class="bigtext">log<sub>2</sub>(x)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td class="bigtext">log<sub>2</sub>(10)</td></tr></table></td>
+</tr></table>
+
+<p>To switch the base and argument, use the following rule. </p>
+<table align="center"><tr>
+<td class="bigtext">log<sub>b</sub>(c) =&nbsp;</td>
+<td><table cellpadding="0"><tr><td class="bigtext" align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td class="bigtext">log<sub>c</sub>(b)</td></tr></table></td>
+</tr></table>
+
+<table align="center"><tr>
+<td class="bigtext">EX: &nbsp; log<sub>5</sub>(2) =&nbsp;</td>
+<td><table cellpadding="0"><tr><td class="bigtext" align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td class="bigtext">log<sub>2</sub>(5)</td></tr></table></td>
+</tr></table>
+
+<p>Other common logarithms to take note of include: </p>
+<p align="center" class="bigtext">
+	log<sub>b</sub>(1) = 0<br>
+	log<sub>b</sub>(b) = 1<br>
+	log<sub>b</sub>(0) = undefined<br>
+	lim<sub>x&rarr;0</sub>log<sub>b</sub>(x) = - &infin;<br>
+	ln(e<sup>x</sup>) = x
+</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

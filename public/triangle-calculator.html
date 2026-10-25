@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Triangle Calculator</title>
+	<meta name="description" content="This free triangle calculator computes the edges, angles, area, height, perimeter, median, as well as other values and a diagram of the resulting triangle." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/triangle-calculator.html" itemprop="item"><span itemprop="name">triangle calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Triangle Calculator</h1>
+<p>Please provide 3 values including at least one side to the following 6 fields, and click the "Calculate" button. When radians are selected as the angle unit, it can take values such as pi/2, pi/4, etc.</p><div class="panel">
+<form name="calform">
+	<table align="center" width="350" cellpadding="0" border="0" cellspacing="0" style="background-image: url(/img/triangle/triangle.svg); background-position: center 30px; background-repeat: no-repeat;">
+		<tr>
+			<td colspan="5" align="center">
+				<input type="text" name="vc" value="60" style="text-align: center;" class="innormal inui1c"><span id="dg1" class="in4char inui1cspan"></span>
+			</td>
+		</tr>
+		<tr height="128">
+			<td align="right" colspan="2"><br><input type="text" name="vx" value="1" style="text-align: right;" class="innormal"></td>
+			<td>&nbsp;</td>
+			<td align="left" colspan="2"><br><input type="text" name="vy" value="1" style="text-align: left;" class="innormal"></td>
+		</tr>
+		<tr height="46">
+			<td width="90" valign="top" align="right"><input type="text" name="va" value="" style="text-align: right;" class="innormal inui1c"><span id="dg2" class="inui1cspan"></span></td>
+			<td width="35">&nbsp;</td>
+			<td width="100" valign="bottom" align="center"><input type="text" name="vz" value="" style="text-align: center;" class="innormal"></td>
+			<td width="30">&nbsp;</td>
+			<td width="95" valign="top"><input type="text" name="vb" value="" style="text-align: left;" class="innormal inui1c"><span id="dg3" class="inui1cspan"></span></td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center"><br>
+				Angle Unit:
+				<select name="angleunits" onchange="showDegUnit(this.value);">
+					<option value="d" selected>degree &#176;</option>
+					<option value="r" >radian</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center"><br>
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</form></div>
+<script>
+function showDegUnit(inVal){
+	if (inVal!='r') inVal = '&#176;';
+	document.getElementById('dg1').innerHTML=inVal;
+	document.getElementById('dg2').innerHTML=inVal;
+	document.getElementById('dg3').innerHTML=inVal;
+
+}
+showDegUnit("d")</script>
+
+
+<br><br><br>
+<p>A triangle is a polygon that has three vertices. A vertex is a point where two or more curves, lines, or edges meet; in the case of a triangle, the three vertices are joined by three line segments called edges. A triangle is usually referred to by its vertices. Hence, a triangle with vertices a, b, and c is typically denoted as &Delta;abc. Furthermore, triangles tend to be described based on the length of their sides, as well as their internal angles. For example, a triangle in which all three sides have equal lengths is called an equilateral triangle while a triangle in which two sides have equal lengths is called isosceles. When none of the sides of a triangle have equal lengths, it is referred to as scalene, as depicted below. </p>
+<p align="center"><img src="/img/triangle/triangle-types-1.svg" class="scaleimg" width="386" height="112" alt="triangle types"></p>
+
+<p>Tick marks on the edge of a triangle are a common notation that reflects the length of the side, where the same number of ticks means equal length. Similar notation exists for the internal angles of a triangle, denoted by differing numbers of concentric arcs located at the triangle's vertices. As can be seen from the triangles above, the length and internal angles of a triangle are directly related, so it makes sense that an equilateral triangle has three equal internal angles, and three equal length sides. Note that the triangle provided in the calculator is not shown to scale; while it looks equilateral (and has angle markings that typically would be read as equal), it is not necessarily equilateral and is simply a representation of a triangle. When actual values are entered, the calculator output will reflect what the shape of the input triangle should look like. </p>
+<p>Triangles classified based on their internal angles fall into two categories: right or oblique. A right triangle is a triangle in which one of the angles is 90&#176;, and is denoted by two line segments forming a square at the vertex constituting the right angle. The longest edge of a right triangle, which is the edge opposite the right angle, is called the hypotenuse. Any triangle that is not a right triangle is classified as an oblique triangle and can either be obtuse or acute. In an obtuse triangle, one of the angles of the triangle is greater than 90&#176;, while in an acute triangle, all of the angles are less than 90&#176;, as shown below. </p>
+<p align="center"><img src="/img/triangle/triangle-types-2.svg" class="scaleimg" width="386" height="112" alt="triangle types"></p>
+
+<h3>Triangle facts, theorems, and laws</h3>
+<ul>
+	<li>It is not possible for a triangle to have more than one vertex with internal angle greater than or equal to 90&#176;, or it would no longer be a triangle.
+		<br><br></li>
+	<li>The interior angles of a triangle always add up to 180&#176; while the exterior angles of a triangle are equal to the sum of the two interior angles that are not adjacent to it. Another way to calculate the exterior angle of a triangle is to subtract the angle of the vertex of interest from 180&#176;.
+		<br><br></li>
+	<li>The sum of the lengths of any two sides of a triangle is always larger than the length of the third side
+		<br><br></li>
+	<li>Pythagorean theorem: The Pythagorean theorem is a theorem specific to right triangles. For any right triangle, the square of the length of the hypotenuse equals the sum of the squares of the lengths of the two other sides. It follows that any triangle in which the sides satisfy this condition is a right triangle. There are also special cases of right triangles, such as the 30&#176; 60&#176; 90, 45&#176; 45&#176; 90&#176;, and 3 4 5 right triangles that facilitate calculations. Where a and b are two sides of a triangle, and c is the hypotenuse, the Pythagorean theorem can be written as:
+		<p align="center">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p>
+		<p>EX: Given a = 3, c = 5, find b:</p>
+		<p align="center">3<sup>2</sup> + b<sup>2</sup> = 5<sup>2</sup><br>
+		9 + b<sup>2</sup> = 25<br>
+		b<sup>2</sup> = 16<br>
+		b = 4</p>
+	</li>
+	<li>Law of sines: the ratio of the length of a side of a triangle to the sine of its opposite angle is constant. Using the law of sines makes it possible to find unknown angles and sides of a triangle given enough information. Where sides a, b, c, and angles A, B, C are as depicted in the above calculator, the law of sines can be written as shown below. Thus, if b, B and C are known, it is possible to find c by relating b/sin(B) and c/sin(C). Note that there exist cases when a triangle meets certain conditions, where two different triangle configurations are possible given the same set of data.</li>
+</ul>
+
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td align="center">a</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>sin(A)</td></tr></table></td>
+<td> = </td>
+<td><table cellpadding="0"><tr><td align="center">b</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>sin(B)</td></tr></table></td>
+<td> = </td>
+<td><table cellpadding="0"><tr><td align="center">c</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>sin(C)</td></tr></table></td>
+</tr></table>
+<ul>Given b=2, B=90&deg;, C=45&deg;, find c:</ul>
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td align="center">2</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>sin(90&deg;)</td></tr></table></td>
+<td> = </td>
+<td><table cellpadding="0"><tr><td align="center">c</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>sin(45&deg;)</td></tr></table></td>
+</tr></table>
+<table align="center"><tr>
+<td>c = 2 &#215;</td>
+<td><table cellpadding="0"><tr><td align="center">&#8730;<span style="text-decoration:overline;">2</span></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2</td></tr></table></td>
+<td>&#215;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">1</td></tr></table></td>
+<td>= &#8730;<span style="text-decoration:overline;">2</span></td>
+</tr></table>
+
+<ul>
+	<li>Given the lengths of all three sides of any triangle, each angle can be calculated using the following equation. Refer to the triangle above, assuming that a, b, and c are known values.</li>
+</ul>
+
+<table align="center">
+<tr><td>A = arccos(</td>
+<td><table cellpadding="0"><tr><td align="center">b<sup>2</sup> + c<sup>2</sup> - a<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2bc</td></tr></table></td>
+<td>)</td></tr>
+<tr><td>B = arccos(</td>
+<td><table cellpadding="0"><tr><td align="center">a<sup>2</sup> + c<sup>2</sup> - b<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2ac</td></tr></table></td>
+<td>)</td></tr>
+<tr><td>C = arccos(</td>
+<td><table cellpadding="0"><tr><td align="center">a<sup>2</sup> + b<sup>2</sup> - c<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2ab</td></tr></table></td>
+<td>)</td></tr>
+</table>
+<ul>Given a=8, b=6, c=10, find B:</ul>
+<table align="center">
+<tr><td>B =</td><td>arccos(</td>
+<td><table cellpadding="0"><tr><td align="center">8<sup>2</sup> + 10<sup>2</sup> - 6<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2 &#215; 8 &#215; 10</td></tr></table></td>
+<td>)</td></tr>
+<tr><td align="right"> =</td><td colspan="3">arccos(0.8) = 36.87&deg;</td>
+</tr>
+</table>
+
+<h3>Area of a Triangle</h3>
+<p>There are multiple different equations for calculating the area of a triangle, dependent on what information is known. Likely the most commonly known equation for calculating the area of a triangle involves its base, <b>b</b>, and height, <b>h</b>. The "base" refers to any side of the triangle where the height is represented by the length of the line segment drawn from the vertex opposite the base, to a point on the base that forms a perpendicular.</p>
+
+<table align="center"><tr>
+<td>area = </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>b &#215; h</td>
+</tr></table>
+<table align="center"><tr><td valign="top">EX:</td><td><img src="/img/triangle/triangle-example.svg" width="131" height="112" alt="Triangle example"></td></tr></table>
+<table align="center"><tr>
+<td>area = </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>&#215; 5 &#215; 6 = 15</td>
+</tr></table>
+
+<p>Given the length of two sides and the angle between them, the following formula can be used to determine the area of the triangle. Note that the variables used are in reference to the triangle shown in the calculator above. Given a = 9, b = 7, and C = 30&#176;:
+<table align="center">
+<tr><td align="right">area = </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>ab &#215; sin(C)</td></tr>
+<tr><td align="right">= </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>bc &#215; sin(A)</td></tr>
+<tr><td align="right">= </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>ac &#215; sin(B)</td></tr>
+
+<tr><td align="right">EX: &nbsp; area = </td>
+<td><table cellpadding="0"><tr><td>1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2</td></tr></table></td>
+<td>&#215; 7 &#215; 9 &#215; sin(30&deg;)</td></tr>
+<tr><td align="right">= </td>
+<td colspan="2">15.75</td></tr>
+</table>
+
+<p>Another method for calculating the area of a triangle uses Heron's formula. Unlike the previous equations, Heron's formula does not require an arbitrary choice of a side as a base, or a vertex as an origin. However, it does require that the lengths of the three sides are known. Again, in reference to the triangle provided in the calculator, if a = 3, b = 4, and c = 5:</p>
+
+<table align="center">
+<tr><td align="right">area = </td><td>&#8730;<span style="text-decoration:overline;">s(s - a)(s - b)(s - c)</span></td></tr>
+<tr><td colspan="2">
+	<table>
+	<tr><td>Where: s = </td>
+	<td><table cellpadding="0"><tr><td>a + b + c</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2</td></tr></table></td>
+	</tr>
+	</table>
+</td></tr>
+<tr><td colspan="2">
+	<table>
+	<tr><td>EX: s = </td>
+	<td><table cellpadding="0"><tr><td>3 + 4 + 5</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2</td></tr></table></td>
+	<td>= 6</td>
+	</tr>
+	</table>
+</td></tr>
+<tr><td align="right">area = </td><td>&#8730;<span style="text-decoration:overline;">6(6 - 3)(6 - 4)(6 - 5)</span> = 6</td></tr>
+</table>
+
+<h3>Median, inradius, and circumradius</h3>
+<p><b>Median</b></p>
+<p>The median of a triangle is defined as the length of a line segment that extends from a vertex of the triangle to the midpoint of the opposing side. A triangle can have three medians, all of which will intersect at the centroid (the arithmetic mean position of all the points in the triangle) of the triangle. Refer to the figure provided below for clarification.</p>
+<p align="center"><img src="/img/triangle/median.svg" width="200" height="145" alt="median of a triangle"></p>
+
+<p>The medians of the triangle are represented by the line segments m<sub>a</sub>, m<sub>b</sub>, and m<sub>c</sub>. The length of each median can be calculated as follows:</p>
+<p align="center"><img src="/img/triangle/triangle-8.svg" width="164" height="130" alt="median of a triangle segments"></p>
+<p>Where a, b, and c represent the length of the side of the triangle as shown in the figure above.</p>
+<p>As an example, given that a=2, b=3, and c=4, the median m<sub>a</sub> can be calculated as follows:</p>
+<p align="center"><img src="/img/triangle/triangle-9.svg" width="307" height="55" alt="median of a triangle example"></p>
+<p><b>Inradius</b></p>
+<p>The inradius is the radius of the largest circle that will fit inside the given polygon, in this case, a triangle. The inradius is perpendicular to each side of the polygon. In a triangle, the inradius can be determined by constructing two angle bisectors to determine the incenter of the triangle. The inradius is the perpendicular distance between the incenter and one of the sides of the triangle. Any side of the triangle can be used as long as the perpendicular distance between the side and the incenter is determined, since the incenter, by definition, is equidistant from each side of the triangle.</p>
+<p align="center"><img src="/img/triangle/inradius.svg" width="200" height="145" alt="triangle inradius"></p>
+<p>For the purposes of this calculator, the inradius is calculated using the area (Area) and semiperimeter (s) of the triangle along with the following formulas:</p>
+<table align="center"><tr>
+<td>inradius = &nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">area</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">s</td></tr></table></td>
+</tr></table>
+<table align="center"><tr>
+<td>s = &nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">a + b +c</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2</td></tr></table></td>
+</tr></table>
+<p align="center">where a, b, and c are the sides of the triangle</p>
+
+<p><b>Circumradius</b></p>
+<p>The circumradius is defined as the radius of a circle that passes through all the vertices of a polygon, in this case, a triangle. The center of this circle, where all the perpendicular bisectors of each side of the triangle meet, is the circumcenter of the triangle, and is the point from which the circumradius is measured. The circumcenter of the triangle does not necessarily have to be within the triangle. It is worth noting that all triangles have a circumcircle (circle that passes through each vertex), and therefore a circumradius.</p>
+<p align="center"><img src="/img/triangle/circumradius.svg" width="160" height="160" alt="triangle circumradius"></p>
+<p>For the purposes of this calculator, the circumradius is calculated using the following formula:</p>
+<table align="center"><tr>
+<td>circumradius = &nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">a</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2sin(A)</td></tr></table></td>
+</tr></table>
+<p align="center">Where a is a side of the triangle, and A is the angle opposite of side a</p>
+<p>Although side a and angle A are being used, any of the sides and their respective opposite angles can be used in the formula.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

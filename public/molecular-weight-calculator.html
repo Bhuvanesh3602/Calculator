@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Molecular Weight Calculator (Molar Mass)</title>
+	<meta name="description" content="This molecular weight calculator can determine the molecular weight or molar mass of a molecule based on its formula and also provides the percentage of the atoms." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/molecular-weight-calculator.html" itemprop="item"><span itemprop="name">molecular weight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Molecular Weight Calculator (Molar Mass)</h1>
+<p>Please enter or select the molecular formula of a molecule to calculate its molecular weight/molar mass. Note that the formula is case-sensitive. This calculator utilizes the abridged standard atomic weights published by IUPAC with uncertainty ignored. Also, the terms "molecular weight" and "molar mass" are used interchangeably.</p>
+
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calcf">
+<table cellpadding="0" cellspacing="0" >
+<tr><td>
+<table class="panel">
+	<tr>
+		<td align="right">Molecular Formula</td><td>			<input type="text" name="cmf" id="cmf" value="H2O" class="infull">
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Common Chemicals</td><td><select name="ccc" class="infull" onChange="addSelect(this.value);">
+<option value="">-- Select --</option>
+<optgroup label="Inorganic">
+<option value="H2O" >H2O (Water)</option>
+<option value="CO2" >CO2 (Carbon Dioxide)</option>
+<option value="NH3" >NH3 (Ammonia)</option>
+<option value="NaCl" >NaCl (Table Salt (Sodium Chloride))</option>
+<option value="H2SO4" >H2SO4 (Sulfuric Acid)</option>
+<option value="HCl" >HCl (Hydrochloric Acid)</option>
+<option value="HNO3" >HNO3 (Nitric Acid)</option>
+<option value="NaHCO3" >NaHCO3 (Sodium Bicarbonate (Baking Soda))</option>
+<option value="CaCO3" >CaCO3 (Calcium Carbonate)</option>
+<option value="KCl" >KCl (Potassium Chloride)</option>
+<option value="[Co(NH3)6]Cl3" >[Co(NH3)6]Cl3 (Hexaamminecobalt(III) chloride)</option>
+<option value="KMnO4" >KMnO4 (Potassium permanganate)</option>
+<option value="CuSO4.5H2O" >CuSO4.5H2O (Copper(II) sulfate pentahydrate)</option>
+</optgroup>
+<optgroup label="Organic">
+<option value="CH4" >CH4 (Methane)</option>
+<option value="C2H5OH" >C2H5OH (Ethanol)</option>
+<option value="C2H4O2" >C2H4O2 (Acetic Acid)</option>
+<option value="C6H12O6" >C6H12O6 (Glucose)</option>
+<option value="C6H6" >C6H6 (Benzene)</option>
+<option value="C8H18" >C8H18 (Octane)</option>
+<option value="C12H22O11" >C12H22O11 (Sucrose)</option>
+<option value="C9H8O4" >C9H8O4 (Aspirin)</option>
+<option value="C6H8O7" >C6H8O7 (Citric Acid)</option>
+<option value="CH4N2O" >CH4N2O (Urea)</option>
+</optgroup>
+</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</td></tr></table></form>
+<script>
+function addSelect(asVal){
+	document.calcf.cmf.value = asVal;
+}
+</script>
+
+<br><br>
+<p>Atomic weight, molecular weight, and molar mass are fundamental concepts in chemistry. These measurements are essential for calculating the quantities of substances involved in chemical reactions, determining concentrations, analyzing molecular properties, and many other situations. To understand much of the content below, it is helpful to first be familiar with the following definitions.</p>
+
+<h3>Term Definitions</h3>
+<p><b>Atom</b>&mdash;The basic particle of chemical elements that are made up of a nucleus, protons, neutrons, and electrons. Chemical elements are distinguished by the number of protons they contain. The atomic number of an element is its number of protons.</p>
+<p><b>Isotope</b>&mdash;An isotope of an element is an atom that has the same number of protons but a different number of neutrons. All atoms that have 12 protons are Magnesium, but Magnesium has three stable isotopes: 24Mg, 25Mg, and 26Mg which have 12, 13, and 14 neutrons respectively.</p>
+<p><b>Mole (mol)</b>&mdash;A unit of measurement for measuring the amount of a substance. One mole is an aggregate of exactly 6.02214076&#215;10<sup>23</sup> (Avogadro's number) base particles, which can be atoms, molecules, ions, ion pairs, or other particles.</p>
+<p><b>Sample</b>&mdash;A small amount of a material taken from a larger quantity for testing and analysis.</p>
+<p><b>Molecule</b>&mdash;A group of two or more atoms held together by chemical bonds.</p>
+
+<h3>Atomic Weight</h3>
+<p>Atomic weight, more precisely referred to as relative atomic mass (and not to be confused with atomic mass), is defined as the ratio of the average mass of a sample of atoms of an element to the atomic mass constant. Since both have units of mass, the resulting quantity is dimensionless. It represents the weighted average of the masses of individual atoms, including all isotopes, in a sample. Atomic mass, on the other hand, is the mass of a single atom which can be measured with precision in units of Dalton (Da).</p>
+<p>The atomic weight of a given element is the weighted average of the atomic masses of its different isotopes. For example, the Hydrogen atom has three main isotopes naturally: Hydrogen-2 (<sup>2</sup>H, also known as deuterium), Hydrogen-3 (<sup>3</sup>H, also known as tritium), and Hydrogen-1. Hydrogen-1 comprises 99.9855% of naturally occurring Hydrogen while deuterium comprises 0.0145%. Tritium exists naturally in only negligible trace amounts. Since <sup>2</sup>H has a mass of 2.01410177811 Da and <sup>1</sup>H has a mass of 1.007825031898 Da, its atomic weight can be calculated as:</p>
+<p style="text-align:center;">1.007825031898 &#215; 99.9855% + 2.01410177811 &#215; 0.0145% &asymp; 1.008 Da</p>
+<p>Note that this calculator uses standard atomic weights as stated by IUPAC (International Union of Pure and Applied Chemistry). The table of standard atomic weights for each element is provided at the bottom of this page.</p>
+
+<h3>Molecular Weight (relative molecular mass)</h3>
+<p>The molecular weight (more precisely referred to as relative molecular mass) is defined as the ratio of the mass of a molecule to the atomic mass constant. Like the atomic weight, this is a dimensionless quantity since both have units of mass. Molecular weight differs from atomic weight simply by the fact that a molecule is made up of multiple atoms. Thus, the sum of the atomic weights of the atoms that make up a compound is its molecular weight. For example, the molecular weight of a water molecule (H<sub>2</sub>O) using an atomic weight of 1.008 Da for a hydrogen atom and atomic weight of 15.999 Da for an Oxygen atom is:</p>
+<p style="text-align:center;">2 &#215; 1.008 + 15.999 = 18.015 Da</p>
+<p>Although the above is the more accurate definition of molecular weight, for the intents of this calculator, molecular weight is used interchangeably with molar mass, defined below.</p>
+
+<h3>Molar Mass</h3>
+<p>Molar mass is defined as the mass of 1 mole of a substance and is typically measured in units of grams per mole (g/mol). Molar mass is a term that is frequently used interchangeably with molecular mass, even though they are not exactly the same. Molecular weight, as defined above, is the ratio of the mass of a molecule to the atomic mass constant. Molar mass can be defined in similar terms as the ratio of the mass of any sample of a compound to the amount of substance (measured in moles).</p>
+<p>Although molar mass and molecular weight are defined differently and are usually expressed in different units, for more informal purposes, they have more or less the same value. In the past, before the redefinition of certain values, molecular weight and molar mass were numerically equivalent with different units. Thus, for most purposes, including a high school chemistry class, the terms may be used largely interchangeably.</p>
+<h3>Molecular Mass</h3>
+<p>To make things more confusing, molecular mass is also distinct from molecular weight. Molecular weight is most accurately referred to as relative molecular mass, which takes into account the weighted abundance of the various isotopic compositions of a given compound. For example, the relative molecular mass of water is 18.015 Da, but a given water molecule may have a molecular mass ranging from 18.0106 Da to 22.0277 Da.</p>
+
+<h3>Calculate Molecular Weight and Molar Mass</h3>
+<p>Atomic weight serves as the foundation for calculating molecular weight and molar mass. It provides the mass of individual atoms, which, when combined according to a molecule's chemical formula, yields the mass of the entire molecule. Therefore, molecular weight or molar mass can be calculated by:</p>
+<ul>
+	<li>Identifying and counting the number of atoms of each element in the molecule.</li>
+	<li>Obtaining the atomic weights of each element using the standard atomic weights from the periodic table or the table provided below.</li>
+	<li>Multiplying the atomic weight of each element by the number of atoms of that element, then summing the results.</li>
+</ul>
+<p>The following are some examples:</p>
+<div class="panel">
+<p><b>Example:</b> Water (H<sub>2</sub>O)</p>
+<ul>
+<li>There are 2 Hydrogen (H) atoms and 1 Oxygen (O) atom in the molecule</li>
+<li>Their atomic weights are<br>
+	H: 1.008 g/mol<br>
+	O: 15.999 g/mol</li>
+<li>The molecular weight of H<sub>2</sub>O is:<br>
+1.008&#215;2 + 15.999&#215;1 = 18.015 g/mol</li>
+</ul>
+</div>
+<p>Some molecules have more complex formulas, including those with parentheses or hydrates.</p>
+<div class="panel">
+<p><b>Example:</b> Aluminum Sulfate Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></p>
+<ul>
+<li>The elements counts are:<br>
+	Aluminum (Al): 2 atoms<br>
+	Sulfur (S): 1&#215;3 = 3 atoms<br>
+	Oxygen (O): 4&#215;3 = 12 atoms</li>
+<li>Their atomic weights are:<br>
+	Al: 26.982 g/mol<br>
+	S: 32.06 g/mol<br>
+	O: 15.999 g/mol</li>
+<li>The molecular weight of Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> is:<br>
+26.982&#215;2 + 32.06&#215;3 + 15.999&#215;12 = 342.132 g/mol</li>
+</ul>
+</div><br>
+<div class="panel">
+<p><b>Example:</b> Copper(II) Sulfate Pentahydrate CuSO<sub>4</sub>&middot;5H<sub>2</sub>O</p>
+<ul>
+<li>Anhydrous compound (CuSO<sub>4</sub>):<br>
+	Copper (Cu): 63.546 g/mol<br>
+	Sulfur (S): 32.06 g/mol<br>
+	Oxygen (O): 15.999&#215;4 = 63.996 g/mol<br>
+	Subtotal: 63.546 + 32.06 + 63.996 = 159.602 g/mol</li>
+<li>Water of crystallization (5H<sub>2</sub>O):<br>
+	Water (H<sub>2</sub>O): 18.015 g/mol<br>
+	Total water: 18.015&#215;5 = 90.075 g/mol</li>
+<li>The molecular weight of CuSO<sub>4</sub>&middot;5H<sub>2</sub>O is:<br>
+159.602 + 90.075 = 249.677 g/mol.</li>
+</ul>
+</div>
+
+<h3>Table of abridged standard atomic weights</h3>
+<p>Below is a table of the abridged standard atomic weights of the elements. The abridged version is commonly used in practical scenarios, as it simplifies calculations by providing values rounded to a fixed number of decimal places, ignoring the typically small natural variations in isotope ratios from different sources or samples. These values are published by the International Union of Pure and Applied Chemistry (IUPAC). The calculations of this calculator are based on this data.</p>
+<table class="cinfoT" align="center"><tr><th align="center">Atomic Number</th><th align="center">Symbol</th><th align="center">Name</th><th align="center">Atomic Weight <br>(g/mol)</th><th align="center">Density <br>(g/cm<sup>3</sup>)</th><th align="center">Phase at Room Temp.</th></tr>	<tr><td align="center">1</td><td align="center">H</td><td align="center">Hydrogen</td><td align="center">1.008</td><td align="center">0.00008988</td><td align="center">gas</td></tr>
+	<tr><td align="center">2</td><td align="center">He</td><td align="center">Helium</td><td align="center">4.0026</td><td align="center">0.0001785</td><td align="center">gas</td></tr>
+	<tr><td align="center">3</td><td align="center">Li</td><td align="center">Lithium</td><td align="center">6.94</td><td align="center">0.534</td><td align="center">solid</td></tr>
+	<tr><td align="center">4</td><td align="center">Be</td><td align="center">Beryllium</td><td align="center">9.0122</td><td align="center">1.85</td><td align="center">solid</td></tr>
+	<tr><td align="center">5</td><td align="center">B</td><td align="center">Boron</td><td align="center">10.81</td><td align="center">2.34</td><td align="center">solid</td></tr>
+	<tr><td align="center">6</td><td align="center">C</td><td align="center">Carbon</td><td align="center">12.011</td><td align="center">2.267</td><td align="center">solid</td></tr>
+	<tr><td align="center">7</td><td align="center">N</td><td align="center">Nitrogen</td><td align="center">14.007</td><td align="center">0.0012506</td><td align="center">gas</td></tr>
+	<tr><td align="center">8</td><td align="center">O</td><td align="center">Oxygen</td><td align="center">15.999</td><td align="center">0.001429</td><td align="center">gas</td></tr>
+	<tr><td align="center">9</td><td align="center">F</td><td align="center">Fluorine</td><td align="center">18.998</td><td align="center">0.001696</td><td align="center">gas</td></tr>
+	<tr><td align="center">10</td><td align="center">Ne</td><td align="center">Neon</td><td align="center">20.18</td><td align="center">0.0009002</td><td align="center">gas</td></tr>
+	<tr><td align="center">11</td><td align="center">Na</td><td align="center">Sodium</td><td align="center">22.99</td><td align="center">0.968</td><td align="center">solid</td></tr>
+	<tr><td align="center">12</td><td align="center">Mg</td><td align="center">Magnesium</td><td align="center">24.305</td><td align="center">1.738</td><td align="center">solid</td></tr>
+	<tr><td align="center">13</td><td align="center">Al</td><td align="center">Aluminium</td><td align="center">26.982</td><td align="center">2.7</td><td align="center">solid</td></tr>
+	<tr><td align="center">14</td><td align="center">Si</td><td align="center">Silicon</td><td align="center">28.085</td><td align="center">2.329</td><td align="center">solid</td></tr>
+	<tr><td align="center">15</td><td align="center">P</td><td align="center">Phosphorus</td><td align="center">30.974</td><td align="center">1.823</td><td align="center">solid</td></tr>
+	<tr><td align="center">16</td><td align="center">S</td><td align="center">Sulfur</td><td align="center">32.06</td><td align="center">2.07</td><td align="center">solid</td></tr>
+	<tr><td align="center">17</td><td align="center">Cl</td><td align="center">Chlorine</td><td align="center">35.45</td><td align="center">0.0032</td><td align="center">gas</td></tr>
+	<tr><td align="center">18</td><td align="center">Ar</td><td align="center">Argon</td><td align="center">39.95</td><td align="center">0.001784</td><td align="center">gas</td></tr>
+	<tr><td align="center">19</td><td align="center">K</td><td align="center">Potassium</td><td align="center">39.098</td><td align="center">0.89</td><td align="center">solid</td></tr>
+	<tr><td align="center">20</td><td align="center">Ca</td><td align="center">Calcium</td><td align="center">40.078</td><td align="center">1.55</td><td align="center">solid</td></tr>
+	<tr><td align="center">21</td><td align="center">Sc</td><td align="center">Scandium</td><td align="center">44.956</td><td align="center">2.985</td><td align="center">solid</td></tr>
+	<tr><td align="center">22</td><td align="center">Ti</td><td align="center">Titanium</td><td align="center">47.867</td><td align="center">4.506</td><td align="center">solid</td></tr>
+	<tr><td align="center">23</td><td align="center">V</td><td align="center">Vanadium</td><td align="center">50.942</td><td align="center">6.11</td><td align="center">solid</td></tr>
+	<tr><td align="center">24</td><td align="center">Cr</td><td align="center">Chromium</td><td align="center">51.996</td><td align="center">7.15</td><td align="center">solid</td></tr>
+	<tr><td align="center">25</td><td align="center">Mn</td><td align="center">Manganese</td><td align="center">54.938</td><td align="center">7.21</td><td align="center">solid</td></tr>
+	<tr><td align="center">26</td><td align="center">Fe</td><td align="center">Iron</td><td align="center">55.845</td><td align="center">7.874</td><td align="center">solid</td></tr>
+	<tr><td align="center">27</td><td align="center">Co</td><td align="center">Cobalt</td><td align="center">58.933</td><td align="center">8.9</td><td align="center">solid</td></tr>
+	<tr><td align="center">28</td><td align="center">Ni</td><td align="center">Nickel</td><td align="center">58.693</td><td align="center">8.908</td><td align="center">solid</td></tr>
+	<tr><td align="center">29</td><td align="center">Cu</td><td align="center">Copper</td><td align="center">63.546</td><td align="center">8.96</td><td align="center">solid</td></tr>
+	<tr><td align="center">30</td><td align="center">Zn</td><td align="center">Zinc</td><td align="center">65.38</td><td align="center">7.14</td><td align="center">solid</td></tr>
+	<tr><td align="center">31</td><td align="center">Ga</td><td align="center">Gallium</td><td align="center">69.723</td><td align="center">5.91</td><td align="center">solid</td></tr>
+	<tr><td align="center">32</td><td align="center">Ge</td><td align="center">Germanium</td><td align="center">72.63</td><td align="center">5.323</td><td align="center">solid</td></tr>
+	<tr><td align="center">33</td><td align="center">As</td><td align="center">Arsenic</td><td align="center">74.922</td><td align="center">5.727</td><td align="center">solid</td></tr>
+	<tr><td align="center">34</td><td align="center">Se</td><td align="center">Selenium</td><td align="center">78.971</td><td align="center">4.81</td><td align="center">solid</td></tr>
+	<tr><td align="center">35</td><td align="center">Br</td><td align="center">Bromine</td><td align="center">79.904</td><td align="center">3.1028</td><td align="center">liquid</td></tr>
+	<tr><td align="center">36</td><td align="center">Kr</td><td align="center">Krypton</td><td align="center">83.798</td><td align="center">0.003749</td><td align="center">gas</td></tr>
+	<tr><td align="center">37</td><td align="center">Rb</td><td align="center">Rubidium</td><td align="center">85.468</td><td align="center">1.532</td><td align="center">solid</td></tr>
+	<tr><td align="center">38</td><td align="center">Sr</td><td align="center">Strontium</td><td align="center">87.62</td><td align="center">2.64</td><td align="center">solid</td></tr>
+	<tr><td align="center">39</td><td align="center">Y</td><td align="center">Yttrium</td><td align="center">88.906</td><td align="center">4.472</td><td align="center">solid</td></tr>
+	<tr><td align="center">40</td><td align="center">Zr</td><td align="center">Zirconium</td><td align="center">91.224</td><td align="center">6.52</td><td align="center">solid</td></tr>
+	<tr><td align="center">41</td><td align="center">Nb</td><td align="center">Niobium</td><td align="center">92.906</td><td align="center">8.57</td><td align="center">solid</td></tr>
+	<tr><td align="center">42</td><td align="center">Mo</td><td align="center">Molybdenum</td><td align="center">95.95</td><td align="center">10.28</td><td align="center">solid</td></tr>
+	<tr><td align="center">43</td><td align="center">Tc</td><td align="center">Technetium</td><td align="center">97</td><td align="center">11</td><td align="center">solid</td></tr>
+	<tr><td align="center">44</td><td align="center">Ru</td><td align="center">Ruthenium</td><td align="center">101.07</td><td align="center">12.45</td><td align="center">solid</td></tr>
+	<tr><td align="center">45</td><td align="center">Rh</td><td align="center">Rhodium</td><td align="center">102.91</td><td align="center">12.41</td><td align="center">solid</td></tr>
+	<tr><td align="center">46</td><td align="center">Pd</td><td align="center">Palladium</td><td align="center">106.42</td><td align="center">12.023</td><td align="center">solid</td></tr>
+	<tr><td align="center">47</td><td align="center">Ag</td><td align="center">Silver</td><td align="center">107.87</td><td align="center">10.49</td><td align="center">solid</td></tr>
+	<tr><td align="center">48</td><td align="center">Cd</td><td align="center">Cadmium</td><td align="center">112.41</td><td align="center">8.65</td><td align="center">solid</td></tr>
+	<tr><td align="center">49</td><td align="center">In</td><td align="center">Indium</td><td align="center">114.82</td><td align="center">7.31</td><td align="center">solid</td></tr>
+	<tr><td align="center">50</td><td align="center">Sn</td><td align="center">Tin</td><td align="center">118.71</td><td align="center">7.265</td><td align="center">solid</td></tr>
+	<tr><td align="center">51</td><td align="center">Sb</td><td align="center">Antimony</td><td align="center">121.76</td><td align="center">6.697</td><td align="center">solid</td></tr>
+	<tr><td align="center">52</td><td align="center">Te</td><td align="center">Tellurium</td><td align="center">127.6</td><td align="center">6.24</td><td align="center">solid</td></tr>
+	<tr><td align="center">53</td><td align="center">I</td><td align="center">Iodine</td><td align="center">126.9</td><td align="center">4.933</td><td align="center">solid</td></tr>
+	<tr><td align="center">54</td><td align="center">Xe</td><td align="center">Xenon</td><td align="center">131.29</td><td align="center">0.005894</td><td align="center">gas</td></tr>
+	<tr><td align="center">55</td><td align="center">Cs</td><td align="center">Caesium</td><td align="center">132.91</td><td align="center">1.93</td><td align="center">solid</td></tr>
+	<tr><td align="center">56</td><td align="center">Ba</td><td align="center">Barium</td><td align="center">137.33</td><td align="center">3.51</td><td align="center">solid</td></tr>
+	<tr><td align="center">57</td><td align="center">La</td><td align="center">Lanthanum</td><td align="center">138.91</td><td align="center">6.162</td><td align="center">solid</td></tr>
+	<tr><td align="center">58</td><td align="center">Ce</td><td align="center">Cerium</td><td align="center">140.12</td><td align="center">6.77</td><td align="center">solid</td></tr>
+	<tr><td align="center">59</td><td align="center">Pr</td><td align="center">Praseodymium</td><td align="center">140.91</td><td align="center">6.77</td><td align="center">solid</td></tr>
+	<tr><td align="center">60</td><td align="center">Nd</td><td align="center">Neodymium</td><td align="center">144.24</td><td align="center">7.01</td><td align="center">solid</td></tr>
+	<tr><td align="center">61</td><td align="center">Pm</td><td align="center">Promethium</td><td align="center">145</td><td align="center">7.26</td><td align="center">solid</td></tr>
+	<tr><td align="center">62</td><td align="center">Sm</td><td align="center">Samarium</td><td align="center">150.36</td><td align="center">7.52</td><td align="center">solid</td></tr>
+	<tr><td align="center">63</td><td align="center">Eu</td><td align="center">Europium</td><td align="center">151.96</td><td align="center">5.244</td><td align="center">solid</td></tr>
+	<tr><td align="center">64</td><td align="center">Gd</td><td align="center">Gadolinium</td><td align="center">157.25</td><td align="center">7.9</td><td align="center">solid</td></tr>
+	<tr><td align="center">65</td><td align="center">Tb</td><td align="center">Terbium</td><td align="center">158.93</td><td align="center">8.23</td><td align="center">solid</td></tr>
+	<tr><td align="center">66</td><td align="center">Dy</td><td align="center">Dysprosium</td><td align="center">162.5</td><td align="center">8.54</td><td align="center">solid</td></tr>
+	<tr><td align="center">67</td><td align="center">Ho</td><td align="center">Holmium</td><td align="center">164.93</td><td align="center">8.79</td><td align="center">solid</td></tr>
+	<tr><td align="center">68</td><td align="center">Er</td><td align="center">Erbium</td><td align="center">167.26</td><td align="center">9.066</td><td align="center">solid</td></tr>
+	<tr><td align="center">69</td><td align="center">Tm</td><td align="center">Thulium</td><td align="center">168.93</td><td align="center">9.32</td><td align="center">solid</td></tr>
+	<tr><td align="center">70</td><td align="center">Yb</td><td align="center">Ytterbium</td><td align="center">173.05</td><td align="center">6.9</td><td align="center">solid</td></tr>
+	<tr><td align="center">71</td><td align="center">Lu</td><td align="center">Lutetium</td><td align="center">174.97</td><td align="center">9.841</td><td align="center">solid</td></tr>
+	<tr><td align="center">72</td><td align="center">Hf</td><td align="center">Hafnium</td><td align="center">178.49</td><td align="center">13.31</td><td align="center">solid</td></tr>
+	<tr><td align="center">73</td><td align="center">Ta</td><td align="center">Tantalum</td><td align="center">180.95</td><td align="center">16.69</td><td align="center">solid</td></tr>
+	<tr><td align="center">74</td><td align="center">W</td><td align="center">Tungsten</td><td align="center">183.84</td><td align="center">19.25</td><td align="center">solid</td></tr>
+	<tr><td align="center">75</td><td align="center">Re</td><td align="center">Rhenium</td><td align="center">186.21</td><td align="center">21.02</td><td align="center">solid</td></tr>
+	<tr><td align="center">76</td><td align="center">Os</td><td align="center">Osmium</td><td align="center">190.23</td><td align="center">22.59</td><td align="center">solid</td></tr>
+	<tr><td align="center">77</td><td align="center">Ir</td><td align="center">Iridium</td><td align="center">192.22</td><td align="center">22.56</td><td align="center">solid</td></tr>
+	<tr><td align="center">78</td><td align="center">Pt</td><td align="center">Platinum</td><td align="center">195.08</td><td align="center">21.45</td><td align="center">solid</td></tr>
+	<tr><td align="center">79</td><td align="center">Au</td><td align="center">Gold</td><td align="center">196.97</td><td align="center">19.3</td><td align="center">solid</td></tr>
+	<tr><td align="center">80</td><td align="center">Hg</td><td align="center">Mercury</td><td align="center">200.59</td><td align="center">13.534</td><td align="center">liquid</td></tr>
+	<tr><td align="center">81</td><td align="center">Tl</td><td align="center">Thallium</td><td align="center">204.38</td><td align="center">11.85</td><td align="center">solid</td></tr>
+	<tr><td align="center">82</td><td align="center">Pb</td><td align="center">Lead</td><td align="center">207.2</td><td align="center">11.34</td><td align="center">solid</td></tr>
+	<tr><td align="center">83</td><td align="center">Bi</td><td align="center">Bismuth</td><td align="center">208.98</td><td align="center">9.78</td><td align="center">solid</td></tr>
+	<tr><td align="center">84</td><td align="center">Po</td><td align="center">Polonium</td><td align="center">209</td><td align="center">9.196</td><td align="center">solid</td></tr>
+	<tr><td align="center">85</td><td align="center">At</td><td align="center">Astatine</td><td align="center">210</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">86</td><td align="center">Rn</td><td align="center">Radon</td><td align="center">222</td><td align="center">0.00973</td><td align="center">gas</td></tr>
+	<tr><td align="center">87</td><td align="center">Fr</td><td align="center">Francium</td><td align="center">223</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">88</td><td align="center">Ra</td><td align="center">Radium</td><td align="center">226</td><td align="center">5.5</td><td align="center">solid</td></tr>
+	<tr><td align="center">89</td><td align="center">Ac</td><td align="center">Actinium</td><td align="center">227</td><td align="center">10</td><td align="center">solid</td></tr>
+	<tr><td align="center">90</td><td align="center">Th</td><td align="center">Thorium</td><td align="center">232.04</td><td align="center">11.7</td><td align="center">solid</td></tr>
+	<tr><td align="center">91</td><td align="center">Pa</td><td align="center">Protactinium</td><td align="center">231.04</td><td align="center">15.37</td><td align="center">solid</td></tr>
+	<tr><td align="center">92</td><td align="center">U</td><td align="center">Uranium</td><td align="center">238.03</td><td align="center">19.1</td><td align="center">solid</td></tr>
+	<tr><td align="center">93</td><td align="center">Np</td><td align="center">Neptunium</td><td align="center">237</td><td align="center">20.45</td><td align="center">solid</td></tr>
+	<tr><td align="center">94</td><td align="center">Pu</td><td align="center">Plutonium</td><td align="center">244</td><td align="center">19.85</td><td align="center">solid</td></tr>
+	<tr><td align="center">95</td><td align="center">Am</td><td align="center">Americium</td><td align="center">243</td><td align="center">12</td><td align="center">solid</td></tr>
+	<tr><td align="center">96</td><td align="center">Cm</td><td align="center">Curium</td><td align="center">247</td><td align="center">13.51</td><td align="center">solid</td></tr>
+	<tr><td align="center">97</td><td align="center">Bk</td><td align="center">Berkelium</td><td align="center">247</td><td align="center">14.78</td><td align="center">solid</td></tr>
+	<tr><td align="center">98</td><td align="center">Cf</td><td align="center">Californium</td><td align="center">251</td><td align="center">15.1</td><td align="center">solid</td></tr>
+	<tr><td align="center">99</td><td align="center">Es</td><td align="center">Einsteinium</td><td align="center">252</td><td align="center">8.84</td><td align="center">solid</td></tr>
+	<tr><td align="center">100</td><td align="center">Fm</td><td align="center">Fermium</td><td align="center">257</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">101</td><td align="center">Md</td><td align="center">Mendelevium</td><td align="center">258</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">102</td><td align="center">No</td><td align="center">Nobelium</td><td align="center">259</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">103</td><td align="center">Lr</td><td align="center">Lawrencium</td><td align="center">266</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">104</td><td align="center">Rf</td><td align="center">Rutherfordium</td><td align="center">267</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">105</td><td align="center">Db</td><td align="center">Dubnium</td><td align="center">268</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">106</td><td align="center">Sg</td><td align="center">Seaborgium</td><td align="center">267</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">107</td><td align="center">Bh</td><td align="center">Bohrium</td><td align="center">270</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">108</td><td align="center">Hs</td><td align="center">Hassium</td><td align="center">271</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">109</td><td align="center">Mt</td><td align="center">Meitnerium</td><td align="center">278</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">110</td><td align="center">Ds</td><td align="center">Darmstadtium</td><td align="center">281</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">111</td><td align="center">Rg</td><td align="center">Roentgenium</td><td align="center">282</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">112</td><td align="center">Cn</td><td align="center">Copernicium</td><td align="center">285</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">113</td><td align="center">Nh</td><td align="center">Nihonium</td><td align="center">286</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">114</td><td align="center">Fl</td><td align="center">Flerovium</td><td align="center">289</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">115</td><td align="center">Mc</td><td align="center">Moscovium</td><td align="center">290</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">116</td><td align="center">Lv</td><td align="center">Livermorium</td><td align="center">293</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">117</td><td align="center">Ts</td><td align="center">Tennessine</td><td align="center">294</td><td align="center"></td><td align="center">NA</td></tr>
+	<tr><td align="center">118</td><td align="center">Og</td><td align="center">Oganesson</td><td align="center">294</td><td align="center"></td><td align="center">NA</td></tr>
+</table>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

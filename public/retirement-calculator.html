@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Retirement Calculator</title>
+	<meta name="description" content="Free calculators that help with retirement planning with inflation, social security, life expectancy, and many more factors being taken into account." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/retirement-calculator.html" itemprop="item"><span itemprop="name">retirement calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Retirement Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><a name="howmuchneeded"></a>
+<h2 class="h2red">How much do you need to retire?</h2>
+<p>This calculator can help with planning the financial aspects of your retirement, such as providing an idea where you stand in terms of retirement savings, how much to save to reach your target, and what your retrievals will look like in retirement.</p>
+<form name="calform" action="/retirement-calculator.html">
+<table id="calinputtable" class="panel">
+<tr><td>Your current age</td><td align="right"><input type="text" name="cagenow" value="35" class="inlong"></td><td>&nbsp;</td></tr>
+<tr><td>Your planned retirement age</td><td align="right"><input type="text" name="cretireage" value="67" class="inlong"></td><td>&nbsp;</td></tr>
+<tr><td>Your life expectancy <img class="ttimg" alt="?" width="16" height="16" src="/img/svg/help.svg" onmouseover="tooltip.show('The number of years you expect to live. The average life expectancy in the U.S. is between 76 and 80 in the past 30 years. On average women live a few years longer than men.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="clifeexp" value="85" class="inlong"></td><td>&nbsp;</td></tr>
+<tr><td>Your current pre-tax income</td><td align="right"><input type="text" name="cincomenow" id="cincomenow" value="70000" class="inlong indollar"></td><td>/year</td></tr>
+<tr><td colspan="3" height="8"></td></tr>
+<tr><td colspan="3" id="sectitle">Assumptions</td></tr>
+<tr><td>Your current income increase</td><td align="right"><input type="text" name="cincomeinc" id="cincomeinc" value="3" class="inlong inpct"></td><td>/year</td></tr>
+<tr>
+	<td>Income needed after retirement <img class="ttimg" alt="?" width="16" height="16" src="/img/svg/help.svg" onmouseover="tooltip.show('The income you want to have after retirement. Many experts think that you will need 70-80% of your pre-retirement income to maintain your standard of living in retirement. You can either choose a percentage of current income or specify a dollar amount. When providing a dollar amount, please provide a number in today\'s money.', '');" onmouseout="tooltip.hide();"></td>
+	<td align="right"><input type="text" name="cretinclevel" id="cretinclevel" value="75" class="inlong inpct"></td>
+	<td><select name="crilunit" onChange="crilunitchange(this.value);">
+			<option value="p" selected>%</option>
+			<option value="d">$</option>
+		</select>
+		<span id="crilunitdesc">of current income</span>
+	</td>
+</tr>
+<tr><td>Average investment return</td><td align="right"><input type="text" name="cinvreturn" value="6" class="inlong inpct"></td><td>/year</td></tr>
+<tr><td>Inflation rate <img class="ttimg" alt="?" width="16" height="16" src="/img/svg/help.svg" onmouseover="tooltip.show('The average inflation rate is around 3.5% in the past 100 years in U.S.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="cinflation" value="3" class="inlong inpct"></td><td>/year</td></tr>
+<tr><td colspan="3" height="8"></td></tr>
+<tr><td colspan="3" id="sectitle">Optional</td></tr>
+<tr><td>Other income after retirement <img class="ttimg" alt="?" width="16" height="16" src="/img/svg/help.svg" onmouseover="tooltip.show('The income after retirement that comes from sources other than your savings, such as social security, pension, rental property, etc. Please provide the estimated money amount at time of retirement age rather than in today\'s money.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="cotherincome" id="cotherincome" value="0" class="inlong indollar"></td><td>/month &nbsp; <a href="https://www.ssa.gov">social security</a>, pension, etc</td></tr>
+<tr><td>Your current retirement savings</td><td align="right"><input type="text" name="csavingnow" id="csavingnow" value="30000" class="inlong indollar"></td><td>&nbsp;</td></tr>
+<tr>
+	<td>Future retirement savings</td>
+	<td align="right"><input type="text" name="cannualsave" id="cannualsave" value="10" class="inlong inpct"></td>
+	<td>
+		<select name="csaveunit" onChange="cunitchange(this.value);">
+			<option value="p" selected>%</option>
+			<option value="d">$</option>
+		</select>
+		<span id="csaveunitdesc">of income</span>
+	</td>
+</tr>
+<tr><td colspan="3" align="center" style="padding-top: 10px;">
+	<input type="hidden" name="ctype" value="1">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+
+
+
+
+
+
+
+
+
+
+<a name="howtosave"></a>
+<br><h2 class="h2red">How can you save for retirement?</h2>
+<p>This calculation presents potential savings plans based on desired savings at retirement.</p>
+
+<table id="calinputtable" class="panel">
+<form name="calform2" action="/retirement-calculator.html#howtosave">
+<tr><td>Your age now</td><td align="right"><input type="text" name="cagenow" value="35" class="innormal"></td></tr>
+<tr><td>Your planned retirement age</td><td align="right"><input type="text" name="cretireage" value="67" class="innormal"></td></tr>
+<tr><td>Amount needed at the retirement age</td><td align="right"><input type="text" name="cneededamount" id="cneededamount2" value="600000" class="innormal indollar"></td></tr>
+<tr><td>Your retirement savings now</td><td align="right"><input type="text" name="csavingnow" id="csavingnow2" value="30000" class="innormal indollar"></td></tr>
+<tr><td>Average investment return</td><td align="right"><input type="text" name="cinvreturn" value="6" class="innormal inpct"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top: 10px;">
+	<input type="hidden" name="ctype" value="2">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</form>
+</table>
+
+
+
+
+
+<a name="howmuchtowithdraw"></a>
+<br><h2 class="h2red">How much can you withdraw after retirement?</h2>
+<p>This calculation estimates the amount a person can withdraw every month in retirement.</p>
+<form name="calform3" action="/retirement-calculator.html#howmuchtowithdraw">
+<table id="calinputtable" class="panel">
+<tr><td>Your age now</td><td align="right"><input type="text" name="cagenow" value="35" class="innormal"></td></tr>
+<tr><td>Your planned retirement age</td><td align="right"><input type="text" name="cretireage" value="67" class="innormal"></td></tr>
+<tr><td>Your life expectancy</td><td align="right"><input type="text" name="clifeexp" value="85" class="innormal"></td></tr>
+<tr><td>Your retirement savings today</td><td align="right"><input type="text" name="csavingnow" id="csavingnow3" value="30000" class="innormal indollar"></td></tr>
+<tr><td>Annual contribution</td><td align="right"><input type="text" name="cannualaddition" id="cannualaddition" value="0" class="innormal indollar"></td></tr>
+<tr><td>Monthly contribution</td><td align="right"><input type="text" name="cmonthlyaddition" id="cmonthlyaddition" value="500" class="innormal indollar"></td></tr>
+<tr><td>Average investment return</td><td align="right"><input type="text" name="cinvreturn" value="6" class="innormal inpct"></td></tr>
+<tr><td>Inflation rate (annual)</td><td align="right"><input type="text" name="cinflation" value="3" class="innormal inpct"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top: 10px;">
+	<input type="hidden" name="ctype" value="3">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+</td></tr>
+</table>
+</form>
+
+
+
+
+
+
+<a name="howlongtowithdraw"></a>
+<br><h2 class="h2red">How long can your money last?</h2>
+<p>This calculator estimates how long your savings can last at a given withdrawal rate.</p>
+<form name="calform4" action="/retirement-calculator.html#howlongtowithdraw">
+<table id="calinputtable" class="panel">
+<tr><td>The amount you have</td><td align="right"><input type="text" name="cneededamount" id="cneededamount" value="600000" class="inlong indollar"></td><td>&nbsp;</td></tr>
+<tr><td>You plan to withdraw</td><td align="right"><input type="text" name="cmonthlywithdraw" id="cmonthlywithdraw" value="5000" class="inlong indollar"></td><td>/month</td></tr>
+<tr><td>Average investment return</td><td align="right"><input type="text" name="cinvreturn" value="6" class="inlong inpct"></td><td>&nbsp;</td></tr>
+<tr><td colspan="3" align="center" style="padding-top: 10px;">
+	<input type="hidden" name="ctype" value="4">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+</td></tr>
+</table>
+</form>
+<br><br>
+
+<fieldset><legend>Related</legend><a href="/401k-calculator.html">401K Calculator</a> | <a href="/roth-ira-calculator.html">Roth IRA Calculator</a> | <a href="/investment-calculator.html">Investment Calculator</a></fieldset>
+<br>
+<h2>What is Retirement?</h2>
+<p>To retire is to withdraw from active working life, and for most retirees, retirement lasts the rest of their lives.</p>
+<h3>Why Retire?</h3>
+<p>There are many factors at play that ultimately affect a person's decision to retire. Physical or mental health can affect a person's decision to retire; if a worker is not physically strong enough, succumbs to a disability, or has mentally declined too much to perform the duties of their job, they should probably consider retiring, or at the very least try to find a new occupation that better accommodates their health. Also, stressors associated with an occupation can become too unbearable, leading to a decline in satisfaction with work. Age is also a factor that affects a person's decision to retire. Theoretically, retirement can happen during any normal working year. Some may choose to "semi-retire" by gradually decreasing their work hours as they approach retirement. Some announce retirement and enter it short-term, just to rejoin the workforce again. However, it generally occurs between the ages of 55 and 70.</p>
+<p>One of the most important factors that affect a person's decision to retire is whether it is even financially possible in the first place. While it is somewhat possible to retire with nothing in savings and to rely solely on Social Security (which an unfortunately significant number of Americans in the U.S. do), it is generally a bad idea for most due to the sheer difference between a working income as opposed to the Social Security benefits. In the U.S., Social Security benefits are only designed to replace about 40% of the average worker's wages during retirement.</p>
+<p>Retirement is an important consideration for everyone, and when not forced to retire due to various reasons such as illness or disability, most people choose to retire when they are ready and comfortable with the decision.</p>
+
+<h2>How Much to Save for Retirement</h2>
+<p>Naturally, the next question becomes: how much should a person save for retirement? Simply put, it's an extremely loaded question with very few definite answers. Similar to the answer to the question of whether to retire or not, it will depend on each person, and factors such as how much income will be needed, entitlement for Social Security retirement benefits, health and life expectancy, personal preferences regarding inheritances, and many other things.</p>
+<p>Below are some general guidelines.</p>
+<h3>10% Rule</h3>
+<p>This rule suggests that a person save 10% to 15% of their pre-tax income per year during their working years. For instance, a person who makes $50,000 a year would put away anywhere from $5,000 to $7,500 for that year. Roughly speaking, by saving 10% starting at age 25, a $1 million nest egg by the time of retirement is possible.</p>
+<h3>80% Rule</h3>
+<p>Another popular rule suggests that an income of 70% to 80% of a worker's pre-retirement income can maintain a retiree's standard of living after retirement. For example, if a person made roughly $100,000 a year on average during his working life, this person can have a similar standard of living with $70,000 - $80,000 a year of income after retirement. This 70% - 80% figure can vary greatly depending on how people envision their retirements. Some retirees want to sail a yacht around the world, while others want to live in a simple cabin in the woods.</p>
+<h3>4% Rule</h3>
+<p>People who have a good estimate of how much they will require a year in retirement can divide this number by 4% to determine the nest egg required to enable their lifestyle. For instance, if a retiree estimates they need $100,000 a year, according to the 4% rule, the nest egg required is $100,000 / 4% = $2.5 million.</p>
+<p>Some experts claim that savings of 15 to 25 times of a person's current annual income are enough to last them throughout their retirement. Of course, there are other ways to determine how much to save for retirement. The calculations here can be helpful, as can many other retirement calculators out there. It also can be helpful to speak with licensed professionals who help people plan their retirements.</p>
+<h3>Impact of Inflation on Retirement Savings</h3>
+<p>Inflation is the general increase in prices and a fall in the purchasing power of money over time. The average inflation rate in the United States for the past 30 years has been around 2.6% per year, which means that the purchasing power of one dollar now is not only less than one dollar 30 years ago but less than 50 cents! Inflation is one of the reasons why people tend to underestimate how much they need to save for retirement.</p>
+<p>Although inflation does have an impact on retirement savings, it is unpredictable and mostly out of a person's control. As a result, people generally do not center their retirement planning or investments around inflation and instead focus mainly on achieving as large and steady a total return on investment as possible. For people interested in mitigating inflation, there are investments in the U.S. that are specifically designed to counter inflation called Treasury Inflation-Protected Securities (TIPs) and similar investments in other countries that go by different names. Also, gold and other commodities are traditionally favored as protection against inflation, as are dividend-paying stocks as opposed to short-term bonds.</p>
+<p>Our Retirement Calculator can help by considering inflation in several calculations. Please visit the <a href="/inflation-calculator.html">Inflation Calculator</a> for more information about inflation or to do calculations involving inflation.</p>
+
+<h2>Common Sources of Retirement Funds</h2>
+<p>People in the U.S. generally rely on the following sources for financial support after retirement.</p>
+
+<h3>Social Security</h3>
+<p>Social Security is a social insurance program run by the government to provide protection against poverty, old age, and disability. People in the U.S. who have contributed to the Federal Insurance Contributions Act (FICA) tax as withholdings from payroll will receive some of their income in the form of Social Security benefits during retirement. In the U.S., Social Security was designed to replace approximately 40% of a person's working income. Yet, approximately one-third of the working population and 50% of retirees expect Social Security to be their major source of income after retirement.</p>
+<p>Future proceeds from Social Security are only loosely based on past income levels. For example, a person earning $20,000 per year would receive approximately $800 per month in benefits. A person earning $100,000 per year would receive around $2,000 per month in benefits. As can be seen, while a person who earns more does receive more in benefits as their income increases, the increase in benefits is not proportional. What this translates to is that low income-earners have more to gain from their initial investments into Social Security relative to higher-income earners. For more information or to do calculations involving Social Security, please visit our <a href="/social-security-calculator.html">Social Security Calculator</a>.</p>
+
+<h3>Pensions, 401(k)s, Individual Retirement Accounts (IRA), and Other Savings Plans</h3>
+<p><b>401(k), 403(b), 457 Plan</b></p>
+<p>In the U.S., two of the most popular ways to save for retirement include Employer Matching Programs such as the 401(k) and their offshoot, the 403(b) (nonprofit, religious organizations, school districts, governmental organizations). 401(k)s vary from company to company, but many employers offer a matching contribution up to a certain percentage of the gross income of the employee. For example, an employer may match up to 3% of an employee's contribution to their 401(k); if this employee earned $60,000, the employer would contribute a maximum of $1,800 to the employee's 401(k) that year. Only 6% of companies that offer 401(k)s don't make some sort of employer contribution. It is generally recommended to at least contribute the maximum amount that an employer will match.</p>
+<p>Employer matching program contributions are made using pre-tax dollars. Funds are essentially allowed to grow tax-free until distributed. Only distributions are taxed as ordinary income in retirement, during which retirees most likely fall within a lower tax bracket. Please visit our <a href="/401k-calculator.html">401K Calculator</a> for more information about 401(k)s.</p>
+<p><b>IRA and Roth IRA</b></p>
+<p>In the U.S., the traditional IRA (Individual Retirement Account) and Roth IRA are also popular forms of retirement savings. Just like 401(k)s and other employer matching programs, there are specific tax shields in place that make them both appealing. The big difference between traditional IRAs and Roth IRAs is when taxation is applied. The former's contributions go in pre-tax (usually taken from gross pay, very similar to 401(k)s) but are taxed upon withdrawal. In contrast, Roth IRA contributions are deposited using after-tax dollars and are not taxed when withdrawn during retirement. For more information about traditional IRAs or Roth IRAs, please visit our <a href="/ira-calculator.html">IRA Calculator</a> or <a href="/roth-ira-calculator.html">Roth IRA Calculator</a>.</p>
+<p><b>Pension Plans</b></p>
+<p>Pension plans are retirement funds that employers pool together and manage for their employees until they retire. Most public servants in the United States are covered by pension programs rather than Social Security. Some private employers may also provide pension benefits. Upon retirement, each employee can then choose to have fixed payouts from their share of the pension pot or sell them as a lump sum to an insurance company. They can then choose to receive income in the form of an annuity.</p>
+<p>In the U.S., pension plans were a popular form of saving for retirement in the past, but they have since fallen out of favor, largely due to increasing longevity; there are fewer workers for each retired person. However, they can still be found in the public sector or traditional corporations.</p>
+<p>For more information about or to do calculations involving pensions, please visit the <a href="/pension-calculator.html">Pension Calculator</a>.</p>
+<p><b>Investments and CDs</b></p>
+<p>In the U.S., while pensions, 401(k)s, and IRAs are great ways to save for retirement due to their tax benefits, they all have annual investment limits that can vary based on income or other factors. In general, investments are used as a method to grow wealth, but people who have maxed out their tax-advantaged retirement plans and are searching for other places to put retirement funds can also use investments in order to reach their retirement goals.</p>
+<p>Examples of typical investments in the U.S. include mutual funds, index funds, individual stocks, real estate properties, bonds, commodities such as gold, and Certificates of Deposit (CDs). While these are some of the most popular, the list of potential investments as a way to grow wealth for retirement is much, much longer.</p>
+<p>Some funds offer a relatively steady rate of growth over time, while individual stocks tend to be volatile. Gold and other commodities tend to fluctuate depending on economic conditions, and so does real estate. Comparatively, CDs and fixed income investments have low returns but make good options for those who seek low-risk, steady income, and are approaching or in retirement. All investments have different levels of risk and reward, and it is up to each individual to decide what is best for them. Tax-advantaged retirement accounts listed above will most likely use these same investments in their portfolios, with the addition of the tax benefits.</p>
+<p>For more information or to do calculations involving investments, please visit the <a href="/investment-calculator.html">Investment Calculator</a>.</p>
+<p><b>Personal Savings</b></p>
+<p>What may seem like the most obvious way to save for retirement is through personal savings such as checking, savings, or money market accounts; after all, it is the first place where surplus disposable income accumulates for most people before something is done with it. However, it may not exactly be the best method to save for retirement over the long term, mainly due to inflation. In the U.S., personal savings such as cash, checking accounts, savings accounts, or other forms of liquid assets normally offer little or no interest. With income tax accounted for, the returns rarely beat inflation.</p>
+<p>That's not to say that there aren't certain benefits to having some savings in a readily available form in the case of an emergency. Emergency funds are an important part of healthy personal finance arrangements that can eventually be contributed to a retirement fund if not used.</p>
+
+<h3>Other Sources of Retirement Income</h3>
+<p><b>Home Equity and Real Estate</b></p>
+<p>For some people in certain scenarios, preexisting mortgages and ownership of real estate can be liquidated for disposable income during retirement through a reverse mortgage. A reverse mortgage is just as it is aptly named &mdash; a reversing of a mortgage where at the end (the last amortized payment has been released), ownership of the house is transferred to whoever bought the reverse mortgage. In other words, retirees are paid to live in their homes until a fixed point in the future, where ownership of the home is finally transferred.</p>
+<p><b>Annuities</b></p>
+<p>A common way to receive income in retirement is through the use of an annuity, which is a fixed sum of periodic cash flows typically distributed for the rest of an annuitant's life. There are two types of annuities: immediate and deferred. Immediate annuities are upfront premiums paid which release payments from the principal starting as early as the next month. Deferred annuities are annuities with two phases. The first phase is the accumulation or deferral phase, during which a person contributes money to the account (or pays a premium). The second phase is the distribution, or annuitization phase, during which a person will receive periodic payments until death.  For more information, it may be worth checking out our <a href="/annuity-calculator.html">Annuity Calculator</a> or <a href="/annuity-payout-calculator.html">Annuity Payout Calculator</a> to determine whether annuities could be a viable option for your retirement.</p>
+<p><b>Passive Income</b></p>
+<p>Just because other investments don't have tax benefits doesn't mean they should automatically be ruled out. Passive income is one of them. During retirement, they can come in forms such as rental income, income from a business, stock dividends, or royalties. When 401(k) and IRA accounts have reached their contribution limits, passively-held investments offer another avenue where any remaining money can be placed. For more information on rental properties, please visit the <a href="/rental-property-calculator.html">Rental Property Calculator</a>.</p>
+<p><b>Inheritance</b></p>
+<p>An inheritance is a portion of assets given to the heirs of the deceased, which an heir can use as income for retirement. However, because the estates of owners that die haven't exchanged hands since ownership, they may still be subject to tax, whether state or federal (In the U.S., along with the mandatory federal estate tax, six states mandate the payment of a separate inheritance tax). Also, the value of estates may change due to factors such as legal rights or financial volatility. Tangible assets such as real estate or jewelry may require the payment of capital gains tax if the assets are sold for profit. For more information about inheritances or to do calculations involving estate tax, please visit the <a href="/estate-tax-calculator.html">Estate Tax Calculator</a>.</p>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cincomenow");
+proComma2("cotherincome");
+proComma2("cretinclevel");
+proComma2("csavingnow");
+proComma2("cannualsave");
+proComma2("cneededamount");
+proComma2("cmonthlywithdraw");
+proComma2("cneededamount2");
+proComma2("csavingnow2");
+proComma2("csavingnow3");
+proComma2("cannualaddition");
+proComma2("cmonthlyaddition");
+
+function cunitchange(cucval){
+	var cucid = 'cannualsave';
+	var cuccincomenow = (document.getElementById("cincomenow").value+"").replaceAll(',', '').replaceAll(' ', '');
+	var cucthisunitval = (document.getElementById(cucid).value+"").replaceAll(',', '').replaceAll(' ', '');
+	if (isNumber(cuccincomenow)&&isNumber(cucthisunitval)){
+		cuccincomenow = parseFloat(cuccincomenow);
+		cucthisunitval = parseFloat(cucthisunitval);
+		if (cucval=='d'){
+			document.getElementById(cucid).value = Math.round(cuccincomenow*cucthisunitval/100);
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+			document.getElementById("csaveunitdesc").innerHTML = "per year";
+		}else if (cucval=='p'){
+			document.getElementById(cucid).value = Math.round(100000.0*cucthisunitval/cuccincomenow)/1000;
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+			document.getElementById("csaveunitdesc").innerHTML = "of income";
+		}
+	}else{
+		if (cucval=='d'){
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+			document.getElementById("csaveunitdesc").innerHTML = "per year";
+		}else if (cucval=='p'){
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+			document.getElementById("csaveunitdesc").innerHTML = "of income";
+		}
+	}
+	proComma("cannualsave");
+	return false;
+}
+function crilunitchange(cucval){
+	var cucid = 'cretinclevel';
+	var cuccincomenow = (document.getElementById("cincomenow").value+"").replaceAll(',', '').replaceAll(' ', '');
+	var cucthisunitval = (document.getElementById(cucid).value+"").replaceAll(',', '').replaceAll(' ', '');
+	if (isNumber(cuccincomenow)&&isNumber(cucthisunitval)){
+		cuccincomenow = parseFloat(cuccincomenow);
+		cucthisunitval = parseFloat(cucthisunitval);
+		if (cucval=='d'){
+			document.getElementById(cucid).value = Math.round(cuccincomenow*cucthisunitval/100);
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+			document.getElementById("crilunitdesc").innerHTML = " /year (today's money)";
+		}else if (cucval=='p'){
+			document.getElementById(cucid).value = Math.round(100000.0*cucthisunitval/cuccincomenow)/1000;
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+			document.getElementById("crilunitdesc").innerHTML = "of current income";
+		}
+	}else{
+		if (cucval=='d'){
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+			document.getElementById("crilunitdesc").innerHTML = " /year (today's money)";
+		}else if (cucval=='p'){
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+			document.getElementById("crilunitdesc").innerHTML = "of current income";
+		}
+	}
+	proComma("cretinclevel");
+	return false;
+}
+function shbd(shbdvar){
+	if (shbdvar==1){
+		document.getElementById("balancedetails").style.display="block";
+		document.getElementById("balancedetailsshowhide").innerHTML = "<a href=\"#\" onClick=\"return shbd(0);\">Hide Below</a>";
+	}else{
+		document.getElementById("balancedetails").style.display="none";
+		document.getElementById("balancedetailsshowhide").innerHTML = "<a href=\"#\" onClick=\"return shbd(1);\">Show details</a>";
+	}
+	return false;
+}
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

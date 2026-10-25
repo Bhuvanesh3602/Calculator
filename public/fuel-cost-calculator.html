@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fuel Cost Calculator</title>
+	<meta name="description" content="This free fuel cost calculator estimates the fuel cost of a trip based on fuel efficiency, distance, and gas price using various units of measurement." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fuel-cost-calculator.html" itemprop="item"><span itemprop="name">fuel cost calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Fuel Cost Calculator</h1>
+
+<p>This calculator can estimate fuel cost according to the distance of a trip, the fuel efficiency of the car, and the price of gas using various units.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" >
+	<tr>
+		<td>Trip Distance</td><td>		<input type="text" name="tripdistance" value="500" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="tripdistanceunit" >
+				<option value="miles" selected>miles</option>
+				<option value="kilometers">kilometers (km)</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Fuel Efficiency</td><td>		<input type="text" name="fuelefficiency" value="25" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="fuelefficiencyunit" >
+				<option value="mpg" selected>miles per gallon (mpg)</option>
+				<option value="lp100k">liters per 100 km (L/100 km)</option>
+				<option value="kpl">kilometres per liter (km/L)</option>
+				<option value="lpm">liters per mile</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Gas/Fuel Price</td><td>		<input type="text" name="gasprice" value="3" class="inhalf indollar" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="gaspriceunit" >
+				<option value="gallon" selected>per gallon</option>
+				<option value="liter">per liter</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top: 8px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<br>
+<p><fieldset><legend>Related</legend><a href="/gas-mileage-calculator.html">Gas Mileage Calculator</a> | <a href="/mileage-calculator.html">Mileage Calculator</a></fieldset></p>
+
+
+<br><p>The price of gas may go up or down, but it's always a major expense for most drivers. The average American driver spends about $3,000 per year on gas, according to the American Automobile Association. Some of the practical ways to reduce fuel costs are listed below.</p>
+
+<h3>Use public transportation</h3>
+<p>Walking or biking does not consume fuel, and as such does not accumulate fuel cost. In most cases, public transport alternatives to cars such as buses, trains, and trolleys are viable options of reducing fuel costs. Due to the communal nature of ride sharing, the fuel costs of operating public transport are generally less than the fuel costs associated with each individual operating their own vehicle. In some places, public transport is free. Considering the costs associated with owning or renting a car creates even more incentive to use other modes of transportation.</p>
+
+<h3>Carpool</h3>
+<p>Also known as car sharing, carpooling is the arrangement between two or more people to travel to a shared destination in a single vehicle. Although a heavier car consumes slightly more fuel, it is usually much more efficient than two people driving separate cars towards the same destination.</p>
+
+<h3>Use a more fuel efficient vehicle</h3>
+<p>Driving a smaller car makes a great difference &ndash; the fuel cost is about half for a small sedan than for a very large SUV. Similarly, drive with a less powerful engine than you need. Don't pay for an eight-cylinder engine when four cylinders work just fine. Unless you're hauling heavy loads on a routine basis, the extra cost of a bigger engine results in more money spent on gasoline.</p>
+
+<h3>Tune the engine</h3>
+<p>A properly tuned engine maximizes power and can greatly enhance fuel efficiency. But tuning the car engine is often done to increase horsepower &ndash; that's not the way to save on fuel. Make sure the tuner gets the message.</p>
+<p>Fixing a car that is noticeably out of tune or has failed an emissions test can improve its gas mileage by an average of 4 percent &ndash; this amount will vary depending on the nature of the repair.</p>
+<p>Fixing a serious maintenance problem, such as a faulty oxygen sensor, can improve your mileage by as much as 40 percent.</p>
+<p>Placing ornaments and ground effects, aerodynamics kits, and airfoils, such as deck-lid spoilers, may make you feel good, but they also increase the car's drag and make it require more fuel. Such accessories offer no real handling enhancements, although they may look nice on your car. Also, place signs or cargo on the roof so that the object angles forward. This will reduce the frontal area of the object, and it will cause less drag, and cause you to use less fuel.</p>
+
+<h3>Adjust tires</h3>
+<p>Make sure the tires are inflated to the right levels. Properly inflated tires can reduce fuel consumption by up to 3 percent. Your tires also lose about 1 PSI per month, and when the tires are cold (e.g., in the winter), their pressure will decrease due to the thermal contraction of the air. It is recommended to check tires at least monthly, preferably weekly. Having properly inflated tires will also help you avoid uneven wear on the tread.</p>
+<p>Gas stations don't always have accurate equipment for this purpose. Sometimes gas stations use automatic air compressors that stop at a pre-determined level. To make sure you inflate to the right level, double-check pressure with your own gauge.</p>
+<p>Recommended inflation pressures are for cold tires; put about 3 PSI more in if the tires have been driven on a while. Inflate to the pressure recommended by the car manufacturer, not to the level stamped on the tire.</p>
+
+<h3>Use the correct motor oil</h3>
+<p>Gas mileage will improve by 1 percent to 2 percent if you use the manufacturer's recommended grade of motor oil. For example, using 10W-30 motor oil in an engine designed to use 5W-30 can reduce your gas mileage by a considerable amount. Using 5W-30 in an engine designed for 5W-20 can lower your gas mileage by 1 percent to 2 percent. Also, look for motor oil that says "Energy Conserving" on the API performance symbol to be sure it contains friction-reducing additives.</p>
+
+<h3>Plan trips carefully</h3>
+<p>There is no more obvious way to save gas than to drive a shorter distance.</p>
+<p>Plan your route carefully. With today's GPS route planners, it's easy to calculate a straight route with the fewest stops and diversions. It is also possible to judge which route will have the least traffic. Take highways instead of local routes or city streets when possible &ndash; the steady speed maximizes fuel efficiency.</p>
+<p>When driving in a city, try to park in a central location, and then walk from one appointment to another, or take public transportation. Ragged stop-and-go city driving is terrible for your gas mileage. This also saves the high level of gas used in parking and pulling out in a parking lot.</p>
+
+
+<br><h2>Factors that determine the fuel price</h2>
+
+<h3>Government intervention</h3>
+<p>Governments may intervene in gasoline (referred to as petrol in some parts of the world) markets by taxation, which may raise prices for consumers within or outside the governmental territory. Similarly, certain industries may receive financial support from the government to promote commercial enterprise (a subsidy). Generally, subsidized products or services can be sold at lower prices.</p>
+
+<h3>Financial markets</h3>
+<p>The global oil price fluctuates constantly. The key crudes quoted are Brent and West Texas Intermediate (WTI) in the unit of US$ per barrel. The retail fuel price is closely related to the global oil price fluctuation.</p>
+
+<h3>Politics</h3>
+<p>Political elements such as structure, regime, personnel, and events can all affect the cost of fuel. For instance, a change in leadership from a leader who doesn't believe in climate change to one who does may result in changes to the cost of fuel for consumers based on different policies, such as choosing not to subsidize fuel. Political relationships between countries are also a factor; nations can go to war over resources, or form alliances in order to trade, both of which can affect the cost of fuel.</p>
+
+<h3>Geographic area</h3>
+<p>Certain geographical areas or countries in the world have an abundance of oil, while others do not have a single drop. Regional consumers within close proximity of high supplies of oil are more likely to have lower costs of fuel due to ease of access. Areas without their own supply of oil that are isolated from the rest of the world (such as islands in the Pacific) can find fuel to be relatively expensive.</p>
+
+<h3>Natural disaster or weather</h3>
+<p>Earthquakes, tsunamis, hurricanes, major floods, and other such nature-related phenomena can affect the production, manufacturing, and logistics of gasoline, which can possibly affect the price of fuel. For instance, a snowstorm may close certain roads, disallowing the transportation of the resource and driving up fuel costs in these areas. Hurricanes or earthquakes can damage oil refineries, abruptly halting production, which can also eventually increase fuel costs.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Estate Tax Calculator</title>
+	<meta name="description" content="Free estate tax calculator to estimate federal estate tax in the U.S. Also gain in-depth knowledge on estate tax and check the latest estate tax rate." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/estate-tax-calculator.html" itemprop="item"><span itemprop="name">estate tax calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Estate Tax Calculator</h1>
+
+<p>The Estate Tax Calculator estimates federal estate tax due. Many states impose their own estate taxes, but they tend to be less than the federal estate tax. This calculator is mainly intended for use by U.S. residents.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" >
+	<tr>
+		<td colspan="2" id="sectitle">Assets</td>
+	</tr>
+	<tr>
+		<td>Residence & Other Real Estate</td>
+		<td><input type="text" name="residence" id="residence" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Stocks, Bonds, and Other Investments</td>
+		<td><input type="text" name="stock" id="stock" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Savings, CDs, and Checking Account Balance</td>
+		<td><input type="text" name="saving" id="saving" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Vehicles, Boats, and Other Properties</td>
+		<td><input type="text" name="vehicle" id="vehicle" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Retirement Plans</td>
+		<td><input type="text" name="retirement" id="retirement" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Life Insurance Benefit</td>
+		<td><input type="text" name="lifeinsurance" id="lifeinsurance" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Other Assets</td>
+		<td><input type="text" name="otherasset" id="otherasset" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="sectitle">Liability, Costs, and Deductibles</td>
+	</tr>
+	<tr>
+		<td>Debts (mortgages, loan, credit cards, etc)</td>
+		<td><input type="text" name="debt" id="debt" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Funeral, Administration, and Claims Expenses</td>
+		<td><input type="text" name="funeral" id="funeral" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>Charitable Contributions</td>
+		<td><input type="text" name="charitable" id="charitable" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td>State Inheritance or Estate Taxes</td>
+		<td><input type="text" name="statetax" id="statetax" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td colspan="2" id="sectitle">Lifetime Gifted Amount</td>
+	</tr>
+	<tr>
+		<td>Total amount you've gifted tax free in your lifetime</td>
+		<td><input type="text" name="lifetimegifted" id="lifetimegifted" value="0" class="inlong indollar"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:8px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<br><h2>U.S. Estate and Gift Tax Exemptions and Tax Rates</h2>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Year</td><td class="cinfoHdL">Lifetime Exemption</td><td class="cinfoHdL">Tax Rates</td></tr>
+	<tr><td>2001</td><td>$675,000</td><td>55%</td></tr>
+	<tr><td>2002</td><td>$1 million</td><td>50%</td></tr>
+	<tr><td>2003</td><td>$1 million</td><td>49%</td></tr>
+	<tr><td>2004</td><td>$1.5 million </td><td>48%</td></tr>
+	<tr><td>2005</td><td>$1.5 million </td><td>47%</td></tr>
+	<tr><td>2006</td><td>$2 million </td><td>46%</td></tr>
+	<tr><td>2007</td><td>$2 million</td><td>45%</td></tr>
+	<tr><td>2008</td><td>$2 million</td><td>45%</td></tr>
+	<tr><td>2009</td><td>$3.5 million</td><td>45%</td></tr>
+	<tr><td>2010</td><td>Repealed</td><td>0%</td></tr>
+	<tr><td>2011</td><td>$5 million</td><td>35%</td></tr>
+	<tr><td>2012</td><td>$5.12 million</td><td>35%</td></tr>
+	<tr><td>2013</td><td>$5.25 million</td><td>40%</td></tr>
+	<tr><td>2014</td><td>$5.34 million</td><td>40%</td></tr>
+	<tr><td>2015</td><td>$5.43 million</td><td>40%</td></tr>
+	<tr><td>2016</td><td>$5.45 million</td><td>40%</td></tr>
+	<tr><td>2017</td><td>$5.49 million</td><td>40%</td></tr>
+	<tr><td>2018</td><td>$11.18 million</td><td>40%</td></tr>
+	<tr><td>2019</td><td>$11.4 million</td><td>40%</td></tr>
+	<tr><td>2020</td><td>$11.58 million</td><td>40%</td></tr>
+	<tr><td>2021</td><td>$11.7 million</td><td>40%</td></tr>
+	<tr><td>2022</td><td>$12.06 million</td><td>40%</td></tr>
+	<tr><td>2023</td><td>$12.92 million</td><td>40%</td></tr>
+	<tr><td>2024</td><td>$13.61 million</td><td>40%</td></tr>
+	<tr><td>2025</td><td>$13.99 million</td><td>40%</td></tr>
+	<tr><td>2026</td><td>$15 million</td><td>40%</td></tr>
+</table>
+
+<br>
+<h3>Estate Tax</h3>
+<p>An estate tax is a tax imposed on the total value of a person's estate at the time of their death. It is sometimes referred to as a "death tax." Although states may impose their own estate taxes in the United States, this calculator only estimates federal estate taxes (<a href="https://www.findlaw.com/estate/planning-an-estate/state-laws-estate-taxes.html" rel="nofollow">Click here</a> to check state-specific laws). For the context of this calculator, the definition of "estate" should not be confused with a common alternative definition, which is an interest in real property. Depending on the taxable value of an estate, relatively low-valued estates will not require the filing of estate tax returns because they are below the tax exemptions threshold. For estates above the threshold, only the amounts that exceed the threshold for that year are taxable. The calculator can help determine this threshold. Due to marital deduction, the transfer of assets to a surviving spouse is not taxable, and only assets transferred to other heirs are taxable.</p>
+<p>In the United States, most people who have funds above the exemption amount ultimately won't end up paying much estate tax, according to the Urban-Brookings Tax Policy Center. Estate and gift taxes, the congressional budget office noted, raised only about $32 billion in federal revenue in 2024. That's about one percent of the trillions of wealth that changes hands in inheritance and gifts each year. The effective rate is low for several reasons. Firstly, as mentioned above, the estate tax only applies to the portion of the estate above the exemption. Secondly, there are various legal loopholes that allow people to shield their wealth from Uncle Sam. For instance, parents "sell" parts of their assets to children at discounted rates and take the tax hit themselves. Also, trusts, which are explained in detail below, are a common and viable method to reduce taxable estates.</p>
+
+<h3>Inheritance Tax</h3>
+<p>Upon death, a deceased person's estate is usually passed onto their heirs. An heir is said to receive an inheritance if all or part of an estate from a recently deceased person is passed onto them. An inheritance tax is usually paid by a person inheriting an estate. The major difference between estate tax and inheritance tax is who pays the tax. The estate tax is paid based on the deceased person's estate before the money is distributed, but inheritance tax is paid by the person inheriting or receiving the money. While the federal government in the U.S. does not enforce an inheritance tax, some states in the U.S. enforce their own. The level of taxation applied is mainly dependent on the relationship between the deceased and the heir, and the value of the property received by the heir. However, in all states, inheritance from a spouse or domestic partner is exempt, while most inheriting children pay little or no inheritance tax. More distant inheritors tend to pay higher inheritance taxes.</p>
+<p>The main purpose of the estate or inheritance tax is to raise government income, but it also serves a secondary purpose to redistribute wealth in society; an estate or inheritance tax can make it difficult for generations of a family to continually accumulate and concentrate wealth. The idea of an inheritance tax is a fairly old concept and dates back to the Roman Empire. However, current estate tax policies are mainly derived from feudal arrangements between heirs and sovereignty in the European Middle Ages.</p>
+
+<h3>Determining Taxable Value of an Estate</h3>
+<p>An estate is the estimated net worth of a person, which typically consists of their assets less any liabilities. Assets can be anything of value, such as cash, securities, real estate, insurance, trusts, annuities, and business interests. The value of these items is neither what was paid for them nor what their values were when acquired, but is assessed based on fair market value, which is a "reasonable amount" at which the items can be purchased by interested buyers. The total fair market value of a person's assets is called a gross estate. After the value of the assets is determined, certain liabilities or reductions may be deducted from the gross estate. Common liabilities include mortgages, unpaid debts, estate administration expenses, and assets that may be passed to surviving spouses or qualified charities. After accounting for liabilities, the value of lifetime taxable gifts (any gifts made in 1977 or later) is added to this net amount then reduced by the unified tax credit resulting in the taxable value of the estate.</p>
+
+<h3>Reducing Estate Tax</h3>
+<p>There are several things that can be done in order to reduce estate taxes.</p>
+<ol>
+	<li>Use up the accumulated wealth! This is the quickest and easiest way to reduce the value of an estate. Just be wary not to spend too frivolously; it's important for people to take into consideration how long they are expected to live and how much money they will need.</li>
+	<li>Donate to charity. Any assets gifted to a qualified 501(c)3 organization will avoid federal estate taxation. There is no limit on the amount that can be donated to charity.</li>
+	<li>If not already, get married. Dying without a legal spouse can subject all assets to estate tax, but if there is a spouse involved, no estate tax will be imposed. Instead, all assets will fall under the ownership of the surviving widow(er). Keep in mind that gifts given to spouses must occur at least four years before death.</li>
+	<li>Move to a new state. Including the District of Columbia, 19 states currently have a state estate or inheritance tax. These states are Connecticut, Delaware, Hawaii, Illinois, Iowa, Kentucky, Maine, Maryland, Massachusetts, Minnesota, Nebraska, New Jersey, New York, Oregon, Pennsylvania, Rhode Island, Tennessee, Vermont, and Washington. Anyone who currently lives in any of these states that wish to reduce their death tax can choose to move to a different state.</li>
+	<li>Use an alternate valuation date. Normally, the fair market value of property in an estate is estimated on the date of death. However, there are certain situations in which the executor may choose an alternate valuation date, which is six months after the date of death. It only tends to be available if it is estimated to decrease both the gross amount of the estate and the estate tax liability, which results in a larger inheritance.</li>
+</ol>
+
+<p><b>Annual Gift Tax Exclusion</b></p>
+<p>The Gift Tax Exclusion allows any individual to gift a set amount each year (which is $19,000 for 2026) to as many individuals as they desire without incurring a gift tax. However, as soon as more than this set amount is gifted to any individual, the gift tax will be mandated. A gift can be anything of value, such as cash, investments, real estate, or jewelry. The Gift Tax Exclusion is adjusted occasionally for inflation. There are also certain types of gifts that are exempt from the gift tax:</p>
+<ul>
+	<li>Charitable gifts</li>
+	<li>Gifts to spouses</li>
+	<li>Gifts to political organizations</li>
+	<li>Educational expense gifts concerning tuition that are paid directly to the institution</li>
+	<li>Medical expense gifts that are paid directly to the medical facility</li>
+</ul>
+
+<p><b>Unified Credit</b></p>
+<p>The unified credit is a credit for the portion of estate tax due on taxable estates mandated by the Internal Service Revenue (IRS) to combine both the federal gift tax and estate tax into one. It mainly serves the purpose of preventing taxpayers from giving away too much during their lifetimes in order to avoid estate taxes.</p>
+<p>If gift taxes were paid on any gifts during a person's life, any amount over the annual gift tax exclusion would count towards the lifetime gift tax exclusion, which will then be subtracted from unified credit unless the gift tax is paid in the year it is incurred. It will then be taken as a credit against any estate tax owed. In addition, any portion of the unified credit that is unused can be used as an amount to be passed to a surviving spouse.</p>
+<p>Example: A person gives away $2,000,000 in their lifetime and dies in 2026 and is entitled to an individual federal estate tax exemption of $15,000,000. Their federal estate tax exemption is no longer $15,000,000, but $13,000,000.</p>
+
+<h3>Estate Planning</h3>
+<p>A typical first step to estate planning is to take inventory of all the assets a family owns. Try not to neglect small things, as sometimes a work of art or a piece of jewelry can have great sentimental value, even if its market value is low.</p>
+<p>The next step is to gather documents, which usually include a will that shows to whom each asset is bestowed. While a will discloses instructions, it does not avoid probate. All assets must go through the pertinent state's probate process before distribution to the heirs occurs. This process can include legal fees, executor fees, and court fees that can add up over time. Another document to consider is an assignment of power of attorney, which involves a legally authorized person acting for another person. In some situations, a living will or health-care proxy (medical power of attorney) is required so that medical decisions can be made for those who are no longer able to make them. It's very helpful to go over these with a lawyer as they must be mindful of both federal and state laws governing estates.</p>
+
+<div class="panel">
+<p><b>Trusts</b></p>
+<p>If there are sufficient assets to be distributed, the use of trusts is often recommended. A trust is a fiduciary arrangement that allows a third party, or trustee, to distribute assets according to mutually agreed-upon conditions. It also permits preconditions on how and when assets will be distributed, can protect heirs from creditors, and offer significant tax protection.</p>
+<p>There are two types of trusts: testamentary trusts and living trusts (also called Inter-Vivos Trusts). The main difference between the two is that the former is created by a will and takes effect when the grantor dies, whereas the latter is created and takes effect during the grantor's lifetime. One of the benefits of a living trust is that it allows the transfer of assets to beneficiaries after death without a person having to go through probate. Although similar to wills, they avoid state probate requirements, which can be considered one particular level out of many "estate taxes," assessed as probate fees. Testamentary trusts cannot protect assets from the probate process, and as such, the distribution of cash or investments may not be aligned with the grantor's wishes.</p>
+<p><b>Revocable Trust</b></p>
+<p>There also exists a type of trust called a revocable trust that allows the assets to remain in the grantor's estate in a revocable trust, rather than moved out of the estate into an irrevocable trust. Testamentary trusts are irrevocable. Most revocable trusts can be dissolved entirely, allowing for some flexibility. These are best served for people who believe they don't have serious tax issues and want to maintain control of their assets.</p>
+<p>The downside to revocable trusts is that there are upfront costs involved, and they tend to be high. Generally, it takes more time and money to set up and fund one than to simply write a last will and testament. However, it may be beneficial in the end because loved ones avoid court after the grantor dies. Also, funding a revocable trust involves potentially cumbersome administrative tasks such as contacting sources of funds such as banks in order to transfer funds into the trust.</p>
+</div>
+
+<p>Trusts aren't the only tactic available in estate planning; there are a number of other methods that can be used to reduce estate taxes. However, careful review with professionals is important in order to ensure that these methods are within legal boundaries. Tax evasion is illegal and will result in serious repercussions. It is best to consult with professional estate planners who can help determine effective and legal ways to reduce estate taxes.</p>
+<p>Estate planning isn't only for people nearing retirement, though it gets more important the older a person is. Estate planning is not just for the wealthy either, though the larger a person's estate, the more they stand to benefit from proper estate planning. It is common for younger or less wealthy people to put off the idea of estate planning because they believe that planning an estate can or should be put off to a later time, or that their level of wealth would not benefit from estate planning. This is not necessarily true, and the benefits of estate planning for the younger or less wealthy are:</p>
+<ul>
+	<li>It allows parents to legally ascribe a guardian in the event that they are no longer there for their children. Estate planning puts these plans into writing in a legal document, and authoritatively dictates who can become a guardian. A will can even specifically exclude a person from becoming a guardian.</li>
+	<li>It allows parents to designate how the assets of minors will be managed. If not, the court will be forced to implement their own estate planning (which differs from state to state), which can lead to undesirable outcomes and unnecessary expenses.</li>
+	<li>It allows a person to designate a specific person who would become responsible for managing their estate. Upon death, there are many responsibilities to sort out, which include managing assets such as bank accounts, paying debts, administering the estate, and much more. A trusted person can be appointed in a will.</li>
+</ul>
+<p>While the calculator can provide a brief insight into federal estate taxes due, serious consideration should eventually involve estate planning with professionals. This is complex and tends to be costly. Apart from simply reducing estate taxes, good estate planning can help ensure the smooth transition of wealth from one generation to another.</p>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("residence");
+proComma2("stock");
+proComma2("saving");
+proComma2("vehicle");
+proComma2("retirement");
+proComma2("lifeinsurance");
+proComma2("otherasset");
+proComma2("debt");
+proComma2("funeral");
+proComma2("charitable");
+proComma2("statetax");
+proComma2("lifetimegifted");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

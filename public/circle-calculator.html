@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Circle Calculator</title>
+	<meta name="description" content="This calculator computes the values of typical circle parameters such as radius, diameter, circumference, and area, using various common units of measurement." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/circle-calculator.html" itemprop="item"><span itemprop="name">circle calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Circle Calculator</h1>
+		<p>Please provide any value below to calculate the remaining values of a circle.</p>
+<form name="calform">
+<table class="panel" >
+<tr>
+	<td>Radius (R)</td><td><input type="text" name="radius" value="" class="inhalf"></td>
+</tr>
+<tr>
+	<td>Diameter (D)</td><td><input type="text" name="diameter" value="" class="inhalf"></td>
+</tr>
+<tr>
+	<td>Circumference (C)</td><td><input type="text" name="circumference" value="" class="inhalf"></td>
+</tr>
+<tr>
+	<td>Area (A)</td><td><input type="text" name="area" value="100" class="inhalf"></td>
+</tr>
+<tr>
+	<td align="center" colspan="2" style="padding-top:10px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</form>
+<br>
+<p>A circle, geometrically, is a simple closed shape. More specifically, it is a set of all points in a plane that are equidistant from a given point, called the center. It can also be defined as a curve traced by a point where the distance from a given point remains constant as the point moves.</p>
+
+<h2>Parts of a circle</h2>
+<ul>
+	<li>Center (or origin): the point within a circle that is equidistant from all other points on the circle.</li>
+	<li>Radius: the distance between any point on the circle and the center of the circle. It is equal to half the length of the diameter.</li>
+	<li>Diameter: the largest distance between any two points on a circle; by this definition, the diameter of the circle will always pass through the center of the circle. It is equal to twice the length of the radius.</li>
+	<li>Circumference: the distance around the circle, or the length of a circuit along the circle.</li>
+	<li>Arc: part of the circumference of a circle
+	<ul>
+		<li>Major arc: an arc that is greater than half the circumference</li>
+		<li>Minor arc: an arc that is less than half the circumference</li>
+	</ul></li>
+	<li>Chord: a line segment from one point of a circle to another point. A chord that passes through the center of the circle is a diameter of the circle.</li>
+	<li>Secant: a line that passes through the circle at two points; it is an extension of a chord that begins and ends outside of the circle.</li>
+	<li>Tangent: a line that intersects the circle at only a single point; the rest of the line, except the single point at which it intersects the circle, lies outside of the circle.</li>
+	<li>Sector: the area of a circle created between two radii.
+	<ul>
+		<li>Major sector &ndash; a sector with a central angle larger than 180&deg;</li>
+		<li>Minor sector &ndash; a sector with a central angle less than 180&deg;</li>
+	</ul></li>
+</ul>
+<p>The figures below depict the various parts of a circle:</p>
+<p style="text-align:center;">
+	<img src="/img/circle/circle-rad-dia-circ.svg" width="200" height="200" alt="circle radius, diameter, and circumference">
+	<img src="/img/circle/circle-chord-sec-arc.svg" width="200" height="200" alt="circle chord and arc">
+	<img src="/img/circle/circle-sector.svg" width="200" height="200" alt="sector">
+</p>
+
+<h2>The constant &pi;</h2>
+<p>The radius, diameter, and circumference of a circle are all related through the mathematical constant &pi;, or pi, which is the ratio of a circle's circumference to its diameter. The value of &pi; is approximately 3.14159. &pi; is an irrational number meaning that it cannot be expressed exactly as a fraction (though it is often approximated as <img src="/img/circle/f22-7.svg" style="vertical-align:middle;" alt="7 over 22">) and its decimal representation never ends or has a permanent repeating pattern. It is also a transcendental number, meaning that it is not the root of any non-zero polynomial that has rational coefficients.</p>
+<p>In the past, ancient geometers dedicated a significant amount of time in an effort to "square the circle." This was a process that involved attempting to construct a square with the same area as a given circle within a finite number of steps while only using a compass and straightedge. While it is now known that this is impossible, it was not until 1880 that Ferdinand von Lindemann presented a proof that &pi; is transcendental, which put an end to all efforts to "square the circle." While the efforts of ancient geometers to accomplish something that is now known as impossible may now seem comical or futile, it is thanks to people like these that so many mathematical concepts are well defined today.</p>
+
+<h2>Circle formulas</h2>
+<table align="center"><tr>
+	<td valign="top">
+		<div class="verybigtext">D = 2R </div>
+		<div class="verybigtext" style="padding: 8px 0px;">C = 2&pi;R</div>
+		<div class="verybigtext">A = &pi;R<sup>2</sup></div>
+	</td>
+	<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+	<td valign="top">
+		where:
+		<div style="padding-left:10px;">R: Radius<br>
+		D: Diameter<br>
+		C: Circumference<br>
+		A: Area<br>
+		&pi;: 3.14159</div>
+	</td>
+</tr></table>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

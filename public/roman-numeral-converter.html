@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Roman Numeral Converter</title>
+	<meta name="description" content="This free converter converts between Arabic numbers and Roman numerals. It also converts between dates in both formats." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/roman-numeral-converter.html" itemprop="item"><span itemprop="name">roman numeral converter</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Roman Numeral Converter</h1>
+
+<p>Please provide a number or Roman numeral below to convert to the other format.</p>
+<form name="calcf" action="/roman-numeral-converter.html">
+<table class="panel" >
+	<tr>
+		<td>
+			<input type="text" name="v" value="LXIII" class="infull">
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="padding-top: 8px;">
+			<input type="submit" name="calc1" value="Convert&nbsp;">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<br>
+<a name="date"></a>
+<h2>Roman Numeral Date Converter</h2>
+<p>Please provide a date in numeric or Roman numeral form below to convert to the other format. It can also be used to convert multiple numbers or Roman numerals at once. The converter accepts -, ., \, /, |, or space as separators.</p>
+<form name="calcf2" action="/roman-numeral-converter.html#date">
+<table class="panel" >
+	<tr>
+		<td>
+			<input type="text" name="dv" value="2026/10/25" class="infull">
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="padding-top: 8px;">
+			<input type="submit" name="calc2" value="Convert&nbsp;">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+		</td>
+	</tr>
+</table>
+</form>
+<br>
+<p>A Roman numeral is a system for expressing numbers that originated in the Roman Empire. It is still used in certain cases today, such as on clocks or watch faces, book chapters, and for numbering large events such as the Olympics and the Superbowl.</p>
+<p>Roman Numerals were widely used long after the fall of the Roman Empire up until Arabic numerals started to replace them around the 14<sup>th</sup> century. Arabic numerals are the numerals that we are most accustomed to using today. They are used throughout the world.</p>
+<p>The chart below shows the 7 Roman numerals used today as well as their corresponding Roman numerals.</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><td>Roman numerals</td><td>I</td><td>V</td><td>X</td><td>L</td><td>C</td><td>D</td><td>M</td></tr>
+	<tr align="center"><td>Arabic numbers</td><td>1</td><td>5</td><td>10</td><td>50</td><td>100</td><td>500</td><td>1,000</td></tr>
+</table>
+<p>Although there are only 7 Roman numerals used in the modern day, there are various rules for writing Roman numerals that enable us to express a wide range of numbers in Roman numerals. In general, Roman numerals use a symbol to denote each power of ten. Also, notice that there is no zero symbol for Roman numerals. Because of this, there can be some ambiguity in how Roman numerals are written, and there is no universally accepted standard. That being said, below are some rules that should provide a framework for reading and writing Roman numerals.</p>
+
+<h3>How to read and write Roman numerals</h3>
+<ol>
+	<li>Consecutive Roman numerals have their values added in cases where the numerals are equivalent or the numeral directly to the left is larger than that on the right. In cases where a preceding symbol has a value smaller than that of the numeral to its right, refer to rule 2.
+		<ul>
+			<li>III = 3</li>
+			<li>VI = 6</li>
+			<li>MCL = 1150</li>
+		</ul></li>
+	<li>When a numeral that has a smaller value is followed by one with a larger value, the smaller numeral is subtracted from the larger one. If this numeral is part of a longer string of numerals, after subtracting to determine the value, the rest of the numerals are added normally.
+		<ul>
+			<li>IV = 5 - 1 = 4</li>
+			<li>XIV = 10 + 5 - 1 = 14</li>
+			<li>CD = 500 - 100 = 400</li>
+			<li>CDXIV = 500 - 100 + 10 + 5 - 1 = 414</li>
+		</ul></li>
+	<li>V, L, and D are never repeated. They also cannot be written before a larger symbol, so they cannot be subtracted. For example, VX does not exist. It is not 15; 15 is written as XV, nor is it 5. Similarly, neither LC nor DM exist as they would create ambiguity as described in the previous example.</li>
+	<li>Only up to 3 consecutive numerals can be written such as III, XXX, MMM. Recall that V, L, and D cannot be repeated, so they are excluded from this rule. Furthermore, IIII, XXXX, MMMM and so on do not exist.</li>
+	<li>The numeral I can only be written before (and subtracted from) V or X. Similarly, X can only be written before (and subtracted from) L, C, or M.</li>
+</ol>
+
+<h3>Large numbers</h3>
+<p>As Roman numerals get larger, they get more difficult to read and write. Also, recall from the rules for writing Roman numerals above that no numeral can be repeated more than 3 times, and there is no larger numeral than M, which is equal to 1000. Thus, once we get to Roman numerals above 3999, we need a different way to write them. The Romans developed two main ways of writing numbers larger than 3,999: the apostrophus and the vinculum.</p>
+<p><b>Vinculum</b></p>
+<p>This Roman numeral converter uses a vinculum (an overline above the Roman numeral) to denote larger numbers. A vinculum is a symbol that looks like a line written above the numeral. A vinculum indicates that the numeral it is written above is multiplied by 1,000. For example, <span style="text-decoration:overline;">V</span>=5000. To input numerals with a vinculum into the converter, place an underscore before the numeral. For example, to use the numeral <span style="text-decoration:overline;">V</span> in the converter, type _V into the input field. The table below shows each of the Roman numerals and their corresponding values when written with a vinculum.</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><td>Roman numerals</td><td><span style="text-decoration:overline;">I</span></td><td><span style="text-decoration:overline;">V</span></td><td><span style="text-decoration:overline;">X</span></td><td><span style="text-decoration:overline;">L</span></td><td><span style="text-decoration:overline;">C</span></td><td><span style="text-decoration:overline;">D</span></td><td><span style="text-decoration:overline;">M</span></td></tr>
+	<tr align="center"><td>Arabic numbers</td><td>1,000</td><td>5,000</td><td>10,000</td><td>50,000</td><td>100,000</td><td>500,000</td><td>1,000,000</td></tr>
+	<tr align="center"><td>Converter Input</td><td>_I</td><td>_V</td><td>_X</td><td>_L</td><td>_C</td><td>_D</td><td>_M</td></tr>
+</table>
+<p>Since the vinculum multiplies a Roman numeral's value by 1,000, the largest value this converter can represent is 3,999,999.</p>
+
+<p><b>Apostrophus method</b></p>
+<p>The apostrophus method is a different system of writing Roman numerals that uses a combination of the symbols C and &#x2183;. Think of C&#x2183; as a set of parentheses encasing a number such that each additional set of C&#x2183; indicates a factor of 10. Similarly, each &#x2183; to the right of a numeral also indicates an increase by a factor of 10.</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><td>Roman numerals</td><td>I&#x2183;</td><td>I&#x2183;&#x2183;</td><td>I&#x2183;&#x2183;&#x2183;</td><td>CI&#x2183;</td><td>CCI&#x2183;&#x2183;</td><td>CCCI&#x2183;&#x2183;&#x2183;</td></tr>
+	<tr align="center"><td>Arabic numbers</td><td>500</td><td>5,000</td><td>50,000</td><td>1,000</td><td>10,000</td><td>100,000</td></tr>
+</table>
+<p>In this system, there is no number larger than CCCI&#x2183;&#x2183;&#x2183;. This system can be used along with the rules described above to write larger Roman numerals, though it can get a bit tricky, and using a vinculum is arguably more straightforward.</p>
+
+<h3>How to convert between Roman and Arabic numerals</h3>
+<p>To convert between Roman and Arabic numerals, we need to understand what each Roman numeral represents. This is described above. Once we understand the above rules, we just have to apply them in the appropriate direction.</p>
+<p><b>Converting Arabic numerals to Roman numerals</b></p>
+<p>One way to convert Arabic numerals to Roman numerals is to break the numerals up into its components by place value.</p>
+<div class="panel">
+	<p><b>Example:</b></p>
+	<p>Convert 768 to Roman numerals. First break it up into its components:</p>
+	<p style="text-align:center;">768 = 700 + 60 + 8</p>
+	<p>Then, from left to right, we can convert each value in Arabic numerals to Roman numerals:</p>
+	<p style="text-align:center;">700 = DCC<br>
+	60 = LX<br>
+	8 = VIII</p>
+	<p>Now that we have each component, recall that we write Roman numerals from largest value to smallest value from left to right. Combining the above yields:</p>
+	<p style="text-align:center;">768 = DCCLXVIII</p>
+</div>
+
+<br><p><b>Converting Roman numerals to Arabic numerals</b></p>
+<p>To convert Roman numerals to Arabic numerals, sum the values of the Roman numerals.</p>
+<div class="panel">
+	<p><b>Example:</b></p>
+	<p>Convert MMMCCLXXVIII to Arabic numerals. Break the Roman numerals up into smaller components to make this simpler:</p>
+	<p style="text-align:center;">MMM = 3000<br>
+	CC = 200<br>
+	LXX = 70<br>
+	VIII = 8<br>
+	MMMCCLXXVIII = 3000 + 200 + 70 + 8 = 3278</p>
+</div>
+<p>In general, you can separate the Roman numerals by each different symbol used, but once you get more used to reading Roman numerals, you may no longer need to do this as you will be able to recognize and add the Roman numerals in your head as you go.</p>
+
+<h3>Dates in Roman numeral form</h3>
+<p>There are a few different ways that Roman numerals are written in date form. One way is to convert each component (the day, month, and year) to Roman numerals. Depending on the date format used&mdash;whether MM/DD/YYYY, DD/MM/YYYY, YYYY/MM/DD, YYYY-MM-DD, or any other format&mdash;we just need to rearrange the positions of the converted Roman numerals. For example, when using the YYYY/MM/DD format, the date March 4<sup>th</sup>, 2025, is written as MMXXV/III/IV.</p>
+<p>Another way to represent dates is to use a mix of Arabic and Roman numerals. In this case, the month is typically written using Roman numerals while the day and year are written using Arabic numerals. For example, the date 3/4/2025 may be written as:</p>
+<p style="text-align:center;">III/4/2025<br>
+4/III/2025</p>
+<p>When using this format, the year first format is not as commonly used.</p>
+<p><b>Days of the week in Roman numerals</b></p>
+<p>Roman numerals may also be used to represent days of the week where Monday is represented as the 1<sup>st</sup> day of the week and Sunday is the 7<sup>th</sup> as shown.</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><th>Day</th><th>Roman numeral</th><tr>
+	<tr align="center"><td>Monday</td><td>I</td></tr>
+	<tr align="center"><td>Tuesday</td><td>II</td></tr>
+	<tr align="center"><td>Wednesday</td><td>III</td></tr>
+	<tr align="center"><td>Thursday</td><td>IV</td></tr>
+	<tr align="center"><td>Friday</td><td>V</td></tr>
+	<tr align="center"><td>Saturday</td><td>VI</td></tr>
+	<tr align="center"><td>Sunday</td><td>VII</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

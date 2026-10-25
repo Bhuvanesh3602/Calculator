@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Debt Consolidation Calculator</title>
+	<meta name="description" content="Free debt consolidation calculator to evaluate the consolidation of debts such as credit cards debts, auto loans, or personal loans based on the real cost." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/debt-consolidation-calculator.html" itemprop="item"><span itemprop="name">debt consolidation calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Debt Consolidation Calculator</h1><p>The Debt Consolidation Calculator can determine whether it is financially rewarding to consolidate debts by comparing the APR (Annual Percentage Rate) of the combined debts with that of the consolidation loan. APR is the fee-adjusted financial cost of a loan, providing a more accurate basis for loan comparisons. The calculated results will also display comparisons such as the monthly payment, payoff length, and total interest.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel"><form name="calform" action="/debt-consolidation-calculator.html#calresult">
+<table width="520">
+<tr valign="bottom" align="center">
+	<td width="30">&nbsp;</td>
+	<td width="220">Debt name</td>
+	<td width="90">Remaining balance</td>
+	<td width="90">Monthly or min. payment</td>
+	<td width="90">Interest rate</td>
+</tr>
+<tr><td width="30">1.</td><td width="220"><input type="text" name="cnm1" value="Credit card 1" class="inlongest"></td><td width="90"><input type="text" name="cbal1" id="cbal1" value="10000" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy1" id="cmpy1" value="260" class="inlong indollar"></td><td width="90"><input type="text" name="cint1" value="17.99" class="innormal inpct"></td></tr><tr><td width="30">2.</td><td width="220"><input type="text" name="cnm2" value="Credit card 2" class="inlongest"></td><td width="90"><input type="text" name="cbal2" id="cbal2" value="7500" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy2" id="cmpy2" value="190" class="inlong indollar"></td><td width="90"><input type="text" name="cint2" value="19.99" class="innormal inpct"></td></tr><tr><td width="30">3.</td><td width="220"><input type="text" name="cnm3" value="High interest debt" class="inlongest"></td><td width="90"><input type="text" name="cbal3" id="cbal3" value="6500" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy3" id="cmpy3" value="180" class="inlong indollar"></td><td width="90"><input type="text" name="cint3" value="18.99" class="innormal inpct"></td></tr><tr><td width="30">4.</td><td width="220"><input type="text" name="cnm4" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal4" id="cbal4" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy4" id="cmpy4" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint4" value="" class="innormal inpct"></td></tr><tr><td width="30">5.</td><td width="220"><input type="text" name="cnm5" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal5" id="cbal5" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy5" id="cmpy5" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint5" value="" class="innormal inpct"></td></tr><tr><td width="30">6.</td><td width="220"><input type="text" name="cnm6" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal6" id="cbal6" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy6" id="cmpy6" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint6" value="" class="innormal inpct"></td></tr></table><div style="padding: 5px 50px;" id="cacrmoredesc"><a href="#" onClick="return showHideMoreFields('cacrmore', 'show')">Show more input fields</a></div><table id="cacrmore" width="520" style="display:none;"><tr><td width="30">7.</td><td width="220"><input type="text" name="cnm7" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal7" id="cbal7" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy7" id="cmpy7" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint7" value="" class="innormal inpct"></td></tr><tr><td width="30">8.</td><td width="220"><input type="text" name="cnm8" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal8" id="cbal8" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy8" id="cmpy8" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint8" value="" class="innormal inpct"></td></tr><tr><td width="30">9.</td><td width="220"><input type="text" name="cnm9" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal9" id="cbal9" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy9" id="cmpy9" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint9" value="" class="innormal inpct"></td></tr><tr><td width="30">10.</td><td width="220"><input type="text" name="cnm10" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal10" id="cbal10" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy10" id="cmpy10" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint10" value="" class="innormal inpct"></td></tr><tr><td width="30">11.</td><td width="220"><input type="text" name="cnm11" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal11" id="cbal11" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy11" id="cmpy11" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint11" value="" class="innormal inpct"></td></tr><tr><td width="30">12.</td><td width="220"><input type="text" name="cnm12" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal12" id="cbal12" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy12" id="cmpy12" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint12" value="" class="innormal inpct"></td></tr><tr><td width="30">13.</td><td width="220"><input type="text" name="cnm13" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal13" id="cbal13" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy13" id="cmpy13" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint13" value="" class="innormal inpct"></td></tr><tr><td width="30">14.</td><td width="220"><input type="text" name="cnm14" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal14" id="cbal14" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy14" id="cmpy14" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint14" value="" class="innormal inpct"></td></tr><tr><td width="30">15.</td><td width="220"><input type="text" name="cnm15" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal15" id="cbal15" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy15" id="cmpy15" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint15" value="" class="innormal inpct"></td></tr><tr><td width="30">16.</td><td width="220"><input type="text" name="cnm16" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal16" id="cbal16" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy16" id="cmpy16" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint16" value="" class="innormal inpct"></td></tr><tr><td width="30">17.</td><td width="220"><input type="text" name="cnm17" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal17" id="cbal17" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy17" id="cmpy17" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint17" value="" class="innormal inpct"></td></tr><tr><td width="30">18.</td><td width="220"><input type="text" name="cnm18" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal18" id="cbal18" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy18" id="cmpy18" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint18" value="" class="innormal inpct"></td></tr><tr><td width="30">19.</td><td width="220"><input type="text" name="cnm19" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal19" id="cbal19" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy19" id="cmpy19" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint19" value="" class="innormal inpct"></td></tr><tr><td width="30">20.</td><td width="220"><input type="text" name="cnm20" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal20" id="cbal20" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy20" id="cmpy20" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint20" value="" class="innormal inpct"></td></tr></table>
+
+<br><div><b>Consolidation loan</b></div>
+<table style="padding-left:15px;">
+<tr><td>Loan amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="25000" class="inlong indollar"></td><td>&nbsp;</td></tr>
+<tr><td>Interest rate</td><td><input type="text" name="cinterestrate" size="6" value="10.99" class="inlong inpct"></td><td>&nbsp;</td></tr>
+<tr><td valign="top"><div style="padding-top:8px;">Loan term</div></td><td><input type="text" name="cyears" value="5" class="inlong inuiyear"><span class="inuiyearspan">years</span> <br><input type="text" name="cmonths" id="cmonths" value="0" class="inlong inuipound"><span class="inuipoundspan">months</span></td><td>&nbsp;</td></tr>
+<tr><td>Loan fee/points</td><td><input type="text" name="cloancost" id="cloancost" value="5" class="inlong inpct"></td><td><select name="cloancostunit" onChange="cunitchange('cloancost', this.value);"><option value="p" selected>%</option><option value="d">$</option></select></td></tr>
+</table>
+<table width="250">
+<tr><td align="right" style="padding: 8px 0px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form></div>
+<script>
+function cunitchange(cucid, cucval){
+	var cuchouseprice = (document.getElementById("cloanamount").value+"").split(",").join("");
+	var cucthisunitval = (document.getElementById(cucid).value+"").split(",").join("");
+	if (isNumber(cuchouseprice)&&isNumber(cuchouseprice)){
+		if (cucval=='d'){
+			document.getElementById(cucid).value = Math.round(cuchouseprice*cucthisunitval/100);
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+		}else if (cucval=='p'){
+			document.getElementById(cucid).value = Math.round(10000.0*cucthisunitval/cuchouseprice)/100;
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+		}
+	}else{
+		if (cucval=='d'){
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+		}else if (cucval=='p'){
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+		}
+	}
+	return false;
+}
+
+</script>
+
+<p><fieldset><legend>Related</legend><a href="/debt-payoff-calculator.html">Debt Payoff Calculator</a> | <a href="/apr-calculator.html">APR Calculator</a></fieldset></p>
+
+<br>
+<h3>Debt Consolidation</h3>
+<p>Debt consolidation is a form of debt restructuring that combines several loans into one, mainly for two reasons: to lower either the interest rate or to lower the monthly payment amount. With a good consolidation loan, it is possible to lower both. Another possible reason people consolidate loans is simplicity; instead of dealing with multiple different loans, debts, and payments each month, a consolidated loan only requires one, relieving hassle and saving time.</p>
+<p>Most loans will require the payment of upfront fees. As a result, the real cost (real APR) of loans is higher than the interest rates advertised by lenders. This calculator can determine the real APR of consolidated loans after adjusting for applicable fees, which is the more accurate and comparable indicator of the financial cost of a loan.</p>
+<p>Home equity loans, home equity line of credits, and cash-out refinances are common sources of funds used for debt consolidation. These are secured loans that are tied to collateral, such as real estate properties, generally lower risk for lenders, which lowers interest rates. On the other hand, unsecured loans can also be used to consolidate debts, such as personal loans or balance-transfer credit cards. They tend to have higher interest rates and lower loan limits because there is no collateral attached to them.</p>
+
+<h3>Considerations</h3>
+<p>Before consolidating loans, there are some considerations to keep in mind. </p>
+<ul>
+	<li>Besides the interest rate, the loan fees or points are major costs of a loan.  Because the purpose of debt consolidation is to lower the costs of debts, any additional fees on top are not helpful. This is made evident by the calculator; using the default figures as given, a 5% loan fee makes debt consolidation a financially feasible decision. However, if the loan fee is changed to 15%, the new consolidated loan is no longer worth it due to the heavy fee cost required to consolidate the prior loans, as pointed out by the red text. As a result, it is important to consider the loan fees or points when it comes to debt consolidation.</li>
+	<li>The process of consolidating debt is not quick but tends to be tedious and drawn out. It involves evaluating a person's financial situation with a credit counselor in order to ponder necessary actions. </li>
+	<li>Extending the term of a loan may results in more interest payments over a time period, though this may be canceled out by more favorable conditions in the consolidated loan, such as a lower real APR. The calculator can help evaluate this. </li>
+	<li>Debt consolidation may lower credit scores, depending on the chosen option. Credit scores and credit reports can only ever receive positive marks as long as routine, timely payments are made each month. With that said, any application for new credit is considered a hard inquiry into credit history, which generally lowers credit scores. However, as long as timely monthly payments are made, this dip in credit score tends to be short-term. Credit scores also depend on a person's credit utilization ratio, which is the amount of debt that they carry as compared to the total amount of debt that is available to them. For instance, consolidation using a personal loan to pay off credit cards can make a utilization ratio go down, which is good for credit scores. However, in this same scenario, the credit score can go down if a credit agency believes it to be a risky loan. </li>
+</ul>
+
+<h3>Fix the Real Problem First</h3>
+<p>While effective loan consolidation can possibly lower the financial burden, it is worth considering tackling the root of the burdens first, whatever it may be. For many people, this is a change in habits such as spending less and saving more. For others, it may be a journey towards learning how to live within or below their means. In some cases, it can even be seeking a higher income. These are few examples of methods that will be more effective in the long term in erasing debt, as opposed to just simply consolidating them. In any case, budgets are practical ways to sort financial situations before the question of whether or not to consolidate loans pops up. </p>
+
+
+<script>
+function showHideMoreFields(shmfFieldName, shmfValue){
+	if (shmfValue=='show'){
+		document.getElementById(shmfFieldName).style.display = 'block';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'hide\')">Hide fields below</a>';
+	}else{
+		document.getElementById(shmfFieldName).style.display = 'none';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'show\')">Show more input fields</a>';
+	}
+	return false;
+}
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cloancost");
+for (let i = 1; i <=20; i++) {
+	proComma2("cbal"+i);
+	proComma2("cmpy"+i);
+}
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

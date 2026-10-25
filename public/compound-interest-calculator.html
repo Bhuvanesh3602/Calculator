@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Compound Interest Calculator</title>
+	<meta name="description" content="Free compound interest calculator to convert and compare interest rates of different compounding periods, or to gain more knowledge on compound interest." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/compound-interest-calculator.html" itemprop="item"><span itemprop="name">compound interest calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Compound Interest Calculator</h1>
+
+<p>The <i>Compound Interest Calculator</i> below can be used to compare or convert the interest rates of different compounding periods. Please use our <a href="/interest-calculator.html"><i>Interest Calculator</i></a> to do actual calculations on compound interest.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table align="center" border="0" cellspacing="0" cellpadding="4" class="panel">
+  <tr>
+    <td align="center" valign="middle">
+        <table cellpadding="5">
+          <tr>
+            <td align="center">Input Interest</td>
+            <td align="center">Compound</td>
+            <td align="center">&nbsp;</td>
+            <td align="center">Output Interest</td>
+            <td align="center">Compound</td>
+          </tr>
+          <tr>
+            <td align="center"><input type="text" name="cinterestrate" id="cinterestrate" value="6" class="inlong inpct"></td>
+            <td align="center"><select id="cincompound" name="cincompound"><option value="annually" >Annually (APY)</option><option value="semiannually" >Semiannually</option><option value="quarterly" >Quarterly</option><option value="monthly" selected>Monthly (APR)</option><option value="semimonthly" >Semimonthly</option><option value="biweekly" >Biweekly</option><option value="weekly" >Weekly</option><option value="daily" >Daily</option><option value="continuously" >Continuously</option></select></td>
+            <td align="center" class="verybigtext">=</td>
+            <td align="center" class="bigtext"><font color="green"><b>6.16778%</b></font></td>
+            <td align="center"><select id="coutcompound" name="coutcompound"><option value="annually" selected>Annually (APY)</option><option value="semiannually" >Semiannually</option><option value="quarterly" >Quarterly</option><option value="monthly" >Monthly (APR)</option><option value="semimonthly" >Semimonthly</option><option value="biweekly" >Biweekly</option><option value="weekly" >Weekly</option><option value="daily" >Daily</option><option value="continuously" >Continuously</option></select></td>
+          </tr>
+          <tr>
+            <td colspan="5" align="center">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+</form>
+<br><br>
+<fieldset><legend>Related</legend>
+<a href="/interest-calculator.html">Interest Calculator</a> | <a href="/investment-calculator.html">Investment Calculator</a> | <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>
+</fieldset>
+
+<br><br>
+<h3>What is compound interest?</h3>
+<p>Interest is the cost of using borrowed money, or more specifically, the amount a lender receives for advancing money to a borrower. When paying interest, the borrower will mostly pay a percentage of the principal (the borrowed amount). The concept of interest can be categorized into simple interest or compound interest.</p>
+<p>Simple interest refers to interest earned only on the principal, usually denoted as a specified percentage of the principal. To determine an interest payment, simply multiply principal by the interest rate and the number of periods for which the loan remains active. For example, if one person borrowed $100 from a bank at a simple interest rate of 10% per year for two years, at the end of the two years, the interest would come out to:</p>
+<p style="text-align: center;">$100 &#215; 10% &#215; 2 years = $20</p>
+<p>Simple interest is rarely used in the real world. Compound interest is widely used instead. Compound interest is interest earned on both the principal and on the accumulated interest. For example, if one person borrowed $100 from a bank at a compound interest rate of 10% per year for two years, at the end of the first year, the interest would amount to:</p>
+<p style="text-align: center;">$100 &#215; 10% &#215; 1 year = $10</p>
+<p>At the end of the first year, the loan's balance is principal plus interest, or $100 + $10, which equals $110. The compound interest of the second year is calculated based on the balance of $110 instead of the principal of $100. Thus, the interest of the second year would come out to:</p>
+<p style="text-align: center;">$110 &#215; 10% &#215; 1 year = $11</p>
+<p>The total compound interest after 2 years is $10 + $11 = $21 versus $20 for the simple interest.</p>
+<p>Because lenders earn interest on interest, earnings compound over time like an exponentially growing snowball. Therefore, compound interest can financially reward lenders generously over time. The longer the interest compounds for any investment, the greater the growth.</p>
+<p>As a simple example, a young man at age 20 invested $1,000 into the stock market at a 10% annual return rate, the S&P 500's average rate of return since the 1920s. At the age of 65, when he retires, the fund will grow to $72,890, or approximately 73 times the initial investment!</p>
+<p>While compound interest grows wealth effectively, it can also work against debtholders. This is why one can also describe compound interest as a double-edged sword. Putting off or prolonging outstanding debt can dramatically increase the total interest owed.</p>
+
+<h3>Different compounding frequencies</h3>
+<p>Interest can compound on any given frequency schedule but will typically compound annually or monthly. Compounding frequencies impact the interest owed on a loan. For example, a loan with a 10% interest rate compounding semi-annually has an interest rate of 10% / 2, or 5% every half a year. For every $100 borrowed, the interest of the first half of the year comes out to:</p>
+<p style="text-align: center;">$100 &#215; 5% = $5</p>
+<p>For the second half of the year, the interest rises to:</p>
+<p style="text-align: center;">($100 + $5) &#215; 5% = $5.25</p>
+<p>The total interest is $5 + $5.25 = $10.25. Therefore, a 10% interest rate compounding semi-annually is equivalent to a 10.25% interest rate compounding annually.</p>
+<p>The interest rates of savings accounts and Certificate of Deposits (CD) tend to compound annually. Mortgage loans, home equity loans, and credit card accounts usually compound monthly. Also, an interest rate compounded more frequently tends to appear lower. For this reason, lenders often like to present interest rates compounded monthly instead of annually. For example, a 6% mortgage interest rate amounts to a monthly 0.5% interest rate. However, after compounding monthly, interest totals 6.17% compounded annually.</p>
+<p>Our compound interest calculator above accommodates the conversion between daily, bi-weekly, semi-monthly, monthly, quarterly, semi-annual, annual, and continuous (meaning an infinite number of periods) compounding frequencies.</p>
+
+<h3>Compound interest formulas</h3>
+<p>The calculation of compound interest can involve complicated formulas. Our calculator provides a simple solution to address that difficulty. However, those who want a deeper understanding of how the calculations work can refer to the formulas below:</p>
+
+<p><b>Basic compound interest</b></p>
+<p>The basic formula for compound interest is as follows:</p>
+<p style="text-align: center;">A<sub>t</sub> = A<sub>0</sub>(1 + r)<sup>n</sup></p>
+<div class="panel">where:<div style="padding-left:10px;">
+A<sub>0</sub> : principal amount, or initial investment<br>
+A<sub>t</sub> : amount after time t<br>
+r : interest rate<br>
+n : number of compounding periods, usually expressed in years
+</div></div>
+<p>In the following example, a depositor opens a $1,000 savings account. It offers a 6% APY compounded once a year for the next two years. Use the equation above to find the total due at maturity:</p>
+<p style="text-align: center;">A<sub>t</sub> = $1,000 &#215; (1 + 6%)<sup>2</sup> = $1,123.60</p>
+<p>For other compounding frequencies (such as monthly, weekly, or daily), prospective depositors should refer to the formula below.</p>
+<table align="center"><tr>
+<td>A<sub>t</sub> = A<sub>0</sub> &#215; (1 + </td>
+<td><table cellpadding="0"><tr><td>r</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>n</td></tr></table></td>
+<td>)<sup>nt</sup></td>
+</tr></table>
+<div class="panel">where:<div style="padding-left:10px;">
+A<sub>0</sub> : principal amount, or initial investment<br>
+A<sub>t</sub> : amount after time t<br>
+n : number of compounding periods in a year<br>
+r : interest rate<br>
+t : number of years
+</div></div>
+<p>Assume that the $1,000 in the savings account in the previous example includes a rate of 6% interest compounded daily. This amounts to a daily interest rate of:</p>
+<p style="text-align: center;">6% &div; 365 = 0.0164384%</p>
+<p>Using the formula above, depositors can apply that daily interest rate to calculate the following total account value after two years:</p>
+<p style="text-align: center;">A<sub>t</sub> = $1,000 &#215; (1 + 0.0164384%)<sup>(365 &#215; 2)</sup></p>
+<p style="text-align: center;">A<sub>t</sub> = $1,000 &#215; 1.12749</p>
+<p style="text-align: center;">A<sub>t</sub> = $1,127.49</p>
+<p>Hence, if a two-year savings account containing $1,000 pays a 6% interest rate compounded daily, it will grow to $1,127.49 at the end of two years.</p>
+
+<p><b>Continuous compound interest</b></p>
+<p>Continuously compounding interest represents the mathematical limit that compound interest can reach within a specified period. The continuous compound equation is represented by the equation below:</p>
+<p style="text-align: center;">A<sub>t</sub> = A<sub>0</sub>e<sup>rt</sup></p>
+<div class="panel">where:<div style="padding-left:10px;">
+A<sub>0</sub> : principal amount, or initial investment<br>
+A<sub>t</sub> : amount after time t<br>
+r : interest rate<br>
+t : number of years<br>
+e : mathematical constant e, ~2.718
+</div></div>
+<p>For instance, we wanted to find the maximum amount of interest that we could earn on a $1,000 savings account in two years.</p>
+<p>Using the equation above:</p>
+<p style="text-align: center;">A<sub>t</sub> = $1,000e<sup>(6% &#215; 2)</sup></p>
+<p style="text-align: center;">A<sub>t</sub> = $1,000e<sup>0.12</sup></p>
+<p style="text-align: center;">A<sub>t</sub> = $1,127.50</p>
+<p>As shown by the examples, the shorter the compounding frequency, the higher the interest earned. However, above a specific compounding frequency, depositors only make marginal gains, particularly on smaller amounts of principal.</p>
+
+<p><b>Rule of 72</b></p>
+<p>The Rule of 72 is a shortcut to determine how long it will take for a specific amount of money to double given a fixed return rate that compounds annually. One can use it for any investment as long as it involves a fixed rate with compound interest in a reasonable range. Simply divide the number 72 by the annual rate of return to determine how many years it will take to double.</p>
+<p>For example, $100 with a fixed rate of return of 8% will take approximately nine (72 / 8) years to grow to $200. Bear in mind that "8" denotes 8%, and users should avoid converting it to decimal form. Hence, one would use "8" and not "0.08" in the calculation. Also, remember that the Rule of 72 is not an accurate calculation. Investors should use it as a quick, rough estimation.</p>
+
+<h3>History of Compound Interest</h3>
+<p>Ancient texts provide evidence that two of the earliest civilizations in human history, the Babylonians and Sumerians, first used compound interest about 4400 years ago. However, their application of compound interest differed significantly from the methods used widely today. In their application, 20% of the principal amount was accumulated until the interest equaled the principal, and they would then add it to the principal.</p>
+<p>Historically, rulers regarded simple interest as legal in most cases. However, certain societies did not grant the same legality to compound interest, which they labeled usury. For example, Roman law condemned compound interest, and both Christian and Islamic texts described it as a sin. Nevertheless, lenders have used compound interest since medieval times, and it gained wider use with the creation of compound interest tables in the 1600s.</p>
+<p>Another factor that popularized compound interest was Euler's Constant, or "e." Mathematicians define e as the mathematical limit that compound interest can reach.</p>
+<p>Jacob Bernoulli discovered e while studying compound interest in 1683. He understood that having more compounding periods within a specified finite period led to faster growth of the principal. It did not matter whether one measured the intervals in years, months, or any other unit of measurement. Each additional period generated higher returns for the lender. Bernoulli also discerned that this sequence eventually approached a limit, e, which describes the relationship between the plateau and the interest rate when compounding.</p>
+<p>Leonhard Euler later discovered that the constant equaled approximately 2.71828 and named it e. For this reason, the constant bears Euler's name.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="153" version="1.1" viewBox="0 0 300 153" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(0 35)">
+<rect width="310" height="3" x="-5" y="29"  style="fill:#838383;stroke:#000;stroke-width:1;"  />
+<path d="M93 60 L62 60 A5,5 0 0,1 60,59 A42,42 0 0,1 60,2 A5,5 0 0,1 62,1 L93 1 L99 6 L212 6 L218 1 L249 1 A5,5 0 0,1 251,2 A42,42 0 0,1 251,59 A5,5 0 0,1 249,60 L218 60 L212 55 L99 55 Z" style="fill:#eceed6;stroke:#000;stroke-width:2;" />
+<path d="M93 60 L62 60 A5,5 0 0,1 60,59 A42,42 0 0,1 60,2 A5,5 0 0,1 62,1 L93 1 L99 6 L212 6 L218 1 L249 1 A5,5 0 0,1 251,2 A42,42 0 0,1 251,59 A5,5 0 0,1 249,60 L218 60 L212 55 L99 55 Z" style="fill:#eceed6;stroke-width:0;" />
+<rect width="12" height="59" x="74" y="1"  style="fill:#9acd32;stroke-width:0;" />
+<rect width="12" height="49" x="100" y="6"  style="fill:#ff0000;stroke-width:0;" />
+<rect width="12" height="49" x="124" y="6"  style="fill:#6495ed;stroke-width:0;" />
+<rect width="12" height="49" x="148" y="6"  style="fill:#ff0000;stroke-width:0;" />
+<rect width="12" height="49" x="198" y="6"  style="fill:#cfb53b;stroke-width:0;" />
+<rect width="12" height="59" x="221" y="1"  style="fill:#964b00;stroke-width:0;" />
+</g>
+<g stroke="black" fill="none" stroke-width="1" >
+<line x1="154" y1="26" x2="154" y2="38" />
+<line x1="227" y1="22" x2="227" y2="33" />
+<line x1="80" y1="98" x2="80" y2="110" />
+<line x1="106" y1="93" x2="106" y2="127" />
+<line x1="130" y1="93" x2="130" y2="139" />
+<line x1="204" y1="93" x2="204" y2="106" />
+</g>
+<g fill="black" >
+<polygon points="151,32 154,40 157,32" />
+<polygon points="224,27 227,35 230,27" />
+<polygon points="77,104 80,96 83,104" />
+<polygon points="103,99 106,91 109,99" />
+<polygon points="127,99 130,91 133,99" />
+<polygon points="201,99 204,91 207,99" />
+</g>
+<g font-family="arial, sans-serif" fill="#000" font-size="12px" stroke-width="0">
+<text x="195" y="10">Temperature</text>
+<text x="199" y="21">Coefficient</text>
+<text x="130" y="23">Multiplier</text>
+<text x="40" y="118">1<tspan baseline-shift="super" font-size="10">st</tspan> Band</text>
+<text x="75" y="136">2<tspan baseline-shift="super" font-size="10">nd</tspan> Band</text>
+<text x="126" y="150">3<tspan baseline-shift="super" font-size="10">rd</tspan> Band</text>
+<text x="180" y="115">Tolerance</text>
+</g>
+</svg>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>How Much House Can I Afford? - House Affordability Calculator</title>
+	<meta name="description" content="Free house affordability calculator to estimate an affordable house price based on factors such as income, debt, down payment, or simply budget." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/house-affordability-calculator.html" itemprop="item"><span itemprop="name">house affordability calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>
+		<h1>How Much House Can I Afford?</h1>
+		<h2>House Affordability Calculator</h2>
+
+<p>There are two House Affordability Calculators that can be used to estimate an affordable purchase amount for a house based on either household income-to-debt estimates or fixed monthly budgets. They are mainly intended for use by U.S. residents.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform" action="/house-affordability-calculator.html">
+<table id="calinputtable" class="panel">
+<tr><td>Annual household income <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The entire before-tax income of the household, including salary, tips, commissions, bonuses, investment income, dividends, alimony received, and more.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="cannualincome" id="cannualincome" value="120000" class="inlong indollar"></td><td> salary + other incomes (before tax)</td></tr>
+<tr><td>Mortgage loan term</td><td align="right"><input type="text" name="cloanterm" value="30" class="inlong"></td><td>years</td></tr>
+<tr><td>Interest rate</td><td align="right"><input type="text" name="cinterestrate" value="7.237" class="inlong inpct"></td><td>&nbsp;</td></tr>
+<tr><td>Monthly debt payback <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The total of the minimum amounts you pay each month to keep up with the ongoing debts, such as student loans, car loans, credit cards, child support, alimony paid, and personal loans.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="cmonthlydebt" id="cmonthlydebt" value="0" class="inlong indollar"></td><td>long-term debts, car, student loan, etc</td></tr>
+<tr><td>Down payment</td><td align="right"><input type="text" name="cdownpercent" id="cdownpercent" value="20" class="inlong"></td><td><select name="cdownpaymentunit" onChange="cunitchange('cdownpercent', this.value);"><option value="p" selected>%</option><option value="d">$</option></select></td></tr>
+<tr><td>Property tax</td><td align="right"><input type="text" name="cpropertytax" id="cpropertytax" value="1.5" class="inlong"></td><td><select name="cpropertytaxunit" onChange="cunitchange('cpropertytax', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+<tr><td>HOA or co-op fee</td><td align="right"><input type="text" name="choa" id="choa" value="0" class="inlong"></td><td><select name="choaunit" onChange="cunitchange('choa', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+<tr><td>Insurance</td><td align="right"><input type="text" name="cinsurance" id="cinsurance" value="0.5" class="inlong"></td><td><select name="cinsuranceunit" onChange="cunitchange('cinsurance', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+<tr><td>Debt-to-income (DTI) ratio</td><td colspan="2">
+	<select name="cdtiunit">
+		<option value="cv" selected>Conventional loan (28/36 rule)</option>
+		<option value="fha">FHA loan (31% front-end, 43% back-end)</option>
+		<option value="va">VA loan (41%)</option>
+		<option value="10">10%</option><option value="15">15%</option><option value="20">20%</option><option value="25">25%</option><option value="30">30%</option><option value="35">35%</option><option value="40">40%</option><option value="45">45%</option><option value="50">50%</option>	</select></td></tr>
+<tr><td colspan="3" align="center" style="padding-top:8px;"><input type="hidden" name="type" value="1">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+<br><div id="mRateData"></div><div id="mratetable"></div>
+<script>
+if (document.getElementById("mRateData")) document.getElementById("mRateData").innerHTML = '<table align="center"><tr><td><div style="border: 1px solid #bbb;padding: 5px;margin:3px;"><b>Latest Mortgage Rates:</b><br>30 Years: <a href="#" onClick="return setYearRate(\'7.237\', \'30\');">7.237%</a> &nbsp; 15 Years: <a href="#" onClick="return setYearRate(\'6.443\', \'15\');">6.443%</a> &nbsp; 10 Years: <a href="#" onClick="return setYearRate(\'6.289\', \'10\');">6.289%</a> <div style="text-align:center;"><span style="display:inline-block;margin:8px 0px 5px 0px;" id="mratetablebtn"><span id="bluebtn" style="cursor: pointer;" onClick="return showMratetable();">See your local rates</span></span> <span style="display:inline-block;margin:8px 0px 5px 0px;" id="mpreapprovalbtn"><span id="bluebtn" style="cursor: pointer;" onClick="return showPreapproval();">Get pre-approval</span></span></div></div></td></tr></table>';function showMratetable(){
+	hidePreapproval();
+	document.getElementById("mratetable").innerHTML = '<iframe src="https://widgets.icanbuy.com/c/standard/us/en/mortgage/tables/Mortgage.aspx?siteid=77c21319f69f80e0&property_value=500000&down_payment_percentage=20&loan_product=PERIOD_FIXED_30YEARS&result_count=5" style="width: 100%; height: 1300px; border:0px;"></iframe>';
+	document.getElementById("mratetablebtn").innerHTML = '<span id="bluebtn" style="cursor: pointer;" onClick="return hideMratetable();">Hide the rate table below</span>';
+	document.getElementById("mratetablebtn").scrollIntoView({behavior: 'smooth'});
+	return false;
+}
+function hideMratetable(){
+	document.getElementById("mratetable").innerHTML = '';
+	document.getElementById("mratetablebtn").innerHTML = '<span id="bluebtn" style="cursor: pointer;" onClick="return showMratetable();">See your local rates</span>';
+	return false;
+}
+function showPreapproval(){
+	hideMratetable();
+	document.getElementById("mratetable").innerHTML = '<iframe src="/ads-pre-approval.php" style="width: 100%; height: 1100px; border:0px;"></iframe>';
+	document.getElementById("mpreapprovalbtn").innerHTML = '<span id="bluebtn" style="cursor: pointer;" onClick="return hidePreapproval();">Hide pre-approval Below</span>';
+	document.getElementById("mpreapprovalbtn").scrollIntoView({behavior: 'smooth'});
+	return false;
+}
+function hidePreapproval(){
+	document.getElementById("mratetable").innerHTML = '';
+	document.getElementById("mpreapprovalbtn").innerHTML = '<span id="bluebtn" style="cursor: pointer;" onClick="return showPreapproval();">Get pre-approval</span>';
+	return false;
+}
+	
+</script>
+
+<a name="budget-based"></a>
+<br><h2>House affordability based on fixed, monthly budgets</h2>
+<p>This is a separate calculator used to estimate house affordability based on monthly allocations of a fixed amount for housing costs.</p>
+<form name="calform2" action="/house-affordability-calculator.html#budget-based">
+<table id="calinputtable" class="panel">
+<tr><td>Budget for house <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The amount of money you can afford and are willing to pay for the house each month.', '');" onmouseout="tooltip.hide();"></td><td align="right"><input type="text" name="c2budget" id="c2budget" value="3500" class="inlong indollar"></td><td> per month</td></tr>
+<tr><td>Mortgage loan term</td><td align="right"><input type="text" name="c2loanterm" value="30" class="inlong"></td><td>years</td></tr>
+<tr><td>Interest rate</td><td align="right"><input type="text" name="c2interestrate" value="7.237" class="inlong inpct"></td><td>&nbsp;</td></tr>
+<tr><td>Down payment</td><td align="right"><input type="text" name="c2downpercent" id="c2downpercent" value="20" class="inlong"></td><td><select name="c2downpaymentunit" onChange="cunitchange('c2downpercent', this.value);"><option value="p" selected>%</option><option value="d">$</option></select></td></tr>
+<tr><td colspan="3" style="padding: 10px 0px 3px 0px;">
+	<label for="c2coverfees" class="cbcontainer"><input type="checkbox" name="c2coverfees" id="c2coverfees" value="1" checked onClick="showhideFee();"><span class="cbmark"></span>
+	Include the tax and fees below into the budget</label>
+</td></tr>
+<tr><td colspan="3"><table id="c2taxfees" style="padding-left:21px;">
+	<tr><td>Property tax</td><td align="right"><input type="text" name="c2propertytax" id="c2propertytax" value="1.5" class="innormal"></td><td><select name="c2propertytaxunit" onChange="cunitchange('c2propertytax', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+	<tr><td>HOA or co-op fee</td><td align="right"><input type="text" name="c2hoa" id="c2hoa" value="0" class="innormal"></td><td><select name="c2hoaunit" onChange="cunitchange('c2hoa', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+	<tr><td>Insurance</td><td align="right"><input type="text" name="c2insurance" id="c2insurance" value="0.5" class="innormal"></td><td><select name="c2insuranceunit" onChange="cunitchange('c2insurance', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+	<tr><td>Maintenance cost<br>(repair, utility etc.)</td><td align="right"><input type="text" name="c2maintenance" id="c2maintenance" value="1.5" class="innormal"></td><td><select name="c2maintenanceunit" onChange="cunitchange('c2maintenance', this.value);"><option value="p" selected>%</option><option value="d">$</option></select> per year</td></tr>
+</table></td></tr>
+	<tr><td colspan="3" align="center" style="padding-top:8px;"><input type="hidden" name="type" value="2">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td></tr>
+</table>
+</form>
+<script>
+function showhideFee(){
+	if(document.getElementById("c2coverfees").checked){
+		document.getElementById("c2taxfees").style.display = 'block';
+	}else{
+		document.getElementById("c2taxfees").style.display = 'none';
+	}
+	return false;
+}
+showhideFee();
+
+function cunitchange(cucid, cucval){
+	var cucthisunit = document.getElementById(cucid);
+	if (cucval=='d'){
+		cucthisunit.classList.remove('inpct');
+		cucthisunit.classList.add('indollar');
+	}else if (cucval=='p'){
+		cucthisunit.classList.remove('indollar');
+		cucthisunit.classList.add('inpct');
+	}
+	return false;
+}
+
+cunitchange("cdownpercent", 'p');
+cunitchange("cpropertytax", 'p');
+cunitchange("choa", 'p');
+cunitchange("cinsurance", 'p');
+cunitchange("c2downpercent", 'p');
+cunitchange("c2propertytax", 'p');
+cunitchange("c2hoa", 'p');
+cunitchange("c2insurance", 'p');
+cunitchange("c2maintenance", 'p');
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("c2budget");
+proComma2("cannualincome");
+proComma2("cmonthlydebt");
+proComma2("cdownpercent");
+proComma2("cpropertytax");
+proComma2("choa");
+proComma2("cinsurance");
+proComma2("c2downpercent");
+proComma2("c2propertytax");
+proComma2("c2hoa");
+proComma2("c2insurance");
+proComma2("c2maintenance");
+</script>
+
+<br>
+<fieldset><legend>Related</legend><a href="/mortgage-calculator.html">Mortgage Calculator</a> | <a href="/refinance-calculator.html">Refinance Calculator</a> | <a href="/mortgage-payoff-calculator.html">Mortgage Payoff Calculator</a></fieldset>
+
+<br>
+<p>In the U.S., conventional, FHA, and other mortgage lenders like to use two ratios, called the front-end and back-end ratios, to determine how much money they are willing to loan. They are basic debt-to-income ratios (DTI), albeit slightly different and explained below. For more information about or to do calculations involving debt-to-income ratios, please visit the <a href="/debt-ratio-calculator.html">Debt-to-Income (DTI) Ratio Calculator</a>.</p>
+<p>Because they are used by lenders to assess the risk of lending to each home-buyer, home-buyers can strive to lower their DTI in order to not only be able to qualify for a mortgage, but for a favorable one. The lower the DTI, the more likely a home-buyer is to get a good deal.</p>
+
+<h3>Front-End Ratio</h3>
+<p>The front-end debt ratio is also known as the mortgage-to-income ratio and is computed by dividing total monthly housing costs by monthly gross income.</p>
+<table align="center"><tr>
+<td>Front-end debt ratio</td>
+<td>=</td>
+<td><table cellpadding="0"><tr><td align="center">monthly housing costs</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">monthly gross income</td></tr></table></td>
+<td nowrap>&#215; 100%</td>
+</tr></table>
+<p>For our calculator, only conventional and FHA loans utilize the front-end debt ratio. The monthly housing costs not only include interest and principal of the loan, but other costs associated with housing like insurance, property taxes, and HOA/Co-Op Fee.</p>
+
+<h3>Back-End Ratio</h3>
+<p>The back-end debt ratio includes everything in the front-end ratio dealing with housing costs, along with any accrued recurring monthly debt like car loans, student loans, and credit cards.</p>
+<table align="center"><tr>
+<td>Back-end debt ratio</td>
+<td>=</td>
+<td><table cellpadding="0"><tr><td align="center">monthly housing costs + all other recurring monthly debt</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">monthly gross income</td></tr></table></td>
+<td nowrap>&#215; 100%</td>
+</tr></table>
+<p>This ratio is known as the debt-to-income ratio and is used for all the calculations of this calculator.</p>
+
+<h3>Conventional Loans and the 28/36 Rule</h3>
+<p>In the U.S., a conventional loan is a mortgage that is not insured by the federal government directly and generally refers to a mortgage loan that follows the guidelines of government-sponsored enterprises (GSE's) like Fannie Mae or Freddie Mac. Conventional loans may be either conforming or non-conforming. Conforming loans are bought by housing agencies such as Freddie Mac and Fannie Mae and follow their terms and conditions. Non-conforming loans are any loans not bought by these housing agencies that don't follow the terms and conditions laid out by these agencies, but are generally still considered conventional loans.</p>
+<p>The 28/36 Rule is a commonly accepted guideline used in the U.S. and Canada to determine each household's risk for conventional loans. It states that a household should spend no more than 28% of its gross monthly income on the front-end debt and no more than 36% of its gross monthly income on the back-end debt. The 28/36 Rule is a qualification requirement for conforming conventional loans.</p>
+<p>While it has been adopted as one of the most widely-used methods of determining the risk associated with a borrower, as Shiller documents in his critically-acclaimed book Irrational Exuberance, the 28/36 Rule is often dismissed by lenders under heavy stress in competitive lending markets. Because it is so leniently enforced, certain lenders can sometimes lend to risky borrowers who may not actually qualify based on the 28/36 Rule.</p>
+
+<h3>FHA Loans</h3>
+<p>Please visit our <a href="/fha-loan-calculator.html">FHA Loan Calculator</a> to get more in-depth information regarding FHA loans, or to calculate estimated monthly payments on FHA loans.</p>
+<p>An FHA loan is a mortgage insured by the Federal Housing Administration. Borrowers must pay for mortgage insurance in order to protect lenders from losses in instances of defaults on loans. The insurance allows lenders to offer FHA loans at lower interest rates than usual with more flexible requirements, such as lower down payment as a percentage of the purchase price.</p>
+<p>To be approved for FHA loans, the ratio of front-end to back-end ratio of applicants needs to be better than 31/43. In other words, monthly housing costs should not exceed 31%, and all secured and non-secured monthly recurring debts should not exceed 43% of monthly gross income. FHA loans also require 1.75% upfront premiums.</p>
+<p>FHA loans have more lax debt-to-income controls than conventional loans; they allow borrowers to have 3% more front-end debt and 7% more back-end debt. The reason that FHA loans can be offered to riskier clients is the required upfront payment of mortgage insurance premiums.</p>
+
+<h3>VA Loans</h3>
+<p>Please visit our <a href="/va-mortgage-calculator.html">VA Mortgage Calculator</a> to get more in-depth information regarding VA loans, or to calculate estimated monthly payments on VA mortgages.</p>
+<p>A VA loan is a mortgage loan granted to veterans, service members on active duty, members of the national guard, reservists, or surviving spouses, and is guaranteed by the U.S. Department of Veterans Affairs (VA).</p>
+<p>To be approved for a VA loan, the back-end ratio of the applicant needs to be better than 41%. In other words, the sum of monthly housing costs and all recurring secured and non-secured debts should not exceed 41% of gross monthly income. VA loans generally do not consider front-end ratios of applicants but require funding fees.</p>
+
+<h3>Custom Debt-to-Income Ratios</h3>
+<p>The calculator also allows the user to select from debt-to-income ratios between 10% to 50% in increments of 5%. If coupled with down payments less than 20%, 0.5% of PMI insurance will automatically be added to monthly housing costs because they are assumed to be calculations for conventional loans. There are no options above 50% because that is the point at which DTI exceeds risk thresholds for nearly all mortgage lenders.</p>
+<p>In general, home-buyers should use lower percentages for more conservative estimates and higher percentages for more risky estimates. A 20% DTI is easier to pay off during stressful financial periods compared to, say, a 45% DTI. Home-buyers who are unsure of which option to use can try the Conventional Loan option, which uses the 28/36 Rule.</p>
+
+<h3>Unaffordability</h3>
+<p>If you cannot immediately afford the house you want, below are some steps that can be taken to increase house affordability, albeit with time and due diligence.</p>
+<ul>
+	<li><b>Reduce debt in other areas</b>&mdash;This may include anything from choosing a less expensive car to paying off student loans. In essence, lowering the standard of living in other areas can make it more possible to afford a particularly sought-after house.</li>
+	<li><b>Increase credit score</b>&mdash;A better credit score can help buyers find a loan with a better interest rate. A lower interest rate helps the buyer's purchasing power.</li>
+	<li><b>Bigger down payment</b>&mdash;Paying more upfront accomplishes two things. One, it directly increases the amount the buyer can afford. Two, a big down payment helps the buyer find a better interest rate and therefore increases the buyer's purchasing power.</li>
+	<li><b>Save more</b>&mdash;When desired DTI ratios aren't met, mortgage lenders may look at the amount of savings of each borrower as a compensating factor.</li>
+	<li><b>Higher income</b>&mdash;Although increasing income is easier said than done, it can culminate in the most drastic change in a borrower's ability to purchase a certain home. A large increase in salary immediately has a large impact on DTI ratios. Acquiring a higher income usually involves different combinations of achieving higher education, improving skills, networking, constant job searching, and typically lots of hard work.</li>
+</ul>
+<p>Working towards achieving one or more of these will increase a household's success rate in qualifying for the purchase of a home in accordance with lenders' standards of qualifications. If these prove to be difficult, home-buyers can maybe consider less expensive homes. Some people find better luck moving to different cities. If not, there are various housing assistance programs at the local level, though these are geared more towards low-income households. Renting is a viable alternative to owning a home, and it may be helpful to rent for the time being in order to set up a better buying situation in the future. For more information about or to do calculations involving rent, please visit the <a href="/rent-calculator.html">Rent Calculator</a>.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

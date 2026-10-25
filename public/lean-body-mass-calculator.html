@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lean Body Mass Calculator</title>
+	<meta name="description" content="This free lean body mass (LBM) calculator estimates LBM based on body weight, height, age, and gender. It compares the results of several popular formulas." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/lean-body-mass-calculator.html" itemprop="item"><span itemprop="name">lean body mass calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Lean Body Mass Calculator</h1>
+<p>The Lean Body Mass Calculator computes a person's estimated lean body mass (LBM) based on body weight, height, gender, and age. For comparison purposes, the calculator provides the results of multiple formulas.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><span id="ucframe"></span>
+<div class="leftinput">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<div class="panel2" style="padding:5px;">
+<form name="calform">
+<table id="calinputtable" width="300">
+<tr>
+	<td width="60">Gender</td>
+	<td width="240"><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>female</label></td>
+</tr>
+<tr>
+	<td colspan="2" style="padding: 2px 0px;">Age 14 or younger?
+		<label for="cage1" class="cbcontainer"><input type="radio" name="cage" id="cage1" value="y"  /><span class="rbmark"></span>yes</label> &nbsp; <label for="cage2" class="cbcontainer"><input type="radio" name="cage" id="cage2" value="n" checked /><span class="rbmark"></span>no</label>
+	</td>
+</tr>
+</table>
+<table width="300" id="standardheightweight">
+<tr>
+	<td width="60">Height</td>
+	<td width="240">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inlongesthalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inlongesthalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Weight</td>
+	<td><input type="text" name="cpound" id="cpound" value="160" class="inlongest inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="300" id="metricheightweight">
+<tr>
+	<td width="60">Height</td>
+	<td width="240"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="60" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="300" style="padding-top: 8px;">
+<tr>
+	<td align="center">
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+</div>
+<div class="rightresult"><h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TGVhbiBCb2R5IE1hc3MgQ2FsY3VsYXRvcg==', 0, 'TGVhbiBCb2R5IE1hc3MgQ2FsY3VsYXRvcg==', '', '');"></h2><p style="padding:6px 0px;">The lean body mass based on different formulas:</p><table class="cinfoT" align="center"><tr><td class="cinfoHd">Formula</td><td class="cinfoHdL">Lean Body Mass</td><td class="cinfoHdL">Body Fat</td></tr><tr><td>Boer<sup>1</sup></td><td align="center"><b>127.4 lbs</b> (80%)</td><td align="center">20%</td></tr><tr><td>James<sup>2</sup></td><td align="center"><b>129.0 lbs</b> (81%)</td><td align="center">19%</td></tr><tr><td>Hume<sup>3</sup></td><td align="center"><b>120.4 lbs</b> (75%)</td><td align="center">25%</td></tr></table></div><div id="clear"></div><script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard");
+</script>
+<br><p><fieldset><legend>Related</legend><a href="/body-fat-calculator.html">Body Fat Calculator</a> | <a href="/army-body-fat-calculator.html">Army Body Fat Calculator</a> | <a href="/bmi-calculator.html">BMI Calculator</a></fieldset></p>
+<br>
+<p>Lean body mass (LBM) is a part of body composition that is defined as the difference between total body weight and body fat weight. This means that it counts the mass of all organs except body fat, including bones, muscles, blood, skin, and everything else. While the percentage of LBM is usually not computed, it on average ranges between 60-90% of total body weight. Generally, men have a higher proportion of LBM than women do. The dosages of some anesthetic agents, particularly water-soluble drugs, are routinely based on the LBM. Some medical exams also use the LBM values. For body fitness and routine daily life, people normally care more about body fat percentage than LBM. To compute body fat, consider using our <a href="/body-fat-calculator.html">body fat calculator</a> or <a href="/ideal-weight-calculator.html">ideal weight calculator</a>.</p>
+<p>Multiple formulas have been developed for calculating estimated LBM (eLBM) and the calculator above provides the results for all of them.</p>
+
+<br>
+<h3>Lean Body Mass Formulas for Adults</h3>
+<p><b>The Boer Formula:</b><sup>1</sup></p>
+<table style="padding-left: 50px;">
+	<tr><td><i>For males:</i></td></tr>
+	<tr><td style="padding-left:20px;">eLBM = 0.407W + 0.267H - 19.2</td></tr>
+	<tr><td><i>For females:</i></td></tr>
+	<tr><td style="padding-left:20px;">eLBM = 0.252W + 0.473H - 48.3</td></tr>
+</table>
+
+<p><b>The James Formula:</b><sup>2</sup></p>
+<table style="padding-left: 50px;">
+	<tr><td><i>For males:</i></td></tr>
+	<tr><td style="padding-left:20px;"><table cellpadding="0" cellspacing="0"><tr>
+<td>eLBM = 1.1W - 128<span class="verybigtext">(</span></td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">W</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">H</td></tr></table></td>
+<td><span class="verybigtext">)</td><td valign="top" style="padding-top: 3px;">2</td>
+</tr></table></td></tr>
+	<tr><td><i>For females:</i></td></tr>
+	<tr><td style="padding-left:20px;"><table cellpadding="0" cellspacing="0"><tr>
+<td>eLBM = 1.07W - 148<span class="verybigtext">(</span></td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">W</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">H</td></tr></table></td>
+<td><span class="verybigtext">)</td><td valign="top" style="padding-top: 3px;">2</td>
+</tr></table></td></tr>
+</table>
+
+<p><b>The Hume Formula:</b><sup>3</sup></p>
+<table style="padding-left: 50px;">
+	<tr><td><i>For males:</i></td></tr>
+	<tr><td style="padding-left:20px;">eLBM = 0.32810W + 0.33929H - 29.5336</td></tr>
+	<tr><td><i>For females:</i></td></tr>
+	<tr><td style="padding-left:20px;">eLBM = 0.29569W + 0.41813H - 43.2933 </td></tr>
+</table>
+<br>
+<h3>Lean Body Mass Formula for Children</h3>
+<p><b>The Peters Formula:</b><sup>4</sup></p>
+<p>The author suggests that this formula is applicable for children aged 13-14 years old or younger. The formula is used to compute an eLBM based on an estimated extracellular volume (eECV) as follows:</p>
+<table style="padding-left: 50px;">
+	<tr><td>eECV = 0.0215&#183;W<sup>0.6469</sup>&#183;H<sup>0.7236</sup></td></tr>
+	<tr><td>eLBM = 3.8&#183;eECV</td></tr>
+</table>
+<br><p>In the formulas above, W is the body weight in kilogram and H is the body height in centimeter.</p>
+
+<br><h3>Lean Body Mass vs. Fat Free Mass</h3>
+<p>Lean body mass and fat free mass are often used interchangeably. While this is unlikely to cause issues in most cases, the two are not exactly the same.</p>
+<p>Lean body mass includes the combined mass of bones, muscles, water, ligaments, tendons, and internal organs. Internal organs include some essential fat and the mass of this fat is included within the measurement of lean body mass. Although internal organs also have surrounding subcutaneous fat, this fat is not included within the measurement of lean body mass.</p>
+<p>Fat free mass is calculated as the difference between total body mass and all fat mass including essential fat. This is the difference between fat free mass and lean body mass. Subtracting the mass of essential fat from lean body mass yields fat free mass. The difference between lean body mass and fat free mass amounts to approximately a 2-3% difference in men and 5-12% difference in women.</p>
+
+<br>
+<ol class="reference">
+	<li>Boer P. "Estimated lean body mass as an index for normalization of body fluid volumes in man." <i>Am J Physiol</i> 1984; 247: F632-5</li>
+	<li>James, W. "Research on obesity: a report of the DHSS/MRC group" <i>HM Stationery Office</i> 1976</li>
+	<li>Hume, R "Prediction of lean body mass from height and weight.". <i>J Clin Pathol.</i> 1966 Jul; 19(4):389-91.</li>
+	<li>A. M. Peters, H. L. R. Snelling, D. M. Glass, N. J. Bird "Estimation of lean body mass in children". <i>British Journal of Anaesthesia1</i> 06(5): 719-23 (2011).</li>
+</ol>
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

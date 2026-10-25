@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mortgage Payoff Calculator</title>
+	<meta name="description" content="Free mortgage payoff calculator to evaluate options to pay off a mortgage earlier, such as extra payments, bi-weekly payments, or paying back altogether." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="//d26tpo4cm8sb6k.cloudfront.net/highchart/highcharts.js"></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mortgage-payoff-calculator.html" itemprop="item"><span itemprop="name">mortgage payoff calculator</span></a><meta itemprop="position" content="3" /></span></div>	<h1>Mortgage Payoff Calculator</h1>
+	<p>This mortgage payoff calculator helps evaluate how adding extra payments or bi-weekly payments can save on interest and shorten mortgage term.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>If you know the remaining loan term</h2>
+<p>Use this calculator if the term length of the remaining loan is known and there is information on the original loan &ndash; good for new loans or preexisting loans that have never been supplemented with any external payments.</p>
+<div class="leftinput">
+<div class="panel">
+<form name="calform" action="/mortgage-payoff-calculator.html#loanterm">
+<table align="center" cellpadding="3">
+<tr><td>Original loan amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="400000" class="inhalf indollar"></td></tr>
+<tr><td>Original loan term</td><td><input type="text" name="cloanterm" value="30" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td></tr>
+<tr><td>Interest rate</td><td><input type="text" name="cinterestrate" value="6" class="inhalf inpct"></td></tr>
+<tr><td valign="top"><div style="padding-top:8px;">Remaining term</div></td><td>
+	<input type="text" name="cremainingyear" id="cremainingyear" value="25" class="inhalf inuiyear"><span class="inuiyearspan">years</span>
+	<br><input type="text" name="cremainingmonth" id="cremainingmonth" value="0" class="inhalf inuipound"><span class="inuipoundspan">months</span>
+</td></tr>
+<tr><td colspan="2">
+	<div style="padding-top:8px;"><b>Repayment options:</b></div>
+	<label for="cpayoff1" class="cbcontainer"><input type="radio" name="cpayoffoption" id="cpayoff1" value="together" /><span class="rbmark"></span>Payback altogether</label><br>
+	<label for="cpayoff2" class="cbcontainer"><input type="radio" name="cpayoffoption" id="cpayoff2" value="extra" checked/><span class="rbmark"></span>Repayment with extra payments</label>
+		<div style="padding-left: 25px;">
+			<input type="text" name="cadditionalmonth" id="cadditionalmonth" value="500" class="inhalf indollar"> per month<br>
+			<input type="text" name="cadditionalyear" id="cadditionalyear" value="0" class="inhalf indollar"> per year<br>
+			<input type="text" name="cadditionalonetime" id="cadditionalonetime" value="0" class="inhalf indollar"> one time<br>
+		</div>
+	<label for="cpayoff3" class="cbcontainer"><input type="radio" name="cpayoffoption" id="cpayoff3" value="biweekly" /><span class="rbmark"></span>Biweekly repayment</label><br>
+	<label for="cpayoff4" class="cbcontainer"><input type="radio" name="cpayoffoption" id="cpayoff4" value="original" /><span class="rbmark"></span>Normal repayment</label>
+</td></tr>
+<tr><td colspan="2" align="center"><input type="hidden" name="type" value="1"><input type="submit" name="x" value="Calculate"> <input type="button" value="Clear" onClick="clearForm(document.calform);"></td></tr>
+</table>
+</form>
+</div></div>
+<div class="rightresult"><a name="loanterm"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Payoff in 17 years and 3 months<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TW9ydGdhZ2UgUGF5b2ZmIENhbGN1bGF0b3I=', 1, 'a25vdyB0aGUgcmVtYWluaW5nIGxvYW4gdGVybQ==', '', '');"></h2><p>The remaining balance is $372,217.43. By paying extra $500.00 per month starting now, the loan will be paid off in 17 years and 3 months.  It is <b>7 years and 9 months earlier</b>.  This results in savings of <b>$122,306</b> in interest.</p><div style="padding: 6px 0px 16px 0px;"><table class="cinfoT" width="100%"><tr align="center"><th width="50%">Interest savings<br>$122,306</th><th width="50%">Time savings<br>7 years and 9 months</th></tr><tr><td><div class="smalltext" style="color:#888;">Original: $463,353</div><div style="height:10px; width:150px;background-color:#888;margin:3px 0px;"></div><div style="height:10px; width:110px;background-color:#518428;margin:3px 0px;"></div><div class="smalltext" style="color:#518428;">With payoff: $341,047</div><div class="smalltext" style="text-align:center;padding-top:6px;">Pay 26% less on interest</div></td><td><div class="smalltext" style="color:#888;">Original: 25 yrs</div><div style="height:10px; width:150px;background-color:#888;margin:3px 0px;"></div><div style="height:10px; width:104px;background-color:#518428;margin:3px 0px;"></div><div class="smalltext" style="color:#518428;">With payoff: 17 yrs, 3 mos</div><div class="smalltext" style="text-align:center;padding-top:6px;">Payoff 31% faster</div></td></tr></table></div><table width="100%" class="cinfoT"><tr align="center" valign="bottom"><th>&nbsp;</th><th>Original</th><th>With payoff</th></tr><tr><td>Monthly pay</td><td align="right">$2,398.20</td><td align="right">$2,898.20</td></tr><tr><td>Total payments</td><td align="right">$863,352.76</td><td align="right">$741,046.55</td></tr><tr><td>Total interest</td><td align="right">$463,352.76</td><td align="right">$341,046.55</td></tr><tr><td>Remaining payments</td><td align="right">$719,460.63</td><td align="right">$597,154.42</td></tr><tr><td>Remaining interest</td><td align="right">$347,243.20</td><td align="right">$224,937.00</td></tr><tr><td>Payoff in</td><td align="right">25 yrs</td><td align="right">17 yrs, 3 mos</td></tr></table><p align="center"><a href="#" onclick="document.getElementById('camortizationdiv1').style.display='block';return false;">View Amortization Table</a></p></div>
+<div id="clear"></div>
+<div id="camortizationdiv1" style="display: none;"></div><div id="cchartdiv1" style="min-width: 320px; max-width: 500px; height: 180px; margin: 0 auto"></div>
+<script type="text/javascript">
+allData = "399601.80:2000.00|399201.60:1998.01|398799.41:1996.01|398395.21:1994.00|397988.98:1991.98|397580.72:1989.94|397170.42:1987.90|396758.07:1985.85|396343.66:1983.79|395927.18:1981.72|395508.61:1979.64|395087.95:1977.54|394665.19:1975.44|394240.31:1973.33|393813.31:1971.20|393384.18:1969.07|392952.90:1966.92|392519.46:1964.76|392083.85:1962.60|391646.07:1960.42|391206.10:1958.23|390763.93:1956.03|390319.55:1953.82|389872.94:1951.60|389424.10:1949.36|388973.02:1947.12|388519.69:1944.87|388064.08:1942.60|387606.20:1940.32|387146.03:1938.03|386683.56:1935.73|386218.77:1933.42|385751.67:1931.09|385282.22:1928.76|384810.43:1926.41|384336.28:1924.05|383859.76:1921.68|383380.86:1919.30|382899.56:1916.90|382415.85:1914.50|381929.73:1912.08|381441.18:1909.65|380950.18:1907.21|380456.73:1904.75|379960.81:1902.28|379462.41:1899.80|378961.52:1897.31|378458.13:1894.81|377952.22:1892.29|377443.78:1889.76|376932.79:1887.22|376419.26:1884.66|375903.15:1882.10|375384.46:1879.52|374863.18:1876.92|374339.30:1874.32|373812.79:1871.70|373283.65:1869.06|372751.87:1866.42|372217.43:1863.76|371680.31:1861.09|371140.51:1858.40|370598.01:1855.70|370052.80:1852.99|369504.86:1850.26|368954.18:1847.52|368400.75:1844.77|367844.55:1842.00|367285.58:1839.22|366723.80:1836.43|366159.22:1833.62|365591.81:1830.80|365021.57:1827.96|364448.47:1825.11|363872.52:1822.24|363293.68:1819.36|362711.94:1816.47|362127.30:1813.56|361539.73:1810.64|360949.23:1807.70|360355.77:1804.75|359759.35:1801.78|359159.95:1798.80|358557.54:1795.80|357952.13:1792.79|357343.69:1789.76|356732.20:1786.72|356117.66:1783.66|355500.05:1780.59|354879.35:1777.50|354255.54:1774.40|353628.62:1771.28|352998.56:1768.14|352365.35:1764.99|351728.97:1761.83|351089.42:1758.64|350446.66:1755.45|349800.69:1752.23|349151.49:1749.00|348499.05:1745.76|347843.34:1742.50|347184.36:1739.22|346522.08:1735.92|345856.49:1732.61|345187.57:1729.28|344515.30:1725.94|343839.68:1722.58|343160.67:1719.20|342478.27:1715.80|341792.46:1712.39|341103.22:1708.96|340410.54:1705.52|339714.39:1702.05|339014.76:1698.57|338311.63:1695.07|337604.98:1691.56|336894.81:1688.02|336181.08:1684.47|335463.78:1680.91|334742.90:1677.32|334018.41:1673.71|333290.30:1670.09|332558.55:1666.45|331823.14:1662.79|331084.06:1659.12|330341.27:1655.42|329594.78:1651.71|328844.55:1647.97|328090.57:1644.22|327332.82:1640.45|326571.28:1636.66|325805.94:1632.86|325036.77:1629.03|324263.75:1625.18|323486.86:1621.32|322706.10:1617.43|321921.42:1613.53|321132.83:1609.61|320340.29:1605.66|319543.79:1601.70|318743.31:1597.72|317938.82:1593.72|317130.31:1589.69|316317.76:1585.65|315501.15:1581.59|314680.45:1577.51|313855.65:1573.40|313026.73:1569.28|312193.66:1565.13|311356.43:1560.97|310515.01:1556.78|309669.38:1552.58|308819.53:1548.35|307965.42:1544.10|307107.05:1539.83|306244.38:1535.54|305377.40:1531.22|304506.08:1526.89|303630.41:1522.53|302750.36:1518.15|301865.91:1513.75|300977.04:1509.33|300083.72:1504.89|299185.94:1500.42|298283.67:1495.93|297376.88:1491.42|296465.57:1486.88|295549.69:1482.33|294629.24:1477.75|293704.18:1473.15|292774.50:1468.52|291840.17:1463.87|290901.17:1459.20|289957.47:1454.51|289009.06:1449.79|288055.90:1445.05|287097.98:1440.28|286135.27:1435.49|285167.74:1430.68|284195.38:1425.84|283218.15:1420.98|282236.04:1416.09|281249.02:1411.18|280257.06:1406.25|279260.15:1401.29|278258.24:1396.30|277251.33:1391.29|276239.39:1386.26|275222.38:1381.20|274200.29:1376.11|273173.09:1371.00|272140.76:1365.87|271103.26:1360.70|270060.57:1355.52|269012.67:1350.30|267959.53:1345.06|266901.13:1339.80|265837.43:1334.51|264768.42:1329.19|263694.06:1323.84|262614.33:1318.47|261529.19:1313.07|260438.64:1307.65|259342.63:1302.19|258241.14:1296.71|257134.14:1291.21|256021.61:1285.67|254903.52:1280.11|253779.83:1274.52|252650.53:1268.90|251515.58:1263.25|250374.96:1257.58|249228.63:1251.87|248076.57:1246.14|246918.75:1240.38|245755.14:1234.59|244585.72:1228.78|243410.44:1222.93|242229.29:1217.05|241042.24:1211.15|239849.25:1205.21|238650.29:1199.25|237445.34:1193.25|236234.37:1187.23|235017.34:1181.17|233794.22:1175.09|232564.99:1168.97|231329.61:1162.82|230088.06:1156.65|228840.30:1150.44|227586.30:1144.20|226326.03:1137.93|225059.45:1131.63|223786.55:1125.30|222507.28:1118.93|221221.61:1112.54|219929.52:1106.11|218630.96:1099.65|217325.92:1093.15|216014.34:1086.63|214696.21:1080.07|213371.49:1073.48|212040.15:1066.86|210702.15:1060.20|209357.46:1053.51|208006.04:1046.79|206647.87:1040.03|205282.91:1033.24|203911.12:1026.41|202532.47:1019.56|201146.93:1012.66|199754.47:1005.73|198355.04:998.77|196948.61:991.78|195535.15:984.74|194114.62:977.68|192686.99:970.57|191252.23:963.43|189810.29:956.26|188361.14:949.05|186904.74:941.81|185441.06:934.52|183970.06:927.21|182491.71:919.85|181005.97:912.46|179512.80:905.03|178012.16:897.56|176504.02:890.06|174988.34:882.52|173465.07:874.94|171934.20:867.33|170395.67:859.67|168849.44:851.98|167295.49:844.25|165733.76:836.48|164164.23:828.67|162586.85:820.82|161001.58:812.93|159408.39:805.01|157807.23:797.04|156198.06:789.04|154580.85:780.99|152955.55:772.90|151322.13:764.78|149680.54:756.61|148030.74:748.40|146372.69:740.15|144706.35:731.86|143031.68:723.53|141348.64:715.16|139657.18:706.74|137957.26:698.29|136248.84:689.79|134531.89:681.24|132806.34:672.66|131072.17:664.03|129329.33:655.36|127577.78:646.65|125817.46:637.89|124048.35:629.09|122270.39:620.24|120483.54:611.35|118687.75:602.42|116882.99:593.44|115069.20:584.41|113246.35:575.35|111414.38:566.23|109573.25:557.07|107722.91:547.87|105863.32:538.61|103994.44:529.32|102116.21:519.97|100228.59:510.58|98331.53:501.14|96424.98:491.66|94508.91:482.12|92583.25:472.54|90647.96:462.92|88703.00:453.24|86748.31:443.51|84783.85:433.74|82809.57:423.92|80825.42:414.05|78831.34:404.13|76827.29:394.16|74813.23:384.14|72789.09:374.07|70754.84:363.95|68710.41:353.77|66655.76:343.55|64590.84:333.28|62515.59:322.95|60429.96:312.58|58333.91:302.15|56227.38:291.67|54110.31:281.14|51982.66:270.55|49844.37:259.91|47695.39:249.22|45535.67:238.48|43365.14:227.68|41183.77:216.83|38991.49:205.92|36788.24:194.96|34573.98:183.94|32348.65:172.87|30112.19:161.74|27864.55:150.56|25605.67:139.32|23335.49:128.03|21053.97:116.68|18761.04:105.27|16456.64:93.81|14140.72:82.28|11813.22:70.70|9474.09:59.07|7123.26:47.37|4760.67:35.62|2386.27:23.80|0.00:11.93|";
+allPayOffData = "371180.31:2898.20:1861.09|370138.01:2898.20:1855.90|369090.50:2898.20:1850.69|368037.75:2898.20:1845.45|366979.74:2898.20:1840.19|365916.43:2898.20:1834.90|364847.81:2898.20:1829.58|363773.85:2898.20:1824.24|362694.52:2898.20:1818.87|361609.79:2898.20:1813.47|360519.63:2898.20:1808.05|359424.03:2898.20:1802.60|358322.95:2898.20:1797.12|357216.36:2898.20:1791.61|356104.24:2898.20:1786.08|354986.56:2898.20:1780.52|353863.29:2898.20:1774.93|352734.41:2898.20:1769.32|351599.88:2898.20:1763.67|350459.67:2898.20:1758.00|349313.77:2898.20:1752.30|348162.14:2898.20:1746.57|347004.74:2898.20:1740.81|345841.57:2898.20:1735.02|344672.57:2898.20:1729.21|343497.73:2898.20:1723.36|342317.02:2898.20:1717.49|341130.40:2898.20:1711.59|339937.85:2898.20:1705.65|338739.34:2898.20:1699.69|337534.83:2898.20:1693.70|336324.31:2898.20:1687.67|335107.73:2898.20:1681.62|333885.06:2898.20:1675.54|332656.28:2898.20:1669.43|331421.36:2898.20:1663.28|330180.27:2898.20:1657.11|328932.97:2898.20:1650.90|327679.43:2898.20:1644.66|326419.63:2898.20:1638.40|325153.52:2898.20:1632.10|323881.09:2898.20:1625.77|322602.29:2898.20:1619.41|321317.10:2898.20:1613.01|320025.48:2898.20:1606.59|318727.41:2898.20:1600.13|317422.84:2898.20:1593.64|316111.76:2898.20:1587.11|314794.11:2898.20:1580.56|313469.88:2898.20:1573.97|312139.03:2898.20:1567.35|310801.52:2898.20:1560.70|309457.33:2898.20:1554.01|308106.41:2898.20:1547.29|306748.74:2898.20:1540.53|305384.28:2898.20:1533.74|304013.00:2898.20:1526.92|302634.87:2898.20:1520.07|301249.84:2898.20:1513.17|299857.88:2898.20:1506.25|298458.97:2898.20:1499.29|297053.06:2898.20:1492.29|295640.13:2898.20:1485.27|294220.13:2898.20:1478.20|292793.02:2898.20:1471.10|291358.79:2898.20:1463.97|289917.38:2898.20:1456.79|288468.76:2898.20:1449.59|287012.91:2898.20:1442.34|285549.77:2898.20:1435.06|284079.32:2898.20:1427.75|282601.51:2898.20:1420.40|281116.32:2898.20:1413.01|279623.69:2898.20:1405.58|278123.61:2898.20:1398.12|276616.03:2898.20:1390.62|275100.91:2898.20:1383.08|273578.21:2898.20:1375.50|272047.90:2898.20:1367.89|270509.93:2898.20:1360.24|268964.28:2898.20:1352.55|267410.90:2898.20:1344.82|265849.75:2898.20:1337.05|264280.80:2898.20:1329.25|262704.00:2898.20:1321.40|261119.32:2898.20:1313.52|259526.71:2898.20:1305.60|257926.15:2898.20:1297.63|256317.57:2898.20:1289.63|254700.96:2898.20:1281.59|253076.26:2898.20:1273.50|251443.44:2898.20:1265.38|249802.46:2898.20:1257.22|248153.27:2898.20:1249.01|246495.83:2898.20:1240.77|244830.11:2898.20:1232.48|243156.06:2898.20:1224.15|241473.64:2898.20:1215.78|239782.80:2898.20:1207.37|238083.51:2898.20:1198.91|236375.73:2898.20:1190.42|234659.41:2898.20:1181.88|232934.50:2898.20:1173.30|231200.97:2898.20:1164.67|229458.77:2898.20:1156.00|227707.87:2898.20:1147.29|225948.20:2898.20:1138.54|224179.74:2898.20:1129.74|222402.44:2898.20:1120.90|220616.25:2898.20:1112.01|218821.13:2898.20:1103.08|217017.03:2898.20:1094.11|215203.91:2898.20:1085.09|213381.73:2898.20:1076.02|211550.44:2898.20:1066.91|209709.99:2898.20:1057.75|207860.34:2898.20:1048.55|206001.44:2898.20:1039.30|204133.24:2898.20:1030.01|202255.70:2898.20:1020.67|200368.78:2898.20:1011.28|198472.42:2898.20:1001.84|196566.58:2898.20:992.36|194651.21:2898.20:982.83|192726.27:2898.20:973.26|190791.70:2898.20:963.63|188847.45:2898.20:953.96|186893.49:2898.20:944.24|184929.75:2898.20:934.47|182956.20:2898.20:924.65|180972.78:2898.20:914.78|178979.44:2898.20:904.86|176976.14:2898.20:894.90|174962.81:2898.20:884.88|172939.43:2898.20:874.81|170905.92:2898.20:864.70|168862.25:2898.20:854.53|166808.36:2898.20:844.31|164744.20:2898.20:834.04|162669.72:2898.20:823.72|160584.86:2898.20:813.35|158489.59:2898.20:802.92|156383.83:2898.20:792.45|154267.55:2898.20:781.92|152140.68:2898.20:771.34|150003.19:2898.20:760.70|147855.00:2898.20:750.02|145696.07:2898.20:739.27|143526.35:2898.20:728.48|141345.78:2898.20:717.63|139154.31:2898.20:706.73|136951.88:2898.20:695.77|134738.43:2898.20:684.76|132513.92:2898.20:673.69|130278.29:2898.20:662.57|128031.48:2898.20:651.39|125773.44:2898.20:640.16|123504.10:2898.20:628.87|121223.42:2898.20:617.52|118931.33:2898.20:606.12|116627.79:2898.20:594.66|114312.73:2898.20:583.14|111986.09:2898.20:571.56|109647.82:2898.20:559.93|107297.85:2898.20:548.24|104936.14:2898.20:536.49|102562.62:2898.20:524.68|100177.23:2898.20:512.81|97779.91:2898.20:500.89|95370.61:2898.20:488.90|92949.26:2898.20:476.85|90515.81:2898.20:464.75|88070.18:2898.20:452.58|85612.33:2898.20:440.35|83142.19:2898.20:428.06|80659.70:2898.20:415.71|78164.80:2898.20:403.30|75657.42:2898.20:390.82|73137.50:2898.20:378.29|70604.99:2898.20:365.69|68059.81:2898.20:353.02|65501.91:2898.20:340.30|62931.22:2898.20:327.51|60347.67:2898.20:314.66|57751.21:2898.20:301.74|55141.76:2898.20:288.76|52519.27:2898.20:275.71|49883.66:2898.20:262.60|47234.88:2898.20:249.42|44572.85:2898.20:236.17|41897.51:2898.20:222.86|39208.80:2898.20:209.49|36506.64:2898.20:196.04|33790.97:2898.20:182.53|31061.72:2898.20:168.95|28318.83:2898.20:155.31|25562.22:2898.20:141.59|22791.83:2898.20:127.81|20007.59:2898.20:113.96|17209.42:2898.20:100.04|14397.27:2898.20:86.05|11571.05:2898.20:71.99|8730.71:2898.20:57.86|5876.16:2898.20:43.65|3007.34:2898.20:29.38|124.17:2898.20:15.04|0.00:124.79:0.62|";monthlypayment=2398.20;cloanterm=30;cloanamount=400000;ctotalMonthSoFar=60;cpayoffoption="extra";	var chartStrBuilderBalance = [];
+	var chartStrBuilderInterest = [];
+	var chartStrBuilderPayoffBalance = [];
+	var chartStrBuilderPayoffInterest = [];
+
+	xmax = cloanterm;
+	chartSep = 12;
+	if (cloanterm<=5){
+		chartSep = 1;
+		xmax = cloanterm*12;
+
+		chartStrBuilderBalance.push(cloanamount);
+		chartStrBuilderInterest.push(0);
+		chartStrBuilderPayoffBalance.push(cloanamount);
+		chartStrBuilderPayoffInterest.push(0);
+	}
+	var allDataArray = allData.split("|");
+	var allPayOffDataArray = new Array();
+	if (allPayOffData.length>0){
+		allPayOffDataArray = allPayOffData.split("|");
+	}
+	allPayOffDataLength = allPayOffDataArray.length;
+
+	outPutData = new Array();
+	outPutDataPayOff = new Array();
+	totalInterest = 0;
+	totalInterestPayOff = 0;
+
+	var outputStrBuilder = [];
+	outputStrBuilder.push('<h2>Monthly Amortization Schedule</h2><div style="text-align:right;margin-top:-15px;"><a href="#" onclick="document.getElementById(\'camortizationdiv1\').style.display=\'none\';return false;"><img src="/img/close.png" width="18" border="0" height="18"></a></div><table class="cinfoT" width="100%"><tr align="center">');
+	if (cpayoffoption=='original'){
+		outputStrBuilder.push('<td class="cinfoHd">&nbsp;</td><td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End Balance</td></tr>');
+	}else{
+		outputStrBuilder.push('<td class="cinfoHd" rowspan="2">&nbsp;</td>');
+		outputStrBuilder.push('<td class="cinfoHdL" colspan="3" style="border-bottom:1px solid #114477;">Original (without payoff)</td>');
+		outputStrBuilder.push('<td class="cinfoHdL" colspan="3" style="border-bottom:1px solid #114477;">With payoff</td>');
+		outputStrBuilder.push('</tr>');
+		outputStrBuilder.push('<tr align="center">');
+		outputStrBuilder.push('<td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End balance</td>');
+		outputStrBuilder.push('<td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End balance</td>');
+		outputStrBuilder.push('</tr>');
+	}
+	for (var i=0;i<allDataArray.length;i++){
+		if ((allDataArray[i]+"").length>3){
+			tempArray = allDataArray[i].split(":");
+			outPutData[i] = new Array();
+			outPutData[i][0] = parseFloat(tempArray[0]);
+			outPutData[i][1] = monthlypayment;
+			outPutData[i][2] = parseFloat(tempArray[1]);
+			totalInterest += parseFloat(tempArray[1]);
+
+			if ((i==ctotalMonthSoFar)&&(i>0)){
+				if (cpayoffoption=='extra') outputStrBuilder.push('<tr><td colspan="4">&nbsp;</td><td colspan="3" align="center" bgcolor="#feb6b6"><b>Extra Payment Starts</b></td></tr>');
+				if (cpayoffoption=='biweekly') outputStrBuilder.push('<tr><td colspan="4">&nbsp;</td><td colspan="3" align="center" bgcolor="#feb6b6"><b>Biweekly Payment Starts</b></td></tr>');
+			}
+			outputStrBuilder.push('<tr align="right"><td>'+(i+1)+'</td>');
+			outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutData[i][2]) + '</td>');
+			outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutData[i][1]-outPutData[i][2]) + '</td>');
+			outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutData[i][0]) + '</td>');
+
+			if (cpayoffoption!='original'){
+				if (i>=ctotalMonthSoFar){
+					var tempIndex = i - ctotalMonthSoFar;
+					if (tempIndex < allPayOffDataLength){
+						tempArray = allPayOffDataArray[tempIndex].split(":");
+						outPutDataPayOff[i] = new Array();
+						outPutDataPayOff[i][0] = parseFloat(tempArray[0]);
+						outPutDataPayOff[i][1] = parseFloat(tempArray[1]);
+						outPutDataPayOff[i][2] = parseFloat(tempArray[2]);
+						totalInterestPayOff += parseFloat(tempArray[2]);
+
+						outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][2]) + '</td>');
+						outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][1]-outPutDataPayOff[i][2]) + '</td>');
+						outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][0]) + '</td>');
+
+						if (((i%chartSep)==0)||((i+2)==allDataArray.length)){
+							if (!isNaN(outPutDataPayOff[i][0])) chartStrBuilderPayoffBalance.push(outPutDataPayOff[i][0]);
+							if (!isNaN(totalInterestPayOff)) chartStrBuilderPayoffInterest.push(totalInterestPayOff);
+						}
+					}else{
+						if ((cpayoffoption=='together')&&(i==ctotalMonthSoFar)){
+							outputStrBuilder.push('<td class="cinfoBodL">$0.00</td>');
+							outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutData[i][0] + outPutData[i][1]-outPutData[i][2]) + '</td>');
+							outputStrBuilder.push('<td class="cinfoBodL">$0.00</td>');
+						}else{
+							outputStrBuilder.push('<td class="cinfoBodL">$0.00</td><td class="cinfoBodL">$0.00</td><td class="cinfoBodL">$0.00</td>');
+						}
+					}
+				}else{
+					outPutDataPayOff[i] = new Array();
+					outPutDataPayOff[i][0] = parseFloat(tempArray[0]);
+					outPutDataPayOff[i][1] = monthlypayment;
+					outPutDataPayOff[i][2] = parseFloat(tempArray[1]);
+					totalInterestPayOff = totalInterest;
+
+					outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][2]) + '</td>');
+					outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][1]-outPutDataPayOff[i][2]) + '</td>');
+					outputStrBuilder.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff[i][0]) + '</td>');
+
+					if (((i%chartSep)==0)||((i+2)==allDataArray.length)){
+						if (!isNaN(outPutDataPayOff[i][0])) chartStrBuilderPayoffBalance.push(outPutDataPayOff[i][0]);
+						if (!isNaN(totalInterestPayOff)) chartStrBuilderPayoffInterest.push(totalInterestPayOff);
+					}
+				}
+			}
+
+			if (((i%chartSep)==0)||((i+2)==allDataArray.length)){
+				chartStrBuilderBalance.push(outPutData[i][0]);
+				chartStrBuilderInterest.push(totalInterest);
+			}
+			outputStrBuilder.push('</tr>');
+			if ((i%12)==11){
+				tempwidth = (cpayoffoption=='original')? 4:7;
+				outputStrBuilder.push('<tr><td colspan="'+tempwidth+'" align="center" bgcolor="#e0f0fe"><b>Year #' + (Math.floor(i/12)+1) + ' end</b></td></tr>');
+			}
+		}
+	}
+	outputStrBuilder.push('</table>');
+	document.getElementById("camortizationdiv1").innerHTML = outputStrBuilder.join("");
+
+	chartStrBuilderPayoffBalance.push(0);chartStrBuilderPayoffInterest.push(341046.55009972);
+$(function () {
+	$('#cchartdiv1').highcharts({
+		chart: {type: 'spline',plotBorderWidth: 1},
+		title: {text: ''},
+		xAxis: {min: 0, max:xmax, title: {text: ''},gridLineWidth: 1,
+			labels: {
+				formatter: function() {
+					if (cloanterm<=5){
+						return this.value+'mo';
+					}else{
+						return this.value+'yr';
+					}
+				}
+			}
+		},
+		yAxis: {
+			min: 0,title: {text: ''},gridLineWidth: 1,
+			labels: {
+				formatter: function() {
+					tempVal = this.value;
+					if (this.value>999) tempVal = (this.value/1000).toFixed(1) + 'K';
+					if (this.value>999999) tempVal = (this.value/1000000).toFixed(1) + 'M';
+					return '$'+tempVal;
+				}
+			}
+		},
+		tooltip: {enabled: false,formatter: function() {return this.series.name+': $' + this.y;}},
+		plotOptions: {spline: {lineWidth: 4,states: {hover: {lineWidth: 3}},marker: {enabled: false}}},
+		legend: {layout: 'vertical',align: 'left',verticalAlign: 'top',floating: true,backgroundColor: '#FCFFC5',borderWidth: 1,x: 55,y: 3},
+		series: [
+			{name: 'Old Balance',data: chartStrBuilderBalance},{name: 'Old Interest',data: chartStrBuilderInterest},{name: 'New Balance',data: chartStrBuilderPayoffBalance},{name: 'New Interest',data: chartStrBuilderPayoffInterest}		]
+	});
+});
+</script>
+
+<h2>If you don't know the remaining loan term</h2>
+<p>Use this calculator if the term length of the remaining loan is not known. The unpaid principal balance, interest rate, and monthly payment values can be found in the monthly or quarterly mortgage statement.</p>
+<div class="leftinput">
+<div class="panel">
+<form name="calform2" action="/mortgage-payoff-calculator.html#monthlypay">
+<table cellpadding="3" align="center">
+<tr><td>Unpaid principal balance</td><td><input type="text" name="cunpaidprincipal" id="cunpaidprincipal" value="230000" class="inhalf indollar"></td></tr>
+<tr><td>Monthly payment</td><td><input type="text" name="cmonthlypayment2" id="cmonthlypayment2" value="1500" class="inhalf indollar"></td></tr>
+<tr><td>Interest rate</td><td><input type="text" name="cinterestrate2" value="6" class="inhalf inpct"></td></tr>
+
+<tr><td colspan="2">
+	<div style="padding-top:8px;"><b>Repayment options:</b></div>
+	<label for="c2payoff2" class="cbcontainer"><input type="radio" name="cpayoffoption2" id="c2payoff2" value="extra" checked/><span class="rbmark"></span>Repayment with extra payments</label>
+		<div style="padding-left: 25px;">
+			<input type="text" name="cadditionalmonth2" id="cadditionalmonth2" value="500" class="inhalf indollar"> per month<br>
+			<input type="text" name="cadditionalyear2" id="cadditionalyear2" value="0" class="inhalf indollar"> per year<br>
+			<input type="text" name="cadditionalonetime2" id="cadditionalonetime2" value="0" class="inhalf indollar"> one time
+		</div>
+	<label for="c2payoff3" class="cbcontainer"><input type="radio" name="cpayoffoption2" id="c2payoff3" value="biweekly" /><span class="rbmark"></span>Biweekly repayment</label><br>
+	<label for="c2payoff4" class="cbcontainer"><input type="radio" name="cpayoffoption2" id="c2payoff4" value="original" /><span class="rbmark"></span>Normal repayment</label>
+</td></tr>
+<tr><td colspan="2" align="center"><input type="hidden" name="type" value="2"><input type="submit" name="x" value="Calculate"> <input type="button" value="Clear" onClick="clearForm(document.calform2);"></td></tr>
+</table>
+</form>
+</div></div>
+<div class="rightresult"><a name="monthlypay"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Payoff in 14 years and 4 months<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TW9ydGdhZ2UgUGF5b2ZmIENhbGN1bGF0b3I=', 2, 'ZG9uJ3Qga25vdyB0aGUgcmVtYWluaW5nIGxvYW4gdGVybQ==', '', '');"></h2><p>The remaining term of the loan is 24 years and 4 months. By paying extra $500.00 per month starting now, the loan will be paid off in 14 years and 4 months.  It is <b>10 years earlier</b>.  This results in savings of <b>$94,554.73</b> in interest.</p><div style="padding: 6px 0px 16px 0px;"><table class="cinfoT" width="100%"><tr align="center"><th width="50%">Interest savings<br>$94,555</th><th width="50%">Time savings<br>10 years</th></tr><tr><td><div class="smalltext" style="color:#888;">Original: $207,677</div><div style="height:10px; width:150px;background-color:#888;margin:3px 0px;"></div><div style="height:10px; width:82px;background-color:#518428;margin:3px 0px;"></div><div class="smalltext" style="color:#518428;">With payoff: $113,123</div><div class="smalltext" style="text-align:center;padding-top:6px;">Pay 46% less on interest</div></td><td><div class="smalltext" style="color:#888;">Original: 24 yrs, 4 mos</div><div style="height:10px; width:150px;background-color:#888;margin:3px 0px;"></div><div style="height:10px; width:88px;background-color:#518428;margin:3px 0px;"></div><div class="smalltext" style="color:#518428;">With payoff: 14 yrs, 4 mos</div><div class="smalltext" style="text-align:center;padding-top:6px;">Payoff 41% faster</div></td></tr></table></div><table width="100%" class="cinfoT"><tr><th>&nbsp;</th><th align="center">Original</th><th align="center">With payoff</th></tr><tr><td>Remaining term</td><td align="right">24 yrs, 4 mos</td><td align="right">14 yrs, 4 mos</td></tr><tr><td>Total payments</td><td align="right">$437,677.36</td><td align="right">$343,122.63</td></tr><tr><td>Total interest</td><td align="right">$207,677.36</td><td align="right">$113,122.63</td></tr></table><p align="center"><a href="#" onclick="document.getElementById('camortizationdiv2').style.display='block';return false;">View Amortization Table</a></p></div>
+<div id="clear"></div>
+<div id="camortizationdiv2" style="display: none;"></div><div id="cchartdiv2" style="min-width: 320px; max-width: 500px; height: 180px; margin: 0 auto"></div>
+<script type="text/javascript">
+allData2 = "229650.00:1500.00:1150.00|229298.25:1500.00:1148.25|228944.74:1500.00:1146.49|228589.46:1500.00:1144.72|228232.41:1500.00:1142.95|227873.57:1500.00:1141.16|227512.94:1500.00:1139.37|227150.51:1500.00:1137.56|226786.26:1500.00:1135.75|226420.19:1500.00:1133.93|226052.29:1500.00:1132.10|225682.55:1500.00:1130.26|225310.97:1500.00:1128.41|224937.52:1500.00:1126.55|224562.21:1500.00:1124.69|224185.02:1500.00:1122.81|223805.94:1500.00:1120.93|223424.97:1500.00:1119.03|223042.10:1500.00:1117.12|222657.31:1500.00:1115.21|222270.60:1500.00:1113.29|221881.95:1500.00:1111.35|221491.36:1500.00:1109.41|221098.82:1500.00:1107.46|220704.31:1500.00:1105.49|220307.83:1500.00:1103.52|219909.37:1500.00:1101.54|219508.92:1500.00:1099.55|219106.46:1500.00:1097.54|218701.99:1500.00:1095.53|218295.50:1500.00:1093.51|217886.98:1500.00:1091.48|217476.42:1500.00:1089.43|217063.80:1500.00:1087.38|216649.12:1500.00:1085.32|216232.36:1500.00:1083.25|215813.53:1500.00:1081.16|215392.59:1500.00:1079.07|214969.56:1500.00:1076.96|214544.40:1500.00:1074.85|214117.13:1500.00:1072.72|213687.71:1500.00:1070.59|213256.15:1500.00:1068.44|212822.43:1500.00:1066.28|212386.54:1500.00:1064.11|211948.48:1500.00:1061.93|211508.22:1500.00:1059.74|211065.76:1500.00:1057.54|210621.09:1500.00:1055.33|210174.19:1500.00:1053.11|209725.06:1500.00:1050.87|209273.69:1500.00:1048.63|208820.06:1500.00:1046.37|208364.16:1500.00:1044.10|207905.98:1500.00:1041.82|207445.51:1500.00:1039.53|206982.74:1500.00:1037.23|206517.65:1500.00:1034.91|206050.24:1500.00:1032.59|205580.49:1500.00:1030.25|205108.39:1500.00:1027.90|204633.93:1500.00:1025.54|204157.10:1500.00:1023.17|203677.89:1500.00:1020.79|203196.28:1500.00:1018.39|202712.26:1500.00:1015.98|202225.82:1500.00:1013.56|201736.95:1500.00:1011.13|201245.63:1500.00:1008.68|200751.86:1500.00:1006.23|200255.62:1500.00:1003.76|199756.90:1500.00:1001.28|199255.69:1500.00:998.78|198751.96:1500.00:996.28|198245.72:1500.00:993.76|197736.95:1500.00:991.23|197225.64:1500.00:988.68|196711.76:1500.00:986.13|196195.32:1500.00:983.56|195676.30:1500.00:980.98|195154.68:1500.00:978.38|194630.46:1500.00:975.77|194103.61:1500.00:973.15|193574.13:1500.00:970.52|193042.00:1500.00:967.87|192507.21:1500.00:965.21|191969.74:1500.00:962.54|191429.59:1500.00:959.85|190886.74:1500.00:957.15|190341.17:1500.00:954.43|189792.88:1500.00:951.71|189241.84:1500.00:948.96|188688.05:1500.00:946.21|188131.49:1500.00:943.44|187572.15:1500.00:940.66|187010.01:1500.00:937.86|186445.06:1500.00:935.05|185877.29:1500.00:932.23|185306.67:1500.00:929.39|184733.21:1500.00:926.53|184156.87:1500.00:923.67|183577.66:1500.00:920.78|182995.54:1500.00:917.89|182410.52:1500.00:914.98|181822.57:1500.00:912.05|181231.69:1500.00:909.11|180637.85:1500.00:906.16|180041.04:1500.00:903.19|179441.24:1500.00:900.21|178838.45:1500.00:897.21|178232.64:1500.00:894.19|177623.80:1500.00:891.16|177011.92:1500.00:888.12|176396.98:1500.00:885.06|175778.97:1500.00:881.98|175157.86:1500.00:878.89|174533.65:1500.00:875.79|173906.32:1500.00:872.67|173275.85:1500.00:869.53|172642.23:1500.00:866.38|172005.44:1500.00:863.21|171365.47:1500.00:860.03|170722.29:1500.00:856.83|170075.91:1500.00:853.61|169426.29:1500.00:850.38|168773.42:1500.00:847.13|168117.28:1500.00:843.87|167457.87:1500.00:840.59|166795.16:1500.00:837.29|166129.14:1500.00:833.98|165459.78:1500.00:830.65|164787.08:1500.00:827.30|164111.02:1500.00:823.94|163431.57:1500.00:820.56|162748.73:1500.00:817.16|162062.47:1500.00:813.74|161372.78:1500.00:810.31|160679.65:1500.00:806.86|159983.05:1500.00:803.40|159282.96:1500.00:799.92|158579.38:1500.00:796.41|157872.27:1500.00:792.90|157161.63:1500.00:789.36|156447.44:1500.00:785.81|155729.68:1500.00:782.24|155008.33:1500.00:778.65|154283.37:1500.00:775.04|153554.79:1500.00:771.42|152822.56:1500.00:767.77|152086.67:1500.00:764.11|151347.11:1500.00:760.43|150603.84:1500.00:756.74|149856.86:1500.00:753.02|149106.15:1500.00:749.28|148351.68:1500.00:745.53|147593.44:1500.00:741.76|146831.40:1500.00:737.97|146065.56:1500.00:734.16|145295.89:1500.00:730.33|144522.37:1500.00:726.48|143744.98:1500.00:722.61|142963.70:1500.00:718.72|142178.52:1500.00:714.82|141389.41:1500.00:710.89|140596.36:1500.00:706.95|139799.34:1500.00:702.98|138998.34:1500.00:699.00|138193.33:1500.00:694.99|137384.30:1500.00:690.97|136571.22:1500.00:686.92|135754.08:1500.00:682.86|134932.85:1500.00:678.77|134107.51:1500.00:674.66|133278.05:1500.00:670.54|132444.44:1500.00:666.39|131606.66:1500.00:662.22|130764.69:1500.00:658.03|129918.52:1500.00:653.82|129068.11:1500.00:649.59|128213.45:1500.00:645.34|127354.52:1500.00:641.07|126491.29:1500.00:636.77|125623.75:1500.00:632.46|124751.87:1500.00:628.12|123875.63:1500.00:623.76|122995.00:1500.00:619.38|122109.98:1500.00:614.98|121220.53:1500.00:610.55|120326.63:1500.00:606.10|119428.26:1500.00:601.63|118525.41:1500.00:597.14|117618.03:1500.00:592.63|116706.12:1500.00:588.09|115789.65:1500.00:583.53|114868.60:1500.00:578.95|113942.94:1500.00:574.34|113012.66:1500.00:569.71|112077.72:1500.00:565.06|111138.11:1500.00:560.39|110193.80:1500.00:555.69|109244.77:1500.00:550.97|108290.99:1500.00:546.22|107332.45:1500.00:541.45|106369.11:1500.00:536.66|105400.96:1500.00:531.85|104427.96:1500.00:527.00|103450.10:1500.00:522.14|102467.35:1500.00:517.25|101479.69:1500.00:512.34|100487.09:1500.00:507.40|99489.52:1500.00:502.44|98486.97:1500.00:497.45|97479.41:1500.00:492.43|96466.80:1500.00:487.40|95449.14:1500.00:482.33|94426.38:1500.00:477.25|93398.51:1500.00:472.13|92365.51:1500.00:466.99|91327.33:1500.00:461.83|90283.97:1500.00:456.64|89235.39:1500.00:451.42|88181.57:1500.00:446.18|87122.48:1500.00:440.91|86058.09:1500.00:435.61|84988.38:1500.00:430.29|83913.32:1500.00:424.94|82832.89:1500.00:419.57|81747.05:1500.00:414.16|80655.79:1500.00:408.74|79559.07:1500.00:403.28|78456.86:1500.00:397.80|77349.14:1500.00:392.28|76235.89:1500.00:386.75|75117.07:1500.00:381.18|73992.66:1500.00:375.59|72862.62:1500.00:369.96|71726.93:1500.00:364.31|70585.57:1500.00:358.63|69438.49:1500.00:352.93|68285.69:1500.00:347.19|67127.12:1500.00:341.43|65962.75:1500.00:335.64|64792.56:1500.00:329.81|63616.53:1500.00:323.96|62434.61:1500.00:318.08|61246.78:1500.00:312.17|60053.02:1500.00:306.23|58853.28:1500.00:300.27|57647.55:1500.00:294.27|56435.79:1500.00:288.24|55217.97:1500.00:282.18|53994.05:1500.00:276.09|52764.03:1500.00:269.97|51527.85:1500.00:263.82|50285.48:1500.00:257.64|49036.91:1500.00:251.43|47782.10:1500.00:245.18|46521.01:1500.00:238.91|45253.61:1500.00:232.61|43979.88:1500.00:226.27|42699.78:1500.00:219.90|41413.28:1500.00:213.50|40120.34:1500.00:207.07|38820.95:1500.00:200.60|37515.05:1500.00:194.10|36202.63:1500.00:187.58|34883.64:1500.00:181.01|33558.06:1500.00:174.42|32225.85:1500.00:167.79|30886.98:1500.00:161.13|29541.41:1500.00:154.43|28189.12:1500.00:147.71|26830.06:1500.00:140.95|25464.22:1500.00:134.15|24091.54:1500.00:127.32|22711.99:1500.00:120.46|21325.55:1500.00:113.56|19932.18:1500.00:106.63|18531.84:1500.00:99.66|17124.50:1500.00:92.66|15710.12:1500.00:85.62|14288.67:1500.00:78.55|12860.12:1500.00:71.44|11424.42:1500.00:64.30|9981.54:1500.00:57.12|8531.45:1500.00:49.91|7074.11:1500.00:42.66|5609.48:1500.00:35.37|4137.52:1500.00:28.05|2658.21:1500.00:20.69|1171.50:1500.00:13.29|0.00:1177.36:5.86|";
+allPayOffData2 = "229150.00:2000.00:1150.00|228295.75:2000.00:1145.75|227437.23:2000.00:1141.48|226574.41:2000.00:1137.19|225707.29:2000.00:1132.87|224835.82:2000.00:1128.54|223960.00:2000.00:1124.18|223079.80:2000.00:1119.80|222195.20:2000.00:1115.40|221306.18:2000.00:1110.98|220412.71:2000.00:1106.53|219514.77:2000.00:1102.06|218612.35:2000.00:1097.57|217705.41:2000.00:1093.06|216793.93:2000.00:1088.53|215877.90:2000.00:1083.97|214957.29:2000.00:1079.39|214032.08:2000.00:1074.79|213102.24:2000.00:1070.16|212167.75:2000.00:1065.51|211228.59:2000.00:1060.84|210284.73:2000.00:1056.14|209336.16:2000.00:1051.42|208382.84:2000.00:1046.68|207424.75:2000.00:1041.91|206461.88:2000.00:1037.12|205494.19:2000.00:1032.31|204521.66:2000.00:1027.47|203544.26:2000.00:1022.61|202561.99:2000.00:1017.72|201574.80:2000.00:1012.81|200582.67:2000.00:1007.87|199585.58:2000.00:1002.91|198583.51:2000.00:997.93|197576.43:2000.00:992.92|196564.31:2000.00:987.88|195547.13:2000.00:982.82|194524.87:2000.00:977.74|193497.49:2000.00:972.62|192464.98:2000.00:967.49|191427.30:2000.00:962.32|190384.44:2000.00:957.14|189336.36:2000.00:951.92|188283.05:2000.00:946.68|187224.46:2000.00:941.42|186160.58:2000.00:936.12|185091.39:2000.00:930.80|184016.84:2000.00:925.46|182936.93:2000.00:920.08|181851.61:2000.00:914.68|180760.87:2000.00:909.26|179664.67:2000.00:903.80|178563.00:2000.00:898.32|177455.81:2000.00:892.81|176343.09:2000.00:887.28|175224.81:2000.00:881.72|174100.93:2000.00:876.12|172971.44:2000.00:870.50|171836.29:2000.00:864.86|170695.47:2000.00:859.18|169548.95:2000.00:853.48|168396.70:2000.00:847.74|167238.68:2000.00:841.98|166074.87:2000.00:836.19|164905.25:2000.00:830.37|163729.77:2000.00:824.53|162548.42:2000.00:818.65|161361.16:2000.00:812.74|160167.97:2000.00:806.81|158968.81:2000.00:800.84|157763.65:2000.00:794.84|156552.47:2000.00:788.82|155335.24:2000.00:782.76|154111.91:2000.00:776.68|152882.47:2000.00:770.56|151646.88:2000.00:764.41|150405.12:2000.00:758.23|149157.14:2000.00:752.03|147902.93:2000.00:745.79|146642.44:2000.00:739.51|145375.66:2000.00:733.21|144102.53:2000.00:726.88|142823.05:2000.00:720.51|141537.16:2000.00:714.12|140244.85:2000.00:707.69|138946.07:2000.00:701.22|137640.80:2000.00:694.73|136329.01:2000.00:688.20|135010.65:2000.00:681.65|133685.70:2000.00:675.05|132354.13:2000.00:668.43|131015.90:2000.00:661.77|129670.98:2000.00:655.08|128319.34:2000.00:648.35|126960.93:2000.00:641.60|125595.74:2000.00:634.80|124223.72:2000.00:627.98|122844.84:2000.00:621.12|121459.06:2000.00:614.22|120066.36:2000.00:607.30|118666.69:2000.00:600.33|117260.02:2000.00:593.33|115846.32:2000.00:586.30|114425.55:2000.00:579.23|112997.68:2000.00:572.13|111562.67:2000.00:564.99|110120.48:2000.00:557.81|108671.09:2000.00:550.60|107214.44:2000.00:543.36|105750.51:2000.00:536.07|104279.27:2000.00:528.75|102800.66:2000.00:521.40|101314.67:2000.00:514.00|99821.24:2000.00:506.57|98320.34:2000.00:499.11|96811.95:2000.00:491.60|95296.01:2000.00:484.06|93772.49:2000.00:476.48|92241.35:2000.00:468.86|90702.56:2000.00:461.21|89156.07:2000.00:453.51|87601.85:2000.00:445.78|86039.86:2000.00:438.01|84470.06:2000.00:430.20|82892.41:2000.00:422.35|81306.87:2000.00:414.46|79713.40:2000.00:406.53|78111.97:2000.00:398.57|76502.53:2000.00:390.56|74885.04:2000.00:382.51|73259.47:2000.00:374.43|71625.77:2000.00:366.30|69983.89:2000.00:358.13|68333.81:2000.00:349.92|66675.48:2000.00:341.67|65008.86:2000.00:333.38|63333.90:2000.00:325.04|61650.57:2000.00:316.67|59958.83:2000.00:308.25|58258.62:2000.00:299.79|56549.91:2000.00:291.29|54832.66:2000.00:282.75|53106.83:2000.00:274.16|51372.36:2000.00:265.53|49629.22:2000.00:256.86|47877.37:2000.00:248.15|46116.76:2000.00:239.39|44347.34:2000.00:230.58|42569.08:2000.00:221.74|40781.92:2000.00:212.85|38985.83:2000.00:203.91|37180.76:2000.00:194.93|35366.66:2000.00:185.90|33543.50:2000.00:176.83|31711.22:2000.00:167.72|29869.77:2000.00:158.56|28019.12:2000.00:149.35|26159.22:2000.00:140.10|24290.01:2000.00:130.80|22411.46:2000.00:121.45|20523.52:2000.00:112.06|18626.14:2000.00:102.62|16719.27:2000.00:93.13|14802.86:2000.00:83.60|12876.88:2000.00:74.01|10941.26:2000.00:64.38|8995.97:2000.00:54.71|7040.95:2000.00:44.98|5076.15:2000.00:35.20|3101.53:2000.00:25.38|1117.04:2000.00:15.51|0.00:1122.63:5.59|";monthlypayment2=1500.00;cloanterm2=292;cloanamount2=230000;cpayoffoption2="extra";	var chartStrBuilderBalance2 = [];
+	var chartStrBuilderInterest2 = [];
+	var chartStrBuilderPayoffBalance2 = [];
+	var chartStrBuilderPayoffInterest2 = [];
+
+	xmax2 = Math.ceil(cloanterm2/12);
+	chartSep2 = 12;
+	if (cloanterm2<=60){
+		chartSep2 = 1;
+		xmax2 = cloanterm2;
+
+		chartStrBuilderBalance2.push(cloanamount2);
+		chartStrBuilderInterest2.push(0);
+		chartStrBuilderPayoffBalance2.push(cloanamount2);
+		chartStrBuilderPayoffInterest2.push(0);
+	}
+	var allDataArray2 = allData2.split("|");
+	var allPayOffDataArray2 = new Array();
+	if (allPayOffData2.length>0){
+		allPayOffDataArray2 = allPayOffData2.split("|");
+	}
+	allPayOffDataLength2 = allPayOffDataArray2.length;
+
+	outPutData2 = new Array();
+	outPutDataPayOff2 = new Array();
+	totalInterest2 = 0;
+	totalInterestPayOff2 = 0;
+
+	var outputStrBuilder2 = [];
+	outputStrBuilder2.push('<h2>Monthly Amortization Schedule</h2><div style="text-align:right;margin-top:-15px;"><a href="#" onclick="document.getElementById(\'camortizationdiv2\').style.display=\'none\';return false;"><img src="/img/close.png" width="18" border="0" height="18"></a></div><table class="cinfoT" width="100%"><tr align="center">');
+	if (cpayoffoption2=='original'){
+		outputStrBuilder2.push('<td class="cinfoHd">&nbsp;</td><td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End Balance</td></tr>');
+	}else{
+		outputStrBuilder2.push('<td class="cinfoHd" rowspan="2">&nbsp;</td>');
+		outputStrBuilder2.push('<td class="cinfoHdL" colspan="3" style="border-bottom:1px solid #114477;">Original (Without payoff)</td>');
+		outputStrBuilder2.push('<td class="cinfoHdL" colspan="3" style="border-bottom:1px solid #114477;">With payoff</td>');
+		outputStrBuilder2.push('</tr>');
+		outputStrBuilder2.push('<tr align="center">');
+		outputStrBuilder2.push('<td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End balance</td>');
+		outputStrBuilder2.push('<td class="cinfoHdL">Interest</td><td class="cinfoHdL">Principal</td><td class="cinfoHdL">End balance</td>');
+		outputStrBuilder2.push('</tr>');
+	}
+	for (var i=0;i<allDataArray2.length;i++){
+		if ((allDataArray2[i]+"").length>3){
+			tempArray = allDataArray2[i].split(":");
+			outPutData2[i] = new Array();
+			outPutData2[i][0] = parseFloat(tempArray[0]);
+			outPutData2[i][1] = parseFloat(tempArray[1]);
+			outPutData2[i][2] = parseFloat(tempArray[2]);
+			totalInterest2 += parseFloat(tempArray[2]);
+
+			outputStrBuilder2.push('<tr align="right"><td>'+(i+1)+'</td>');
+			outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutData2[i][2]) + '</td>');
+			outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutData2[i][1]-outPutData2[i][2]) + '</td>');
+			outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutData2[i][0]) + '</td>');
+
+			if (cpayoffoption2!='original'){
+					if (i < allPayOffDataLength2){
+						tempArray = allPayOffDataArray2[i].split(":");
+						outPutDataPayOff2[i] = new Array();
+						outPutDataPayOff2[i][0] = parseFloat(tempArray[0]);
+						outPutDataPayOff2[i][1] = parseFloat(tempArray[1]);
+						outPutDataPayOff2[i][2] = parseFloat(tempArray[2]);
+						totalInterestPayOff2 += parseFloat(tempArray[2]);
+
+						outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff2[i][2]) + '</td>');
+						outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff2[i][1]-outPutDataPayOff2[i][2]) + '</td>');
+						outputStrBuilder2.push('<td class="cinfoBodL">' + formatAsMoney(outPutDataPayOff2[i][0]) + '</td>');
+
+						if (((i%chartSep2)==0)||((i+2)==allDataArray2.length)){
+							if (!isNaN(outPutDataPayOff2[i][0])) chartStrBuilderPayoffBalance2.push(outPutDataPayOff2[i][0]);
+							if (!isNaN(totalInterestPayOff2)) chartStrBuilderPayoffInterest2.push(totalInterestPayOff2);
+						}
+					}else{
+						outputStrBuilder2.push('<td class="cinfoBodL">$0.00</td><td class="cinfoBodL">$0.00</td><td class="cinfoBodL">$0.00</td>');
+					}
+			}
+
+			if (((i%chartSep2)==0)||((i+2)==allDataArray2.length)){
+				chartStrBuilderBalance2.push(outPutData2[i][0]);
+				chartStrBuilderInterest2.push(totalInterest2);
+			}
+			outputStrBuilder2.push('</tr>');
+			if ((i%12)==11){
+				tempwidth = (cpayoffoption=='original')? 4:7;
+				outputStrBuilder2.push('<tr><td colspan="'+tempwidth+'" align="center" bgcolor="#e0f0fe"><b>Year #' + (Math.floor(i/12)+1) + ' end</b></td></tr>');
+			}
+		}
+	}
+	outputStrBuilder2.push('</table>');
+	document.getElementById("camortizationdiv2").innerHTML = outputStrBuilder2.join("");
+
+	chartStrBuilderPayoffBalance2.push(0);chartStrBuilderPayoffInterest2.push(113122.62723964);
+$(function () {
+	$('#cchartdiv2').highcharts({
+		chart: {type: 'spline',plotBorderWidth: 1},
+		title: {text: ''},
+		xAxis: {min: 0, max:xmax2, title: {text: ''},gridLineWidth: 1,
+			labels: {
+				formatter: function() {
+					if (cloanterm2<=60){
+						return this.value+'mo';
+					}else{
+						return this.value+'yr';
+					}
+				}
+			}
+		},
+		yAxis: {
+			min: 0,title: {text: ''},gridLineWidth: 1,
+			labels: {
+				formatter: function() {
+					tempVal = this.value;
+					if (this.value>999) tempVal = (this.value/1000).toFixed(1) + 'K';
+					if (this.value>999999) tempVal = (this.value/1000000).toFixed(1) + 'M';
+					return '$'+tempVal;
+				}
+			}
+		},
+		tooltip: {enabled: false,formatter: function() {return this.series.name+': $' + this.y;}},
+		plotOptions: {spline: {lineWidth: 4,states: {hover: {lineWidth: 3}},marker: {enabled: false}}},
+		legend: {layout: 'vertical',align: 'left',verticalAlign: 'top',floating: true,backgroundColor: '#FCFFC5',borderWidth: 1,x: 55,y: 3},
+		series: [
+			{name: 'Old Balance',data: chartStrBuilderBalance2},{name: 'Old Interest',data: chartStrBuilderInterest2},{name: 'New Balance',data: chartStrBuilderPayoffBalance2},{name: 'New Interest',data: chartStrBuilderPayoffInterest2}		]
+	});
+});
+
+</script>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cadditionalmonth");
+proComma2("cadditionalyear");
+proComma2("cadditionalonetime");
+proComma2("cunpaidprincipal");
+proComma2("cmonthlypayment2");
+proComma2("cadditionalmonth2");
+proComma2("cadditionalyear2");
+proComma2("cadditionalonetime2");
+</script>
+<p><fieldset><legend>Related</legend><a href="/mortgage-calculator.html">Mortgage Calculator</a> | <a href="/refinance-calculator.html">Refinance Calculator</a> | <a href="/loan-calculator.html">Loan Calculator</a></fieldset></p>
+
+<br>
+
+<p>The Mortgage Payoff Calculator above helps evaluate the different mortgage payoff options, including making one-time or periodic extra payments, biweekly repayments, or paying off the mortgage in full. It calculates the remaining time to pay off, the difference in payoff time, and interest savings for different payoff options.</p>
+
+<h3>Principal and Interest of a Mortgage</h3>
+<p>A typical loan repayment consists of two parts, the principal and the interest. The principal is the amount borrowed, while the interest is the lender's charge to borrow the money. This interest charge is typically a percentage of the outstanding principal. A typical amortization schedule of a mortgage loan will contain both interest and principal.</p>
+<p>Each payment will cover the interest first, with the remaining portion allocated to the principal. Since the outstanding balance on the total principal requires higher interest charges, a more significant part of the payment will go toward interest at first. However, as the outstanding principal declines, interest costs will subsequently fall. Thus, with each successive payment, the portion allocated to interest falls while the amount of principal paid rises.</p>
+<p>The Mortgage Payoff Calculator and the accompanying Amortization Table illustrate this precisely. Once the user inputs the required information, the Mortgage Payoff Calculator will calculate the pertinent data.</p>
+<p>Aside from selling the home to pay off the mortgage, some borrowers may want to pay off their mortgage earlier to save on interest. Outlined below are a few strategies that can be employed to pay off the mortgage early.:</p>
+
+<h3>Extra Payments</h3>
+<p>Extra payments are additional payments in addition to the scheduled mortgage payments. Borrowers can make these payments on a one-time basis or over a specified period, such as monthly or annually.</p>
+<p>Extra payments can possibly lower overall interest costs dramatically. For example, a one-time additional payment of $1,000 towards a $200,000, 30-year loan at 5% interest can pay off the loan four months earlier, saving $3,420 in interest. For the same $200,000, 30-year, 5% interest loan, extra monthly payments of $6 will pay off the loan four payments earlier, saving $2,796 in interest.</p>
+
+<h3>Biweekly Payments</h3>
+<p>Another strategy for paying off the mortgage earlier involves biweekly payments. This entails paying half of the regular mortgage payment every two weeks. With 52 weeks in a year, this approach results in 26 half payments. Thus, borrowers make the equivalent of 13 full monthly payments at year's end, or one extra month of payments every year. The biweekly payments option is suitable for those that receive a paycheck every two weeks. In such cases, borrowers can allocate a certain amount from each paycheck for the mortgage repayment.</p>
+
+<h3>Refinance to a shorter term</h3>
+<p>Another option involves refinancing, or taking out a new mortgage to pay off an old loan. For example, a borrower holds a mortgage at a 5% interest rate with $200,000 and 20 years remaining. If this borrower can refinance to a new 20-year loan with the same principal at a 4% interest rate, the monthly payment will drop $107.95 from $1,319.91 to $1,211.96 per month. The total savings in interest will come out to $25,908.20 over the lifetime of the loan.</p>
+<p>Borrowers can refinance to a shorter or longer term. Shorter-term loans often include lower interest rates. However, they will usually need to pay closing costs and fees to refinance. Borrowers should run a compressive evaluation to decide if refinancing is financially beneficial. To evaluate refinancing options, visit our <a href="/refinance-calculator.html">Refinance Calculator</a>.</p>
+
+<h3>Prepayment Penalties</h3>
+<p>Some lenders may charge a prepayment penalty if the borrower pays the loan off early. From a lender's perspective, mortgages are profitable investments that bring years of income, and the last thing they want to see is their money-making machines compromised.</p>
+<p>Lenders use numerous methods to calculate prepayment penalties. Possible penalties include charging 80% of the interest the lender would collect over the next six months. A lender may also add on a percentage of the outstanding balance. These penalties can amount to massive fees, especially during the early stages of a mortgage.</p>
+<p>However, prepayment penalties have become less common. If the lender includes these possible fees in a mortgage document, they usually become void after a certain period, such as after the fifth year. Borrowers should read the fine print or ask the lender to gain a clear understanding of how prepayment penalties apply to their loan. FHA loans, VA loans, or any loans insured by federally chartered credit unions prohibit prepayment penalties.</p>
+
+<h3>Opportunity Costs</h3>
+<p>Borrowers that want to pay off their mortgage earlier should consider the opportunity costs, or the benefits they could have enjoyed if they had chosen an alternative. Financial opportunity costs exist for every dollar spent for a specific purpose.</p>
+<p>The home mortgage is a type of loan with a relatively low interest rate, and many see mortgage prepayments as the equivalent of low-risk, low-reward investment. For this reason, borrowers should consider paying off high-interest obligations such as credit cards or smaller debts such as student or auto loans before supplementing a mortgage with extra payments.</p>
+<p>Additionally, other investments can produce returns exceeding the rate of mortgage interest. Nobody can predict the market's future direction, but some of these alternative investments may result in higher returns than the savings that would come from paying off a mortgage. In the long run, it would make more financial sense for an individual to have placed a certain amount of money into a portfolio of stocks that earned 10% one year as opposed to their existing mortgage at a 4% interest rate. Corporate bonds, physical gold, and many other investments are options that mortgage holders might consider instead of extra payments.</p>
+<p>Additionally, since most borrowers also need to save for retirement, they should also consider contributing to tax-advantaged accounts such as an IRA, a Roth IRA, or a 401k before making extra mortgage payments. This way, they not only may enjoy higher returns but also benefit from significant tax savings.</p>
+
+<h3>Examples</h3>
+<p>In the end, it is up to individuals to evaluate their unique situations to determine whether it makes the most financial sense to increase monthly payments towards their mortgage. The following is a few examples:</p>
+<p><b>Example 1:</b> Christine wanted the sense of happiness that comes with outright ownership of a beautiful home. After confirming she would not face prepayment penalties, she decided to supplement her mortgage with extra payments to speed up the payoff.</p>
+<p>One day, Christine had lunch with a friend who works as a financial advisor. Her friend explained that she could eliminate more interest charges by paying the existing high-interest debt on her three credit cards. Some of the cards charged rates as high as 20%, while the mortgage only charged a 5% interest rate. These payments ate up an unnecessarily large amount of her income. By paying off these high-interest debts first, Christine reduces her interest costs more quickly.</p>
+<p><b>Example 2:</b> Bob holds no debt except the mortgage on his family's home. Student loans, car loans, and credit card loans are all a thing of the past. With his discretionary income, he cannot decide whether to make supplemental payments towards his mortgage or invest in the stock market. Over time, the market has generated higher returns than the 4% interest rate tied to his mortgage.</p>
+<p>Bob could also choose to put more away into his emergency fund, which is nearly empty. One crucial detail his financial advisor mentioned is that Bob's company has been laying off employees recently. His manager even warned Bob that he might be next in line.</p>
+<p>In this situation, Bob should build an emergency fund before investing in the market or making supplemental mortgage payments.</p>
+<p><b>Example 3:</b> Charles carries no debt other than the mortgage on his house. He has a steady job where he has maxed out his tax-advantaged accounts, built a healthy six-month emergency fund, and saved extra cash. Charles is a few years away from retirement. Therefore, he does not want to make relatively riskier investments, such as purchasing individual stocks. In this situation, Charles's financial advisor recommends paying off his mortgage earlier to save on mortgage interest. This way, he can begin his retirement with a fully paid-off home.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

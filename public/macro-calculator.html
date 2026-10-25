@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Macro Calculator</title>
+	<meta name="description" content="This macro calculator estimates the macronutrient needs of a person based on their age, physical characteristics, activity level, and bodyweight goals." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<style>
+	.arrowup_box {position: relative;background: #666;padding: 5px 5px;border-radius: 3px;color:#fff;}
+	.arrowup_box:after {top: 100%;left: 50%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none;border-color: rgba(102, 102, 102, 0);border-top-color: #666;border-width: 10px;margin-left: -10px;}
+	.arrowup_none {position: relative;background: #336699;color:#fff;padding: 5px 5px;border-radius: 3px;}
+	.arrowup_none:hover {background: #666;color:#fff;}
+	</style>
+	</head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/macro-calculator.html" itemprop="item"><span itemprop="name">macro calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Macro Calculator</h1>
+<p>This calculator can provide a range of suggested values for a person's macronutrient and Calorie needs under normal conditions.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<span id="ucframe"></span>
+<div id="topmenu" ><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+
+<div class="panel2" style="padding:10px;">
+<form action="macro-calculator.html" name="calform"><table id="calinputtable" width="450">
+<input type="hidden" name="ctype" id="ctype" value="standard">
+<tr>
+	<td width="78">Age</td>
+	<td width="372"><input type="text" name="cage" id="cage" value="25" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> ages 18 - 80</td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span> male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span> female</label></td>
+</tr>
+</table>
+<table width="450" id="standardheightweight">
+<tr>
+	<td width="78">Height</td>
+	<td width="372">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Weight</td>
+	<td><input type="text" name="cpound" id="cpound" value="165" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="450" id="metricheightweight">
+<tr>
+	<td width="78">Height</td>
+	<td width="372"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="65" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="580">
+<tr>
+	<td width="80">Activity</td>
+	<td width="500">
+		<select id="cactivity" name="cactivity">
+			<option value="1" >Basal Metabolic Rate (BMR)</option>
+			<option value="1.2" >Sedentary: little or no exercise</option>
+			<option value="1.375" >Light: exercise 1-3 times/week</option>
+			<option value="1.465" selected>Moderate: exercise 4-5 times/week</option>
+			<option value="1.55" >Active: daily exercise or intense exercise 3-4 times/week</option>
+			<option value="1.725" >Very Active: intense exercise 6-7 times/week</option>
+			<option value="1.9" >Extra Active: very intense exercise daily, or physical job</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="80">Your Goal</td>
+	<td width="500">
+		<select id="cgoal" name="cgoal">
+			<option value="m" selected>Maintain weight</option>
+			<option value="l" >Mild weight loss of 0.5 lb (0.25 kg) per week</option>
+			<option value="l1" >Weight loss of 1 lb (0.5 kg) per week</option>
+			<option value="l2" >Extreme weight loss of 2 lb (1 kg) per week</option>
+			<option value="g" >Mild weight gain of 0.5 lb (0.25 kg) per week</option>
+			<option value="g1" >Weight gain of 1 lb (0.5 kg) per week</option>
+			<option value="g2" >Extreme weight gain of 2 lb (1 kg) per week</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="80">&nbsp;</td>
+	<td width="500">
+		<div id="ccsettingtitle" style="margin: 10px 0px;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
+		<div id="ccsettingcontent" style="display: none;">
+			<input type="hidden" name="cmop" id="cmoreoption" value="0">
+			<div><b>BMR estimation formula:</b> <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The Katch-McArdle Formula can be more accurate if you are lean and know your body fat percentage.', '');" onmouseout="tooltip.hide();"></div>
+			<div>
+				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="m" checked /><span class="rbmark"></span> Mifflin St Jeor</label></div>
+				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="k"  /><span class="rbmark"></span> Katch-McArdle</label> &nbsp; <a href="/body-fat-calculator.html">Body Fat:</a> <input type="text" name="cfatpct" value="20" class="in4char inpct" onKeyUp="iptfieldCheck(this, '', 'pn');"></div>
+			</div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td width="80">&nbsp;</td>
+	<td width="500">
+		<input name="printit" value="0" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+<ul style="margin-top:0px;margin-left:-20px;">
+	<li class="smalltext"><b>Exercise:</b> 15-30 minutes of elevated heart rate activity.</li>
+	<li class="smalltext"><b>Intense exercise:</b> 45-120 minutes of elevated heart rate activity.</li>
+	<li class="smalltext"><b>Very intense exercise:</b> 2+ hours of elevated heart rate activity.</li>
+</ul>
+<script>
+function cshweightgaininfo(optVar){
+	if (optVar==1){
+		document.getElementById("weightgaininfo").style.display = 'block';
+		document.getElementById("weightgaininfolink").innerHTML = "<a href='#' onClick='return cshweightgaininfo(0);'>Hide info for weight gain</a>";
+	}else{
+		document.getElementById("weightgaininfo").style.display = 'none';
+		document.getElementById("weightgaininfolink").innerHTML = "<a href='#' onClick='return cshweightgaininfo(1);'>Show info for weight gain</a>";
+	}
+	return false;
+}
+function cshmoreoption(optVar){
+	if (optVar==1){
+		document.getElementById("ccsettingcontent").style.display = 'block';
+		document.getElementById("cmoreoption").value = "1";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
+	}else{
+		document.getElementById("ccsettingcontent").style.display = 'none';
+		document.getElementById("cmoreoption").value = "0";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
+	}
+	return false;
+}
+cshmoreoption(0);
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard",0);
+
+function popResultCond(prcVal, pcrCompare){
+	if (prcVal==pcrCompare){
+		return '<td class="arrowup_box">'+prcVal+'</td>';
+	}else{
+		return '<td class="arrowup_none" onClick="return popResult(\''+prcVal+'\');" style="cursor: pointer;">'+prcVal+'</td>';
+	}
+}
+function popResult(prType){
+	document.getElementById("resultbars").style.display = 'none';
+	if (prType=='Balanced'){
+		document.getElementById("resultprotein").innerHTML = Math.round(balancedProtein);
+		document.getElementById("resultcarb").innerHTML = Math.round(balancedCarbs);
+		document.getElementById("resultfat").innerHTML = Math.round(balancedFat);
+	}else if (prType=='Low Fat'){
+		document.getElementById("resultprotein").innerHTML = Math.round(lowfatProtein);
+		document.getElementById("resultcarb").innerHTML = Math.round(lowfatCarbs);
+		document.getElementById("resultfat").innerHTML = Math.round(lowfatFat);
+	}else if (prType=='Low Carb'){
+		document.getElementById("resultprotein").innerHTML = Math.round(lowcarbProtein);
+		document.getElementById("resultcarb").innerHTML = Math.round(lowcarbCarbs);
+		document.getElementById("resultfat").innerHTML = Math.round(lowcarbFat);
+	}else if (prType=='High Protein'){
+		document.getElementById("resultprotein").innerHTML = Math.round(highProteinProtein);
+		document.getElementById("resultcarb").innerHTML = Math.round(highProteinCarbs);
+		document.getElementById("resultfat").innerHTML = Math.round(highProteinFat);
+	}else if (prType=='Create Your Own'){
+		document.getElementById("resultprotein").innerHTML = Math.round(document.getElementById("proteinrange").value);
+		document.getElementById("resultcarb").innerHTML = Math.round(document.getElementById("carbsrange").value);
+		document.getElementById("resultfat").innerHTML = Math.round(document.getElementById("fatrange").value);
+		document.getElementById("resultbars").style.display = 'block';
+	}
+	var buttonContent = '<table '+tableAlign +'><tr align="center">';
+	buttonContent += popResultCond('Balanced', prType);
+	buttonContent += popResultCond('Low Fat', prType);
+	buttonContent += popResultCond('Low Carb', prType);
+	buttonContent += popResultCond('High Protein', prType);
+	buttonContent += popResultCond('Create Your Own', prType);
+	buttonContent += '</tr></table>';
+	document.getElementById("resulttabs").innerHTML = buttonContent;
+	return false;
+}
+
+function slideProtein(spVal){
+	var currentCarbVal = document.getElementById("carbsrange").value;
+	var currentFatVal = document.getElementById("fatrange").value;
+	var spRemainingEnergy = calorieNeeded - spVal*4.1;
+
+	var newCarbVal = spRemainingEnergy*currentCarbVal/(currentCarbVal*3.75 + currentFatVal*8.8);
+	var newFatVal = spRemainingEnergy*currentFatVal/(currentCarbVal*3.75 + currentFatVal*8.8);
+	var newProteinVal = spVal;
+
+	if(newFatVal<fatLower){
+		newFatVal = fatLower;
+		newCarbVal = (spRemainingEnergy - newFatVal*8.8)/3.75;
+	}else if(newFatVal>fatUpper){
+		newFatVal = fatUpper;
+		newCarbVal = (spRemainingEnergy - newFatVal*8.8)/3.75;
+	}
+
+	if (newCarbVal<carbLower){
+		newCarbVal = carbLower;
+		newFatVal = (spRemainingEnergy - newCarbVal*3.75)/8.8;
+		if (newFatVal<fatLower){
+			newFatVal = fatLower;
+			newProteinVal = (calorieNeeded - newCarbVal*3.75 - newFatVal*8.8)/4.1;
+			document.getElementById("proteinrange").value = newProteinVal;
+		}
+	}else if (newCarbVal>carbUpper){
+		newCarbVal = carbUpper;
+		newFatVal = (spRemainingEnergy - newCarbVal*3.75)/8.8;
+		if (newFatVal>fatUpper){
+			newFatVal = fatUpper;
+			newProteinVal = (calorieNeeded - newCarbVal*3.75 - newFatVal*8.8)/4.1;
+			document.getElementById("proteinrange").value = newProteinVal;
+		}
+	}
+	document.getElementById("carbsrange").value = newCarbVal;
+	document.getElementById("fatrange").value = newFatVal;
+	document.getElementById("resultprotein").innerHTML = Math.round(newProteinVal);
+	document.getElementById("resultcarb").innerHTML = Math.round(newCarbVal);
+	document.getElementById("resultfat").innerHTML = Math.round(newFatVal);
+	return false;
+}
+
+function slideCarb(scVal){
+	var currentProteinVal = document.getElementById("proteinrange").value;
+	var currentFatVal = document.getElementById("fatrange").value;
+	var scRemainingEnergy = calorieNeeded - scVal*3.75;
+
+	var newFatVal = (scRemainingEnergy - currentProteinVal*4.1)/8.8;
+	var newCarbVal = scVal;
+	var newProteinVal = currentProteinVal;
+
+	if(newFatVal<fatLower){
+		newFatVal = fatLower;
+		newProteinVal = (scRemainingEnergy - newFatVal*8.8)/4.1;
+		if (newProteinVal<proteinLower){
+			newProteinVal = proteinLower;
+			newCarbVal = (calorieNeeded - newProteinVal*4.1 - newFatVal*8.8)/3.75;
+			document.getElementById("carbsrange").value = newCarbVal;
+		}
+	}else if(newFatVal>fatUpper){
+		newFatVal = fatUpper;
+		newProteinVal = (scRemainingEnergy - newFatVal*8.8)/4.1;
+		if (newProteinVal>proteinUpper){
+			newProteinVal = proteinUpper;
+			newCarbVal = (calorieNeeded - newProteinVal*4.1 - newFatVal*8.8)/3.75;
+			document.getElementById("carbsrange").value = newCarbVal;
+		}
+	}
+	document.getElementById("proteinrange").value = newProteinVal;
+	document.getElementById("fatrange").value = newFatVal;
+	document.getElementById("resultprotein").innerHTML = Math.round(newProteinVal);
+	document.getElementById("resultcarb").innerHTML = Math.round(newCarbVal);
+	document.getElementById("resultfat").innerHTML = Math.round(newFatVal);
+
+	return false;
+}
+
+function slideFat(sfVal){
+	var currentCarbVal = document.getElementById("carbsrange").value;
+	var currentProteinVal = document.getElementById("proteinrange").value;
+	var sfRemainingEnergy = calorieNeeded - sfVal*8.8;
+
+	var newCarbVal = sfRemainingEnergy*currentCarbVal/(currentCarbVal*3.75 + currentProteinVal*4.1);
+	var newProteinVal = sfRemainingEnergy*currentProteinVal/(currentCarbVal*3.75 + currentProteinVal*4.1);
+	var newFatVal = sfVal;
+
+	if(newProteinVal<proteinLower){
+		newProteinVal = proteinLower;
+		newCarbVal = (sfRemainingEnergy - newProteinVal*4.1)/3.75;
+	}else if(newProteinVal>proteinUpper){
+		newProteinVal = proteinUpper;
+		newCarbVal = (sfRemainingEnergy - newProteinVal*4.1)/3.75;
+	}
+
+	if (newCarbVal<carbLower){
+		newCarbVal = carbLower;
+		newProteinVal = (sfRemainingEnergy - newCarbVal*3.75)/4.1;
+		if (newProteinVal<proteinLower){
+			newProteinVal = proteinLower;
+			newFatVal = (calorieNeeded - newCarbVal*3.75 - newProteinVal*4.1)/8.8;
+			document.getElementById("fatrange").value = newFatVal;
+		}
+	}else if (newCarbVal>carbUpper){
+		newCarbVal = carbUpper;
+		newProteinVal = (sfRemainingEnergy - newCarbVal*3.75)/4.1;
+		if (newProteinVal>proteinUpper){
+			newProteinVal = proteinUpper;
+			newFatVal = (calorieNeeded - newCarbVal*3.75 - newProteinVal*4.1)/8.8;
+			document.getElementById("fatrange").value = newProteinVal;
+		}
+	}
+	document.getElementById("carbsrange").value = newCarbVal;
+	document.getElementById("proteinrange").value = newProteinVal;
+	document.getElementById("resultprotein").innerHTML = Math.round(newProteinVal);
+	document.getElementById("resultcarb").innerHTML = Math.round(newCarbVal);
+	document.getElementById("resultfat").innerHTML = Math.round(newFatVal);
+	return false;
+}
+</script>
+
+
+
+<br><p><fieldset><legend>Related:</legend><a href="/carbohydrate-calculator.html">Carbs Calculator</a> | <a href="/protein-calculator.html">Protein Calculator</a> | <a href="/fat-intake-calculator.html">Fat Intake Calculator</a></fieldset></p>
+
+<br>
+<h3>What are Macronutrients (Macros)?</h3>
+<p>In the context of health and fitness, macronutrients are most often defined to be the chemical compounds that humans consume in large quantities that provide bulk energy. Specifically, they refer to carbohydrates, proteins, and fats. Some definitions also include water, air, calcium, sodium, chloride ions, and some other substances, along with more typical macronutrients, since they are needed in large quantities by the human body. In this calculator, we only calculate daily carbohydrate, protein, and fat needs.</p>
+<p>Micronutrients are another essential part of human nutrition and consist of vitamins and dietary minerals such as Vitamin A, copper, iron, and iodine. While macronutrients are necessary daily in amounts on the order of grams, humans typically only need fewer than 100 milligrams of micronutrients each day.</p>
+
+<p><b>Protein</b></p>
+<p>Proteins are organic compounds comprised of amino acids, and are one of the types of macronutrients. Amino acids are essential to a person's well-being, and there are certain amino acids that can only be obtained through diet. These amino acids are typically referred to as "essential amino acids," and are obtained by humans and other animals through the consumption of protein.</p>
+<p>There are numerous sources of protein, both animal (meat, dairy, etc.) and plant-based (beans, legumes, nuts, seeds, etc.). There also exist protein supplements that are sometimes used by people who are trying to build muscle. Although protein is a necessary part of the human diet, as with most things, moderation is important. There are also healthier and unhealthier proteins.</p>
+<p>Healthier proteins include:</p>
+<ul>
+	<li>Soy</li>
+	<li>Beans</li>
+	<li>Nuts</li>
+	<li>Fish</li>
+	<li>Skinless poultry</li>
+	<li>Lean beef</li>
+	<li>Pork</li>
+	<li>Low-fat dairy products</li>
+</ul>
+<p>Unhealthier proteins include:</p>
+<ul>
+	<li>Fried meats</li>
+	<li>Processed meats (deli meats, sausages, fast-food burgers etc.)</li>
+	<li>High sugar yogurts</li>
+	<li>Processed protein bars</li>
+	<li>Many kinds of cheese</li>
+</ul>
+
+<p><b>Carbohydrates (Carbs)</b></p>
+<p>Carbohydrates, often referred to as simply "carbs," are compounds that are typically classified as sugar, starch, or fiber. Sugar is the simplest form of carbohydrate, while starch and fiber are complex carbohydrates. Carbohydrates are often also classified based on the number of saccharides that comprise them: monosaccharides, disaccharides, oligosaccharides, and polysaccharides. Monosaccharides and disaccharides are often referred to as "simple carbohydrates," while oligosaccharides and polysaccharides are referred to as "complex carbohydrates."</p>
+<p>Glucose is a monosaccharide and is one of the key sources of energy for humans, as well as other animals. Polysaccharides such as cellulose cannot be easily metabolized by many organisms, including humans, but can still provide them with valuable dietary fibers, which helps with digestion. Too many carbohydrates in the form of sugar (common in processed foods) can have negative health effects, but more complex carbohydrates (from vegetables, fruits, whole grains, legumes, etc.), particularly those that provide dietary fibers, are beneficial, and necessary for the human body.</p>
+
+<p><b>Fat</b></p>
+<p>Fats are molecules that are comprised primarily of carbon and hydrogen atoms. Common examples include cholesterol, phospholipids, and triglycerides. Although fats, in the context of nutrition, are typically viewed as unhealthy, they have both structural as well as metabolic functions, and are a necessary part of the human diet. They are also highly energy dense and are the most efficient form of energy storage.</p>
+<p>Fats are typically classified based on the bonding of carbon atoms. In terms of dietary fats, the most commonly referenced fats include saturated fats, unsaturated fats, trans fats, monounsaturated fats, polyunsaturated fats, and omega-3 fatty acids. Generally, saturated and trans fats are considered unhealthy fats, while monounsaturated, polyunsaturated, and omega-3 fatty acids are considered to be healthier, better sources of fat for the body.</p>
+<p>General recommendations from the Dietary Guidelines for Americans for 2015-2020 include entirely avoiding trans fats where possible, limiting saturated fat intake to comprise less than 10% of calories consumed per day, and ideally replacing saturated fats in the diet with monounsaturated and polyunsaturated fats.</p>
+
+<h3>Daily Calorie Needs</h3>
+<p>The number of calories a person needs to consume on a daily basis is mainly based on a number of factors including height, weight, age, and activity level, along with whether the person wants to maintain, lose, or gain weight. The values returned by the calculator are based on two equations for estimating the basal metabolic rate (BMR) or resting daily energy expenditure (RDEE) of a person. Once the BMR or RDEE is calculated, they are then multiplied by an activity factor to estimate daily caloric needs. The Mifflin-St Jeor Equation is a widely adopted equation that calculates BMR mainly based on physical characteristics such as body weight and height. The Katch-McArdle Formula calculates RDEE, which takes lean body mass into account. The Katch-McArdle Formula can be more accurate for people who are leaner and know their body fat percentage.</p>
+<p>Based on the above factors, an average person may need to consume anywhere from 1600-3000 calories a day. The recommendations are generally higher for men (2000-3000) than women (1600-2400), and an increased activity level requires more calories, while a sedentary person would require less.</p>
+<p>As carbohydrates, proteins, and fats provide nearly the entire energy needs of the human body, their daily needs can be calculated based on the daily caloric need. The values returned by the calculator are an estimate based on standards and guidelines provided by a number of institutions, such as the American Dietetic Association, Centers for Disease Control and Prevention, World Health Organization, and more.</p>
+
+<h3>Macronutrients in Common Foods</h3>
+<table class="cinfoT ">
+
+<tr><td class="cinfoHd">Food</td><td class="cinfoHdL">Serving Size</td><td class="cinfoHdL">Protein</td><td class="cinfoHdL">Carbs</td><td class="cinfoHdL">Fat</td></tr>
+<tr><td colspan="5"><b>Fruit</b></td></tr>
+<tr><td>Apple</td><td>1 (4 oz.)</td><td>0.27g</td><td>14.36g</td><td>0.18g</td></tr>
+<tr><td>Banana</td><td>1 (6 oz.)</td><td>1.85g</td><td>38.85g</td><td>0.56g</td></tr>
+<tr><td>Grapes</td><td>1 cup</td><td>1.15g</td><td>28.96g</td><td>0.26g</td></tr>
+<tr><td>Orange</td><td>1 (4 oz.)</td><td>0.79g</td><td>11.79g</td><td>0.23g</td></tr>
+<tr><td>Pear</td><td>1 (5 oz.)</td><td>0.54g</td><td>21.91g</td><td>0.17g</td></tr>
+<tr><td>Peach</td><td>1 (6 oz.)</td><td>1.2g</td><td>12.59g</td><td>0.33g</td></tr>
+<tr><td>Pineapple</td><td>1 cup</td><td>0.84g</td><td>19.58g</td><td>0.19g</td></tr>
+<tr><td>Strawberry</td><td>1 cup</td><td>1.11g</td><td>12.75g</td><td>0.5g</td></tr>
+<tr><td>Watermelon</td><td>1 cup</td><td>0.93g</td><td>11.48g</td><td>0.23g</td></tr>
+
+<tr><td colspan="5"><b>Vegetables</b></td></tr>
+<tr><td>Asparagus</td><td>1 cup</td><td>2.95g</td><td>5.2g</td><td>0.16g</td></tr>
+<tr><td>Broccoli</td><td>1 cup</td><td>2.57g</td><td>6.04g</td><td>0.34g</td></tr>
+<tr><td>Carrots</td><td>1 cup</td><td>1.19g</td><td>12.26g</td><td>0.31g</td></tr>
+<tr><td>Cucumber</td><td>4 oz.</td><td>0.67g</td><td>2.45g</td><td>0.18g</td></tr>
+<tr><td>Eggplant</td><td>1 cup</td><td>0.98g</td><td>5.88g</td><td>0.18g</td></tr>
+<tr><td>Lettuce</td><td>1 cup</td><td>0.5g</td><td>1.63g</td><td>0.08g</td></tr>
+<tr><td>Tomato</td><td>1 cup</td><td>1.58g</td><td>7.06g</td><td>0.36g</td></tr>
+
+<tr><td colspan="5"><b>Proteins</b></td></tr>
+<tr><td>Beef, regular, cooked</td><td>2 oz.</td><td>14.2g</td><td>0g</td><td>10.4g</td></tr>
+<tr><td>Chicken, cooked</td><td>2 oz.</td><td>16g</td><td>0g</td><td>1.84g</td></tr>
+<tr><td>Tofu</td><td>4 oz.</td><td>7.82g</td><td>2.72g</td><td>3.06g</td></tr>
+<tr><td>Egg</td><td>1 large</td><td>6.29g</td><td>0.38g</td><td>4.97g</td></tr>
+<tr><td>Fish, Catfish, cooked</td><td>2 oz.</td><td>9.96g</td><td>4.84g</td><td>8.24g</td></tr>
+<tr><td>Pork, cooked</td><td>2 oz.</td><td>15.82g</td><td>0g</td><td>8.26g</td></tr>
+<tr><td>Shrimp, cooked</td><td>2 oz.</td><td>15.45g</td><td>0.69g</td><td>1.32g</td></tr>
+
+<tr><td colspan="5"><b>Common Meals/Snacks</b></td></tr>
+<tr><td>Bread, white</td><td>1 slice (1 oz.)</td><td>1.91g</td><td>12.65g</td><td>0.82g</td></tr>
+<tr><td>Butter</td><td>1 tablespoon</td><td>0.12g</td><td>0.01g</td><td>11.52g</td></tr>
+<tr><td>Caesar salad</td><td>3 cups</td><td>16.3g</td><td>21.12g</td><td>45.91g</td></tr>
+<tr><td>Cheeseburger</td><td>1 sandwich</td><td>14.77g</td><td>31.75g</td><td>15.15g</td></tr>
+<tr><td>Hamburger</td><td>1 sandwich</td><td>14.61g</td><td>26.81g</td><td>10.97g</td></tr>
+<tr><td>Dark Chocolate</td><td>1 oz.</td><td>1.57g</td><td>16.84g</td><td>9.19g</td></tr>
+<tr><td>Corn</td><td>1 cup</td><td>4.3g</td><td>30.49g</td><td>1.64g</td></tr>
+<tr><td>Pizza</td><td>1 slice (14")</td><td>13.32g</td><td>33.98g</td><td>12.13g</td></tr>
+<tr><td>Potato</td><td>6 oz.</td><td>4.47g</td><td>36.47g</td><td>0.22g</td></tr>
+<tr><td>Rice</td><td>1 cup cooked</td><td>4.2g</td><td>44.08g</td><td>0.44g</td></tr>
+<tr><td>Sandwich</td><td>1 (6" Subway Turkey Sandwich)</td><td>18g</td><td>46g</td><td>3.5g</td></tr>
+
+<tr><td colspan="5"><b>Beverages/Dairy</b></td></tr>
+<tr><td>Beer</td><td>1 can</td><td>1.64g</td><td>12.64g</td><td>0g</td></tr>
+<tr><td>Coca-Cola Classic</td><td>1 can</td><td>0g</td><td>39g</td><td>0g</td></tr>
+<tr><td>Diet Coke</td><td>1 can</td><td>0g</td><td>0g</td><td>0g</td></tr>
+<tr><td>Milk (1%)</td><td>1 cup</td><td>8.22g</td><td>12.18g</td><td>2.37g</td></tr>
+<tr><td>Milk (2%)</td><td>1 cup</td><td>8.05g</td><td>11.42g</td><td>4.81g</td></tr>
+<tr><td>Milk (Whole)</td><td>1 cup</td><td>7.86g</td><td>11.03g</td><td>7.93g</td></tr>
+<tr><td>Orange Juice</td><td>1 cup</td><td>1.74g</td><td>25.79g</td><td>0.5g</td></tr>
+<tr><td>Apple cider</td><td>1 cup</td><td>0.15g</td><td>28.97g</td><td>0.27g</td></tr>
+<tr><td>Yogurt (low-fat)</td><td>1 cup</td><td>12.86g</td><td>17.25g</td><td>3.8g</td></tr>
+<tr><td>Yogurt (non-fat)</td><td>1 cup</td><td>13.01g</td><td>17.43g</td><td>0.41g</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

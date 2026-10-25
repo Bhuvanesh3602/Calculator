@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Volume Calculator</title>
+	<meta name="description" content="This free volume calculator computes the volumes of common shapes, including sphere, cone, cube, cylinder, capsule, cap, conical frustum, ellipsoid, and more." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/volume-calculator.html" itemprop="item"><span itemprop="name">volume calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Volume Calculator</h1>
+<p>The following is a list of volume calculators for several common shapes. Please fill in the corresponding fields and click the "Calculate" button.</p>
+
+<a name="ball"></a>
+<h2>Sphere Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#ball">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Radius (r)</td><td>		<input type="text" name="ballradius" id="ballradius" value="" class="inhalf">			<select name="ballradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="ballcal" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/ball.svg" width="82" height="82" alt="ball"></td></tr></table>
+
+<a name="cone"></a>
+<br><h2>Cone Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#cone">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="coneradius" id="coneradius" value="" class="inhalf">			<select name="coneradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="coneheight" id="coneheight" value="" class="inhalf">
+			<select name="coneheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="conecal" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/cone.svg" width="82" height="82" alt="cone"></td></tr></table>
+
+
+<a name="cube"></a>
+<br><h2>Cube Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#cube">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Edge Length (a)</td><td>		<input type="text" name="cubeedge" id="cubeedge" value="" class="inhalf">
+			<select name="cubeedgeunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="cubecal" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/cube.svg" width="82" height="82" alt="cube"></td></tr></table>
+
+
+<a name="cylinder"></a>
+<br><h2>Cylinder Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#cylinder">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="ctankradius" id="ctankradius" value="" class="inhalf">
+			<select name="ctankradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="ctanklength" id="ctanklength" value="" class="inhalf">
+			<select name="ctanklengthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="cylcal" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/cylinder.svg" width="82" height="100" alt="cylinder"></td></tr></table>
+
+
+<a name="rectangular"></a>
+<br><h2>Rectangular Tank Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#rectangular"><table class="panel" id="standard">
+	<tr>
+		<td align="right">Length (l)</td><td>		<input type="text" name="rtanklength" id="rtanklength" value="" class="inhalf">
+			<select name="rtanklengthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Width (w)</td><td>		<input type="text" name="rtankwidth" id="rtankwidth" value="" class="inhalf">
+			<select name="rtankwidthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rtankheight" id="rtankheight" value="" class="inhalf">
+			<select name="rtankheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="rectcal" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/prism.svg" width="82" height="100" alt="prism"></td></tr></table>
+</form>
+
+
+<a name="capsule"></a>
+<br><h2>Capsule Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#capsule">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="rcapsuleradius" id="rcapsuleradius" value="" class="inhalf">
+			<select name="rcapsuleradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rcapsuleheight" id="rcapsuleheight" value="" class="inhalf">
+			<select name="rcapsuleheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="capsule" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/capsule.svg" width="82" height="126" alt="capsule"></td></tr></table>
+</form>
+
+
+<a name="cap"></a>
+<br><h2>Spherical Cap Volume Calculator</h2>
+<p>Please provide any two values below to calculate.</p><table ><tr><td>
+<form action="/volume-calculator.html#cap">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="ccapbaseradius" id="ccapbaseradius" value="" class="inhalf">
+			<select name="ccapbaseradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Ball Radius (R)</td><td>		<input type="text" name="ccapballradius" id="ccapballradius" value="" class="inhalf">
+			<select name="ccapballradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="ccapheight" id="ccapheight" value="" class="inhalf">
+			<select name="ccapheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="cap" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/cap.svg" width="82" height="50" alt="cap"></td></tr></table>
+</form>
+
+
+<a name="conicalfrustum"></a>
+<br><h2>Conical Frustum Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#conicalfrustum">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Top Radius (r)</td><td>		<input type="text" name="rconicalfrustumtopradius" id="rconicalfrustumtopradius" value="" class="inhalf">
+			<select name="rconicalfrustumtopradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Bottom Radius (R)</td><td>		<input type="text" name="rconicalfrustumbottomradius" id="rconicalfrustumbottomradius" value="" class="inhalf">
+			<select name="rconicalfrustumbottomradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rconicalfrustumheight" id="rconicalfrustumheight" value="" class="inhalf">
+			<select name="rconicalfrustumheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="conicalfrustum" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/conical-frustum.svg" width="82" height="100" alt="conical frustum"></td></tr></table>
+
+
+
+<a name="ellipsoid"></a>
+<br><h2>Ellipsoid Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#ellipsoid">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Axis 1 (a)</td><td>		<input type="text" name="rellipsoidaxis1" id="rellipsoidaxis1" value="" class="inhalf">
+			<select name="rellipsoidaxis1unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Axis 2 (b)</td><td>		<input type="text" name="rellipsoidaxis2" id="rellipsoidaxis2" value="" class="inhalf">
+			<select name="rellipsoidaxis2unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Axis 3 (c)</td><td>		<input type="text" name="rellipsoidaxis3" id="rellipsoidaxis3" value="" class="inhalf">
+			<select name="rellipsoidaxis3unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="ellipsoid" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/ellipsoid.svg" width="82" height="100" alt="ellipsoid"></td></tr></table>
+
+
+<a name="squarepyramid"></a>
+<br><h2>Square Pyramid Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#squarepyramid">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Base Edge (a)</td><td>		<input type="text" name="csquarepyramidedge" id="csquarepyramidedge" value="" class="inhalf">
+			<select name="csquarepyramidedgeunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="csquarepyramidheight" id="csquarepyramidheight" value="" class="inhalf">
+			<select name="csquarepyramidheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="squarepyramid" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/square-pyramid.svg" width="82" height="82" alt="square pyramid"></td></tr></table>
+
+
+<a name="tube"></a>
+<br><h2>Tube Volume Calculator</h2>
+<table ><tr><td>
+<form action="/volume-calculator.html#tube">
+<table class="panel" id="standard">
+	<tr>
+		<td align="right">Outer Diameter (d1)</td><td>		<input type="text" name="ctubed1" value="" class="inhalf">
+			<select name="ctubed1unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Inner Diameter (d2)</td><td>		<input type="text" name="ctubed2" value="" class="inhalf">
+			<select name="ctubed2unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Length (l)</td><td>		<input type="text" name="ctubeheight" value="" class="inhalf">
+			<select name="ctubeheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		<td align="center" style="padding-top: 8px;"><input type="submit" name="tube" value="Calculate"></td>
+	</tr>
+</table></form>
+</td><td align="center" valign="top"><img src="/img/volume/tube.svg" width="82" height="100" alt="tube"></td></tr></table>
+
+
+<br><p><fieldset><legend>Related</legend><a href="/surface-area-calculator.html">Surface Area Calculator</a> | <a href="/area-calculator.html">Area Calculator</a></fieldset></p>
+
+
+
+<br>
+<p>Volume is the quantification of the three-dimensional space a substance occupies. The SI unit for volume is the cubic meter, or <b>m<sup>3</sup></b>. By convention, the volume of a container is typically its capacity, and how much fluid it is able to hold, rather than the amount of space that the actual container displaces. Volumes of many shapes can be calculated by using well-defined formulas. In some cases, more complicated shapes can be broken down into simpler aggregate shapes, and the sum of their volumes is used to determine total volume. The volumes of other even more complicated shapes can be calculated using integral calculus if a formula exists for the shape's boundary. Beyond this, shapes that cannot be described by known equations can be estimated using mathematical methods, such as the finite element method. Alternatively, if the density of a substance is known, and is uniform, the volume can be calculated using its weight. This calculator computes volumes for some of the most common simple shapes.</p>
+
+<h3>Sphere</h3>
+
+<p>A sphere is the three-dimensional counterpart of a two-dimensional circle. It is a perfectly round geometrical object that, mathematically, is the set of points that are equidistant from a given point at its center, where the distance between the center and any point on the sphere is the radius <b>r</b>. Likely the most commonly known spherical object is a perfectly round ball. Within mathematics, there is a distinction between a ball and a sphere, where a ball comprises the space bounded by a sphere. Regardless of this distinction, a ball and a sphere share the same radius, center, and diameter, and the calculation of their volumes is the same. As with a circle, the longest line segment that connects two points of a sphere through its center is called the diameter, <b>d</b>. The equation for calculating the volume of a sphere is provided below:</p>
+
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;r<sup>3</sup></td>
+</tr></table>
+
+<p>EX: Claire wants to fill a perfectly spherical water balloon with radius 0.15 ft with vinegar to use in the water balloon fight against her arch-nemesis Hilda this coming weekend. The volume of vinegar necessary can be calculated using the equation provided below:</p>
+
+<p align="center">volume = 4/3 &#215; &pi; &#215; 0.15<sup>3</sup> = 0.141 ft<sup>3</sup></p>
+
+<h3>Cone</h3>
+
+<p>A cone is a three-dimensional shape that tapers smoothly from its typically circular base to a common point called the apex (or vertex). Mathematically, a cone is formed similarly to a circle, by a set of line segments connected to a common center point, except that the center point is not included in the plane that contains the circle (or some other base). Only the case of a finite right circular cone is considered on this page. Cones comprised of half-lines, non-circular bases, etc. that extend infinitely will not be addressed. The equation for calculating the volume of a cone is as follows:</p>
+
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;r<sup>2</sup>h</td>
+</tr></table>
+	<p align="center">where <b>r</b> is the radius and <b>h</b> is the height of the cone</p>
+
+<p>EX: Bea is determined to walk out of the ice cream store with her hard-earned $5 well spent. While she has a preference for regular sugar cones, the waffle cones are indisputably larger. She determines that she has a 15% preference for regular sugar cones over waffle cones and needs to determine whether the potential volume of the waffle cone is &ge; 15% more than that of the sugar cone. The volume of the waffle cone with a circular base with radius 1.5 in and height 5 in can be computed using the equation below:</p>
+
+	<p align="center">volume = 1/3 &#215; &pi; &#215; 1.5<sup>2</sup> &#215; 5 = 11.781 in<sup>3</sup></p>
+
+<p>Bea also calculates the volume of the sugar cone and finds that the difference is &lt; 15%, and decides to purchase a sugar cone. Now all she has to do is use her angelic, childlike appeal to manipulate the staff into emptying the containers of ice cream into her cone. </p>
+
+<h3>Cube</h3>
+
+<p>A cube is the three-dimensional analog of a square, and is an object bounded by six square faces, three of which meet at each of its vertices, and all of which are perpendicular to their respective adjacent faces. The cube is a special case of many classifications of shapes in geometry, including being a square parallelepiped, an equilateral cuboid, and a right rhombohedron. Below is the equation for calculating the volume of a cube:</p>
+
+	<p align="center">volume = a<sup>3</sup><br>
+	where <b>a</b> is the edge length of the cube</p>
+
+<p>EX: Bob, who was born in Wyoming (and has never left the state), recently visited his ancestral homeland of Nebraska. Overwhelmed by the magnificence of Nebraska and the environment unlike any other he had previously experienced, Bob knew that he had to bring some of Nebraska home with him. Bob has a cubic suitcase with edge lengths of 2 feet, and calculates the volume of soil that he can carry home with him as follows:  </p>
+	<p align="center">volume = 2<sup>3</sup> = 8 ft<sup>3</sup></p>
+
+<h3>Cylinder</h3>
+
+<p>A cylinder in its simplest form is defined as the surface formed by points at a fixed distance from a given straight line axis. In common use, however, "cylinder" refers to a right circular cylinder, where the bases of the cylinder are circles connected through their centers by an axis perpendicular to the planes of its bases, with given height <b>h</b> and radius <b>r</b>. The equation for calculating the volume of a cylinder is shown below: </p>
+
+	<p align="center">volume = &pi;r<sup>2</sup>h <br>
+	where <b>r</b> is the radius and <b>h</b> is the height of the tank</p>
+<p>EX: Caelum wants to build a sandcastle in the living room of his house. Because he is a firm advocate of recycling, he has recovered three cylindrical barrels from an illegal dumping site and has cleaned the chemical waste from the barrels using dishwashing detergent and water. The barrels each have a radius of 3 ft and a height of 4 ft, and Caelum determines the volume of sand that each can hold using the equation below:</p>
+
+	<p align="center">volume = &pi; &#215; 3<sup>2</sup> &#215; 4 = 113.097 ft<sup>3</sup></p>
+
+<p>He successfully builds a sandcastle in his house, and as an added bonus, manages to save electricity on nighttime lighting, since his sandcastle glows bright green in the dark. </p>
+
+<h3>Rectangular Tank</h3>
+
+<p>A rectangular tank is a generalized form of a cube, where the sides can have varying lengths. It is bounded by six faces, three of which meet at its vertices, and all of which are perpendicular to their respective adjacent faces. The equation for calculating the volume of a rectangle is shown below:</p>
+
+	<p align="center">volume= length &#215; width &#215; height</p>
+
+<p>EX: Darby likes cake. She goes to the gym for 4 hours a day, every day, to compensate for her love of cake. She plans to hike the Kalalau Trail in Kauai and though extremely fit, Darby worries about her ability to complete the trail due to her lack of cake. She decides to pack only the essentials and wants to stuff her perfectly rectangular pack of length, width, and height 4 ft, 3 ft and 2 ft respectively, with cake. The exact volume of cake she can fit into her pack is calculated below:</p>
+
+	<p align="center">volume = 2 &#215; 3 &#215; 4 = 24 ft<sup>3</sup></p>
+
+<h3>Capsule</h3>
+
+<p>A capsule is a three-dimensional geometric shape comprised of a cylinder and two hemispherical ends, where a hemisphere is half a sphere. It follows that the volume of a capsule can be calculated by combining the volume equations for a sphere and a right circular cylinder:</p>
+
+<table align="center"><tr>
+<td>volume = &pi;r<sup>2</sup>h +&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;r<sup>3</sup> = &pi;r<sup>2</sup>(</td>
+<td><table cellpadding="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>r + h)</td>
+</tr></table>
+	<p align="center">where <b>r</b> is the radius and <b>h</b> is the height of the cylindrical portion</p>
+
+<p>EX: Given a capsule with a radius of 1.5 ft and a height of 3 ft, determine the volume of melted milk chocolate m&m's that Joe can carry in the time capsule he wants to bury for future generations on his journey of self-discovery through the Himalayas: </p>
+
+	<p align="center">volume = &pi; &#215; 1.5<sup>2</sup> &#215; 3 + 4/3 &#215;&pi; &#215;1.5<sup>3</sup> = 35.343 ft<sup>3</sup></p>
+
+<h3>Spherical Cap</h3>
+
+<p>A spherical cap is a portion of a sphere that is separated from the rest of the sphere by a plane. If the plane passes through the center of the sphere, the spherical cap is referred to as a hemisphere. Other distinctions exist, including a spherical segment, where a sphere is segmented with two parallel planes and two different radii where the planes pass through the sphere. The equation for calculating the volume of a spherical cap is derived from that of a spherical segment, where the second radius is 0. In reference to the spherical cap shown in the calculator:</p>
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;h<sup>2</sup>(3R - h)</td>
+</tr></table>
+
+<p>Given two values, the calculator provided computes the third value and the volume. The equations for converting between the height and the radii are shown below:</p>
+<p align="center">
+	Given <b>r</b> and <b>R</b>:	h = R &#177; &radic;<span style="text-decoration:overline;">R<sup>2</sup> - r<sup>2</sup></span> <br>
+	<table align="center"><tr><td>Given <b>r</b> and <b>h</b>:	R =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">h<sup>2</sup> + r<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">2h</td></tr></table></td></tr></table>
+	Given <b>R</b> and <b>h</b>: 	r = &radic;<span style="text-decoration:overline;">2Rh - h<sup>2</sup></span>	<br>
+	where <b>r</b> is the radius of the base, <b>R</b> is the radius of the sphere, and <b>h</b> is the height of the spherical cap
+</p>
+<p>EX: Jack really wants to beat his friend James in a game of golf to impress Jill, and rather than practicing, he decides to sabotage James' golf ball. He cuts off a perfect spherical cap from the top of James' golf ball, and needs to calculate the volume of the material necessary to replace the spherical cap and skew the weight of James' golf ball. Given James' golf ball has a radius of 1.68 inches, and the height of the spherical cap that Jack cut off is 0.3 inches, the volume can be calculated as follows:</p>
+
+<p align="center">volume = 1/3 &#215; &pi; &#215; 0.3<sup>2</sup> (3 &#215; 1.68 - 0.3) = 0.447 in<sup>3</sup></p>
+
+<p>Unfortunately for Jack, James happened to receive a new shipment of balls the day before their game, and all of Jack's efforts were in vain.</p>
+
+<h3>Conical Frustum</h3>
+
+<p>A conical frustum is the portion of a solid that remains when a cone is cut by two parallel planes. This calculator calculates the volume for a right circular cone specifically. Typical conical frustums found in everyday life include lampshades, buckets, and some drinking glasses. The volume of a right conical frustum is calculated using the following equation:</p>
+
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;h(r<sup>2</sup> + rR + R<sup>2</sup>)</td>
+</tr></table>
+<p align="center">where <b>r</b> and <b>R</b> are the radii of the bases, <b>h</b> is the height of the frustum</p>
+
+<p>EX: Bea has successfully acquired some ice cream in a sugar cone, and has just eaten it in a way that leaves the ice cream packed within the cone, and the ice cream surface level and parallel to the plane of the cone's opening. She is about to start eating her cone and the remaining ice cream when her brother grabs her cone and bites off a section of the bottom of her cone that is perfectly parallel to the previously sole opening. Bea is now left with a right conical frustum leaking ice cream, and has to calculate the volume of ice cream she must quickly consume given a frustum height of 4 inches, with radii 1.5 inches and 0.2 inches:</p>
+
+<p align="center">volume=1/3 &#215; &pi; &#215; 4(0.2<sup>2</sup> + 0.2 &#215; 1.5 + 1.5<sup>2</sup>) = 10.849  in<sup>3</sup></p>
+
+<h3>Ellipsoid</h3>
+
+<p>An ellipsoid is the three-dimensional counterpart of an ellipse, and is a surface that can be described as the deformation of a sphere through scaling of directional elements. The center of an ellipsoid is the point at which three pairwise perpendicular axes of symmetry intersect, and the line segments delimiting these axes of symmetry are called the principal axes. If all three have different lengths, the ellipsoid is commonly described as tri-axial. The equation for calculating the volume of an ellipsoid is as follows: </p>
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>&pi;abc</td>
+</tr></table>
+	<p align="center">where <b>a</b>, <b>b</b>, and <b>c</b> are the lengths of the axes</p>
+
+<p>EX: Xabat only likes eating meat, but his mother insists that he consumes too much, and only allows him to eat as much meat as he can fit within an ellipsoid shaped bun. As such, Xabat hollows out the bun to maximize the volume of meat that he can fit in his sandwich. Given that his bun has axis lengths of 1.5 inches, 2 inches, and 5 inches, Xabat calculates the volume of meat he can fit in each hollowed bun as follows: </p>
+
+	<p align="center">volume = 4/3 &#215; &pi; &#215; 1.5 &#215; 2 &#215; 5 = 62.832 in<sup>3</sup></p>
+
+<h3>Square Pyramid</h3>
+
+<p>A pyramid in geometry is a three-dimensional solid formed by connecting a polygonal base to a point called its apex, where a polygon is a shape in a plane bounded by a finite number of straight line segments. There are many possible polygonal bases for a pyramid, but a square pyramid is a pyramid in which the base is a square. Another distinction involving pyramids involves the location of the apex. A right pyramid has an apex that is directly above the centroid of its base. Regardless of where the apex of the pyramid is, as long as its height is measured as the perpendicular distance from the plane containing the base to its apex, the volume of the pyramid can be written as:</p>
+
+<p>Generalized pyramid volume:
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>bh</td>
+</tr></table>
+	<div align="center">where <b>b</b> is the area of the base and <b>h</b> is the height</div></p>
+<p>Square pyramid volume:
+<table align="center"><tr>
+<td>volume =&nbsp;</td>
+<td><table cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+<td>a<sup>2</sup>h</td>
+</tr></table>
+	<div align="center">where <b>a</b> is the length of the base's edge</div></p>
+
+<p>EX: Wan is fascinated by ancient Egypt and particularly enjoys anything related to the pyramids. Being the eldest of his siblings Too, Tree and Fore, he is able to easily corral and deploy them at his will. Taking advantage of this, Wan decides to re-enact ancient Egyptian times and have his siblings act as workers building him a pyramid of mud with edge length 5 feet and height 12 feet, the volume of which can be calculated using the equation for a square pyramid: </p>
+
+		<p align="center">volume = 1/3 &#215; 5<sup>2</sup> &#215; 12 = 100 ft<sup>3</sup></p>
+
+<h3>Tube Pyramid</h3>
+<p>A tube, often also referred to as a pipe, is a hollow cylinder that is often used to transfer fluids or gas. Calculating the volume of a tube essentially involves the same formula as a cylinder (<i>volume=pr<sup>2</sup>h</i>), except that in this case, the diameter is used rather than the radius, and length is used rather than height. The formula, therefore, involves measuring the diameters of the inner and outer cylinder, as shown in the figure above, calculating each of their volumes, and subtracting the volume of the inner cylinder from that of the outer one. Considering the use of length and diameter mentioned above, the formula for calculating the volume of a tube is shown below:</p>
+
+<table align="center"><tr>
+<td>volume =&nbsp;&pi;</td>
+<td><table cellpadding="0"><tr><td align="center">d<sub>1</sub><sup>2</sup> - d<sub>2</sub><sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td>l</td>
+</tr></table>
+<p align="center">where <b>d<sub>1</sub></b> is the outer diameter, <b>d<sub>2</sub></b> is the inner diameter, and <b>l</b> is the length of the tube</p>
+
+<p>EX: Beulah is dedicated to environmental conservation. Her construction company uses only the most environmentally friendly of materials. She also prides herself on meeting customer needs. One of her customers has a vacation home built in the woods, across a creek. He wants easier access to his house, and requests that Beulah build him a road, while ensuring that the creek can flow freely so as not to disrupt his favorite fishing spot. She decides that the pesky beaver dams would be a good point to build a pipe through the creek. The volume of patented low-impact concrete required to build a pipe of outer diameter 3 feet, inner diameter 2.5 feet, and length of 10 feet, can be calculated as follows:</p>
+
+<table align="center"><tr>
+<td>volume =&nbsp;&pi; &#215; </td>
+<td><table cellpadding="0"><tr><td align="center">3<sup>2</sup> - 2.5<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td> &#215; l0 = 21.6 ft<sup>3</sup></td>
+</tr></table>
+
+
+<h3>Common Volume Units</h3>
+<table class="cinfoT">
+	<tr align="right"><td class="cinfoHd">Unit</td><td class="cinfoHdL">cubic meters</td><td class="cinfoHdL"> milliliters</td></tr>
+	<tr align="right"><td>milliliter (cubic centimeter)</td><td class="cinfoBodL">0.000001</td><td class="cinfoBodL">1</td></tr>
+	<tr align="right"><td>cubic inch</td><td class="cinfoBodL">0.00001639</td><td class="cinfoBodL">16.39</td></tr>
+	<tr align="right"><td>pint</td><td class="cinfoBodL">0.000473</td><td class="cinfoBodL">473</td></tr>
+	<tr align="right"><td>quart</td><td class="cinfoBodL">0.000946</td><td class="cinfoBodL">946</td></tr>
+	<tr align="right"><td>liter</td><td class="cinfoBodL">0.001</td><td class="cinfoBodL">1,000</td></tr>
+	<tr align="right"><td>gallon</td><td class="cinfoBodL">0.003785</td><td class="cinfoBodL">3,785</td></tr>
+	<tr align="right"><td>cubic foot</td><td class="cinfoBodL">0.028317</td><td class="cinfoBodL">28,317</td></tr>
+	<tr align="right"><td>cubic yard</td><td class="cinfoBodL">0.764555</td><td class="cinfoBodL">764,555</td></tr>
+	<tr align="right"><td>cubic meter</td><td class="cinfoBodL">1</td><td class="cinfoBodL">1,000,000</td></tr>
+	<tr align="right"><td>cubic kilometer</td><td class="cinfoBodL">1,000,000,000</td><td class="cinfoBodL">10<sup>15</sup></td></tr>
+</table>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

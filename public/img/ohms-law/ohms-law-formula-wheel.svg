@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" version="1.1" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+<g stroke="black" fill="none" stroke-width="2" >
+<circle r="158" cx="160" cy="160" fill="#ccffcc" />
+<path d="M160 318 A158,158 0 0,1 2,160 L160,160 Z" style="fill:#ffffcc;" />
+<path d="M318 160 A158,158 0 0,1 160,318 L160,160 Z" style="fill:#ccccff;" />
+<path d="M160 2 A158,158 0 0,1 318,160 L160,160 Z" style="fill:#ffcccc;" />
+<line x1="81" y1="23" x2="239" y2="297" />
+<line x1="23" y1="81" x2="297" y2="239" />
+<line x1="23" y1="239" x2="297" y2="81" />
+<line x1="81" y1="297" x2="239" y2="23" />
+<circle r="70" cx="160" cy="160" fill="#99cc99" />
+<path d="M160 230 A70,70 0 0,1 90,160 L160,160 Z" style="fill:#cccc99;" />
+<path d="M230 160 A70,70 0 0,1 160,230 L160,160 Z" style="fill:#9999cc;" />
+<path d="M160 90 A70,70 0 0,1 230,160 L160,160 Z" style="fill:#cc9999;" />
+<line x1="120" y1="50" x2="140" y2="50" />
+<line x1="230" y1="80" x2="250" y2="80" />
+<polyline points="237,138 239,135 241,143 246,123 295,123 " />
+<line x1="40" y1="190" x2="60" y2="190" />
+<polyline points="27,203 29,200 31,208 40,170 63,170 " />
+<line x1="70" y1="240" x2="90" y2="240" />
+<line x1="120" y1="270" x2="140" y2="270" />
+<line x1="260" y1="190" x2="280" y2="190" />
+<line x1="230" y1="240" x2="250" y2="240" />
+<line x1="180" y1="270" x2="200" y2="270" />
+</g>
+<g font-family="arial,sans-serif" font-weight="bold" fill="#000" font-size="30px" stroke-width="0" text-anchor="middle" dominant-baseline="central">
+<text x="135" y="135">P</text>
+<text x="135" y="185">I</text>
+<text x="185" y="135">V</text>
+<text x="185" y="185">R</text>
+</g>
+<g font-family="arial,sans-serif" font-weight="bold" fill="#000" font-size="14px" stroke-width="0" text-anchor="middle" dominant-baseline="central">
+<text x="36" y="20">Power</text>
+<text x="36" y="290">Current</text>
+<text x="282" y="300">Resistance</text>
+<text x="284" y="20">Voltage</text>
+</g>
+<g font-family="arial,sans-serif" fill="#000" font-size="14px" stroke-width="0" text-anchor="middle" dominant-baseline="central">
+<text x="34" y="32">(watts)</text>
+<text x="34" y="302">(amps)</text>
+<text x="285" y="312">(ohms)</text>
+<text x="285" y="32">(volts)</text>
+</g>
+<g font-family="arial,sans-serif" font-weight="bold" fill="#000" font-size="18px" stroke-width="0" text-anchor="middle" dominant-baseline="central">
+<text x="50" y="134">V &#215; I</text>
+<text x="80" y="80">R &#215; I<tspan baseline-shift="super" font-size="12">2</tspan></text>
+<text x="132" y="40">V<tspan baseline-shift="super" font-size="12">2</tspan></text>
+<text x="130" y="60">R</text>
+<text x="190" y="50">R &#215; I</text>
+<text x="240" y="70">P</text>
+<text x="240" y="90">I</text>
+<text x="270" y="134">P &#215; R</text>
+<text x="50" y="180">P</text>
+<text x="50" y="200">R</text>
+<text x="80" y="230">P</text>
+<text x="80" y="250">V</text>
+<text x="130" y="260">V</text>
+<text x="130" y="280">R</text>
+<text x="270" y="180">V</text>
+<text x="270" y="200">I</text>
+<text x="242" y="230">V<tspan baseline-shift="super" font-size="12">2</tspan></text>
+<text x="240" y="250">P</text>
+<text x="190" y="260">P</text>
+<text x="192" y="283">I<tspan baseline-shift="super" font-size="12">2</tspan></text>
+</g>
+</svg>

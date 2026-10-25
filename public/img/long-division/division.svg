@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="180" height="90" viewBox="0 0 180 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="font: 14px Arial, sans-serif; fill: #000;">
+<text x="35" y="11">division</text>
+<text x="35" y="23">symbol</text>
+<text x="105" y="11">equal</text>
+<text x="105" y="23">sign</text>
+<line x1="59" y1="29" x2="59" y2="38" style="stroke:#000;stroke-width:1" />
+<line x1="116" y1="29" x2="116" y2="38" style="stroke:#000;stroke-width:1" />
+<text x="20" y="62" font-size="35"><tspan fill="green">8</tspan> &#247; <tspan fill="blue">4</tspan> = <tspan fill="orange">2</tspan></text>
+<line x1="29" y1="65" x2="29" y2="74" style="stroke:green;stroke-width:1" />
+<line x1="89" y1="65" x2="89" y2="74" style="stroke:blue;stroke-width:1" />
+<line x1="148" y1="65" x2="148" y2="74" style="stroke:orange;stroke-width:1" />
+<text x="2" y="86" fill="green">dividend</text>
+<text x="70" y="86" fill="blue">divisor</text>
+<text x="125" y="86" fill="orange">quotient</text>
+</g>
+</svg>

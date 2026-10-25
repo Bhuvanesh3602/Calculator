@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Credit Cards Payoff Calculator</title>
+	<meta name="description" content="Free credit card payoff calculator for finding the best way to pay off multiple credit cards and estimating the length of time it would take." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/credit-card-payoff-calculator.html" itemprop="item"><span itemprop="name">credit cards payoff calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Credit Cards Payoff Calculator</h1><p>This calculator creates a cost-efficient payback schedule for multiple credit cards using the Debt Avalanche method. To evaluate the repayment of a single credit card only, or for further information about credit cards and how they work, please visit our <a href="/credit-card-calculator.html">credit card calculator</a>.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel"><form name="calform" action="/credit-card-payoff-calculator.html#calresult">
+<div><b>Monthly budget set aside for credit cards:</b> <input type="text" name="camountcanpay" id="camountcanpay" value="500" class="inlong indollar"></div>
+<div><br><b>Info of your credit cards:</b></div>
+<table width="310">
+<tr valign="bottom">
+	<td width="30">&nbsp;</td>
+	<td width="100">Credit card</td>
+	<td width="60">Balance</td>
+	<td width="60">Minimum payment</td>
+	<td width="60">Interest rate</td>
+</tr>
+<tr><td width="30">1.</td><td width="100"><input type="text" name="cnm1" value="Card 1" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal1" id="cbal1" value="4600" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy1" id="cmpy1" value="100"  class="innormal indollar"></td><td width="60"><input type="text" name="cint1" value="18.99"  class="innormal inpct"></td></tr><tr><td width="30">2.</td><td width="100"><input type="text" name="cnm2" value="Card 2" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal2" id="cbal2" value="3900" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy2" id="cmpy2" value="90"  class="innormal indollar"></td><td width="60"><input type="text" name="cint2" value="19.99"  class="innormal inpct"></td></tr><tr><td width="30">3.</td><td width="100"><input type="text" name="cnm3" value="Card 3" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal3" id="cbal3" value="6000" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy3" id="cmpy3" value="120"  class="innormal indollar"></td><td width="60"><input type="text" name="cint3" value="15.99"  class="innormal inpct"></td></tr><tr><td width="30">4.</td><td width="100"><input type="text" name="cnm4" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal4" id="cbal4" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy4" id="cmpy4" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint4" value=""  class="innormal inpct"></td></tr><tr><td width="30">5.</td><td width="100"><input type="text" name="cnm5" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal5" id="cbal5" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy5" id="cmpy5" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint5" value=""  class="innormal inpct"></td></tr><tr><td width="30">6.</td><td width="100"><input type="text" name="cnm6" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal6" id="cbal6" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy6" id="cmpy6" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint6" value=""  class="innormal inpct"></td></tr></table><div style="padding: 5px 50px;" id="cacrmoredesc"><a href="#" onClick="return showHideMoreFields('cacrmore', 'show')">Show more input fields</a></div><table id="cacrmore" width="320" style="display:none;"><tr><td width="30">7.</td><td width="100"><input type="text" name="cnm7" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal7" id="cbal7" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy7" id="cmpy7" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint7" value=""  class="innormal inpct"></td></tr><tr><td width="30">8.</td><td width="100"><input type="text" name="cnm8" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal8" id="cbal8" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy8" id="cmpy8" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint8" value=""  class="innormal inpct"></td></tr><tr><td width="30">9.</td><td width="100"><input type="text" name="cnm9" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal9" id="cbal9" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy9" id="cmpy9" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint9" value=""  class="innormal inpct"></td></tr><tr><td width="30">10.</td><td width="100"><input type="text" name="cnm10" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal10" id="cbal10" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy10" id="cmpy10" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint10" value=""  class="innormal inpct"></td></tr><tr><td width="30">11.</td><td width="100"><input type="text" name="cnm11" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal11" id="cbal11" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy11" id="cmpy11" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint11" value=""  class="innormal inpct"></td></tr><tr><td width="30">12.</td><td width="100"><input type="text" name="cnm12" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal12" id="cbal12" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy12" id="cmpy12" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint12" value=""  class="innormal inpct"></td></tr><tr><td width="30">13.</td><td width="100"><input type="text" name="cnm13" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal13" id="cbal13" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy13" id="cmpy13" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint13" value=""  class="innormal inpct"></td></tr><tr><td width="30">14.</td><td width="100"><input type="text" name="cnm14" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal14" id="cbal14" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy14" id="cmpy14" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint14" value=""  class="innormal inpct"></td></tr><tr><td width="30">15.</td><td width="100"><input type="text" name="cnm15" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal15" id="cbal15" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy15" id="cmpy15" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint15" value=""  class="innormal inpct"></td></tr><tr><td width="30">16.</td><td width="100"><input type="text" name="cnm16" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal16" id="cbal16" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy16" id="cmpy16" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint16" value=""  class="innormal inpct"></td></tr><tr><td width="30">17.</td><td width="100"><input type="text" name="cnm17" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal17" id="cbal17" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy17" id="cmpy17" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint17" value=""  class="innormal inpct"></td></tr><tr><td width="30">18.</td><td width="100"><input type="text" name="cnm18" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal18" id="cbal18" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy18" id="cmpy18" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint18" value=""  class="innormal inpct"></td></tr><tr><td width="30">19.</td><td width="100"><input type="text" name="cnm19" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal19" id="cbal19" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy19" id="cmpy19" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint19" value=""  class="innormal inpct"></td></tr><tr><td width="30">20.</td><td width="100"><input type="text" name="cnm20" value="" class="inlong" style="text-align:left;"></td><td width="60"><input type="text" name="cbal20" id="cbal20" value="" class="inlong indollar"></td><td width="60"><input type="text" name="cmpy20" id="cmpy20" value=""  class="innormal indollar"></td><td width="60"><input type="text" name="cint20" value=""  class="innormal inpct"></td></tr></table>
+<table width="300">
+<tr><td align="center">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form></div>
+<p><fieldset><legend>Related</legend><a href="/credit-card-calculator.html">Credit Card Calculator</a> | <a href="/personal-loan-calculator.html">Personal Loan Calculator</a></fieldset></p>
+
+<br>
+<h3>Why Have More Than One Credit Card?</h3>
+<p>Given a qualifying credit score, it is fairly common for people to have more than one credit card; in the U.S., Americans average more than 2 cards per person. There can be many reasons why it can be beneficial to have more than one, and some are listed below:</p>
+<ol>
+	<li><b>Multiple Perks</b>&mdash;The main benefit of carrying multiple credit cards is that there are many different types with different benefits. Such as rewards credit cards that provide their users with different rewards like airline mileage, hotel bookings, or retail discounts based on spending; balance-transfer credit cards that temporarily allow the incurrence of debt without interest; or business credit cards that help separate personal expenses from business ones for tax reasons, and much more.</li>
+	<li><b>More Available Credit</b>&mdash;Another useful advantage is that there is more available credit for the cardholder to use. While a single credit card with a credit limit of $5,000 only allows the cardholder to charge up to $5,000 at a time, having two cards each with a credit limit of $5,000 will allow the cardholder to charge up to a maximum of $10,000 at a time.</li>
+	<li><b>As Backup</b>&mdash;It can help to have a backup card in some cases when one credit card is not accepted at a specific merchant, or is lost or stolen.</li>
+	<li><b>Diversify Spending</b>&mdash;The higher the purchase volume on any one credit card, the greater the financial consequences of having the card hacked. Diversified spending across multiple cards can reduce the damage in case of fraud.</li>
+	<li><b>Increase Credit Score</b>&mdash;Believe it or not, having many credit cards can actually boost a person's credit scores. Credit bureaus use a measure called credit utilization ratio (CUR), which is a number of how much is owed on all revolving accounts divided by total available credit. For example, if a person has one credit card with a credit limit of $4,000 and another with $6,000, and spends a total of $3,000 on them in a month, their CUR for that month is 30%. Low CURs affect credit scores positively.</li>
+</ol>
+
+<h3>Drawbacks of Multiple Credit Cards</h3>
+<p>As fruitful as the benefits of having multiple credit cards can be, there are some general disadvantages to take note of.</p>
+<p>For one, it is quite common for people to mismanage their credit card usage in some way, and the biggest culprit is overspending. Statistics have shown that credit card debt is mostly due to spending more than what is affordable on unnecessary purchases, emergency services (medical and non-medical), necessities not covered by income, and necessities during unemployment. Unnecessary purchases are the largest contributor to credit card debt in the U.S.</p>
+<p>Unfortunately, credit cards are a form of unsecured loan with relatively high interest rates with late payment fees, and the penalties become steeper if timely payments are not made consistently. More credit cards will mean more to manage, including separate monthly payments, different due dates, etc.</p>
+<p>For more information about or to do calculations involving budgets, please visit the <a href="/budget-calculator.html">Budget Calculator</a>.</p>
+
+<h3>Debt Avalanche Method</h3>
+<p>There are multiple ways to approach paying off credit card debts each month. The Credit Cards Payoff Calculator uses a method known as the "Debt Avalanche method." The calculator also assumes that no further transactions are made on any of the credit cards, minimum payments stay the same, and interest rates are static. Credit card issuers are required to give 45 days' notice to raise the interest rates, and they can only do so after the first year.</p>
+<p>The debt avalanche method prioritizes the minimum monthly due on all credit cards. The "Monthly Budget Set Aside for Credit Cards" will be spent on these first. After the minimum monthly dues have been paid, any remaining funds will go to the highest interest credit card, followed by the next highest, until there are no more funds or all of the cards have been paid off.</p>
+
+<h3>Debt Snowball Method</h3>
+<p>While the calculator uses the Debt Avalanche method, the Debt Snowball method is an alternative for people who cannot find success using the former. This credit card payoff strategy focuses on psychological factors like motivation and incentive to keep people on track towards paying off their credit card debt. The two methods are similar in that the first priority is always to meet the minimum payments due for each credit card in order to avoid hefty fees. After this, the Debt Snowball strategy is quite simple: pay off the credit card with the smallest balance, regardless of interest rate.</p>
+<p>Although this strategy may be less efficient in that it prioritizes motivational and psychological factors for paying off debt, rather than minimizing the amount of money spent to pay off said debt, it can be a more effective method for paying off debt for certain people. Psychologically, people are more likely to adhere to something when tangible progress is visible, whether it's the elimination of debt, shedding a certain number of pounds, getting a certain grade, or any other task. In the end, a person should choose a method that is most likely to enable them to reduce and eventually eliminate their debt rather than increase it.</p>
+
+<h3>Tips for Managing Multiple Credit Cards</h3>
+<ol>
+	<li><b>Change due dates</b>&mdash;Many credit card issuers allow a person to change the monthly payment due date. Doing so allows a person to schedule multiple credit cards' due dates on the same day of each month to minimize the hassle of tracking the due dates of each card.</li>
+	<li><b>Set up automatic payments</b>&mdash;Taking advantage of automatic payments can help reduce the possibility of missed payments.</li>
+	<li><b>Eliminate unnecessary credit cards</b>&mdash;It'd probably be a good idea for anyone struggling to manage multiple credit cards to get rid of the cards they rarely use, especially if they carry annual fees. For instance, most people generally don't need three rewards cards with similar benefits. In addition, spending for each card should be tailored towards their perks; for example, a person with a frequent flyer card and a card with no foreign transaction fees can use the former to book a flight but use the latter for actual transactions abroad. Otherwise, all spending can just be placed on one simple card instead.</li>
+</ol>
+
+<h3>Dealing with High Interest Rates</h3>
+<ul>
+	<li>Apply for credit cards with lower interest rates and transfer the balances of the high interest rate cards over. Be sure to read and understand the interest rates for balance transfers, fees, and other terms that may apply.</li>
+	<li>Most credit card issuers calculate interest based on the average daily balance, not the balance at the end of the month. The earlier or more that is paid towards a credit card balance, the lower the average daily balance. This means that although most people usually pay once a month at the end of the month, they can save on interest through multiple payments a month, such as every two weeks or even every week.</li>
+	<li>Apply for loans with relatively low interest rates and use them to pay off credit cards with higher rates. Taking out a line of credit on your home, refinancing your home, or seeking out personal loans are good alternatives. Be sure to understand the fees and costs pertaining to loans. Use our <a href="/personal-loan-calculator.html">Personal Loan Calculator</a> to estimate the real APR of the loan, which should be at least a few points lower than the credit card interest rate for this strategy to work.</li>
+	<li>Contact credit card companies to try to negotiate lower interest rates or balances. Most of the time, this won't work until a person has stopped making monthly payments, which is generally not recommended due to its negative impact on other areas of personal finance.</li>
+</ul>
+
+
+<script>
+function showHideMoreFields(shmfFieldName, shmfValue){
+	if (shmfValue=='show'){
+		document.getElementById(shmfFieldName).style.display = 'block';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'hide\')">Hide fields below</a>';
+	}else{
+		document.getElementById(shmfFieldName).style.display = 'none';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'show\')">Show more input fields</a>';
+	}
+	return false;
+}
+
+
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("camountcanpay");
+for (let i = 1; i <=20; i++) {
+	proComma2("cbal"+i);
+	proComma2("cmpy"+i);
+}
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

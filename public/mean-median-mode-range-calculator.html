@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mean, Median, Mode, Range Calculator</title>
+	<meta name="description" content="This calculator determines the mean, median, mode, and range of a given data set. Also, learn more about these statistical values and when each should be used." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mean-median-mode-range-calculator.html" itemprop="item"><span itemprop="name">mean, median, mode, range calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Mean, Median, Mode, Range Calculator</h1><p>Please provide numbers separated by comma to calculate.</p>
+<table class="panel" align="center"><tr><td align="center">
+<form name="calform">
+<textarea name="numberinputs" class="infulltxarea" rows="3">10, 2, 38, 23, 38, 23, 21</textarea>
+<div style="margin-top:15px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</div>
+</form>
+</td></tr></table>
+<br>
+<p><fieldset><legend>Related</legend><a href="/statistics-calculator.html">Statistics Calculator</a> | <a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a></fieldset></p>
+
+
+<br><h3>Mean</h3>
+<p>The word mean, which is a homonym for multiple other words in the English language, is similarly ambiguous even in the area of mathematics. Depending on the context, whether mathematical or statistical, what is meant by the "mean" changes.  In its simplest mathematical definition regarding data sets, the mean used is the arithmetic mean, also referred to as mathematical expectation, or average. In this form, the mean refers to an intermediate value between a discrete set of numbers, namely, the sum of all values in the data set, divided by the total number of values. The equation for calculating the arithmetic mean is virtually identical to that for calculating the statistical concepts of population and sample mean, with slight variations in the variables used:</p>
+<p align="center"><img src="/img/mean-median-mode-range/mean.svg" width="100" height="59" alt="mean equation"></p>
+<p>The mean is often denoted as <b>x&#772;</b>, pronounced "x bar," and even in other uses when the variable is not <b>x</b>, the bar notation is a common indicator of some form of the mean. In the specific case of the population mean, rather than using the variable <b>x&#772;</b>, the Greek symbol mu, or <b>&mu;</b>, is used. Similarly, or rather confusingly, the sample mean in statistics is often indicated with a capital <b>X&#772;</b>. Given the data set 10, 2, 38, 23, 38, 23, 21, applying the summation above yields:</p>
+
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr><td>10 + 2 + 38 + 23 + 38 + 23 + 21</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">7</td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td>155</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">7</td></tr></table></td>
+<td>&nbsp;= 22.143</td>
+</tr></table>
+
+<p>As previously mentioned, this is one of the simplest definitions of the mean, and some others include the weighted arithmetic mean (which only differs in that certain values in the data set contribute more value than others), and <a href="/statistics-calculator.html#geometric-mean">geometric mean</a>. Proper understanding of given situations and contexts can often provide a person with the tools necessary to determine what statistically relevant method to use. In general, mean, median, mode and range should ideally all be computed and analyzed for a given sample or data set since they elucidate different aspects of the given data, and if considered alone, can lead to misrepresentations of the data, as will be demonstrated in the following sections.</p>
+
+<h3>Median</h3>
+
+<p>The statistical concept of the median is a value that divides a data sample, population, or probability distribution into two halves. Finding the median essentially involves finding the value in a data sample that has a physical location between the rest of the numbers. Note that when calculating the median of a finite list of numbers, the order of the data samples is important. Conventionally, the values are listed in ascending order, but there is no real reason that listing the values in descending order would provide different results. In the case where the total number of values in a data sample is odd, the median is simply the number in the middle of the list of all values. When the data sample contains an even number of values, the median is the mean of the two middle values. While this can be confusing, simply remember that even though the median sometimes involves the computation of a mean, when this case arises, it will involve only the two middle values, while a mean involves all the values in the data sample. In the odd cases where there are only two data samples or there is an even number of samples where all the values are the same, the mean and median will be the same. Given the same data set as before, the median would be acquired in the following manner:</p>
+
+<p class="bigtext" align="center">2,10,21,<b>23</b>,23,38,38</p>
+
+<p>After listing the data in ascending order, and determining that there are an odd number of values, it is clear that 23 is the median given this case. If there were another value added to the data set:</p>
+
+<p class="bigtext" align="center">2,10,21,<b>23</b>,<b>23</b>,38,38,1027892</p>
+
+<p>Since there are an even number of values, the median will be the average of the two middle numbers, in this case, 23 and 23, the mean of which is 23. Note that in this particular data set, the addition of an outlier (a value well outside the expected range of values), the value 1,027,892, has no real effect on the data set. If, however, the mean is computed for this data set, the result is 128,505.875. This value is clearly not a good representation of the seven other values in the data set that are far smaller and closer in value than the average and the outlier. This is the main advantage of using the median in describing statistical data when compared to the mean. While both, as well as other statistical values, should be calculated when describing data, if only one can be used, the median can provide a better estimate of a typical value in a given data set when there are extremely large variations between values. </p>
+
+<h3>Mode</h3>
+
+<p>In statistics, the mode is the value in a data set that has the highest number of recurrences. It is possible for a data set to be multimodal, meaning that it has more than one mode. For example:</p>
+
+<p class="bigtext" align="center">2,10,21,23,23,38,38</p>
+
+<p>Both 23 and 38 appear twice each, making them both a mode for the data set above. </p>
+
+<p>Similar to mean and median, the mode is used as a way to express information about random variables and populations. Unlike mean and median, however, the mode is a concept that can be applied to non-numerical values such as the brand of tortilla chips most commonly purchased from a grocery store. For example, when comparing the brands Tostitos, Mission, and XOCHiTL, if it is found that in the sale of tortilla chips, XOCHiTL is the mode and sells in a 3:2:1 ratio compared to Tostitos and Mission brand tortilla chips respectively, the ratio could be used to determine how many bags of each brand to stock. In the case where 24 bags of tortilla chips sell during a given period, the store would stock 12 bags of XOCHiTL chips, 8 of Tostitos, and 4 of Mission if using the mode. If, however, the store simply used an average and sold 8 bags of each, it could potentially lose 4 sales if a customer desired only XOCHiTL chips and not any other brand. As is evident from this example, it is important to take all manners of statistical values into account when attempting to draw conclusions about any data sample. </p>
+
+<h3>Range</h3>
+
+<p>The range of a data set in statistics is the difference between the largest and the smallest values. While range does have different meanings within different areas of statistics and mathematics, this is its most basic definition, and is what is used by the provided calculator. Using the same example:</p>
+
+<p class="bigtext" align="center">2,10,21,23,23,38,38<br>
+38 - 2 = 36</p>
+
+<p>The range in this example is 36. Similar to the mean, range can be significantly affected by extremely large or small values.  Using the same example as previously:</p>
+
+<p class="bigtext" align="center">2,10,21,<b>23</b>,<b>23</b>,38,38,1027892</p>
+
+<p>The range, in this case, would be 1,027,890 compared to 36 in the previous case. As such, it is important to extensively analyze data sets to ensure that outliers are accounted for.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

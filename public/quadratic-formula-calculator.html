@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Quadratic Formula Calculator</title>
+	<meta name="description" content="This free quadratic formula calculator solves the quadratic formula given values for a, b, and c. Also, learn more about its derivation." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/quadratic-formula-calculator.html" itemprop="item"><span itemprop="name">quadratic formula calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Quadratic Formula Calculator</h1>
+<p>The calculator below solves the quadratic equation of <div class="verybigtext" align="center">ax<sup>2</sup> + bx + c = 0</div>.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel">
+<form name="calform"><table align="center">
+	<tr>
+		<td class="bigtext"><b>a =</b> <input type="text" name="av" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
+		<td class="bigtext"><b>b =</b> <input type="text" name="bv" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
+		<td class="bigtext"><b>c =</b> <input type="text" name="cv" value="1/4" class="inlong" style="text-align:left;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" style="padding-top:8px;">
+			Fractional values such as 3/4 can be used.<br><br>
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</tr>
+</table></form>
+</div>
+<br>
+<p>In algebra, a quadratic equation is any polynomial equation of the second degree with the following form:</p>
+<p class="bigtext" align="center">ax<sup>2</sup> + bx + c = 0</p>
+<p>where <b>x</b> is an unknown, <b>a</b> is referred to as the quadratic coefficient, <b>b</b> the linear coefficient, and <b>c</b> the constant. The numerals <b>a</b>, <b>b</b>, and <b>c</b> are coefficients of the equation, and they represent known numbers. For example, <b>a</b> cannot be 0, or the equation would be linear rather than quadratic. A quadratic equation can be solved in multiple ways, including factoring, using the quadratic formula, completing the square, or graphing. Only the use of the quadratic formula, as well as the basics of completing the square, will be discussed here (since the derivation of the formula involves completing the square). Below is the quadratic formula, as well as its derivation. </p>
+<p align="center"><img src="/img/quadratic-equation/quadratic-equation-1.svg" width="158" height="49" alt="quadratic formula solution"></p>
+
+<h3>Derivation of the Quadratic Formula</h3>
+<table align="center">
+	<tr><td>ax<sup>2</sup> + bx + c = 0</td><td style="padding-left: 38px;"><table cellpadding="0" cellspacing="0"><tr><td>Multiply by &nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">1</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;= 0</td></tr></table></td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
+</table>
+
+<p>From this point, it is possible to complete the square using the relationship that:</p>
+<p align="center">x<sup>2</sup> + bx + c = (x - h)<sup>2</sup> + k</p>
+<p>Continuing the derivation using this relationship:</p>
+<table align="center">
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x + (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup>&nbsp;= &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;+ (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup></td></tr></table></td><td align="right">Simplify</td></tr>
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>(x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup> = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;+&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;=&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup> - 4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td></tr></table></td><td align="right">&nbsp; Square root<br>both sides</td></tr>
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>&nbsp;= &plusmn;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">&radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td><td align="right">Solve for x</td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">-b &plusmn; &radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td></tr>
+</table>
+
+<p>Recall that the &plusmn; exists as a function of computing a square root, making both positive and negative roots solutions of the quadratic equation. The <b>x</b> values found through the quadratic formula are roots of the quadratic equation that represent the <b>x</b> values where any parabola crosses the x-axis. Furthermore, the quadratic formula also provides the axis of symmetry of the parabola. This is demonstrated by the graph provided below. Note that the quadratic formula actually has many real-world applications, such as calculating areas, projectile trajectories, and speed, among others.</p>
+<p align="center"><img src="/img/quadratic-equation/quadratic-equation-4.png" width="320" height="372" alt="quadratic formula graph"></p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

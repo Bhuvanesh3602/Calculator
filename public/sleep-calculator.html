@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sleep Calculator</title>
+	<meta name="description" content="Calculator to compute the time to wake up or go to bed based on sleep cycle or duration of sleep required. Also learn more about sleep." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/sleep-calculator.html" itemprop="item"><span itemprop="name">sleep calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Sleep Calculator</h1>
+<h2>Sleep Cycle Calculator</h2>
+<p>Use this calculator to compute what time to go to bed or get up to wake up refreshed between sleep cycles. Click the settings to change sleep cycle length or the time you take to fall asleep for your specific situation.</p>
+<form name="calform" action="/sleep-calculator.html">
+<table class="panel" >
+	<tr>
+		<td valign="top" style="padding-top: 6px;">I want to</td>
+		<td>
+			<label for="wto1" class="cbcontainer"><input type="radio" name="wto" id="wto1" value="u" checked onClick="shPopTime(1);" /><span class="rbmark"></span>wake up at</label><br>
+			<label for="wto2" class="cbcontainer"><input type="radio" name="wto" id="wto2" value="d"  onClick="shPopTime(1);" /><span class="rbmark"></span>go to bed at</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+		<input type="number" name="hour" value="6" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"> <span class="bigtext"><b>:</b></span>
+			<input type="number" name="min" value="0" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
+			<select name="ap">
+				<option value="am" selected>AM</option>
+				<option value="pm" >PM</option>
+			</select>
+			&nbsp;			<span id="disTime2"><a href="#" onClick="return scPopNow(1, 0);">Now</a> &nbsp; <a href="#" onClick="return scPopNow(1, 30);">30 minutes later</a> &nbsp; <a href="#" onClick="return scPopNow(1, 60);">1 hour later</a></span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div id="settings" style="padding-top: 10px;display:none;">
+				<table align="center" cellpadding="0" cellspacing="0" style="background-color: #fff;border-radius:5px;"><tr><td style="padding:5px;">
+				<p><b>Settings</b> <img src="/img/close.png" width="18" height="18" align="right" onClick="document.getElementById('settings').style.display='none';return false;"></p>
+				<div style="padding-top:12px;">My sleep cycle length is <input type="number" name="clength" value="90" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"> minutes</div>
+				<div style="padding-top:12px;">It takes me <input type="number" name="ttsleep" value="15" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"> minutes to fall asleep</div>
+				</td></tr></table>
+			</div>
+		</div>
+	</tr>
+	<tr>
+		<td colspan="2" style="padding-top:10px;"><table align="center" border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="hidden" name="calctype" value="1">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td><td>
+			&nbsp; <a href="#" onClick="document.getElementById('settings').style.display='block';return false;"><b>Settings</b></a></td></tr></table>
+		</td>
+	</tr>
+</table></form>
+
+<a name="slength"></a><br>
+<h2>Sleep Length Calculator</h2>
+<p>Use this calculator to compute what time to wake up or go to bed to get a given number of hours of sleep. Use the <a href="/hours-calculator.html">Hours Calculator</a> if you would like to find out the number of hours slept when you know what times you woke up and went to bed. When counting, please deduct the time taken to fall asleep, which can be very different for different people.</p>
+<form name="calform2" action="/sleep-calculator.html#slength">
+<table class="panel" >
+	<tr>
+		<td valign="top" style="padding-top: 6px;">I want to</td>
+		<td>
+			<label for="wantto1" class="cbcontainer"><input type="radio" name="wantto" id="wantto1" value="u" checked onClick="shPopTime(2);" /><span class="rbmark"></span>wake up at</label><br>
+			<label for="wantto2" class="cbcontainer"><input type="radio" name="wantto" id="wantto2" value="d"  onClick="shPopTime(2);" /><span class="rbmark"></span>go to bed at</label>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+		<input type="number" name="hour1" value="6" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"> <span class="bigtext"><b>:</b></span>
+			<input type="number" name="min1" value="0" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
+			<select name="ampm">
+				<option value="am" selected>AM</option>
+				<option value="pm" >PM</option>
+			</select>
+			&nbsp;			<span id="popTime2"><a href="#" onClick="return scPopNow(2, 0);">Now</a> &nbsp; <a href="#" onClick="return scPopNow(2, 30);">30 minutes later</a> &nbsp; <a href="#" onClick="return scPopNow(2, 60);">1 hour later</a></span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="padding-top:12px;">I want to sleep for</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+				<input type="number" name="hour2" value="7" class="inlong inuiyear" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"><span class="inuiyearspan">hours</span> &nbsp;
+				<input type="number" name="min2" value="30" class="inlong inuipound" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"><span class="inuipoundspan">minutes</span>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="2">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function scPopNow(scf, scIn){
+	var schour = document.calform.hour;
+	var scmin = document.calform.min;
+	var scap = document.calform.ap;
+	if (scf==2){
+		schour = document.calform2.hour1;
+		scmin = document.calform2.min1;
+		scap = document.calform2.ampm;
+	}
+	var petDate = new Date();
+	var petHour = petDate.getHours();
+	var petMinute = petDate.getMinutes();
+	if (scIn>0&&scIn<30){
+		petMinute = 0;
+		if (scIn==1){
+			petHour = 6;
+		}else if (scIn==2){
+			petHour = 6;
+			petMinute = 30;
+		}else if (scIn==3){
+			petHour = 7;
+		}else if (scIn==4){
+			petHour = 7;
+			petMinute = 30;
+		}
+	}else{
+		petMinute = petMinute + scIn;
+	}
+	if (petMinute>=60){
+		petMinute = petMinute - 60;
+		petHour++;
+	}
+	if (petHour>=24) petHour = petHour -24;
+	if (petMinute<10){
+		scmin.value = '0'+petMinute;
+	}else{
+		scmin.value = petMinute;
+	}
+	if (petHour<12){
+		schour.value = petHour;
+		scap.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		if (petHour>12) petHour = petHour-12;
+		schour.value = petHour;
+		scap.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	return false;
+}
+function shPopTime(spVal){
+	if (spVal==1){
+		if ("u"==document.calform.wto.value){
+			document.getElementById("disTime2").style.display = 'none';
+		}else{
+			document.getElementById("disTime2").style.display = 'block';
+		}
+	}else{
+		if ("u"==document.calform2.wantto.value){
+			document.getElementById("popTime2").style.display = 'none';
+		}else{
+			document.getElementById("popTime2").style.display = 'block';
+		}
+	}
+}
+shPopTime(1);
+shPopTime(2);
+</script>
+
+<br>
+<p>Sleep describes a recurring state in which the body and mind are at rest, reducing muscle activity, interaction with surroundings, and the ability to react to stimuli. The ability to react to stimuli is one of the distinguishing factors between the states of sleep and wakefulness. For the purposes of this page, sleep will primarily be discussed as it relates to humans.</p>
+
+<h3>Sleep cycles</h3>
+<p>The sleep cycle can be defined as the oscillation between non-REM (rapid eye movement) and REM sleep, which will both be discussed below.</p>
+<p>Sleep timing is largely based on hormonal signals from the circadian clock. The circadian clock exhibits a regular rhythm that corresponds to outside signals (such as night/day) that can persist even if the outside signals suddenly disappear. An example of this is jet lag, where the body's circadian rhythm is affected due to rapid long-distance travel, which results in the traveler being maladjusted to the local time. The traveler then feels that it is either later or earlier than what their body is used to, affecting their sleep.</p>
+<p>Ideally, a person's sleep cycle follows the circadian clock, but sleep can be affected by numerous factors such as light, social timing (when others are awake, when work is required, etc.), naps, genetics, and more.</p>
+
+<h3>REM and non-REM sleep</h3>
+<p>During sleep, the brain expends significantly less energy than it does when a person is awake, particularly during non-REM (rapid eye movement) sleep. REM sleep is a type of sleep characterized by a number of aspects, including the eye movements it is named for, virtual paralysis of the body, and the occurrence of dreams. Non-REM and REM sleep are two categories of sleep that are vastly different.</p>
+<p>Typically, the body cycles between non-REM and REM sleep over a period of 90 minutes on average, and should occur 4-6 times in a good night's sleep. Non-REM sleep begins, eventually moving into slow-wave sleep, or deep sleep. During this period, body temperature and heart rate fall, and the brain uses far less energy, while restoring its supply of adenosine triphosphate (ATP), a molecule used for the storage and transport of energy. During slow-wave sleep, growth hormone is also secreted, which is particularly important for human development.</p>
+<p>REM sleep typically comprises a smaller proportion of sleep time, and is most known for being when dreams or nightmares usually occur. Deprivation of REM sleep can result in anxiety, irritability, hallucinations, and difficulty concentrating. Studies have shown that when the body is deprived of REM sleep, subsequent sleep will involve the body increasing the number of attempts to go into REM sleep, as well as increases in the amount of time spent in REM sleep compared to periods of no sleep deprivation. This is referred to as a REM rebound, and is consistent with the belief that REM sleep is necessary for the body. REM sleep, its effects, and its necessity are still not fully understood, and though it is typically considered an important and necessary aspect of sleep, in some cases, deprivation of REM sleep can have transient positive effects.</p>
+
+<h3>Sleep quality</h3>
+<p>Sleep quality can be measured in terms of the degree of difficulty a person has to fall asleep and to stay asleep, as well as the number of times a person typically wakes up in a single night. It can also be measured more subjectively in terms of how rested a person feels upon waking.</p>
+<p>Having poor sleep quality disrupts the sleep cycle and the transitions between the various stages of sleep. In order to have good sleep quality, the need to sleep must be balanced against the circadian element of sleep. Ideally, the timing of sleep must be balanced such that the maximum concentration of the hormone melatonin and the minimum core body temperature occur after the middle of the sleep episode, and before awakening.</p>
+
+<h3>How much sleep do I need?</h3>
+<p>Sleep is far from perfectly understood, and the amount of sleep a person needs can vary largely based on certain metrics, such as age, as well as entirely individually. A person who sleeps an adequate amount should experience no daytime sleepiness or dysfunction.</p>
+<p>Very generally, researchers have found that achieving 6-7 hours of sleep per night correlates with a number of positive health outcomes, but there are also many other factors that may affect these outcomes.</p>
+<p>As a person ages, they tend to sleep less, with newborns sleeping for significantly longer hours than adults. This discrepancy decreases with age, and the sleep requirements become more similar to that of adults starting around the age of 5.</p>
+<p>Below are the CDCs recommendations for the number of hours a person should sleep based on age.</p>
+<br>
+<table class="cinfoT" align="center">
+<tr><td class="cinfoHd">Age Group</td><td class="cinfoHdL">Recommended Hours of Sleep Per Day</td></tr>
+<tr><td>0&ndash;3 months</td><td>14&ndash;17 hours</td></tr>
+<tr><td>4&ndash;12 months</td><td>12&ndash;16 hours per 24 hours (including naps)</td></tr>
+<tr><td>1&ndash;2 years</td><td>11&ndash;14 hours per 24 hours (including naps)</td></tr>
+<tr><td>3&ndash;5 years</td><td>10&ndash;13 hours per 24 hours (including naps)</td></tr>
+<tr><td>6&ndash;12 years</td><td>9&ndash;12 hours per 24 hours</td></tr>
+<tr><td>13&ndash;18 years</td><td>8&ndash;10 hours per 24 hours</td></tr>
+<tr><td>18&ndash;60 years</td><td>7 or more hours per night</td></tr>
+<tr><td>61&ndash;64 years</td><td>7&ndash;9 hours</td></tr>
+<tr><td>65 years and older</td><td>7&ndash;8 hours</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

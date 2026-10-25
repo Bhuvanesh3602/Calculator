@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>APR Calculator</title>
+	<meta name="description" content="Free calculator to find out the real APR of a loan, considering all the fees and extra charges. There is also a version specially designed for mortgage loans." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script src="/js/loannew.js" async></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/apr-calculator.html" itemprop="item"><span itemprop="name">apr calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>APR Calculator</h1>
+<p>The banking costs of a loan involve more than just interest rates. When applying for a loan, it is common for lenders to charge fees or points in addition to interest. Hence, instead of merely focusing on interest, lenders should pay more attention to the annual percentage rate, or real APR, when considering the actual cost of a mortgage. The following two calculators help reveal the true costs of loans through real APR.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2 class="h2red">General APR Calculator</h2>
+<div class="leftinput">
+<form action="/apr-calculator.html#generalapr" name="calform"><table id="calinputtable" class="panel" >
+<tr><td>Loan Amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="100000" class="inhalf indollar"></td></tr>
+<tr><td>Loan Term</td><td><input type="text" name="cloanterm" id="cloanterm" value="10" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td></tr>
+<tr><td>&nbsp;</td><td><input type="text" name="cloantermmonth" id="cloantermmonth" value="0" class="inhalf inuipound"><span class="inuipoundspan">months</span></td></tr>
+<tr><td>Interest Rate</td><td><input type="text" name="cinterestrate" id="cinterestrate" value="6" class="inhalf inpct"></td></tr>
+
+<tr><td>Compound</td><td><select name="ccompound" id="ccompound">
+<option value="annually">Annually</option>
+<option value="semiannually">Semi-annually</option>
+<option value="quarterly">Quarterly</option>
+<option value="monthly" selected>Monthly</option>
+<option value="semimonthly">Semi-monthly</option>
+<option value="biweekly">Biweekly</option>
+<option value="weekly">Weekly</option>
+<option value="daily">Daily</option>
+<option value="continuously">Continuously</option></select></td></tr>
+
+<tr><td>Pay Back</td><td><select name="cpayback" id="cpayback">
+<option value="daily">Every Day</option>
+<option value="weekly">Every Week</option>
+<option value="biweekly">Every 2 Weeks</option>
+<option value="halfmonth">Every Half Month</option>
+<option value="month" selected>Every Month</option>
+<option value="quarter">Every Quarter</option>
+<option value="halfyear">Every 6 Months</option>
+<option value="year">Every Year</option></select></td></tr>
+
+<tr><td>Loaned Fees <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Loaned fees are fees that are added to the loan amount, increasing the total borrowed amount. They do not need to be paid at the loan closing.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="cloanedfees" id="cloanedfees" value="0" class="inhalf indollar"></td></tr>
+<tr><td>Upfront Fees <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Upfront fees are fees that lenders request borrowers to pay before or during the loan closing process, prior to the distribution of funds. These are the fees that borrowers need to pay out of pocket in order to finalize a loan.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="cfrontfees" id="cfrontfees" value="2500" class="inhalf indollar"></td></tr>
+
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input type="hidden" name="type" value="1">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table></form>
+</div>
+<div class="rightresult">
+<a name="generalapr"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Real APR: 6.563%<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('QVBSIENhbGN1bGF0b3I=', 1, 'R2VuZXJhbCBBUFIgQ2FsY3VsYXRvcg==', '', '');"></h2><table><tr><td>Amount Financed</td><td align='right'>&nbsp; <b>$100,000.00</b></td></tr><tr><td>Upfront Out-of-Pocket Fees</td><td align='right'>&nbsp; <b>$2,500.00</b></td></tr><tr><td>Payment Every Month</td><td align='right'>&nbsp; <b>$1,110.21</b></td></tr><tr><td>Total of 120 Payments</td><td align='right'>&nbsp; <b>$133,224.60</b></td></tr><tr><td>Total Interest</td><td align='right'>&nbsp; <b>$33,224.60</b></td></tr><tr><td>All Payments and Fees</td><td align='right'>&nbsp; <b>$135,724.60</b></td></tr></table><div style="text-align:center; padding: 8px;"><g onclick="ttline2HideTT();"><svg width="220" height="100"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 56 8 A 42 42 0 1 1 14.145 53.483 L 56 50 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (74%)');" onmouseout="ttpieHideTT();" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><path d="M 14.145 53.483 A 42 42 0 0 1 51.15 8.281 L 56 50 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$33,224.60 (24%)');" onmouseout="ttpieHideTT();" /><line x1="56" y1="50" x2="14.145" y2="53.483" class="mcpline" /><path d="M 51.15 8.281 A 42 42 0 0 1 56 8 L 56 50 Z" fill="#910000"  onmousemove="ttpieShowTT(evt, '#910000', 'Fees <br>$2,500.00 (2%)');" onmouseout="ttpieHideTT();" /><line x1="56" y1="50" x2="51.15" y2="8.281" class="mcpline" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><circle cx="56" cy="50" r="14.7" fill="white" /><text x="75.868" y="68.283" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (74%)');" onmouseout="ttpieHideTT();">74%</text><text x="35.108" y="32.897" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$33,224.60 (24%)');" onmouseout="ttpieHideTT();">24%</text><text x="54.438" y="23.045" class="mcplabel" stroke="#910000" onmousemove="ttpieShowTT(evt, '#910000', 'Fees <br>$2,500.00 (2%)');" onmouseout="ttpieHideTT();">2%</text><rect x="112" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="137" y="19" class="mcplegend">Principal</text><rect x="112" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="137" y="37" class="mcplegend">Interest</text><rect x="112" y="44" rx="3" ry="3" width="20" height="14" style="fill:#910000;" /><text x="137" y="55" class="mcplegend">Fees</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div><div style="text-align:center;padding:5px;"><a href="#" onClick="return showAmo(100000, 0.0049999999999999, 120, 1110.2050194165, 'month', 'lcamotable1');">View Amortization Table</a></div></div>
+<div id="clear"></div>
+<div id="lcamotable1"></div>
+
+<h2 class="h2red"><br>Mortgage APR Calculator</h2>
+<p>Use the calculator below for mortgage loans in the United States.</p>
+
+<div class="leftinput">
+<form action="/apr-calculator.html#mortgageapr" name="calform2">
+<table id="calinputtable" class="panel" >
+<tr><td>House Value</td><td><input type="text" name="c2housevalue" id="c2housevalue" value="350000" class="inhalf indollar"></td></tr>
+<tr><td>Down Payment</td><td><input type="text" name="c2downpayment" value="20" class="inhalf inpct"></td></tr>
+<tr><td>Loan Term</td><td><input type="text" name="c2loanterm" value="30" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td></tr>
+<tr><td>Interest Rate</td><td><input type="text" name="c2interestrate" value="6.2" class="inhalf inpct"></td></tr>
+<tr><td>Loan Fees</td><td><input type="text" name="c2loanfees" id="c2loanfees" value="3500" class="inhalf indollar"></td></tr>
+<tr><td>Points</td><td><input type="text" name="c2points" value="0.5" class="inhalf"></td></tr>
+<tr><td>PMI Insurance</td><td><input type="text" name="c2pmi" id="c2pmi" value="0" class="inhalf indollar inuiyear"><span class="inuiyearspan">/year</span></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input type="hidden" name="type" value="2">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</table>
+</form>
+</div>
+<div class="rightresult">
+<a name="mortgageapr"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Real APR: 6.367%<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('QVBSIENhbGN1bGF0b3I=', 2, 'TW9ydGdhZ2UgQVBSIENhbGN1bGF0b3I=', '', '');"></h2><table><tr><td>Loan Amount</td><td align='right'>&nbsp; <b>$280,000.00</b></td></tr><tr><td>Down Payment</td><td align='right'>&nbsp; <b>$70,000.00</b></td></tr><tr><td>Monthly Pay</td><td align='right'>&nbsp; <b>$1,714.91</b></td></tr><tr><td>Total of 360 Payments</td><td align='right'>&nbsp; <b>$617,368.73</b></td></tr><tr><td>Total Interest</td><td align='right'>&nbsp; <b>$337,368.73</b></td></tr><tr><td>All Payments and Fees</td><td align='right'>&nbsp; <b>$620,868.73</b></td></tr></table><div style="text-align:center;"><g onclick="ttline2HideTT();"><svg width="220" height="100"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 56 8 A 42 42 0 0 1 68.732 90.024 L 56 50 Z" fill="#2b7ddb"  onmousemove="ttpie2ShowTT(evt, '#2b7ddb', 'Principal <br>$280,000.00 (45%)');" onmouseout="ttpie2HideTT();" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><path d="M 68.732 90.024 A 42 42 0 1 1 54.513 8.026 L 56 50 Z" fill="#8bbc21"  onmousemove="ttpie2ShowTT(evt, '#8bbc21', 'Interest <br>$337,368.73 (54%)');" onmouseout="ttpie2HideTT();" /><line x1="56" y1="50" x2="68.732" y2="90.024" class="mcpline" /><path d="M 54.513 8.026 A 42 42 0 0 1 56 8 L 56 50 Z" fill="#910000"  onmousemove="ttpie2ShowTT(evt, '#910000', 'Fees <br>$3,500.00 (1%)');" onmouseout="ttpie2HideTT();" /><line x1="56" y1="50" x2="54.513" y2="8.026" class="mcpline" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><circle cx="56" cy="50" r="14.7" fill="white" /><text x="82.68" y="45.858" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpie2ShowTT(evt, '#2b7ddb', 'Principal <br>$280,000.00 (45%)');" onmouseout="ttpie2HideTT();">45%</text><text x="29.397" y="54.613" class="mcplabel" stroke="#8bbc21" onmousemove="ttpie2ShowTT(evt, '#8bbc21', 'Interest <br>$337,368.73 (54%)');" onmouseout="ttpie2HideTT();">54%</text><text x="55.522" y="23.004" class="mcplabel" stroke="#910000" onmousemove="ttpie2ShowTT(evt, '#910000', 'Fees <br>$3,500.00 (1%)');" onmouseout="ttpie2HideTT();">1%</text><rect x="112" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="137" y="19" class="mcplegend">Principal</text><rect x="112" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="137" y="37" class="mcplegend">Interest</text><rect x="112" y="44" rx="3" ry="3" width="20" height="14" style="fill:#910000;" /><text x="137" y="55" class="mcplegend">Fees</text></svg><script> function ttpie2ShowTT(evt, color, text) { let tooltip = document.getElementById("ttpie2tt"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpie2HideTT() { var tooltip = document.getElementById("ttpie2tt"); tooltip.style.display = "none"; }</script><style>#ttpie2tt {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpie2tt div{font-size:13px;color:#fff;}</style><div id="ttpie2tt" style="position: absolute; display: none;text-align:left;"></div></g></div></div>
+<div id="clear"></div>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cloanedfees");
+proComma2("cfrontfees");
+proComma2("c2housevalue");
+proComma2("c2loanfees");
+proComma2("c2pmi");
+</script>
+<br><p><fieldset><legend>Related</legend><a href="/interest-calculator.html">Interest Calculator</a> | <a href="/loan-calculator.html">Loan Calculator</a> | <a href="/mortgage-calculator.html">Mortgage Calculator</a></fieldset></p>
+
+<br>
+<p>The APR is an all-inclusive, annualized cost indicator of a loan. It includes interest as well as fees and other charges that borrowers will have to pay.</p>
+<p>Borrowers often confuse APR with the interest rate. The interest rate is the amount of compensation per period for borrowing money and includes the cost of principal only.</p>
+<p>While valid, interest rates do not offer the accuracy needed to determine which rate from which lender amounts to the best deal. Since the APR includes both interest and fees, it addresses this challenge by factoring into the interest rate and other additional costs associated with the loan.</p>
+<p>In the U.S., the Truth in Lending Act requires lenders to display APRs so borrowers can easily compare lending costs between competitors. Of course, every lender is different, and the fees listed below will not apply to every loan. For this reason, prospective borrowers should ask lenders to list out all added costs packaged into individual APRs to understand a specific loan. For mortgage loans in U.S., APRs may include fees such as:</p>
+<table width="100%"><tr><td valign="top">
+<ul>
+	<li>Administration fees</li>
+	<li>Application fees</li>
+	<li>Mortgage insurance</li>
+	<li>Mortgage broker fees</li>
+	<li>Audit fees</li>
+	<li>Certain closing fees</li>
+</ul></td><td valign="top"><ul>	<li>Escrow fees</li>
+	<li>Origination points</li>
+	<li>Discount points</li>
+	<li>Processing fees</li>
+	<li>Refinance fees</li>
+	<li>Underwriting fees</li>
+</ul>
+</td></tr></table>
+
+<p>Fees usually exempt from the APR of a mortgage loan include:</p>
+<ul>
+	<li>Appraisal fees</li>
+	<li>Survey fees</li>
+	<li>Title insurance and fees</li>
+	<li>Builder Warranties</li>
+	<li>Pre-paid items on escrow balances, such as taxes or insurance</li>
+	<li>Intangible taxes</li>
+</ul>
+<h3>Limitations of the APR</h3>
+<p>While the APR serves as an excellent indicator for loan comparisons, the listed fee structure presumes that the loan will run its course. For any borrower planning to pay their loan off more quickly, the APR will tend to underestimate the impact of the upfront costs.</p>
+<p>For example, upfront fees appear significantly cheaper spread out over a 30-year mortgage compared with a more accelerated 10-year repayment plan. In the U.S., borrowers usually pay off 30-year mortgages early due to reasons such as home sales, refinancing, and pre-payments. Therefore, when comparing loans with the same APR, the loan with lower upfront fees is more favorable to borrowers intending to pay off a mortgage early.</p>
+
+<h3>Types of APRs</h3>
+<p>Lenders should also understand the two different types of APR loans. Banks offer both fixed and variable APR loans, and each loan type comes with pros and cons.</p>
+<p><b>Fixed APRs</b></p>
+<p>Loans with fixed APRs offer steady rates for the duration of the loan. For this reason, borrowers receiving an attractive fixed rate should consider locking it in during a period of relatively low market interest rates due to the likelihood that rates will rise later. Fixed rates are generally higher than variable rates at the time of loan origination.</p>
+<p><b>Variable APRs</b></p>
+<p>Loans with variable APRs include rates that may change with time. These rates tend to rise and fall with an index such as the Federal Funds Rate. For instance, if the market interest rates rise, variable APRs tied to that index will probably also increase.</p>
+<p>Borrowers should also be aware of another component to variable APRs called a credit-based margin. Lenders create credit-based margins, which use creditworthiness rather than the market index to determine a portion of the APR. Including the credit-based margin for each individual can prevent borrowers with poor credit scores from obtaining a lower variable rate assuming the lender will grant them the loan at all.</p>
+<p>Nonetheless, borrowers should consider variable rates under some circumstances. Suppose a borrower takes out a loan during a time of relatively high market rates when analysts forecast rate declines. In that case, variable rates will probably lead to lower overall interest payments. Historical data has shown that borrowers generally paid less interest with a variable rate than a fixed-rate loan.</p>
+<p>Additionally, borrowers should consider the duration of the loan. Generally, the longer the loan term, the greater the impact of rate fluctuations. This means that movements in interest rates can more deeply impact a 30-year loan than a loan with a 10 or 15-year term.</p>
+
+<h3>APR vs. APY</h3>
+<p>Borrowers should also understand the distinction between APR and APY. APY stands for annual percentage yield, a term primarily associated with deposit accounts. It reflects the total amount of interest paid on an account based on a given interest rate and the compounding frequency on an annual basis.</p>
+<p>APY can sometimes be called EAPR, meaning effective annual percentage rate, or EAR, referring to the effective annual rate. The main difference between APY and APR is that the former considers yearly compounded interest while APR always means a monthly period. Thus, at the equivalent rate, APR appears lower than the APY assuming positive rates.</p>
+<p>Financial institutions typically want to advertise the most enticing rates possible to their clientele. Hence, borrowers receive APR rates because the rates look smaller, whereas banks advertise APY rates for savings accounts holders since they appear higher.</p>
+<p>For example, if a loan of $100 includes an APR of 10%, the equation below calculates the equivalent interest paid at year-end:</p>
+<table align="center"><tr>
+<td>Principal &#215; ((1 +&nbsp;</td>
+<td><table><tr><td>r</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>n</td></tr></table></td>
+<td>)<sup>n</sup> - 1)</td>
+</tr></table>
+<table align="center"><tr>
+<td>$100 &#215; ((1 +&nbsp;</td>
+<td><table><tr><td>10%</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">12</td></tr></table></td>
+<td>)<sup>12</sup> - 1) = $10.47</td>
+</tr></table>
+<p>Therefore, the borrower will pay the lender $10.47 in interest.</p>
+<p>In comparison, if a $100 savings account includes an APY of 10.47%, the interest received at the end of the year is:</p>
+<p style="text-align:center;">$100 &#215; 10.47% = $10.47</p>
+<p>Despite appearances, 10% APR is equivalent to 10.47% APY.</p>
+<p>Please refer to the <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> to convert between APY and APR or interest rates of different compounding frequencies.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

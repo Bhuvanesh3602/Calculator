@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="82" height="100" viewBox="0 0 82 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g fill="#4c7b25" font-size="18">
+	<text x="36" y="63">a</text>
+	<text x="55" y="49">b</text>
+	<text x="42" y="30">c</text>
+</g>
+<g stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1">
+	<line x1="41" y1="50" x2="81" y2="50" />
+	<line x1="41" y1="1" x2="41" y2="50" />
+	<line x1="30" y1="65" x2="41" y2="50" />
+</g>
+	<circle r="2" cx="41" cy="50" fill="black"  />
+	<path d="M1,50 A40,16 0 0,0 81,50" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M1,50 A40,16 0 0,1 81,50" stroke-dasharray="2, 2" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M41,1 A12,49 0 0,0 41,99" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M41,1 A12,49 0 0,1 41,99" stroke-dasharray="2, 2" style="fill:none;stroke:black;stroke-width:1" />
+	<ellipse rx="40" ry="49" cx="41" cy="50"  style="fill:none;stroke:black;stroke-width:1"/>
+</svg>

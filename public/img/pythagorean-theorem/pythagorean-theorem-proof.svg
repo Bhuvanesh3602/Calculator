@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="310" height="180" viewBox="0 0 310 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="font: 25px Arial, sans-serif; fill: #000; font-style:italic; font-weight:bold;">
+<text x="68" y="20">i</text>
+<text x="218" y="20">ii</text>
+</g>
+<g transform="translate(0 8)">
+<polygon points="5,25 135,25 135,155 5,155" style="fill:#6699cc;stroke:#003366;stroke-width:2" />
+<polygon points="105,25 135,125 35,155 5,55" style="fill:#fff;stroke:#003366;stroke-width:2" />
+<polygon points="275,25 305,125 205,155 175,55" style="fill:#6699cc;stroke:#003366;stroke-width:2" />
+<polygon points="275,125 205,125 205,55 275,55" style="fill:#fff;stroke:#003366;stroke-width:2" />
+<line x1="275" y1="25" x2="275" y2="125" style="stroke:#003366;stroke-width:2" />
+<line x1="305" y1="125" x2="205" y2="125" style="stroke:#003366;stroke-width:2" />
+<line x1="205" y1="155" x2="205" y2="55" style="stroke:#003366;stroke-width:2" />
+<line x1="175" y1="55" x2="275" y2="55" style="stroke:#003366;stroke-width:2" />
+<g style="font: 18px Arial, sans-serif; fill: #000;">
+<text x="53" y="53">c</text>
+<text x="215" y="38">c</text>
+<text x="45" y="170">b + a</text>
+<text x="222" y="122">b - a</text>
+</g>
+</g>
+</svg>

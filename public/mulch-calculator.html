@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mulch Calculator</title>
+	<meta name="description" content="This free mulch calculator estimates the total amount of mulch needed to cover an area, such as a garden. It can also estimate the associated costs." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mulch-calculator.html" itemprop="item"><span itemprop="name">mulch calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Mulch Calculator</h1>
+<p>The following calculator helps estimate the amount of mulch needed to cover an area such as a garden based on the necessary depth of the mulch layer. It also estimates the cost of the mulch.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table cellpadding="5" align="center" class="panel" cellspacing="0">
+	<tr valign="top">
+			<td align="right" style="padding-top:18px;"><b>Area to Cover:</b></td><td>			<div style="padding: 8px 0px;"><label for="areasetting1" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting1" value="a" checked onClick="shArea('a');" /><span class="rbmark"></span>Use Total Area</label> &nbsp; <label for="areasetting2" class="cbcontainer"><input type="radio" name="areasetting" id="areasetting2" value="d"  onClick="shArea('d');" /><span class="rbmark"></span>Use Dimensions</label></div>
+			<div id="totalareaid">
+				Total Area: <input type="text" name="totalarea" value="200" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="totalareaunit">
+					<option value="f" selected>square feet</option>
+					<option value="m" >square meters</option>
+					<option value="y" >square yards</option>
+					<option value="a" >acres</option>
+				</select>
+			</div>
+			<div id="dimensionid" style="display:none;">
+			<table>
+					<tr align="center"><td>Length</td><td>Width</td><td>&nbsp;</td></tr>
+								<tr><td>
+						<input type="text" name="l1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u1">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u2">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l3" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w3" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u3">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+						</table>
+			<input type="hidden" id="moreareas" name="moreareas" value="0">
+			<div id="addmoreareas" style="text-align:center;"><a href="#" onClick="return addmorearea(1);">+ Add more areas</a></div>
+			<table id="moredem" style="display:none;">
+								<tr><td>
+						<input type="text" name="l4" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w4" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u4">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l5" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w5" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u5">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l6" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w6" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u6">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l7" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w7" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u7">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l8" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w8" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u8">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l9" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w9" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u9">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l10" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w10" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u10">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l11" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w11" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u11">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+								<tr><td>
+						<input type="text" name="l12" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<input type="text" name="w12" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');">
+					</td><td>
+					<select name="u12">
+						<option value="f" selected>feet</option>
+						<option value="m" >meters</option>
+						<option value="y" >yards</option>
+						<option value="i" >inches</option>
+						<option value="c" >cm</option>
+					</select>
+				</td></tr>
+						</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+			<td align="right"><b>Mulch Layer Depth:</b></td><td>			<input type="text" name="mdepth" value="2" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="mdepthunit" >
+			<option value="i" selected>inches</option>
+			<option value="c" >cm</option>
+			<option value="f" >feet</option>
+			<option value="m" >meters</option>
+			<option value="y" >yards</option>
+		</select>
+					</td>
+	</tr>
+	<tr>
+			<td align="right"><b>Price (optional):</b></td><td>			<input type="text" name="price" value="" class="inhalf indollar" onKeyUp="iptfieldCheck(this, '', 'pn');">
+			<select name="priceunit" >
+				<option value="f" selected>per cubic foot</option>
+				<option value="y" >per cubic yard</option>
+				<option value="m" >per cubic meter</option>
+				<option value="l" >per liter</option>
+				<option value="b2" >per 2 cubic foot bag</option>
+				<option value="b769" >per 76.9 cubic foot bag</option>
+				<option value="b6" >per 60 liter bag</option>
+				<option value="b730" >per 730 liter bag</option>
+			</select>
+					</td>
+	</tr>
+	<tr>
+			<td>&nbsp;</td><td>			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function shArea(inval){
+	if (inval == "d"){
+		document.getElementById("totalareaid").style.display = 'none';
+		document.getElementById("dimensionid").style.display = 'block';
+	}else{
+		document.getElementById("dimensionid").style.display = 'none';
+		document.getElementById("totalareaid").style.display = 'block';
+	}
+	return false;
+}
+shArea("a");
+
+function addmorearea(inval){
+	if (inval == 1){
+		document.getElementById("moredem").style.display = 'block';
+		document.getElementById("addmoreareas").innerHTML = '<a href="#" onClick="return addmorearea(0);">&ndash; hide inputs below</a>';
+		document.getElementById("moreareas").value = 1;
+	}else{
+		document.getElementById("moredem").style.display = 'none';
+		document.getElementById("addmoreareas").innerHTML = '<a href="#" onClick="return addmorearea(1);">+ Add more areas</a>';
+		document.getElementById("moreareas").value = 0;
+	}
+	return false;
+}
+addmorearea("0");
+</script>
+<br>
+<fieldset><legend>Related</legend>
+<a href="/square-footage-calculator.html">Square Footage Calculator</a> |
+<a href="/area-calculator.html">Area Calculator</a>
+</fieldset><br>
+
+<p>Mulch is a layer of material that is applied to the surface of the soil. There are many different types of mulch, both organic and synthetic, each of which has different benefits and drawbacks. Mulch is used for both aesthetic reasons as well as for its potential benefits to the soil, such as regulating soil temperature, helping soil retain moisture, preventing soil erosion, and more. The effects of mulch are dependent on the type of mulch used, the amount of mulch, and even the timing of mulch application.</p>
+
+<h2>How much mulch do I need?</h2>
+<p>The amount of mulch necessary is dependent on various factors such as the type of mulch used and what the mulch is being used for. Different types of mulch have different properties, so there can be some variation in the amount that should be used. Also, mulch that is used solely for landscaping purposes may require different amounts than mulch being used for a garden.</p>
+<p>Generally, a 2 to 4 inches (5 to 10 cm) layer of mulch will yield benefits to the soil without being too thick; if the layer of mulch is spread too thinly, it likely will not provide the desired benefits such as suppressing weeds or adequately protecting the soil against heat and erosion. On the other hand, if mulch is spread too thickly, it can prevent water from reaching the soil, depriving plants of the moisture they need.</p>
+
+<h2>The benefits of mulch</h2>
+<p>Mulch can have various benefits depending on when and how it is used. Often, mulch is simply used for aesthetic purposes since it can enhance the look of a garden, walkway, or other space. However, mulch can have many beneficial effects such as protecting as well as enriching the soil with nutrients, which is especially useful for many gardening applications. If the purpose of the mulch is to assist with seeding and growth, it is usually best to apply mulch towards the beginning of the growing season since it acts as an insulator that helps the soil retain heat as well as moisture, which is beneficial to the growth of many plants and crops.</p>
+
+<h3>Mulch regulates soil temperature and protects against weather</h3>
+<p>One benefit of mulch is that it regulates soil temperature. Many plants remain healthier when their roots are exposed to more moderate temperatures. Since mulch acts as an insulating layer, it helps prevent soil from getting too hot or too cold, allowing roots to remain healthier and deliver necessary nutrients to plants.</p>
+<p>Mulch also helps reduce exposure to heat from the sun, again because it acts as an insulating layer between the soil and the elements. Too much exposure to the sun can dry out the soil which can reduce the amount of water that can penetrate the soil, which in turn increases erosion due to wind. Also, heavy rain can carry away topsoil if it is not covered with mulch, stripping away vital organic matter and nutrients that are beneficial to plant growth.</p>
+
+<h3>Mulch can increase moisture retention</h3>
+<p>As a result of the insulation it provides, mulch also affects the moisture retention of the soil. It can help reduce evaporation from heat and wind which improves moisture retention and can reduce the frequency and volume of watering necessary for plants to thrive.</p>
+<p>However, it is also possible for mulch to reduce moisture retention by absorbing water or preventing water from light rain from reaching the soil. This can happen if the mulch layer is too thick (or the material absorbs too much water), which can also reduce the amount of oxygen that reaches the soil below. Thus, it is important to be aware of what type of mulch to use for a given situation as well as how much should be used.</p>
+
+<h3>Mulch reduces weed growth and the possibility of plant diseases</h3>
+<p>Mulch can help to significantly reduce the number of weeds in a garden. If there are already weed seeds in the soil, adding a layer of mulch can prevent many seeds from receiving the sunlight they need to grow. A layer of mulch can also prevent seeds that may be carried by the wind from reaching the soil and taking root, reducing the overall number of weeds in a garden.</p>
+<p>Many plant diseases live in the soil. Some of these diseases affect the roots of the plant while others need to make contact with the leaves of the plant in order to affect the plant. In cases where the disease affects the leaves of the plant, mulch may not be helpful for protecting the plant. However, in cases where the disease must contact the plant's roots, mulch acts as a protective barrier that prevents these diseases from infecting the plant. Thus, if you notice your plants suffering from some disease or see weeds taking root in your garden, adding (or replenishing) mulch may alleviate the situation.</p>
+
+<h2>Types of mulch</h2>
+<p>There are many different types of mulch that differ in terms of availability, cost, appearance, rate of decomposition, and more. They also have different effects on soil and may facilitate certain chemical reactions or change the pH of the soil.</p>
+<p>Although using mulch is often beneficial, it can also have negative effects on soil. Some mulches are more combustible than others and can increase the risk of fire depending on the conditions of the garden, while other types of mulch (depending on where and how the mulch is sourced) may contain weed seeds, plant pathogens, or even toxic substances. As such, it is important to be aware of the various types of mulches as well as their potential benefits and drawbacks.</p>
+
+<h3>Organic mulches</h3>
+<p>Organic mulches are mulches that decompose over time. This is arguably the key benefit of organic mulches (at least for gardening purposes) since they provide nutrients to the soil as they decompose and can attract beneficial insects such as slugs and worms. Other benefits include reducing weed growth, providing insulation that increases heat and moisture retention, and improving the visual appeal of the landscape.</p>
+<p>One of the disadvantages of organic mulches is that they can attract termites or other pests. They can also contain weed seeds or other contaminants that can be detrimental to the soil and the environment. Furthermore, because organic mulch decomposes, it needs to be replaced more frequently than synthetic mulches.</p>
+<p>Different types of organic mulches decompose at different rates, absorb water differently, release different nutrients, affect pH in different ways, provide more or less insulation, and have varying degrees of combustibility. Thus, it is important to research the different types and choose an appropriate organic mulch for your purposes. Below are a few examples of organic mulches.</p>
+
+<p><b>Leaves</b></p>
+<p>The leaves of deciduous trees can be collected and shredded to form an organic mulch that both protects the soil and provides it with nutrients. Depending on location, they are abundant and can make for an easily accessible and effective mulch that protects soil through the growing season while decomposing at a rate that results in a mulch with a soil-like consistency in time for fall, during which compost can be added directly over decomposing leaves.</p>
+<p>One of the disadvantages of using leaves as mulch is that they may not always be available unless they are collected and then appropriately stored. They can also harbor small pests, and if they are insufficiently shredded, they may mat and prevent adequate air and water exchange to the soil.</p>
+
+<p><b>Wood mulch</b></p>
+<p>There are many different types of wood mulch such as bark chips, wood chips, hardwood, pine, wood shavings, and more. Like other organic mulches, the various types of wood mulch decompose, providing nutrients to the soil and improving soil structure. They can also reduce weed growth.</p>
+<p>Because there are so many different types of wood mulch, they can be used for a variety of different applications depending on factors such as how quickly you want the wood mulch to decompose, as well as the desired aesthetic.</p>
+<p>Like all organic mulches, wood mulch needs to be replenished more frequently than synthetic mulches. It can also contain contaminants, particularly if dyed, and can result in plastic waste when bagged bark is bought in bulk.</p>
+
+<p><b>Grass</b></p>
+<p>Grass clippings are often readily available and can be collected and dried with relative ease to form an organic mulch. They contain relatively high levels of nitrates that are returned to the soil when the clippings decompose, which also increases the activity of worms and other beneficial microorganisms in the soil.</p>
+<p>When using grass clippings as mulch, it is important that they are adequately dried. Fresh grass clippings are often too wet and can result in matting, which can cause mold as well as trap heat and damage plants.</p>
+
+<h3>Synthetic mulches</h3>
+<p>Synthetic mulches include materials like plastic sheets, rubber, dyed mulches, and more. Unlike organic mulches, synthetic mulches are not biodegradable. They tend to be more convenient and durable and don't need to be replaced as frequently as organic mulches. However, since they do not biodegrade (or do so very slowly), they are less sustainable (environmentally), and also do not provide the soil with nutrients or organic matter like organic mulches do. In some cases, synthetic mulches may even leach harmful chemicals to the surrounding area, which can be detrimental to your garden and the environment. However, synthetic mulches do have their place and can result in benefits similar to those provided by organic mulches (heat retention, moisture retention, etc.) while also often being readily available and easier to maintain. Below are a few examples of synthetic mulches.</p>
+
+<p><b>Rubber mulches</b></p>
+<p>Rubber mulch is a type of mulch that is made from recycled rubber. It helps insulate the soil from heat and improves moisture retention since rubber does not absorb water, allowing it to pass through to the soil unimpeded. It also protects against weeds because weed seeds get dehydrated prior to reaching the soil.</p>
+<p>As a synthetic mulch, rubber mulch does not decompose, so it doesn't enrich the soil with any nutrients. In some cases, it can even contaminate the soil. It can also be a hazard if ignited, releasing toxic fumes while being particularly difficult to extinguish relative to other mulches.</p>
+
+<p><b>Plastic mulches</b></p>
+<p>Plastic mulches, as the name suggests, are mulches made of various plastics. Plastic mulches offer benefits such as preventing compacted soil, increasing heat and water retention, and protecting against weeds. Like other synthetic mulches, plastic mulches tend to last longer because they do not decompose.</p>
+<p>The fact that plastic mulches don't naturally degrade is one of their disadvantages. Unlike organic mulches that decompose and enrich the soil, plastic mulches must be replaced periodically, which can be a costly practice that also has environmental ramifications.</p>
+<p>Plastic mulch can also get too hot, and may not be suitable for warmer climates, as it is possible for the soil to be too warm for particular plants.</p>
+<p>Plastic mulch can also result in too much moisture by preventing evaporation, resulting in overwatered or drowned plants.</p>
+<p>Due to the various disadvantages of plastic mulches, it is important to understand your needs to determine whether using plastic mulch is appropriate, or whether some other type of mulch will better suit your needs.</p>
+
+<p><b>Dyed mulches</b></p>
+<p>A dyed mulch is a type of organic mulch that is colored using synthetic additives for aesthetic purposes. Thus, they have some of the advantages of organic mulches in that they can decompose and provide the soil with nutrients, with the added benefit of being available in various colors.</p>
+<p>One of the drawbacks of dyed mulches is that they were suspected to contain toxic substances, heavy metals, and other contaminants when they first entered the market. However, since then, studies have been conducted that make claims to their safety. Regardless, for those interested in using dyed mulch, it may be worth determining how the mulch was dyed before applying it to any garden.</p>
+<p>There are many other types of mulch, both synthetic and organic. The above are just a few examples.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

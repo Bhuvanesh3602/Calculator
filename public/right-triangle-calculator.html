@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Right Triangle Calculator</title>
+	<meta name="description" content="Right triangle calculator to compute side length, angle, height, area, and perimeter of a right triangle given any 2 values. It gives the calculation steps." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/right-triangle-calculator.html" itemprop="item"><span itemprop="name">right triangle calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Right Triangle Calculator</h1>
+<p>Please provide 2 values below to calculate the other values of a right triangle. If radians are selected as the angle unit, it can take values such as pi/3, pi/4, etc.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="clefthalf">
+<form name="calform">
+<table class="panel" align="center">
+	<tr>
+		<td nowrap>a =</td>
+		<td><input type="text" name="av" value="3" class="inlong"></td>
+		<td nowrap>&nbsp;&ang;&alpha; =</td>
+		<td nowrap>
+			<input type="text" name="alphav" value="" class="innormal"> <select name="alphaunit">
+				<option value="d" selected>degree</option>
+				<option value="r" >radian</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td nowrap>b =</td>
+		<td><input type="text" name="bv" value="" class="inlong"></td>
+		<td nowrap>&nbsp;&ang;&beta; =</td>
+		<td nowrap>
+			<input type="text" name="betav" value="" class="innormal"> <select name="betaunit">
+				<option value="d" selected>degree</option>
+				<option value="r" >radian</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td nowrap>c =</td>
+		<td><input type="text" name="cv" value="5" class="inlong"></td>
+		<td nowrap align="right">&nbsp;h =</td>
+		<td><input type="text" name="hv" value="" class="inlong"></td>
+	</tr>
+	<tr>
+		<td nowrap>A =</td>
+		<td><input type="text" name="areav" value="" class="inlong"></td>
+		<td colspan="2">area</td>
+	</tr>
+	<tr>
+		<td nowrap>P =</td>
+		<td><input type="text" name="perimeterv" value="" class="inlong"></td>
+		<td colspan="2">perimeter</td>
+	</tr>
+  <tr>
+  	<td align="center" colspan="4" style="padding-top:10px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+    </td>
+  </tr>
+</table></form>
+</div>
+<div class="crighthalf" style="text-align:center; padding: 10px;">
+	<img src="/img/right-triangle/right-triangle.svg" width="180" height="125" alt="right triangle">
+</div>
+<div id="clear"></div>
+</td></tr></table>
+<br><p><fieldset><legend>Related</legend><a href="/triangle-calculator.html">Triangle Calculator</a> | <a href="/pythagorean-theorem-calculator.html">Pythagorean Theorem Calculator</a></fieldset></p>
+
+<h3>Right triangle</h3>
+<p>A right triangle is a type of triangle that has one angle that measures 90&deg;. Right triangles, and the relationships between their sides and angles, are the basis of trigonometry.</p>
+<p>In a right triangle, the side that is opposite of the 90&deg; angle is the longest side of the triangle, and is called the hypotenuse. The sides of a right triangle are commonly referred to with the variables a, b, and c, where c is the hypotenuse and a and b are the lengths of the shorter sides. Their angles are also typically referred to using the capitalized letter corresponding to the side length: angle A for side a, angle B for side b, and angle C (for a right triangle this will be 90&deg;) for side c, as shown below. In this calculator, the Greek symbols &alpha; (alpha) and &beta; (beta) are used for the unknown angle measures. h refers to the altitude of the triangle, which is the length from the vertex of the right angle of the triangle to the hypotenuse of the triangle. The altitude divides the original triangle into two smaller, similar triangles that are also similar to the original triangle.</p>
+<p>If all three sides of a right triangle have lengths that are integers, it is known as a Pythagorean triangle. In a triangle of this type, the lengths of the three sides are collectively known as a Pythagorean triple. Examples include: 3, 4, 5; 5, 12, 13; 8, 15, 17, etc.</p>
+<p>Area and perimeter of a right triangle are calculated in the same way as any other triangle. The perimeter is the sum of the three sides of the triangle and the area can be determined using the following equation:</p>
+<table align="center"><tr><td>A =</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table></td><td>ab =</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table></td><td>ch</td></tr></table>
+
+<h3>Special Right Triangles</h3>
+<p><b>30&deg;-60&deg;-90&deg; triangle:</b></p>
+<p>The 30&deg;-60&deg;-90&deg; refers to the angle measurements in degrees of this type of special right triangle. In this type of right triangle, the sides corresponding to the angles 30&deg;-60&deg;-90&deg; follow a ratio of 1:&radic;<span style="text-decoration:overline;">3</span>:2. Thus, in this type of triangle, if the length of one side and the side's corresponding angle is known, the length of the other sides can be determined using the above ratio. For example, given that the side corresponding to the 60&deg; angle is 5, let a be the length of the side corresponding to the 30&deg; angle, b be the length of the 60&deg; side, and c be the length of the 90&deg; side.:</p>
+<p>Angles: 30&deg;: 60&deg;: 90&deg;</p>
+<p style="text-align:center;">Ratio of sides: 1:&radic;<span style="text-decoration:overline;">3</span>:2</p>
+<p style="text-align:center;">Side lengths: a:5:c</p>
+<p>Then using the known ratios of the sides of this special type of triangle:</p>
+<table align="center">
+<tr><td>a =</td><td><table cellpadding="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">3</span></td></tr></table></td><td>=</td><td><table cellpadding="0"><tr><td align="center">5</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">3</span></td></tr></table></td></tr>
+</table>
+<table align="center">
+<tr><td>c =</td><td><table cellpadding="0"><tr><td align="center">b &#215; 2</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">3</span></td></tr></table></td><td>=</td><td><table cellpadding="0"><tr><td align="center">10</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">3</span></td></tr></table></td></tr>
+</table>
+<p>As can be seen from the above, knowing just one side of a 30&deg;-60&deg;-90&deg; triangle enables you to determine the length of any of the other sides relatively easily. This type of triangle can be used to evaluate trigonometric functions for multiples of &pi;/6.</p>
+
+<p><b>45&deg;-45&deg;-90&deg; triangle:</b></p>
+<p>The 45&deg;-45&deg;-90&deg; triangle, also referred to as an isosceles right triangle, since it has two sides of equal lengths, is a right triangle in which the sides corresponding to the angles, 45&deg;-45&deg;-90&deg;, follow a ratio of 1:1:&radic;<span style="text-decoration:overline;">2</span>. Like the 30&deg;-60&deg;-90&deg; triangle, knowing one side length allows you to determine the lengths of the other sides of a 45&deg;-45&deg;-90&deg; triangle.</p>
+<p>Angles: 45&deg;: 45&deg;: 90&deg;</p>
+<p>Ratio of sides: 1:1:&radic;<span style="text-decoration:overline;">2</span></p>
+<p>Side lengths: a:a:c</p>
+<p>Given c= 5:</p>
+<table align="center">
+<tr><td>a =</td><td><table cellpadding="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">2</span></td></tr></table></td><td>=</td><td><table cellpadding="0"><tr><td align="center">5</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&radic;<span style="text-decoration:overline;">2</span></td></tr></table></td></tr>
+</table>
+<p>45&deg;-45&deg;-90&deg; triangles can be used to evaluate trigonometric functions for multiples of &pi;/4.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

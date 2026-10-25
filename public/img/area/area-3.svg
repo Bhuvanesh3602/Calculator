@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="213" height="107" version="1.1" viewBox="0 0 213 107" xmlns="http://www.w3.org/2000/svg">
+<line x1="34" y1="21" x2="34" y2="106" stroke-dasharray="3, 2" style="stroke:blue;stroke-width:1" />
+<path d="M34,97 L43,97 L43,106" fill="none" stroke="blue" stroke-width="1" />
+<g font-family="Arial, sans-serif">
+<text x="36" y="70" fill="black" font-size="18">h</text>
+<text x="118" y="18" fill="black" font-size="18">b</text>
+</g>
+<polygon points="1,106 180,106 212,21 33,21" style="fill:none;stroke:#000;stroke-width:2" />
+</svg>

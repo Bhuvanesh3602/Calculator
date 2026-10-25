@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Time Duration Calculator</title>
+	<meta name="description" content="Free calculator to get the number of hours, minutes, and seconds between two times. Also, a full version to calculate the time duration between two dates." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/time-duration-calculator.html" itemprop="item"><span itemprop="name">time duration calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Time Duration Calculator</h1>
+<p>Use the calculator below to find the hours, minutes, and seconds between two times.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform" action="/time-duration-calculator.html">
+<table class="panel"  >
+  <tr align="center">
+		<td>&nbsp;</td>
+		<td>Hour</td>
+		<td>Minute</td><td>Second</td>		<td>&nbsp;</td>
+	</tr>
+  <tr align="center">
+		<td>Start Time</td>
+		<td><input type="text" name="starthour" value="8" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td><input type="text" name="startmin" value="30" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td><input type="text" name="startsec" value="0" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td nowrap><select name="startunit">
+			<option value="a" selected>AM</option>
+			<option value="p" >PM</option>
+			</select>
+		</td>
+		<td rowspan="2">
+			<div><a href="#" onClick="return popTime('', 'start');">Now</a></div>
+			<div style="padding: 3px;"><img src="/img/svg/swap.svg" width="12" height="12" alt="swap" onClick="return swapStaEnd();"></div>
+			<div><a href="#" onClick="return popTime('', 'end');">Now</a></div>
+		</td>
+	</tr>
+  <tr align="center">
+		<td>End Time</td>
+		<td><input type="text" name="endhour" value="5" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td><input type="text" name="endmin" value="30" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td><input type="text" name="endsec" value="0" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td nowrap><select name="endunit">
+			<option value="a" >AM</option>
+			<option value="p" selected>PM</option>
+			</select>
+		</td>
+	</tr>
+  <tr>
+  	<td align="center" colspan="6" style="padding-top:10px;">
+  		<input type="hidden" name="ctype" value="1">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+  	</td>
+  </tr>
+</table></form>
+
+<a name="twodates"></a><br>
+<h2>Time Between Two Dates</h2>
+<p>Use this time and date duration calculator to find out the number of days, hours, minutes, and seconds between the times on two different dates. To add or subtract time from a date, use the <a href="/time-calculator.html#addsubtractdate">Time Calculator</a>.</p>
+
+<form name="calform2" action="/time-duration-calculator.html#twodates">
+<table class="panel" >
+  <tr>
+		<td align="right" valign="top" style="padding-top:10px;">Start Time:</td><td valign="middle"><script>DateInput('today', true)</script>  	<table cellpadding="0" cellspacing="0" style="padding-top:5px;"><tr align="center"><td>Hour</td>
+		<td>Minute</td><td>Second</td>  	<td colspan="2">&nbsp;</td></tr><tr align="center">
+  	<td style="padding-left: 3px;"><input type="text" name="starthour2" value="8" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+  	<td style="padding-left: 3px;"><input type="text" name="startmin2" value="30" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+  	<td style="padding-left: 3px;"><input type="text" name="startsec2" value="0" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td style="padding-left: 3px;"><select name="startunit2">
+			<option value="a" selected>AM</option>
+			<option value="p" >PM</option>
+		</select></td><td style="padding-left: 3px;" style="padding-left: 3px;"><a href="#" onClick="return popTime('2', 'start');">Now</a></td></tr></table>
+		</td>
+  </tr>
+ 	<tr><td colspan="2">&nbsp;</td></tr>  <tr>
+		<td align="right" valign="top" style="padding-top:10px;">End Time:</td><td valign="middle"><script>DateInput('ageat', true)</script>  	<table cellpadding="0" cellspacing="0" style="padding-top:5px;"><tr align="center"><td>Hour</td>
+		<td>Minute</td><td>Second</td>  	<td colspan="2">&nbsp;</td></tr><tr align="center">
+  	<td style="padding-left: 3px;"><input type="text" name="endhour2" value="5" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+  	<td style="padding-left: 3px;"><input type="text" name="endmin2" value="30" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+  	<td style="padding-left: 3px;"><input type="text" name="endsec2" value="0" class="in4char" onKeyUp="iptfieldCheck(this, '', 'pzn');"></td>
+		<td style="padding-left: 3px;"><select name="endunit2">
+			<option value="a" >AM</option>
+			<option value="p" selected>PM</option>
+		</select></td><td style="padding-left: 3px;"><a href="#" onClick="return popTime('2', 'end');">Now</a></td></tr></table>
+		</td>
+  </tr>
+  <tr>
+  	<td align="center" colspan="2" style="padding-top:10px;">	   	<input type="hidden" name="ctype" value="2">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+    </td>
+  </tr>
+</table></form>
+<br><p><fieldset><legend>Related</legend><a href="/date-calculator.html">Date Calculator</a> | <a href="/time-calculator.html">Time Calculator</a> | <a href="/age-calculator.html">Age Calculator</a></fieldset></p>
+<script>
+function popTime(ptNum, ptType){
+  var ptDate = new Date();
+  var ptHour = ptDate.getHours();
+  var ptMinute = ptDate.getMinutes();
+  var ptSecond = ptDate.getSeconds();
+  var strHour = ""+ptHour;
+  if (ptHour>12) strHour = ""+(ptHour-12);
+  eval("document.calform"+ptNum+"."+ptType+"hour"+ptNum+".value = '"+strHour+"';");
+  eval("document.calform"+ptNum+"."+ptType+"min"+ptNum+".value = '"+ptMinute+"';");
+  eval("document.calform"+ptNum+"."+ptType+"sec"+ptNum+".value = '"+ptSecond+"';");
+  if (ptHour<12){
+	  eval("document.calform"+ptNum+"."+ptType+"unit"+ptNum+".getElementsByTagName('option')[0].selected = 'selected';");
+  }else{
+	  eval("document.calform"+ptNum+"."+ptType+"unit"+ptNum+".getElementsByTagName('option')[1].selected = 'selected';");
+  }
+	return false;
+}
+function swapStaEnd(){
+	var tempSh = document.calform.starthour.value;
+	var tempSm = document.calform.startmin.value;
+	var tempSs = document.calform.startsec.value;
+	var tempSu = document.calform.startunit.value;
+	document.calform.starthour.value = document.calform.endhour.value;
+	document.calform.startmin.value = document.calform.endmin.value;
+	document.calform.startsec.value = document.calform.endsec.value;
+	if ('a'==document.calform.endunit.value){
+		document.calform.startunit.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		document.calform.startunit.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	document.calform.endhour.value = tempSh;
+	document.calform.endmin.value = tempSm;
+	document.calform.endsec.value = tempSs;
+	if ('a'==tempSu){
+		document.calform.endunit.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		document.calform.endunit.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	return false;
+}
+</script>
+
+<br>
+<h3>Calculate the duration between two times</h3>
+<p>Calculating the duration between two times can be a little tricky depending on the numbers of minutes and seconds in the two times being compared. As an example, the following are the steps to determine the number of hours and minutes between two chosen times <u>within the same day</u>:</p>
+<ol>
+<li>First, identify the starting and an ending time. The goal is to subtract the starting time from the ending time under the correct conditions.</li>
+<li>If the times are not already in 24-hour time, convert them to 24-hour time. AM hours are the same in both 12-hour and 24-hour time. For PM hours, add 12 to the number to convert it to 24-hour time. For example, 1:00 PM would be 13:00 in 24-hour time.</li>
+<li>Determine whether the number of minutes is larger in the starting time or the ending time.
+<ul>
+	<li>If the ending time has a larger number of minutes: Subtract the starting time from the ending time as you would subtract normally, keeping the hours and minutes on the appropriate side of the ":", where hours are on the left, and minutes are on the right. For example:
+	<table cellpadding="0">
+		<tr><td>&nbsp;</td><td align="right">13:57</td></tr>
+		<tr><td>&ndash;&nbsp;</td><td align="right">9:22</td></tr>
+		<tr><td colspan="2" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>&nbsp;</td><td align="right">4:35</td></tr>
+	</table>
+	</li>
+	<li>If the starting time has a larger number of minutes: Treat the hour and minute portion separately. Add 60 to the number of minutes in the ending time, and subtract 1 hour from the hour portion of the ending time. Then, subtract the minutes and the hours, keeping the result on the appropriate side of the ":" where hours are on the left, and minutes are on the right. For example:
+	<table><tr><td valign="top">
+	<table cellpadding="0">
+		<tr><td>&nbsp;</td><td align="right">13:57</td></tr>
+		<tr><td>&ndash;&nbsp;</td><td align="right">9:58</td></tr>
+		<tr><td colspan="2" bgcolor="#000000" height="1"></td></tr>
+	</table>
+	</td><td class="verybigtext">&nbsp; &rArr; &nbsp;</td><td>
+	<table cellpadding="0">
+		<tr><td>&nbsp;</td><td align="right">12:117</td></tr>
+		<tr><td>&ndash;&nbsp;</td><td align="right">9:58 &nbsp;</td></tr>
+		<tr><td colspan="2" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>&nbsp;</td><td align="right">3:59 &nbsp;</td></tr>
+	</table>
+	</td></tr></table>
+	</li>
+</ul>
+</li>
+</ol>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Common Factor Calculator</title>
+	<meta name="description" content="This common factor calculator gives out all of the common factors of a given set of numbers. Also, learn more about the method of finding the common factors." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/common-factor-calculator.html" itemprop="item"><span itemprop="name">common factor calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Common Factor Calculator</h1><p>Please provide integers separated by a comma "," and click the "Calculate" button to find their common factors.</p>
+<table class="panel" align="center"><tr><td align="center">
+<form name="calform">
+<textarea name="numberinputs" class="infulltxarea" rows="5">330, 75, 450, 225</textarea>
+<br><br>
+<input type="submit" name="x" value="Calculate">
+<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</form>
+</td></tr></table>
+<br>
+<p><fieldset><legend>Related</legend><a href="/gcf-calculator.html">GCF Calculator</a> | <a href="/factor-calculator.html">Factor Calculator</a></fieldset></p>
+
+
+<br><h3>What is a factor?</h3>
+<p>A factor is a term in multiplication. For example, in:</p>
+<p style="text-align:center;">3 &#215; 4 = 12,</p>
+<p>3 and 4 are the factors. It is possible for a number to have multiple factors. Using 12 as an example, in addition to 3 and 4 being factors:</p>
+<p style="text-align:center;">3 &#215; 4 = 12</p>
+<p style="text-align:center;">2 &#215; 6 = 12</p>
+<p style="text-align:center;">1 &#215; 12 = 12</p>
+<p>It can be seen that 1, 2, 3, 4, 6, and 12 are all factors of the number 12. This is the most basic form of a factor, but algebraic expressions can also be factored, though that is not the intent of this calculator.</p>
+
+<h3>What is a common factor?</h3>
+<p>A common factor is a factor that is shared between two different numbers. It can also be referred to as a common divisor. As an example:</p>
+<p style="text-align:center;">The factors of 16 include: 1, 2, 4, 8, and 16.</p>
+<p style="text-align:center;">The factors of 12 include: 1, 2, 3, 4, 6, and 12.</p>
+<p style="text-align:center;">Thus, the common factors of 16 and 12 are: 1, 2, and 4.</p>
+<p>Often in math problems, it can be desirable to find the greatest common factor of some given numbers. In this case, the greatest common factor is 4.</p>
+<p>This calculator only accepts positive integers as input to calculate their common factors. While only two numbers are used in the above example, the calculator can compute the common factors of more than two numbers.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

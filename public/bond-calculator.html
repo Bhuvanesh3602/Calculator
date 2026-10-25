@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bond Calculator</title>
+	<meta name="description" content="Free calculator to compute various parameters of a bond. It also provides the price and accrued interest for bonds not traded at the coupon date." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/bond-calculator.html" itemprop="item"><span itemprop="name">bond calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Bond Calculator</h1>
+<p>Please enter any four values into the fields below to calculate the remaining value of a bond. This calculator is for bonds issued/traded at the coupon date.</p>
+
+<div class="clefthalf">
+<div class="panel"><form name="calform" action="/bond-calculator.html#bondresult">
+<table id="calinputtable" align="center">
+<tr>
+	<td>Price</td>
+	<td colspan="2"><input type="text" name="cprice" id="cprice" value="" class="inlong indollar"></td>
+</tr>
+<tr><td>Face value</td><td colspan="2"><input type="text" name="cface" id="cface" value="100" class="inlong indollar"></td></tr>
+<tr><td>Yield</td><td colspan="2"><input type="text" name="cyield" id="cyield" value="6" class="inlong inpct"></td></tr>
+<tr><td valign="top"><div style="padding-top:8px;">Time to maturity</div></td><td colspan="2">
+	<input type="text" name="cyears" id="cyears" value="3" class="inlong inuiyear"><span class="inuiyearspan">years</span></td></tr>
+<tr>
+	<td>Annual coupon</td>
+	<td><input type="text" name="ccoupon" id="ccoupon" value="5" class="inlong inpct"></td>
+	<td><select name="cunit" onChange="cunitchange('ccoupon', 'cface', this.value);"><option value="p" selected>%</option><option value="d">$</option></select></td>
+</tr>
+<tr><td nowrap>Coupon frequency</td><td colspan="2">
+	<select id="cfrequency" name="cfrequency">
+		<option value="a" selected>annually</option>
+		<option value="s" >semiannually</option>
+		<option value="q" >quarterly</option>
+		<option value="m" >monthly</option>
+	</select>
+</td></tr>
+<tr><td colspan="3" align="center" style="padding-top: 8px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form></div>
+</div>
+<div class="crighthalf"><a name="bondresult"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Results<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Qm9uZCBDYWxjdWxhdG9y', 1, 'Qm9uZCBDYWxjdWxhdG9y', '', '');"></h2><p style="padding: 8px 0px;">Given the face value, yield, time to maturity, and annual coupon, the price is: <span class="bigtext"><b>$97.3270</b></span>.</p></div>
+<div id="clear"></div>
+
+<br>
+<h2>Bond pricing calculator</h2>
+<p>Use this calculator to value the price of bonds not traded at the coupon date. It provides the dirty price, clean price, accrued interest, and the days since the last coupon payment.</p>
+
+<div class="clefthalf">
+<div class="panel"><form name="calform2" action="/bond-calculator.html#bond2result">
+<table id="calinputtable" align="center">
+<tr><td>Face value</td><td colspan="2"><input type="text" name="cface2" id="cface2" value="100" class="inlong indollar"></td></tr>
+<tr><td>Yield</td><td colspan="2"><input type="text" name="cyield2" id="cyield2" value="6" class="inlong inpct"></td></tr>
+<tr>
+	<td>Annual coupon</td>
+	<td><input type="text" name="ccoupon2" id="ccoupon2" value="5" class="inlong inpct"></td>
+	<td><select name="cunit2" onChange="cunitchange('ccoupon2', 'cface2', this.value);"><option value="p" selected>%</option><option value="d">$</option></select></td>
+</tr>
+<tr><td nowrap>Coupon frequency</td><td colspan="2">
+	<select id="cfrequency2" name="cfrequency2">
+		<option value="a" selected>annually</option>
+		<option value="s" >semiannually</option>
+		<option value="q" >quarterly</option>
+		<option value="m" >monthly</option>
+	</select>
+</td></tr>
+<tr>
+	<td>Maturity date <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The date on which the bond issuer is obligated to repay the principal amount to the bondholder. It marks the end of the bond\'s term or duration.', '');" onmouseout="tooltip.hide();"></td>
+	<td colspan="2"><input type="date" name="cmdate" value="2029-10-21"></td>
+</tr>
+<tr>
+	<td>Settlement date <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The settlement date refers to the date on which a bond transaction is completed, and the buyer pays the agreed-upon price to the seller. It is the day when ownership of the bond formally transfers from the seller to the buyer, and the transaction is settled.', '');" onmouseout="tooltip.hide();"></td>
+	<td colspan="2"><input type="date" name="csdate" value="2026-10-25"></td>
+</tr>
+
+<tr><td colspan="3" style="padding: 8px 0px;">
+Day-count convention to use:<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Day-count refers to the method used to calculate the fraction of a period over which interest accrues. Different bonds and markets may use various day count conventions. Common day count conventions include:<br><br><b>30/360 (or bond basis)</b>: A month is considered to have 30 days and a year is considered to have 360 days.<br><b>Actual/360</b>: The numerator indicates the actual number of days. The denominator assumes 360 days in a year.<br><b>Actual/365</b>: Similar to Actual/360, but it assumes 365 days in a year in the denominator.<br><b>Actual/Actual</b>: The actual number of days in both the numerator and denominator.', '');" onmouseout="tooltip.hide();">
+<div style="padding-left: 20px;">
+	<div><label for="cset1" class="cbcontainer"><input type="radio" name="cset" id="cset1" value="b" checked /><span class="rbmark"></span>30/360</label></div>
+	<div><label for="cset2" class="cbcontainer"><input type="radio" name="cset" id="cset2" value="c"  /><span class="rbmark"></span>Actual/360</label></div>
+	<div><label for="cset3" class="cbcontainer"><input type="radio" name="cset" id="cset3" value="n"  /><span class="rbmark"></span>Actual/365</label></div>
+	<div><label for="cset4" class="cbcontainer"><input type="radio" name="cset" id="cset4" value="a"  /><span class="rbmark"></span>Actual/Actual</label></div>
+</div>
+</td></tr>
+<tr><td colspan="3" align="center" style="padding-top: 8px;">
+	<input type="submit" name="x2" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</table>
+</form></div>
+</div>
+<div class="crighthalf"><a name="bond2result"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Results<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Qm9uZCBDYWxjdWxhdG9y', 2, 'Qm9uZCBwcmljaW5nIGNhbGN1bGF0b3I=', '', '');"></h2><div style="padding: 8px;"><table class="cinfoT"><tr><td>Dirty price:</td><td align="right">$97.3900</td></tr><tr><td>Clean price:</td><td align="right">$97.3345</td></tr><tr><td>Accrued interest:</td><td align="right">$0.0556</td></tr><tr><td>Interest accrued days:</td><td align="right">4</td></tr></table></div></div>
+<div id="clear"></div>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cprice");
+proComma2("cface");
+proComma2("ccoupon");
+proComma2("cface2");
+proComma2("ccoupon2");
+function cunitchange(cucid, cfaceid, cucval){
+	var cucfacevalue = (document.getElementById(cfaceid).value+"").replaceAll(',', '').replaceAll(' ', '');
+	var cucthisunitval = (document.getElementById(cucid).value+"").replaceAll(',', '').replaceAll(' ', '');
+	if (isNumber(cucfacevalue)&&isNumber(cucthisunitval)){
+		cucfacevalue = parseFloat(cucfacevalue);
+		cucthisunitval = parseFloat(cucthisunitval);
+		if (cucval=='d'){
+			document.getElementById(cucid).value = Math.round(cucfacevalue*cucthisunitval/100);
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+		}else if (cucval=='p'){
+			document.getElementById(cucid).value = Math.round(100000.0*cucthisunitval/cucfacevalue)/1000;
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+		}
+	}else{
+		if (cucval=='d'){
+			document.getElementById(cucid).classList.remove('inpct');
+			document.getElementById(cucid).classList.add('indollar');
+		}else if (cucval=='p'){
+			document.getElementById(cucid).classList.remove('indollar');
+			document.getElementById(cucid).classList.add('inpct');
+		}
+	}
+	insertComma2(document.getElementById(cucid), 'd');
+	return false;
+}
+</script>
+
+<p><fieldset><legend>Related</legend><a href="/investment-calculator.html">Investment Calculator</a> | <a href="/interest-calculator.html">Interest Calculator</a> | <a href="/loan-calculator.html">Loan Calculator</a></fieldset></p><br>
+
+<p>The first calculator above is designed to compute various parameters of a fixed-rate coupon bond issued or traded on the coupon date. The second calculator is used to determine the prices and accrued interest of fixed-rate bonds not traded on the coupon date using common day-count conventions. It is important to note that these calculators are specifically intended for use with fixed-rate coupon bonds, which represent the majority of bond types. Additionally, it should be mentioned that in pricing bonds, these calculators do not account for other factors that can influence bond prices, such as credit quality, supply and demand, and numerous other factors.</p>
+
+<h3>What is a bond?</h3>
+<p>A bond is a fixed-income instrument that represents a loan made by an investor to a borrower (typically a corporation or government entity). It serves as a means for organizations or governments to raise funds by borrowing from investors. A bond specifies the terms of the loan and the payments to be made to the bondholder.</p>
+<p>Bonds come in various types to cater to the diverse needs of both investors and issuers. Each type comes with its own unique characteristics, risks, and benefits. The most common types include government bonds, municipal bonds, corporate bonds, and high-yield (junk) bonds, among others.</p>
+<p>Relative to stocks, bonds are considered a lower-risk investment, making them a popular choice among investors seeking a stable income stream while preserving capital. However, the risk and return on bonds can vary widely, depending on the creditworthiness of the issuer and the bond's duration. For example, high-quality government bonds (such as U.S. Treasury bonds) are typically viewed as safe investments while high-yield corporate bonds (also known as junk bonds) carry higher risk.</p>
+
+<h3>Bond structure</h3>
+<p>The structure of a bond refers to its various components and characteristics, which dictate how it functions as a financial instrument. Here's a breakdown of the key elements in the structure of a bond:</p>
+<ol>
+	<li><b>Face value</b>&mdash;The face value, or par value, is the amount the bond issuer agrees to repay the bondholder at the bond's maturity. This amount also serves as the basis for calculating interest/coupon payments.</li>
+	<li><b>Maturity date</b>&mdash;The maturity date is the point when the bond's principal is due for repayment to the bondholder. Bonds can have short, medium, or long-term maturities spanning from less than a year to over 30 years. The term "time to maturity" refers to the remaining period until the bond reaches its maturity date.</li>
+	<li><b>Coupon rate</b>&mdash;The coupon rate is the interest rate the bond issuer commits to paying on the bond's face value. Interest is typically paid annually or semi-annually. Rates can be fixed, floating (adjustable), or zero (as in zero-coupon bonds). The calculators above are designed exclusively for bonds with fixed coupon rates.</li>
+	<li><b>Coupon payment frequency</b>&mdash;This refers to how often interest payments are made to bondholders. Common frequencies for interest or dividend payments include annual, semi-annual, quarterly, and monthly schedules.</li>
+	<li><b>Yield</b>&mdash;The yield is a measure of the return an investor anticipates earning if the bond is held to maturity. Expressed as an annual percentage, the yield is affected by the bond's purchase price, face value, coupon rate, and the time until maturity. There are several types of yields that investors consider. The yield referred to in the above calculators is the current yield, which assesses the bond's coupon interest in relation to its current market price, rather than its face value. The current yield is calculated by dividing the annual coupon payment by the bond's current market price. This yield changes as the market price of the bond changes.</li>
+	<li><b>Price</b>&mdash;The price of a bond is the amount it can be bought or sold for in the financial markets. In essence, a bond's price reflects the present value of its future coupon payments and the return of principal at maturity, adjusted for the bond's credit risk, duration, and the current interest rate environment.</li>
+</ol>
+<p>Beyond these core components, features such as the issuer, call and put options, credit rating, covenants, and marketability also play important roles in a bond's valuation.</p>
+
+<h3>How to calculate the bond price?</h3>
+<p>Calculating the bond price involves discounting the future cash flows, which include interest payments and the principal repayment, to their present value using the required yield or discount rate. The bond price is the sum of the present values of all these cash flows. The basic formula for calculating the price of a bond is as follows:</p>
+<p style="text-align: center;"><img src="/img/bond/bond-price.svg" width="263" height="54" alt="bond price formula"></p>
+<p>where:</p>
+<p style="padding-left: 20px;">
+    C = the coupon payment per period,<br>
+    N = number of periods until maturity,<br>
+    r = the discount rate or yield per period,<br>
+	F = the face value of the bond.
+</p>
+<div class="panel">
+<p><b>Example:</b></p>
+<p>Let's say we have a bond with a face value of $1,000, a coupon rate of 5%, semi-annual payments, a maturity of 10 years, and we require a yield of 6%.</p>
+<p style="padding-left: 10px;">
+    Coupon payment per period (C) = 5% of $1,000 / 2 = $25<br>
+    Number of periods (N) = 10 years &#215; 2 = 20 periods<br>
+    Discount rate per period (r) = 6% / 2 = 3% or 0.03
+</p>
+<p>The bond price is calculated by discounting each semi-annual payment and the face value at maturity back to their present value, using a 3% per period rate. For this case, the calculated bond price is $925.61. This process involves performing calculations for each payment and then summing them up, a task that can be complex without the aid of a financial calculator or software. Our calculators above are designed to facilitate this purpose.</p>
+</div>
+
+<h3>Clean price and dirty price</h3>
+<p>When calculating the price or present value of a bond, it is often assumed that the bond trades or is issued on the coupon date. However, in reality, bonds are mostly traded outside of the coupon dates. In the bond market, the terms 'clean price' and 'dirty price' are used to distinguish between two ways of quoting the price of a bond outside the coupon date. These concepts are crucial for understanding how bonds are traded and priced.</p>
+
+<h4>Accrued interest</h4>
+<p>Accrued interest of a bond is the interest that has accumulated on the bond since the last interest payment date but has not yet been paid to the bondholder. The accrued interest can be calculated using the formula:</p>
+<p style="text-align: center;"><img src="/img/bond/accrued-interest.svg" class="scaleimg" alt="accrued interest formula"></p>
+
+<h4>Clean price</h4>
+<p>The clean price of a bond is the price that excludes any accrued interest since the last coupon payment. When bonds are quoted in financial markets and to the public, the clean price is typically used. This price reflects the market value of the bond itself, without considering any accrued interest. The clean price is useful because it provides a standard way to compare the prices of different bonds without the variability introduced by differing interest accrual periods.</p>
+
+<h4>Dirty price (invoice price)</h4>
+<p>The dirty price of a bond, also known as the invoice price, is the price that includes the accrued interest on top of the clean price. The dirty price is the actual amount paid by a buyer to the seller of the bond. Since bondholders earn interest on a daily basis, if a bond is bought or sold between coupon payment dates, the buyer compensates the seller for the interest income earned from the last coupon date up to the purchase date. This makes the dirty price a more accurate reflection of the bond's total value at any given point in time between coupon payments.</p>
+<p>Based on the definitions above, the relationship between clean and dirty prices can be summarized as:</p>
+<p style="text-align:center;">dirty price = clean price + accrued interest</p>
+<p>This formula highlights that the dirty price, which is the total price paid by the buyer, includes both the clean price of the bond (its market value excluding accrued interest) and the accrued interest earned on the bond from the last coupon payment date up to the purchase date.</p>
+
+<h4>Day-count conventions</h4>
+<p>As seen in the accrued interest calculation formula above, the accrued interest is closely related to the methods of counting the number of days since the last coupon payment and the total days in a year. Day-count conventions in the bond market are rules that determine how days are counted for the calculation of interest that accrues over time on bonds. The main day-count conventions used in the bond market include:</p>
+<ul>
+	<li><b>30/360 (bond basis)</b>: This convention assumes that each month has 30 days and a year has 360 days. It simplifies interest calculations by standardizing the lengths of months, making it easier to calculate accrued interest manually. This convention is often used for corporate, agency, and municipal bonds in the United States.</li>
+	<li><b>Actual/360 (A/360)</b>: Here, the actual number of days in the accrual period is used, but the year is assumed to have 360 days. This convention is commonly used in money market instruments, such as commercial paper and short-term bank certificates of deposit.</li>
+	<li><b>Actual/365 (A/365)</b>: This method uses the actual number of days in the accrual period but assumes a fixed year length of 365 days (although leap years, which have 366 days, are usually not accounted for). It is commonly used for some government bonds outside the United States and in some interest rate swaps.</li>
+	<li><b>Actual/Actual (A/A)</b>: This convention is used primarily for government bonds, including U.S. Treasury securities. It takes into account the actual number of days in the accrual period and the actual number of days in the year, making it the most precise.</li>
+</ul>
+<p>Different bonds may use different day-count conventions. The choice of day-count convention affects the calculation of accrued interest and, therefore, the price of the bond when it is traded between coupon dates. The second calculator above gives the option to select the day-count convention to use in the calculation. The accrued interest differences between different day-count conventions are normally very small. In extreme cases, it can have a difference of up to 6 days of accrued interest.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

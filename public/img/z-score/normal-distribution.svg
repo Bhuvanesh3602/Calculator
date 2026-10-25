@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="212" height="143" viewBox="0 0 353 238" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect width="353" height="238" x="0" y="0" fill="#fff" />
+<polygon points="90,208 145,208 145,62 110,152 100,173 90,184" style="fill:#fdcab6;stroke:#fdcab6;stroke-width:0" />
+<line x1="0" y1="208" x2="353" y2="208" style="stroke:#03198a;stroke-width:1.5" />
+<g font-family="Arial, sans-serif">
+<text x="80" y="233" fill="black" font-size="32">Z<tspan font-size="22">1</tspan></text>
+<text x="125" y="233" fill="black" font-size="32">Z<tspan font-size="22">2</tspan></text>
+<text x="113" y="190" fill="black" font-size="32">P</text>
+</g>
+<path d="m 353,206 c -53.6,-0.225 -59.4,-4.56 -66.7,-8.66 -29.2,-16.3 -37.9,-44.5 -54.5,-86.9 -18.3,-46.6 -30.9,-107 -53.3,-107 -18.1,0 -32.2,59 -50.5,106 -16.7,42.4 -26.6,72.7 -55.8,89 -7.52,4.2 -15,8.34 -72.7,8.34" fill="none" stroke="#000" stroke-width="4" />
+</svg>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Interest Rate Calculator</title>
+	<meta name="description" content="Free online calculator to find the interest rate as well as the total interest cost of an amortized loan with a fixed monthly payback amount." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/interest-rate-calculator.html" itemprop="item"><span itemprop="name">interest rate calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Interest Rate Calculator</h1>
+<p>The Interest Rate Calculator determines real interest rates on loans with fixed terms and monthly payments. For example, it can calculate interest rates in situations where car dealers only provide monthly payment information and total price without including the actual rate on the car loan. To calculate the interest on investments instead, use the <a href="/interest-calculator.html">Interest Calculator</a>, or use the <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> to understand the difference between different interest rates.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput">
+<form name="calform">
+<table align="center" class="panel">
+<tr>
+	<td>Loan amount</td>
+	<td><input type="text" name="cloanamount"id="cloanamount" value="32000" class="inlonger indollar"></td>
+</tr>
+<tr>
+	<td>Loan term</td>
+	<td nowrap>
+		<input type="text" name="cloanterm" id="cloanterm" value="3" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+		<input type="text" name="cloantermmonth" id="cloantermmonth" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>&nbsp;
+	</td>
+</tr>
+<tr>
+	<td nowrap>Monthly payment</td>
+	<td><input type="text" name="cmonthlypay" id="cmonthlypay" value="960" class="inlonger indollar"></td>
+</tr>
+<tr>
+	<td colspan="2" align="center" style="padding-top: 8px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div><div class="rightresult"><div class="espaceforM">&nbsp;</div>
+<table align="center"><tr><td><h2 class="h2result">Results<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('SW50ZXJlc3QgUmF0ZSBDYWxjdWxhdG9y', 0, 'SW50ZXJlc3QgUmF0ZSBDYWxjdWxhdG9y', '', '');"></h2><table cellpadding='3'><tr bgcolor='#dddddd'><td><b>Interest rate</b></td><td align=right><b>5.065%</b></td></tr><tr><td>Total of 36 monthly payments</td><td align=right>$34,560.00</td></tr><tr><td>Total interest paid</td><td align=right>$2,560.00</td></tr></table></td></tr></table></div>
+<div id="clear"></div>
+<br>
+<div class="clefthalf"><div class="bigtext" style="text-align:center;"><b>Loan Amortization Graph</b></div><div style="text-align:center;"><svg width="300" height="180"><style>.mclgrid{stroke:#999;stroke-width:0.5;} .mcllegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcltitle{fill: #000; font-family:arial,helvetica,sans-serif; font-size: 15px; dominant-baseline:middle;text-anchor:middle;} .mcllabely{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:middle; text-anchor:end;} .mcllabelx{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:hanging; text-anchor:middle;} .mcldot:hover {stroke-width:10;} .mcldot {stroke-width:0;}</style><text x="165" y="172" class="mcltitle">Year</text><line x1="37" y1="145" x2="292" y2="145" class="mclgrid" /><text x="35" y="145" class="mcllabely">$0</text><line x1="37" y1="107.246" x2="292" y2="107.246" class="mclgrid" /><text x="35" y="107.246" class="mcllabely">$10K</text><line x1="37" y1="69.493" x2="292" y2="69.493" class="mclgrid" /><text x="35" y="69.493" class="mcllabely">$20K</text><line x1="37" y1="31.739" x2="292" y2="31.739" class="mclgrid" /><text x="35" y="31.739" class="mcllabely">$30K</text><line x1="40" y1="8" x2="40" y2="149" class="mclgrid" /><text x="40" y="150" class="mcllabelx">0</text><line x1="124" y1="8" x2="124" y2="149" class="mclgrid" /><text x="124" y="150" class="mcllabelx">1</text><line x1="208" y1="8" x2="208" y2="149" class="mclgrid" /><text x="208" y="150" class="mcllabelx">2</text><line x1="292" y1="8" x2="292" y2="149" class="mclgrid" /><text x="292" y="150" class="mcllabelx">3</text><path d="M 40 24.189 L 47 27.303 L 54 30.431 L 61 33.571 L 68 36.725 L 75 39.893 L 82 43.074 L 89 46.268 L 96 49.475 L 103 52.696 L 110 55.931 L 117 59.18 L 124 62.442 L 131 65.718 L 138 69.007 L 145 72.311 L 152 75.628 L 159 78.96 L 166 82.306 L 173 85.665 L 180 89.039 L 187 92.427 L 194 95.83 L 201 99.247 L 208 102.678 L 215 106.123 L 222 109.584 L 229 113.059 L 236 116.548 L 243 120.052 L 250 123.571 L 257 127.105 L 264 130.654 L 271 134.218 L 278 137.797 L 285 141.391 L 292 145" fill="none" stroke="#2b7ddb" stroke-width="3" /><path d="M 40 145 L 47 144.49 L 54 143.993 L 61 143.51 L 68 143.039 L 75 142.582 L 82 142.139 L 89 141.709 L 96 141.292 L 103 140.889 L 110 140.499 L 117 140.123 L 124 139.761 L 131 139.412 L 138 139.078 L 145 138.757 L 152 138.45 L 159 138.157 L 166 137.879 L 173 137.614 L 180 137.364 L 187 137.127 L 194 136.906 L 201 136.698 L 208 136.505 L 215 136.326 L 222 136.162 L 229 136.013 L 236 135.878 L 243 135.758 L 250 135.653 L 257 135.562 L 264 135.487 L 271 135.426 L 278 135.381 L 285 135.35 L 292 135.335" fill="none" stroke="#8bbc21" stroke-width="3" /><path d="M 40 145 L 47 141.376 L 54 137.751 L 61 134.127 L 68 130.503 L 75 126.878 L 82 123.254 L 89 119.63 L 96 116.005 L 103 112.381 L 110 108.757 L 117 105.132 L 124 101.508 L 131 97.884 L 138 94.259 L 145 90.635 L 152 87.011 L 159 83.386 L 166 79.762 L 173 76.138 L 180 72.513 L 187 68.889 L 194 65.265 L 201 61.64 L 208 58.016 L 215 54.392 L 222 50.767 L 229 47.143 L 236 43.519 L 243 39.894 L 250 36.27 L 257 32.646 L 264 29.021 L 271 25.397 L 278 21.772 L 285 18.148 L 292 14.524" fill="none" stroke="#910000" stroke-width="3" /><rect x="40" y="8" width="252" height="137" style="stroke:#666;stroke-width:0.5;fill:none;" /><rect x="45" y="17" width="20" height="6" style="fill:#2b7ddb;" /><text x="70" y="24" class="mcvsblegend">Balance</text><rect x="45" y="35" width="20" height="6" style="fill:#8bbc21;" /><text x="70" y="42" class="mcvsblegend">Interest</text><rect x="45" y="53" width="20" height="6" style="fill:#910000;" /><text x="70" y="60" class="mcvsblegend">Payment</text></svg></div><br></div><div class="crighthalf">
+	<div class="bigtext" style="text-align:center;"><b>Payment Breakdown</b></div>
+<div style="text-align:center;"><g onclick="ttline2HideTT();"><svg width="250" height="120"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 73.5 8 A 52 52 0 1 1 50.162 13.531 L 73.5 60 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$32,000.00 (93%)');" onmouseout="ttpieHideTT();" /><line x1="73.5" y1="60" x2="73.5" y2="8" class="mcpline" /><path d="M 50.162 13.531 A 52 52 0 0 1 73.5 8 L 73.5 60 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$2,560.00 (7%)');" onmouseout="ttpieHideTT();" /><line x1="73.5" y1="60" x2="50.162" y2="13.531" class="mcpline" /><line x1="73.5" y1="60" x2="73.5" y2="8" class="mcpline" /><circle cx="73.5" cy="60" r="20.8" fill="white" /><text x="82.033" y="96.003" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$32,000.00 (93%)');" onmouseout="ttpieHideTT();">93%</text><text x="64.967" y="23.997" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$2,560.00 (7%)');" onmouseout="ttpieHideTT();">7%</text><rect x="147" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="172" y="19" class="mcplegend">Principal</text><rect x="147" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="172" y="37" class="mcplegend">Interest</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div></div>
+<div id="clear"></div>
+
+
+<p><fieldset><legend>Related</legend><a href="/apr-calculator.html">APR Calculator</a> | <a href="/interest-calculator.html">Interest Calculator</a> | <a href="/compound-interest-calculator.html">Compound Interest Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Interest Rate?</h3>
+<p>Interest rate is the amount charged by lenders to borrowers for the use of money, expressed as a percentage of the principal, or original amount borrowed; it can also be described alternatively as the cost to borrow money. For instance, an 8% interest rate for borrowing $100 a year will obligate a person to pay $108 at year-end. As can be seen in this brief example, the interest rate directly affects the total interest paid on any loan. Generally, borrowers want the lowest possible interest rates because it will cost less to borrow; conversely, lenders (or investors) seek high interest rates for larger profits. Interest rates are usually expressed annually, but rates can also be expressed as monthly, daily, or any other period.</p>
+<p>Interest rates are involved in almost all formal lending and borrowing transactions. Examples of real-world applications of interest rates include mortgage rates, the charge on a person's outstanding debt on a credit card, business loans to fund capital projects, the growth of retirement funds, amortization of long-term assets, the discount offered by a supplier to a buyer for paying off an invoice earlier, and much, much more.</p>
+<p><b>Simple vs. Compound Interest</b></p>
+<p>There are two methods for calculating interest. Simple interest is calculated as a percentage of principal only, while compound interest is calculated as a percentage of the principal along with any accrued interest. As a result of this compounding behavior, interest earned by lenders subsequently earns interest over time. The more frequently interest compounds within a given time period, the more interest will be accrued. Most formal interest payment calculations today are compounded, including those for this calculator, and any following reference to the interest rate will refer to compound interest rather than simple interest unless otherwise specified. To do calculations or learn more about the differences between compounding frequencies, please visit the <a href="/compound-interest-calculator.html">Compound Interest Calculator</a>.</p>
+<p><b>Fixed vs. Variable Interest Rates</b></p>
+<p>Fixed rates are rates that are set as a certain percentage for the life of the loan and will not change. Variable rates are interest rates that can fluctuate over time. The degree of variance is generally based on factors such as another interest rate, inflation, or a market index. There are different pros and cons to each, but the Interest Rate Calculator will only display the result as a fixed interest rate.</p>
+<p><b>APR</b></p>
+<p>The interest rate for many types of loans is often advertised as an annual percentage rate, or APR. APRs are commonly used within the home or car-buying contexts and are slightly different from typical interest rates in that certain fees can be packaged into them. For instance, administrative fees that are usually due when buying new cars are typically rolled into the financing of the loan instead of paid upfront. APR is a more accurate representation than the interest rate when shopping and comparing similar competing. On the other hand, annual percentage yield (APY) is the interest rate that is earned at a financial institution, usually from a savings account or Certificate of Deposit (in the U.S.). For more information or to do calculations involving APR, please visit the <a href="/apr-calculator.html">APR Calculator</a>.</p>
+
+<h3>Uncontrollable Economic Factors that Affect Interest Rate</h3>
+<p>There are many factors that affect what interest rates people get on their mortgages and auto loans. Although these largely cannot be controlled, having knowledge of these factors may still be helpful.</p>
+<p><b>Economic Policy and Inflation</b></p>
+<p>In most developed countries today, interest rates fluctuate mainly due to monetary policy set by central banks. The control of inflation is the major subject of monetary policies. Inflation is defined as the general increase in the price of goods and services and the fall in the purchasing power of money. It is closely related to interest rates on a macroeconomic level, and large-scale changes in either will have an effect on the other. In the U.S., the Federal Reserve can change the rate at most up to eight times a year during the Federal Open Market Committee meetings. In general, one of their main goals is to maintain steady inflation (several percentage points a year).</p>
+<p><b>Economic Activity</b></p>
+<p>In an economy, as interest rates go down, more businesses and people are inclined to borrow money for business expansion and making expensive purchases such as homes or cars. This will create more jobs, push up salary levels, and boost consumer confidence, and more money will be spent within that economy. On the other hand, if interest rates increase, consumer confidence goes down, and fewer people and businesses are inclined to borrow. Based on this, the central bank uses the interest rate as one of the main tools to control the economy. The central bank typically lowers the interest rate if the economy is slow and increases it if the economy expands too fast.</p>
+<p><b>Unemployment Rate</b></p>
+<p>When the unemployment rate is high, consumers spend less money, and economic growth slows. However, when the unemployment rate is too low, it may lead to rampant inflation, a fast wage increase, and a high cost of doing business. As a result, interest rates and unemployment rates are normally inversely related; that is, when unemployment is high, interest rates are artificially lowered, usually in order to spur consumer spending. Conversely, when unemployment within an economy is low and there is a lot of consumer activity, interest rates will go up.</p>
+<p><b>Supply and Demand</b></p>
+<p>Similar to the market for goods and services, the market for credit is determined by supply and demand, albeit to a lesser extent. When there exists a surplus of demand for money or credit, lenders react by raising interest rates. When there is less demand for credit or money, they lower rates in order to entice more borrowers. With that said, banks and credit unions still have to adhere to their reserve requirements, and there is a maximum amount that they can lend out at any time.</p>
+
+<h3>Controllable Factors that Determine Interest Rate</h3>
+<p>While many factors that affect the interest rate are uncontrollable, individuals can, to some degree, affect the interest rates they receive.</p>
+<p><b>Individual Credit Standing</b></p>
+<p>In the U.S., credit scores and credit reports exist to provide information about each borrower so that lenders can assess risk. A credit score is a number between 300 and 850 that represents a borrower's creditworthiness; the higher, the better. Good credit scores are built over time through timely payments, low credit utilization, and many other factors. Credit scores drop when payments are missed or late, credit utilization is high, total debt is high, and bankruptcies are involved. The average credit score in the U.S. is around 700.</p>
+<p>The higher a borrower's credit score, the more favorable the interest rate they may receive. Anything higher than 750 is considered excellent and will receive the best interest rates. From the perspective of a lender, they are more hesitant to lend to borrowers with low credit scores and/or a history of bankruptcy and missed credit card payments than they would be to borrowers with clean histories of timely mortgage and auto payments. As a result, they will either reject the lending application or charge higher rates to protect themselves from the likelihood that higher-risk borrowers default. For example, a credit card issuer can raise the interest rate on an individual's credit card if they start missing many payments.</p>
+<p><b>How to Receive Better Interest Rates</b></p>
+<p>Although individual credit standing is one of the most important determinants of the favorability of the interest rates borrowers receive, there are other considerations they can take note of.</p>
+<ul>
+	<li><b>Secured loans</b>&mdash;Generally speaking, unsecured loans will carry higher interest rates than secured loans, mainly because there is no collateral involved. That is, if the borrower defaults, the lender is legally entitled to ownership of the collateral. Borrowers seeking more favorable interest rates can consider putting up collateral for a secured loan instead.</li>
+	<li><b>Loan specifics</b>&mdash;Longer repayment terms can increase the interest rate because it is riskier for lenders. In addition, making too low a down payment (which is also seen as risky) can result in the borrower receiving a higher interest rate. Choosing a shorter loan term and putting more money down can lower the interest rate a borrower is subject to.</li>
+	<li><b>Do not apply for credit too often</b>&mdash;Too many inquiries on a credit report tell a lender that a borrower may have trouble attaining credit, which is a sign of a high-risk borrower. A single inquiry can deduct a few points off a credit score!</li>
+	<li><b>Borrow at opportune moments</b>&mdash;While borrowers have no control over economic factors, they can choose to borrow during times when economic factors are more favorable. When the economy is slow and demand for loans is low, it is possible to find lower interest rates.</li>
+	<li><b>Research and shop around</b>&mdash;Different lenders have different rates. Borrowers may be able to find a lower interest rate by shopping around rather than accepting the first loan offered. It is possible to reveal to each lender that another is offering a better rate as a negotiation tactic. While getting a good rate is important, be careful about specific conditions and any additional costs.</li>
+</ul>
+
+<h3>Real Interest Rate</h3>
+<p>The relationship between real interest rate, inflation, and the nominal rate is shown by the following equation:</p>
+<p style="text-align:center;">real rate + inflation = nominal rate</p>
+<p>In this equation, the nominal rate is generally the figure being discussed when the "interest rate" is mentioned. The nominal rate is the sum of the general level of inflation and the real rate of interest that is being applied. For more information about or to do calculations involving inflation, please visit the <a href="/inflation-calculator.html">Inflation Calculator</a>.</p>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cmonthlypay");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

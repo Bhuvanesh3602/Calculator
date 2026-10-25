@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Credit Card Calculator</title>
+	<meta name="description" content="Free credit card calculator to find the time it will take to pay off a balance, or the amount necessary to pay it off within a certain time frame." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/credit-card-calculator.html" itemprop="item"><span itemprop="name">credit card calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Credit Card Calculator</h1>
+<p>This calculator helps find the time it will take to pay off a balance or the amount necessary to pay it off within a certain time frame. To evaluate the repayment of multiple credit cards, please use our <a href="/credit-card-payoff-calculator.html">credit card payoff calculator</a>.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel"><form name="calform">
+<table style="padding-left:10px;">
+	<tr>
+		<td width="150">Credit card balance</td>
+		<td><input type="text" name="balance" id="balance" value="8000" class="inhalf indollar"></td>
+	</tr>
+	<tr>
+		<td>Interest rate</td>
+		<td><input type="text" name="rate" id="rate" value="18" class="inhalf inpct"></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div style="padding:12px 0px 3px 0px;">How do you plan to pay off?</div>
+			<div style="padding-left:8px;">
+				<label for="payoffoption2" class="cbcontainer"><input name="payoffoption" id="payoffoption2" value="1" type="radio" onClick="showHideFixedPayment('block');" checked><span class="rbmark"></span> Pay a certain amount</label><br>
+				<div id="fixedpayment" style="padding-left:28px;padding-bottom:10px;">
+					pay <input type="text" name="fixedpaymentamount" id="fixedpaymentamount" value="200" class="inhalf indollar"> per month
+					<div>or use
+						<a href="#" onClick="return populateValue(1);">Interest + 1% of Balance</a>,
+						<a href="#" onClick="return populateValue(2);">2%</a>,
+						<a href="#" onClick="return populateValue(3);">3%</a>,
+						<a href="#" onClick="return populateValue(4);">4%</a>,
+						<a href="#" onClick="return populateValue(5);">5%</a>
+					</div>
+				</div>
+
+				<label for="payoffoption1" class="cbcontainer"><input name="payoffoption" id="payoffoption1" value="0" type="radio" onClick="showHideFixedPayment('none');" ><span class="rbmark"></span> Pay off within a certain timeframe</label>
+				<table id="fixedtime" style="padding-left:25px;">
+					<tr>
+					<td>pay off in</td>
+					<td><input type="text" name="year" value="2" class="innormal inuiyear"><span class="inuiyearspan">years</span></td>
+					<td></td>
+					<td><input type="text" name="month" value="0" class="innormal inuipound"><span class="inuipoundspan">months</span></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding:8px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form></div>
+
+
+<script>
+function showHideFixedPayment(inPars){
+	if (inPars=="none"){
+		document.getElementById("fixedtime").style.display = 'block';
+		document.getElementById("fixedpayment").style.display = 'none';
+	}else{
+		document.getElementById("fixedtime").style.display = 'none';
+		document.getElementById("fixedpayment").style.display = 'block';
+	}
+}
+showHideFixedPayment("block");function populateValue(inPars){
+	balanceVal = (document.getElementById("balance").value+"").split(",").join("");
+	rateVal = (document.getElementById("rate").value+"").split(",").join("");
+	if (!isNumber(balanceVal)||(balanceVal.length<1)) return;
+	if (!isNumber(rateVal)||(rateVal.length<1)) return;
+	balanceVal = parseFloat(balanceVal);
+	rateVal = parseFloat(rateVal);
+
+	minimumVal = 15;
+	if (inPars==1){
+		minimumVal = balanceVal*0.01 + balanceVal * rateVal/1200.0;
+	}else{
+		minimumVal = balanceVal*0.01*inPars;
+	}
+	if (minimumVal<15){
+		if (balanceVal<15){
+			minimumVal = balanceVal;
+		}else{
+			minimumVal = 15;
+		}
+	}
+	document.getElementById("fixedpaymentamount").value = minimumVal.toFixed(2);
+	return false;
+}
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("balance");
+proComma2("fixedpaymentamount");
+</script>
+<br><br>
+
+<h3>Credit Cards</h3>
+<p>A credit card is a small plastic card issued by a bank, business, or other organization, allowing the holder to make purchases or withdrawals on credit, which is a form of unsecured loan from the issuer. There is a maximum amount of credit that a card can provide, called a credit limit, which should not be surpassed. Exceeding the limit may require the credit card holder to pay a credit limit fee. At the end of the month, the credit card holder can choose to repay the entire amount or leave an unpaid balance that is subject to interest until it is paid off. Note that credit card interest rates tend to be relatively high compared to other common loans such as mortgages, car loans, or student loans, and as such, the balance should ideally be paid off monthly to avoid paying large amounts of interest. Examples of credit card issuers include banks, credit unions, or retailers, and examples of credit card networks include Visa or MasterCard. American Express and Discover are both issuers and networks. Networks charge a small fee (<3%) for handling the processing of the transactions. Issuers profit from interest payments on revolving balances, late fees, annual membership fees, fees for cash withdrawals, interchange fees, etc.</p>
+<p><b>APR</b></p>
+<p>Different cards offer varying rates of interest, often referred to as the annual percentage rate, or APR. Some cards have variable APRs, based on specific indexes, and others have fixed APRs. There are some credit cards that are specifically advertised as having a zero, introductory, annual percentage rate (APR).</p>
+<p><b>Cash Advances</b></p>
+<p>It is possible to withdraw credit from a credit card for physical cash. This is called a cash advance, and they usually have very high APRs. There is no grace period as interest accumulates immediately, cash advances don't count towards rewards, and there is usually a cash advance fee. On top of that, the ATM used will probably also charge a fee. Normally, credit card cash advances are not very advantageous, and should generally be reserved for emergencies.</p>
+<p><b>Balance Transfers</b></p>
+<p>It is possible to transfer the balance from one credit card to another. People who carry revolving credit month-to-month can probably consider applying for a favorable balance-transfer credit card, usually in the form of one with a low or zero introductory rate. For instance, a spender who has accrued lots of debt on a high-interest rewards credit card may want to apply for a credit card geared for balance transfers, which usually comes with a period of interest-free accumulation of debt. The interest-free period is generally 6-21 months, after which the credit card will require payment of interest on top of the principal. Some cards can charge a fee of 3% or 4% of the total amount transferred. Try to avoid these unless the low or zero interest provides a bigger financial incentive to do so. Balance transfers generally do not count towards rewards or cashback features.</p>
+<p>Most people also have debit cards that look and function very similarly to a credit card. Banks or financial institutions provide debit cards with checking accounts, which allow purchases or withdrawals to be made that are deducted directly from the checking account. There is usually no fee associated with debit card purchases or withdrawals except under certain circumstances such as use in a foreign country or withdrawals from third-party ATMs.</p>
+
+<h3>Advantages</h3>
+<p>Different types of credit cards (each type is in a section below with more details) have different advantages. Some of these are listed below.</p>
+<ul>
+	<li><b>Used as a Loan</b>&mdash;Spending with a credit card is spending on credit, meaning that the money is borrowed. If the cardholder needs to make a purchase, but for some reason may not have sufficient funds, they may pay for it using a credit card, and pay back the borrowed amount later.</li>
+	<li><b>Safety and Convenience</b>&mdash;Carrying a credit card is more convenient than a wad of cash and pocket full of coins, and also safer because theft is less likely in situations involving a credit card rather than cash. Transactions made on a stolen credit card are not the liability of the cardholder (if they notify the issuer immediately that their card was stolen), whereas stolen cash ends up as a loss in almost all cases.</li>
+	<li><b>Fraud</b>&mdash;When a fraudulent charge is involved, the issuer, not the credit card holder, is liable for fixing the situation. Under the Fair Credit Billing Act (FCBA), a credit card holder's maximum liability for fraudulent transactions is $50, although most credit cards have zero liability for all fraudulent transactions. This tends to be a very handy perk to have in situations where the card is stolen, the holder has unknowingly made a transaction with a fraudulent merchant, or when disputing a transaction. In the case of a debit card, the holder will likely go through the difficult task of sorting out these situations themselves in order to retrieve the lost funds.</li>
+	<li><b>Discount on All Purchases</b>&mdash;While most debit cards do not have a cashback perk on all incurred transactions, it is somewhat common for credit cards to carry a discount, such as 1%, in the form of cashback on transactions. Some even go as high as 2% or more. If a person pays off all their expenses (groceries, utility bills, etc.) on such credit cards, they effectively receive a discount on everything. As an example, if a person has monthly expenses of $3,000, by using a 2% cashback credit card, they will save $720 a year just by using it.</li>
+	<li><b>Purchase Protection</b>&mdash;Almost all credit cards offer some sort of purchase protection, and they are put in place to protect the cardholder against specific transactions. Types of purchase protection vary from network to network, and purchases must be made on the specific credit card in order for protection to apply. The following are some examples of purchase protection:
+	<ul>
+		<li>Re-pricing of goods that have since dropped in price.</li>
+		<li>Removal of holder liability for purchased goods that are damaged, defective, lost, or stolen. Claiming an item as lost or stolen requires a clear indication of loss or theft, and the latter will usually involve a police report. Not all items are covered, and it is best to consult the terms and agreements or contact the customer service department of the issuer for more details.</li>
+		<li>Extension of the length of the original manufacturer's warranty, usually for one or two years. The limit on each claim is typically $10,000 with a $50,000 annual cap on the entire account. Generally, the purchased items must be new (not used or floor models), and the original manufacturer's warranty must not cover a period longer than 12 months.</li>
+		<li>Refunding an item if the merchant won't accept the request for a refund. In most cases, issuers allow 60 to 90 days to file a request, and certain items such as jewelry, perishables, and tickets are not covered.</li>
+	</ul></li>
+	<li><b>Perks</b>&mdash;Credit cards also tend to come with certain perks that vary from issuer to issuer and credit card to credit card. In general, credit cards with annual fees will have more perks, and each perk will have more benefits. For instance, a credit card with no annual fee may provide basic roadside assistance such as towing, tire replacement, and jump-starting a vehicle, but a $450 annual fee card may additionally include fuel delivery, locksmith services, and battery replacement. Perks may be any of the following:
+	<ul>
+		<li><b>Rental insurance</b>&mdash;Car rentals can be insured, and a credit card can be used to pay for car rental insurance if the entire cost of the rental is charged to that specific credit card.
+		<li><b>Concert tickets</b>&mdash;Some credit cards may offer presale concert tickets to card members well before they are actually available to the public for purchase. This comes in handy for extremely sought-after tickets that tend to be sold out quickly.
+		<li><b>Roadside assistance</b>&mdash;Many credit cards offer emergency help for card members who find themselves stuck on the side of the road, similar to an AAA membership (offered in the U.S.) that requires an annual fee.
+		<li><b>Travel insurance</b>&mdash;Oftentimes, travelers may find that they need to cancel or delay a flight due to sickness or another situation. This usually results in a financial loss that can't be recuperated, but some credit cards offer trip cancellation perks as long as the trip was paid for using that specific credit card.
+		<li><b>Luggage</b>&mdash;Lost or stolen luggage may be covered if the entire purchase was paid for by a credit card with lost luggage protection. Also, some credit cards help waive checked bag fees. These perks are generally found more with travel rewards cards.
+		<li><b>Free Admission</b>&mdash;Admission to museums, art galleries, botanical gardens, and other venues may be free of charge to certain cardmembers. Free admission is generally limited to the first weekend of the month.
+	</ul></li>
+	<li><b>Improve Credit Rating</b>&mdash;By using a credit card responsibly, one can also improve their credit rating, resulting in drastic savings through more favorable loans when the time comes to buy a car or home. Generally, the better a person's credit score, the better the range of credit cards they will qualify for. Excellent credit allows access to credit cards with generous rewards rates, a plethora of perks, and the lowest rates.</li>
+</ul>
+
+<h3>Disadvantages</h3>
+<p>Impulsive use of credit cards can cause people to find themselves in financial trouble. It is understandably easy for credit card holders to use them recklessly and to be suddenly confronted with payments that can't be met each month. This is playing right into the hands of the issuers because they make their profits from insolvency. Not only will this spell financial trouble for most people, but their credit scores will also be affected negatively due to late or missing payments.</p>
+<p>In the case that a credit card holder falls very deeply into debt, debt consolidation, which is a method of combining all debt under a new line of credit, can offer temporary relief. For more information or to do calculations involving debt consolidation, please visit the <a href="/debt-consolidation-calculator.html">Debt Consolidation Calculator</a>. However, for the average Joe, the most effective approach is probably to scale back standards of living and work diligently towards paying back all debts, preferably starting on the highest APRs first. People who find themselves in this situation should also consider getting a secured credit card and using it in a responsible manner to immediately begin repairing their damaged credit score. For more information about or to do calculations involving paying off multiple credit cards, please visit the <a href="/credit-card-payoff-calculator.html">Credit Cards Payoff Calculator</a>.</p>
+<p>Although undisciplined use of credit cards can result in significant debt, when credit cards are used responsibly, they can be an excellent payment method.</p>
+
+<h3>Types of Credit Cards</h3>
+<p>Different types of credit cards suit the needs of different types of spenders. For simplicity, it would be wise to find one that aligns best with the user's financial intentions; for instance, a person who is not an extravagant spender and not interested in anything except getting the best bang for their buck can probably live with just a no-fee cash back card. However, it is very possible for people to carry multiple credit cards for their different advantages, even if it requires a bit of management. What's important is that they are all paid off in a timely manner.</p>
+<p><b>Cashback:</b> These offer cashback on all purchases, usually 1%, 1.5%, or 2%. Another type may have up to 5% cashback on selected categories of merchandise or services, which normally rotate quarterly.</p>
+<p><b>Rewards:</b> These make up the bulk of most credit cards. The types of rewards usually range between airline miles, hotel bookings, and dining benefits. Credit cards that offer more rewards or miles will generally require annual fees, and it is up to each spender to evaluate their spending habits to decide whether a no- or low-fee card with low rewards is preferable to a high-fee card with high rewards.</p>
+<p><b>Charge:</b> These usually work the same way as any other credit card, except that they have either no spending limits or very high limits, and balances cannot be rolled over from one month to the next. It is expected for the holder to pay the balance in full at the end of every month. The only real benefit of having one is the heavy spending a charge card allows; just make sure to pay it in full at the end of every month.</p>
+<p><b>Balance Transfer:</b> These are best for spenders who plan on carrying lots of credit card debt in the future because the interest rates on credit cards are quite high. It is possible to transfer an existing balance from one credit card to another. Unlike most credit cards, some carry low, or even zero, introductory APRs for the first 6-21 months, which allows the holder to effectively roll debt from one card to another without paying interest. Balance transfer credit cards are typically more useful for people who have significant amounts of existing debt on high APR cards.</p>
+<p><b>Secured:</b> Secured credit cards are useful for younger people with no credit history who are interested in getting started or people with bad credit history. To be issued a secured credit card, the applicant must make a security deposit that acts as collateral; if they prove to be financially responsible with the secured credit card and no longer wish to use it (as there are many other credit cards on the market to be had that do not require a security deposit after the requisite credit score), they can close the account and receive their deposit back.</p>
+<p><b>Prepaid:</b> A prepaid credit card is more akin to a debit card in that it is preloaded with an amount to be used, and cannot exceed this amount. In general, there are reloadable cards, multi-use cards, and single-use cards. These are often given as gifts or mailed back from companies as compensation for rebates on their purchased goods.</p>
+<p><b>Store:</b> Some retail stores issue credit cards that offer big discounts only at that particular chain. They are usually offered at department stores by a cashier during checkout and packaged with a discount like 10% on the sum of purchases. These tend to be more useful for users that shop at the stores frequently enough to warrant their financial benefits. They also make good options for people with bad credit looking to rebuild because they often accept lower credit scores relative to other credit cards. However, interest rates on store credit cards are generally higher than other types of credit cards.</p>
+<p><b>Business:</b> There are some cards geared to help benefit business needs. They offer things such as discounts on products and services for the business, intricate ways to help track expenses, emergency travel assistance, medical assistance, and travel agent services. Business credit cards are useful for separating personal expenses from business expenses when it comes time to do taxes.</p>
+
+<h3>How to Calculate Interest Charges on Credit Cards</h3>
+<p><b>Average Daily Balance Method</b></p>
+<p>The most widely used method credit card issuers use to calculate the monthly interest payment is the average daily balance, or the ADB method. Since months vary in length, credit card issuers use a daily periodic rate, or DPR, to calculate the interest charges. DPR is calculated by dividing the APR by 365, which is the number of days in a year.</p>
+<table align="center"><tr>
+<td>Daily Periodic Rate, DPR =&nbsp;</td>
+<td><table cellpadding="0" cellspaing="0" border="0"><tr><td align="center">APR</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">365</td></tr></table></td>
+</tr></table>
+
+<p>Then find the ADB. The equation for finding this is a bit more tedious, but just add up all the balances for each day in the statement billing cycle and divide by the total number of days in the billing cycle.</p>
+<table align="center"><tr>
+<td>ADB =&nbsp;</td>
+<td><table cellpadding="0" cellspaing="0" border="0"><tr><td align="center">(day 1 balance) + (day 2 balance) + ... + (day n balance)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">number of days in the billing cycle</td></tr></table></td>
+</tr></table>
+
+<p>Finally, multiply this by the Daily Periodic Rate calculated before it and the number of days in the billing cycle to determine the interest for that month's statement.</p>
+<p align="center">Monthly interest payment = DPR &#215; ADB &#215; number of days in the billing cycle</p>
+<p>Example: Jon needs help calculating the interest payment for one of his credit cards in the month of June. It carries an APR of 15%. Calculate his DPR using the equation above:</p>
+<table align="center"><tr>
+<td>DPR =&nbsp;</td>
+<td><table cellpadding="0" cellspaing="0" border="0"><tr><td align="center">0.15</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">365</td></tr></table></td>
+<td>&nbsp;= 0.00041</td>
+</tr></table>
+<p>During the first 15 days of the June billing cycle, there was a balance of $500. Midway through the month, Jon made a payment of $100, so the remaining 15 days had a balance of $400. Calculate his ADB utilizing the equation above:</p>
+<table align="center"><tr>
+<td>ADB =&nbsp;</td>
+<td><table cellpadding="0" cellspaing="0" border="0"><tr><td align="center">15 &#215; 500 + 15 &#215; 400</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">30</td></tr></table></td>
+<td>&nbsp;= $450</td>
+</tr></table>
+<p>Multiply the DPR, ADB, and number of days in the billing cycle to find the monthly interest payment:</p>
+<p align="center">Monthly interest payment = 0.00041 &#215; 450 &#215; 30 = $5.54</p>
+<p>Jon's interest payment for the month of June is $5.54.</p>
+<p>There are several other ways in which credit card issuers calculate the monthly interest payment, including the previous balance method and the adjusted balance method, though they aren't used all that often.</p>
+
+<p><b>Previous Balance Method</b></p>
+<p>Multiply the DPR by the previous month's balance by the number of days in the billing cycle. Assuming that Jon's balance at the end of the previous month was $300:</p>
+<p align="center">Monthly interest payment = 0.00041 &#215; 300 &#215; 30 = $3.69</p>
+
+<p><b>Adjusted Balance Method</b></p>
+<p>Multiply the DPR by the adjusted balance, which is the previous month's balance less payments made. Then multiply that result by the number of days in the billing cycle. Assuming that Jon's balance in May was $300, but he made payments totaling $200:</p>
+<p align="center">Monthly interest payment = 0.00041 &#215; (300 - 200) &#215; 30 = $1.23</p>
+<p>The calculation of monthly payments will lead providers to charge a minimum payment, which is mostly an interest payment. It is important to make this payment. Failure to do so may lead to a cancellation of the card, legal proceedings, and a steep drop in the credit rating of the holder.</p>
+<p>Unless a credit card has a zero or low introductory APR, interest on the balance is quite high. Credit card APRs average about 20%, which is relatively high for any loan. Good APRs average about 8-12%, though it is possible for someone with excellent credit to get even lower rates. This is because credit card debt is unsecured, meaning there is no collateral backing the loan. If the borrower defaults, the lender cannot seize any assets, and this risk is reflected in the high interest rate. Secured debt, in comparison, requires collateral, such as real estate. If the borrower defaults on the secured debt, the lender can foreclose and take possession of the real estate.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

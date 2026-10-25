@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Base64 Encode / Decode</title>
+	<meta name="description" content="This free online tool can Base64-encode or decode text, images, and files directly in the browser without sending the data across the internet." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/base64-encode-decode.html" itemprop="item"><span itemprop="name">base64 encode / decode</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Base64 Encode / Decode</h1>
+
+<p>Use the tools below to Base64-encode or decode text, images, and files. To ensure data safety, the encoding and decoding are performed within the browser without being sent across the internet.</p>
+<div class="panel">
+<form name="calcexpress">
+<table>
+	<tr>
+		<td><div>Text to encode or decode:</div>
+			<textarea name="cinput" class="infulltxarea" rows="3"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>Character:
+			<select class="inlongest" name="cchar">
+				<option value="utf-8" selected>UTF-8</option>
+				<option value="windows-1252">ASCII</option>
+				<option value="utf-16le">UTF-16</option>
+				<option value="utf-16be">UTF-16BE</option>
+				<option value="big5">Big5 (Chinese)</option>
+				<option value="gb18030">GB 18030 (Chinese)</option>
+				<option value="gb2312">GB 2312 (Chinese)</option>
+				<option value="euc-jp">EUC-JP (Japanese)</option>
+				<option value="iso-2022-jp">ISO-2022-JP (Japanese)</option>
+				<option value="shift-jis">Shift JIS (Japanese)</option>
+				<option value="euc-kr">EUC-KR (Korean)</option>
+				<option value="ibm866">CP866 (Russian)</option>
+				<option value="koi8-r">KOI8-R (Russian)</option>
+				<option value="koi8-u">KOI8-U (Ukrainian)</option>
+				<option value="macintosh">Macintosh (x-mac-roman)</option>
+				<option value="x-mac-cyrillic">Mac OS Cyrillic (x-mac-cyrillic)</option>
+				<option value="iso-8859-1">ISO-8859-1 (Latin1/Western European)</option>
+				<option value="iso-8859-2">ISO-8859-2 (Latin2/Eastern European)</option>
+				<option value="iso-8859-3">ISO-8859-3 (Latin3/South European)</option>
+				<option value="iso-8859-4">ISO-8859-4 (Latin4/North European)</option>
+				<option value="iso-8859-5">ISO-8859-5 (Latin/Cyrillic)</option>
+				<option value="iso-8859-6">ISO-8859-6 (Latin/Arabic)</option>
+				<option value="iso-8859-7">ISO-8859-7 (Latin/Greek)</option>
+				<option value="iso-8859-8">ISO-8859-8 (Latin/Hebrew)</option>
+				<option value="iso-8859-8-i">ISO-8859-8-I (Latin/Hebrew)</option>
+				<option value="iso-8859-10">ISO-8859-10 (Latin6/Nordic)</option>
+				<option value="iso-8859-13">ISO-8859-13 (Latin7/Baltic Rim)</option>
+				<option value="iso-8859-14">ISO-8859-14 (Latin8/Celtic)</option>
+				<option value="iso-8859-15">ISO-8859-15 (Latin9/Western European)</option>
+				<option value="iso-8859-16">ISO-8859-16 (Latin10/South-Eastern European)</option>
+				<option value="windows-874">Windows-874 (Thai)</option>
+				<option value="windows-1250">Windows-1250 (Eastern European)</option>
+				<option value="windows-1251">Windows-1251 (Cyrillic)</option>
+				<option value="windows-1252">Windows-1252 (Western European)</option>
+				<option value="windows-1253">Windows-1253 (Greek)</option>
+				<option value="windows-1254">Windows-1254 (Turkish)</option>
+				<option value="windows-1255">Windows-1255 (Hebrew)</option>
+				<option value="windows-1256">Windows-1256 (Arabic)</option>
+				<option value="windows-1257">Windows-1257 (Baltic)</option>
+				<option value="windows-1258">Windows-1258 (Vietnamese)</option>
+			</select>
+		</td>
+	</tr>
+	<tr><td style="padding: 8px 0px;">
+		<input type="submit" name="e" value=" Encode" onClick="return bcEncode();">
+		<input type="submit" name="d" value=" Decode" onClick="return bcDecode();">
+		<input type="button" value="Clear" onClick="clearForm(document.calcexpress);">
+	</td></tr>
+	<tr>
+		<td><div id="coutputdesc"></div>
+			<div id="coutputarea" style="display:none;"><textarea name="coutput" class="infulltxarea" rows="3" readonly></textarea></div>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<script>
+function bcDownloadTxtFile(bcdObj, bcdFilename){
+	let bcdFileToUse = bcdFilename;
+	if (bcdFilename.length<1) bcdFileToUse = "base64-"+(Date.now()%10000)+".txt";
+	const blob = new Blob([bcdObj.value]);
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement('a');
+	a.href = url;
+	a.download = bcdFileToUse;
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+	URL.revokeObjectURL(url);
+	return false;
+}
+function bcInt8ArrToB64(bbBytes) {return btoa(String.fromCharCode(...bbBytes));}
+function bcEncode(){
+	let bceInTxt = document.calcexpress.cinput.value + "";
+	let bceOutputdesc = document.getElementById("coutputdesc");
+	if (bceInTxt.length < 1){
+		bceOutputdesc.innerHTML = '<font color="red">Please enter text to encode.</font>';
+	}else{
+		bceOutputdesc.innerHTML = 'processing...';
+		document.getElementById("coutputarea").style.display = "block";
+		let bcEncoder = new TextEncoder();
+		//document.calcexpress.coutput.value = bcEncoder.encode(bceInTxt).toBase64();
+		document.calcexpress.coutput.value = bcInt8ArrToB64(bcEncoder.encode(bceInTxt));
+		bceOutputdesc.innerHTML = '<b>Encoded result:</b> <a href="#" onClick="return bcCopyOutput();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a> <a href="#" onClick="return bcDownloadTxtFile(document.calcexpress.coutput, \'\');"><img src="/img/download.svg" width="20" height="20" alt="download" align="absmiddle">download</a>';
+	}
+	return false;
+}
+function bcB64ToInt8Arr(bcB64) {
+	const bcBStr = window.atob(bcB64);
+	const bcBStrLen = bcBStr.length;
+	const bcOut = new Uint8Array(bcBStrLen);
+	for (let i = 0; i < bcBStrLen; i++) bcOut[i] = bcBStr.charCodeAt(i);
+	return bcOut;
+}
+function bcDecode(){
+	let bcdInTxt = document.calcexpress.cinput.value + "";
+	let bcdChar = document.calcexpress.cchar.value + "";
+	let bcdOutputdesc = document.getElementById("coutputdesc");
+	try {
+		if (bcdInTxt.length < 1){
+			bcdOutputdesc.innerHTML = '<font color="red">Please enter text to decode.</font>';
+		}else{
+			bcdOutputdesc.innerHTML = 'processing...';
+			document.getElementById("coutputarea").style.display = "block";
+			let bcDecoder = new TextDecoder(bcdChar);
+			//document.calcexpress.coutput.value = bcDecoder.decode(Uint8Array.fromBase64(bcdInTxt));
+			document.calcexpress.coutput.value = bcDecoder.decode(bcB64ToInt8Arr(bcdInTxt));
+			bcdOutputdesc.innerHTML = '<b>Decoded result:</b> <a href="#" onClick="return bcCopyOutput();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a> <a href="#" onClick="return bcDownloadTxtFile(document.calcexpress.coutput, \'\');"><img src="/img/download.svg" width="20" height="20" alt="download" align="absmiddle">download</a>';
+		}
+	} catch (err) {
+		bcdOutputdesc.innerHTML = '<font color="red">Sorry, the input text cannot be Base64-decoded.</font>';
+		document.calcexpress.coutput.value = "";
+	}
+	return false;
+}
+function bcCopyOutput() {
+	let bcTxt = document.calcexpress.coutput.value + "";
+	try {
+		navigator.clipboard.writeText(bcTxt);
+	} catch (err) {
+		document.calcexpress.coutput.select();
+		document.execCommand('copy');
+	}
+	return false;
+}
+</script>
+<br>
+<h2>Base64 Encode / Decode an Image or File</h2>
+<p>Use the tool below to Base64-encode or decode images and files. For text output, the result will be shown in the text area with options to copy or download. For image and binary output, the generated file will be downloaded directly. For large files, the encoding and decoding may take some time.</p>
+<div class="panel">
+<form name="calcfull">
+<table>
+	<tr>
+		<td>I want to:
+			<select name="coptype" onChange="cOpChange(this.value);">
+				<option value="en" selected>encode a file</option>
+				<option value="de">decode a file</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 8px 0px;">
+			<div><input type="file" name="cFileInput" id="cFileInput" class="infull"></div>
+			<div id="cdivfiletype" style="display:none;">Output file type:
+			<select name="cfiletype" onChange="cFileTypeChange(this.value);">
+				<option value="txt" selected>Text file</option>
+				<option value="img">Binary or Image</option>
+			</select></div>
+			<div id="cdivchar" style="padding-top: 8px;display:none;">Character:
+			<select class="inlongest" name="cchar">
+				<option value="utf-8" selected>UTF-8</option>
+				<option value="windows-1252">ASCII</option>
+				<option value="utf-16le">UTF-16</option>
+				<option value="utf-16be">UTF-16BE</option>
+				<option value="big5">Big5 (Chinese)</option>
+				<option value="gb18030">GB 18030 (Chinese)</option>
+				<option value="gb2312">GB 2312 (Chinese)</option>
+				<option value="euc-jp">EUC-JP (Japanese)</option>
+				<option value="iso-2022-jp">ISO-2022-JP (Japanese)</option>
+				<option value="shift-jis">Shift JIS (Japanese)</option>
+				<option value="euc-kr">EUC-KR (Korean)</option>
+				<option value="ibm866">CP866 (Russian)</option>
+				<option value="koi8-r">KOI8-R (Russian)</option>
+				<option value="koi8-u">KOI8-U (Ukrainian)</option>
+				<option value="macintosh">Macintosh (x-mac-roman)</option>
+				<option value="x-mac-cyrillic">Mac OS Cyrillic (x-mac-cyrillic)</option>
+				<option value="iso-8859-1">ISO-8859-1 (Latin1/Western European)</option>
+				<option value="iso-8859-2">ISO-8859-2 (Latin2/Eastern European)</option>
+				<option value="iso-8859-3">ISO-8859-3 (Latin3/South European)</option>
+				<option value="iso-8859-4">ISO-8859-4 (Latin4/North European)</option>
+				<option value="iso-8859-5">ISO-8859-5 (Latin/Cyrillic)</option>
+				<option value="iso-8859-6">ISO-8859-6 (Latin/Arabic)</option>
+				<option value="iso-8859-7">ISO-8859-7 (Latin/Greek)</option>
+				<option value="iso-8859-8">ISO-8859-8 (Latin/Hebrew)</option>
+				<option value="iso-8859-8-i">ISO-8859-8-I (Latin/Hebrew)</option>
+				<option value="iso-8859-10">ISO-8859-10 (Latin6/Nordic)</option>
+				<option value="iso-8859-13">ISO-8859-13 (Latin7/Baltic Rim)</option>
+				<option value="iso-8859-14">ISO-8859-14 (Latin8/Celtic)</option>
+				<option value="iso-8859-15">ISO-8859-15 (Latin9/Western European)</option>
+				<option value="iso-8859-16">ISO-8859-16 (Latin10/South-Eastern European)</option>
+				<option value="windows-874">Windows-874 (Thai)</option>
+				<option value="windows-1250">Windows-1250 (Eastern European)</option>
+				<option value="windows-1251">Windows-1251 (Cyrillic)</option>
+				<option value="windows-1252">Windows-1252 (Western European)</option>
+				<option value="windows-1253">Windows-1253 (Greek)</option>
+				<option value="windows-1254">Windows-1254 (Turkish)</option>
+				<option value="windows-1255">Windows-1255 (Hebrew)</option>
+				<option value="windows-1256">Windows-1256 (Arabic)</option>
+				<option value="windows-1257">Windows-1257 (Baltic)</option>
+				<option value="windows-1258">Windows-1258 (Vietnamese)</option>
+			</select></div>
+			<div id="cdivfilename" style="display:none;padding-top: 8px;">Output file name: <input type="text" name="cFilename" class="infull"></div>
+		</td>
+	</tr>
+	<tr><td style="padding: 8px 0px;">
+		<span id="spanencode"><input type="submit" name="e" value=" Encode" onClick="return bcEncodeFull();"></span>
+		<span id="spandecode" style="display:none;"><input type="submit" name="d" value=" Decode" onClick="return bcDecodeFull();"></span>
+	</td></tr>
+	<tr>
+		<td><div id="c2outputdesc"></div>
+			<div id="c2outputarea" style="display:none;"><textarea name="coutput" class="infulltxarea" rows="3" readonly></textarea></div>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<style>
+#cFileInput::file-selector-button {
+	background-color: #044284;
+	color: white;
+	padding: 6px 8px;
+	border: none;
+	border-radius: 2px;
+	box-shadow: 1px 1px 2px #666;
+	font-size:16px;
+}
+#cFileInput::file-selector-button:hover {
+	background-color: #0056b3;
+}
+</style>
+<script>
+var cFileInput = document.calcfull.cFileInput;
+var cFileContent = "";
+cFileInput.addEventListener('change', cHandleFileSelection);
+function cHandleFileSelection(cEvent) {
+	const cFile = cEvent.target.files[0];
+	if (cFile) {
+		const cReader = new FileReader();
+		cReader.onload = (e) => { cFileContent = e.target.result; };
+		cReader.onerror = () => {console.error("Unable to read the file.");};
+		cReader.readAsBinaryString(cFile);
+	}
+}
+function bcCopyOutput2() {
+	let bcTxt = document.calcfull.coutput.value + "";
+	try {
+		navigator.clipboard.writeText(bcTxt);
+	} catch (err) {
+		document.calcfull.coutput.select();
+		document.execCommand('copy');
+	}
+	return false;
+}
+function bcDownloadBin(base64String) {
+	let bcDfilename = document.calcfull.cFilename.value + "";
+	if (bcDfilename.length<1) bcDfilename = "base64-"+(Date.now()%10000)+"";
+	const byteCharacters = atob(base64String);
+	const byteNumbers = new Array(byteCharacters.length);
+	for (let i = 0; i < byteCharacters.length; i++) {byteNumbers[i] = byteCharacters.charCodeAt(i);}
+	const byteArray = new Uint8Array(byteNumbers);
+	//const blob = new Blob([byteArray], { type: "image/png" });
+	const blob = new Blob([byteArray]);
+	const url = URL.createObjectURL(blob);
+	const link = document.createElement("a");
+	link.href = url;
+	link.download = bcDfilename;
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+	URL.revokeObjectURL(url);
+	return false;
+}
+function cOpChange(cocVal){
+	document.getElementById("c2outputdesc").innerHTML = "";
+	document.calcfull.coutput.value = "";
+	if ("en"==cocVal){
+		document.getElementById('cdivfiletype').style.display = "none";
+		document.getElementById('cdivchar').style.display = "none";
+		document.getElementById('cdivfilename').style.display = "none";
+		document.getElementById('spanencode').style.display = "block";
+		document.getElementById('spandecode').style.display = "none";
+	}else{
+		document.getElementById('cdivfiletype').style.display = "block";
+		if ("txt"==document.calcfull.cfiletype.value){
+			document.getElementById('cdivchar').style.display = "block";
+		}else{
+			document.getElementById('cdivchar').style.display = "none";
+		}
+		document.getElementById('cdivfilename').style.display = "block";
+		document.getElementById('spanencode').style.display = "none";
+		document.getElementById('spandecode').style.display = "block";
+	}
+}
+function cFileTypeChange(cftcVal){
+	if ("txt"==cftcVal){
+		document.getElementById('cdivchar').style.display = "block";
+	}else{
+		document.getElementById('cdivchar').style.display = "none";
+	}
+}
+function bcEncodeFull(){
+	let bceOutputdesc = document.getElementById("c2outputdesc");
+	bceOutputdesc.innerHTML = 'processing...';
+	try {
+		if ((cFileContent+"").length < 1){
+			bceOutputdesc.innerHTML = '<font color="red">Please provide a file with content to encode.</font>';
+		}else{
+			document.getElementById("c2outputarea").style.display = "block";
+			let bcEncoder = new TextEncoder();
+			document.calcfull.coutput.value = btoa(cFileContent);
+			bceOutputdesc.innerHTML = '<b>Encoded result:</b> <a href="#" onClick="return bcCopyOutput2();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a> <a href="#" onClick="return bcDownloadTxtFile(document.calcfull.coutput, document.calcfull.cFilename.value);"><img src="/img/download.svg" width="20" height="20" alt="download" align="absmiddle">download</a>';
+		}
+	} catch (err) {
+		bceOutputdesc.innerHTML = '<font color="red">Sorry, the file cannot be encoded.</font>';
+		document.calcfull.coutput.value = "";
+	}
+	return false;
+}
+function bcDecodeFull(){
+	let bceOutputdesc = document.getElementById("c2outputdesc");
+	bceOutputdesc.innerHTML = 'processing...';
+	try {
+		if ((cFileContent+"").length < 1){
+			bceOutputdesc.innerHTML = '<font color="red">Please provide a file with content to decode.</font>';
+		}else{
+			document.getElementById("c2outputarea").style.display = "block";
+			if ("txt"==document.calcfull.cfiletype.value){
+				let bcDecoder = new TextDecoder(document.calcfull.cchar.value + "");
+				document.calcfull.coutput.value = bcDecoder.decode(bcB64ToInt8Arr(cFileContent));
+				bceOutputdesc.innerHTML = '<b>Decoded result:</b> <a href="#" onClick="return bcCopyOutput2();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a> <a href="#" onClick="return bcDownloadTxtFile(document.calcfull.coutput, document.calcfull.cFilename.value);"><img src="/img/download.svg" width="20" height="20" alt="download" align="absmiddle">download</a>';
+				document.getElementById("c2outputarea").style.display = "block";
+			}else{
+				document.getElementById("c2outputarea").style.display = "none";
+				bcDownloadBin(cFileContent);
+				bceOutputdesc.innerHTML = '<b>Decoded result:</b> <a href="#" onClick="return bcDownloadBin(cFileContent);">download</a>';
+			}
+		}
+	} catch (err) {
+		bceOutputdesc.innerHTML = '<font color="red">Sorry, the file cannot be Base64-decoded.</font>';
+		document.calcfull.coutput.value = "";
+		document.getElementById("c2outputarea").style.display = "none";
+	}
+	return false;
+}
+</script>
+<br><br>
+
+<p>Base64 encoding and decoding is a method used to convert binary data to and from text format. Some computer systems&mdash;especially legacy systems&mdash;and certain transmission or storage formats are designed to handle text more reliably than raw binary data. Base64 encoding allows binary information, such as images, files, or other data, to be represented using a set of 64 printable ASCII characters, making it suitable for use in these systems and environments.</p>
+<p>The Base64 character set includes uppercase letters A&ndash;Z, lowercase letters a&ndash;z, digits 0&ndash;9, and two additional characters, usually + and /. The symbol = is sometimes used as padding at the end of the encoded output to ensure that the encoded string has the proper length. The following table shows the Base64 characters and their corresponding numeric values based on RFC 4648.</p>
+<table align="center" class="cinfoT cinfoTS">
+<tr><td>0: A</td><td>8: I</td><td>16: Q</td><td>24: Y</td><td>32: g</td><td>40: o</td><td>48: w </td><td>56: 4</td></tr>
+<tr><td>1: B</td><td>9: J</td><td>17: R</td><td>25: Z</td><td>33: h</td><td>41: p</td><td>49: x </td><td>57: 5</td></tr>
+<tr><td>2: C</td><td>10: K</td><td>18: S</td><td>26: a</td><td>34: i</td><td>42: q</td><td>50: y </td><td>58: 6</td></tr>
+<tr><td>3: D</td><td>11: L</td><td>19: T</td><td>27: b</td><td>35: j</td><td>43: r</td><td>51: z </td><td>59: 7</td></tr>
+<tr><td>4: E</td><td>12: M</td><td>20: U</td><td>28: c</td><td>36: k</td><td>44: s</td><td>52: 0</td><td>60: 8</td></tr>
+<tr><td>5: F</td><td>13: N</td><td>21: V</td><td>29: d</td><td>37: l</td><td>45: t</td><td>53: 1</td><td>61: 9</td></tr>
+<tr><td>6: G</td><td>14: O</td><td>22: W</td><td>30: e</td><td>38: m</td><td>46: u</td><td>54: 2</td><td>62: +</td></tr>
+<tr><td>7: H</td><td>15: P</td><td>23: X</td><td>31: f</td><td>39: n</td><td>47: v</td><td>55: 3</td><td>63: /</td></tr>
+</table>
+<p>Modern computers are byte-based (8 bits per byte), while Base64 encoding represents data using 6-bit values mapped to 64 characters. As a result, Base64-encoded data is typically about 4/3 (&asymp;1.33) times the size of the original data.</p>
+<p>As an example, the simple text 'Dog' can be encoded in Base64 as 'RG9n,' as shown in the table below.</p>
+<table align="center" class="cinfoT cinfoTS">
+	<tr align="center"><td align="left">Input letter</td><td colspan="8">D</td><td colspan="8">o</td><td colspan="8">g</td></tr>
+	<tr align="center"><td align="left">8-bit decimal value</td><td colspan="8">68</td><td colspan="8">111</td><td colspan="8">103</td></tr>
+	<tr><td>Bits</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+	<tr align="center"><td align="left">6-bit decimal value</td><td colspan="6">17</td><td colspan="6">6</td><td colspan="6">61</td><td colspan="6">39</td></tr>
+	<tr align="center"><td align="left">Encoded Base64 letter</td><td colspan="6">R</td><td colspan="6">G</td><td colspan="6">9</td><td colspan="6">n</td></tr>
+</table>
+<p>In the example above, the three ASCII characters in 'Dog' have a total of 3 &#215; 8 = 24 bits. This can be divided evenly into four 6-bit blocks. In many cases, there will be 2 or 4 bits remaining at the end. In such situations, one or two '=' padding characters are added to the end of the encoded result to represent the missing bits. For example, 'Do' can be encoded in Base64 as 'RG8=,' as shown below.</p>
+<table align="center" class="cinfoT cinfoTS">
+	<tr align="center"><td align="left">Input letter</td><td colspan="8">D</td><td colspan="8">o</td><td colspan="3" rowspan="2">&nbsp;</td></tr>
+	<tr align="center"><td align="left">8-bit decimal value</td><td colspan="8">68</td><td colspan="8">111</td></tr>
+	<tr><td>Bits</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td style="color:red;">0</td><td style="color:red;">0</td><td rowspan="2" style="color:red;">Padding</td></tr>
+	<tr align="center"><td align="left">6-bit decimal value</td><td colspan="6">17</td><td colspan="6">6</td><td colspan="6">60</td></tr>
+	<tr align="center"><td align="left">Encoded Base64 letter</td><td colspan="6">R</td><td colspan="6">G</td><td colspan="6">8</td><td style="color:red;">=</td></tr>
+</table>
+<p>Similarly, 'Dogs' can be encoded in Base64 as 'RG9ncw==,' as shown below.</p>
+<table align="center" class="cinfoT cinfoTS">
+	<tr align="center"><td align="left">Input letter</td><td colspan="8">D</td><td colspan="8">o</td><td colspan="8">g</td><td colspan="8">s</td><td colspan="5" rowspan="2">&nbsp;</td></tr>
+	<tr align="center"><td align="left">8-bit decimal value</td><td colspan="8">68</td><td colspan="8">111</td><td colspan="8">103</td><td colspan="8">115</td></tr>
+	<tr><td>Bits</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td style="color:red;">0</td><td style="color:red;">0</td><td style="color:red;">0</td><td style="color:red;">0</td><td rowspan="2" style="color:red;">Padding</td></tr>
+	<tr align="center"><td align="left">6-bit decimal value</td><td colspan="6">17</td><td colspan="6">6</td><td colspan="6">61</td><td colspan="6">39</td><td colspan="6">28</td><td colspan="6">48</td></tr>
+	<tr align="center"><td align="left">Encoded Base64 letter</td><td colspan="6">R</td><td colspan="6">G</td><td colspan="6">9</td><td colspan="6">n</td><td colspan="6">c</td><td colspan="6">w</td><td style="color:red;">==</td></tr>
+</table>
+
+<br><p>Base64 encoding and decoding are widely used in data transmission, web development, and file processing. The following are two examples of many uses:</p>
+<p><b>E-mail attachments:</b> Originally, SMTP was designed to transport only 7-bit ASCII characters. Encoding binary data using Base64 allows older SMTP servers to correctly transmit attachments.</p>
+<p><b>Embedding binary data in text files:</b> Text-based formats are widely used in computer systems, especially for transmitting data over the internet. Base64 enables the embedding of binary data in these text files. For example, binary data can be Base64-encoded and included in JSON or XML files. Images or PDF files can also be Base64-encoded and embedded in HTML or CSS. The following is the embeddable HTML for the PNG image of <img align="absmiddle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAASCAMAAADfRiY4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFARgJAQoEA30rAiQNAkgZAmMiAQEBA4YuPW1sXQAAAQxJREFUeNrMk8t2wzAIRGF46P//uDPISW0nJ1100bKxjLhiBtm2fhP21zRyAj/UnkpQ33S1RYR7fWJh/iyBxZmuSX20EYYnFf1Cr2ytqUICkXxOHya4jdZb5S58Q4dpGTknh2cKKFciuYE6fFfz5DMdnEgYz0g7RIhUzWjNRnbY9g03XGlNzTy3wwrSfFMjCi5GbyEzmnCseOe76NK6nXTxSb/VO0hjV6bOMyvcaKml3cKMjxOyrsfWOnJNYTvqRmusM1kqxzFnzHSRwNRQgYzcestcGg0Zb5UXspbPopb8IihbQ+UFHJd/8a1wtSPZJqpcbtVWWxIiyYFX+vJB1uN7rcI1g8I/+kO/BBgAnGwZHreSkaQAAAAASUVORK5CYII=" />.</p>
+<div class="panel smalltext" style="word-break: break-all;">&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAASCAMAAADfRiY4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFARgJAQoEA30rAiQNAkgZAmMiAQEBA4YuPW1sXQAAAQxJREFUeNrMk8t2wzAIRGF46P//uDPISW0nJ1100bKxjLhiBtm2fhP21zRyAj/UnkpQ33S1RYR7fWJh/iyBxZmuSX20EYYnFf1Cr2ytqUICkXxOHya4jdZb5S58Q4dpGTknh2cKKFciuYE6fFfz5DMdnEgYz0g7RIhUzWjNRnbY9g03XGlNzTy3wwrSfFMjCi5GbyEzmnCseOe76NK6nXTxSb/VO0hjV6bOMyvcaKml3cKMjxOyrsfWOnJNYTvqRmusM1kqxzFnzHSRwNRQgYzcestcGg0Zb5UXspbPopb8IihbQ+UFHJd/8a1wtSPZJqpcbtVWWxIiyYFX+vJB1uN7rcI1g8I/+kO/BBgAnGwZHreSkaQAAAAASUVORK5CYII=" /&gt;</div>
+<p>There are numerous online and offline tools, as well as built-in commands in operating systems, to convert data to and from Base64 format. Our tools above provide a convenient way to perform these conversions directly in the browser without sending data across the internet.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

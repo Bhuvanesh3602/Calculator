@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Ratio Calculator</title>
+	<meta name="description" content="This ratio calculator solves ratios, scales ratios, or finds the missing value in a set of ratios. It can also give out ratio visual representation samples." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/ratio-calculator.html" itemprop="item"><span itemprop="name">ratio calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Ratio Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><p>Please provide any three values below to calculate the fourth in the ratio <span class="bigtext"><b>A:B = C:D</b></span>.</p><div class="panel">
+<form name="calform">
+<table align="center" cellpadding="0" cellspacing="0" style="padding: 8px;">
+<tr>
+	<td align="center">A</td>
+	<td>&nbsp;</td>
+	<td align="center">B</td>
+	<td>&nbsp;</td>
+	<td align="center">C</td>
+	<td>&nbsp;</td>
+	<td align="center">D</td>
+</tr>
+<tr>
+	<td><input type="text" name="t1" id="t1" value="3" class="inhalf" style="text-align:left;"></td>
+	<td class="verybigtext">&nbsp;<b>:</b>&nbsp;</td>
+	<td><input type="text"name="b1" id="b1" value="4" class="inhalf" style="text-align:left;"></td>
+	<td class="verybigtext">&nbsp;<b>=</b>&nbsp;</td>
+	<td><input type="text" name="t2" id="t2" value="600" class="inhalf" style="text-align:left;"></td>
+	<td class="verybigtext">&nbsp;<b>:</b>&nbsp;</td>
+	<td><input type="text" name="b2" id="b2" value="" class="inhalf" style="text-align:left;"></td>
+</tr>
+<tr>
+	<td align="center" colspan="7" style="padding-top: 12px;">
+		<input name="ctype" value="1" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+
+
+<br><h2>Ratio Scaling Calculator</h2>
+<div class="panel">
+<form name="calform2">
+<table align="center">
+<tr>
+	<td align="center" nowrap><input type="text" name="c2t1" id="c2t1" value="250" class="inhalf" style="text-align:left;"> <span class="verybigtext"><b>:</b></span> <input type="text" name="c2b1" id="c2b1" value="280" class="inhalf" style="text-align:left;">
+		<select name="c2type" class="inhalf">
+	<option value="Enlarge" >Enlarge</option>
+	<option value="Shrink" selected>Shrink</option>
+	</select>
+		<input type="text" name="c2time" id="c2time" value="2.5" class="inhalf" style="text-align:left;">
+	<span class="bigtext"><b>times = ?</b></span></td>
+</tr>
+<tr>
+	<td align="center" style="padding: 12px 0px 8px 0px;">
+		<input name="ctype" value="2" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td>
+</tr>
+</table></form></div>
+<br><p><fieldset><legend>Related:</legend><a href="/fraction-calculator.html">Fraction  Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Ratio?</h3>
+<p>A ratio is a quantitative relationship between two numbers that describe how many times one value can contain another. Applications of ratios are fairly ubiquitous, and the concept of ratios is quite intuitive. This could likely be demonstrated by giving a child half as many cookies as his sister. While the child may not be able to voice the injustice using ratios, the raucous protestations that would most likely ensue should make it immediately obvious that he is well aware he has received 1:2 as many cookies as his sister, conceptually, if not mathematically. </p>
+<p>As shown above, ratios are often expressed as two numbers separated by a colon. They can also be written as "1 to 2" or as a fraction &#189;. The ratio represents the number that needs to be multiplied by the denominator in order to yield the numerator. In this case, &#189;. This is clearer if the first number is larger than the second, i.e. with the ratio 2:1, 2 can contain 1, 2 times. It is also possible to have ratios that have more than two terms. </p>
+<p>Ratios are common in many daily applications including: aspect ratios for screens, describing maps and models as a scaled-down version of their actual size, in baking and cooking, when discussing the odds of something occurring, or to describe rates, such as in finance. If, for example, a person wanted to make 5 cakes, each of which required a 1:2:3 ratio of butter:sugar:flour, and wanted to determine the total amount of butter, sugar, and flour that is necessary, it would be simple to compute given the ratio. Increasing the ratio by five times yields a 5:10:15 ratio, and this can be multiplied by whatever the actual amount of sugar, flour, and butter are used in the actual cake recipe. </p>
+
+<h3>Typical Aspect Ratios and Sizes of Screens and Videos</h3>
+<p>The aspect ratio is the ratio of a geometric shape's sizes in different dimensions. In the case of a rectangle, the aspect ratio is that of its width to its height. Although aspect ratios are widely used in applications such as tire sizing, paper sizing, and standard photographic print sizes, some of the most frequent uses of aspect ratios involve computer screen dimensions, mobile phone screens, and video sizes. As such, below is a list of typical computer screen/video resolutions and aspect ratios. </p>
+
+<table class="cinfoT">
+<tr><td class="cinfoHd">Name</td><td class="cinfoHdL">Aspect ratio</td><td class="cinfoHdL">Width (pixel)</td><td class="cinfoHdL">Height (pixel)</td></tr>
+<tr><td>480p</td><td>3:2</td><td>720</td><td>480</td></tr>
+<tr><td>576p</td><td>5:4</td><td>720</td><td>576</td></tr>
+<tr><td>720p</td><td>16:9</td><td>1280</td><td>720</td></tr>
+<tr><td>1080p</td><td>16:9</td><td>1920</td><td>1080</td></tr>
+<tr><td>2160p (4K UHD)</td><td>16:9</td><td>3840</td><td>2160</td></tr>
+<tr><td>4320p (8K UHD)</td><td>16:9</td><td>7680</td><td>4320</td></tr>
+<tr><td>8640p</td><td>16:9</td><td>15360</td><td>8640</td></tr>
+<tr><td>SVGA</td><td>4:3</td><td>800</td><td>600</td></tr>
+<tr><td>WSVGA</td><td>~17:10</td><td>1024</td><td>600</td></tr>
+<tr><td>XGA</td><td>4:3</td><td>1024</td><td>768</td></tr>
+<tr><td>XGA+</td><td>4:3</td><td>1152</td><td>864</td></tr>
+<tr><td>WXGA</td><td>16:9</td><td>1280</td><td>720</td></tr>
+<tr><td>WXGA</td><td>5:3</td><td>1280</td><td>768</td></tr>
+<tr><td>WXGA</td><td>16:10</td><td>1280</td><td>800</td></tr>
+<tr><td>SXGA (UVGA)</td><td>4:3</td><td>1280</td><td>960</td></tr>
+<tr><td>SXGA</td><td>5:4</td><td>1280</td><td>1024</td></tr>
+<tr><td>HD</td><td>~16:9</td><td>1360</td><td>768</td></tr>
+<tr><td>HD</td><td>~16:9</td><td>1366</td><td>768</td></tr>
+<tr><td>SXGA+</td><td>4:3</td><td>1400</td><td>1050</td></tr>
+<tr><td>WXGA+</td><td>16:10</td><td>1440</td><td>900</td></tr>
+<tr><td>HD+</td><td>16:9</td><td>1600</td><td>900</td></tr>
+<tr><td>UXGA</td><td>4:3</td><td>1600</td><td>1200</td></tr>
+<tr><td>WSXGA+</td><td>16:10</td><td>1680</td><td>1050</td></tr>
+<tr><td>FHD</td><td>16:9</td><td>1920</td><td>1080</td></tr>
+<tr><td>WUXGA</td><td>16:10</td><td>1920</td><td>1200</td></tr>
+<tr><td>QWXGA</td><td>16:9</td><td>2048</td><td>1152</td></tr>
+<tr><td>WQHD</td><td>16:9</td><td>2560</td><td>1440</td></tr>
+<tr><td>WQXGA</td><td>16:10</td><td>2560</td><td>1600</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

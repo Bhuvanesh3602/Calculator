@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Greatest Common Factor Calculator</title>
+	<meta name="description" content="This free GCF calculator determines the greatest common factor of a given set of numbers. Also, learn more about several methods for finding the GCF." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/gcf-calculator.html" itemprop="item"><span itemprop="name">greatest common factor calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Greatest Common Factor Calculator</h1><p>Please provide numbers separated by a comma "," and click the "Calculate" button to find the GCF.</p>
+<table class="panel" align="center"><tr><td align="center">
+<form name="calform">
+	<textarea name="numberinputs" class="infulltxarea" rows="5">330, 75, 450, 225</textarea>
+	<br><br>
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</form>
+</td></tr></table>
+<br>
+<p><fieldset><legend>Related</legend><a href="/lcm-calculator.html">LCM Calculator</a> | <a href="/factor-calculator.html">Factor Calculator</a></fieldset></p>
+
+<br>
+<h3>What is the Greatest Common Factor (GCF)?</h3>
+<p>In mathematics, the greatest common factor (GCF), also known as the greatest common divisor, of two (or more) non-zero integers <b>a</b> and <b>b</b>, is the largest positive integer by which both integers can be divided.  It is commonly denoted as GCF(a, b). For example, GCF(32, 256) = 32. </p>
+
+<h3>Prime Factorization Method</h3>
+<p>There are multiple ways to find the greatest common factor of given integers. One of these involves computing the prime factorizations of each integer, determining which factors they have in common, and multiplying these factors to find the GCD. Refer to the example below. </p>
+
+<table align="center"><tr>
+<td valign="top">EX: &nbsp;</td><td>
+GCF(16, 88, 104)<br>
+16 = <u>2</u> &#215; <u>2</u> &#215; <u>2</u> &#215; 2<br>
+88 = <u>2</u> &#215; <u>2</u> &#215; <u>2</u> &#215; 11<br>
+104 = <u>2</u> &#215; <u>2</u> &#215; <u>2</u> &#215; 13<br>
+GCF(16, 88, 104) = 2 &#215; 2 &#215; 2 = 8
+</td></tr></table>
+
+<p>Prime factorization is only efficient for smaller integer values. Larger values would make the prime factorization of each and the determination of the common factors, far more tedious.</p>
+
+<h3>Euclidean Algorithm</h3>
+<p>Another method used to determine the GCF involves using the Euclidean algorithm. This method is a far more efficient method than the use of prime factorization. The Euclidean algorithm uses a division algorithm combined with the observation that the GCD of two integers can also divide their difference. The algorithm is as follows:</p>
+
+<table align="center"><tr><td>
+GCF(a, a) = a<br>
+GCF(a, b) = GCF(a-b, b), when a > b<br>
+GCF(a, b) = GCF(a, b-a), when b > a
+</td></tr></table>
+<p>In practice:</p>
+<ol>
+<li>Given two positive integers, <b>a</b> and b, where <b>a</b> is larger than <b>b</b>, subtract the smaller number <b>b</b> from the larger number <b>a</b>, to arrive at the result <b>c</b>. </li>
+<li>Continue subtracting <b>b</b> from <b>a</b> until the result <b>c</b> is smaller than <b>b</b>. </li>
+<li>Use <b>b</b> as the new large number, and subtract the final result <b>c</b>, repeating the same process as in Step 2 until the remainder is 0. </li>
+<li>Once the remainder is 0, the GCF is the remainder from the step preceding the zero result. </li>
+</ol>
+
+<table align="center"><tr>
+<td valign="top">EX: &nbsp;</td><td>
+GCF(268442, 178296)<br>
+268442 - 178296 = 90146<br>
+178296 - 90146 = 88150<br>
+90146 - 88150 = 1996<br>
+88150 - 1996 &#215; 44 = 326<br>
+1996 - 326 &#215; 6 = 40<br>
+326 - 40 &#215; 8 = 6<br>
+6 - 4 = 2<br>
+4 - 2 &#215; 2 = 0<br>
+</td></tr></table>
+
+<p>From the example above, it can be seen that GCF(268442, 178296) = 2. If more integers were present, the same process would be performed to find the GCF of the subsequent integer and the GCF of the previous two integers. Referring to the previous example, if instead the desired value were GCF(268442, 178296, 66888), after having found that GCF(268442, 178296) is 2, the next step would be to calculate GCF(66888, 2). In this particular case, it is clear that the GCF would also be 2, yielding the result of GCF(268442, 178296, 66888) = 2. </p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

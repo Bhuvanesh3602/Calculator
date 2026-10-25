@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Commission Calculator</title>
+	<meta name="description" content="Free calculator to compute simple percentage commission, tiered commission, or commission that includes a base amount." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/commission-calculator.html" itemprop="item"><span itemprop="name">commission calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Commission Calculator</h1>
+
+<p>The Commission Calculator can compute any one of the following, given inputs for the remaining two: sales price, commission rate, or commission for a simple percentage commission structure.</p><br><table align="center"><tr><td><div class="panel" style="padding:8px;"><form name="calc" action="/commission-calculator.html">
+<table>
+	<tr>
+		<td align="right">Sales Price</td>
+		<td><input type="text" name="price" id="price" value="200000" class="inhalf indollar"></td>
+	</tr>
+	<tr>
+		<td align="right">Commission Rate</td>
+		<td><input type="text" name="rate" value="3" class="inhalf inpct"></td>
+	</tr>
+	<tr>
+		<td align="right">Commission</td>
+		<td><input type="text" name="commission" id="commission" value="" class="inhalf indollar"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top: 8px;">
+			<input name="ctype" value="1" type="hidden">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calc);">
+		</td>
+	</tr>
+</table>
+</form></div></td></tr></table>
+
+<br>
+<a name="complexcommission"></a>
+<h2>Tiered Commission Calculator</h2>
+<p>This calculator can calculate more complex commission structures, including tiered commissions and commissions that include a base amount.</p>
+<table align="center"><tr><td><div class="panel" style="padding:8px;"><form name="calc2" action="/commission-calculator.html#complexcommission">
+Sales Price <input type="text" name="price2" value="200000" class="inhalf indollar">
+
+			<div style="padding-top:20px;">Has a base commission? <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('A base commission is an amount that will be paid regardless of whether or not a sale occurs.', '');" onmouseout="tooltip.hide();"></div>
+			<div style="text-align:center;">
+				<label for="hasbc1" class="cbcontainer"><input type="radio" name="hasbc" id="hasbc1" value="y" onClick="baseCommissionUpdate();"  /><span class="rbmark"></span>Yes</label> &nbsp;
+				<label for="hasbc2" class="cbcontainer"><input type="radio" name="hasbc" id="hasbc2" value="n" onClick="baseCommissionUpdate();" checked /><span class="rbmark"></span>No</label>
+			</div>
+			<div id="basecommissioninput">
+				Base commission
+				<input type="text" name="bc" value="1000" class="innormal indollar">
+				<select name="bcunit" onChange="cunitchange('bc', this.value);"><option value="p">%</option><option value="d" selected>$</option></select>
+			</div>
+
+			<div style="padding-top:20px;">Commission varies with price? <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('A tiered commission structure is one in which the commission changes based on the sale price. For example, a sales rep earns 3% on sales up to $10,000. After surpassing that, the sales rep will earn 5% on the portion of the sales above $10,000.', '');" onmouseout="tooltip.hide();"></div>
+			<div style="text-align:center;">
+				<label for="varyc1" class="cbcontainer"><input type="radio" name="varyc" id="varyc1" value="y" onClick="commissionRateUpdate();" checked /><span class="rbmark"></span>Yes</label> &nbsp;
+				<label for="varyc2" class="cbcontainer"><input type="radio" name="varyc" id="varyc2" value="n" onClick="commissionRateUpdate();"  /><span class="rbmark"></span>No</label>
+			</div>
+			<div id="fixedcommission">
+				Commission
+				<input type="text" name="fc" value="3" class="innormal">
+				<select name="fcunit" onChange="cunitchange('fc', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+			</div>
+			<div id="commissionranges">
+				<p style="width: 300px;">Please define the tiered commission structure below. Leave the "To" value blank if there is no upper limit.</p>
+				<table align="center">
+					<tr><th>From:</th><th>To:</th><th>Commission</th></tr>
+					<tr>
+						<td><div id="cfrom0">$0</div></td>
+						<td><input type="text" name="t1" value="20000" onkeyup="updateFrom(1)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c1" value="3" class="in4char">
+							<select name="u1" onChange="cunitchange('c1', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom1">$20,000</div></td>
+						<td><input type="text" name="t2" value="" onkeyup="updateFrom(2)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c2" value="5" class="in4char">
+							<select name="u2" onChange="cunitchange('c2', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom2"></div></td>
+						<td><input type="text" name="t3" value="" onkeyup="updateFrom(3)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c3" value="" class="in4char">
+							<select name="u3" onChange="cunitchange('c3', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom3"></div></td>
+						<td><input type="text" name="t4" value="" onkeyup="updateFrom(4)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c4" value="" class="in4char">
+							<select name="u4" onChange="cunitchange('c4', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom4"></div></td>
+						<td><input type="text" name="t5" value="" onkeyup="updateFrom(5)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c5" value="" class="in4char">
+							<select name="u5" onChange="cunitchange('c5', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom5"></div></td>
+						<td><input type="text" name="t6" value="" onkeyup="updateFrom(6)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c6" value="" class="in4char">
+							<select name="u6" onChange="cunitchange('c6', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom6"></div></td>
+						<td><input type="text" name="t7" value="" onkeyup="updateFrom(7)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c7" value="" class="in4char">
+							<select name="u7" onChange="cunitchange('c7', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+					<tr>
+						<td><div id="cfrom7"></div></td>
+						<td><input type="text" name="t8" value="" onkeyup="updateFrom(8)"; class="innormal indollar"></td>
+						<td>
+							<input type="text" name="c8" value="" class="in4char">
+							<select name="u8" onChange="cunitchange('c8', this.value);"><option value="p" selected>%</option><option value="d">$</option></select>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+<table align="center">
+	<tr>
+		<td colspan="2" align="center" style="padding-top:8px;">
+			<input name="ctype" value="2" type="hidden">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calc2);">
+		</td>
+	</tr>
+</table>
+</form></div></td></tr></table>
+<script>
+function baseCommissionUpdate(){
+	if (document.calc2.hasbc.value=="y"){
+		document.getElementById("basecommissioninput").style.display = 'block';
+	}else{
+		document.getElementById("basecommissioninput").style.display = 'none';
+	}
+}
+baseCommissionUpdate();
+function commissionRateUpdate(){
+	if (document.calc2.varyc.value=="y"){
+		document.getElementById("fixedcommission").style.display = 'none';
+		document.getElementById("commissionranges").style.display = 'block';
+	}else{
+		document.getElementById("fixedcommission").style.display = 'block';
+		document.getElementById("commissionranges").style.display = 'none';
+	}
+}
+commissionRateUpdate();
+function cunitchange(cucname, cucvalue){
+	eval('var cucInput = document.calc2.'+cucname+';');
+
+	if (cucvalue=='d'){
+		cucInput.classList.remove("inpct");
+		cucInput.classList.add("indollar");
+	}else{
+		cucInput.classList.remove("indollar");
+		cucInput.classList.add("inpct");
+	}
+	return false;
+}
+cunitchange('bc', 'd');
+cunitchange('fc', 'p');
+cunitchange('c1', 'p');
+cunitchange('c2', 'p');
+cunitchange('c3', 'p');
+cunitchange('c4', 'p');
+cunitchange('c5', 'p');
+cunitchange('c6', 'p');
+cunitchange('c7', 'p');
+cunitchange('c8', 'p');
+function updateFrom(ufid){
+	eval('var ufInputElement = document.calc2.t'+ufid+';');
+	insertComma2(ufInputElement,'d');
+	//eval('var ufInput = document.calc2.t'+ufid+'.value;');
+	if (ufid<8) document.getElementById("cfrom"+ufid).innerHTML = '$'+ufInputElement.value;
+}
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(pcele){
+	pcele.onblur=function(){insertComma2(pcele, 'd');};
+	insertComma2(pcele, 'd');
+}
+var allElements = document.calc.elements;
+for (i = 0; i < allElements.length; i++) {
+	if (allElements[i].type == 'text') proComma2(allElements[i]);
+}
+var allElements2 = document.calc2.elements;
+for (i = 0; i < allElements2.length; i++) {
+	if (allElements2[i].type == 'text') proComma2(allElements2[i]);
+}
+</script>
+<br>
+
+<h3>What is a commission?</h3>
+<p>In sales, a commission is a form of payment that salespeople earn that is tied to how much of a service or a product they sell. Commissions are a method used to motivate salespeople, since the amount they sell directly impacts the amount that they can earn.</p>
+<p>A commission, in its simplest form, is some percentage of revenue. For example, a salesperson may earn 3% of whatever they sell. If a product is sold for $100, the salesperson would earn $3 from that sale. This is not the only model however. Others include paying commissions based on profit earned or commissions paid in the form of bonuses. In some cases, salespeople may be paid entirely based on commission, or their earnings could be a combination of hourly pay or a base salary plus commissions.</p>
+
+<h3>Different commission structures</h3>
+<p>There are many different types of commission structures. In some cases, commissions may be reduced when discounts are granted, making salespeople less likely to provide discounts to make a sale. In others, salespeople might gain commissions based on repeat customers, motivating them to retain customers. Whatever the case, different commission structures provide different motivations to salespeople, and the appropriate commission structure for a given business can help both the business and its salespeople thrive.</p>
+<p>This calculator can compute commissions for three different types of commission structures: commission only, base salary plus commission, and tiered commission.</p>
+
+<h4>Commission only:</h4>
+<p>In a commission only structure, a salesperson's compensation is based entirely on their sales. In this type of structure, a salesperson will receive some percentage of the revenue. For example, a real estate agent may receive 3% of the house's price. In this case, if the house was sold for $500,000, the agent receive 3% of that sale, or:</p>
+<p style="text-align:center;">500,000 &#215; 3% = $15,000</p>
+<p>In this type of structure, the salesperson will be highly motivated to make sales because their compensation is entirely dependent on it. If they cannot make a sale, they earn nothing. The formula for calculating compensation based on this commission structure is:</p>
+<p style="text-align:center;">sale price &#215; commission percentage = compensation</p>
+
+<h4>Base salary plus commission:</h4>
+<p>In this type of commission structure, a salesperson earns some base salary. In addition, they may earn a commission based on sales made. For example, a salesperson may have a base salary of $500/month with a commission percentage of 1.5%. In this commission structure, a salesperson who sells a $25,000 car will earn:</p>
+<p style="text-align:center;">500 + 25,000 &#215; 1.5% = $875</p>
+<p>If they sell 2 cars at the same price, they will earn:</p>
+<p style="text-align:center;">500 + 25,000 &#215; 2 &#215; 1.5% = $1,250</p>
+<p>If they sell 1 car for $25,000 and 2 cars for $33,000, they will earn:</p>
+<p style="text-align:center;">500 + (25,000 + 33,000 &#215; 2) &#215; 1.5% = $1,865</p>
+<p>In this type of structure, the salesperson is still motivated to sell more cars, since more cars sold results in a higher compensation. However, this type of structure also ensures some degree of security in that even if no sales are made, the salesperson will still make some base salary. This base salary is typically an amount that is reduced relative to other purely salary-based employment opportunities, so selling product is still a necessary part of this pay structure. The formula for calculating compensation based on this commission structure is:</p>
+<p style="text-align:center;">base salary + (n<sub>1</sub> &#215; price<sub>1</sub> + n<sub>2</sub> &#215; price<sub>2</sub> + ...) &#215; commission percentage</p>
+<p>where n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub> and so on indicate the number of items sold for a given sales price. This assumes that more than one type of product is sold. If only one product is sold at a fixed price, then the formula is:</p>
+<p style="text-align:center;">base salary + n &#215; price &#215; commission percentage</p>
+<p>The "Sales Price" input of this calculator is the total accumulated sales amount.</p>
+
+<h4>Tiered commission calculator:</h4>
+<p>In a tiered commission structure, commission changes based on the total amount of sales made. For example, a salesperson may earn a 3% commission on sales between $0-20,000. For sales between $20,000-25,000, they may earn a 5% commission, and for sales between $25,000-30,000, they may earn a 10% commission, and so on. Note that this does not mean that a salesperson who sells $27,000 worth of product would earn 10% of $27,000. They only earn 10% on the amount above $25,000, so a salesperson who sells $27,000 worth of product would receive a total commission of:</p>
+<p style="text-align:center;">20,000 &#215; 3% + 5,000 &#215; 5% + 2,000 &#215; 10% = $1,050</p>
+<p>In this type of commission structure, salespeople are motivated to sell more because their commission rate increases the more they sell. The formula for determining commission earned based on this commission structure is:</p>
+<p style="text-align:center;">(t<sub>1</sub>) &#215; c<sub>1</sub> + (t<sub>2</sub> - t<sub>1</sub>) &#215; c<sub>2</sub> + ... + (sales price - t<sub>n-1</sub>) &#215; c<sub>n</sub></p>
+<p>where c<sub>1</sub>, c<sub>2</sub>, c<sub>n</sub> are the commission percentages for each respective tier and t<sub>1</sub>, t<sub>2</sub>, t<sub>n</sub> are the maximum values in each given tier, where n in both cases is the highest tier reached. In the example above, the highest tier reached is the third commission tier, t<sub>3</sub>, so c<sub>n</sub> is c<sub>3</sub> and t<sub>(n-1)</sub> is t<sub>2</sub>. Working the above problem out using the formula:</p>
+<p style="text-align:center;">(20,000) &#215; 3% + (25,000 - 20,000) &#215; 5% + (27,000 - 25,000) &#215; 10% = $1,050</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

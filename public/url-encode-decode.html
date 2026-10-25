@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>URL Encode / Decode</title>
+	<meta name="description" content="This free online tool can encode or decode data to and from a URL-compatible format." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/url-encode-decode.html" itemprop="item"><span itemprop="name">url encode / decode</span></a><meta itemprop="position" content="3" /></span></div>		<h1>URL Encode / Decode</h1>
+
+<p>Use the tool below to encode or decode data to and from a URL-compatible format. To ensure data safety, the encoding and decoding are performed within the browser without being sent across the internet.</p>
+<div class="panel">
+<form name="calcform">
+<table>
+	<tr>
+		<td><div>Text to encode or decode:</div>
+			<textarea name="toprocess" class="infulltxarea" rows="2"></textarea>
+		</td>
+	</tr>
+	<tr><td style="padding: 8px 0px;">
+		<input type="submit" name="e" value=" Encode" onClick="return ucEncode();">
+		<input type="submit" name="d" value=" Decode" onClick="return ucDecode();">
+		<input type="button" value="Clear" onClick="clearForm(document.calcform);">
+	</td></tr>
+	<tr>
+		<td><div id="coutputdesc"></div>
+			<div id="coutputarea" style="display:none;"><textarea name="coutput" class="infulltxarea" rows="2" readonly></textarea></div>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<script>
+function ucEncode(){
+	let uceInTxt = document.calcform.toprocess.value + "";
+	let uceOutputdesc = document.getElementById("coutputdesc");
+	try {
+		if (uceInTxt.length < 1){
+			uceOutputdesc.innerHTML = '<font color="red">Please enter text to encode.</font>';
+		}else{
+			uceOutputdesc.innerHTML = 'processing...';
+			document.getElementById("coutputarea").style.display = "block";
+			document.calcform.coutput.value = encodeURIComponent(uceInTxt.trim());
+			uceOutputdesc.innerHTML = '<b>Encoded result:</b> <a href="#" onClick="return ucCopyOutput();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a>';
+		}
+	} catch (err) {
+		uceOutputdesc.innerHTML = '<font color="red">Sorry, the input text cannot be URL encoded.</font>';
+		document.calcform.coutput.value = "";
+	}
+	return false;
+}
+function ucDecode(){
+	let ucdInTxt = document.calcform.toprocess.value + "";
+	let ucdOutputdesc = document.getElementById("coutputdesc");
+	try {
+		if (ucdInTxt.length < 1){
+			ucdOutputdesc.innerHTML = '<font color="red">Please enter text to decode.</font>';
+		}else{
+			ucdOutputdesc.innerHTML = 'processing...';
+			document.getElementById("coutputarea").style.display = "block";
+			document.calcform.coutput.value = decodeURIComponent(ucdInTxt.trim());
+			ucdOutputdesc.innerHTML = '<b>Decoded result:</b> <a href="#" onClick="return ucCopyOutput();"><img src="/img/copy.svg" width="16" height="20" alt="copy" align="absmiddle">copy</a>';
+		}
+	} catch (err) {
+		ucdOutputdesc.innerHTML = '<font color="red">Sorry, the input text cannot be URL decoded.</font>';
+		document.calcform.coutput.value = "";
+	}
+	return false;
+}
+function ucCopyOutput() {
+	let bcTxt = document.calcform.coutput.value + "";
+	try {
+		navigator.clipboard.writeText(bcTxt);
+	} catch (err) {
+		document.calcform.coutput.select();
+		document.execCommand('copy');
+	}
+	return false;
+}
+</script>
+
+<br><br><br>
+
+<p>URL encoding is a way to convert data into a format that can be safely included in a URL. URLs can only safely contain certain US-ASCII characters, which are limited to letters, numbers, and a few symbols. Data that contains other characters&mdash;such as spaces, punctuation, or non-English characters&mdash;needs to be encoded to ensure that browsers and servers interpret it correctly. URL encoding of these incompatible characters is achieved by replacing them with a percent sign (%) followed by two hexadecimal digits representing the character's byte value. For example, '^' is encoded as '%5E', and '<' is encoded as '%3C'. Unicode or other characters that occupy more than one byte are first converted into a sequence of bytes (typically using UTF-8) and then represented by a percent sign (%) followed by two hexadecimal digits for each byte. For example, '&#937;' is encoded as '%CE%A9', and '&#946;' is encoded as '%CE%B2'.</p>
+<p>Because URL encoding uses the percent sign, it is also called percent-encoding. This encoding method is not limited to URLs; therefore, the term percent-encoding should be preferred.</p>
+<p>The US-ASCII characters allowed in a URL are categorized as either reserved or unreserved. Reserved characters have special meanings in a URL, while unreserved characters do not. Based on RFC 3986, the reserved characters are:</p>
+<p style="word-break: break-all;text-align:center;">!#$&'()*+,/:;=?@[]</p>
+<p>and the unreserved characters are:</p>
+<p style="word-break: break-all;text-align:center;">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~</p>
+<p>When reserved characters are used for their intended meanings in a URL, they do not need to be encoded. However, when used for other purposes, they need to be percent-encoded to distinguish them from their reserved meanings. For example, in the URL:</p>
+<p style="word-break: break-all;text-align:center;"><a href="https://www.calculator.net/url-encode-decode.html?toprocess=encode%20%2F%20and%20%3F">https://www.calculator.net/url-encode-decode.html?toprocess=encode%20%2F%20and%20%3F</a></p>
+<p>the '/' is not encoded when serving as a path delimiter, and '?' is not encoded when indicating the start of the query string. However, they are encoded as '%2F' and '%3F' when used as part of the data in the value of 'encode / and ?' for the parameter 'toprocess'.</p>
+<p>Unreserved characters can be used directly in URLs in all situations without being percent-encoded. Characters that are not in either category must be percent-encoded to be used safely in URLs.</p>
+<p>There are numerous online and offline tools available to encode and decode data to and from a URL-safe format. Our tool above provides a convenient way to perform these conversions directly in the browser without sending data over the internet.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

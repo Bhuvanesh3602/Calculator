@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Loan Calculator</title>
+	<meta name="description" content="Free loan calculator to find the repayment plan, interest cost, and amortization schedule of conventional amortized loans, deferred payment loans, and bonds." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script src="/js/loannew.js" async></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/loan-calculator.html" itemprop="item"><span itemprop="name">loan calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Loan Calculator</h1>
+
+<p>A loan is a contract between a borrower and a lender in which the borrower receives an amount of money (principal) that they are obligated to pay back in the future. Most loans can be categorized into one of three categories:</p>
+<ol>
+   <li><a href="#monthlyfixed"><b>Amortized Loan:</b> Fixed payments paid periodically until loan maturity</a></li>
+   <li><a href="#intheend"><b>Deferred Payment Loan:</b> Single lump sum paid at loan maturity</a></li>
+   <li><a href="#fixedend"><b>Bond:</b> Predetermined lump sum paid at loan maturity (the face or par value of a bond)</a></li>
+</ol>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<a name="monthlyfixed"></a>
+<h2 class="h2red">Amortized Loan: Paying Back a Fixed Amount Periodically</h2>
+<p>Use this calculator for basic calculations of common loan types such as <a href="/mortgage-calculator.html">mortgages</a>, <a href="/auto-loan-calculator.html">auto loans</a>, <a href="/student-loan-calculator.html">student loans</a>, or <a href="/personal-loan-calculator.html">personal loans</a>, or click the links for more detail on each.</p>
+
+<div class="leftinput"><table class="panel" >
+<form name="calform" action="/loan-calculator.html#monthlyfixedr">
+<tr><td>Loan Amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="100000" class="inlonger indollar"></td></tr>
+<tr><td>Loan Term</td><td nowrap>
+	<input type="text" name="cloanterm" id="cloanterm" value="10" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+	<input type="text" name="cloantermmonth" id="cloantermmonth" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>&nbsp;
+</td></tr>
+<tr><td>Interest Rate</td><td><input type="text" name="cinterestrate" id="cinterestrate" value="6" class="inlonger inpct"></td></tr>
+
+<tr><td>Compound</td><td><select name="ccompound" class="inlonger">
+<option value="annually">Annually (APY)</option>
+<option value="semiannually">Semi-annually</option>
+<option value="quarterly">Quarterly</option>
+<option value="monthly" selected>Monthly (APR)</option>
+<option value="semimonthly">Semi-monthly</option>
+<option value="biweekly">Biweekly</option>
+<option value="weekly">Weekly</option>
+<option value="daily">Daily</option>
+<option value="continuously">Continuously</option></select></td></tr>
+
+<tr><td>Pay Back</td><td><select name="cpayback" class="inlonger">
+<option value="daily">Every Day</option>
+<option value="weekly">Every Week</option>
+<option value="biweekly">Every 2 Weeks</option>
+<option value="halfmonth">Every Half Month</option>
+<option value="month" selected>Every Month</option>
+<option value="quarter">Every Quarter</option>
+<option value="halfyear">Every 6 Months</option>
+<option value="year">Every Year</option></select></td></tr>
+<tr><td colspan="2" align="center" style="padding: 10px 0px 3px 0px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	<input type="hidden" name="type" value="1">
+</td></tr>
+</form>
+</table>
+</div><div class="rightresult">
+<a name="monthlyfixedr"></a>
+
+<h2 class="h2result">Results:<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TG9hbiBDYWxjdWxhdG9y', 1, 'QW1vcnRpemVkIExvYW4=', 'UGF5bWVudCBFdmVyeSBNb250aA==', 'JDEsMTEwLjIx');"></h2><table><tr><td>Payment Every Month</td><td align='right'>&nbsp; <b>$1,110.21</b></td></tr><tr><td>Total of 120 Payments</td><td align='right'>&nbsp; <b>$133,224.60</b></td></tr><tr><td>Total Interest</td><td align='right'>&nbsp; <b>$33,224.60</b></td></tr><tr><td align="center" colspan="2"><g onclick="ttline2HideTT();"><svg width="220" height="96"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 58.5 8 A 40 40 0 1 1 18.5 47.846 L 58.5 48 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (75%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><path d="M 18.5 47.846 A 40 40 0 0 1 58.5 8 L 58.5 48 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$33,224.60 (25%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="48" x2="18.5" y2="47.846" class="mcpline" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><circle cx="58.5" cy="48" r="12" fill="white" /><text x="76.144" y="65.712" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (75%)');" onmouseout="ttpieHideTT();">75%</text><text x="40.856" y="30.288" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$33,224.60 (25%)');" onmouseout="ttpieHideTT();">25%</text><rect x="117" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="142" y="19" class="mcplegend">Principal</text><rect x="117" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="142" y="37" class="mcplegend">Interest</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></td></tr><tr><td align="center" colspan="2"><a href="#" onClick="return showAmo(100000, 0.0049999999999999, 120, 1110.2050194165, 'month', 'lcamotable1');">View Amortization Table</a></td></tr></table></div>
+<div id="clear"></div>
+
+<div id="lcamotable1"></div>
+<a name="intheend"></a>
+<h2 class="h2red"><br>Deferred Payment Loan: Paying Back a Lump Sum Due at Maturity</h2>
+<div class="leftinput"><table class="panel" >
+<form name="calform2" action="/loan-calculator.html#intheendr" >
+<tr><td>Loan Amount</td><td><input type="text" name="c2loanamount" id="c2loanamount" value="100000" class="inlonger indollar"></td></tr>
+<tr><td>Loan Term</td><td nowrap>
+	<input type="text" name="c2loanterm" value="10" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+	<input type="text" name="c2loantermmonth" id="c2loantermmonth" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>&nbsp;
+</td></tr>
+<tr><td>Interest Rate</td><td><input type="text" name="c2interestrate" value="6" class="inlonger inpct"></td></tr>
+<tr><td>Compound</td><td><select name="c2compound" id="c2compound" class="inlonger">
+<option value="annually" selected>Annually (APY)</option>
+<option value="semiannually">Semi-annually</option>
+<option value="quarterly">Quarterly</option>
+<option value="monthly">Monthly (APR)</option>
+<option value="semimonthly">Semi-monthly</option>
+<option value="biweekly">Biweekly</option>
+<option value="weekly">Weekly</option>
+<option value="daily">Daily</option>
+<option value="continuously">Continuously</option></select></td></tr>
+<tr><td colspan="2" align="center" style="padding: 10px 0px 3px 20px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	<input type="hidden" name="type" value="2">
+</td></tr>
+</form>
+</table>
+</div><div class="rightresult">
+<a name="intheendr"></a>
+
+<h2 class="h2result">Results:<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TG9hbiBDYWxjdWxhdG9y', 2, 'RGVmZXJyZWQgUGF5bWVudCBMb2Fu', 'QW1vdW50IER1ZSBhdCBMb2FuIE1hdHVyaXR5', 'JDE3OSwwODQuNzc=');"></h2><table><tr><td>Amount Due at Loan Maturity</td><td align='right'>&nbsp; <b>$179,084.77</b></td></tr><tr><td>Total Interest</td><td align='right'>&nbsp; <b>$79,084.77</b></td></tr><tr><td align="center" colspan="2"><g onclick="ttline2HideTT();"><svg width="220" height="96"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 58.5 8 A 40 40 0 1 1 44.151 85.338 L 58.5 48 Z" fill="#2b7ddb"  onmousemove="ttpie3ShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (56%)');" onmouseout="ttpie3HideTT();" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><path d="M 44.151 85.338 A 40 40 0 0 1 58.5 8 L 58.5 48 Z" fill="#8bbc21"  onmousemove="ttpie3ShowTT(evt, '#8bbc21', 'Interest <br>$79,084.77 (44%)');" onmouseout="ttpie3HideTT();" /><line x1="58.5" y1="48" x2="44.151" y2="85.338" class="mcpline" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><circle cx="58.5" cy="48" r="12" fill="white" /><text x="83.08" y="52.561" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpie3ShowTT(evt, '#2b7ddb', 'Principal <br>$100,000.00 (56%)');" onmouseout="ttpie3HideTT();">56%</text><text x="33.92" y="43.439" class="mcplabel" stroke="#8bbc21" onmousemove="ttpie3ShowTT(evt, '#8bbc21', 'Interest <br>$79,084.77 (44%)');" onmouseout="ttpie3HideTT();">44%</text><rect x="117" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="142" y="19" class="mcplegend">Principal</text><rect x="117" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="142" y="37" class="mcplegend">Interest</text></svg><script> function ttpie3ShowTT(evt, color, text) { let tooltip = document.getElementById("ttpie3tt"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpie3HideTT() { var tooltip = document.getElementById("ttpie3tt"); tooltip.style.display = "none"; }</script><style>#ttpie3tt {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpie3tt div{font-size:13px;color:#fff;}</style><div id="ttpie3tt" style="position: absolute; display: none;text-align:left;"></div></g></td></tr><tr><td align="center" colspan="2"><a href="#" onClick="return showSch(100000, 1.06, 10, 'year', 'lcamotable2');">View Schedule Table</a></td></tr></table></div>
+<div id="clear"></div>
+<div id="lcamotable2"></div>
+<a name="fixedend"></a>
+<h2 class="h2red"><br>Bond: Paying Back a Predetermined Amount Due at Loan Maturity</h2>
+<p>Use this calculator to compute the initial value of a bond/loan based on a predetermined face value to be paid back at bond/loan maturity.</p><div class="leftinput"><table class="panel" >
+<form name="calform3" action="/loan-calculator.html#fixedendr">
+<tr><td>Predetermined<br>Due Amount</td><td><input type="text" name="c3loanamount" id="c3loanamount" value="100000" class="inlonger indollar"></td></tr>
+<tr><td>Loan Term</td><td nowrap>
+	<input type="text" name="c3loanterm" value="10" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+	<input type="text" name="c3loantermmonth" id="c3loantermmonth" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>&nbsp;
+</td></tr>
+<tr><td>Interest Rate</td><td><input type="text" name="c3interestrate" value="6" class="inlonger inpct"></td></tr>
+<tr><td>Compound</td><td><select name="c3compound" id="c3compound" class="inlonger">
+<option value="annually" selected>Annually (APY)</option>
+<option value="semiannually">Semi-annually</option>
+<option value="quarterly">Quarterly</option>
+<option value="monthly">Monthly (APR)</option>
+<option value="semimonthly">Semi-monthly</option>
+<option value="biweekly">Biweekly</option>
+<option value="weekly">Weekly</option>
+<option value="daily">Daily</option>
+<option value="continuously">Continuously</option></select></td></tr>
+<tr><td colspan="2" align="center" style="padding: 10px 0px 3px 20px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+	<input type="hidden" name="type" value="3">
+</td></tr>
+</form>
+</table>
+</div><div class="rightresult">
+<a name="fixedendr"></a>
+<h2 class="h2result">Results:<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TG9hbiBDYWxjdWxhdG9y', 3, 'Qm9uZA==', 'QW1vdW50IFJlY2VpdmVkIFdoZW4gdGhlIExvYW4gU3RhcnRz', 'JDU1LDgzOS40OA==');"></h2><table><tr valign='top'><td>Amount Received When the Loan Starts</td><td align='right'><b>$55,839.48</b></td></tr><tr valign='top'><td>Total Interest</td><td align='right'><b>$44,160.52</b></td></tr><tr><td align="center" colspan="2"><g onclick="ttline2HideTT();"><svg width="220" height="96"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 58.5 8 A 40 40 0 1 1 44.151 85.338 L 58.5 48 Z" fill="#2b7ddb"  onmousemove="ttpie3ShowTT(evt, '#2b7ddb', 'Principal <br>$55,839.48 (56%)');" onmouseout="ttpie3HideTT();" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><path d="M 44.151 85.338 A 40 40 0 0 1 58.5 8 L 58.5 48 Z" fill="#8bbc21"  onmousemove="ttpie3ShowTT(evt, '#8bbc21', 'Interest <br>$44,160.52 (44%)');" onmouseout="ttpie3HideTT();" /><line x1="58.5" y1="48" x2="44.151" y2="85.338" class="mcpline" /><line x1="58.5" y1="48" x2="58.5" y2="8" class="mcpline" /><circle cx="58.5" cy="48" r="12" fill="white" /><text x="83.08" y="52.561" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpie3ShowTT(evt, '#2b7ddb', 'Principal <br>$55,839.48 (56%)');" onmouseout="ttpie3HideTT();">56%</text><text x="33.92" y="43.439" class="mcplabel" stroke="#8bbc21" onmousemove="ttpie3ShowTT(evt, '#8bbc21', 'Interest <br>$44,160.52 (44%)');" onmouseout="ttpie3HideTT();">44%</text><rect x="117" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="142" y="19" class="mcplegend">Principal</text><rect x="117" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="142" y="37" class="mcplegend">Interest</text></svg><script> function ttpie3ShowTT(evt, color, text) { let tooltip = document.getElementById("ttpie3tt"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpie3HideTT() { var tooltip = document.getElementById("ttpie3tt"); tooltip.style.display = "none"; }</script><style>#ttpie3tt {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpie3tt div{font-size:13px;color:#fff;}</style><div id="ttpie3tt" style="position: absolute; display: none;text-align:left;"></div></g></td></tr><tr><td colspan="2" align="center"><a href="#" onClick="return showSch(55839.477691512, 1.06, 10, 'year', 'lcamotable3');">View Schedule Table</a></td></tr></table></div>
+<div id="clear"></div>
+<div id="lcamotable3"></div>
+<br>
+<br>
+<h2>Amortized Loan: Fixed Amount Paid Periodically</h2>
+<p>Many consumer loans fall into this category of loans that have regular payments that are amortized uniformly over their lifetime. Routine payments are made on principal and interest until the loan reaches maturity (is entirely paid off). Some of the most familiar amortized loans include mortgages, car loans, student loans, and personal loans. The word "loan" will probably refer to this type in everyday conversation, not the type in the second or third calculation. Below are links to calculators related to loans that fall under this category, which can provide more information or allow specific calculations involving each type of loan. Instead of using this Loan Calculator, it may be more useful to use any of the following for each specific need:</p>
+<table align="center" width="90%" cellpadding="3">
+	<tr><td><a href="/mortgage-calculator.html">Mortgage Calculator</a></td><td><a href="/auto-loan-calculator.html">Auto Loan Calculator</a></td></tr>
+	<tr><td><a href="/student-loan-calculator.html">Student Loan Calculator</a></td><td><a href="/fha-loan-calculator.html">FHA Loan Calculator</a></td></tr>
+	<tr><td><a href="/va-mortgage-calculator.html">VA Mortgage Calculator</a></td><td><a href="/investment-calculator.html">Investment Calculator</a></td></tr>
+	<tr><td><a href="/business-loan-calculator.html">Business Loan Calculator</a></td><td><a href="/personal-loan-calculator.html">Personal Loan Calculator</a></td></tr>
+</table>
+
+<h2>Deferred Payment Loan: Single Lump Sum Due at Loan Maturity</h2>
+<p>Many commercial loans or short-term loans are in this category. Unlike the first calculation, which is amortized with payments spread uniformly over their lifetimes, these loans have a single, large lump sum due at maturity. Some loans, such as balloon loans, can also have smaller routine payments during their lifetimes, but this calculation only works for loans with a single payment of all principal and interest due at maturity.</p>
+
+<h2>Bond: Predetermined Lump Sum Paid at Loan Maturity</h2>
+<p>This kind of loan is rarely made except in the form of bonds. Technically, bonds operate differently from more conventional loans in that borrowers make a predetermined payment at maturity. The face, or par value of a bond, is the amount paid by the issuer (borrower) when the bond matures, assuming the borrower doesn't default. Face value denotes the amount received at maturity.</p>
+<p>Two common bond types are coupon and zero-coupon bonds. With coupon bonds, lenders base coupon interest payments on a percentage of the face value. Coupon interest payments occur at predetermined intervals, usually annually or semi-annually. Zero-coupon bonds do not pay interest directly. Instead, borrowers sell bonds at a deep discount to their face value, then pay the face value when the bond matures. Users should note that the calculator above runs calculations for zero-coupon bonds.</p>
+<p>After a borrower issues a bond, its value will fluctuate based on interest rates, market forces, and many other factors. While this does not change the bond's value at maturity, a bond's market price can still vary during its lifetime.</p>
+
+<h2>Loan Basics for Borrowers</h2>
+<h3>Interest Rate</h3>
+<p>Nearly all loan structures include interest, which is the profit that banks or lenders make on loans. Interest rate is the percentage of a loan paid by borrowers to lenders. For most loans, interest is paid in addition to principal repayment. Loan interest is usually expressed in APR, or annual percentage rate, which includes both interest and fees. The rate usually published by banks for saving accounts, money market accounts, and CDs is the annual percentage yield, or APY. It is important to understand the difference between APR and APY. Borrowers seeking loans can calculate the actual interest paid to lenders based on their advertised rates by using the <a href="/interest-calculator.html">Interest Calculator</a>. For more information about or to do calculations involving APR, please visit the <a href="/apr-calculator.html">APR Calculator</a>.</p>
+<h3>Compounding Frequency</h3>
+<p>Compound interest is interest that is earned not only on the initial principal but also on accumulated interest from previous periods. Generally, the more frequently compounding occurs, the higher the total amount due on the loan. In most loans, compounding occurs monthly. Use the <a href="/compound-interest-calculator.html">Compound Interest Calculator</a> to learn more about or do calculations involving compound interest.</p>
+<h3>Loan Term</h3>
+<p>A loan term is the duration of the loan, given that required minimum payments are made each month. The term of the loan can affect the structure of the loan in many ways. Generally, the longer the term, the more interest will be accrued over time, raising the total cost of the loan for borrowers, but reducing the periodic payments.</p>
+
+<h2>Consumer Loans</h2>
+<p>There are two basic kinds of consumer loans: secured or unsecured.</p>
+<h3>Secured Loans</h3>
+<p>A secured loan means that the borrower has put up some asset as a form of collateral before being granted a loan. The lender is issued a lien, which is a right to possession of property belonging to another person until a debt is paid. In other words, defaulting on a secured loan will give the loan issuer the legal ability to seize the asset that was put up as collateral. The most common secured loans are mortgages and auto loans. In these examples, the lender holds the deed or title, which is a representation of ownership, until the secured loan is fully paid. Defaulting on a mortgage typically results in the bank foreclosing on a home, while not paying a car loan means that the lender can repossess the car.</p>
+<p>Lenders are generally hesitant to lend large amounts of money with no guarantee. Secured loans reduce the risk of the borrower defaulting since they risk losing whatever asset they put up as collateral. If the collateral is worth less than the outstanding debt, the borrower can still be liable for the remainder of the debt.</p>
+<p>Secured loans generally have a higher chance of approval compared to unsecured loans and can be a better option for those who would not qualify for an unsecured loan,</p>
+<h3>Unsecured Loans</h3>
+<p>An unsecured loan is an agreement to pay a loan back without collateral. Because there is no collateral involved, lenders need a way to verify the financial integrity of their borrowers. This can be achieved through the five C's of credit, which is a common methodology used by lenders to gauge the creditworthiness of potential borrowers.</p>
+<ul>
+	<li><b>Character</b>&mdash;may include credit history and reports to showcase the track record of a borrower's ability to fulfill debt obligations in the past, their work experience and income level, and any outstanding legal considerations</li>
+	<li><b>Capacity</b>&mdash;measures a borrower's ability to repay a loan using a ratio to compare their debt to income</li>
+	<li><b>Capital</b>&mdash;refers to any other assets borrowers may have, aside from income, that can be used to fulfill a debt obligation, such as a down payment, savings, or investments</li>
+	<li><b>Collateral</b>&mdash;only applies to secured loans. Collateral refers to something pledged as security for repayment of a loan in the event that the borrower defaults</li>
+	<li><b>Conditions</b>&mdash;the current state of the lending climate, trends in the industry, and what the loan will be used for</li>
+</ul>
+<p>Unsecured loans generally feature higher interest rates, lower borrowing limits, and shorter repayment terms than secured loans. Lenders may sometimes require a co-signer (a person who agrees to pay a borrower's debt if they default) for unsecured loans if the lender deems the borrower as risky.</p>
+<p>If borrowers do not repay unsecured loans, lenders may hire a collection agency. Collection agencies are companies that recover funds for past due payments or accounts in default.</p>
+<p>Examples of unsecured loans include credit cards, personal loans, and student loans. Please visit our <a href="/credit-card-calculator.html">Credit Card Calculator</a>, <a href="/personal-loan-calculator.html">Personal Loan Calculator</a>, or <a href="/student-loan-calculator.html">Student Loan Calculator</a> for more information or to do calculations involving each of them.</p>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("c2loanamount");
+proComma2("c3loanamount");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

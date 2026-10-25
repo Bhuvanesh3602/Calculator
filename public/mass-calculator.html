@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mass Calculator</title>
+	<meta name="description" content="This free mass calculator calculates mass, given density and volume, using various standard units of measurement." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mass-calculator.html" itemprop="item"><span itemprop="name">mass calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Mass Calculator</h1>
+		<p>This is a basic mass calculator based on density and volume. This calculator takes and generates results of many common units.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calcf">
+<table class="panel" id="standard" >
+	<tr>
+		<td align="right">Density</td><td>			<input type="text" name="cdensity" id="cdensity" value="8900" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+<select name="cdensityunit" id="cdensityunit" >
+<option value="kilogram/cubic meter" >kilogram/cubic meter [kg/m&sup3;]</option>
+<option value="kilogram/cubic centimeter" >kilogram/cubic centimeter [kg/cm&sup3;]</option>
+<option value="gram/cubic meter" >gram/cubic meter [g/m&sup3;]</option>
+<option value="gram/cubic centimeter" >gram/cubic centimeter [g/cm&sup3;]</option>
+<option value="gram/cubic millimeter" >gram/cubic millimeter [g/mm&sup3;]</option>
+<option value="milligram/cubic meter" >milligram/cubic meter [mg/m&sup3;]</option>
+<option value="milligram/cubic centimeter" >milligram/cubic centimeter [mg/cm&sup3;]</option>
+<option value="milligram/cubic millimeter" >milligram/cubic millimeter [mg/mm&sup3;]</option>
+<option value="exagram/liter" >exagram/liter [Eg/L]</option>
+<option value="petagram/liter" >petagram/liter [Pg/L]</option>
+<option value="teragram/liter" >teragram/liter [Tg/L]</option>
+<option value="gigagram/liter" >gigagram/liter [Gg/L]</option>
+<option value="megagram/liter" >megagram/liter [Mg/L]</option>
+<option value="kilogram/liter" >kilogram/liter [kg/L]</option>
+<option value="hectogram/liter" >hectogram/liter [hg/L]</option>
+<option value="dekagram/liter" >dekagram/liter [dag/L]</option>
+<option value="gram/liter" >gram/liter [g/L]</option>
+<option value="decigram/liter" >decigram/liter [dg/L]</option>
+<option value="centigram/liter" >centigram/liter [cg/L]</option>
+<option value="milligram/liter" >milligram/liter [mg/L]</option>
+<option value="microgram/liter" >microgram/liter [&#181;g/L]</option>
+<option value="nanogram/liter" >nanogram/liter [ng/L]</option>
+<option value="picogram/liter" >picogram/liter [pg/L]</option>
+<option value="femtogram/liter" >femtogram/liter [fg/L]</option>
+<option value="attogram/liter" >attogram/liter [ag/L]</option>
+<option value="pound/cubic inch" >pound/cubic inch [lb/in&sup3;]</option>
+<option value="pound/cubic foot" >pound/cubic foot [lb/ft&sup3;]</option>
+<option value="pound/cubic yard" >pound/cubic yard [lb/yd&sup3;]</option>
+<option value="pound/gallon (US)" >pound/gallon (US)</option>
+<option value="pound/gallon (UK)" >pound/gallon (UK)</option>
+<option value="ounce/cubic inch" >ounce/cubic inch [oz/in&sup3;]</option>
+<option value="ounce/cubic foot" >ounce/cubic foot [oz/ft&sup3;]</option>
+<option value="ounce/gallon (US)" >ounce/gallon (US)</option>
+<option value="ounce/gallon (UK)" >ounce/gallon (UK)</option>
+<option value="grain/gallon (US)" >grain/gallon (US)</option>
+<option value="grain/gallon (UK)" >grain/gallon (UK)</option>
+<option value="grain/cubic foot" >grain/cubic foot [gr/ft&sup3;]</option>
+<option value="ton (short)/cubic yard" >ton (short)/cubic yard</option>
+<option value="ton (long)/cubic yard" >ton (long)/cubic yard</option>
+<option value="slug/cubic foot" >slug/cubic foot [slug/ft&sup3;]</option>
+<option value="psi/1000 feet" >psi/1000 feet</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Volume</td><td>			<input type="text" name="cvolume" id="cvolume" value="1" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+<select name="cvolumeunit" id="cvolumeunit" >
+<option value="cubic meter" >cubic meter [m&sup3;]</option>
+<option value="cubic foot" >cubic foot [ft&sup3;]</option>
+<option value="cubic yard" >cubic yard [yd&sup3;]</option>
+<option value="cubic inch" >cubic inch [in&sup3;]</option>
+<option value="cubic kilometer" >cubic kilometer [km&sup3;]</option>
+<option value="cubic mile" >cubic mile [mi&sup3;]</option>
+<option value="cubic centimeter" >cubic centimeter [cm&sup3;]</option>
+<option value="cubic millimeter" >cubic millimeter [mm&sup3;]</option>
+<option value="liter" >liter [L]</option>
+<option value="milliliter" >milliliter [mL]</option>
+<option value="pint" >pint [pt]</option>
+<option value="quart" >quart [qt]</option>
+<option value="gallon (US)" >gallon (US) [gal]</option>
+<option value="gallon (UK)" >gallon (UK) [gal]</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><br>
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</form>
+
+
+<br><h3>What is mass?</h3>
+
+<p>Mass is typically defined as the amount of matter within an object. It is most commonly measured as inertial mass, involving an object's resistance to acceleration given some net force. Matter, however, is somewhat loosely defined in science, and cannot be precisely measured. In classical physics, matter is any substance that has mass and volume.</p>
+
+<p>The amount of mass that an object has is often correlated with its size, but objects with larger volumes do not always have more mass. An inflated balloon, for example, would have significantly less mass than a golf ball made of silver. While many different units are used to describe mass throughout the world, the standard unit of mass under the International System of Units (SI) is the kilogram (kg).</p>
+
+<p>There exist other common definitions of mass including active gravitational mass and passive gravitational mass. Active gravitational mass is the measure of how much gravitational force an object exerts, while passive gravitational mass is the measure of the gravitational force exerted on an object within a known gravitational field. While these are conceptually distinct, there have not been conclusive, unambiguous experiments that have demonstrated significant differences between gravitational and inertial mass.</p>
+
+<h3>Mass vs. Weight</h3>
+
+<p>The words mass and weight are frequently used interchangeably, but even though mass is often expressed by measuring the weight of an object using a spring scale, they are not equivalent. The mass of an object remains constant regardless of where the object is and is, therefore, an intrinsic property of an object. Weight, on the other hand, changes based on gravity, as it is a measure of an object's resistance to its natural state of freefall. The force of gravity on the moon, for example, is approximately one-sixth that on earth, due to its smaller mass. This means that a person with a mass of 70 kg on earth would weigh approximately one-sixth of their weight on earth while on the moon. Their mass, however, would still be 70 kg on the moon. This is in accordance with the equation:</p>
+
+<table align="center"><tr>
+<td class="bigtext">F =&nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td>Gm<sub>1</sub>m<sub>2</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">r<sup>2</sup></td></tr></table></td>
+</tr></table>
+
+<p>In the equation above, <b>F</b> is force, <b>G</b> is the gravitational constant, <b>m<sub>1</sub></b> and <b>m<sub>2</sub></b> are the mass of the moon and the object it is acting upon, and r is the moon's radius. In circumstances where the gravitational field is constant, the weight of an object is proportional to its mass, and there is no issue with using the same units to express both.</p>
+
+<p>In the metric system, weight is measured in Newtons following the equation <b>W = mg</b>, where <b>W</b> is weight, <b>m</b> is mass, and <b>g</b> is the acceleration due to the gravitational field. On earth, this value is approximately 9.8 m/s<sup>2</sup>. It is important to note that regardless of how strong a gravitational field may be, an object that is in free fall is weightless. In cases where objects undergo acceleration through other forces (such as a centrifuge), weight is determined by multiplying the object's mass by the total acceleration away from free fall (known as proper acceleration).</p>
+
+<p>While mass is defined by F = ma, in situations where density and volume of the object are known, mass is also commonly calculated using the following equation, as in the calculator provided:</p>
+
+<p class="bigtext" align="center">m = &rho; &#215; V</p>
+
+<p>In the above equation, <b>m</b> is mass, <b>&rho;</b> is density, and <b>V</b> is volume. The SI unit for density is kilogram per cubic meter, or <b>kg/m<sup>3</sup></b>, while volume is expressed in <b>m<sup>3</sup></b>, and mass in <b>kg</b>. This is a rearrangement of the density equation. Further details are available on the <a href="/density-calculator.html">density calculator</a>.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Payback Period Calculator</title>
+	<meta name="description" content="Free calculator to find payback period, discounted payback period, and the average return of either steady or irregular cash flows." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/payback-period-calculator.html" itemprop="item"><span itemprop="name">payback period calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Payback Period Calculator</h1><p>The Payback Period Calculator can calculate payback periods, discounted payback periods, average returns, and schedules of investments.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><a name="steadycashflow"></a><h2 class="h2red">Fixed Cash Flow</h2><form name="calform" action="/payback-period-calculator.html#steadycashflow">
+<table class="panel" >
+<tr><td>Initial Investment</td><td><input type="text" name="initialinvestment1" value="100000" class="inhalf indollar"></td><td>&nbsp;</td></tr>
+<tr><td>Cash Flow</td><td><input type="text" name="cashflow" value="30000" class="inhalf indollar"></td><td>/Year</td></tr>
+<tr><td><select name="cashflowchange">
+<option value="increase" selected>Increase</option>
+<option value="decrease" >Decrease</option>
+</select></td><td><input type="text" name="cashflowchangerate" value="5" class="inhalf inpct"></td><td> /Year</td></tr>
+
+<tr><td>Number of Years</td><td><input type="text" name="years" value="5" class="inhalf"></td><td>&nbsp;</td></tr>
+<tr><td>Discount Rate</td><td><input type="text" name="discountrate" value="10" class="inhalf inpct"></td><td>&nbsp;</td></tr>
+<tr><td colspan="3" align="center" style="padding-top:8px;">
+	<input name="ctype" value="1" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+
+
+<br><a name="irregularcashflow"></a>
+<h2 class="h2red">Irregular Cash Flow Each Year</h2>
+
+<form name="calform2" action="payback-period-calculator.html#irregularcashflow">
+<table class="panel" ><tr><td>
+<table>
+<tr><td>Initial Investment</td><td><input type="text" name="initialinvestment2" size="8" value="100000" class="inhalf indollar"></td><td>&nbsp;</td></tr>
+<tr><td>Discount Rate</td><td><input type="text" name="discountrate2" value="10" class="inhalf inpct"></td><td>&nbsp;</td></tr>
+</table>
+<table>
+<tr align="center"><td>&nbsp;</td><td><b>Cash Flow</b></td></tr>
+
+<tr><td>Year 1.</td><td><input type="text" name="am1" value="5000" class="inhalf indollar"></td></tr><tr><td>Year 2.</td><td><input type="text" name="am2" value="25000" class="inhalf indollar"></td></tr><tr><td>Year 3.</td><td><input type="text" name="am3" value="35000" class="inhalf indollar"></td></tr><tr><td>Year 4.</td><td><input type="text" name="am4" value="40000" class="inhalf indollar"></td></tr><tr><td>Year 5.</td><td><input type="text" name="am5" value="30000" class="inhalf indollar"></td></tr><tr><td>Year 6.</td><td><input type="text" name="am6" value="10000" class="inhalf indollar"></td></tr><tr><td>Year 7.</td><td><input type="text" name="am7" value="" class="inhalf indollar"></td></tr><tr><td>Year 8.</td><td><input type="text" name="am8" value="" class="inhalf indollar"></td></tr></table><div style="padding: 5px 50px;" id="ccfmoredesc"><a href="#" onClick="return showHideMoreFields('ccfmore', 'show');">Show More Input Fields</a></div><table id="ccfmore" style="display:none;"><tr><td>Year 9.</td><td><input type="text" name="am9" value="" class="inhalf indollar"></td></tr><tr><td>Year 10.</td><td><input type="text" name="am10" value="" class="inhalf indollar"></td></tr><tr><td>Year 11.</td><td><input type="text" name="am11" value="" class="inhalf indollar"></td></tr><tr><td>Year 12.</td><td><input type="text" name="am12" value="" class="inhalf indollar"></td></tr><tr><td>Year 13.</td><td><input type="text" name="am13" value="" class="inhalf indollar"></td></tr><tr><td>Year 14.</td><td><input type="text" name="am14" value="" class="inhalf indollar"></td></tr><tr><td>Year 15.</td><td><input type="text" name="am15" value="" class="inhalf indollar"></td></tr><tr><td>Year 16.</td><td><input type="text" name="am16" value="" class="inhalf indollar"></td></tr><tr><td>Year 17.</td><td><input type="text" name="am17" value="" class="inhalf indollar"></td></tr><tr><td>Year 18.</td><td><input type="text" name="am18" value="" class="inhalf indollar"></td></tr><tr><td>Year 19.</td><td><input type="text" name="am19" value="" class="inhalf indollar"></td></tr><tr><td>Year 20.</td><td><input type="text" name="am20" value="" class="inhalf indollar"></td></tr><tr><td>Year 21.</td><td><input type="text" name="am21" value="" class="inhalf indollar"></td></tr><tr><td>Year 22.</td><td><input type="text" name="am22" value="" class="inhalf indollar"></td></tr><tr><td>Year 23.</td><td><input type="text" name="am23" value="" class="inhalf indollar"></td></tr><tr><td>Year 24.</td><td><input type="text" name="am24" value="" class="inhalf indollar"></td></tr><tr><td>Year 25.</td><td><input type="text" name="am25" value="" class="inhalf indollar"></td></tr><tr><td>Year 26.</td><td><input type="text" name="am26" value="" class="inhalf indollar"></td></tr><tr><td>Year 27.</td><td><input type="text" name="am27" value="" class="inhalf indollar"></td></tr><tr><td>Year 28.</td><td><input type="text" name="am28" value="" class="inhalf indollar"></td></tr><tr><td>Year 29.</td><td><input type="text" name="am29" value="" class="inhalf indollar"></td></tr><tr><td>Year 30.</td><td><input type="text" name="am30" value="" class="inhalf indollar"></td></tr><tr><td>Year 31.</td><td><input type="text" name="am31" value="" class="inhalf indollar"></td></tr><tr><td>Year 32.</td><td><input type="text" name="am32" value="" class="inhalf indollar"></td></tr><tr><td>Year 33.</td><td><input type="text" name="am33" value="" class="inhalf indollar"></td></tr><tr><td>Year 34.</td><td><input type="text" name="am34" value="" class="inhalf indollar"></td></tr><tr><td>Year 35.</td><td><input type="text" name="am35" value="" class="inhalf indollar"></td></tr><tr><td>Year 36.</td><td><input type="text" name="am36" value="" class="inhalf indollar"></td></tr><tr><td>Year 37.</td><td><input type="text" name="am37" value="" class="inhalf indollar"></td></tr><tr><td>Year 38.</td><td><input type="text" name="am38" value="" class="inhalf indollar"></td></tr><tr><td>Year 39.</td><td><input type="text" name="am39" value="" class="inhalf indollar"></td></tr><tr><td>Year 40.</td><td><input type="text" name="am40" value="" class="inhalf indollar"></td></tr><tr><td>Year 41.</td><td><input type="text" name="am41" value="" class="inhalf indollar"></td></tr><tr><td>Year 42.</td><td><input type="text" name="am42" value="" class="inhalf indollar"></td></tr><tr><td>Year 43.</td><td><input type="text" name="am43" value="" class="inhalf indollar"></td></tr><tr><td>Year 44.</td><td><input type="text" name="am44" value="" class="inhalf indollar"></td></tr><tr><td>Year 45.</td><td><input type="text" name="am45" value="" class="inhalf indollar"></td></tr><tr><td>Year 46.</td><td><input type="text" name="am46" value="" class="inhalf indollar"></td></tr><tr><td>Year 47.</td><td><input type="text" name="am47" value="" class="inhalf indollar"></td></tr><tr><td>Year 48.</td><td><input type="text" name="am48" value="" class="inhalf indollar"></td></tr><tr><td>Year 49.</td><td><input type="text" name="am49" value="" class="inhalf indollar"></td></tr><tr><td>Year 50.</td><td><input type="text" name="am50" value="" class="inhalf indollar"></td></tr><tr><td>Year 51.</td><td><input type="text" name="am51" value="" class="inhalf indollar"></td></tr><tr><td>Year 52.</td><td><input type="text" name="am52" value="" class="inhalf indollar"></td></tr><tr><td>Year 53.</td><td><input type="text" name="am53" value="" class="inhalf indollar"></td></tr><tr><td>Year 54.</td><td><input type="text" name="am54" value="" class="inhalf indollar"></td></tr><tr><td>Year 55.</td><td><input type="text" name="am55" value="" class="inhalf indollar"></td></tr><tr><td>Year 56.</td><td><input type="text" name="am56" value="" class="inhalf indollar"></td></tr><tr><td>Year 57.</td><td><input type="text" name="am57" value="" class="inhalf indollar"></td></tr><tr><td>Year 58.</td><td><input type="text" name="am58" value="" class="inhalf indollar"></td></tr><tr><td>Year 59.</td><td><input type="text" name="am59" value="" class="inhalf indollar"></td></tr><tr><td>Year 60.</td><td><input type="text" name="am60" value="" class="inhalf indollar"></td></tr><tr><td>Year 61.</td><td><input type="text" name="am61" value="" class="inhalf indollar"></td></tr><tr><td>Year 62.</td><td><input type="text" name="am62" value="" class="inhalf indollar"></td></tr><tr><td>Year 63.</td><td><input type="text" name="am63" value="" class="inhalf indollar"></td></tr><tr><td>Year 64.</td><td><input type="text" name="am64" value="" class="inhalf indollar"></td></tr><tr><td>Year 65.</td><td><input type="text" name="am65" value="" class="inhalf indollar"></td></tr><tr><td>Year 66.</td><td><input type="text" name="am66" value="" class="inhalf indollar"></td></tr><tr><td>Year 67.</td><td><input type="text" name="am67" value="" class="inhalf indollar"></td></tr><tr><td>Year 68.</td><td><input type="text" name="am68" value="" class="inhalf indollar"></td></tr><tr><td>Year 69.</td><td><input type="text" name="am69" value="" class="inhalf indollar"></td></tr><tr><td>Year 70.</td><td><input type="text" name="am70" value="" class="inhalf indollar"></td></tr><tr><td>Year 71.</td><td><input type="text" name="am71" value="" class="inhalf indollar"></td></tr><tr><td>Year 72.</td><td><input type="text" name="am72" value="" class="inhalf indollar"></td></tr><tr><td>Year 73.</td><td><input type="text" name="am73" value="" class="inhalf indollar"></td></tr><tr><td>Year 74.</td><td><input type="text" name="am74" value="" class="inhalf indollar"></td></tr><tr><td>Year 75.</td><td><input type="text" name="am75" value="" class="inhalf indollar"></td></tr><tr><td>Year 76.</td><td><input type="text" name="am76" value="" class="inhalf indollar"></td></tr><tr><td>Year 77.</td><td><input type="text" name="am77" value="" class="inhalf indollar"></td></tr><tr><td>Year 78.</td><td><input type="text" name="am78" value="" class="inhalf indollar"></td></tr><tr><td>Year 79.</td><td><input type="text" name="am79" value="" class="inhalf indollar"></td></tr><tr><td>Year 80.</td><td><input type="text" name="am80" value="" class="inhalf indollar"></td></tr><tr><td>Year 81.</td><td><input type="text" name="am81" value="" class="inhalf indollar"></td></tr><tr><td>Year 82.</td><td><input type="text" name="am82" value="" class="inhalf indollar"></td></tr><tr><td>Year 83.</td><td><input type="text" name="am83" value="" class="inhalf indollar"></td></tr><tr><td>Year 84.</td><td><input type="text" name="am84" value="" class="inhalf indollar"></td></tr><tr><td>Year 85.</td><td><input type="text" name="am85" value="" class="inhalf indollar"></td></tr><tr><td>Year 86.</td><td><input type="text" name="am86" value="" class="inhalf indollar"></td></tr><tr><td>Year 87.</td><td><input type="text" name="am87" value="" class="inhalf indollar"></td></tr><tr><td>Year 88.</td><td><input type="text" name="am88" value="" class="inhalf indollar"></td></tr><tr><td>Year 89.</td><td><input type="text" name="am89" value="" class="inhalf indollar"></td></tr><tr><td>Year 90.</td><td><input type="text" name="am90" value="" class="inhalf indollar"></td></tr><tr><td>Year 91.</td><td><input type="text" name="am91" value="" class="inhalf indollar"></td></tr><tr><td>Year 92.</td><td><input type="text" name="am92" value="" class="inhalf indollar"></td></tr><tr><td>Year 93.</td><td><input type="text" name="am93" value="" class="inhalf indollar"></td></tr><tr><td>Year 94.</td><td><input type="text" name="am94" value="" class="inhalf indollar"></td></tr><tr><td>Year 95.</td><td><input type="text" name="am95" value="" class="inhalf indollar"></td></tr><tr><td>Year 96.</td><td><input type="text" name="am96" value="" class="inhalf indollar"></td></tr><tr><td>Year 97.</td><td><input type="text" name="am97" value="" class="inhalf indollar"></td></tr><tr><td>Year 98.</td><td><input type="text" name="am98" value="" class="inhalf indollar"></td></tr><tr><td>Year 99.</td><td><input type="text" name="am99" value="" class="inhalf indollar"></td></tr><tr><td>Year 100.</td><td><input type="text" name="am100" value="" class="inhalf indollar"></td></tr></table>
+<div style="padding-left:35px;margin-top:10px;">
+	<input type="hidden" name="ctype" id="ctype" value="2">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</div>
+</td></tr></table></form>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(pcele){
+	pcele.onblur=function(){insertComma2(pcele, 'd');};
+	insertComma2(pcele, 'd');
+}
+var allElements = document.calform.elements;
+for (i = 0; i < allElements.length; i++) {
+	if (allElements[i].type == 'text') proComma2(allElements[i]);
+}
+var allElements2 = document.calform2.elements;
+for (i = 0; i < allElements2.length; i++) {
+	if (allElements2[i].type == 'text') proComma2(allElements2[i]);
+}
+</script>
+<br><p><fieldset><legend>Related</legend><a href="/investment-calculator.html">Investment Calculator</a> | <a href="/average-return-calculator.html">Average Return Calculator</a></fieldset></p>
+
+
+<br>
+<h3>Cash Flow</h3>
+<p>Cash flow is the inflow and outflow of cash or cash-equivalents of a project, an individual, an organization, or other entities. Positive cash flow that occurs during a period, such as revenue or accounts receivable means an increase in liquid assets. On the other hand, negative cash flow such as the payment for expenses, rent, and taxes indicate a decrease in liquid assets. Oftentimes, cash flow is conveyed as a net of the sum total of both positive and negative cash flows during a period, as is done for the calculator. The study of cash flow provides a general indication of solvency; generally, having adequate cash reserves is a positive sign of financial health for an individual or organization.</p>
+
+<h3>Discounted Cash Flow</h3>
+<p>Discounted cash flow (DCF) is a valuation method commonly used to estimate investment opportunities using the concept of the time value of money, which is a theory that states that money today is worth more than money tomorrow. Forecasted future cash flows are discounted backward in time to determine a present value estimate, which is evaluated to conclude whether an investment is worthwhile. In DCF analysis, the weighted average cost of capital (WACC) is the discount rate used to compute the present value of future cash flows. WACC is the calculation of a firm's cost of capital, where each category of capital, such as equity or bonds, is proportionately weighted. For more detailed cash flow analysis, WACC is usually used in place of discount rate because it is a more accurate measurement of the financial opportunity cost of investments. WACC can be used in place of discount rate for either of the calculations.</p>
+
+<h3>Discount Rate</h3>
+<p>Discount rate is sometimes described as an inverse interest rate. It is a rate that is applied to future payments in order to compute the present value or subsequent value of said future payments. For example, an investor may determine the net present value (NPV) of investing in something by discounting the cash flows they expect to receive in the future using an appropriate discount rate. It's similar to determining how much money the investor currently needs to invest at this same rate in order to get the same cash flows at the same time in the future. Discount rate is useful because it can take future expected payments from different periods and discount everything to a single point in time for comparison purposes.</p>
+
+<h3>Payback Period</h3>
+<p>Payback period, which is used most often in capital budgeting, is the period of time required to reach the break-even point  (the point at which positive cash flows and negative cash flows equal each other, resulting in zero) of an investment based on cash flow. For instance, a $2,000 investment at the start of the first year that returns $1,500 after the first year and $500 at the end of the second year has a two-year payback period. As a rule of thumb, the shorter the payback period, the better for an investment. Any investments with longer payback periods are generally not as enticing.</p>
+<p>Due to its ease of use, payback period is a common method used to express return on investments, though it is important to note it does not account for the time value of money. As a result, payback period is best used in conjunction with other metrics. </p>
+<p>The formula to calculate payback period is:</p>
+<table align="center"><tr>
+<td>Payback Period =</td>
+<td><table cellpadding="0"><tr><td align="center">Initial investment</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Cash flow per year</td></tr></table></td>
+</tr></table>
+<p>As an example, to calculate the payback period of a $100 investment with an annual payback of $20:</p>
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td align="center">$100</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">$20</td></tr></table></td>
+<td>= 5 years</td>
+</tr></table>
+
+<h3>Discounted Payback Period</h3>
+<p>A limitation of payback period is that it does not consider the time value of money. The discounted payback period (DPP), which is the period of time required to reach the break-even point based on a net present value (NPV) of the cash flow, accounts for this limitation.   Unlike payback period, DPP reflects the amount of time necessary to break-even in a project based not only on what cash flows occur, but when they occur and the prevailing rate of return in the market, or the period in which the cumulative net present value of a project equals zero all while accounting for the time value of money. Discounted payback period is useful in that it helps determine the profitability of investments in a very specific way: if the discounted payback period is less than its useful life  (estimated lifespan) or any predetermined time, the investment is viable. Conversely, if it's greater, the investment generally should not be considered. Comparing the DPP of different investments, ones with the relatively shorter DPPs are generally more enticing because they take less time to break-even.</p>
+
+<p>The formula for discounted payback period is:</p>
+<table align="center"><tr>
+<td><br>Discounted Payback Period =</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">- ln(1 -&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">investment amount &#215; discount rate</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">cash flow per year</td></tr></table></td><td>)</td></tr><tr><td colspan="3" bgcolor="#000000" height="1"></td></tr><tr><td align="center" colspan="3">ln(1 + discount rate)</td></tr></table></td>
+</tr></table>
+<p>The following is an example of determining discounted payback period using the same example as used for determining payback period. If a $100 investment has an annual payback of $20 and the discount rate is 10%., the NPV of the first $20 payback is:</p>
+
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td align="center">$20</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">1.10</td></tr></table></td>
+<td>= $18.18</td>
+</tr></table>
+<p>The NPV of the second payback is: </p>
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td align="center">$20</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">1.10<sup>2</sup></td></tr></table></td>
+<td>= $16.53</td>
+</tr></table>
+
+<p>The next in the series will have a denominator of 1.10<sup>3</sup>, and continuously as needed. For this particular example, the break-even point is:</p>
+
+<table align="center"><tr>
+<td><br>DPP =</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">- ln(1 -&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">$100 &#215; 0.10</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">$20</td></tr></table></td><td>)</td></tr><tr><td colspan="3" bgcolor="#000000" height="1"></td></tr><tr><td align="center" colspan="3">ln(1 + 0.10)</td></tr></table></td>
+<td><br>= 7.27 years</td>
+</tr></table>
+<p>The discounted payback period of 7.27 years is longer than the 5 years as calculated by the regular payback period because the time value of money is factored in.</p>
+<p>Discounted payback period will usually be greater than regular payback period. Investments with higher cash flows toward the end of their lives will have greater discounting. Both payback period and discounted payback period analysis can be helpful when evaluating financial investments, but keep in mind they do not account for risk nor opportunity costs such as alternative investments or systemic market volatility. It can help to use other metrics in financial decision making such as DCF analysis, or the internal rate of return (IRR), which is the discount rate that makes the NPV of all cash flows of an investment equal to zero.</p>
+
+
+<script>
+function showHideMoreFields(shmfFieldName, shmfValue){
+	if (shmfValue=='show'){
+		document.getElementById(shmfFieldName).style.display = 'block';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'hide\')">Hide Fields Below</a>';
+	}else{
+		document.getElementById(shmfFieldName).style.display = 'none';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'show\')">Show More Input Fields</a>';
+	}
+	return false;
+}
+
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

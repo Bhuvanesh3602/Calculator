@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="545" height="362" viewBox="0 0 545 362" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="545" height="362" x="0" y="0" fill="#0058a4" />
+<g style="font: 15px Arial, sans-serif; fill: #fff;">
+<polygon points="31,8 31,75, 180,75"/>
+<text x="5" y="45">rise</text>
+<text x="80" y="86">run</text>
+<text x="95" y="35">slope</text>
+<text x="200" y="50">roof pitch = rise/run</text>
+<g transform="translate(1 -30)">
+<polygon points="48,146.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">1/12</text>
+</g>
+<g transform="translate(91 -30)">
+<polygon points="48,142.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">2/12</text>
+</g>
+<g transform="translate(181 -30)">
+<polygon points="48,139 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">3/12</text>
+</g>
+<g transform="translate(271 -30)">
+<polygon points="48,135.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">4/12</text>
+</g>
+<g transform="translate(361 -30)">
+<polygon points="48,131.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">5/12</text>
+</g>
+<g transform="translate(451 -30)">
+<polygon points="48,128 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">6/12</text>
+</g>
+<g transform="translate(1 60)">
+<polygon points="48,124.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">7/12</text>
+</g>
+<g transform="translate(91 60)">
+<polygon points="48,120.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">8/12</text>
+</g>
+<g transform="translate(181 60)">
+<polygon points="48,117 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="32" y="174">9/12</text>
+</g>
+<g transform="translate(271 60)">
+<polygon points="48,113.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">10/12</text>
+</g>
+<g transform="translate(361 60)">
+<polygon points="48,109.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">11/12</text>
+</g>
+<g transform="translate(451 60)">
+<polygon points="48,106 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">12/12</text>
+</g>
+<g transform="translate(1 170)">
+<polygon points="48,102.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">13/12</text>
+</g>
+<g transform="translate(91 170)">
+<polygon points="48,98.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">14/12</text>
+</g>
+<g transform="translate(181 170)">
+<polygon points="48,95 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">15/12</text>
+</g>
+<g transform="translate(271 170)">
+<polygon points="48,91.3 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">16/12</text>
+</g>
+<g transform="translate(361 170)">
+<polygon points="48,97.7 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">17/12</text>
+</g>
+<g transform="translate(451 170)">
+<polygon points="48,84 2,150, 12,150 12,186 82,186 82,150 90,150 "/>
+<rect width="50" height="20" x="22" y="158" rx="5" ry="5" fill="#0058a4" />
+<text x="28" y="174">18/12</text>
+</g>
+</g>
+</svg>

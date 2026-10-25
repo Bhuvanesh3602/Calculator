@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GFR Calculator</title>
+	<meta name="description" content="This GFR calculator estimates the glomerular filtration rate for both adults and children based on serum creatinine value." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/gfr-calculator.html" itemprop="item"><span itemprop="name">gfr calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>GFR Calculator</h1>
+<p>The GFR (glomerular filtration rate) Calculator estimates GFR values based on factors including serum creatinine value, age, race, and gender. For comparison purposes, the results for three prevalent formulas used for estimating GFR are provided.</p>
+<h2>GFR Calculator for Adults</h2>
+<p>This calculator is for people aged 18 years or older.</p>
+<form action="/gfr-calculator.html" name="calform"><table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right"><b>Serum creatinine (S<sub>Cr</sub>)</b></td><td>			<input type="text" name="creatinine" value="0.9" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="creatinineunit">
+			<option value="mgdL" selected>mg/dL</option>
+			<option value="molL" >micromole/L</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Age</b></td><td>		<input type="text" name="age" value="50" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td align="right"><b>Gender</b></td><td>		<label for="gender1" class="cbcontainer"><input name="gender" id="gender1" value="male" type="radio" checked><span class="rbmark"></span>Male</label> &nbsp;&nbsp;
+		<label for="gender2" class="cbcontainer"><input name="gender" id="gender2" value="female" type="radio" ><span class="rbmark"></span>Female</label>
+	</td></tr>
+	<tr>
+		<td align="right"><b>Race</b></td><td>		<label for="race1" class="cbcontainer"><input name="race" id="race1" value="1" type="radio" ><span class="rbmark"></span>Black</label> &nbsp;
+		<label for="race2" class="cbcontainer"><input name="race" id="race2" value="0" type="radio" checked><span class="rbmark"></span>Not Black</label>
+	</td></tr>
+	<tr><td  colspan="2" align="center" style="padding-top:8px;"><input type="hidden" name="tp" value="ad">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+
+
+<a name="children"></a>
+<h2>GFR Calculator for Children</h2>
+<p>This calculator is for people aged 18 years or younger.</p>
+<form action="/gfr-calculator.html#children" name="calform2"><table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right"><b>Serum creatinine (S<sub>Cr</sub>)</b></td><td>			<input type="text" name="ccreatinine" value="0.9" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="ccreatinineunit">
+			<option value="mgdL" selected>mg/dL</option>
+			<option value="molL" >mol/L</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Height</b></td><td>			<input type="text" name="height" value="110" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="heightunit">
+			<option value="inch" >inch</option>
+			<option value="cm" selected>cm</option>
+		</select>
+		</td>
+	</tr>
+	<tr><td  colspan="2" align="center" style="padding-top:8px;"><input type="hidden" name="tp" value="ch">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+<style>
+.idt1{padding-left: 20px;}
+.idt2{padding-left: 40px;}
+.idt3{padding-left: 60px;}
+</style><br>
+<br><br>
+<h3>What is Glomerular filtration rate (GFR)?</h3>
+<p>Glomerular filtration rate describes the rate of flow of filtered fluids through the kidney and is used as a measure of kidney function. Generally, a higher value of GFR indicates better kidney function. A significant decrease in GFR indicates that the kidney is not properly functioning, resulting in lower volumes of fluids being filtered over a given time. The normal range of GFR adjusted for body surface area is 100 to 130 mL/min/1.73m<sup>2</sup> in men and 90 to 120mL/min/1.73m<sup>2</sup> in women below the age of 40. After age 40, GFR decreases progressively with age. Refer to the table below for population mean estimated GFR for a number of age ranges.</p>
+
+<h3>Population Mean Estimated GFR</h3>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Age</td><td class="cinfoHdL">Mean Estimated GFR<br>(mL/min/1.73 m<sup>2</sup>)</td></tr>
+	<tr><td>20-29</td><td>116</td></tr>
+	<tr><td>30-39</td><td>107</td></tr>
+	<tr><td>40-49</td><td>99</td></tr>
+	<tr><td>50-59</td><td>93</td></tr>
+	<tr><td>60-69</td><td>85</td></tr>
+	<tr><td>70+</td><td>75</td></tr>
+</table>
+
+<h3>Chronic Kidney Disease Stages</h3>
+<p>A GFR above 60 mL/min/1.73m<sup>2</sup> is usually adequate for most patients and alone is not necessarily indicative of a patient having chronic kidney disease (CKD).<sup>1</sup> If, however, there has been a significant decline of GFR since a previous test, this could be an early indicator of kidney disease. Note that the sooner that kidney disease is diagnosed and treated, the higher the probability that the need for dialysis can be prevented. Below is a table of GFR ranges for the different stages of CKD. The different stages are dependent on other factors in conjunction with GFR, as noted in the table.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Stage</td><td class="cinfoHdL">GFR Value (mL/min/1.73 m<sup>2</sup>)</td></tr>
+	<tr><td>Normal</td><td>90+ or above and no proteinuria</td></tr>
+	<tr><td>CKD1</td><td>90+ with evidence of kidney damage</td></tr>
+	<tr><td>CKD2 (Mild)</td><td>60 to 89 with evidence of kidney damage</td></tr>
+	<tr><td>CKD3 (Moderate)</td><td>30 to 59</td></tr>
+	<tr><td>CKD4 (Severe)</td><td>15 to 29</td></tr>
+	<tr><td>CKD5 Kidney failure</td><td>less than 15</td></tr>
+</table>
+
+<h3>Measuring GFR</h3>
+<p>The most accurate way to determine GFR involves the measurement of the rate at which an external substance such as inulin is removed from the bloodstream, termed inulin clearance. Inulin is freely filtered by the kidney and does not undergo metabolism, tubular secretion, or absorption, making it an ideal candidate for measuring GFR.<sup>2</sup> This measurement method requires continuous intravenous infusion, a number of blood and urine collections, and proper timing of blood samples, making it impractical for routine clinical use.<sup>3</sup> As such, many formulas have been developed to estimate GFR, many of which are based on creatinine clearance, or estimates of creatinine clearance based on serum creatinine levels. Creatinine clearance does, however, have the limitation of being affected by muscle mass. Higher muscle mass increases serum creatinine for any given rate of clearance. This means that the same serum creatinine values can signify different levels of renal function for different people based on muscle mass. Furthermore, creatinine is actively secreted in small amounts in the body resulting in GFR determined through creatinine clearance typically being overestimated by 10-20%. Despite its limitations, creatinine clearance still provides an acceptable estimation of GFR due to its ease of measurement when compared to inulin clearance. Below are three formulas often used for estimating GFR through serum creatinine.</p>
+
+<br><div><b>The IDMS-traceable MDRD study equation</b></div>
+<div class="idt1">GFR = 175 &#215; (S<sub>Cr</sub>)<sup>-1.154</sup> &#215; (age)<sup>-0.203</sup> &#215; (0.742 if female) &#215; (1.212 if Black)</div>
+	<div class="idt2">where S<sub>Cr</sub> = serum creatinine in mg/dL</div>
+
+<br><div><b>The CKD-EPI formula</b></div>
+<div class="idt1">Black female</div>
+<div class="idt2">If S<sub>Cr</sub> <u>&lt;</u> 0.7</div>
+	<div class="idt3">GFR = 166 &#215; (S<sub>Cr</sub>/0.7)<sup>-0.329</sup> &#215; 0.993<sup>age</sup></div>
+<div class="idt2">If S<sub>Cr</sub> &gt; 0.7</div>
+	<div class="idt3">GFR = 166 &#215; (S<sub>Cr</sub>/0.7)<sup>-1.209</sup> &#215; 0.993<sup>age</sup></div>
+
+<div class="idt1">Black male</div>
+<div class="idt2">If S<sub>Cr</sub> <u>&lt;</u> 0.9</div>
+	<div class="idt3">GFR = 163 &#215; (S<sub>Cr</sub>/0.9)<sup>-0.411</sup> &#215; 0.993<sup>age</sup></div>
+<div class="idt2">If S<sub>Cr</sub> &gt; 0.9</div>
+	<div class="idt3">GFR = 163 &#215; (S<sub>Cr</sub>/0.9)<sup>-1.209</sup> &#215; 0.993<sup>age</sup></div>
+
+<div class="idt1">Non-Black female</div>
+<div class="idt2">If S<sub>Cr</sub> <u>&lt;</u> 0.7</div>
+	<div class="idt3">GFR = 144 &#215; (S<sub>Cr</sub>/0.7)<sup>-0.329</sup> &#215; 0.993<sup>age</sup></div>
+
+<div class="idt2">If S<sub>Cr</sub> &gt; 0.7</div>
+	<div class="idt3">GFR = 144 &#215; (S<sub>Cr</sub>/0.7)<sup>-1.209</sup> &#215; 0.993<sup>age</sup></div>
+
+<div class="idt1">Non-Black male</div>
+<div class="idt2">If S<sub>Cr</sub> <u>&lt;</u> 0.9</div>
+	<div class="idt3">GFR = 141 &#215; (S<sub>Cr</sub>/0.9)<sup>-0.411</sup> &#215; 0.993<sup>age</sup></div>
+<div class="idt2">If S<sub>Cr</sub> &gt; 0.9</div>
+	<div class="idt3">GFR = 141 &#215; (S<sub>Cr</sub>/0.9)<sup>-1.209</sup> &#215; 0.993<sup>age</sup></div>
+
+<br><div><b>The Mayo Quadratic Formula</b></div>
+	<div class="idt1">If S<sub>Cr</sub> < 0.8 mg/dL, use 0.8 mg/dL for S<sub>Cr</sub></div>
+	<div class="idt1">GFR = e<sup>(1.911 + 5.249/S<sub>Cr</sub> - 2.114/S<sub>Cr</sub><sup>2</sup> - 0.00686 &#215; age - (0.205 if female))</sup></div>
+
+<br><div><b>Estimated GFR for children using Schwartz formula</b></div>
+<div class="idt1">GFR = 0.413 &#215; height(in cm) / S<sub>Cr</sub></div>
+
+
+
+<br><ol class="reference">
+	<li>"Normal GFR," The UK eCKD Guide, The Renal Association.</li>
+	<li>Gaspari, F., Perico, N., Remuzzi, G. 1997. "Measurement of glomerular filtration rate." Kidney International Supplements 63: S151-4. PMID 9407445.</li>
+	<li>Hsu, C., Bansal, N. 2011. "Measured GFR as 'Gold Standard' &ndash; All that Glitters Is Not Gold?" Clinical Journal of the American Society of Nephrology 6(8): 1813-14. Doi:10.2215/CJN.06040611. </li>
+</ol>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Random Number Generator</title>
+	<meta name="description" content="Two free random number generators that work in user-defined min and max range. Both random integers and decimal numbers can be generated with high precision." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/random-number-generator.html" itemprop="item"><span itemprop="name">random number generator</span></a><meta itemprop="position" content="3" /></span></div><h1>Random Number Generator</h1>
+<p>This version of the generator creates a random integer. It can deal with very large integers up to a few thousand digits.</p>
+
+<form action="/random-number-generator.html" name="calform">
+<table  class="panel"><tr><td style="padding:5px;"><table>
+<tr>
+	<td>Lower Limit</td>
+	<td><input type="number" name="slower" value="1" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
+</tr>
+<tr>
+	<td>Upper Limit</td>
+	<td><input type="number" name="supper" value="100" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
+</tr>
+<tr><td colspan="2" align="center" style="padding-top:10px;"><input name="ctype" value="1" type="hidden">
+	<input type="hidden" name="s" value="1471">
+	<input type="submit" name="x" value="Generate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table></td></tr></table>
+</form>
+
+<a name="comprehensive"></a><h2>Comprehensive Version</h2>
+<p>This version of the generator can create one or many random integers or decimals. It can deal with very large numbers with up to 999 digits of precision.</p>
+<form action="/random-number-generator.html#comprehensive" name="calform2">
+<table  class="panel"><tr><td style="padding:5px;"><table>
+<tr>
+	<td>Lower Limit</td>
+	<td><input type="text" name="clower" value="0.2" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+</tr>
+<tr>
+	<td>Upper Limit</td>
+	<td><input type="text" name="cupper" value="112.5" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+</tr>
+<tr>
+	<td>Generate</td>
+	<td><input type="text" name="cnums" value="1" class="innormal" maxlength="3" onKeyUp="shDupSort(this.value);iptfieldCheck(this, 'r', 'pi');"> numbers</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<div id="dupsort" style="display:none;">
+			<div style="padding-top:8px;">Allow duplication in results?</div>
+			<div style="text-align:center;">
+				<label for="cdup1" class="cbcontainer"><input type="radio" name="cdup" id="cdup1" value="y" checked /><span class="rbmark"></span>Yes</label> &nbsp;
+				<label for="cdup2" class="cbcontainer"><input type="radio" name="cdup" id="cdup2" value="n"  /><span class="rbmark"></span>No</label>
+			</div>
+			<div style="padding-top:8px;">Sort the results?</div>
+			<div style="text-align:center;">
+				<label for="csort1" class="cbcontainer"><input type="radio" name="csort" id="csort1" value="a"  /><span class="rbmark"></span>Ascend</label> &nbsp;
+				<label for="csort2" class="cbcontainer"><input type="radio" name="csort" id="csort2" value="d"  /><span class="rbmark"></span>Descend</label> &nbsp;
+				<label for="csort3" class="cbcontainer"><input type="radio" name="csort" id="csort3" value="n" checked /><span class="rbmark"></span>No</label>
+			</div>
+		</div>
+		<div style="padding-top:8px;">Type of result to generate?</div>
+		<table align="center"><tr><td>
+			<label for="cnumt1" class="cbcontainer"><input type="radio" name="cnumt" id="cnumt1" value="i"  onClick="return shPres();" /><span class="rbmark"></span>Integer</label> &nbsp;
+			<label for="cnumt2" class="cbcontainer"><input type="radio" name="cnumt" id="cnumt2" value="d" checked onClick="return shPres();" /><span class="rbmark"></span>Decimal</label>
+		</td></tr><tr><td>
+			<div id="precision" style="display:none;">Precision:
+				<input type="text" name="cprec" value="50" maxlength="3"  class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pi');"> digits
+			</div>
+		</td></tr></table>
+	</td>
+</tr>
+<tr><td colspan="2" align="center" style="padding-top:10px;"><input name="ctype" value="2" type="hidden">
+	<input type="hidden" name="s" value="11004.3368">
+	<input type="submit" name="x" value="Generate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</table></td></tr></table>
+</form>
+<script>
+function shDupSort(inVal){
+	var tempInVal = inVal+"";
+	if ((tempInVal.length>0)&&(!isNaN(tempInVal))&&(inVal % 1 === 0)&&(parseInt(tempInVal)>1)){
+		document.getElementById('dupsort').style.display = 'block';
+	}else{
+		document.getElementById('dupsort').style.display = 'none';
+	}
+	return false;
+}
+shDupSort("1");function shPres(){
+	if (document.getElementById('cnumt2').checked){
+		document.getElementById('precision').style.display = 'block';
+	}else{
+		document.getElementById('precision').style.display = 'none';
+	}
+}
+shPres();
+</script>
+
+
+<br>
+<p>A random number is a number chosen from a pool of limited or unlimited numbers that has no discernible pattern for prediction. The pool of numbers is almost always independent from each other. However, the pool of numbers may follow a specific distribution. For example, the height of the students in a school tends to follow a normal distribution around the median height. If the height of a student is picked at random, the picked number has a higher chance to be closer to the median height than being classified as very tall or very short. The random number generators above assume that the numbers generated are independent of each other, and will be evenly spread across the whole range of possible values.</p>
+<p>A random number generator, like the ones above, is a device that can generate one or many random numbers within a defined scope. Random number generators can be hardware based or pseudo-random number generators. Hardware based random-number generators can involve the use of a dice, a coin for flipping, or many other devices.</p>
+<p>A pseudo-random number generator is an algorithm for generating a sequence of numbers whose properties approximate the properties of sequences of random numbers. Computer based random number generators are almost always pseudo-random number generators. Yet, the numbers generated by pseudo-random number generators are not truly random. Likewise, our generators above are also pseudo-random number generators. The random numbers generated are sufficient for most applications yet they should not be used for cryptographic purposes. True random numbers are based on physical phenomena such as atmospheric noise, thermal noise, and other quantum phenomena. Methods that generate true random numbers also involve compensating for potential biases caused by the measurement process.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

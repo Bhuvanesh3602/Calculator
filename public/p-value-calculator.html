@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>P-value Calculator</title>
+	<meta name="description" content="Calculator to compute p-value from Z-score or Z-score from p-value for a normal distribution. It also provides a diagram illustrating the area of the p-values." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/p-value-calculator.html" itemprop="item"><span itemprop="name">p-value calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>P-value Calculator</h1>
+
+<p>Please provide any one value below to compute p-value from z-score or vice versa for a normal distribution.</p>
+<form name="calform">
+<table class="panel" >
+	<tr>
+		<td>Z-score</td>
+		<td><input type="text" name="z" value="2" class="inlong"></td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>P-value (x&lt;Z, left tail)</td>
+		<td><input type="text" name="pl" value="" class="inlong"></td>
+		<td><img src="/img/p-value/left.svg" width="40" height="26" alt="P-value left tail"></td>
+	</tr>
+	<tr>
+		<td>P-value (x&gt;Z, right tail)</td>
+		<td><input type="text" name="pr" value="" class="inlong"></td>
+		<td><img src="/img/p-value/right.svg" width="40" height="26" alt="P-value right tail"></td>
+	</tr>
+	<tr>
+		<td>P-value (0 to Z or Z to 0, from center)</td>
+		<td><input type="text" name="pc" value="" class="inlong"></td>
+		<td><img src="/img/p-value/center.svg" width="40" height="26" alt="P-value from center"></td>
+	</tr>
+	<tr>
+		<td>P-value (-Z&lt;x&lt;Z, between)</td>
+		<td><input type="text" name="pin" value="" class="inlong"></td>
+		<td><img src="/img/p-value/in.svg" width="40" height="26" alt="P-value between"></td>
+	</tr>
+	<tr>
+		<td>P-value (x&lt;-Z or x&gt;Z, two tails)</td>
+		<td><input type="text" name="pout" value="" class="inlong"></td>
+		<td><img src="/img/p-value/out.svg" width="40" height="26" alt="P-value two tail"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="3" style="padding-top:10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+<br>
+<p>A p-value (probability value) is a value used in statistical hypothesis testing that is intended to determine whether the obtained results are significant. In statistical hypothesis testing, the null hypothesis is a type of hypothesis that states a default position, such as there is no association among groups or relationship between two observations. Assuming that the given null hypothesis is correct, a p-value is the probability of obtaining test results in an experiment that are at least as extreme as the observed results. In other words, determining a p-value helps you determine how likely it is that the observed results actually differ from the null hypothesis.</p>
+<p>The smaller the p-value, the higher the significance, and the more evidence there is that the null hypothesis should be rejected for an alternative hypothesis. Typically, a p-value of &le; 0.05 is accepted as significant and the null hypothesis is rejected, while a p-value &gt; 0.05 indicates that there is not enough evidence against the null hypothesis to reject it.</p>
+<p>Given that the data being studied follows a normal distribution, a Z-score table can be used to determine p-values, as in this calculator.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="248" height="45" viewBox="0 0 248 45" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lgrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop stop-color="#518427" offset="0%" /><stop stop-color="#477223" offset="100%" /></linearGradient></defs><rect width="248" height="45" fill="url(#lgrad)"/><circle cx="202" cy="23" r="15" fill="#adc39f" /><path d="M199 13 L211 23 L199 33 Z" fill="#f6f8f5" /><text x="36" y="30" fill="#ffffff" font-family="Arial" font-size="20px">All Calculators</text></svg>

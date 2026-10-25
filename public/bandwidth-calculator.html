@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bandwidth Calculator</title>
+	<meta name="description" content="This calculator can convert between units of bandwidth, estimate download or upload times, as well as estimate the bandwidth required to host a website." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/bandwidth-calculator.html" itemprop="item"><span itemprop="name">bandwidth calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Bandwidth Calculator</h1><p>This calculator can be used to compute a variety of calculations related to bandwidth, including converting between different units of data size, calculating download/upload time, calculating the amount of bandwidth a website uses, or converting between monthly data usage and its equivalent bandwidth.</p>
+<a name="bandwidth-converter"></a><h2>Data Unit Converter</h2>
+<div class="panel" style="padding: 5px 0px;">
+<form action="/bandwidth-calculator.html#bandwidth-converter" name="calform">
+<table >
+<tr>
+	<td align="right"><input type="text" name="convertamount" value="500" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	<td><select name="convertunit">
+<option value="b" >bits (b)</option>
+<option value="kb" >kilobits (kb)</option>
+<option value="mb" >megabits (mb)</option>
+<option value="gb" >gigabits (gb)</option>
+<option value="tb" >terabits (tb)</option>
+<option value="B" >Bytes (B)</option>
+<option value="KB" >Kilobytes (KB)</option>
+<option value="MB" selected>Megabytes (MB)</option>
+<option value="GB" >Gigabytes (GB)</option>
+<option value="TB" >Terabytes (TB)</option>
+</select></td>
+	<td class="verybigtext">= ?</td>
+</tr>
+<tr><td colspan="3" align="center" style="padding-top:10px;">
+	<input name="ctype" value="1" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table></form>
+</div>
+
+<a name="download-time"></a><h2>Download/Upload Time Calculator</h2>
+<div class="panel">
+<form action="/bandwidth-calculator.html#download-time" name="calform2">
+<table >
+<tr>
+	<td class="bigtext">File Size</td><td align="right">	<input type="text" name="downloadsize2" value="500" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	<td><select name="downloadsize2unit">
+<option value="B" >Bytes (B)</option>
+<option value="KB" >Kilobytes (KB)</option>
+<option value="MB" selected>Megabytes (MB)</option>
+<option value="GB" >Gigabytes (GB)</option>
+<option value="TB" >Terabytes (TB)</option>
+</select></td>
+</tr>
+<tr>
+	<td class="bigtext">Bandwidth</td><td align="right">	<input type="text" name="bandwidth2" value="5" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	<td><select name="bandwidth2unit">
+<option value="b" >bit/s</option>
+<option value="kb" >Kbit/s</option>
+<option value="mb" selected>Mbit/s</option>
+<option value="gb" >Gbit/s</option>
+<option value="tb" >Tbit/s</option>
+</select></td>
+</tr>
+<tr><td colspan="3" align="center" style="padding-top:10px;">
+	<input name="ctype" value="2" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr>
+</table></form></div>
+
+<a name="website"></a><h2>Website Bandwidth Calculator</h2>
+<p>Use this calculator to estimate the bandwidth needs or actual data usage of a website. Be sure to include the bot traffic (Google bots, Bing bots, etc.) as well as other connection needs. Often the bots use more bandwidth than real users.</p>
+<div class="panel">
+<form action="/bandwidth-calculator.html#website" name="calform3">
+<table >
+<tr>
+	<td class="bigtext">Page Views</td><td align="right">	<input type="text" name="pageviews" value="5000" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	<td><select name="pageviewsunit">
+<option value="second" >Per Second</option>
+<option value="minute" >Per Minute</option>
+<option value="hour" >Per Hour</option>
+<option value="day" selected>Per Day</option>
+<option value="week" >Per Week</option>
+<option value="month" >Per Month</option>
+<option value="year" >Per Year</option>
+</select></td>
+</tr>
+<tr>
+	<td class="bigtext">Average Page Size</td><td align="right">	<input type="text" name="pagesize" value="500" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	<td><select name="pagesizeunit">
+<option value="B" >Bytes (B)</option>
+<option value="KB" selected>Kilobytes (KB)</option>
+<option value="MB" >Megabytes (MB)</option>
+<option value="GB" >Gigabytes (GB)</option>
+<option value="TB" >Terabytes (TB)</option>
+</select></td>
+</tr>
+<tr>
+	<td class="bigtext">Redundancy Factor</td><td align="right">	<input type="text" name="redundancyf" value="2" class="inlong" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+</tr>
+<tr><td colspan="3" align="center" style="padding-top:10px;">
+	<input name="ctype" value="3" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+</td></tr>
+</table></form></div>
+
+<a name="hosting"></a><h2>Hosting Bandwidth Converter</h2>
+<p>Please provide any one value below to convert to the other.</p><div class="panel">
+<form action="/bandwidth-calculator.html#hosting" name="calform4">
+<table >
+<tr>
+	<td class="bigtext">Monthly Usage</td><td align="right">	<input type="text" name="usage" value="1000" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pn');"></td>
+	<td><select name="usageunit">
+<option value="B" >Bytes (B)</option>
+<option value="KB" >Kilobytes (KB)</option>
+<option value="MB" >Megabytes (MB)</option>
+<option value="GB" selected>Gigabytes (GB)</option>
+<option value="TB" >Terabytes (TB)</option>
+</select></td>
+</tr>
+<tr><td colspan="3" style="padding:10px;" class="bigtext" align="center">is equivalent to</td></tr>
+<tr>
+	<td class="bigtext">Bandwidth</td><td align="right">	<input type="text" name="bandwidth4" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pn');"></td>
+	<td><select name="bandwidth4unit">
+<option value="b" >bit/s</option>
+<option value="kb" >Kbit/s</option>
+<option value="mb" selected>Mbit/s</option>
+<option value="gb" >Gbit/s</option>
+<option value="tb" >Tbit/s</option>
+</select></td>
+</tr>
+<tr><td colspan="3" align="center" style="padding-top:10px;">
+	<input name="ctype" value="4" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+</td></tr>
+</table></form></div>
+
+<br><p><fieldset><legend>Related</legend><a href="/ip-subnet-calculator.html">IP Subnet Calculator</a> | <a href="/binary-calculator.html">Binary Calculator</a></fieldset></p>
+
+<br>
+<p>Bandwidth is a term that has different meanings within different contexts. In terms of computing, bandwidth is defined as the bit-rate of available or consumed information and is typically expressed in units of bits per second (along with its metric multiples). Even within computing, bandwidth can be differentiated between network bandwidth, data bandwidth, and digital bandwidth. However, one of the most common ways in which the term bandwidth is used relates to the Internet, as "the volume of information per unit of time that a transmission medium [channel] can handle." Note that channel bandwidth, or the stated channel capacity, is not necessarily equal to the maximum amount of data that the channel can handle. Due to factors such as protocols and encryption, such as transmission control protocol (TCP), which is largely used in internet traffic, a channel stated to have a bandwidth of X bits per second may not actually transmit data at X rate. </p>
+
+<p>In information technology, a bit is the smallest unit of information. It can hold only one of two values&mdash;0 or 1. A byte is a unit that consists of 8 bits. A byte can represent values from 0 to 255. The bit is the unit of data transfer, meaning that a communications device or system with a bandwidth of 8 MB has a transfer rate of 8 Mega<u>bits</u> per second, which is equivalent to 1 Mega<u>byte</u> per second. In relation, the unit of information storage is the byte. In terms of memory or a hard disk, 8GB of capacity would mean that 8 Giga<u>bytes</u> of information could be stored, which is equivalent to 64 Giga<u>bits</u>.</p>
+
+<p>The amount of bandwidth a person or company needs is entirely dependent on how they plan to use the Internet. Streaming or hosting large amounts of video, for example, requires far more bandwidth than simply browsing the Internet. The above calculators can be used to make estimations based on potential needs. </p>
+
+
+
+<h3>Common Internet Connection Bandwidth</h3>
+<table class="cinfoT" align="center">
+<tr><td>Modem / Dialup</td><td>56 kbit/s</td></tr>
+<tr><td>ADSL Lite</td><td>1.5 Mbit/s</td></tr>
+<tr><td>T1/DS1</td><td>1.544 Mbit/s</td></tr>
+<tr><td>E1 / E-carrier</td><td>2.048 Mbit/s</td></tr>
+<tr><td>ADSL1</td><td>8 Mbit/s</td></tr>
+<tr><td>Ethernet</td><td>10 Mbit/s</td></tr>
+<tr><td>Wireless 802.11b</td><td>11 Mbit/s</td></tr>
+<tr><td>ADSL2+</td><td>24 Mbit/s</td></tr>
+<tr><td>T3/DS3</td><td>44.736 Mbit/s</td></tr>
+<tr><td>Wireless 802.11g</td><td>54 Mbit/s</td></tr>
+<tr><td>Fast Ethernet</td><td>100 Mbit/s</td></tr>
+<tr><td>OC3</td><td>155 Mbit/s</td></tr>
+<tr><td>Wireless 802.11n</td><td>600 Mbit/s</td></tr>
+<tr><td>OC12</td><td>622 Mbit/s</td></tr>
+<tr><td>Gigabit Ethernet</td><td>1 Gbit/s</td></tr>
+<tr><td>OC48</td><td>2.5 Gbit/s</td></tr>
+<tr><td>USB 3.0</td><td>5 Gbit/s</td></tr>
+<tr><td>OC192</td><td>9.6 Gbit/s</td></tr>
+<tr><td>10 Gigabit Ethernet, USB 3.1</td><td>10 Gbit/s</td></tr>
+<tr><td>20 Gigabit Ethernet, USB 3.2</td><td>20 Gbit/s</td></tr>
+<tr><td>40 Gigabit Ethernet, Thunderbolt 3</td><td>40 Gbit/s</td></tr>
+<tr><td>100 Gigabit Ethernet</td><td>100 Gbit/s</td></tr>
+</table>
+
+<h3>Mobile Broadband Connection Bandwidth</h3>
+<table class="cinfoT" align="center">
+<tr align="center"><td colspan="2" class="cinfoHd"></td><td class="cinfoHdL">Down (Mbit/s)</td><td class="cinfoHdL">Up (Mbit/s)</td></tr>
+<tr><td rowspan="4">2G</td><td>GSM CSD</td><td colspan="2" align="center">0.0096</td></tr>
+<tr><td>CDPD</td><td colspan="2" align="center">up to 0.0192</td></tr>
+<tr><td>GSM GPRS (2.5G)</td><td colspan="2" align="center">0.056 - 0.115</td></tr>
+<tr><td>GSM EDGE (2.75G)</td><td colspan="2" align="center">up to 0.237</td></tr>
+
+<tr><td rowspan="6">3G</td><td>UMTS W-CDMA</td><td colspan="2" align="center">0.4</td></tr>
+<tr><td>UMTS HSPA</td><td align="center">14.4</td><td align="center">5.8</td></tr>
+<tr><td>UMTS TDD</td><td colspan="2" align="center">16</td></tr>
+<tr><td>CDMA2000 1xRTT</td><td align="center">0.3</td><td align="center">0.15</td></tr>
+<tr><td>CDMA2000 EV-DO</td><td align="center">2.5-4.9</td><td align="center">0.15-1.8</td></tr>
+<tr><td>GSM EDGE-Evolution</td><td align="center">1.6</td><td align="center">0.5 </td></tr>
+
+<tr><td rowspan="6">4G</td><td>HSPA+</td><td align="center">21-672</td><td align="center">5.8-168</td></tr>
+<tr><td>Mobile WiMAX (802.16)</td><td align="center">37-365</td><td align="center">17-376</td></tr>
+<tr><td>LTE</td><td align="center">100-300</td><td align="center">50-75</td></tr>
+<tr><td>LTE-Advanced Moving Fast</td><td colspan="2" align="center">100</td></tr>
+<tr><td>LTE-Advanced Stationary or Moving Slow</td><td colspan="2" align="center">up to 1000</td></tr>
+<tr><td>MBWA (802.20)</td><td colspan="2" align="center">80</td></tr>
+
+<tr><td rowspan="3">5G</td><td>HSPA+</td><td align="center">400-25000</td><td align="center">200-3000</td></tr>
+<tr><td>Mobile WiMAX (802.16)</td><td align="center">300-700</td><td align="center">186-400</td></tr>
+<tr><td>5G</td><td align="center">400-3000</td><td align="center">500-1500</td></tr>
+</table>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

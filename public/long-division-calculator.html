@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Long Division Calculator</title>
+	<meta name="description" content="Free calculator that determines the quotient and remainder of a long division problem. It also provides the calculation steps as well as the result in both fraction and decimal form." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/long-division-calculator.html" itemprop="item"><span itemprop="name">long division calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Long Division Calculator</h1>
+
+<style>
+table.resultTb{font-size: 22px;white-space: nowrap;}
+table.resultTb td{font-size: 22px;white-space: nowrap;}
+table.resultTb td span{font-size: 22px;white-space: nowrap;}
+</style>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calform">
+<table class="panel" style="padding:12px;" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td></td>
+		<td rowspan="2"><img src="/img/long-division/long-division.svg" width="11" height="50" alt="/"></td>
+		<td bgcolor="#000000" height="2"></td>
+	</tr>
+	<tr valign="top">
+		<td style="padding: 3px 3px 0px 0px;"><input type="text" name="divisor" maxlength="14" class="innormal" value="7" /></td>
+		<td style="padding: 3px 5px 0px 5px;"><input type="text" name="dividend" maxlength="14" class="inhalf" value="100" /></td>
+	</tr>
+	<tr><td colspan="3">
+		<table align="center" style="padding-top:8px;"><tr><td>
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td></tr></table>
+	</td></tr>
+</table></form>
+
+<br><br>
+<p>Division is one of the basic arithmetic operations, the others being multiplication (the inverse of division), addition, and subtraction. The arithmetic operations are ways that numbers can be combined in order to make new numbers. Division can be thought of as the number of times a given number goes into another number. For example, 2 goes into 8 4 times, so 8 divided by 4 equals 2.</p>
+<p>Division can be denoted in a few different ways. Using the example above:</p>
+<p style="text-align:center;">8 &div; 4 = 2</p>
+<p style="text-align:center;">8/4 = 2</p>
+<table align="center"><tr><td><table cellpadding="0" cellspacing="0"><tr><td align="center">8</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4</td></tr></table></td><td>&nbsp;= 2</td></tr></table>
+<p>In order to more effectively discuss division, it is important to understand the different parts of a division problem.</p>
+
+<h3>Components of division</h3>
+<p>Generally, a division problem has three main parts: the dividend, divisor, and quotient. The number being divided is the dividend, the number that divides the dividend is the divisor, and the quotient is the result:</p>
+
+<p>One way to think of the dividend is that it is the total number of objects available. The divisor is the desired number of groups of objects, and the quotient is the number of objects within each group. Thus, assuming that there are 8 people and the intent is to divide them into 4 groups, division indicates that each group would consist of 2 people. In this case, the number of people can be divided evenly between each group, but this is not always the case. There are two ways to divide numbers when the result won't be even. One way is to divide with a remainder, meaning that the division problem is carried out such that the quotient is an integer, and the leftover number is a remainder. For example, 9 cannot be evenly divided by 4. Instead, knowing that 8 &div; 4 = 2, this can be used to determine that 9 &div; 4 = 2 R1. In other words, 9 divided by 4 equals 2, with a remainder of 1. Long division can be used either to find a quotient with a remainder, or to find an exact decimal value.</p>
+<p style="text-align:center;"><img src="/img/long-division/division.svg" width="180" height="90" alt="components of division"></p>
+
+<h3>How to perform long division?</h3>
+<p>To perform long division, first identify the dividend and divisor. To divide 100 by 7, where 100 is the dividend and 7 is the divisor, set up the long division problem by writing the dividend under a radicand, with the divisor to the left (divisorvdividend), then use the steps described below:</p>
+<table cellpadding="0" cellspacing="0" align="center">
+	<tr><td colspan="2"></td><td colspan="3" bgcolor="#000000" height="1"></td></tr>
+	<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td></tr>
+</table>
+
+<ol>
+	<li>Starting from left to right, divide the first digit in the dividend by the divisor. If the first digit cannot be divided by the divisor, write a 0 above the first digit of the divisor. 7 cannot be divided into 1, so:
+	<table cellpadding="0" cellspacing="0" align="center">
+		<tr><td colspan="2"></td><td>0</td><td colspan="2"></td></tr>
+		<tr><td colspan="2"></td><td colspan="3" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td></tr>
+	</table></li>
+	<li>Continue the problem by dividing the divisor into the number formed by the combination of the previous and subsequent digit of the dividend. In this case, the next number formed is 10, which 7 can be divided into once, so write a 1 above the 2<sup>nd</sup> digit of the dividend, and a 7 below.
+	<table cellpadding="0" cellspacing="0" align="center">
+		<tr><td colspan="2"></td><td>0</td><td>1</td><td></td></tr>
+		<tr><td colspan="2"></td><td colspan="3" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td></tr>
+		<tr><td colspan="3"></td><td>7</td><td></td></tr>
+	</table></li>
+	<li>Subtract, then bring down the following digit in the original dividend to determine the new dividend.
+	<table cellpadding="0" cellspacing="0" align="center">
+		<tr><td colspan="2"></td><td>0</td><td>1</td><td></td></tr>
+		<tr><td colspan="2"></td><td colspan="3" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td></tr>
+		<tr><td colspan="3"></td><td>7</td><td>&darr;</td></tr>
+		<tr><td colspan="2"></td><td colspan="2" bgcolor="#000000" height="1"></td><td></td></tr>
+		<tr><td colspan="3"></td><td>3</td><td>0</td></tr>
+	</table></li>
+	<li>Determine the number of times the divisor goes into the new dividend; in this case, the number of times 7 goes into 30. Write this value above the radicand and write the product of the divisor and this value below, then subtract. 7 goes into 30 a total of 4 times, and the product of 7 and 4 is 28.
+	<table cellpadding="0" cellspacing="0" align="center">
+		<tr><td colspan="2"></td><td>0</td><td>1</td><td>4</td></tr>
+		<tr><td colspan="2"></td><td colspan="3" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td></tr>
+		<tr><td colspan="3"></td><td>7</td><td>&darr;</td></tr>
+		<tr><td colspan="2"></td><td colspan="2" bgcolor="#000000" height="1"></td><td></td></tr>
+		<tr><td colspan="3"></td><td>3</td><td>0</td></tr>
+		<tr><td colspan="3"></td><td>2</td><td>8</td></tr>
+		<tr><td colspan="3"></td><td colspan="2" bgcolor="#000000" height="1"></td></tr>
+		<tr><td colspan="4"></td><td>2</td></tr>
+	</table></li>
+</ol>
+<p>This is the stopping point if the goal is to find a quotient with a remainder. In this case, the quotient is 014 or 14, and the remainder is 2. Thus, the solution to the division problem is:</p>
+<p style="text-align:center;">100 &div; 7 = 14 R2</p>
+<p>To continue the long division problem to find an exact value, continue the same process above, adding a decimal point after the quotient, and adding 0s to form new dividends until an exact solution is found, or until the quotient to a desired number of decimal places is determined.</p>
+<ol start="5">
+	<li>Add a decimal point after the quotient and a 0 to the new dividend, and continue the same process as above.
+	<table cellpadding="0" cellspacing="0" align="center">
+		<tr><td colspan="2"></td><td>0</td><td>1</td><td>4</td><td>.2</td></tr>
+		<tr><td colspan="2"></td><td colspan="4" bgcolor="#000000" height="1"></td></tr>
+		<tr><td>7</td><td><img src="/img/long-division/long-division.svg" width="6" height="16"></td><td>1</td><td>0</td><td>0</td><td>&nbsp;</td></tr>
+		<tr><td colspan="3"></td><td>7</td><td>&darr;</td><td></td></tr>
+		<tr><td colspan="2"></td><td colspan="2" bgcolor="#000000" height="1"></td><td colspan="2"></td></tr>
+		<tr><td colspan="3"></td><td>3</td><td>0</td><td></td></tr>
+		<tr><td colspan="3"></td><td>2</td><td>8</td><td></td></tr>
+		<tr><td colspan="3"></td><td colspan="2" bgcolor="#000000" height="1"></td><td></td></tr>
+		<tr><td colspan="4"></td><td>2</td><td>0</td></tr>
+		<tr><td colspan="4"></td><td>1</td><td>4</td></tr>
+		<tr><td colspan="4"></td><td colspan="2" bgcolor="#000000" height="1"></td></tr>
+		<tr><td colspan="5"></td><td>6</td></tr>
+	</table></li>
+	<li>Continue this process to the desired number of decimal places. In some cases, long division will reveal that a problem has a solution that is a repeating decimal. In other cases, the problem may result in a terminating decimal or a non-terminating decimal. 100 &div; 7 results in a non-terminating decimal eventually, or it can closely be estimated by the mixed number
+	<table class="inlinetable"><tr><td>14</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">2</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">7</td></tr></table></td><td>&nbsp;= 14.285714285714.</td></tr></table></li>
+</ol>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

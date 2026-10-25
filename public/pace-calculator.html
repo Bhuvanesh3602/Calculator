@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pace Calculator</title>
+	<meta name="description" content="This free pace calculator computes pace, time, and distance, given values for two of the variables. It can also be used for training purposes." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/pace-calculator.html" itemprop="item"><span itemprop="name">pace calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Pace Calculator</h1>
+<p>Use the following calculator to estimate the pace for a variety of activities, including running, walking, and biking. The calculator can also be used to estimate the time taken or distance traveled with a given pace and time or distance.</p>
+<br><div>
+<form name="calform" action="/pace-calculator.html">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<div class="panel2" style="padding: 8px 5px;">
+<table id="calinputtime">
+<tr>
+	<td width="75">Time</td>
+	<td><input type="text" name="ctime" id="ctime" value="00:50:25" class="inlong"></td>
+	<td>hh:mm:ss</td>
+</tr>
+</table>
+<table id="calinputdistance">
+<tr>
+	<td width="75">Distance</td>
+	<td><input type="text" name="cdistance" id="cdistance" value="5" class="inlong"></td>
+	<td>
+		<select name="cdistanceunit" id="cdistanceunit" >
+			<option value="Miles" selected>Miles</option>
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+		 &nbsp; &nbsp; 		<select name="cpickevent" onChange="pickevent(this.value, 'cdistance', 'cdistanceunit');">
+			<option value="">-- Or pick an event --</option>
+			<option value="M">Marathon</option>
+			<option value="HM">Half-Marathon</option>
+			<option value="1K">1K</option>
+			<option value="5K">5K</option>
+			<option value="10K">10K</option>
+			<option value="1M">1 Miles</option>
+			<option value="5M">5 Miles</option>
+			<option value="10M">10 Miles</option>
+			<option value="800m">800 meters</option>
+			<option value="1500m">1500 meters</option>
+		</select>
+	</td>
+</tr>
+</table>
+<table id="calinputpace">
+<tr valign="top">
+	<td width="75">Pace</td>
+	<td><input type="text" name="cpace" id="cpace" value="00:08:10" class="inlong"><div id="cpaceunithint" style="text-align:right;">hh:mm:ss</div></td>
+	<td>
+		<select name="cpaceunit"  onChange="showHidePaceUnit(this.value, 'cpaceunithint');">
+			<option value="tpm" selected>Per Mile</option>
+			<option value="tpk" >Per Kilometer</option>
+			<option value="mph" >Miles Per Hour</option>
+			<option value="kph" >Kilometers Per Hour</option>
+			<option value="mpm" >Meters Per Minute</option>
+			<option value="mps" >Meters Per Second</option>
+			<option value="ypm" >Yards Per Minute</option>
+			<option value="yps" >Yards Per Second</option>
+		</select>
+	</td>
+</tr>
+</table>
+<table width="310" style="padding-top: 10px;">
+<tr>
+	<td align="center">
+		<input type="hidden" name="ctype" id="ctype" value="pace">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</div>
+<div class="smalltext">Note that placeholder zeros do not need to be entered in the "Time" or "Pace" field. For example, the time 5 minutes 3 seconds does not need to be entered as 00:05:03, and can be entered as 5:3.</div>
+</form>
+</div>
+
+<a name="multipoint"></a>
+<br><h2>Multipoint Pace Calculator</h2>
+<p>The following calculator can determine the pace of segments of a run (or other activity) for those with access to the time at intermittent points during the run. For example, if a person runs from point A to point B, then to point C, records the time at each point, and subsequently determines the distance between those points (using many available websites, applications, or maps), the multipoint calculator can determine how fast the person traveled between each pair of points, allowing use for training purposes; a person can run the same route (or distance) repeatedly and track pace over that given route, enabling comparison of times between each segment (or lap) to identify areas for potential improvement.</p><form action="/pace-calculator.html#multipoint" name="calform2">
+<table class="panel" >
+<tr>
+	<td bgcolor="#E0F0FE">&nbsp;</td>
+	<td bgcolor="#E0F0FE" colspan="2">Distance</td>
+	<td bgcolor="#E0F0FE">Time (hh:mm:ss)</td>
+</tr>
+<tr>
+	<td>1.</td>
+	<td>
+		<input type="text" name="cmpdistance1" value="1" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit1" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime1" value="3:25" class="inlong"></td>
+</tr>
+<tr>
+	<td>2.</td>
+	<td>
+		<input type="text" name="cmpdistance2" value="2" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit2" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime2" value="6:55" class="inlong"></td>
+</tr>
+<tr>
+	<td>3.</td>
+	<td>
+		<input type="text" name="cmpdistance3" value="3" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit3" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime3" value="10:25" class="inlong"></td>
+</tr>
+<tr>
+	<td>4.</td>
+	<td>
+		<input type="text" name="cmpdistance4" value="4" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit4" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime4" value="14:01" class="inlong"></td>
+</tr>
+<tr>
+	<td>5.</td>
+	<td>
+		<input type="text" name="cmpdistance5" value="5" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit5" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime5" value="17:25" class="inlong"></td>
+</tr>
+<tr>
+	<td>6.</td>
+	<td>
+		<input type="text" name="cmpdistance6" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit6" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime6" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>7.</td>
+	<td>
+		<input type="text" name="cmpdistance7" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit7" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime7" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>8.</td>
+	<td>
+		<input type="text" name="cmpdistance8" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit8" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime8" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>9.</td>
+	<td>
+		<input type="text" name="cmpdistance9" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit9" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime9" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>10.</td>
+	<td>
+		<input type="text" name="cmpdistance10" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit10" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime10" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>11.</td>
+	<td>
+		<input type="text" name="cmpdistance11" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit11" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime11" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td>12.</td>
+	<td>
+		<input type="text" name="cmpdistance12" value="" class="innormal">
+	</td><td>
+		<select name="cmpdistanceunit12" >
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Miles" >Miles</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+	<td><input type="text" name="cmptime12" value="" class="inlong"></td>
+</tr>
+<tr>
+	<td colspan="4" align="center">
+		Your Preferred Pace Unit
+		<select name="cmppaceunit">
+			<option value="tpm" >Per Mile</option>
+			<option value="tpk" >Per Kilometer</option>
+			<option value="mph" >Miles Per Hour</option>
+			<option value="kph" >Kilometers Per Hour</option>
+			<option value="mpm" >Meters Per Minute</option>
+			<option value="mps" >Meters Per Second</option>
+			<option value="ypm" >Yards Per Minute</option>
+			<option value="yps" >Yards Per Second</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td colspan="4" align="center" style="padding-top:10px;">
+		<input type="hidden" name="ctype" id="ctype" value="multipoint">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+<a name="paceconverter"></a>
+<br><h2>Pace Converter</h2>
+<form action="/pace-calculator.html#paceconverter" name="calform3">
+<table class="panel" >
+<tr>
+	<td valign="top" align="center">
+		<input type="text" name="ccfrom" value="5:30" class="inhalf"><br><span id="ccpaceunithint"></span>
+	</td>
+	<td valign="top">
+		<select name="ccpaceunitfrom" onChange="showHidePaceUnit(this.value, 'ccpaceunithint');" >
+			<option value="tpm" selected>Per Mile</option>
+			<option value="tpk" >Per Kilometer</option>
+			<option value="mph" >Miles Per Hour</option>
+			<option value="kph" >Kilometers Per Hour</option>
+			<option value="mpm" >Meters Per Minute</option>
+			<option value="mps" >Meters Per Second</option>
+			<option value="ypm" >Yards Per Minute</option>
+			<option value="yps" >Yards Per Second</option>
+		</select>
+	</td>
+	<td class="verybigtext" valign="top">&nbsp;<b>=</b></td><td valign="top">	<b>?</b>
+		<select name="ccpaceunitto">
+			<option value="tpm" >Per Mile</option>
+			<option value="tpk" selected>Per Kilometer</option>
+			<option value="mph" >Miles Per Hour</option>
+			<option value="kph" >Kilometers Per Hour</option>
+			<option value="mpm" >Meters Per Minute</option>
+			<option value="mps" >Meters Per Second</option>
+			<option value="ypm" >Yards Per Minute</option>
+			<option value="yps" >Yards Per Second</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td align="center" colspan="4" style="padding-top:10px;">
+		<input type="hidden" name="ctype" id="ctype" value="converter">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+	</td>
+</tr>
+</table>
+</form>
+
+
+<a name="finishtime"></a>
+<br><h2>Finish Time Calculator</h2>
+<p>The following calculator can be used to estimate a person's finish time based on the time and distance covered in a race at the point the calculator is used.</p><form action="/pace-calculator.html#finishtime" name="calform4">
+<table class="panel" >
+<tr>
+	<td>Current Distance Traveled</td><td>		<input type="text" name="cftdistancenow" id="cftdistancenow" value="1" class="inhalf">
+		<select name="cftdistancenowunit">
+			<option value="Miles" selected>Miles</option>
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>Elapsed Time</td><td>	<input type="text" name="cfttime" id="cfttime" value="6:15" class="inhalf"> hh:mm:ss</td>
+</tr>
+<tr>
+	<td>Full Distance</td><td>		<input type="text" name="cftdistancefull" id="cftdistancefull" value="5" class="inhalf">
+		<select name="cftdistancefullunit">
+			<option value="Miles" selected>Miles</option>
+			<option value="Kilometers" >Kilometers</option>
+			<option value="Meters" >Meters</option>
+			<option value="Yards" >Yards</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td align="center" colspan="2" style="padding-top:10px;">
+		<input type="hidden" name="ctype" id="ctype" value="finishtime">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+	</td>
+</tr>
+</table>
+</form>
+
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "distance"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"popMenu('pace',1);return false;\">Pace</a></li> <li><a href=\"#\" onclick=\"popMenu('time',1);return false;\">Time</a></li> <li id='menuon'><a href=\"#\" onclick=\"popMenu('distance',1);return false;\">Distance</a></li>";
+		document.getElementById("ctype").value="distance";
+		document.getElementById("calinputtime").style.display = 'block';
+		document.getElementById("calinputdistance").style.display = 'none';
+		document.getElementById("calinputpace").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}else if (inval == "time"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"popMenu('pace',1);return false;\">Pace</a></li> <li id='menuon'><a href=\"#\" onclick=\"popMenu('time',1);return false;\">Time</a></li> <li><a href=\"#\" onclick=\"popMenu('distance',1);return false;\">Distance</a></li>";
+		document.getElementById("ctype").value="time";
+		document.getElementById("calinputtime").style.display = 'none';
+		document.getElementById("calinputdistance").style.display = 'block';
+		document.getElementById("calinputpace").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}else{
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"popMenu('pace',1);return false;\">Pace</a></li> <li><a href=\"#\" onclick=\"popMenu('time',1);return false;\">Time</a></li> <li><a href=\"#\" onclick=\"popMenu('distance',1);return false;\">Distance</a></li>";
+		document.getElementById("ctype").value="pace";
+		document.getElementById("calinputtime").style.display = 'block';
+		document.getElementById("calinputdistance").style.display = 'block';
+		document.getElementById("calinputpace").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	//if (insubmit==1) document.calform.submit();
+}
+function showHidePaceUnit(unitValue, hintID){
+	if ('tpm'==unitValue||'tpk'==unitValue){
+		document.getElementById(hintID).innerHTML = "hh:mm:ss";
+	}else{
+		document.getElementById(hintID).innerHTML = "";
+	}
+}
+function pickevent(pevalue, pedis, peunit){
+	if ('M'==pevalue){
+		document.getElementById(pedis).value = "42.195";
+		document.getElementById(peunit).selectedIndex = 1;
+	}else if('HM'==pevalue){
+		document.getElementById(pedis).value = "21.0975";
+		document.getElementById(peunit).selectedIndex = 1;
+	}else if('1K'==pevalue){
+		document.getElementById(pedis).value = "1";
+		document.getElementById(peunit).selectedIndex = 1;
+	}else if('5K'==pevalue){
+		document.getElementById(pedis).value = "5";
+		document.getElementById(peunit).selectedIndex = 1;
+	}else if('10K'==pevalue){
+		document.getElementById(pedis).value = "10";
+		document.getElementById(peunit).selectedIndex = 1;
+	}else if('1M'==pevalue){
+		document.getElementById(pedis).value = "1";
+		document.getElementById(peunit).selectedIndex = 0;
+	}else if('5M'==pevalue){
+		document.getElementById(pedis).value = "5";
+		document.getElementById(peunit).selectedIndex = 0;
+	}else if('10M'==pevalue){
+		document.getElementById(pedis).value = "10";
+		document.getElementById(peunit).selectedIndex = 0;
+	}else if('800m'==pevalue){
+		document.getElementById(pedis).value = "800";
+		document.getElementById(peunit).selectedIndex = 2;
+	}else if('1500m'==pevalue){
+		document.getElementById(pedis).value = "1500";
+		document.getElementById(peunit).selectedIndex = 2;
+	}
+}
+
+popMenu("pace",0);
+showHidePaceUnit("tpm","cpaceunithint");
+showHidePaceUnit("tpm","ccpaceunithint");
+</script>
+
+
+
+<br>
+
+
+<h3>Typical Races and World Record Paces</h3>
+<table class="cinfoT">
+	<tr><td class="cinfoHd">Category</td><td class="cinfoHdL">Men's World Record Pace</td><td class="cinfoHdL">Women's World Record Pace</td></tr>
+	<tr><td>100 meters</td><td class="cinfoBodL">2:35/mile or 1:36/km</td><td class="cinfoBodL">2:49/mile or 1:45/km</td></tr>
+	<tr><td>200 meters</td><td class="cinfoBodL">2:35/mile or 1:36/km</td><td class="cinfoBodL">2:52/mile or 1:47/km</td></tr>
+	<tr><td>400 meters</td><td class="cinfoBodL">2:54/mile or 1:48/km</td><td class="cinfoBodL">3:12/mile or 1:59/km</td></tr>
+	<tr><td>800 meters</td><td class="cinfoBodL">3:23/mile or 2:06/km</td><td class="cinfoBodL">3:48/mile or 2:21/km</td></tr>
+
+	<tr><td>1,500 meters</td><td class="cinfoBodL">3:41/mile or 2:17/km</td><td class="cinfoBodL">4:07/mile or 2:34/km</td></tr>
+	<tr><td>1 mile</td><td class="cinfoBodL">3:43/mile or 2:19/km</td><td class="cinfoBodL">4:13/mile or 2:37/km</td></tr>
+
+	<tr><td>5K</td><td class="cinfoBodL">4:04/mile or 2:31/km</td><td class="cinfoBodL">4:34/mile or 2:50/km</td></tr>
+	<tr><td>10K</td><td class="cinfoBodL">4:14/mile or 2:38/km</td><td class="cinfoBodL">4:45/mile or 2:57/km</td></tr>
+
+	<tr><td>Half Marathon<br>(13.11 miles / 21.098 km)</td><td class="cinfoBodL">4:27/mile or 2:46/km</td><td class="cinfoBodL">4:58/mile or 3:05/km</td></tr>
+	<tr><td>Marathon<br>(26.22 miles / 42.195 km)</td><td class="cinfoBodL">4:41/mile or 2:55/km</td><td class="cinfoBodL">5:10/mile or 3:13/km</td></tr>
+</table>
+
+
+<br><h2>Training Through Pace and Heart Rate</h2>
+
+<p>Pace is a rate of activity or movement, while heart rate is measured as the number of times that a person's heart contracts over a minute. Pace and heart rate have a positive correlation; higher pace corresponds to higher heart rate. The use of both in training can help a person improve performance, avoid over-training, as well as track progress and fitness over time. </p>
+
+<h3>Measuring and Estimating Heart Rate and Heart Rate Zones:</h3>
+
+<p>Heart rate can be measured in different ways, from using devices such as heart rate monitors, to simply looking at a watch while measuring pulse at some peripheral point such as the wrist or neck. Some of the more notable measurements of heart rate include resting heart rate and maximum heart rate, which are often used to estimate specific target heart rate zones to determine different levels of exercise. </p>
+
+<p>Typical adult resting heart rates (RHR) are commonly cited to range from 60-100 beats per minute (bpm), though there is some argument that normal RHRs actually fall within the range of 50-90 bpm. Generally, a lower RHR indicates more efficient heart function, though RHRs that are lower than 50 bpm can be a sign of an underlying heart condition or disease. The same is true of RHRs above 90 bpm. </p>
+
+<p>Maximum heart rate (MHR) is most accurately measured using a cardiac stress test, which involves measuring a person's heart function (including heart rate) at periodically increasing levels of exercise. These tests typically range from ten to twenty minutes in duration, which can be inconvenient. As such, there are many estimates for MHR based on age, which is strongly correlated with heart rate, though there is little consensus regarding which formula should be used. The most commonly cited formula for calculating MHR is:</p>
+
+<p class="bigtext" align="center">MHR = 220 &ndash; age</p>
+
+<p>Although it is the most commonly cited formula, and is often used to determine heart rate training zones, it does not have a reference to any standard deviation, and is not considered a good predictor of MHR by reputable health and fitness professionals. Furthermore, MHRs vary significantly between individuals, even those with highly similar training and age within the same sport. Nevertheless, MHR determined using the above formula is often used to prescribe exercise training heart rate ranges, and can be beneficial as a reference. Note that an exercise intensity level of 60-70% of maximum heart rate is considered the ideal range for burning fat. Refer to the figure below for further detail. </p>
+
+<div style="text-align:center;"><b>Exercise intensity levels and typical heart rates associated with said levels based on age</b></div>
+
+<div style="text-align:center;"><img src="/img/pace/heart-rate-vs-exercise.svg" width="400" height="242" class="scaleimg" alt="heart rate vs. exercise"></div>
+
+
+<br>
+<h3>Aerobic vs. Anaerobic Exercise:</h3>
+
+<p>Aerobic and anaerobic exercise are often mentioned in the context of endurance training and running. These types of exercise mainly differ based on the duration and the intensity of muscular contractions and the manner in which energy is generated within the muscle. Generally, anaerobic exercises (~80-90% MHR) involve short, intense bursts of activity while aerobic exercises (~70-80% MHR) involve light activity sustained over a long period of time. An exercise intensity level of 55-85% of MHR for 20-30 minutes is generally recommended to attain the best results from aerobic exercise.</p>
+
+<p>In solely aerobic exercise, there is sufficient oxygen for a person's muscles to produce all the necessary energy for the exercise. In contrast, in anaerobic exercise, the cardiovascular system cannot supply muscles with oxygen quickly enough, and muscles break down sugar to supply the necessary energy, resulting in excess of lactate (a byproduct of glucose metabolism). Excess lactate causes the burning sensation in muscles typical of anaerobic exercises and eventually makes the continuation of exercise not possible if excess lactate is not allowed sufficient time to be removed from the bloodstream. Note that although lactate is also produced in aerobic conditions, it is used almost as quickly as it is formed at low levels of exercise, and only trace amounts leak into the bloodstream from the muscles. </p>
+
+<p>Understanding aerobic exercise is particularly important when training for a long-distance activity such as a marathon. Determining a pace that can be maintained while using energy primarily derived through aerobic means, referred to as an "aerobic threshold pace," helps maintain a balance between fat and carbohydrate utilization. This pace requires a relatively low level of intensity, and is usually maintainable for a few hours. Increasing aerobic threshold pace allows for a faster sustainable pace and is a large aspect of many marathon training programs. </p>
+
+<p>An anaerobic threshold pace is defined by some as the threshold at which glycogen, rather than oxygen, becomes the primary source of energy for the body. Note that while anaerobic training will result in a person becoming more fit overall, it is not necessarily ideal training for a marathon, since an anaerobic pace is not sustainable for long periods of time. This is not to say that a person should not perform any anaerobic training, as training at or slightly above their anaerobic threshold (the level of exercise intensity at which lactic acid builds up more quickly than it can be removed from the bloodstream) can also be beneficial.</p>
+
+<p>Similarly to heart rate, the most accurate way to determine these thresholds is through testing within a lab setting. However, both aerobic and anaerobic thresholds can also be estimated using a number of different methods, some of which involve the use of a heart rate monitor. According to a 2005 study, the most accurate way to determine anaerobic threshold (outside of blood work in a lab) is a 30-minute time trial in which heart rate is monitored. In this time trial, a person must run at maximum effort, averaging their heart rate over the last 20 minutes of the run. The average heart rate over the last 20 minutes is an estimation of the person's anaerobic threshold heart rate, also known as lactate threshold heart rate (LTHR). It is important that the time trial be performed alone. If it is done in a group setting, the duration must be increased to 60 minutes rather than 30 minutes. Aerobic threshold heart rate can be estimated by subtracting 30 beats per minute from the anaerobic threshold heart rate.</p>
+
+<p>Essentially, threshold training involves training to postpone the point at which lactate starts to build up in the bloodstream, which effectively postpones the point of fatigue, potentially allowing a person to run farther and faster.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

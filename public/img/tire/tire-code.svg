@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="456" height="322" viewBox="0 0 456 322">
+<defs>
+<radialGradient id="b" cx="137.33" cy="138.29" r="74.169" gradientTransform="matrix(1.108 1.0011e-7 -3.2346e-8 1.108 -14.827 -14.931)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" offset="0" /><stop offset="1" /></radialGradient>
+<radialGradient id="a" cx="138.04" cy="137.93" r="48.778" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" offset="0" /><stop stop-color="#fff" offset=".6463" /><stop stop-color="#7d7d7d" offset=".76427" /><stop stop-color="#fff" offset=".88214" /><stop stop-color="#fff" offset="1" /></radialGradient>
+</defs>
+<g transform="translate(38 0) scale(1.75)" stroke="#000" stroke-linejoin="round">
+<g transform="translate(-7.9725 -27.877)">
+<path transform="matrix(.97307 0 0 .95495 4.4136 5.5624)" d="m210.99 138.29a73.669 73.669 0 1 1-147.34 0 73.669 73.669 0 1 1 147.34 0z" fill="url(#b)" />
+<path d="m186.32 137.93a48.278 48.278 0 1 1-96.557 0 48.278 48.278 0 1 1 96.557 0z" fill="url(#a)" />
+</g>
+<path d="m130.07 61.766c-26.65 0-48.281 21.632-48.281 48.281s21.632 48.281 48.281 48.281 48.281-21.632 48.281-48.281-21.632-48.281-48.281-48.281zm-1.5938 8.9375c0.58581-0.02392 1.1372-0.00753 1.6875 0.03125-1e-5 0-1.4639 16.93-10.344 19.688-7.1722 2.2271-18.781-5.0312-18.781-5.0312 6.2065-7.1458 18.65-14.329 27.438-14.688zm15.875 2.7812c9.0324 4.5102 19.874 15.881 21.469 24.562-1e-5 0-16.771 2.7866-21.656-5.125-3.9454-6.3901 0.1875-19.438 0.1875-19.438zm-50.75 25.125s15.75 6.4207 15.75 15.719c0 7.51-10.375 16.469-10.375 16.469-5.316-8.5828-8.5789-23.962-5.375-32.187zm73.562 15.406c1.3632 0.01141 2.2188 0.09375 2.2188 0.09375-2.3068 9.8287-10.888 23.009-18.969 26.562 0-1e-5 -6.5726-15.673 0-22.25 3.9815-3.9841 12.661-4.4405 16.75-4.4062zm-44.344 17.188c1.4504-0.07338 2.8876 0.13672 4.2188 0.71875 6.881 3.0086 10.906 16.094 10.906 16.094-9.9937 1.4323-25.372-1.738-31.625-7.9688 0 0 8.6681-8.4475 16.5-8.8438z" fill="#fff" stroke-width=".5" />
+<g transform="translate(11.076 -4.901)" fill="#fff" stroke-width=".5">
+<path d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+<path transform="matrix(.66206 0 0 .66206 41.075 34.687)" d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+</g>
+<g transform="translate(21.172 9.9981)" fill="#fff" stroke-width=".5">
+<path d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+<path transform="matrix(.66206 0 0 .66206 41.075 34.687)" d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+</g>
+<g transform="translate(5.9792 19.408)" fill="#fff" stroke-width=".5">
+<path d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+<path transform="matrix(.66206 0 0 .66206 41.075 34.687)" d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+</g>
+<g transform="translate(-4.0188 5.1951)" fill="#fff" stroke-width=".5">
+<path d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+<path transform="matrix(.66206 0 0 .66206 41.075 34.687)" d="m124.49 102.64a2.9406 2.9406 0 1 1-5.8812 0 2.9406 2.9406 0 1 1 5.8812 0z" />
+</g>
+<path id="txtcurve1" fill="none" d="M72,94.5 A60,60 0 0,1 190,110" stroke-width="0" />
+<path id="txtcurve2" fill="none" d="M94.65,74.65 A50,50 0 0,1 180,110" stroke-width="0" />
+<text style="font: 10px Verdana, Geneva, sans-serif; font-weight:bold; fill: #eee; stroke-width:0;"><textPath xlink:href="#txtcurve1">P215/65R15 &#160; 95H</textPath></text>
+<text style="font: 7px Verdana, Geneva, sans-serif; font-weight:bold; fill: #eee; stroke-width:0;"><textPath xlink:href="#txtcurve2">DOT &#160;1M3 4A &#160;00TX &#160; 1326</textPath></text>
+</g>
+<g style="font: 16px Arial, sans-serif; fill: #00f;">
+<text x="2" y="150">intended use</text>
+<text x="2" y="110">nominal section width</text>
+<text x="30" y="80">aspect ratio</text>
+<text x="60" y="50">internal construction</text>
+<text x="150" y="20">diameter of the wheel</text>
+<text x="270" y="40">load index</text>
+<text x="320" y="60">speed rating</text>
+<text x="355" y="100">US DOT code</text>
+</g>
+<g style="stroke:#9999ff;stroke-width:1.8">
+<line x1="390" y1="103" x2="350" y2="140" />
+<line x1="308" y1="82" x2="325" y2="65" />
+<line x1="286" y1="75" x2="295" y2="43" />
+<line x1="238" y1="77" x2="233" y2="23" />
+<line x1="215" y1="83" x2="160" y2="53" />
+<line x1="197" y1="94" x2="116" y2="77" />
+<line x1="163" y1="129" x2="115" y2="112" />
+<line x1="151" y1="155" x2="97" y2="146" />
+</g>
+</svg>

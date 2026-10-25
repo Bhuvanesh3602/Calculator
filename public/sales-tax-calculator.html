@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sales Tax Calculator</title>
+	<meta name="description" content="Free calculator to find the sales tax amount/rate, before tax price, and after-tax price. Also, check the sales tax rates in different states of the U.S." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/sales-tax-calculator.html" itemprop="item"><span itemprop="name">sales tax calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Sales Tax Calculator</h1>
+
+<p>The Sales Tax Calculator can compute any one of the following, given inputs for the remaining two: before-tax price, sale tax rate, and final, or after-tax price.</p><br><form name="calform"><table width="75%" align="center"><tr><td><div class="panel">
+<table align="center">
+	<tr>
+		<td align="right">Before Tax Price</td>
+		<td><input type="text" name="beforetax" id="beforetax" value="100" class="inhalf indollar"></td>
+	</tr>
+	<tr>
+		<td align="right">Sales Tax Rate</td>
+		<td><input type="text" name="taxrate" value="6.5" class="inhalf inpct"></td>
+	</tr>
+	<tr>
+		<td align="right">After Tax Price</td>
+		<td><input type="text" name="finalprice" id="finalprice" value="" class="inhalf indollar"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:8px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></div>
+</td>
+</tr>
+</table></form>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("beforetax");
+proComma2("finalprice");
+</script>
+<p><fieldset><legend>Related</legend><a href="/vat-calculator.html">VAT Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Sales Tax?</h3>
+<p>A sales tax is a consumption tax paid to a government on the sale of certain goods and services. Usually, the vendor collects the sales tax from the consumer as the consumer makes a purchase. In most countries, the sales tax is called value-added tax (VAT) or goods and services tax (GST), which is a different form of consumption tax. In some countries, the listed prices for goods and services are the before-tax value, and a sales tax is only applied during the purchase. In other countries, the listed prices are the final after-tax values, which include the sales tax.</p>
+
+<h3>U.S. Sales Tax</h3>
+<p>In the United States, sales tax at the federal level does not exist. At the state level, all (including District of Columbia, Puerto Rico, and Guam) but five states do not have statewide sales tax. These are Alaska, Delaware, Montana, New Hampshire, and Oregon. States that impose a sales tax have different rates, and even within states, local or city sales taxes can come into play. Unlike VAT (which is not imposed in the U.S.), sales tax is only enforced on retail purchases; most transactions of goods or services between businesses are not subject to sales tax.</p>
+<p>The sales tax rate ranges from 0% to 16% depending on the state and the type of good or service, and all states differ in their enforcement of sales tax. In Texas, prescription medicine and food seeds are exempt from taxation. Vermont has a 6% general sales tax, but an additional 10% tax is added to purchases of alcoholic drinks that are immediately consumed. These are only several examples of differences in taxation in different jurisdictions. Rules and regulations regarding sales tax vary widely from state to state.</p>
+<p>On average, the impact of sales tax on Americans is about 2 percent of their personal income. Sales tax provides nearly one-third of state government revenue and is second only to the income tax in terms of importance as a source of revenue. Reliance on the sales tax varies widely by state. Sales taxes are much more important in the south and west than they are in New England and the industrial Midwest. Florida, Washington, Tennessee, and Texas all generate more than 50 percent of their tax revenue from the sales tax, and several of these states raise nearly 60 percent of their tax revenue from the sales tax. New York, on the other hand, only raises about 20 percent of its revenues from the sales tax.</p>
+<p>The following is an overview of the sales tax rates for different states.</p>
+
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">State</td><td class="cinfoHdL">General State Sales Tax</td><td class="cinfoHdL">Max Tax Rate with Local/City Sale Tax</td></tr>
+	<tr><td>Alabama</td><td>4%</td><td>13.50%</td></tr>
+	<tr><td>Alaska</td><td>0%</td><td>7%</td></tr>
+	<tr><td>Arizona</td><td>5.60%</td><td>10.725%</td></tr>
+	<tr><td>Arkansas</td><td>6.50%</td><td>11.625%</td></tr>
+	<tr><td>California</td><td>7.25%</td><td>10.50%</td></tr>
+	<tr><td>Colorado</td><td>2.90%</td><td>10%</td></tr>
+	<tr><td>Connecticut</td><td>6.35%</td><td>6.35%</td></tr>
+	<tr><td>Delaware</td><td>0%</td><td>0%</td></tr>
+	<tr><td>District of Columbia</td><td>6%</td><td>6%</td></tr>
+	<tr><td>Florida</td><td>6%</td><td>7.50%</td></tr>
+	<tr><td>Georgia</td><td>4%</td><td>8%</td></tr>
+	<tr><td>Guam</td><td>4%</td><td>4%</td></tr>
+	<tr><td>Hawaii</td><td>4.166%</td><td>4.712%</td></tr>
+	<tr><td>Idaho</td><td>6%</td><td>8.50%</td></tr>
+	<tr><td>Illinois</td><td>6.25%</td><td>10.25%</td></tr>
+	<tr><td>Indiana</td><td>7%</td><td>7%</td></tr>
+	<tr><td>Iowa</td><td>6%</td><td>7%</td></tr>
+	<tr><td>Kansas</td><td>6.50%</td><td>11.60%</td></tr>
+	<tr><td>Kentucky</td><td>6%</td><td>6%</td></tr>
+	<tr><td>Louisiana</td><td>4.45%</td><td>11.45%</td></tr>
+	<tr><td>Maine</td><td>5.50%</td><td>5.50%</td></tr>
+	<tr><td>Maryland</td><td>6%</td><td>6%</td></tr>
+	<tr><td>Massachusetts</td><td>6.25%</td><td>6.25%</td></tr>
+	<tr><td>Michigan</td><td>6%</td><td>6%</td></tr>
+	<tr><td>Minnesota</td><td>6.875%</td><td>7.875%</td></tr>
+	<tr><td>Mississippi</td><td>7%</td><td>7.25%</td></tr>
+	<tr><td>Missouri</td><td>4.225%</td><td>10.85%</td></tr>
+	<tr><td>Montana</td><td>0%</td><td>0%</td></tr>
+	<tr><td>Nebraska</td><td>5.50%</td><td>7.50%</td></tr>
+	<tr><td>Nevada</td><td>6.85%</td><td>8.375%</td></tr>
+	<tr><td>New Hampshire</td><td>0%</td><td>0%</td></tr>
+	<tr><td>New Jersey</td><td>6.625%</td><td>12.625%</td></tr>
+	<tr><td>New Mexico</td><td>5.125%</td><td>8.688%</td></tr>
+	<tr><td>New York</td><td>4%</td><td>8.875%</td></tr>
+	<tr><td>North Carolina</td><td>4.75%</td><td>7.50%</td></tr>
+	<tr><td>North Dakota</td><td>5%</td><td>8%</td></tr>
+	<tr><td>Ohio</td><td>5.75%</td><td>8%</td></tr>
+	<tr><td>Oklahoma</td><td>4.50%</td><td>11%</td></tr>
+	<tr><td>Oregon</td><td>0%</td><td>0%</td></tr>
+	<tr><td>Pennsylvania</td><td>6%</td><td>8%</td></tr>
+	<tr><td>Puerto Rico</td><td>10.50%</td><td>11.50%</td></tr>
+	<tr><td>Rhode Island</td><td>7%</td><td>7%</td></tr>
+	<tr><td>South Carolina</td><td>6%</td><td>9%</td></tr>
+	<tr><td>South Dakota</td><td>4%</td><td>6%</td></tr>
+	<tr><td>Tennessee</td><td>7%</td><td>9.75%</td></tr>
+	<tr><td>Texas</td><td>6.25%</td><td>8.25%</td></tr>
+	<tr><td>Utah</td><td>6.1%</td><td>8.35%</td></tr>
+	<tr><td>Vermont</td><td>6%</td><td>7%</td></tr>
+	<tr><td>Virginia</td><td>5.30%</td><td>7%</td></tr>
+	<tr><td>Washington</td><td>6.50%</td><td>10.60%</td></tr>
+	<tr><td>West Virginia</td><td>6%</td><td>7%</td></tr>
+	<tr><td>Wisconsin</td><td>5%</td><td>7.9%</td></tr>
+	<tr><td>Wyoming</td><td>4%</td><td>6%</td></tr>
+</table>
+
+<h3>U.S. History of Sales Tax</h3>
+<p>When the U.S. was still a British colony in the 18th century, the English King imposed a sales tax on various items on the American colonists, even though they had no representation in the British government. This taxation without representation, among other things, resulted in the Boston Tea Party. This, together with other events, led to the American Revolution. Therefore, the birth of the U.S. had partly to do with the controversy over a sales tax! Since then, sales tax has had a rocky history in the U.S. and this is perhaps why there has never been a federal sales tax. Some of the earlier attempts at sales tax raised a lot of problems. Sales tax didn't take off until the Great Depression, when state governments were having difficulty finding ways to raise revenue successfully. Of the many different methods tested, sales tax prevailed because economic policy in the 1930s centered around selling goods. Mississippi was the first in 1930, and it quickly was adopted across the nation. Today, sales tax is imposed in most states as a necessary and generally effective means to raise revenue for state and local governments.</p>
+
+<h3>How to Deduct Sales Tax in the U.S.?</h3>
+<p>When filing federal income tax, taxpayers need to choose to either take the standard deduction or itemize deductions. This decision will be different for everyone, but most Americans choose the standard deduction. Sales tax can be deducted from federal income tax only if deductions are itemized. In general, taxpayers with sales tax as their only deductible expense may find that itemizing deductions is not worth the time. Itemizing deductions also involves meticulous record-keeping and can be tedious work because the IRS requires the submission of sales tax records, such as a year's worth of purchase receipts. Anyone who plans to itemize should be keeping detailed records, as it will be very helpful in determining the amount of sales tax paid.</p>
+<p>After the choice between standard or itemized deductions has been made, taxpayers have to make another decision regarding whether or not to claim either state and local income taxes or sales taxes (but not both). Most taxpayers choose to deduct income taxes as it typically results in a larger figure. With that said, it may be better for taxpayers who made large purchases during the year to deduct sales tax instead of income tax if their total sales tax payments exceed state income tax. Taxpayers who paid for a new car, wedding, engagement ring, vacation, or multiple major appliances during a tax year can potentially have a greater sales tax payment than income tax payment. In reality, less than 2% of Americans claim sales tax as a deduction each year.</p>
+<p>For more information about or to do calculations involving income tax, please visit the <a href="/tax-calculator.html">Income Tax Calculator</a>.</p>
+
+<h3>Value-Added Tax (VAT)</h3>
+<p>VAT is the version of sales tax commonly used outside of the U.S. in over 160 countries. VAT is an indirect tax that is imposed at different stages of the production of goods and services, whenever value is added. Countries that impose a VAT can also impose it on imported and exported goods. All participants in a supply chain, such as wholesalers, distributors, suppliers, manufacturers, and retailers, will usually need to pay VAT, not just the end consumer, as is done with U.S. sales tax. VAT can be calculated as the sales price minus the costs of materials or parts used that have been taxed already.</p>
+<p>A 1979 study published by the Tax Foundation offered some insight into arguments for or against VAT as compared to sales tax. Perhaps the greatest benefit of taxation via VAT is that because taxation applies at every step of the chain of production of a good, tax evasion becomes difficult. Also, there are stronger incentives to control costs when all participants involved in a supply chain are taxed. Compared to sales tax, VAT has the ability to raise more revenue at a given rate. On the other hand, VAT tends to be regressive; that is, it takes proportionately greater amounts from those with lower incomes. Also, the cascading tax is harmful to new and marginal business activities, likely to set off inflationary tendencies, and is detrimental to exports. For more information about or to do calculations involving VAT, please visit the <a href="/vat-calculator.html">VAT Calculator</a>.</p>
+
+<p><b>Goods and Services Tax (GST)</b></p>
+<p>The Goods and Services Tax (GST) is similar to VAT. It is an indirect sales tax applied to certain goods and services at multiple instances in a supply chain. Taxations across multiple countries that impose either a "GST" or "VAT" are so vastly different that neither word can properly define them. The countries that define their "sales tax" as a GST are Spain, Greece, India, Canada, Singapore, and Malaysia.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

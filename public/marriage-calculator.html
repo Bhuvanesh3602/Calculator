@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Marriage Tax Calculator</title>
+	<meta name="description" content="Free calculator to estimate the financial consequences of marriage to the participant individuals in terms of U.S. federal income taxation." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/marriage-calculator.html" itemprop="item"><span itemprop="name">marriage tax calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Marriage Tax Calculator</h1>
+
+<p>Marriage has significant financial implications for the individuals involved, including its impact on taxation. The calculator below can help estimate the financial impact of filing a joint tax return as a married couple (as opposed to filing separately as singles) based on 2026 federal income tax brackets and data specific to the United States. For tax purposes, whether a person is classified as married is based on the last day of the tax year, which means that a person married on the last day of the tax year is considered married for the entire year. Similarly, a person that is divorced would be considered unmarried for the entire tax year.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table id="calinputtable" class="panel">
+<tr>
+	<td>&nbsp;</td>
+	<td align="center" bgcolor="#99ccff"><b>Spouse 1</b></td>
+	<td align="center" bgcolor="#99cc99"><b>Spouse 2</b></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Salary+Business Income</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="csalaryincome" id="csalaryincome" value="65000" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="csalaryincome2" id="csalaryincome2" value="45000" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Interest+Dividends Income</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="cinterestincome" id="cinterestincome" value="0" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="cinterestincome2" id="cinterestincome2" value="0" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Rental, Royalty, Passive Income</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="crentalincome" id="crentalincome" value="0" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="crentalincome2" id="crentalincome2" value="0" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Short Term Capital Gain</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="cshortcapitalgain" id="cshortcapitalgain" value="0" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="cshortcapitalgain2" id="cshortcapitalgain2" value="0" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Long Term Capital Gain</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="clongcapitalgain" id="clongcapitalgain" value="0" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="clongcapitalgain2" id="clongcapitalgain2" value="0" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Qualified Dividends</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="cqualifieddividends" id="cqualifieddividends" value="0" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="cqualifieddividends2" id="cqualifieddividends2" value="0" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">401K, IRA... Savings</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="c401k" id="c401k" value="10000" class="inlong indollar"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="c401k2" id="c401k2" value="6000" class="inlong indollar"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">File Status (Before Marriage)</td>
+	<td align="right" bgcolor="#99ccff"><select name="cfilestatus" id="cfilestatus"><option value="Single" selected>Single</option><option value="MarriedJoint" >Qualified Widow</option><option value="HeadofHousehold" >Head of Household</option></select></td>
+	<td align="right" bgcolor="#99cc99"><select name="cfilestatus2" id="cfilestatus2"><option value="Single" selected>Single</option><option value="MarriedJoint" >Qualified Widow</option><option value="HeadofHousehold" >Head of Household</option></select></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">No. of Dependents</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="callowance" id="callowance" value="0" class="inlong"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="callowance2" id="callowance2" value="0" class="inlong"></td>
+</tr>
+<tr valign="top">
+	<td bgcolor="#ffffff">
+		Deductions:
+			<div style="padding-left:10px;">
+				Mortgage Interest
+				<br>Charitable Donations
+				<br>Student Loan Interest, $2,500 Max
+				<br>Child Care Expenses, $3,000 Max
+				<br>Education Tuition, $4,000 Max
+			</div>
+	</td>
+	<td align="right" bgcolor="#99ccff">
+		<div>
+			Use Standard Deduction?<br>
+			 <label for="cstandarddeduction1" class="cbcontainer"><input name="cstandarddeduction1" id="cstandarddeduction1" value="yes" type="radio" checked onClick="ctdShowHide('yes','CTotalDeductionss1' );"><span class="rbmark"></span>yes</label> &nbsp;
+			 <label for="cstandarddeduction2" class="cbcontainer"><input name="cstandarddeduction1" id="cstandarddeduction2" value="no" type="radio"  onClick="ctdShowHide('no','CTotalDeductionss1' );"><span class="rbmark"></span>no</label>
+		</div>
+		<div id="CTotalDeductionss1">
+			<br>Total Deductions:<br><input type="text" name="ctotaldeduction" id="ctotaldeduction" value="0" class="inlong indollar">
+		</div>
+	</td>
+	<td align="right" bgcolor="#99cc99">
+		<div>
+			Use Standard Deduction?<br>
+			 <label for="cstandarddeduction21" class="cbcontainer"><input name="cstandarddeduction21" id="cstandarddeduction21" value="yes" type="radio" checked onClick="ctdShowHide('yes','CTotalDeductionss2' );"><span class="rbmark"></span>yes</label> &nbsp;
+			 <label for="cstandarddeduction22" class="cbcontainer"><input name="cstandarddeduction21" id="cstandarddeduction22" value="no" type="radio"  onClick="ctdShowHide('no','CTotalDeductionss2' );"><span class="rbmark"></span>no</label>
+		</div>
+		<div id="CTotalDeductionss2">
+			<br>Total Deductions:<br><input type="text" name="ctotaldeduction2" id="ctotaldeduction2" value="0" class="inlong indollar">
+		</div>
+	</td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">State+City Tax Rate</td>
+	<td align="right" bgcolor="#99ccff"><input type="text" name="cstatetax" id="cstatetax" value="5" class="inlong inpct"></td>
+	<td align="right" bgcolor="#99cc99"><input type="text" name="cstatetax2" id="cstatetax2" value="5" class="inlong inpct"></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">Self-Employed</td>
+	<td align="right" bgcolor="#99ccff">
+		<label for="cadditionat1" class="cbcontainer"><input name="cadditionat1" id="cadditionat1" value="yes" type="radio" ><span class="rbmark"></span>yes</label> &nbsp;
+		<label for="cadditionat2" class="cbcontainer"><input name="cadditionat1" id="cadditionat2" value="no" type="radio" checked><span class="rbmark"></span>no</label>
+	</td>
+	<td align="right" bgcolor="#99cc99">
+		<label for="cadditionat21" class="cbcontainer"><input name="cadditionat21" id="cadditionat21" value="yes" type="radio" ><span class="rbmark"></span>yes</label> &nbsp;
+		<label for="cadditionat22" class="cbcontainer"><input name="cadditionat21" id="cadditionat22" value="no" type="radio" checked><span class="rbmark"></span>no</label>
+	</td>
+</tr>
+
+<tr><td colspan="2" align="right" style="padding-top:8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td><td>&nbsp;</td></tr>
+</table></form>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("csalaryincome");
+proComma2("csalaryincome2");
+proComma2("cinterestincome");
+proComma2("cinterestincome2");
+proComma2("crentalincome");
+proComma2("crentalincome2");
+proComma2("cshortcapitalgain");
+proComma2("cshortcapitalgain2");
+proComma2("clongcapitalgain");
+proComma2("clongcapitalgain2");
+proComma2("cqualifieddividends");
+proComma2("cqualifieddividends2");
+proComma2("c401k");
+proComma2("c401k2");
+proComma2("callowance");
+proComma2("callowance2");
+proComma2("ctotaldeduction");
+proComma2("ctotaldeduction2");
+proComma2("cstatetax");
+proComma2("cstatetax2");
+</script>
+<br><p><fieldset><legend>Related</legend><a href="/tax-calculator.html">Income Tax Calculator</a> | <a href="/take-home-pay-calculator.html">Take-Home-Paycheck Calculator</a></fieldset></p>
+
+<br>
+<p>Tax laws generally become more complicated after marriage, but marriage can present some opportunities to save additional money (compared to being single), particularly for those in single-income marriages or marriages in which there is a large difference between the income of the spouses. Depending on the specific situation of the couple, dual-income married couples can experience the opposite effect, paying more in taxes than they would as single, otherwise equivalent, individuals, or as a couple with only a single income.</p>
+
+<h3>Benefits of Filing Jointly as Married Spouses</h3>
+<p>Spouses usually choose to file their taxes jointly once married. The following are examples of some benefits that come with filing jointly:</p>
+<ol>
+	<li>Single filers miss out on certain tax benefits (earned income credit, education tax credits, student tax deduction for student loan interest, tuition and fees deduction, credit for the elderly and disabled, etc.). Those who fall under the married-filing-jointly category have access to these deductions, which can result in substantial tax savings.</li>
+	<li>Filing jointly is usually better when the income disparity between spouses is high because this usually results in being placed into a lower tax bracket.</li>
+	<li>Contributors must have earned income in order to contribute to IRAs, but filing jointly allows for a spousal IRA, which authorizes a non-working or stay-at-home spouse to contribute to retirement even though they didn't earn income during the year.</li>
+	<li>Marriage can help wealthy spouses protect their assets should they die. Federal tax law allows assets to be transferred to a widow or widower without being subject to the federal estate tax.</li>
+</ol>
+
+<h3>Married Filing Separately</h3>
+<p>Although married couples typically choose to file their tax returns jointly, some may choose to file them separately. However, because this can be financially beneficial in only very rare cases, married couples usually opt to file jointly. The calculator does not show results for this filing option.</p>
+
+<h3>The Marriage Penalty</h3>
+<p>In some situations, married couples end up paying more in taxes than single, otherwise equivalent, individuals. This is referred to as the marriage penalty in the United States. This penalty can be significant if both individuals in the marriage have very high incomes since filing jointly can result in being subject to a higher tax bracket than the equivalent, combined income of two single people. Furthermore, having a lower joint income does not necessarily shield a couple from marriage penalties. As a result of their combined incomes being subject to additional restrictions, it is possible for two married individuals with lower incomes to be disqualified from receiving tax credits they would otherwise receive. There are other conditions under which marriage results in a tax penalty. However, situations can and often do change, and while marriage may result in short-term tax penalties, it can potentially have long-term tax benefits. While there are exceptions and multiple factors are involved, generally speaking, married couples with a sole source of income benefit from filing jointly, while dual-income couples may suffer marriage penalties.</p>
+
+
+<script>
+function ctdShowHide(ctdValue, ctdID){
+	if (ctdValue=='yes'){
+		document.getElementById(ctdID).style.display = 'none';
+	}else{
+		document.getElementById(ctdID).style.display = 'block';
+	}
+}
+
+ctdShowHide('yes','CTotalDeductionss1' );ctdShowHide('yes','CTotalDeductionss2' );</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

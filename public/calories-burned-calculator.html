@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Calories Burned Calculator</title>
+	<meta name="description" content="Free calculator to estimate the number of calories burned during routine daily activities or a workout based on activity duration." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/calories-burned-calculator.html" itemprop="item"><span itemprop="name">calories burned calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Calories Burned Calculator</h1>
+<p>Use the following calculators to estimate the number of calories burned during certain activities based on either activity duration or distance (only for walking, running, or cycling). To estimate the calories consumed each day, use our <a href="/calorie-calculator.html">Calorie Calculator</a>.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div class="panel" style="padding:10px;">
+<form action="/calories-burned-calculator.html" name="calform"><table >
+<tr>
+	<td align="right" valign="top" style="padding-top:5px;">Activity:</td><td>	<select name="activity" onChange="selActivity(this.value);" >
+	<option value="0">--- Select One ---</option>
+<option value="1">Walking, Running, Cycling, Swimming</option><option value="2">Gym Activities</option><option value="3">Training and Sports Activities</option><option value="4">Outdoor Activities</option><option value="5">Home & Daily Life Activities</option></select>
+<table width="100%"><tr><td valign="top"></td><td valign="top"></td></tr></table><div id="aSection1" style="display:none;"><table width="100%"><tr><td valign="top"><div><label for="ty1" class="cbcontainer"><input type="radio" name="activity2" id="ty1" value="Walking: slow"checked /><span class="rbmark"></span>Walking: slow</label></div><div><label for="ty3" class="cbcontainer"><input type="radio" name="activity2" id="ty3" value="Walking: fast" /><span class="rbmark"></span>Walking: fast</label></div><div><label for="ty5" class="cbcontainer"><input type="radio" name="activity2" id="ty5" value="Hiking: cross-country" /><span class="rbmark"></span>Hiking: cross-country</label></div><div><label for="ty7" class="cbcontainer"><input type="radio" name="activity2" id="ty7" value="Running: moderate" /><span class="rbmark"></span>Running: moderate</label></div><div><label for="ty9" class="cbcontainer"><input type="radio" name="activity2" id="ty9" value="Running: very fast" /><span class="rbmark"></span>Running: very fast</label></div><div><label for="ty11" class="cbcontainer"><input type="radio" name="activity2" id="ty11" value="Cycling: slow" /><span class="rbmark"></span>Cycling: slow</label></div><div><label for="ty13" class="cbcontainer"><input type="radio" name="activity2" id="ty13" value="Cycling: fast" /><span class="rbmark"></span>Cycling: fast</label></div><div><label for="ty15" class="cbcontainer"><input type="radio" name="activity2" id="ty15" value="Cycling: BMX or mountain" /><span class="rbmark"></span>Cycling: BMX or mountain</label></div><div><label for="ty17" class="cbcontainer"><input type="radio" name="activity2" id="ty17" value="Swimming: laps, vigorous" /><span class="rbmark"></span>Swimming: laps, vigorous</label></div></td><td valign="top"><div><label for="ty2" class="cbcontainer"><input type="radio" name="activity2" id="ty2" value="Walking: moderate" /><span class="rbmark"></span>Walking: moderate</label></div><div><label for="ty4" class="cbcontainer"><input type="radio" name="activity2" id="ty4" value="Walking: very fast" /><span class="rbmark"></span>Walking: very fast</label></div><div><label for="ty6" class="cbcontainer"><input type="radio" name="activity2" id="ty6" value="Running: slow" /><span class="rbmark"></span>Running: slow</label></div><div><label for="ty8" class="cbcontainer"><input type="radio" name="activity2" id="ty8" value="Running: fast" /><span class="rbmark"></span>Running: fast</label></div><div><label for="ty10" class="cbcontainer"><input type="radio" name="activity2" id="ty10" value="Running: cross-country" /><span class="rbmark"></span>Running: cross-country</label></div><div><label for="ty12" class="cbcontainer"><input type="radio" name="activity2" id="ty12" value="Cycling: moderate" /><span class="rbmark"></span>Cycling: moderate</label></div><div><label for="ty14" class="cbcontainer"><input type="radio" name="activity2" id="ty14" value="Cycling: very fast" /><span class="rbmark"></span>Cycling: very fast</label></div><div><label for="ty16" class="cbcontainer"><input type="radio" name="activity2" id="ty16" value="Swimming: moderate" /><span class="rbmark"></span>Swimming: moderate</label></div></td></tr></table></div><div id="aSection2" style="display:none;"><table width="100%"><tr><td valign="top"><div><label for="ty19" class="cbcontainer"><input type="radio" name="activity2" id="ty19" value="Aerobics, Step: high impact" /><span class="rbmark"></span>Aerobics, Step: high impact</label></div><div><label for="ty21" class="cbcontainer"><input type="radio" name="activity2" id="ty21" value="Aerobics: high impact" /><span class="rbmark"></span>Aerobics: high impact</label></div><div><label for="ty23" class="cbcontainer"><input type="radio" name="activity2" id="ty23" value="Aerobics: water" /><span class="rbmark"></span>Aerobics: water</label></div><div><label for="ty25" class="cbcontainer"><input type="radio" name="activity2" id="ty25" value="Cycling, Stationary: vigorous" /><span class="rbmark"></span>Cycling, Stationary: vigorous</label></div><div><label for="ty27" class="cbcontainer"><input type="radio" name="activity2" id="ty27" value="Calisthenics: vigorous" /><span class="rbmark"></span>Calisthenics: vigorous</label></div><div><label for="ty29" class="cbcontainer"><input type="radio" name="activity2" id="ty29" value="Elliptical Trainer: general" /><span class="rbmark"></span>Elliptical Trainer: general</label></div><div><label for="ty31" class="cbcontainer"><input type="radio" name="activity2" id="ty31" value="Rowing, Stationary: vigorous" /><span class="rbmark"></span>Rowing, Stationary: vigorous</label></div><div><label for="ty33" class="cbcontainer"><input type="radio" name="activity2" id="ty33" value="Stair Step Machine: general" /><span class="rbmark"></span>Stair Step Machine: general</label></div><div><label for="ty35" class="cbcontainer"><input type="radio" name="activity2" id="ty35" value="Weight Lifting: general" /><span class="rbmark"></span>Weight Lifting: general</label></div></td><td valign="top"><div><label for="ty20" class="cbcontainer"><input type="radio" name="activity2" id="ty20" value="Aerobics, Step: low impact" /><span class="rbmark"></span>Aerobics, Step: low impact</label></div><div><label for="ty22" class="cbcontainer"><input type="radio" name="activity2" id="ty22" value="Aerobics: low impact" /><span class="rbmark"></span>Aerobics: low impact</label></div><div><label for="ty24" class="cbcontainer"><input type="radio" name="activity2" id="ty24" value="Cycling, Stationary: moderate" /><span class="rbmark"></span>Cycling, Stationary: moderate</label></div><div><label for="ty26" class="cbcontainer"><input type="radio" name="activity2" id="ty26" value="Calisthenics: moderate" /><span class="rbmark"></span>Calisthenics: moderate</label></div><div><label for="ty28" class="cbcontainer"><input type="radio" name="activity2" id="ty28" value="Circuit Training: general" /><span class="rbmark"></span>Circuit Training: general</label></div><div><label for="ty30" class="cbcontainer"><input type="radio" name="activity2" id="ty30" value="Rowing, Stationary: moderate" /><span class="rbmark"></span>Rowing, Stationary: moderate</label></div><div><label for="ty32" class="cbcontainer"><input type="radio" name="activity2" id="ty32" value="Ski Machine: general" /><span class="rbmark"></span>Ski Machine: general</label></div><div><label for="ty34" class="cbcontainer"><input type="radio" name="activity2" id="ty34" value="Stretching, Hatha Yoga" /><span class="rbmark"></span>Stretching, Hatha Yoga</label></div><div><label for="ty36" class="cbcontainer"><input type="radio" name="activity2" id="ty36" value="Weight Lifting: vigorous" /><span class="rbmark"></span>Weight Lifting: vigorous</label></div></td></tr></table></div><div id="aSection3" style="display:none;"><table width="100%"><tr><td valign="top"><div><label for="ty37" class="cbcontainer"><input type="radio" name="activity2" id="ty37" value="Badminton: general" /><span class="rbmark"></span>Badminton: general</label></div><div><label for="ty39" class="cbcontainer"><input type="radio" name="activity2" id="ty39" value="Basketball: wheelchair" /><span class="rbmark"></span>Basketball: wheelchair</label></div><div><label for="ty41" class="cbcontainer"><input type="radio" name="activity2" id="ty41" value="Bowling" /><span class="rbmark"></span>Bowling</label></div><div><label for="ty43" class="cbcontainer"><input type="radio" name="activity2" id="ty43" value="Dancing: disco, ballroom, square" /><span class="rbmark"></span>Dancing: disco, ballroom, square</label></div><div><label for="ty45" class="cbcontainer"><input type="radio" name="activity2" id="ty45" value="Dancing: slow, waltz, foxtrot" /><span class="rbmark"></span>Dancing: slow, waltz, foxtrot</label></div><div><label for="ty47" class="cbcontainer"><input type="radio" name="activity2" id="ty47" value="Football: competitive" /><span class="rbmark"></span>Football: competitive</label></div><div><label for="ty49" class="cbcontainer"><input type="radio" name="activity2" id="ty49" value="Frisbee" /><span class="rbmark"></span>Frisbee</label></div><div><label for="ty51" class="cbcontainer"><input type="radio" name="activity2" id="ty51" value="Golf: using cart" /><span class="rbmark"></span>Golf: using cart</label></div><div><label for="ty53" class="cbcontainer"><input type="radio" name="activity2" id="ty53" value="Handball: general" /><span class="rbmark"></span>Handball: general</label></div><div><label for="ty55" class="cbcontainer"><input type="radio" name="activity2" id="ty55" value="Horseback Riding: general" /><span class="rbmark"></span>Horseback Riding: general</label></div><div><label for="ty57" class="cbcontainer"><input type="radio" name="activity2" id="ty57" value="Kayaking" /><span class="rbmark"></span>Kayaking</label></div><div><label for="ty59" class="cbcontainer"><input type="radio" name="activity2" id="ty59" value="Racquetball: casual, general" /><span class="rbmark"></span>Racquetball: casual, general</label></div><div><label for="ty61" class="cbcontainer"><input type="radio" name="activity2" id="ty61" value="Rock Climbing: ascending" /><span class="rbmark"></span>Rock Climbing: ascending</label></div><div><label for="ty63" class="cbcontainer"><input type="radio" name="activity2" id="ty63" value="Rollerblading/skating (Casual)" /><span class="rbmark"></span>Rollerblading/skating (Casual)</label></div><div><label for="ty65" class="cbcontainer"><input type="radio" name="activity2" id="ty65" value="Rope Jumping (Fast)" /><span class="rbmark"></span>Rope Jumping (Fast)</label></div><div><label for="ty67" class="cbcontainer"><input type="radio" name="activity2" id="ty67" value="Rugby: competitive" /><span class="rbmark"></span>Rugby: competitive</label></div><div><label for="ty69" class="cbcontainer"><input type="radio" name="activity2" id="ty69" value="Skateboarding" /><span class="rbmark"></span>Skateboarding</label></div><div><label for="ty71" class="cbcontainer"><input type="radio" name="activity2" id="ty71" value="Skiing: downhill" /><span class="rbmark"></span>Skiing: downhill</label></div><div><label for="ty73" class="cbcontainer"><input type="radio" name="activity2" id="ty73" value="Snow Shoeing" /><span class="rbmark"></span>Snow Shoeing</label></div><div><label for="ty75" class="cbcontainer"><input type="radio" name="activity2" id="ty75" value="Softball: general play" /><span class="rbmark"></span>Softball: general play</label></div><div><label for="ty77" class="cbcontainer"><input type="radio" name="activity2" id="ty77" value="Tennis: general" /><span class="rbmark"></span>Tennis: general</label></div><div><label for="ty79" class="cbcontainer"><input type="radio" name="activity2" id="ty79" value="Volleyball: competitive, gymnasium play" /><span class="rbmark"></span>Volleyball: competitive, gymnasium play</label></div><div><label for="ty81" class="cbcontainer"><input type="radio" name="activity2" id="ty81" value="Walk/Jog: jog <10 min." /><span class="rbmark"></span>Walk/Jog: jog <10 min.</label></div><div><label for="ty83" class="cbcontainer"><input type="radio" name="activity2" id="ty83" value="Water Skiing" /><span class="rbmark"></span>Water Skiing</label></div><div><label for="ty85" class="cbcontainer"><input type="radio" name="activity2" id="ty85" value="Whitewater: rafting, kayaking" /><span class="rbmark"></span>Whitewater: rafting, kayaking</label></div></td><td valign="top"><div><label for="ty38" class="cbcontainer"><input type="radio" name="activity2" id="ty38" value="Basketball: playing a game" /><span class="rbmark"></span>Basketball: playing a game</label></div><div><label for="ty40" class="cbcontainer"><input type="radio" name="activity2" id="ty40" value="Billiards" /><span class="rbmark"></span>Billiards</label></div><div><label for="ty42" class="cbcontainer"><input type="radio" name="activity2" id="ty42" value="Boxing: sparring" /><span class="rbmark"></span>Boxing: sparring</label></div><div><label for="ty44" class="cbcontainer"><input type="radio" name="activity2" id="ty44" value="Dancing: Fast, ballet, twist" /><span class="rbmark"></span>Dancing: Fast, ballet, twist</label></div><div><label for="ty46" class="cbcontainer"><input type="radio" name="activity2" id="ty46" value="Fencing: general" /><span class="rbmark"></span>Fencing: general</label></div><div><label for="ty48" class="cbcontainer"><input type="radio" name="activity2" id="ty48" value="Football: touch, flag, general" /><span class="rbmark"></span>Football: touch, flag, general</label></div><div><label for="ty50" class="cbcontainer"><input type="radio" name="activity2" id="ty50" value="Golf: carrying clubs" /><span class="rbmark"></span>Golf: carrying clubs</label></div><div><label for="ty52" class="cbcontainer"><input type="radio" name="activity2" id="ty52" value="Gymnastics: general" /><span class="rbmark"></span>Gymnastics: general</label></div><div><label for="ty54" class="cbcontainer"><input type="radio" name="activity2" id="ty54" value="Hockey: field & ice" /><span class="rbmark"></span>Hockey: field & ice</label></div><div><label for="ty56" class="cbcontainer"><input type="radio" name="activity2" id="ty56" value="Ice Skating: general" /><span class="rbmark"></span>Ice Skating: general</label></div><div><label for="ty58" class="cbcontainer"><input type="radio" name="activity2" id="ty58" value="Martial Arts: judo, karate, kickbox" /><span class="rbmark"></span>Martial Arts: judo, karate, kickbox</label></div><div><label for="ty60" class="cbcontainer"><input type="radio" name="activity2" id="ty60" value="Racquetball: competitive" /><span class="rbmark"></span>Racquetball: competitive</label></div><div><label for="ty62" class="cbcontainer"><input type="radio" name="activity2" id="ty62" value="Rock Climbing: rappelling" /><span class="rbmark"></span>Rock Climbing: rappelling</label></div><div><label for="ty64" class="cbcontainer"><input type="radio" name="activity2" id="ty64" value="Rollerblading/skating (Fast)" /><span class="rbmark"></span>Rollerblading/skating (Fast)</label></div><div><label for="ty66" class="cbcontainer"><input type="radio" name="activity2" id="ty66" value="Rope Jumping (Slow)" /><span class="rbmark"></span>Rope Jumping (Slow)</label></div><div><label for="ty68" class="cbcontainer"><input type="radio" name="activity2" id="ty68" value="Scuba or skin diving" /><span class="rbmark"></span>Scuba or skin diving</label></div><div><label for="ty70" class="cbcontainer"><input type="radio" name="activity2" id="ty70" value="Skiing: cross-country" /><span class="rbmark"></span>Skiing: cross-country</label></div><div><label for="ty72" class="cbcontainer"><input type="radio" name="activity2" id="ty72" value="Sledding, luge, toboggan" /><span class="rbmark"></span>Sledding, luge, toboggan</label></div><div><label for="ty74" class="cbcontainer"><input type="radio" name="activity2" id="ty74" value="Soccer: general" /><span class="rbmark"></span>Soccer: general</label></div><div><label for="ty76" class="cbcontainer"><input type="radio" name="activity2" id="ty76" value="Tai Chi" /><span class="rbmark"></span>Tai Chi</label></div><div><label for="ty78" class="cbcontainer"><input type="radio" name="activity2" id="ty78" value="Volleyball: beach" /><span class="rbmark"></span>Volleyball: beach</label></div><div><label for="ty80" class="cbcontainer"><input type="radio" name="activity2" id="ty80" value="Volleyball: non-competitive, general play" /><span class="rbmark"></span>Volleyball: non-competitive, general play</label></div><div><label for="ty82" class="cbcontainer"><input type="radio" name="activity2" id="ty82" value="Water Polo" /><span class="rbmark"></span>Water Polo</label></div><div><label for="ty84" class="cbcontainer"><input type="radio" name="activity2" id="ty84" value="Water Volleyball" /><span class="rbmark"></span>Water Volleyball</label></div><div><label for="ty86" class="cbcontainer"><input type="radio" name="activity2" id="ty86" value="Wrestling" /><span class="rbmark"></span>Wrestling</label></div></td></tr></table></div><div id="aSection4" style="display:none;"><table width="100%"><tr><td valign="top"><div><label for="ty87" class="cbcontainer"><input type="radio" name="activity2" id="ty87" value="Carrying & stacking wood" /><span class="rbmark"></span>Carrying & stacking wood</label></div><div><label for="ty89" class="cbcontainer"><input type="radio" name="activity2" id="ty89" value="Fishing" /><span class="rbmark"></span>Fishing</label></div><div><label for="ty91" class="cbcontainer"><input type="radio" name="activity2" id="ty91" value="Mowing Lawn: push, hand" /><span class="rbmark"></span>Mowing Lawn: push, hand</label></div><div><label for="ty93" class="cbcontainer"><input type="radio" name="activity2" id="ty93" value="Operate Snow Blower: walking" /><span class="rbmark"></span>Operate Snow Blower: walking</label></div><div><label for="ty95" class="cbcontainer"><input type="radio" name="activity2" id="ty95" value="Shoveling Snow: by hand" /><span class="rbmark"></span>Shoveling Snow: by hand</label></div></td><td valign="top"><div><label for="ty88" class="cbcontainer"><input type="radio" name="activity2" id="ty88" value="Chopping & splitting wood" /><span class="rbmark"></span>Chopping & splitting wood</label></div><div><label for="ty90" class="cbcontainer"><input type="radio" name="activity2" id="ty90" value="Gardening: general" /><span class="rbmark"></span>Gardening: general</label></div><div><label for="ty92" class="cbcontainer"><input type="radio" name="activity2" id="ty92" value="Mowing lawn: push, power" /><span class="rbmark"></span>Mowing lawn: push, power</label></div><div><label for="ty94" class="cbcontainer"><input type="radio" name="activity2" id="ty94" value="Raking lawn" /><span class="rbmark"></span>Raking lawn</label></div></td></tr></table></div><div id="aSection5" style="display:none;"><table width="100%"><tr><td valign="top"><div><label for="ty97" class="cbcontainer"><input type="radio" name="activity2" id="ty97" value="Cooking" /><span class="rbmark"></span>Cooking</label></div><div><label for="ty99" class="cbcontainer"><input type="radio" name="activity2" id="ty99" value="Heavy Cleaning: wash car, windows" /><span class="rbmark"></span>Heavy Cleaning: wash car, windows</label></div><div><label for="ty101" class="cbcontainer"><input type="radio" name="activity2" id="ty101" value="Moving: household furniture" /><span class="rbmark"></span>Moving: household furniture</label></div><div><label for="ty103" class="cbcontainer"><input type="radio" name="activity2" id="ty103" value="Playing w/kids: moderate effort" /><span class="rbmark"></span>Playing w/kids: moderate effort</label></div><div><label for="ty105" class="cbcontainer"><input type="radio" name="activity2" id="ty105" value="Sex" /><span class="rbmark"></span>Sex</label></div><div><label for="ty107" class="cbcontainer"><input type="radio" name="activity2" id="ty107" value="Standing in line" /><span class="rbmark"></span>Standing in line</label></div></td><td valign="top"><div><label for="ty98" class="cbcontainer"><input type="radio" name="activity2" id="ty98" value="Food Shopping: with cart" /><span class="rbmark"></span>Food Shopping: with cart</label></div><div><label for="ty100" class="cbcontainer"><input type="radio" name="activity2" id="ty100" value="Moving: carrying boxes" /><span class="rbmark"></span>Moving: carrying boxes</label></div><div><label for="ty102" class="cbcontainer"><input type="radio" name="activity2" id="ty102" value="Paint, paper, remodel: inside" /><span class="rbmark"></span>Paint, paper, remodel: inside</label></div><div><label for="ty104" class="cbcontainer"><input type="radio" name="activity2" id="ty104" value="Reading: sitting" /><span class="rbmark"></span>Reading: sitting</label></div><div><label for="ty106" class="cbcontainer"><input type="radio" name="activity2" id="ty106" value="Sleeping" /><span class="rbmark"></span>Sleeping</label></div><div><label for="ty108" class="cbcontainer"><input type="radio" name="activity2" id="ty108" value="Watching TV" /><span class="rbmark"></span>Watching TV</label></div></td></tr></table></div>	</td>
+</tr>
+<tr>
+	<td align="right">Duration:</td><td>	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="chour" value="" class="inhalf inuiyear" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiyearspan">hours</span>
+		</td><td>&nbsp; &nbsp;</td><td>
+			<input type="text" name="cmin" value="45" class="inhalf inuipound" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuipoundspan">minutes</span>
+		</td></tr></table></td>
+</tr>
+<tr>
+	<td align="right">Body Weight:</td><td>	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cweight" value="150" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+		</td><td>&nbsp;&nbsp;</td><td>
+			<select name="cweightunit" class="inhalf">
+				<option value="p" selected>pounds</option>
+				<option value="k" >kilograms</option>
+			</select>
+		</td><td class="smalltext">&nbsp; 80 - 350 pounds or 35 - 160 kgs</td></tr></table>
+				<input type="hidden" name="ctype" id="ctype" value="1">
+		</td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td	style="padding-top:10px;" >
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+
+<script>
+function selActivity(inVal){
+	document.getElementById("aSection1").style.display = 'none';
+	document.getElementById("aSection2").style.display = 'none';
+	document.getElementById("aSection3").style.display = 'none';
+	document.getElementById("aSection4").style.display = 'none';
+	document.getElementById("aSection5").style.display = 'none';
+	if (inVal>0){
+		document.getElementById("aSection"+inVal).style.display = 'block';
+	}
+	return false;
+}
+selActivity(0);</script>
+
+
+
+<a name="bydistance"></a><br>
+<h2>Calorie Burned by Distance Calculator</h2>
+<p>Use this calculator to estimate the calories to be burned by walking, running, or bicycling for a distance.</p>
+
+
+<div class="panel" style="padding:10px;">
+<form action="/calories-burned-calculator.html#bydistance" name="calform2"><table >
+<tr>
+	<td align="right" valign="top" style="padding-top:5px;">Activity:</td><td>	<select name="c2activity" class="infull">
+		<option value="w" selected>Walking</option>
+		<option value="r" >Running</option>
+		<option value="b" >Cycling</option>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td valign="top" align="right" style="padding-top:6px;">Speed/Pace:</td><td>	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="c2speed" value="3" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+		</td><td>&nbsp;&nbsp;</td><td>
+			<select name="c2speedunit" >
+				<option value="mpm" >minutes per mile</option>
+				<option value="mph" selected>miles per hour</option>
+				<option value="yps" >yards per second</option>
+				<option value="mpk" >minutes per kilometer</option>
+				<option value="kph" >kilometers per hour</option>
+				<option value="mps" >meters per second</option>
+			</select>
+		</td>
+		<td class="smalltext">&nbsp; or use <a href="#" onClick="return popSpeed('s')">slow</a>, <a href="#" onClick="return popSpeed('m')">moderate</a>, <a href="#" onClick="return popSpeed('f')">fast</a>, <a href="#" onClick="return popSpeed('v')">very fast</a></td></tr></table>
+		<script>
+function popSpeed(inVar){
+	var psUse = 1;
+	var psA = document.calform2.c2activity.value;
+	var psSU = document.calform2.c2speedunit.value;
+	if ("w"==psA){
+		if ("s"==inVar) psUse = 2;
+		if ("m"==inVar) psUse = 2.8;
+		if ("f"==inVar) psUse = 3.5;
+		if ("v"==inVar) psUse = 4;
+	}
+	if ("r"==psA){
+		if ("s"==inVar) psUse = 5;
+		if ("m"==inVar) psUse = 6;
+		if ("f"==inVar) psUse = 7.5;
+		if ("v"==inVar) psUse = 10;
+	}
+	if ("b"==psA){
+		if ("s"==inVar) psUse = 13;
+		if ("m"==inVar) psUse = 15;
+		if ("f"==inVar) psUse = 17.5;
+		if ("v"==inVar) psUse = 21;
+	}
+	if ("mpm" == psSU) psUse = 60/psUse;
+	if ("yps" == psSU) psUse = psUse / 2.045;
+	if ("mpk" == psSU) psUse = 37.282/psUse;
+	if ("kph" == psSU) psUse = psUse / 0.621;
+	if ("mps" == psSU) psUse = psUse / 2.237;
+
+	document.calform2.c2speed.value = psUse.toFixed(3);
+	return false;
+}
+</script>
+		</td>
+</tr>
+<tr>
+	<td align="right">Distance:</td><td>	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="c2distance" value="5" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+		</td><td>&nbsp;&nbsp;</td><td>
+			<select name="c2distanceunit" class="inhalf">
+				<option value="i" selected>miles</option>
+				<option value="y" >yards</option>
+				<option value="k" >kilometers</option>
+				<option value="m" >meters</option>
+			</select>
+		</td>
+	</tr></table>
+		</td>
+</tr>
+<tr>
+	<td align="right">Body Weight:</td><td>	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="c2weight" value="150" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+		</td><td>&nbsp;&nbsp;</td><td>
+			<select name="c2weightunit" class="inhalf">
+				<option value="p" selected>pounds</option>
+				<option value="k" >kilograms</option>
+			</select>
+		</td><td class="smalltext">&nbsp; 80 - 350 pounds or 35 - 160 kgs</td></tr></table>
+				<input type="hidden" name="ctype" id="ctype" value="2">
+		</td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td	style="padding-top:10px;" >
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td>
+</tr>
+</table></form>
+</div>
+
+<br><br>
+<p>The number of calories that the body burns during regular daily activities or exercise is dependent on various factors, so it is not an exact science. The results of this calculator (and any other) are based on standardized data that references an "average" person, so it is only an estimate. The formula and methodology used by this calculator are described below in the "Calculating calories burned" section.</p>
+<p>For more information on the number of calories a person should consume each day for weight maintenance, weight loss, or weight gain, refer to the <a href="/calorie-calculator.html">Calorie calculator</a>. Generally, the number of calories consumed, less calories burned through activities and basal metabolic rate (calories consumed - calories burned - BMR) will determine whether a person maintains, loses, or gains weight; theoretically, if the number is 0, the person will maintain their weight; if the number is negative, they will lose weight; if the number is positive, they will gain weight. For more information about basal metabolic rate, refer to our <a href="/bmr-calculator.html">BMR calculator</a>.</p>
+
+<h3>Factors affecting calories burned</h3>
+<p>The number of calories a person burns by performing a given activity is dependent on many different factors. Most estimates (including the ones provided by our calculator) involve the use of three key factors: body mass, duration of the activity, and the metabolic equivalent of a task (MET). The MET of various tasks have been widely studied, and our calculator estimates calories burned based on data made available through these studies.</p>
+
+<p><b>Body mass and duration</b></p>
+<p>A person's body mass affects how many calories they burn, even at rest. A person who is larger due to more muscle, fat, or height burns more calories. This is also true during exercise since the body has to do more work to provide energy to a larger person than it would to a smaller person. Thus, a person who weighs 200 pounds will burn significantly more calories running 1 mile than someone who weighs 100 pounds, given that other conditions remain the same.</p>
+<p>Duration of exercise is another factor that affects calories burned. The longer a person performs an exercise, the more calories they will burn. However, the relationship is not as simple as it is with body mass because the intensity of the exercise matters. For example, a person who walks 1 mile in 1 hour will burn significantly fewer calories than someone who walks 5 miles in that hour.</p>
+
+<p><b>Exercise intensity</b></p>
+<p>Exercise intensity is another key factor that affects the number of calories burned. The more intense the exercise, the greater the number of calories burned. Exercise intensity is measured in a number of different ways, some of which are more precise than others.</p>
+<p>Exercise intensity may be measured using heart rate. Heart rate provides an indication of how difficult it is for a person to complete an exercise. Generally, the higher a person's heart rate while performing an exercise, the more intense the exercise. However, people have variable resting heart rates as well as maximum heart rates, so heart rate is not a precise measure of intensity. This is because a person who is more fit will have a lower heart rate than someone who is less fit when performing the same exercise, assuming that neither have any underlying conditions that would affect their heart rates.</p>
+<p>A more precise measure of intensity involves the measurement of a person's oxygen consumption during exercise. Oxygen consumption and the intensity of exercise have a linear relationship; as exercise intensity increases, oxygen consumption increases. Thus, oxygen consumption during exercise, as compared to oxygen consumption at rest, provides us with a good representation of the metabolic requirements of a given exercise. Furthermore, unlike heart rate, which varies significantly depending on a variety of factors, the amount of oxygen a person needs to consume is closely related to their body mass, which makes it possible to create a standard for oxygen consumption for specific exercises based on body mass.</p>
+<p>Oxygen consumption is measured in MET (metabolic equivalent of a task). There are a few different definitions of MET. The original definition, and the one used by this calculator, is based on oxygen utilization and body mass.</p>
+<p>The MET is the ratio of the rate at which a person expends energy (relative to their body mass) while performing a given physical task compared to a reference. By convention, the reference is based on the energy expended by an "average" person while they are sitting quietly, which is roughly equivalent to 3.5 mL of oxygen per kilogram per minute. This value was derived experimentally by measuring the MET of a healthy 40-year-old male who weighed 70 kg. This is the baseline, meaning that a MET value of 1 represents the energy expended by an average person at rest. Thus, an activity that has a MET value of 2 requires twice as much energy as an average person expends at rest; a MET value of 8 requires eight times as much energy, and so on.</p>
+<p>Exercises are commonly categorized as being light intensity, moderate intensity, or vigorous intensity exercises. Higher intensity exercises have a higher MET. For example, walking slowly is a light intensity exercise with a 2.0 MET; playing doubles in tennis is a moderate intensity exercise with a 5.0 MET; jumping rope at a rate of 100 jumps per minute is a vigorous intensity exercise with an 11.0 MET.</p>
+<p>For those interested in burning fat, it is worth noting that exercise intensity affects the type of fuel (carbohydrates, fats, protein) that the body uses. Thus, it is possible to regulate exercise intensity to influence the type of energy that the body uses. Generally, lower intensity exercises burn more fat, so if a person's goal is to burn fat, they should perform low intensity exercises for longer durations. As a person's exercise intensity increases, the body shifts from using fats to provide energy to using carbohydrates instead. While the body may also use proteins to provide the body with energy, this occurs much less frequently than the use of carbohydrates or fats, so it should not really be considered in most cases.</p>
+
+<p><b>Other factors</b></p>
+<p>Although the above factors are the key factors used in the estimation of calories burned, there are other factors as well.</p>
+<p><b>Age</b>&mdash;this affects a person's resting energy expenditure. As a person ages, they tend to lose lean body mass, which tends to decrease metabolic activity. Thus, the older a person is, the fewer calories they burn overall. Therefore, given that the only difference between two people is that one is much older than the other, the older person will burn fewer calories.</p>
+<p><b>Body composition</b>&mdash;muscle requires more energy than fat. Thus, a person who is the same height and weight as another will burn more calories if they have more muscle.</p>
+<p><b>Temperature</b>&mdash;people burn more calories in warmer environments. This is because a higher temperature increases body temperature, allowing the body to direct energy towards calorie burn rather than warming the body.</p>
+<p><b>Fitness level</b>&mdash;this affects exercise intensity on an individual level. A person who is in better shape will burn fewer calories when performing the same exercise as someone who is at a lower level of fitness. This is because the body of the person who is in better shape is more efficient, so it uses less energy to perform the same task.</p>
+<p><b>Diet</b>&mdash;a person's diet affects their metabolism; the lower a person's metabolism the fewer calories they burn, so a person who wants to burn more calories should consume a diet that increases their metabolism.</p>
+<p><b>Sleep</b>&mdash;this can affect the number of calories burned in a few ways. A person who does not get enough sleep will be more fatigued, and may therefore exercise less than they otherwise would. Also, if a person does not get enough sleep, their metabolism can decrease, reducing the total number of calories burned.</p>
+
+<h3>Calculating calories burned</h3>
+<p>This calculator estimates calories burned using the following equation.</p>
+<table align="center"><tr>
+<td>Calories =</td>
+<td><table cellpadding="0"><tr><td>Time &#215; MET &#215; Body Weight</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">200</td></tr></table></td>
+</tr></table>
+<p>Where time is in the unit of minutes and body weight is in the unit of kilograms.</p>
+<p>Many studies have been conducted to determine the number of calories expended while conducting certain activities. Our calculator uses data from these studies to determine the MET for certain activities, along with the equation above, to estimate calories burned given the duration an activity is performed and body mass.</p>
+
+<p><b>Accuracy of the calculation</b></p>
+<p>The accuracy of this calculation is significantly affected by MET. By convention, 1 MET is roughly equivalent to expending 1 Calorie per kilogram of body weight per hour or consuming 3.5 mL of oxygen per kilogram of body mass per minute. This convention was derived based on a single specific subject: a healthy 40-year-old male who weighed 70 kilograms. A person's resting metabolic rate (RMR) is highly dependent on a number of factors (described above) such as lean body mass (total body weight - body fat weight), age, health status, and more. Thus, calculations for an individual whose RMR varies significantly from that of the subject used as a reference will be less accurate; some studies have shown that the conventional 1 MET value overestimates oxygen consumption at rest by up to 20-30% on average.</p>
+<p>The estimate is also affected by the fact that MET values were derived under the assumption that the activity is performed at a constant rate. For example, playing tennis for 1 hour can involve taking breaks between games, resting, chatting, etc., meaning that the activity is only truly performed for a shorter duration. If the duration is not represented accurately, this will affect the accuracy of the calculation, and in general, will result in an overestimate of calories burned.</p>
+<p>The only way to get a highly accurate number is for an individual to go to a lab that measures all of the necessary factors such as their maximum oxygen capacity, maximum heart rate, and more in order to serve as their own reference. Because this is often not feasible or likely not worthwhile for most people, estimates based on the MET are used instead, with the understanding that the MET is more effectively used as an index of intensity (MET values can give a person a good idea of the relative intensity of a given exercise as compared to sitting quietly) rather than for estimating calories burned for a specific individual; unless a person happens to share very similar characteristics to the individual whose RMR is used as a comparison, the number of calories burned may not be very accurate.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

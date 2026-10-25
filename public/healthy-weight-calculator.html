@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Healthy Weight Calculator</title>
+	<meta name="description" content="This calculator estimates a healthy body weight range based on body mass index. Also, learn more about the effects of being underweight, overweight, or obese." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/healthy-weight-calculator.html" itemprop="item"><span itemprop="name">healthy weight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Healthy Weight Calculator</h1>
+<p>This calculator computes a healthy body weight range based on a person's height and is most accurate for adults aged 18 or older.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div id="topmenu" class="topmenucenter"></div>
+<div class="panel2" style="padding:10px;">
+<form name="calform"><table><tr><td><input type="hidden" name="ctype" id="ctype" value="standard">
+<table id="standardheightweight">
+<tr>
+	<td width="50">Height</td>
+	<td>
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inlongesthalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inlongesthalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+</table>
+<table id="metricheightweight">
+<tr>
+	<td width="50">Height</td>
+	<td align="right"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+</table>
+<table width="260">
+<tr>
+	<td align="right" style="padding-top:10px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</td></tr></table></form>
+</div>
+<br>
+<h3>What is a Healthy Weight?</h3>
+<p>The range of healthy body weights is calculated based on BMI. Given a specific height, the calculator uses standard algorithms to calculate the range of possible body weights that fall within different categories of weight determined by BMI. An adult aged 18 or older with a BMI between 18.5 and 25 kg/m<sup>2</sup> is typically defined as having a healthy or normal weight. Refer to the <a href="/bmi-calculator.html">BMI Calculator</a> for more information, but note that a "healthy body weight" is based on estimations that do not account for certain factors such as body composition. While accurate for an "average" person, this means that it is possible to be categorized as overweight or underweight and still be "healthy," but this requires more than a generalized calculation to determine &ndash; likely with the help of a medical professional.</p>
+
+<h3>Effects of Being Underweight, Overweight, and Obese</h3>
+<p><b>Underweight (BMI &lt; 18.5):</b></p>
+<p>A person can be underweight as a result of genetics, lack of food, metabolic issues, use of drugs, or illness. Being underweight is associated with a host of medical conditions that include hyperthyroidism, cancer, or tuberculosis, and can be indicative of some underlying disease or disorder. Studies have also shown that being underweight results in an increase in mortality rates comparable to that of the morbidly obese. It is possible however that these rates are affected by disease-related weight loss, and being underweight in the absence of some underlying disease may not have significantly higher mortality rates as compared to rates for a healthy weight.</p>
+<p>Being underweight can also cause other issues, including low energy levels or stamina, osteoporosis, and a weak immune system that can make a person more susceptible to infection. Also, people that are underweight due to lack of high-quality food (rather than excessive exercise or other possible reasons) can become malnourished, which can cause both physical and mental development issues. In extreme cases, severe forms of malnutrition such as kwashiorkor and marasmus can result.</p>
+<p>Specifically for women, being underweight due to an eating disorder can result in the absence of menstruation, infertility, and possible complications during pregnancy.</p>
+
+<p><b>Overweight (BMI 25-30):</b></p>
+<p>Being overweight is typically a result of consuming more calories than the body expends through metabolic processes and exercise. Being overweight is also affected by many other factors, including alcoholism, a genetic predisposition, eating disorders, limited physical exercise and a sedentary lifestyle, poor nutrition, and stress.</p>
+<p>The negative effects of being overweight are somewhat more controversial than those of being obese. It is generally accepted that being overweight causes similar issues as obesity (as will be discussed below), but to a lesser extent. However, there have been studies that show a lower mortality rate for overweight people compared to those categorized as having a healthy weight.<sup>1</sup> In response to these findings, some argued that a BMI range of 25-30, which is currently categorized as overweight, may be optimal, while others argued that mortality is far from the sole indicator of health &ndash; the increased risk of diabetes, heart disease, and several forms of cancer are significant factors influenced by being overweight.</p>
+
+<p><b>Obese (BMI > 30):</b></p>
+<p>Obesity is typically caused by a lack of exercise, excessive food intake, and genetic susceptibility. There are rarer cases where obesity is caused primarily by genes, hormonal imbalances due to endocrine disorders, medications, or mental disorders. It is mostly preventable however, through lifestyle and diet changes, though there is still insufficient understanding of all the factors affecting obesity. While it can be broken down to the simple, personal case of controlling energy intake and output, there is often more involved and managing obesity on a societal level has far from an algorithmic solution.</p>
+<p>Obesity greatly increases the risk of cardiovascular diseases such as heart disease and stroke as well as hypertension, type 2 diabetes, musculoskeletal disorders including osteoarthritis, and some cancers. It can also cause obstructive sleep apnea and depression (or sometimes be caused by depression). Because of all the potential complications of obesity, it has been found to reduce life expectancy, and is classified as one of the leading preventable causes of death worldwide.</p>
+
+<h3>Maintaining a Healthy Weight</h3>
+<p>Being underweight, overweight, or obese are conditions that lead to significantly different health complications. Managing these conditions however, involves addressing many similar underlying issues, including diet, exercise, and possible mental health disorders.</p>
+<p>In the case of being underweight, increasing calorie intake through eating nutrient-rich foods such as whole-grains, vegetables, lean protein sources, and nuts and seeds more frequently can help underweight individuals to gain weight in a healthy manner. In addition, exercise such as weight lifting to increase muscle mass can also increase a person's weight. When the underlying cause of a person being underweight is a mental health disorder such as anorexia or bulimia nervosa, treatment involves addressing the psychological problems in conjunction with physical approaches to increase weight.</p>
+<p>Overweight and obesity, similarly to being underweight, can largely be reduced through changes in diet and exercise. The WHO recommends limiting intake of calorie-dense foods, total fats, and sugars, while increasing the consumption of fruits, vegetables, legumes, whole grains, and nuts.  It further recommends engaging in regular physical activity, defining this as 60 minutes a day for children, and 150 minutes total per week for adults. However, individual responsibility can only be fully effective if people have access to a healthy lifestyle in terms of education, affordable and healthier dietary choices, and changes such as a tax on sugar-sweetened beverages, reduction of the sugar and salt contents of processed foods, and decreased marketing of such foods, particularly to children and teenagers.<sup>2</sup></p>
+
+<br><ol class="reference">
+<li>Flegal, Katherine M., Graubard, Barry I., Williamson, David F., et al. 2017. "Excess Deaths Associated With Underweight, Overweight, and Obesity."<i>The Journal of the American Medical Association</i> 294(15): 1861-1867. doi:10.1001/jama.293.15.1861.</li>
+<li>WHO. 2021. "Obesity and overweight." Media Centre. Last modified June, 2021. www.who.int/mediacentre/factsheets/fs311/en/</li>
+</ol>
+
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard');\">US Unit</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard');\">US Unit</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard");
+</script>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

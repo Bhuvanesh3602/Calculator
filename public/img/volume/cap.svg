@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="82" height="50" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<circle r="2" cx="41" cy="46" fill="black"  />
+	<line x1="41" y1="26" x2="81" y2="26" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+	<line x1="41" y1="26" x2="41" y2="1" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+	<line x1="41" y1="46" x2="81" y2="26" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+	<circle r="2" cx="41" cy="26" fill="black"  />
+	<path d="M1,26 A40,10 0 0,0 81,26" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M1,26 A40,10 0 0,1 81,26" stroke-dasharray="2, 2" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M0,26 A46,46 0 0,1 82,26" style="fill:none;stroke:black;stroke-width:1" />
+	<text x="42" y="20" fill="#4c7b25" font-size="18">h</text>
+	<text x="58" y="27" fill="#4c7b25" font-size="18">r</text>
+	<text x="58" y="50" fill="#4c7b25" font-size="18">R</text>
+</svg>

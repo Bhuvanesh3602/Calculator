@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="320" height="362" viewBox="0 0 320 362" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(0 15)">
+<rect width="106" height="23" x="0" y="0" fill="#787878" />
+<polygon points="0,203 0,180 268,180 268,0 320,0 320,203" style="fill:#787878;stroke-width:0" />
+<polygon points="58,180 100,180 268,60 268,30 226,30 226,60 184,60 184,90 142,90 142,120 100,120 100,150 58,150" style="fill:#8cc63f;stroke-width:0" />
+<g fill="#754c24">
+<circle r="2.5" cx="222" cy="32.5" />
+<rect width="46" height="5" x="222" y="30" />
+<circle r="2.5" cx="180" cy="62.5" />
+<rect width="46" height="5" x="180" y="60" />
+<circle r="2.5" cx="138" cy="92.5" />
+<rect width="46" height="5" x="138" y="90" />
+<circle r="2.5" cx="96" cy="122.5" />
+<rect width="46" height="5" x="96" y="120" />
+<circle r="2.5" cx="54" cy="152.5" />
+<rect width="46" height="5" x="54" y="150" />
+</g>
+<g style="stroke:black;stroke-width:1">
+<line x1="59" y1="208" x2="267" y2="208" />
+<line x1="58" y1="180" x2="58" y2="213" stroke-dasharray="2, 2" />
+<line x1="268" y1="180" x2="268" y2="213" stroke-dasharray="2, 2" />
+<line x1="58" y1="180" x2="68" y2="194" stroke-dasharray="2, 2" />
+<line x1="268" y1="30" x2="278" y2="44" stroke-dasharray="2, 2" />
+<line x1="63" y1="187" x2="273" y2="37" />
+<line x1="184" y1="60" x2="142" y2="60" stroke-dasharray="2, 2" />
+<line x1="150" y1="61" x2="150" y2="89" />
+<line x1="100" y1="90" x2="100" y2="120" stroke-dasharray="2, 2" />
+<line x1="100" y1="110" x2="142" y2="110" />
+<line x1="48" y1="1" x2="48" y2="179" />
+<line x1="15" y1="-15" x2="15" y2="38" />
+<line x1="107" y1="13" x2="267" y2="13" />
+<line x1="268" y1="30" x2="290" y2="30" stroke="white" stroke-dasharray="2, 2" />
+<line x1="268" y1="180" x2="290" y2="180" stroke="white" stroke-dasharray="2, 2" />
+<line x1="283" y1="31" x2="283" y2="179" stroke="white" />
+<path d="M117,167.8 A21,21 0 0,1 121,180" />
+<line x1="96" y1="119" x2="96" y2="24" />
+<line x1="190" y1="45" x2="204" y2="59" />
+</g>
+<g style="fill:black;stroke-width:0">
+<polygon points="201.46,52.22 205,60 197.22,56.46" />
+<polygon points="93,112 96,120 99,112" />
+<polygon points="93,31 96,23 99,31" />
+<polygon points="12,-8 15,0 18,-8" />
+<polygon points="12,31 15,23 18,31" />
+<polygon points="260,205 268,208 260,211" />
+<polygon points="66,205 58,208 66,211" />
+<polygon points="67.76,178.91 63,187 71.24,184.79" />
+<polygon points="264.76,39.21 273,37 268.24,44.09" />
+<polygon points="147,68 150,60 153,68" />
+<polygon points="147,83 150,90 153,83" />
+<polygon points="108,107 100,110 108,113" />
+<polygon points="134,107 142,110 134,113" />
+<polygon points="45,8 48,0 51,8" />
+<polygon points="45,172 48,180 51,172" />
+<polygon points="260,10 268,13 260,16" />
+<polygon points="114,10 106,13 114,16" />
+<polygon points="280,38 283,30 286,38" fill="white" />
+<polygon points="280,172 283,180 286,172" fill="white" />
+</g>
+<g style="font: 14px Arial, sans-serif; fill: #000;">
+<text x="153" y="80">rise</text>
+<text x="45" y="122" transform="rotate(-90, 45, 122)">total rise</text>
+<text x="94" y="103" transform="rotate(-90, 94, 103)">headroom</text>
+<text x="19" y="131" transform="rotate(-90, 19, 131)">floor thickness</text>
+<text x="296" y="155" transform="rotate(-90, 296, 155)" fill="white">stringer height</text>
+<text x="110" y="107">run</text>
+<text x="135" y="150" transform="rotate(-35.5, 135, 150)">stringer length</text>
+<text x="138" y="221">total run</text>
+<text x="122" y="176">angle</text>
+<text x="140" y="9">floor opening</text>
+<text x="172" y="42">tread</text>
+<text x="10" y="253">standard mount</text>
+<text x="210" y="253">flush mount</text>
+</g>
+</g>
+<polygon points="0,362 320,362 320,340 174,340 174,260 124,260 124,340 0,340" style="fill:#787878;stroke-width:0" />
+<polygon points="58,340 36,340 36,324 58,324 58,308 80,308 80,292 102,292 102,276 124,276 124,292" style="fill:#8cc63f;stroke-width:0" />
+<polygon points="284,340 262,340 174,276 174,260 196,260 196,276 218,276 218,292 240,292 240,308 262,308 262,324 284,324" style="fill:#8cc63f;stroke-width:0" />
+</svg>

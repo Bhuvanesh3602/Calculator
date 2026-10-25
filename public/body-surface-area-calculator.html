@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Body Surface Area Calculator</title>
+	<meta name="description" content="This body surface area calculator estimates the surface area of a person's body based on body weight and height. It compares the results of several formulas." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/body-surface-area-calculator.html" itemprop="item"><span itemprop="name">body surface area calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Body Surface Area Calculator</h1>
+<p>The calculator below computes the total surface area of a human body, referred to as body surface area (BSA). Direct measurement of BSA is difficult, and as such many formulas have been published that estimate BSA. The calculator below provides results for some of the most popular formulas.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform"><table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right">Gender</td><td>
+			<label for="csex1" class="cbcontainer"><input name="csex" id="csex1" value="m" type="radio" checked><span class="rbmark"></span>male</label> &nbsp;
+			<label for="csex2" class="cbcontainer"><input name="csex" id="csex2" value="f" type="radio" ><span class="rbmark"></span>female</label>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Body Weight</td><td>
+			<input type="text" name="bodyweight" value="155" class="inlongesthalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="bodyweightunit" class="inlongesthalf">
+			<option value="pound" selected>pounds</option>
+			<option value="kilogram" >kilograms</option>
+			<option value="gram" >grams</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" valign="top" style="padding-top:5px;">Body Height</td><td>
+			<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<input type="text" name="bodyheightfeet" value="5" class="inlongesthalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+			</td><td>&nbsp;</td><td>
+				<input type="text" name="bodyheightinch" value="9" class="inlongesthalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+			</td></tr></table>
+			<p class="verybigtext" style="text-align:center;">OR</p>
+			<input type="text" name="bodyheight" value="" class="inlongest inuick" onKeyUp="iptfieldCheck(this, '', 'pn');"><span class="inuickspan">cm</span>
+		</td>
+	</tr>
+	<tr><td colspan="2" style="padding-top:12px;" align="center">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+<br>
+<p><fieldset><legend>Related</legend><a href="/area-calculator.html">Area Calculator</a> | <a href="/surface-area-calculator.html">Surface Area Calculator</a></fieldset></p>
+
+
+<br>
+<h3>Table of average BSAs</h3>
+<table class="cinfoT" align="center" width="320">
+	<tr align="center"><td class="cinfoHd">&nbsp;</td><td class="cinfoHdL">ft<sup>2</sup></td><td class="cinfoHdL">m<sup>2</sup></td></tr>
+	<tr align="center"><td>Newborn child</td><td>2.69</td><td>0.25</td></tr>
+	<tr align="center"><td>Two-year-old child</td><td>5.38</td><td>0.5</td></tr>
+	<tr align="center"><td>Ten-year-old child</td><td>12.27</td><td>1.14</td></tr>
+	<tr align="center"><td>Adult female</td><td>17.22</td><td>1.6</td></tr>
+	<tr align="center"><td>Adult male</td><td>20.45</td><td>1.9</td></tr>
+</table>
+
+<br>
+<p>BSA is often used in clinical purposes over body weight because it is a more accurate indicator of metabolic mass (the body's need for energy). Metabolic mass can be estimated using fat-free mass, where fat-free mass is all of a person's body mass that does not include fat. This includes bones, tendons, inner organs, muscles, blood, nerves, and more. Since body fat is not metabolically active and fat-free mass excludes body fat, fat-free mass is a reasonable estimate of metabolic mass.</p>
+
+<p>BSA is also used in various other clinical settings, such as determining cardiac index (to relate a person's heart performance to their body size) or most commonly, dosages for chemotherapy (a category of cancer treatment). While dosing for chemotherapy is often determined using a patient's BSA, there exist arguments against the use of BSA to determine medication dosages that have a narrow therapeutic index &ndash; the comparison of the amount of a substance necessary to produce a therapeutic effect, to the amount that causes toxicity. If the therapeutic index is too narrow, BSA may not be an accurate enough measure, and there is a risk of causing a toxic rather than therapeutic effect. There is also evidence that BSA becomes less accurate at the extremes of height and weight, and BMI may be a better estimate in such cases. Despite these limitations, the effects of chemotherapy dosages as determined by BSA measurements still remain more consistent than those determined by body weight alone.</p>
+
+<p>Below are some of the most popular formulas for estimating BSA, and links to references for each for further detail on their derivations. The most widely used of these is the Du Bois formula, which has been shown to be effective for estimating body fat in both obese and non-obese patients, unlike <a href="/bmi-calculator.html">body mass index</a>. Where BSA is represented in <b>m<sup>2</sup></b>, <b>W</b> is weight in <b>kg</b>, and <b>H</b> is height in <b>cm</b>, the formulas are as follows:</p>
+
+<br><div><b>Du Bois formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.007184 &times; W<sup>0.425</sup> &times; H<sup>0.725</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Du Bois D, Du Bois EF (Jun 1916). "A formula to estimate the approximate surface area if height and weight be known". Archives of Internal Medicine 17 (6): 863-71. PMID 2520314. Retrieved 2012-09-09.</div>
+<br><div><b>Mosteller formula:</b></div>
+	<div style="padding-left: 20px;">BSA = </sup>= 0.016667 &times; W<sup>0.5</sup> &times; H<sup>0.5</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Mosteller RD. "Simplified calculation of body-surface area". N Engl J Med 1987; 317:1098. PMID 3657876.</div>
+<br><div><b>Haycock formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.024265 &times; W<sup>0.5378</sup> &times; H<sup>0.3964</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Haycock GB, Schwartz GJ, Wisotsky DH "Geometric method for measuring body surface area: A height-weight formula validated in infants, children and adults" J Pediatr 1978, 93:62-66.</div>
+<br><div><b>Gehan and George formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.0235 &times; W<sup>0.51456</sup> &times; H<sup>0.42246</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Gehan EA, George SL, Cancer Chemother Rep 1970, 54:225-235</div>
+<br><div><b>Boyd formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.03330 &times; W<sup>(0.6157 - 0.0188 &times; log10(W)</sup> &times; H<sup>0.3</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Boyd, Edith (1935). The Growth of the Surface Area of the Human Body. University of Minnesota. The Institute of Child Welfare, Monograph Series, No. x. London: Oxford University Press</div>
+<br><div><b>Fujimoto formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.008883 &times; W<sup>0.444</sup> &times; H<sup>0.663</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Fujimoto S, Watanabe T, Sakamoto A, Yukawa K, Morimoto K. Studies on the physical surface area of Japanese. 18. Calculation formulae in three stages over all ages. Nippon Eiseigaku Zasshi 1968;5:443-50.</div>
+<br><div><b>Takahira formula:</b></div>
+	<div style="padding-left: 20px;">BSA = 0.007241 &times; W<sup>0.425</sup> &times; H<sup>0.725</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Fujimoto S, Watanabe T, Sakamoto A, Yukawa K, Morimoto K. Studies on the physical surface area of Japanese. 18. Calculation formulae in three stages over all ages. Nippon Eiseigaku Zasshi 1968;5:443-50.</div>
+<br><div><b>Schlich formula:</b></div>
+	<div style="padding-left: 20px;">Women BSA = 0.000975482 &times; W<sup>0.46</sup> &times; H<sup>1.08</sup></div>
+	<div style="padding-left: 20px;">Men BSA = 0.000579479 &times; W<sup>0.38</sup> &times; H<sup>1.24</sup></div>
+	<div style="padding-left: 20px;font-size:10px;">Schlich E, Schumm M, Schlich M: "3-D-Body-Scan als anthropometrisches Verfahren zur Bestimmung der spezifischen Korperoberflache". Ernahrungs Umschau 2010;57:178-183</div>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

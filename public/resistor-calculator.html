@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Resistor Calculator</title>
+	<meta name="description" content="This resistor calculator converts the ohm value and tolerance based on resistor color codes and determines the resistances of resistors in parallel or series." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/resistor-calculator.html" itemprop="item"><span itemprop="name">resistor calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Resistor Calculator</h1>
+		<p>The following are tools to calculate the ohm value and tolerance based on resistor color codes, the total resistance of a group of resistors in parallel or in series, and the resistance of a conductor based on size and conductivity.</p>
+
+<h2>Resistor color code calculator</h2>
+<p>Use this calculator to find out the ohm value and tolerance based on resistor color codes.</p><table cellpadding="0" cellspacing="0"><tr><td valign="top"><form action="/resistor-calculator.html"><table class="panel" ><tr>
+	<td><b>Number of Bands:</b>
+			<select name="bandnum" onChange="changeBand(this.value);">
+				<option value="3" >3 Band</option>
+				<option value="4" selected>4 Band</option>
+				<option value="5" >5 Band</option>
+				<option value="6" >6 Band</option>
+			</select>
+	</td></tr>
+<tr><td><div style="padding-top:10px;"><b>1<sup>st</sup> Band Color:</b></div>
+<label for="band11" class="cbcontainer"><input type="radio" name="band1" id="band11" value="black"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#000;color:#fff;">black</span></label>
+<label for="band12" class="cbcontainer"><input type="radio" name="band1" id="band12" value="brown"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="band13" class="cbcontainer"><input type="radio" name="band1" id="band13" value="red"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="band14" class="cbcontainer"><input type="radio" name="band1" id="band14" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="band15" class="cbcontainer"><input type="radio" name="band1" id="band15" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="band16" class="cbcontainer"><input type="radio" name="band1" id="band16" value="green" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="band17" class="cbcontainer"><input type="radio" name="band1" id="band17" value="blue"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="band18" class="cbcontainer"><input type="radio" name="band1" id="band18" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="band19" class="cbcontainer"><input type="radio" name="band1" id="band19" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+<label for="band110" class="cbcontainer"><input type="radio" name="band1" id="band110" value="white"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;"><span style="border: 1px solid #ccc;background-color:#fff;color:#000;">white</span></label>
+
+
+<div style="padding-top:10px;"><b>2<sup>nd</sup> Band Color:</b></div>
+<label for="band21" class="cbcontainer"><input type="radio" name="band2" id="band21" value="black"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#000;color:#fff;">black</span></label>
+<label for="band22" class="cbcontainer"><input type="radio" name="band2" id="band22" value="brown"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="band23" class="cbcontainer"><input type="radio" name="band2" id="band23" value="red" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="band24" class="cbcontainer"><input type="radio" name="band2" id="band24" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="band25" class="cbcontainer"><input type="radio" name="band2" id="band25" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="band26" class="cbcontainer"><input type="radio" name="band2" id="band26" value="green"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="band27" class="cbcontainer"><input type="radio" name="band2" id="band27" value="blue"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="band28" class="cbcontainer"><input type="radio" name="band2" id="band28" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="band29" class="cbcontainer"><input type="radio" name="band2" id="band29" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+<label for="band210" class="cbcontainer"><input type="radio" name="band2" id="band210" value="white"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;"><span style="border: 1px solid #ccc;background-color:#fff;color:#000;">white</span></label>
+
+
+<div id="3rdband">
+<div style="padding-top:10px;"><b>3<sup>rd</sup> Band Color:</b></div>
+<label for="band31" class="cbcontainer"><input type="radio" name="band3" id="band31" value="black"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#000;color:#fff;">black</span></label>
+<label for="band32" class="cbcontainer"><input type="radio" name="band3" id="band32" value="brown"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="band33" class="cbcontainer"><input type="radio" name="band3" id="band33" value="red"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="band34" class="cbcontainer"><input type="radio" name="band3" id="band34" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="band35" class="cbcontainer"><input type="radio" name="band3" id="band35" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="band36" class="cbcontainer"><input type="radio" name="band3" id="band36" value="green"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="band37" class="cbcontainer"><input type="radio" name="band3" id="band37" value="blue" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="band38" class="cbcontainer"><input type="radio" name="band3" id="band38" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="band39" class="cbcontainer"><input type="radio" name="band3" id="band39" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+<label for="band310" class="cbcontainer"><input type="radio" name="band3" id="band310" value="white"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;"><span style="border: 1px solid #ccc;background-color:#fff;color:#000;">white</span></label>
+</div>
+
+<div style="padding-top:10px;"><b>Multiplier Color:</b></div>
+<label for="multiplier1" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier1" value="black"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#000;color:#fff;">black</span></label>
+<label for="multiplier2" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier2" value="brown"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="multiplier3" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier3" value="red"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="multiplier4" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier4" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="multiplier5" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier5" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="multiplier6" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier6" value="green"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="multiplier7" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier7" value="blue" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="multiplier8" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier8" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="multiplier9" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier9" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+<label for="multiplier10" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier10" value="white"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;"><span style="border: 1px solid #ccc;background-color:#fff;color:#000;">white</span></label>
+<label for="multiplier11" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier11" value="gold"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#cfb53b;">gold</span></label>
+<label for="multiplier12" class="cbcontainer"><input type="radio" name="multiplier" id="multiplier12" value="silver"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#c0c0c0;">silver</span></label>
+
+
+<div id="tolerance">
+<div style="padding-top:10px;"><b>Tolerance Color:</b></div>
+<label for="tolerance2" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance2" value="brown"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="tolerance3" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance3" value="red"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="tolerance4" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance4" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="tolerance5" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance5" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="tolerance6" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance6" value="green"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="tolerance7" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance7" value="blue"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="tolerance8" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance8" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="tolerance9" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance9" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+<label for="tolerance11" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance11" value="gold" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#cfb53b;">gold</span></label>
+<label for="tolerance12" class="cbcontainer"><input type="radio" name="tolerance" id="tolerance12" value="silver"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#c0c0c0;">silver</span></label>
+</div>
+
+<div id="temperaturecoefficient">
+<div style="padding-top:10px;"><b>Temperature Coefficient Color:</b></div>
+<label for="temperatureCoefficient1" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient1" value="black"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#000;color:#fff;">black</span></label>
+<label for="temperatureCoefficient2" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient2" value="brown" checked /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#964b00;color:#fff;">brown</span></label>
+<label for="temperatureCoefficient3" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient3" value="red"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ff0000;color:#fff;">red</span></label>
+<label for="temperatureCoefficient4" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient4" value="orange"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffa500;">orange</span></label>
+<label for="temperatureCoefficient5" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient5" value="yellow"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#ffff00;">yellow</span></label>
+<label for="temperatureCoefficient6" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient6" value="green"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9acd32;">green</span></label>
+<label for="temperatureCoefficient7" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient7" value="blue"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#6495ed;">blue</span></label>
+<label for="temperatureCoefficient8" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient8" value="violet"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#9400d3;color:#fff;">violet</span></label>
+<label for="temperatureCoefficient9" class="cbcontainer"><input type="radio" name="temperatureCoefficient" id="temperatureCoefficient9" value="grey"  /><span class="rbmark"></span><span style="border: 1px solid #ccc;background-color:#a0a0a0;">grey</span></label>
+</div>
+
+</td></tr>
+<tr><td align="center" style="padding: 10px 0px 3px 0px;">
+<input type="hidden" name="type" value="c">
+<input type="submit" name="x" value="Calculate">
+</td></tr></table></form>
+</td><td>&nbsp;</td><td valign="top"><div style="text-align:center" id="bandnumberpicture"><img src="/img/resistor/4-band.svg" width="300" height="464" alt="resistor bands"></div>
+</td></tr></table><script>
+function changeBand(cbIn){
+	if (cbIn==3){
+		document.getElementById("3rdband").style.display = "none";
+		document.getElementById("tolerance").style.display = "none";
+		document.getElementById("temperaturecoefficient").style.display = "none";
+	}else if(cbIn==4){
+		document.getElementById("3rdband").style.display = "none";
+		document.getElementById("tolerance").style.display = "block";
+		document.getElementById("temperaturecoefficient").style.display = "none";
+	}else if(cbIn==5){
+		document.getElementById("3rdband").style.display = "block";
+		document.getElementById("tolerance").style.display = "block";
+		document.getElementById("temperaturecoefficient").style.display = "none";
+	}else if(cbIn==6){
+		document.getElementById("3rdband").style.display = "block";
+		document.getElementById("tolerance").style.display = "block";
+		document.getElementById("temperaturecoefficient").style.display = "block";
+	}
+	document.getElementById("bandnumberpicture").innerHTML = '<img src="/img/resistor/'+cbIn+'-band.svg">';
+}
+changeBand(4);</script>
+
+
+<a name="parallel"></a><br>
+<h2>Parallel resistor calculator</h2>
+Provide all of the resistance values in parallel, separated by a comma "," and click the "Calculate" button to determine total resistance.<form action="/resistor-calculator.html#parallel" name="calform"><table class="panel" ><tr><td align="center">
+<textarea name="pnumberinputs" class="infulltxarea" rows="3">10,2,38,23,38,23,21</textarea>
+<input type="hidden" name="type" value="p">
+<br><br>
+<input type="submit" name="x" value="Calculate">
+<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr></table></form>
+
+<a name="rinseries"></a>
+<h2><br>Resistors in series calculator</h2>
+Provide all of the resistance values in series separated by a comma "," and click the "Calculate" button to determine total resistance.<form action="/resistor-calculator.html#rinseries" name="calform2"><table class="panel" ><tr><td align="center">
+<textarea name="snumberinputs" class="infulltxarea" rows="3">10,2,38,23,38,23,21</textarea>
+<input type="hidden" name="type" value="s">
+<br><br>
+<input type="submit" name="x" value="Calculate">
+<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+</td></tr></table></form>
+
+<a name="resistance"></a>
+<h2><br>Resistance of a Conductor</h2>
+<p>Use the following to calculate the resistance of a conductor. This calculator assumes the conductor is round.</p><form action="/resistor-calculator.html#resistance" name="calform3">
+<table class="panel" >
+	<tr>
+		<td align="right">Length:</td><td>			<input type="text" name="length" value="100" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="lengthunit" class="inhalf">
+				<option value="foot" selected>feet</option>
+				<option value="yard">yards</option>
+				<option value="inch">inches</option>
+				<option value="mile">miles</option>
+				<option value="meter">meters</option>
+				<option value="kilometer">kilometers</option>
+				<option value="centimeter">centimeters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Diameter:</td><td>			<input type="text" name="diameter" value="0.05" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="diameterunit" class="inhalf">
+				<option value="inch" selected>inches</option>
+				<option value="foot">feet</option>
+				<option value="yard">yards</option>
+				<option value="millimeter">millimeters</option>
+				<option value="centimeter">centimeters</option>
+				<option value="meter">meters</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Conductivity:</td><td>			<input type="text" name="conductivity" id="conductivity" value="59600000" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			S/m
+			 &nbsp; &nbsp; &nbsp;<b>Or Select Material</b>			<select name="conductivitymaterial" onChange="document.getElementById('conductivity').value=this.value;return false;">
+				<option value="63000000">Silver</option>
+				<option value="59600000" selected>Copper</option>
+				<option value="58000000">Annealed Copper</option>
+				<option value="45200000">Gold</option>
+				<option value="37800000">Aluminium</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top: 10px;">
+			<input type="hidden" name="type" value="r">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table></form>
+
+
+<p><br><fieldset><legend>Related</legend><a href="/ohms-law-calculator.html">Ohms Law Calculator</a></fieldset></p>
+<br>
+<h3>Resistor Color Code</h3>
+<p>An electronic color code is a code that is used to specify the ratings of certain electrical components, such as the resistance in Ohms of a resistor. Electronic color codes are also used to rate capacitors, inductors, diodes, and other electronic components, but are most typically used for resistors. Only resistors are addressed by this calculator.</p>
+<p><b>How the color coding works:</b></p>
+<p>The color coding for resistors is an international standard that is defined in IEC 60062. The resistor color code shown in the table below involves various colors that represent significant figures, multiplier, tolerance, reliability, and temperature coefficient. Which of these the color refers to is dependent on the position of the color band on the resistor. In a typical four-band resistor, there is a spacing between the third and the fourth band to indicate how the resistor should be read (from left to right, with the lone band after the spacing being the right-most band). In the explanation below, a four-band resistor (the one specifically shown below) will be used. Other possible resistor variations will be described after.</p>
+
+<img src="/img/resistor/resistor-4-band.svg" align="right" width="300" height="104" alt="resistor 4 band significant figure component"><p><b>Significant figure component:</b></p>
+<p>In a typical four-band resistor, the first and second bands represent significant figures. For this example, refer to the figure above with a green, red, blue, and gold band. Using the table provided below, the green band represents the number 5, and the red band is 2.</p>
+<p><b>Multiplier:</b></p>
+<p>The third, blue band, is the multiplier. Using the table, the multiplier is thus 1,000,000. This multiplier is multiplied by the significant figures determined from the previous bands, in this case 52, resulting in a value of 52,000,000 &#937;, or 52 M&#937;.</p>
+<p><b>Tolerance:</b></p>
+<p>The fourth band is not always present, but when it is, represents tolerance. This is a percentage by which the resistor value can vary. The gold band in this example indicates a tolerance of &#177;5%, which can be represented by the letter J. This means that the value 52 M&#937; can vary by up to 5% in either direction, so the value of the resistor is 49.4 M&#937; - 54.6 M&#937;.</p>
+<p><b>Reliability, temperature coefficient, and other variations:</b></p>
+<p>Coded components have at least three bands: two significant figure bands and a multiplier, but there are other possible variations. For example, components that are made to military specifications are typically four-band resistors that may have a fifth band that indicates the reliability of the resistor in terms of failure rate percentage per 1000 hours of service. It is also possible to have a 5<sup>th</sup> band that is the temperature coefficient, which indicates the change in resistance of the component as a function of ambient temperature in terms of ppm/K.</p>
+<p>More commonly, there are five-band resistors that are more precise due to a third significant figure band. This shifts the position of the multiplier and tolerance band into the 4<sup>th</sup> and 5<sup>th</sup> position as compared to a typical four-band resistor.</p>
+<p>On the most precise of resistors, a 6<sup>th</sup> band may be present. The first three bands would be the significant figure bands, the 4<sup>th</sup> the multiplier, the 5<sup>th</sup> the tolerance, and the 6<sup>th</sup> could be either reliability or temperature coefficient. There are also other possible variations, but these are some of the more common configurations.</p>
+<p style="text-align:center;"><img src="/img/resistor/resistor-6-band.svg" width="300" height="153" alt="resistor 6 band significant figure component"></p><table class="cinfoT" align="center">
+	<tr valign="bottom" align="center">
+		<td class="cinfoHd">Color</td>
+		<td class="cinfoHdL">1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup><br>Band Significant Figures</td>
+		<td class="cinfoHdL">Multiplier</td>
+		<td class="cinfoHdL">Tolerance</td>
+		<td class="cinfoHdL">Temperature Coefficient</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#000;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Black</td>
+		<td align="center">0</td>
+		<td align="center">&#215; 1</td>
+		<td>&nbsp;</td>
+		<td align="center">250 ppm/K (U)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#964b00;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Brown</td>
+		<td align="center">1</td>
+		<td align="center">&#215; 10</td>
+		<td>&#177;1% (F)</td>
+		<td align="center">100 ppm/K (S)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#ff0000;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Red</td>
+		<td align="center">2</td>
+		<td align="center">&#215; 100</td>
+		<td>&#177;2% (G)</td>
+		<td align="center">50 ppm/K (R)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#ffa500;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Orange</td>
+		<td align="center">3</td>
+		<td align="center">&#215; 1K</td>
+		<td>&#177;0.05% (W)</td>
+		<td align="center">15 ppm/K (P)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#ffff00;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Yellow</td>
+		<td align="center">4</td>
+		<td align="center">&#215; 10K</td>
+		<td>&#177;0.02% (P)</td>
+		<td align="center">25 ppm/K (Q)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#9acd32;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Green</td>
+		<td align="center">5</td>
+		<td align="center">&#215; 100K</td>
+		<td>&#177;0.5% (D)</td>
+		<td align="center">20 ppm/K (Z)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#6495ed;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Blue</td>
+		<td align="center">6</td>
+		<td align="center">&#215; 1M</td>
+		<td>&#177;0.25% (C)</td>
+		<td align="center">10 ppm/K (Z)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#9400d3;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Violet</td>
+		<td align="center">7</td>
+		<td align="center">&#215; 10M</td>
+		<td>&#177;0.1% (B)</td>
+		<td align="center">5 ppm/K (M)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#a0a0a0;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Grey</td>
+		<td align="center">8</td>
+		<td align="center">&#215; 100M</td>
+		<td>&#177;0.01% (L)</td>
+		<td align="center">1 ppm/K (K)</td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#fff;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			White</td>
+		<td align="center">9</td>
+		<td align="center">&#215; 1G</td>
+		<td>&nbsp;</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#cfb53b;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Gold</td>
+		<td>&nbsp;</td>
+		<td align="center">&#215; 0.1</td>
+		<td>&#177;5% (J)</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#c0c0c0;width:18px;display:inline-block;border: 1px solid #000;">&nbsp;</div>
+			Silver</td>
+		<td>&nbsp;</td>
+		<td align="center">&#215; 0.01</td>
+		<td>&#177;10% (K)</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td nowrap><div style="background-color:#fff;width:18px;display:inline-block;border: 1px solid #fff;">&nbsp;</div>
+			None</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&#177;20% (M)</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+
+<br><p>Resistors are circuit elements that impart electrical resistance. While circuits can be highly complicated, and there are many different ways in which resistors can be arranged in a circuit, resistors in complex circuits can typically be broken down and classified as being connected in series or in parallel.</p>
+
+<h3>Resistors in parallel:</h3>
+<img src="/img/resistor/parallel.svg" align="right" width="240" height="139" alt="resistors in parallel"><p>The total resistance of resistors in parallel is equal to the reciprocal of the sum of the reciprocals of each individual resistor. Refer to the equation below for clarification:</p>
+<table cellpadding="0" cellspacing="0"><tr>
+<td class="bigtext">R<sub>total</sub> =&nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center" class="bigtext" colspan="7">1</td></tr><tr><td bgcolor="#000000" height="1" colspan="9"></td></tr><tr>
+<td>&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>R<sub>1</sub></td></tr></table></td>
+<td>&nbsp;+&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>R<sub>2</sub></td></tr></table></td>
+<td>&nbsp;+&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>R<sub>3</sub></td></tr></table></td>
+<td>&nbsp;+ ... +&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>R<sub>n</sub></td></tr></table></td>
+<td>&nbsp;</td>
+</tr></table></td>
+</tr></table>
+
+<br><h3>Resistors in series:</h3>
+<img src="/img/resistor/series.svg" align="right" width="255" height="139" alt="resistors in series"><p>The total resistance of resistors in series is simply the sum of the resistances of each resistor. Refer to the equation below for clarification:</p>
+<p class="bigtext">R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> ... + R<sub>n</sub></p>
+
+<br><h3>Resistance of a conductor:</h3>
+
+<table><tr>
+<td class="bigtext">R =&nbsp;</td>
+<td><table cellspacing="0" cellpadding="0"><tr><td align="center" class="bigtext">L</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td class="bigtext">A &#215; C</td></tr></table></td>
+</tr></table>
+<p>Where:<br>
+ &nbsp; &nbsp; L is the length of the conductor<br>
+ &nbsp; &nbsp; A is the cross-sectional area of the conductor<br>
+ &nbsp; &nbsp; C is the conductivity of the material
+</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cash Back or Low Interest Calculator</title>
+	<meta name="description" content="Free calculator to evaluate the options of either cash back or low interest offers when buying a car and to learn more about the tradeoffs." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/cash-back-or-low-interest-calculator.html" itemprop="item"><span itemprop="name">cash back or low interest calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Cash Back or Low Interest Calculator</h1>
+
+<p>Auto manufacturers may offer either a cash back rebate or a low interest rate with a car purchase. Very often, these offers are mutually exclusive. Use the calculator to find out which of the two is the better offer. Tax and fee procedures apply to car purchases within the U.S. only. The calculator can still be used in other countries, but please adjust the inputs accordingly. For more information about or to do calculations involving auto loans instead, please use the <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform" action="/cash-back-or-low-interest-calculator.html#calresult">
+<div class="leftinput">
+<table id="calinputtable" class="panel" align="center">
+<tr><td colspan="3" id="sectitle">Cash Back Offer</td></tr>
+<tr><td>Cash Back Amount</td><td align="right"><input type="text" name="ccashback" id="ccashback" value="1000" class="inhalf indollar"></td></tr>
+<tr><td>Interest Rate (High)</td><td align="right"><input type="text" name="cinterestrate" id="cinterestrate" value="5" class="inhalf inpct"></td></tr>
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr><td colspan="3"  id="sectitle">Low Interest Rate Offer</td></tr>
+<tr><td>Interest Rate (Low)</td><td align="right"><input type="text" name="cinterestratelow" id="cinterestratelow" value="2" class="inhalf inpct"></td></tr>
+<tr><td colspan="3">&nbsp;</td></tr>
+
+<tr><td colspan="3" id="sectitle">Other Information</td></tr>
+<tr><td>Auto Price</td><td align="right"><input type="text" name="cloanamount" id="cloanamount" value="50000" class="inhalf indollar"></td></tr>
+<tr><td>Loan Term</td><td><input type="text" name="cloanterm" id="cloanterm" value="60" class="inhalf inuipound"><span class="inuipoundspan">months</span></td></tr>
+<tr><td>Down Payment</td><td align="right"><input type="text" name="cdownpayment" id="cdownpayment" value="10000" class="inhalf indollar"></td></tr>
+<tr><td>Trade-in Value</td><td align="right"><input type="text" name="ctradeinvalue" id="ctradeinvalue" value="0" class="inhalf indollar"></td></tr>
+<tr><td>Your State</td><td>
+<select name="cstate" class="inhalf">
+	<option value="">-- Select --</option>
+	<option value='AL'>Alabama</option><option value='AK'>Alaska</option><option value='AZ'>Arizona</option><option value='AR'>Arkansas</option><option value='CA'>California</option><option value='CO'>Colorado</option><option value='CT'>Connecticut</option><option value='DE'>Delaware</option><option value='DC'>District of Columbia</option><option value='FL'>Florida</option><option value='GA'>Georgia</option><option value='HI'>Hawaii</option><option value='ID'>Idaho</option><option value='IL'>Illinois</option><option value='IN'>Indiana</option><option value='IA'>Iowa</option><option value='KS'>Kansas</option><option value='KY'>Kentucky</option><option value='LA'>Louisiana</option><option value='ME'>Maine</option><option value='MD'>Maryland</option><option value='MA'>Massachusetts</option><option value='MI'>Michigan</option><option value='MN'>Minnesota</option><option value='MS'>Mississippi</option><option value='MO'>Missouri</option><option value='MT'>Montana</option><option value='NE'>Nebraska</option><option value='NV'>Nevada</option><option value='NH'>New Hampshire</option><option value='NJ'>New Jersey</option><option value='NM'>New Mexico</option><option value='NY'>New York</option><option value='NC'>North Carolina</option><option value='ND'>North Dakota</option><option value='OH'>Ohio</option><option value='OK'>Oklahoma</option><option value='OR'>Oregon</option><option value='PA'>Pennsylvania</option><option value='RI'>Rhode Island</option><option value='SC'>South Carolina</option><option value='SD'>South Dakota</option><option value='TN'>Tennessee</option><option value='TX'>Texas</option><option value='UT'>Utah</option><option value='VT'>Vermont</option><option value='VA'>Virginia</option><option value='WA'>Washington</option><option value='WV'>West Virginia</option><option value='WI'>Wisconsin</option><option value='WY'>Wyoming</option></select>
+</td></tr>
+<tr><td>Sales Tax</td><td><input type="text" name="csaletax" id="csaletax" value="7" class="inhalf inpct"></td></tr>
+<tr><td>Title, Registration<br>and Other Fees</td><td valign="top"><input type="text" name="ctitlereg" id="ctitlereg" value="2000" class="inhalf indollar"></td></tr>
+<tr><td colspan="2"><label for="cttrinloan" class="cbcontainer"><input type="checkbox" name="cttrinloan" id="cttrinloan" value="1"  /><span class="cbmark"></span>Include All Fees in Loan</label></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+</div><div class="rightresult">
+<a name="calresult"></a><h2 class="h2result">Results<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Q2FzaCBCYWNrIG9yIExvdyBJbnRlcmVzdCBDYWxjdWxhdG9y', 0, 'Q2FzaCBCYWNrIG9yIExvdyBJbnRlcmVzdCBDYWxjdWxhdG9y', '', '');"></h2><div style="padding:5px;background-color:#bbd7e5;font-weight:bold;color:#f00;">The Low Interest Rate Offer is Better!</div><p>The low rate will save you $3,092 in interest, which is larger than the cash back of $1,000.</p><div style="padding:5px;background-color:#bbd7e5;font-weight:bold;">With Cash Back Offer</div><table cellpadding='2' width='100%'><tr><td>Total Loan Amount</td><td align='right'>$39,000.00</td></tr><tr><td>Sale Tax</td><td align='right'>$3,500.00</td></tr><tr><td>Upfront Payment</td><td align='right'>$15,500.00</td></tr><tr><td><b>Monthly Pay</b></td><td align='right'><b>$735.98</b></td></tr><tr><td>Total of 60 Loan Payments</td><td align='right'>$44,158.69</td></tr><tr><td>Total Loan Interest</td><td align='right'>$5,158.69</td></tr><tr><td>Total Cost (price, interest, tax, fees)</td><td align='right'>$59,658.69</td></tr></table><div style="padding:5px;background-color:#bbd7e5;font-weight:bold;">With Low Interest Rate Offer</div><table cellpadding='2' width='100%'><tr><td>Total Loan Amount</td><td align='right'>$40,000.00</td></tr><tr><td>Sale Tax</td><td align='right'>$3,500.00</td></tr><tr><td>Upfront Payment</td><td align='right'>$15,500.00</td></tr><tr><td><b>Monthly Pay</b></td><td align='right'><b>$701.11</b></td></tr><tr><td>Total of 60 Loan Payments</td><td align='right'>$42,066.62</td></tr><tr><td>Total Loan Interest</td><td align='right'>$2,066.62</td></tr><tr><td>Total Cost (price, interest, tax, fees)</td><td align='right'>$57,566.62</td></tr></table><br></div><div id="clear"></div><script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("ccashback");
+proComma2("cloanamount");
+proComma2("cdownpayment");
+proComma2("ctradeinvalue");
+proComma2("ctitlereg");
+</script>
+<p><fieldset><legend>Related</legend><a href="/auto-loan-calculator.html">Auto Loan Calculator</a> | <a href="/auto-lease-calculator.html">Auto Lease Calculator</a></fieldset></p>
+
+<br>
+<h3>Cash Rebate</h3>
+<p>A vehicle cash rebate is an additional deduction on the purchase price of a car. The amounts generally range between a few hundred to a few thousand dollars. In some cases, the rebate is large enough to cover the entire down payment.</p>
+<p>Aside from vehicle rebates available to any potential buyer, there can be special rebates such as those for people who served in the military, current students, or first-time buyers. It is also not uncommon for rebates to be given to returning customers trading in a same-make vehicle from previous years, or switching from a competitor's model, which is sometimes called a conquest incentive. Some dealers may require the financing of the auto loan for a car purchase to be done through a captive lender in order to qualify for a rebate.</p>
+<p>Several states in the U.S. view cash rebates as payments from auto manufacturers. For example, the purchase of a vehicle at $30,000 with a cash rebate of $2,000 will have sales tax calculated based on $30,000, not $28,000. Luckily, many states do not tax cash rebates; these states are Alaska, Arizona, Delaware, Iowa, Kansas, Kentucky, Louisiana, Massachusetts, Minnesota, Missouri, Montana, Nebraska, New Hampshire, Oklahoma, Oregon, Pennsylvania, Rhode Island, Texas, Utah, Vermont, and Wyoming.</p>
+<p>Rebates may be distributed in several different ways. An instant rebate on a car is an immediate deduction off the negotiated price of the car. While it may be the ideal form because of its instantaneous application, some are in the form of a mail-in rebate from the manufacturer; they arrive as a check or prepaid credit card four to eight weeks later.</p>
+<p>Buyers who plan on paying cash entirely upfront will only benefit from the cash rebate option. Because there is no financing involved in the purchase, it doesn't matter whether the interest rate is 0% or 10%.</p>
+<p>Almost all vehicle cash rebates originate from car manufacturers rather than car dealers because their goal is to further incentivize potential buyers to buy cars, usually to get rid of old inventory or to jump-start sales for vehicles that aren't selling well. Rebates should not be confused with a dealer holdback, which is a portion of a vehicle's sales price (usually 2 to 3 percent of MSRP) that a dealer is allowed to "hold back" from manufacturers on a quarterly basis.</p>
+
+<h3>Low-Interest Financing</h3>
+<p>When car buyers receive more favorable interest rates than usual on their car purchases (direct from the dealer, not as a preapproval from an external source such as a bank), this is called low-interest financing. A car loan at a lower rate will require the car buyer to pay less in interest during the life of the loan. In some cases, the low rate only applies to a brief introductory period (such as for the first 12 months) as opposed to the entirety of the loan. The calculator will not work for car loans where the low financing only applies to a limited period. Similar to a cash rebate, low-interest financing reduces the total cost to own the car in the end. The lower a given rate, the more likely it is that it will reduce the cost of a car purchase more than a cash rebate. While cash rebates tend to be more widely available to everyone, low-interest financing is generally reserved for a select few. Normally, these car buyers (what car ads often refer to as "well-qualified buyers") must have excellent credit scores to qualify. In some cases, they must also make larger down payments to qualify. This means that buyers who have negative marks in their credit history, such as missed or late payments, may not qualify for low-interest financing.</p>
+
+<h3>Which One to Choose?</h3>
+<p>Both options reduce the total cost of owning a car in the end, just by different methods. Generally, it comes down to which amount is higher: the rebate amount or the total interest saved from the low introductory rate. Low introductory rates are very likely for car buyers with great credit history, but many times, vehicle rebates can be just as good from a financial standpoint. The calculator can help determine which option will result in higher savings.</p>
+
+<h3>Considerations</h3>
+<ul>
+	<li>Even when dealers offer their lowest interest rate financing, there is no guarantee that it is the best possible rate available to car buyers, especially if their credit scores are on the lower end. It can be helpful to shop around at external sources such as banks, credit unions, and online auto loan companies. Getting pre-approved before going to the dealer will give you a rate you can compare to their low-interest financing option.</li>
+	<li>The average length of car loans is the longest they've ever been; it hasn't been uncommon to see loan terms offered in the range of 84 or even 90 months. This is generally due to several reasons; the first is to make relatively expensive cars more affordable for the average car buyer. By extending the life of the loan, the spread-out monthly payments appear smaller. The second is as an incentive for consumers to purchase new cars more often. While 0% financing is generally coupled with shorter terms, in some cases, it is possible to find longer terms with 0% financing. The problem is that it can potentially create a scenario where the car buyer owes more on loan than the worth of the car if the car ends up depreciating at a faster rate. This is called an underwater or upside-down loan.</li>
+	<li>Keep in mind that no matter how favorable a rebate or interest rate may seem, it is only one part of the equation when trying to find the best deal possible out of a car purchase; just because a salesman concludes by offering a rebate does not mean that all other discounts are off the table. Rebates come from manufacturers, not the dealers. The final transaction price on a car is still negotiable unless stated otherwise. In addition, the calculator computes hard figures when arriving at the best financial choice between the two, but remember to consider other factors. As an example, it's probably better for someone with a poorer credit history to consider the cash rebate option if there is an immediate and expensive medical emergency that needs funding.</li>
+</ul>
+<p>There is a strategy sometimes employed by salesmen called a bait-and-switch. Initially, customers are baited through advertisements of products at low prices or rates, only for them to learn that the actual deal is not all that was initially promised, or is gone. An example of a bait-and-switch is the advertisement in the newspaper for a sack of potatoes at a grocery store that sells for $2, but in actuality, the grocery store has "run out" of that deal and offers customers a competing brand for $5 instead. The bait-and-switch strategy is commonly used by car salesmen. As one example, a TV commercial may advertise 0% financing at a local car dealer, but when potential customers visit it in person, they are apologetically informed that they don't qualify for 0%. The customer may be so keen on the car at this point that they settle for a higher rate anyway, and the dealer's bait-and-switch trick has worked as intended. Though it is illegal in most countries as a form of false advertisement, it is still practiced.</p>
+<p>Not only for new cars but for anything being sold, a big discount can sometimes be precipitated by a hike in the price of a good, generally rendering it only marginally discounted. For a large purchase like a new car, seeing thousands deducted from the final purchase price just might push hesitant buyers over the fence. Car buyers should be wary that the rebates they receive on their car purchases may not actually be once-in-a-lifetime deals. Although car buyers who opt for rebates do end up getting discounts, they are generally less than what is advertised or implied. There is a certain threshold where a sold car ends up becoming a loss to the dealer, and only in extremely rare cases will this occur.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

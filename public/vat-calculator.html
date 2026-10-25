@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>VAT Calculator</title>
+	<meta name="description" content="Free VAT (value-added tax) calculator to find any value of the net before VAT tax amount, tax price, VAT tax rate, and final VAT inclusive price." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/vat-calculator.html" itemprop="item"><span itemprop="name">vat calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>VAT Calculator</h1>
+
+<p>Please provide any two values from the following inputs to calculate the remaining values.</p><br><table align="center">
+<tr><td class="panel">
+<form name="calform"><table align="center">
+	<tr>
+		<td align="right">VAT rate</td>
+		<td>&nbsp;</td><td><input type="text" name="taxrate" value="8" class="inlonger inpct"></td>
+	</tr>
+	<tr>
+		<td align="right">Net price<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The price before VAT is applied.', '');" onmouseout="tooltip.hide();"></td>
+		<td>&nbsp;&nbsp;$</td><td><input type="text" name="beforetax" value="1200" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td align="right">Gross price<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The price after VAT is applied.', '');" onmouseout="tooltip.hide();"></td>
+		<td>&nbsp;&nbsp;$</td><td><input type="text" name="finalprice" value="" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td align="right">Tax amount<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The actual VAT tax amount', '');" onmouseout="tooltip.hide();"></td>
+		<td>&nbsp;&nbsp;$</td><td><input type="text" name="taxamount" value="" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" style="padding-top: 10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+</td>
+</tr>
+</table>
+<p><fieldset><legend>Related</legend><a href="/sales-tax-calculator.html">Sales Tax Calculator</a></fieldset></p>
+
+<br>
+<h3>What is VAT?</h3>
+<p>VAT (value-added tax) is a type of indirect consumption tax imposed on the value added to goods or services, specifically during different stages of the supply chain, which may include production, wholesale, distribution, supply, or any other stages that add value to a product. VAT is commonly used by governments around the world as one of their main sources of revenue, and accounts for approximately 20 percent of worldwide tax revenue. It is the most common consumption tax in the world and is enforced in more than 160 countries. All countries that are part of the European Union (EU) are legally required to enforce a minimum VAT rate, and since its introduction in the 20th century, European VAT rates have consistently increased. The U.S. is the only developed country in the world that doesn't use VAT.</p>
+
+<p><b>VAT Differences between Countries</b></p>
+<p>While all countries follow a general VAT blueprint, there are a lot of differences in the finer details of their respective implementation. The VAT in one country will not be the same as the VAT in another. Differences between countries include the taxes imposed on specific goods or services, whether the taxes apply to imports or exports, and rules regarding filing, payment, and penalties. For example, in the Philippines, senior citizens are exempt from paying VAT for most goods and some services that are for personal consumption. In China, besides the standard VAT rate, there is a reduced rate that applies to certain products such as books and oils. Many countries do not impose a VAT for certain goods ranging from education to foodstuffs, health services, and government charges.</p>
+
+<p><b>GST</b></p>
+<p>A GST, or goods and services tax, can be the alternative name of VAT in some countries such as Australia and Canada. In addition, the terms are commonly used interchangeably (sometimes even with "sales tax"), even though GST and VAT in their respective countries can differ tremendously. No country has both a GST and a VAT.</p>
+
+<h3>Simplified Example of the Process of VAT</h3>
+<p>The following is an explanation of VAT applied to coffee sold by a coffee shop owner in a shop that contains coffee beans roasted by a nearby roaster with beans grown by a local farmer. Assume a VAT of 10%. Each person or business involved in the chain must complete VAT government paperwork.</p>
+<ul>
+	<li>Fresh coffee beans first come from the local farmer. If the roaster pays a total of $5.00 per pound of fresh coffee beans, the VAT, which is $0.50 ($5.00 x 10%), is added to that cost, so the farmer receives a total of $5.50 from the roaster for each pound of coffee beans.</li>
+	<li>The roaster roasts the coffee beans and charges the coffee shop owner $10.00 per pound of roasted coffee beans. This means that the shop owner must pay a total of $11.00 per pound, $10.00 for the roasted coffee beans, and 10% VAT which is $1.00. However, because the farmer already paid the first $0.50 to the government, the roaster only has to pay $0.50 in VAT to the government.</li>
+	<li>The coffee shop owner can use each pound of roasted coffee beans to sell 5 cups of coffee at $4.00 each for a total of $20.00. For every 5 cups of coffee sold, the shop owner receives a total of $22.00 from customers who buy his coffee, $20.00, and $2.00 VAT. However, because a total of $1.00 in VAT has already been paid to the government by the farmer and roaster before, the shop owner only pays $1.00 to the government.</li>
+</ul>
+
+<h3>VAT vs. Sales Tax</h3>
+<p>A sales tax is a consumption tax paid to a government on the sale of certain goods and services. Usually, the sales tax is not collected during the different stages of the supply chain. Only during the final stage, the vendor collects the sales tax from the end consumers as they make purchases.</p>
+<p>As seen in the example above, VAT functions differently from sales tax, and is a bit more complex. Sales tax is only imposed once when the consumer of the product pays the vendor.  VAT is superior to sales tax in regards to preventing tax evasion or malpractice because taxes are applied during the entire process of production and distribution, rather than as a single instance at the end. However, because of the intricate paper trail that VAT requires, it tends to be costly to administer compared to sales tax.</p>
+<p>Even though VAT is imposed at multiple instances for any good or service, double taxation (tax paid on tax) does not occur. Because VAT is only imposed on any value added, any tax applied during preceding stages can be deducted, preventing a cascading effect (as shown in the example). On the other hand, double taxation can happen with sales tax.</p>
+<p>Sales tax and VAT are similar in that rates are often expressed as a percentage of the price. In general, retail sales tax rates are lower than VAT rates, 4-10 percent as opposed to 14-25 percent. Contrary to popular belief, VAT does not tax businesses more in order to reduce the tax burden on the end consumer; businesses would simply raise prices to compensate. The end total in tax revenue generally remains the same, even if there are differences regarding when and how often taxation occurs.</p>
+<p>Statistics have shown that VAT affects lower-income earners more disproportionately than a sales tax because of the regressive nature of VAT. However, this can be offset by the proper implementation of progressive regulations, such as seen in European models of VAT.</p>
+<p>It is not uncommon for the words "sales tax" and "VAT" to be used interchangeably. For more information about or to do calculations involving sales tax, please visit the <a href="/sales-tax-calculator.html">Sales Tax Calculator</a>.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

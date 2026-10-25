@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Voltage Drop Calculator</title>
+	<meta name="description" content="This free voltage drop calculator estimates the voltage drop of an electrical circuit based on the wire size, distance, and anticipated load current." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/voltage-drop-calculator.html" itemprop="item"><span itemprop="name">voltage drop calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Voltage Drop Calculator</h1>
+
+<p>This is a calculator for the estimation of the voltage drop of an electrical circuit. The "NEC data" tab calculates based on the resistance and reactance data from the National Electrical Code (NEC). The "Estimated resistance" tab calculates based on the resistance data estimated from the wire size. Click the "Other" tab to use customized resistance or impedance data, such as data from other standards or wire manufacturers.</p><br><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calform">
+<table ><tr><td>
+<div id="topmenuout"><div id="topmenu"><ul><li id='menuon'><a href="#" onclick="popMenu('size');">size Wire</a></li> <li><a href="#" onclick="popMenu('other');">Other</a></li></ul></div></div>
+<div class="panel2">
+<table id="necinputs">
+	<tr>
+		<td width="160">Wire material</td><td width="300">		<select name="necmaterial" class="infull">
+			<option value="copper"  selected>Copper</option>
+			<option value="aluminum" >Aluminum</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Wire size</td><td>		<select name="necwiresize" class="infull">
+<option value="0" >14 AWG</option>
+<option value="1" >12 AWG</option>
+<option value="2" >10 AWG</option>
+<option value="3" >8 AWG</option>
+<option value="4" >6 AWG</option>
+<option value="5" >4 AWG</option>
+<option value="6"  selected>3 AWG</option>
+<option value="7" >2 AWG</option>
+<option value="8" >1 AWG</option>
+<option value="9" >1/0 AWG</option>
+<option value="10" >2/0 AWG</option>
+<option value="11" >3/0 AWG</option>
+<option value="12" >4/0 AWG</option>
+<option value="13" >250 kcmil</option>
+<option value="14" >300 kcmil</option>
+<option value="15" >350 kcmil</option>
+<option value="16" >400 kcmil</option>
+<option value="17" >500 kcmil</option>
+<option value="18" >600 kcmil</option>
+<option value="19" >750 kcmil</option>
+<option value="20" >1000 kcmil</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="160">Material of conduit</td><td width="300">		<select name="necconduit" class="infull">
+			<option value="pvc" >PVC</option>
+			<option value="aluminum" >Aluminum</option>
+			<option value="steel"  selected>Steel</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td width="160">Power factor (PF)</td><td width="300">		<input type="text" name="necpf" value="0.85" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		</td>
+	</tr>
+</table>
+
+
+<table id="sizeinputs">
+	<tr>
+		<td width="160">Wire material</td><td width="300">		<select name="material" class="infull">
+			<option value="copper"  selected>Copper</option>
+			<option value="aluminum" >Aluminum</option>
+			<option value="silver" >Silver</option>
+			<option value="gold" >Gold</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Wire size</td><td>		<select name="wiresize" class="infull">
+<option value="0.05671" >600 kcmil</option>
+<option value="0.06805" >500 kcmil</option>
+<option value="0.08507" >400 kcmil</option>
+<option value="0.09722" >350 kcmil</option>
+<option value="0.1134" >300 kcmil</option>
+<option value="0.1361" >250 kcmil</option>
+<option value="0.1608" >4/0 AWG (212 kcmil)</option>
+<option value="0.2028" >3/0 AWG (168 kcmil)</option>
+<option value="0.2557" >2/0 AWG (133 kcmil)</option>
+<option value="0.3224" >1/0 AWG (106 kcmil)</option>
+<option value="0.4066"  selected>1 AWG (83.7 kcmil)</option>
+<option value="0.5127" >2 AWG (66.4 kcmil)</option>
+<option value="0.6465" >3 AWG (52.6 kcmil)</option>
+<option value="0.8152" >4 AWG (41.7 kcmil)</option>
+<option value="1.028" >5 AWG (33.1 kcmil)</option>
+<option value="1.296" >6 AWG (26.3 kcmil)</option>
+<option value="1.634" >7 AWG (20.8 kcmil)</option>
+<option value="2.061" >8 AWG (16.5 kcmil)</option>
+<option value="2.599" >9 AWG (13.1 kcmil)</option>
+<option value="3.277" >10 AWG (10.4 kcmil)</option>
+<option value="4.132" >11 AWG (8.23 kcmil)</option>
+<option value="5.211" >12 AWG (6.53 kcmil)</option>
+<option value="6.571" >13 AWG (5.18 kcmil)</option>
+<option value="8.286" >14 AWG (4.11 kcmil)</option>
+<option value="10.45" >15 AWG (3.26 kcmil)</option>
+<option value="13.17" >16 AWG (2.58 kcmil)</option>
+<option value="16.61" >17 AWG (2.05 kcmil)</option>
+<option value="20.95" >18 AWG (1.62 kcmil)</option>
+<option value="26.42" >19 AWG (1.29 kcmil)</option>
+<option value="33.31" >20 AWG (1.02 kcmil)</option>
+<option value="42.00" >21 AWG (0.810 kcmil)</option>
+<option value="52.96" >22 AWG (0.642 kcmil)</option>
+<option value="66.79" >23 AWG (0.509 kcmil)</option>
+<option value="84.22" >24 AWG (0.404 kcmil)</option>
+<option value="106.2" >25 AWG (0.320 kcmil)</option>
+<option value="133.9" >26 AWG (0.254 kcmil)</option>
+<option value="168.9" >27 AWG (0.202 kcmil)</option>
+<option value="212.9" >28 AWG (0.160 kcmil)</option>
+<option value="268.5" >29 AWG (0.127 kcmil)</option>
+<option value="338.6" >30 AWG (0.101 kcmil)</option>
+<option value="426.9" >31 AWG (0.0797 kcmil)</option>
+<option value="538.3" >32 AWG (0.0632 kcmil)</option>
+<option value="678.8" >33 AWG (0.0501 kcmil)</option>
+<option value="856.0" >34 AWG (0.0398 kcmil)</option>
+<option value="1079" >35 AWG (0.0315 kcmil)</option>
+<option value="1361" >36 AWG (0.0250 kcmil)</option>
+<option value="1716" >37 AWG (0.0198 kcmil)</option>
+<option value="2164" >38 AWG (0.0157 kcmil)</option>
+<option value="2729" >39 AWG (0.0125 kcmil)</option>
+<option value="3441" >40 AWG (0.00989 kcmil)</option>
+		</select>
+		</td>
+	</tr>
+</table>
+<table id="otherinputs">
+	<tr>
+		<td width="160">Wire impendence <br> or resistance</td><td width="300">			<input type="text" name="resistance" value="1.2" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="resistanceunit" class="inhalf">
+				<option value="okm"  selected>&Omega;/km</option>
+				<option value="om" >&Omega;/m</option>
+				<option value="mom" >m&Omega;/m</option>
+				<option value="okf" >&Omega;/1000ft</option>
+				<option value="of" >&Omega;/ft</option>
+				<option value="mof" >m&Omega;/ft</option>
+			</select>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td width="160">Voltage</td><td width="300">			<input type="text" name="voltage" value="120" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+	</tr>
+	<tr>
+		<td>Phase</td><td>		<select name="phase" class="infull">
+			<option value="dc" >DC</option>
+			<option value="ac"  selected>AC single phase</option>
+			<option value="ac3" >AC 3-phase</option>
+		</select>
+	</tr>
+	<tr>
+		<td>Number of conductors</td><td>		<select name="noofconductor" >
+			<option value="1"  selected>single set of conductors</option>
+			<option value="2" >2 conductors per phase in parallel</option>
+			<option value="3" >3 conductors per phase in parallel</option>
+			<option value="4" >4 conductors per phase in parallel</option>
+			<option value="5" >5 conductors per phase in parallel</option>
+			<option value="6" >6 conductors per phase in parallel</option>
+			<option value="7" >7 conductors per phase in parallel</option>
+			<option value="8" >8 conductors per phase in parallel</option>
+			<option value="9" >9 conductors per phase in parallel</option>
+		</select>
+	</tr>
+	<tr>
+		<td>Distance (one-way)</td><td>			<input type="text" name="distance" value="500" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="distanceunit" class="inhalf">
+				<option value="feet"  selected>feet</option>
+				<option value="meters" >meters</option>
+				<option value="miles" >miles</option>
+				<option value="kilometers" >kilometers</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Load current</td><td>			<input type="text" name="amperes" value="1" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> Amps</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			<input type="hidden" name="ctype" id="ctype" value="nec">
+		</td>
+	</tr>
+</table></div></td></tr></table>
+</form>
+<br>
+<p>When electrical current moves through a wire, it is pushed by electrical potential (voltage) and it needs to surpass a certain level of contrary pressure caused by the wire. The voltage drop is the amount of electrical potential (voltage) loss caused by the contrary pressure of the wire. If the current is alternating, such contrary pressure is called impedance. Impedance is a vector, or two-dimensional quantity, consisting of resistance and reactance (reaction of a built-up electric field to a change of current). If the current is direct, the contrary pressure is called resistance.</p>
+<p>Excessive voltage drop in a circuit can cause lights to flicker or burn dimly, heaters to heat poorly, and motors to run hotter than normal and burn out. It is recommended that the voltage drop should be less than 5% under a fully loaded condition. This can be achieved by selecting the right wire, and by taking care in the use of extension cords and similar devices.</p>
+
+<p><b>There are four major causes of voltage drop:</b></p>
+<p>The first is the choice of material used for the wire. Silver, copper, gold, and aluminum are among the metals with the best electrical conductivity. Copper and aluminum are the most common materials used for wires due to their relatively low price compared with silver and gold. Copper is a better conductor than aluminum and will have less voltage drop than aluminum for a given length and wire size.</p>
+<p>Wire size is another important factor in determining voltage drop. Larger wire sizes (those with a greater diameter) will have less voltage drop than smaller wire sizes of the same length. In American wire gauge, every 6-gauge decrease doubles the wire diameter, and every 3-gauge decrease doubles the wire cross sectional area. In the Metric Gauge scale, the gauge is 10 times the diameter in millimeters, so a 50 gauge metric wire would be 5 mm in diameter.</p>
+<p>Still another critical factor in voltage drop is wire length. Shorter wires will have less voltage drop than longer wires for the same wire size. Voltage drop becomes important when the length of a run of wire or cable becomes very long. Usually this is not a problem in circuits within a house, but may become an issue when running wire to an outbuilding, well pump, etc.</p>
+<p>Finally, the amount of current being carried can affect voltage drop levels; an increase in current through a wire results in an increased voltage drop. Current carrying capacity is often referred to as ampacity, which is the maximum number of electrons that can be pushed at one time &ndash; the word ampacity is short for ampere capacity.</p>
+<p>The ampacity of a wire depends on a number of factors. The basic material from which the wire is made is, of course, an important limiting factor. If alternating current is being sent through the wire, the speed of alternation can affect ampacity. The temperature in which the wire is used can also affect ampacity.</p>
+<p>Cables are often used in bundles, and when they are brought together, the total heat which they generate has an effect on ampacity and voltage drop. There are strict rules about bundling cables which must be followed for this reason.</p>
+<p>Cable selection is guided by two main principles. First, the cable should be able to carry the current load imposed on it without overheating. It should be able to do this in the most extreme conditions of temperature it will encounter during its working life. Second, it should offer sufficiently sound earthing to (i) limit the voltage to which people are exposed to a safe level and (ii) allow the fault current to trip the fuse in a short time.</p>
+
+<h3>Voltage drop calculation</h3>
+<p>Ohm's Law is a very basic law for calculating voltage drop:</p>
+<p style="text-align:center;">V<sub>drop</sub> = I&middot;R</p>
+<p>
+where:
+<div style="padding-left:20px;">I: the current through the wire, measured in amperes</div>
+<div style="padding-left:20px;">R: the resistance of the wires, measured in ohms</div>
+</p>
+<p>The resistance of the wires is often measured and given as length-specific resistance, normally in the unit of ohms per kilometer or ohms per 1000 feet. Also, the wire is round-tripped. Therefore, the formula for a single-phase or direct current circuit becomes:</p>
+<p style="text-align:center;">V<sub>drop</sub> = 2&middot;I&middot;R&middot;L</p>
+<p>The formula for a three-phase circuit becomes:</p>
+<p style="text-align:center;">V<sub>drop</sub> = &radic;<span style="text-decoration:overline;">3</span>&middot;I&middot;R&middot;L</p>
+<p>
+where:
+<div style="padding-left:20px;">I: the current through the wire</div>
+<div style="padding-left:20px;">R: the length-specific resistance of the wires</div>
+<div style="padding-left:20px;">L: the one-way length</div>
+</p>
+<h3>Typical AWG wire sizes</h3>
+<p>American Wire Gauge (AWG) is a wire gauge system used predominantly in North America for the diameters of round, solid, non-ferrous, electrically conducting wire. The following is a list of typical AWG wires and their sizes:</p>
+<table style="text-align: center;" align="center" class="cinfoT cinfoTS">
+<tr>
+	<td rowspan="2" class="cinfoHd">AWG</td>
+	<td colspan="2" class="cinfoHdL">Diameter</td>
+	<td colspan="2" class="cinfoHdL">Turns of wire</td>
+	<td colspan="2" class="cinfoHdL">Area</td>
+	<td colspan="2" class="cinfoHdL">Copper resistance</td>
+</tr>
+<tr>
+	<td class="cinfoHdL">inch</td>
+	<td class="cinfoHdL">mm</td>
+	<td class="cinfoHdL">per inch</td>
+	<td class="cinfoHdL">per cm</td>
+	<td class="cinfoHdL">kcmil</td>
+	<td class="cinfoHdL">mm<sup>2</sup></td>
+	<td class="cinfoHdL">&Omega;/km</td>
+	<td class="cinfoHdL">&Omega;/1000ft</td>
+</tr>
+<tr>
+	<td>0000 (4/0)</td>
+	<td>0.4600</td>
+	<td>11.684</td>
+	<td>2.17</td>
+	<td>0.856</td>
+	<td>212</td>
+	<td>107</td>
+	<td>0.1608</td>
+	<td>0.04901</td>
+</tr>
+<tr>
+	<td>000 (3/0)</td>
+	<td>0.4096</td>
+	<td>10.404</td>
+	<td>2.44</td>
+	<td>0.961</td>
+	<td>168</td>
+	<td>85.0</td>
+	<td>0.2028</td>
+	<td>0.06180</td>
+</tr>
+<tr>
+	<td>00 (2/0)</td>
+	<td>0.3648</td>
+	<td>9.266</td>
+	<td>2.74</td>
+	<td>1.08</td>
+	<td>133</td>
+	<td>67.4</td>
+	<td>0.2557</td>
+	<td>0.07793</td>
+</tr>
+<tr>
+	<td>0 (1/0)</td>
+	<td>0.3249</td>
+	<td>8.252</td>
+	<td>3.08</td>
+	<td>1.21</td>
+	<td>106</td>
+	<td>53.5</td>
+	<td>0.3224</td>
+	<td>0.09827</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>0.2893</td>
+	<td>7.348</td>
+	<td>3.46</td>
+	<td>1.36</td>
+	<td>83.7</td>
+	<td>42.4</td>
+	<td>0.4066</td>
+	<td>0.1239</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>0.2576</td>
+	<td>6.544</td>
+	<td>3.88</td>
+	<td>1.53</td>
+	<td>66.4</td>
+	<td>33.6</td>
+	<td>0.5127</td>
+	<td>0.1563</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>0.2294</td>
+	<td>5.827</td>
+	<td>4.36</td>
+	<td>1.72</td>
+	<td>52.6</td>
+	<td>26.7</td>
+	<td>0.6465</td>
+	<td>0.1970</td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>0.2043</td>
+	<td>5.189</td>
+	<td>4.89</td>
+	<td>1.93</td>
+	<td>41.7</td>
+	<td>21.2</td>
+	<td>0.8152</td>
+	<td>0.2485</td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>0.1819</td>
+	<td>4.621</td>
+	<td>5.50</td>
+	<td>2.16</td>
+	<td>33.1</td>
+	<td>16.8</td>
+	<td>1.028</td>
+	<td>0.3133</td>
+</tr>
+<tr>
+	<td>6</td>
+	<td>0.1620</td>
+	<td>4.115</td>
+	<td>6.17</td>
+	<td>2.43</td>
+	<td>26.3</td>
+	<td>13.3</td>
+	<td>1.296</td>
+	<td>0.3951</td>
+</tr>
+<tr>
+	<td>7</td>
+	<td>0.1443</td>
+	<td>3.665</td>
+	<td>6.93</td>
+	<td>2.73</td>
+	<td>20.8</td>
+	<td>10.5</td>
+	<td>1.634</td>
+	<td>0.4982</td>
+</tr>
+<tr>
+	<td>8</td>
+	<td>0.1285</td>
+	<td>3.264</td>
+	<td>7.78</td>
+	<td>3.06</td>
+	<td>16.5</td>
+	<td>8.37</td>
+	<td>2.061</td>
+	<td>0.6282</td>
+</tr>
+<tr>
+	<td>9</td>
+	<td>0.1144</td>
+	<td>2.906</td>
+	<td>8.74</td>
+	<td>3.44</td>
+	<td>13.1</td>
+	<td>6.63</td>
+	<td>2.599</td>
+	<td>0.7921</td>
+</tr>
+<tr>
+	<td>10</td>
+	<td>0.1019</td>
+	<td>2.588</td>
+	<td>9.81</td>
+	<td>3.86</td>
+	<td>10.4</td>
+	<td>5.26</td>
+	<td>3.277</td>
+	<td>0.9989</td>
+</tr>
+<tr>
+	<td>11</td>
+	<td>0.0907</td>
+	<td>2.305</td>
+	<td>11.0</td>
+	<td>4.34</td>
+	<td>8.23</td>
+	<td>4.17</td>
+	<td>4.132</td>
+	<td>1.260</td>
+</tr>
+<tr>
+	<td>12</td>
+	<td>0.0808</td>
+	<td>2.053</td>
+	<td>12.4</td>
+	<td>4.87</td>
+	<td>6.53</td>
+	<td>3.31</td>
+	<td>5.211</td>
+	<td>1.588</td>
+</tr>
+<tr>
+	<td>13</td>
+	<td>0.0720</td>
+	<td>1.828</td>
+	<td>13.9</td>
+	<td>5.47</td>
+	<td>5.18</td>
+	<td>2.62</td>
+	<td>6.571</td>
+	<td>2.003</td>
+</tr>
+<tr>
+	<td>14</td>
+	<td>0.0641</td>
+	<td>1.628</td>
+	<td>15.6</td>
+	<td>6.14</td>
+	<td>4.11</td>
+	<td>2.08</td>
+	<td>8.286</td>
+	<td>2.525</td>
+</tr>
+<tr>
+	<td>15</td>
+	<td>0.0571</td>
+	<td>1.450</td>
+	<td>17.5</td>
+	<td>6.90</td>
+	<td>3.26</td>
+	<td>1.65</td>
+	<td>10.45</td>
+	<td>3.184</td>
+</tr>
+<tr>
+	<td>16</td>
+	<td>0.0508</td>
+	<td>1.291</td>
+	<td>19.7</td>
+	<td>7.75</td>
+	<td>2.58</td>
+	<td>1.31</td>
+	<td>13.17</td>
+	<td>4.016</td>
+</tr>
+<tr>
+	<td>17</td>
+	<td>0.0453</td>
+	<td>1.150</td>
+	<td>22.1</td>
+	<td>8.70</td>
+	<td>2.05</td>
+	<td>1.04</td>
+	<td>16.61</td>
+	<td>5.064</td>
+</tr>
+<tr>
+	<td>18</td>
+	<td>0.0403</td>
+	<td>1.024</td>
+	<td>24.8</td>
+	<td>9.77</td>
+	<td>1.62</td>
+	<td>0.823</td>
+	<td>20.95</td>
+	<td>6.385</td>
+</tr>
+<tr>
+	<td>19</td>
+	<td>0.0359</td>
+	<td>0.912</td>
+	<td>27.9</td>
+	<td>11.0</td>
+	<td>1.29</td>
+	<td>0.653</td>
+	<td>26.42</td>
+	<td>8.051</td>
+</tr>
+<tr>
+	<td>20</td>
+	<td>0.0320</td>
+	<td>0.812</td>
+	<td>31.3</td>
+	<td>12.3</td>
+	<td>1.02</td>
+	<td>0.518</td>
+	<td>33.31</td>
+	<td>10.15</td>
+</tr>
+<tr>
+	<td>21</td>
+	<td>0.0285</td>
+	<td>0.723</td>
+	<td>35.1</td>
+	<td>13.8</td>
+	<td>0.810</td>
+	<td>0.410</td>
+	<td>42.00</td>
+	<td>12.80</td>
+</tr>
+<tr>
+	<td>22</td>
+	<td>0.0253</td>
+	<td>0.644</td>
+	<td>39.5</td>
+	<td>15.5</td>
+	<td>0.642</td>
+	<td>0.326</td>
+	<td>52.96</td>
+	<td>16.14</td>
+</tr>
+<tr>
+	<td>23</td>
+	<td>0.0226</td>
+	<td>0.573</td>
+	<td>44.3</td>
+	<td>17.4</td>
+	<td>0.509</td>
+	<td>0.258</td>
+	<td>66.79</td>
+	<td>20.36</td>
+</tr>
+<tr>
+	<td>24</td>
+	<td>0.0201</td>
+	<td>0.511</td>
+	<td>49.7</td>
+	<td>19.6</td>
+	<td>0.404</td>
+	<td>0.205</td>
+	<td>84.22</td>
+	<td>25.67</td>
+</tr>
+<tr>
+	<td>25</td>
+	<td>0.0179</td>
+	<td>0.455</td>
+	<td>55.9</td>
+	<td>22.0</td>
+	<td>0.320</td>
+	<td>0.162</td>
+	<td>106.2</td>
+	<td>32.37</td>
+</tr>
+<tr>
+	<td>26</td>
+	<td>0.0159</td>
+	<td>0.405</td>
+	<td>62.7</td>
+	<td>24.7</td>
+	<td>0.254</td>
+	<td>0.129</td>
+	<td>133.9</td>
+	<td>40.81</td>
+</tr>
+<tr>
+	<td>27</td>
+	<td>0.0142</td>
+	<td>0.361</td>
+	<td>70.4</td>
+	<td>27.7</td>
+	<td>0.202</td>
+	<td>0.102</td>
+	<td>168.9</td>
+	<td>51.47</td>
+</tr>
+<tr>
+	<td>28</td>
+	<td>0.0126</td>
+	<td>0.321</td>
+	<td>79.1</td>
+	<td>31.1</td>
+	<td>0.160</td>
+	<td>0.0810</td>
+	<td>212.9</td>
+	<td>64.90</td>
+</tr>
+<tr>
+	<td>29</td>
+	<td>0.0113</td>
+	<td>0.286</td>
+	<td>88.8</td>
+	<td>35.0</td>
+	<td>0.127</td>
+	<td>0.0642</td>
+	<td>268.5</td>
+	<td>81.84</td>
+</tr>
+<tr>
+	<td>30</td>
+	<td>0.0100</td>
+	<td>0.255</td>
+	<td>99.7</td>
+	<td>39.3</td>
+	<td>0.101</td>
+	<td>0.0509</td>
+	<td>338.6</td>
+	<td>103.2</td>
+</tr>
+<tr>
+	<td>31</td>
+	<td>0.00893</td>
+	<td>0.227</td>
+	<td>112</td>
+	<td>44.1</td>
+	<td>0.0797</td>
+	<td>0.0404</td>
+	<td>426.9</td>
+	<td>130.1</td>
+</tr>
+<tr>
+	<td>32</td>
+	<td>0.00795</td>
+	<td>0.202</td>
+	<td>126</td>
+	<td>49.5</td>
+	<td>0.0632</td>
+	<td>0.0320</td>
+	<td>538.3</td>
+	<td>164.1</td>
+</tr>
+<tr>
+	<td>33</td>
+	<td>0.00708</td>
+	<td>0.180</td>
+	<td>141</td>
+	<td>55.6</td>
+	<td>0.0501</td>
+	<td>0.0254</td>
+	<td>678.8</td>
+	<td>206.9</td>
+</tr>
+<tr>
+	<td>34</td>
+	<td>0.00630</td>
+	<td>0.160</td>
+	<td>159</td>
+	<td>62.4</td>
+	<td>0.0398</td>
+	<td>0.0201</td>
+	<td>856.0</td>
+	<td>260.9</td>
+</tr>
+<tr>
+	<td>35</td>
+	<td>0.00561</td>
+	<td>0.143</td>
+	<td>178</td>
+	<td>70.1</td>
+	<td>0.0315</td>
+	<td>0.0160</td>
+	<td>1079</td>
+	<td>329.0</td>
+</tr>
+<tr>
+	<td>36</td>
+	<td>0.00500</td>
+	<td>0.127</td>
+	<td>200</td>
+	<td>78.7</td>
+	<td>0.0250</td>
+	<td>0.0127</td>
+	<td>1361</td>
+	<td>414.8</td>
+</tr>
+<tr>
+	<td>37</td>
+	<td>0.00445</td>
+	<td>0.113</td>
+	<td>225</td>
+	<td>88.4</td>
+	<td>0.0198</td>
+	<td>0.0100</td>
+	<td>1716</td>
+	<td>523.1</td>
+</tr>
+<tr>
+	<td>38</td>
+	<td>0.00397</td>
+	<td>0.101</td>
+	<td>252</td>
+	<td>99.3</td>
+	<td>0.0157</td>
+	<td>0.00797</td>
+	<td>2164</td>
+	<td>659.6</td>
+</tr>
+<tr>
+	<td>39</td>
+	<td>0.00353</td>
+	<td>0.0897</td>
+	<td>283</td>
+	<td>111</td>
+	<td>0.0125</td>
+	<td>0.00632</td>
+	<td>2729</td>
+	<td>831.8</td>
+</tr>
+<tr>
+	<td>40</td>
+	<td>0.00314</td>
+	<td>0.0799</td>
+	<td>318</td>
+	<td>125</td>
+	<td>0.00989</td>
+	<td>0.00501</td>
+	<td>3441</td>
+	<td>1049</td>
+</tr>
+</table>
+
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if (inval == "nec"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('nec');\">NEC data</a></li> <li><a href=\"#\" onclick=\"return popMenu('size');\">Estimated resistance</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other</a></li>";
+		document.getElementById("ctype").value="nec";
+		document.getElementById("necinputs").style.display = 'block';
+		document.getElementById("sizeinputs").style.display = 'none';
+		document.getElementById("otherinputs").style.display = 'none';
+	}else if (inval == "size"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('nec');\">NEC data</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('size');\">Estimated resistance</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other</a></li>";
+		document.getElementById("ctype").value="size";
+		document.getElementById("necinputs").style.display = 'none';
+		document.getElementById("sizeinputs").style.display = 'block';
+		document.getElementById("otherinputs").style.display = 'none';
+	}else if (inval == "other"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('nec');\">NEC data</a></li> <li><a href=\"#\" onclick=\"return popMenu('size');\">Estimated resistance</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('other');\">Other</a></li>";
+		document.getElementById("ctype").value="other";
+		document.getElementById("necinputs").style.display = 'none';
+		document.getElementById("sizeinputs").style.display = 'none';
+		document.getElementById("otherinputs").style.display = 'block';
+	}
+
+	document.getElementById("topmenuout").innerHTML = '<div id="topmenu"><ul>'+htmlVal+'</ul></div>';
+	return false;
+}
+popMenu("nec");
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

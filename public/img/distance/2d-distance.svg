@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="158" height="155" viewBox="0 0 158 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<line x1="0" y1="141" x2="155" y2="141" style="stroke:#000;stroke-width:1" />
+<path d="M 147 138 L157 141 L147 144 Z" fill="#000" stroke="#000" stroke-width="1"/>
+<line x1="14" y1="3" x2="14" y2="155" style="stroke:#000;stroke-width:1" />
+<path d="M 11 10 L14 1 L17 10 Z" fill="#000" stroke="#000" stroke-width="1"/>
+
+<line x1="33" y1="116" x2="125" y2="24" style="stroke:#bc1f47;stroke-width:2" />
+<circle r="3" cx="33" cy="116" fill="#bc1f47" />
+<circle r="3" cx="125" cy="24" fill="#bc1f47" />
+<g style="font-family: Arial, sans-serif;">
+<text x="148" y="154" fill="black" font-size="16">x</text>
+<text x="18" y="12" fill="black" font-size="16">y</text>
+<text x="100" y="16" fill="#bc1f47" font-size="18">(x<tspan font-size="10">2</tspan>, y<tspan font-size="10">2</tspan>)</text>
+<text x="15" y="130" fill="#bc1f47" font-size="18">(x<tspan font-size="10">1</tspan>, y<tspan font-size="10">1</tspan>)</text>
+</g>
+</svg>

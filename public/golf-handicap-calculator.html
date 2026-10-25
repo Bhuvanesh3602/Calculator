@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Golf Handicap Calculator</title>
+	<meta name="description" content="Two free calculators for computing a golf player's course handicap and the player's World Handicap System (WHS) handicap index based on their past scores." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/golf-handicap-calculator.html" itemprop="item"><span itemprop="name">golf handicap calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Golf Handicap Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<h2>Handicap of Course Calculator</h2>
+<p>Use this calculator to find out the handicap of a golfer for a specific course.</p>
+<form name="calform2" action="/golf-handicap-calculator.html">
+<table align="center" class="panel">
+	<tr>
+		<td>Index of Your Handicap</td>
+		<td><input type="text" name="hindex" value="10" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td>Rating of Course</td>
+		<td><input type="text" name="ccourse" value="70" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td>Rating of Course Slope</td>
+		<td><input type="text" name="cslope" value="121" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td>Course Par Score</td>
+		<td><input type="text" name="cpar" value="72" class="inlonger"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:8px;">
+			<input type="hidden" name="ctype" value="2">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table></form>
+
+<a name="handicap-index"></a>
+<h2>Index of Handicap Calculator</h2>
+<p>Use this calculator to compute the index of handicap for a golfer given data from at least 54 holes (3 rounds of 18-holes) of playing data. When filling the form, please provide either an 18-hole or 9-hole score. Do not provide both. The playing condition adjustment is an optional value between -1 and 3. If left blank, it will be treated as 0.</p><form name="calform" action="/golf-handicap-calculator.html#handicap-index"><table border="0" cellspacing="0" style="border: solid 1px #bbbbbb;" bgcolor="#eeeeee" cellpadding="5" align="center"><tr valign="bottom" align="center"><td>&nbsp;</td><td bgcolor="#b2d8fb"><b>Rating of <br>Course</b></td><td bgcolor="#cefab0"><b>Rating of <br>Course Slope</b></td><td bgcolor="#fee8ba"><b>18-hole Score</b></td><td bgcolor="#fdbafe"><b>9-hole Score</b></td><td bgcolor="#f8feba"><b>Playing <br> Condition <br> Adjustment</b></td><td>&nbsp;</td></tr><tr align="center"><td>Round #1</td><td bgcolor="#b2d8fb"><input type="text" name="r1" value="70.3" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l1" value="126" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c1" value="85" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n1" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a1" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(1);"></td></tr>
+<tr align="center"><td>Round #2</td><td bgcolor="#b2d8fb"><input type="text" name="r2" value="35.3" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l2" value="122" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c2" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n2" value="41" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a2" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(2);"></td></tr>
+<tr align="center"><td>Round #3</td><td bgcolor="#b2d8fb"><input type="text" name="r3" value="66.8" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l3" value="120" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c3" value="82" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n3" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a3" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(3);"></td></tr>
+<tr align="center"><td>Round #4</td><td bgcolor="#b2d8fb"><input type="text" name="r4" value="65.9" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l4" value="118" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c4" value="85" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n4" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a4" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(4);"></td></tr>
+<tr align="center"><td>Round #5</td><td bgcolor="#b2d8fb"><input type="text" name="r5" value="74.3" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l5" value="137" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c5" value="88" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n5" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a5" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(5);"></td></tr>
+<tr align="center"><td>Round #6</td><td bgcolor="#b2d8fb"><input type="text" name="r6" value="71.1" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l6" value="126" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c6" value="90" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n6" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a6" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(6);"></td></tr>
+<tr align="center"><td>Round #7</td><td bgcolor="#b2d8fb"><input type="text" name="r7" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l7" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c7" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n7" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a7" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(7);"></td></tr>
+<tr align="center"><td>Round #8</td><td bgcolor="#b2d8fb"><input type="text" name="r8" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l8" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c8" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n8" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a8" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(8);"></td></tr>
+<tr align="center"><td>Round #9</td><td bgcolor="#b2d8fb"><input type="text" name="r9" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l9" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c9" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n9" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a9" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(9);"></td></tr>
+<tr align="center"><td>Round #10</td><td bgcolor="#b2d8fb"><input type="text" name="r10" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l10" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c10" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n10" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a10" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(10);"></td></tr>
+<tr align="center"><td>Round #11</td><td bgcolor="#b2d8fb"><input type="text" name="r11" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l11" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c11" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n11" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a11" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(11);"></td></tr>
+<tr align="center"><td>Round #12</td><td bgcolor="#b2d8fb"><input type="text" name="r12" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l12" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c12" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n12" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a12" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(12);"></td></tr>
+<tr align="center"><td>Round #13</td><td bgcolor="#b2d8fb"><input type="text" name="r13" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l13" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c13" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n13" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a13" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(13);"></td></tr>
+<tr align="center"><td>Round #14</td><td bgcolor="#b2d8fb"><input type="text" name="r14" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l14" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c14" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n14" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a14" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(14);"></td></tr>
+<tr align="center"><td>Round #15</td><td bgcolor="#b2d8fb"><input type="text" name="r15" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l15" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c15" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n15" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a15" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(15);"></td></tr>
+<tr align="center"><td>Round #16</td><td bgcolor="#b2d8fb"><input type="text" name="r16" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l16" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c16" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n16" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a16" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(16);"></td></tr>
+<tr align="center"><td>Round #17</td><td bgcolor="#b2d8fb"><input type="text" name="r17" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l17" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c17" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n17" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a17" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(17);"></td></tr>
+<tr align="center"><td>Round #18</td><td bgcolor="#b2d8fb"><input type="text" name="r18" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l18" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c18" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n18" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a18" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(18);"></td></tr>
+<tr align="center"><td>Round #19</td><td bgcolor="#b2d8fb"><input type="text" name="r19" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l19" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c19" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n19" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a19" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(19);"></td></tr>
+<tr align="center"><td>Round #20</td><td bgcolor="#b2d8fb"><input type="text" name="r20" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="l20" value="" class="innormal"></td><td bgcolor="#fee8ba"><input type="text" name="c20" value="" class="innormal"></td><td bgcolor="#fdbafe"><input type="text" name="n20" value="" class="innormal"></td><td bgcolor="#f8feba"><input type="text" name="a20" value="" class="innormal"></td><td><img src="/img/close.png" width="18" height="18" alt="X" onClick="return cRow(20);"></td></tr>
+		<tr bgcolor="#dddddd"><td colspan="7" align="center" style="padding-top:10px;">
+			<input type="hidden" name="ctype" value="1">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function cRow(rowID){
+	var allElements = document.calform.elements;
+	for (i = 0; i < allElements.length; i++){
+		if (allElements[i].type == 'text'){
+			if (("r"+rowID)==allElements[i].name) allElements[i].value='';
+			if (("l"+rowID)==allElements[i].name) allElements[i].value='';
+			if (("c"+rowID)==allElements[i].name) allElements[i].value='';
+			if (("n"+rowID)==allElements[i].name) allElements[i].value='';
+			if (("a"+rowID)==allElements[i].name) allElements[i].value='';
+		}
+	}
+	return false;
+}
+</script>
+
+<br>
+<p>A golf handicap is intended as a measure of a golfer's potential playing ability. The higher the handicap of a golfer, the poorer the golfer's ability relative to that of a person with a lower handicap.</p>
+<p>In terms of stroke play (a scoring system involving counting the total number of strokes a golfer takes on each hole during a given round), a more skilled golfer gives the less experienced player a "handicap" in which extra strokes are added to his or her score. The player that has the fewest strokes at the end of the round is the winner. A handicap theoretically allows players of differing ability levels to play together on more equal grounds. Although handicap systems are prevalent in amateur golf, they are not used in professional golf.</p>
+<p>A golf handicap is often determined at the course where a golfer typically plays, and though certain details of a handicap system may vary, handicaps are generally based on a recent history of a golfer's rounds. This means that a handicap is not static, and is regularly adjusted.</p>
+<p>The term "handicapping" originated in horse racing, where a jockey was handed his odds for the race in a cap (hand-in-cap). The concept, however, existed long before the term was coined. Even in the early days of the sport, the act of allowing strokes in golf was called "assigning the odds," which was a task assumed by a group of administrators. These individuals were referred to as the "adjustors of the odds," and were the precursors of the modern Handicap Committee's present in golf clubs.</p>
+<p>"Scratch golfers" and "bogey golfers" are terms that are often used in relation to golf handicaps. A scratch golfer is a golfer whose handicap is zero, while a bogey golfer is one whose handicap is approximately 18.</p>
+
+<h3>Rating of course, rating of slope, and handicap of course</h3>
+<p>In the United States, officially rated golf courses are described by course and rating of slope. Rating of course is a number (typically between 67 and 77) that is used to measure the average "good" score that a scratch golfer may attain on the course. A rating of slope in contrast, is a number (typically between 55 and 155) describing the relative difficulty of a course for a bogey golfer compared to a scratch golfer.</p>
+<p>A handicap of course indicates the number of strokes that a golfer receives at a particular golf course. It can be thought of as an adjustment to a golfer's handicap that takes the difficulty of a golf course into account. It is the number of strokes that should be deducted from a golfer's gross score to determine the net score.</p>
+
+<h3>Playing condition adjustment</h3>
+<p>Since golf is a game that is played outdoors, weather or other conditions can significantly affect a player's scores. As such, in an effort to more accurately represent a player's scores, an adjustment, referred to as the Playing Conditions Calculation (PCC), based on playing conditions for the course is included. This involves factoring in a number, ranging from -1 (when conditions make the course easier) to 3 (when conditions make the course more difficult), into the score differential calculation, depending on the conditions of the course for the given day.</p>
+<p>For example, if the conditions on a course are relatively bad on a given day (e.g. rain and heavy wind), the player's score can be adjusted to reflect that, given a day with relatively better weather conditions, the player's score would likely have been better, and the score will be automatically adjusted using statistical procedures to more accurately reflect these conditions. The same is also true in particularly good weather conditions that could cause a player's scores to be better than they otherwise would be.</p>
+<p>Because this adjustment is dependent on a given day, and since it is calculated automatically, it is important that players submit their scores on the actual day of play so that the PCC will be applied to their score on the correct day. This calculation is intended to be conservative and will not be applied unless there is strong statistical evidence that it is necessary.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<!-- Google tag (gtag.js) -->
+
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-762WZF75BL');
+</script>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

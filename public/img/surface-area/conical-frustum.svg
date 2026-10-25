@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="82" height="100" viewBox="0 0 82 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1">
+<line x1="41" y1="84" x2="81" y2="84" />
+<line x1="41" y1="84" x2="41" y2="17" />
+<line x1="61" y1="17" x2="41" y2="17" />
+</g>
+<g style="fill:none;stroke:black;stroke-width:1">
+<line x1="1" y1="84" x2="21" y2="17" />
+<line x1="81" y1="84" x2="61" y2="17" />
+<path d="M1,83 A40,16 0 0,0 81,83" />
+<path d="M1,83 A40,16 0 0,1 81,83" stroke-dasharray="2, 2" />
+<ellipse rx="20" ry="8" cx="41" cy="17" />
+</g>
+<circle r="2" cx="41" cy="84" fill="black"  />
+<circle r="2" cx="41" cy="17" fill="black"  />
+<g fill="#4c7b25" font-size="18">
+<text x="63" y="20">r</text>
+<text x="56" y="83">R</text>
+<text x="42" y="58">h</text>
+</g>
+</svg>

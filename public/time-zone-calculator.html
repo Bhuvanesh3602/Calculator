@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Time Zone Calculator</title>
+	<meta name="description" content="This calculator converts between different time zones around the world using the GMT format and provides a map delineating standard time zones globally." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/time-zone-calculator.html" itemprop="item"><span itemprop="name">time zone calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Time Zone Calculator</h1>
+<p>This Time Zone Calculator converts between different time zones. To determine time zones for various locations, use <a href="https://en.wikipedia.org/wiki/List_of_time_zones_by_country" target="_blank" rel="nofollow">this page</a> as a reference.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div class="panel">
+<form name="calcf">
+<table >
+  <tr>
+			<td align="right" valign="middle"><b>Date:</b></td><td valign="middle"><script>DateInput('today', true)</script>    </td>
+  </tr>
+  <tr>
+			<td align="right" valign="middle"><b>Time:</b></td><td valign="middle">    	<input type="text" name="tctime" id="tctime" value="" class="inlong" style="text-align:left;"> (24 hours, e.g. 15:03:09)</td>
+  </tr>
+  <tr>
+			<td align="right" valign="middle"><b>From:</b></td><td valign="middle"><select name="tcfrom" id="tcfrom" >
+<option value="-12:00" selected>(UTC-12) International Date Line West</option>
+<option value="-11:00" >(UTC-11) Midway Island, Samoa</option>
+<option value="-10:00" >(UTC-10) Hawaii</option>
+<option value="-09:00" >(UTC-09) Alaska</option>
+<option value="-08:00" >(UTC-08) Pacific Time (US/Canada), Tijuana</option>
+<option value="-07:00" >(UTC-07) Mountain Time (US/Canada), Chihuahua, Mazatlan</option>
+<option value="-06:00" >(UTC-06) Central America, Central Time (US/Canada), Mexico City</option>
+<option value="-05:00" >(UTC-05) Eastern Time (US/Canada), Colombia, Peru, Cuba</option>
+<option value="-04:00" >(UTC-04) Atlantic Time (Canada), Caracas, La Paz, Santiago</option>
+<option value="-03:00" >(UTC-03) Newfoundland, Brasilia, Rio, Argentina, Greenland</option>
+<option value="-02:00" >(UTC-02) Mid-Atlantic</option>
+<option value="-01:00" >(UTC-01) Azores, Cape Verde Island</option>
+<option value="0" >(UTC) United Kingdom, Iceland, Ghana, Senegal, Mali</option>
+<option value="+01:00" >(UTC+01) France, Germany, Central Europe Time, West Africa Time</option>
+<option value="+02:00" >(UTC+02) Eastern Europe Time, Central Africa Time, Greece, Egypt</option>
+<option value="+03:00" >(UTC+03) East Africa Time, Moscow, Iraq, Kuwait, Kenya</option>
+<option value="+03:30" >(UTC+03:30)  Iran</option>
+<option value="+04:00" >(UTC+04) Armenia, Georgia, Oman, United Arab Emirates</option>
+<option value="+04:30" >(UTC+04:30) Afghanistan</option>
+<option value="+05:00" >(UTC+05) Pakistan, Kazakhstan (west), Uzbekistan</option>
+<option value="+05:30" >(UTC+05:30) India, Sri Lanka</option>
+<option value="+05:45" >(UTC+05:45) Nepal</option>
+<option value="+06:00" >(UTC+06) Bangladesh, Bhutan, Kazakhstan (most)</option>
+<option value="+06:30" >(UTC+06:30) Myanmar</option>
+<option value="+07:00" >(UTC+07) Cambodia, Jakarta, Thailand, Vietnam</option>
+<option value="+08:00" >(UTC+08) China, Malaysia, Philippines, Singapore</option>
+<option value="+09:00" >(UTC+09) Japan, Korea</option>
+<option value="+10:00" >(UTC+10) Sydney, Guam, Vladivostok, Melbourne</option>
+<option value="+11:00" >(UTC+11) Solomon Island, Vanuatu</option>
+<option value="+12:00" >(UTC+12) New Zealand (most), Fiji, Marshall Island</option>
+</select>
+    </td>
+  </tr>
+  <tr>
+			<td align="right" valign="middle"><b>To:</b></td><td valign="middle"><select name="tcto" id="tcto" >
+<option value="-12:00" selected>(UTC-12) International Date Line West</option>
+<option value="-11:00" >(UTC-11) Midway Island, Samoa</option>
+<option value="-10:00" >(UTC-10) Hawaii</option>
+<option value="-09:00" >(UTC-09) Alaska</option>
+<option value="-08:00" >(UTC-08) Pacific Time (US/Canada), Tijuana</option>
+<option value="-07:00" >(UTC-07) Mountain Time (US/Canada), Chihuahua, Mazatlan</option>
+<option value="-06:00" >(UTC-06) Central America, Central Time (US/Canada), Mexico City</option>
+<option value="-05:00" >(UTC-05) Eastern Time (US/Canada), Colombia, Peru, Cuba</option>
+<option value="-04:00" >(UTC-04) Atlantic Time (Canada), Caracas, La Paz, Santiago</option>
+<option value="-03:00" >(UTC-03) Newfoundland, Brasilia, Rio, Argentina, Greenland</option>
+<option value="-02:00" >(UTC-02) Mid-Atlantic</option>
+<option value="-01:00" >(UTC-01) Azores, Cape Verde Island</option>
+<option value="0" >(UTC) United Kingdom, Iceland, Ghana, Senegal, Mali</option>
+<option value="+01:00" >(UTC+01) France, Germany, Central Europe Time, West Africa Time</option>
+<option value="+02:00" >(UTC+02) Eastern Europe Time, Central Africa Time, Greece, Egypt</option>
+<option value="+03:00" >(UTC+03) East Africa Time, Moscow, Iraq, Kuwait, Kenya</option>
+<option value="+03:30" >(UTC+03:30)  Iran</option>
+<option value="+04:00" >(UTC+04) Armenia, Georgia, Oman, United Arab Emirates</option>
+<option value="+04:30" >(UTC+04:30) Afghanistan</option>
+<option value="+05:00" >(UTC+05) Pakistan, Kazakhstan (west), Uzbekistan</option>
+<option value="+05:30" >(UTC+05:30) India, Sri Lanka</option>
+<option value="+05:45" >(UTC+05:45) Nepal</option>
+<option value="+06:00" >(UTC+06) Bangladesh, Bhutan, Kazakhstan (most)</option>
+<option value="+06:30" >(UTC+06:30) Myanmar</option>
+<option value="+07:00" >(UTC+07) Cambodia, Jakarta, Thailand, Vietnam</option>
+<option value="+08:00" >(UTC+08) China, Malaysia, Philippines, Singapore</option>
+<option value="+09:00" >(UTC+09) Japan, Korea</option>
+<option value="+10:00" >(UTC+10) Sydney, Guam, Vladivostok, Melbourne</option>
+<option value="+11:00" >(UTC+11) Solomon Island, Vanuatu</option>
+<option value="+12:00" >(UTC+12) New Zealand (most), Fiji, Marshall Island</option>
+</select>
+    </td>
+  </tr>
+  <tr>
+			<td align="right" valign="middle">&nbsp;</td><td valign="middle" style="padding-top:10px;">    	<input type="submit" name="x" value="Calculate">
+    	</td>
+  </tr>
+</table></form>
+</div>
+<script>
+datenow = new Date();
+document.getElementById("tctime").value = formatDate(datenow,"HH:mm:ss")
+</script>
+<p><br><fieldset><legend>Related</legend><a href="/time-calculator.html">Time Calculator</a> | <a href="/date-calculator.html">Date Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Time Zone</h3>
+<p>A time zone is a region on Earth that uses a uniform time. They are often based on the boundaries of countries or lines of longitude. Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory located in Greenwich, London, considered to be located at a longitude of zero degrees. Although GMT and Coordinated Universal Time (UTC) essentially reflect the same time, GMT is a time zone, while UTC is a time standard that is used as a basis for civil time and time zones worldwide. Although GMT used to be a time standard, it is now mainly used as the time zone for certain countries in Africa and Western Europe. UTC, which is based on highly precise atomic clocks and the Earth's rotation, is the new standard of today.</p>
+<p>UTC is not dependent on daylight saving time (DST), though some countries switch between time zones during their DST period, such as the United Kingdom using British Summer Time in the summer months.</p>
+<p>Most time zones that are on land are offset from UTC. UTC breaks time into days, hours, minutes, and seconds, where days are usually defined in terms of the Gregorian calendar. Generally, time zones are defined as + or - an integer number of hours in relation to UTC; for example, UTC-05:00, UTC+08:00, and so on. UTC offset can range from UTC-12:00 to UTC+14:00. Most commonly, UTC is offset by an hour, but in some cases, the offset can be a half-hour or quarter-hour, such as in the case of UTC+06:30 and UTC+12:45.</p>
+
+<h3>World Time Zone Map</h3>
+<p>Time zones throughout the world vary, and used to vary even more than they currently do. It wasn't until 1929 before most countries adopted hourly time zones. Nepal, the final holdout, did not adopt a standard offset of UTC until 1956, and even then, has a less common offset of UTC+5:45.</p>
+<p>Generally, a time change of 1 hour is required with each 15&deg; change of longitude, but this does not necessarily always happen. For example, China and India only use a single time zone even though they are countries that encompass far larger an area than 15&deg; of longitude. Russia on the other hand, is divided into 11 time zones, though at one point this was reduced to 9 time zones. As can be seen, although there is a general standard throughout the world for defining time zones, it is still highly dependent on the country, and is subject to change.</p>
+<p>The following map displays the standard time zones across the world. Click the map to enlarge it.</p>
+</p>
+<p style="text-align:center;"><a href="/img/world-time-zones-map.png"><img src="/img/world-time-zones-map-small.png" class="scaleimg" alt="global time zones map"></a></p><h3>U.S. Time Zone Map</h3>
+<p>Many countries have more than one time zone. As a general rule of thumb, a change of 15&deg; of longitude should result in a time difference of 1 hour.</p>
+<p>In the U.S., there are a total of 9 time zones used. Likely the most well-known include Eastern, Central, Mountain, and Pacific Time Zones. These time zones encompass most of the contiguous United States.</p>
+<ul>
+	<li>Eastern Time Zone (ET): UTC-05:00 &ndash; includes 22 states in the eastern part of the contiguous United States, including some parts of Canada, Mexico, Panama, and the Caribbean islands.</li>
+	<li>Central Time Zone (CT): UTC-06:00 &ndash; includes parts of Canada, the U.S., Mexico, Central America, some of the Caribbean islands, and parts of the Eastern Pacific Ocean. Only 9 states are fully within the Central Time Zone. Eleven are shared with either the Mountain Time Zones or the Eastern Time zones.</li>
+	<li>Mountain Time Zone (MT): UTC-07:00 &ndash; includes parts of Canada, Mexico, and the U.S. 5 states are fully within the MT zone; ten are shared with either the Pacific Time Zone or the Central Time Zone.</li>
+	<li>Pacific Time Zone (PT): UTC-08:00 &ndash; includes parts of Canada, the western U.S., and western Mexico. California and Washington are fully within PT. Three states are split between the Pacific Time Zone and the Mountain Time Zone, and Alaska is split between the Pacific Time Zone and Alaska Time Zone.</li>
+</ul>
+<p>Atlantic, Alaska, Hawaii-Aleutian, Samoa, and Chamorro Time Zones cover the rest of the United States, including Alaska, Hawaii, and the other U.S. territories.</p>
+<p>All of these time zones have standard time zones that are offset from UTC, from UTC-04:00 through UTC+10:00, though some additionally observe daylight saving time (DST). During DST, the regions that observe DST are offset one hour closer to UTC. The regions that don't observe DST include those in the Atlantic, Samoa, and Chamorro Time Zones.</p>
+
+<p style="text-align:center;"><img src="/img/us-time-zones.png" class="scaleimg" alt="us time zones map"></p><h3>Daylight Saving Time</h3>
+<p>Many countries or regions, especially those in Europe and North America, practice daylight saving time (DST), sometimes referred to as "summer time," with the intent of saving energy. This typically involves advancing the time on a clock by one hour in early spring, and "rolling back" the time in autumn. Manipulating the time as the seasons change can better synchronize working hours with sunrise and sunset times in certain areas. This is less relevant for higher altitude areas (where sunrise and sunset times are significantly offset with regular working hours regardless of time manipulation) as well as locations near the equator (since there is a small variation in daylight throughout the year).  </p>
+<p style="text-align:center;"><img src="/img/world-daylight-saving-time-map.png" class="scaleimg" alt="world daylight saving time map"></p>
+<br><br><p>* This Time Zone Calculator does not consider Daylight Saving Time in its calculations. </p>
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

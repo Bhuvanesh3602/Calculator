@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Speed Calculator</title>
+	<meta name="description" content="This free speed calculator computes any of the three variables in the speed distance time equation given the other two." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/speed-calculator.html" itemprop="item"><span itemprop="name">speed calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Speed Calculator</h1>
+<p>Please provide any two values in the fields below to calculate the third value in the speed distance time equation: <table align="center" cellpadding="0" cellspacing="0"><tr><td rowspan="3">speed =&nbsp;</td><td align="center">distance</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">time</td></tr></table></p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calcf" action="/speed-calculator.html">
+<table cellpadding="0" cellspacing="0" >
+<tr><td>
+<div id="topmenuout"><div id="topmenu" class="topmenucenter"><ul><li><a href="#" onclick="return popMenu('s');">Find Speed</a></li> <li><a href="#" onclick="return popMenu('d');">Find  Distance</a></li> <li><a href="#" onclick="return popMenu('t');">Find Time</a></li></ul></div></div>
+<table class="panel2">
+	<tr>
+		<td align="right">Speed</td><td>			<input type="text" name="cspeed" id="cspeed" value="" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cspeeddis"></span>
+		</td><td>
+<select name="cspeedunit" id="cspeedunit" >
+<optgroup label="Common speed units">
+<option value="ms" selected>meters/second [m/s]</option>
+<option value="kmh" >kilometers/hour [km/h]</option>
+<option value="mph" >miles/hour [mph]</option>
+<option value="kn" >knots [kn]</option>
+<option value="fts" >feet/second [ft/s]</option>
+</optgroup>
+<optgroup label="Other speed units">
+<option value="kmmin" >kilometers/minute [km/min]</option>
+<option value="kms" >kilometers/second [km/s]</option>
+<option value="mh" >meters/hour [m/h]</option>
+<option value="mmin" >meters/minute [m/min]</option>
+<option value="cmh" >centimeters/hour [cm/h]</option>
+<option value="cmmin" >centimeters/minute [cm/min]</option>
+<option value="cms" >centimeters/second [cm/s]</option>
+<option value="mmh" >millimeters/hour [mm/h]</option>
+<option value="mmmin" >millimeters/minute [mm/min]</option>
+<option value="mms" >millimeters/second [mm/s]</option>
+<option value="mimin" >miles/minute [mi/min]</option>
+<option value="mis" >miles/second [mi/s]</option>
+<option value="ydh" >yards/hour [yd/h]</option>
+<option value="ydmin" >yards/minute [yd/min]</option>
+<option value="yds" >yards/second [yd/s]</option>
+<option value="fth" >feet/hour [ft/h]</option>
+<option value="ftmin" >feet/minute [ft/min]</option>
+<option value="inh" >inches/hour [in/h]</option>
+<option value="inmin" >inches/minute [in/min]</option>
+<option value="ins" >inches/second [in/s]</option>
+<option value="c" >light speed [c]</option>
+</optgroup>
+</select>
+
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Distance</td><td>			<input type="text" name="cdistance" id="cdistance" value="100" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cdistancedis"></span>
+		</td><td>
+<select name="cdistanceunit" >
+<option value="mm" >millimeters [mm]</option>
+<option value="cm" >centimeters [cm]</option>
+<option value="m" selected>meters [m]</option>
+<option value="km" >kilometers [km]</option>
+<option value="in" >inches [in]</option>
+<option value="ft" >feet [ft]</option>
+<option value="yd" >yards [yd]</option>
+<option value="mi" >miles [mi]</option>
+<option value="nmi" >nautical miles [nmi]</option>
+<option value="ly" >light years [ly]</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Time</td><td colspan="2">			<table id="ctime" cellpadding="0" cellspacing="0" border="0"><tr>
+				<td style="padding-right:6px;"><input type="text" name="ctimeh" value="" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">hour</span></td>
+				<td style="padding-right:6px;"><input type="text" name="ctimem" value="" class="inhalf inuick" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuickspan">min</span></td>
+				<td><input type="text" name="ctimes" value="20" class="inhalf inuick" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuickspan">sec&nbsp;</span></td>
+			</tr></table>
+			<span id="ctimedis"></span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" style="padding-top:10px;">
+			<input type="hidden" name="ctype" id="ctype" value="">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</td></tr></table></form>
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if ("= ?" == document.getElementById("cdistance").value) document.getElementById("cdistance").value  = "";
+	document.getElementById("cdistance").style.display = "block";
+	document.getElementById("ctime").style.display = "block";
+	document.getElementById("cspeed").style.display = "block";
+	document.getElementById("cdistancedis").innerHTML = "";
+	document.getElementById("ctimedis").innerHTML = "";
+	document.getElementById("cspeeddis").innerHTML = "";
+	document.getElementById("ctype").value  = inval;
+	if (inval == "s"){
+		htmlVal = htmlVal + "<li id=\"menuon\"><a href=\"#\" onclick=\"return popMenu('s');\">Find Speed</a></li> <li><a href=\"#\" onclick=\"return popMenu('d');\">Find Distance</a></li> <li><a href=\"#\" onclick=\"return popMenu('t');\">Find Time</a></li>";
+		document.getElementById("cspeed").style.display  = "none";
+		document.getElementById("cspeeddis").innerHTML = "&nbsp;= ?";
+	}else if (inval == "d"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('s');\">Find Speed</a></li> <li id=\"menuon\"><a href=\"#\" onclick=\"return popMenu('d');\">Find Distance</a></li> <li><a href=\"#\" onclick=\"return popMenu('t');\">Find Time</a></li>";
+		document.getElementById("cdistance").style.display  = "none";
+		document.getElementById("cdistancedis").innerHTML = "&nbsp;= ?";
+	}else if (inval == "t"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('s');\">Find Speed</a></li> <li><a href=\"#\" onclick=\"return popMenu('d');\">Find Distance</a></li> <li id=\"menuon\"><a href=\"#\" onclick=\"return popMenu('t');\">Find Time</a></li>";
+		document.getElementById("ctime").style.display  = "none";
+		document.getElementById("ctimedis").innerHTML = "&nbsp;= ?";
+	}
+	htmlVal = '<div id="topmenu" class="topmenucenter"><ul>' + htmlVal + "</ul></div>";
+	document.getElementById("topmenuout").innerHTML = htmlVal;
+	return false;
+}
+</script>
+<br>
+<a name="speedconverter"></a>
+<h2>Speed Converter</h2>
+<p>The following converter converts between common units of speed.</p>
+<form name="calcf2" action="/speed-calculator.html#speedconverter">
+<table align="center" class="panel">
+	<tr><td>Amount</td><td><input type="text" name="fromVal" value="1" class="inlongest"></td></tr>
+	<tr><td>From</td><td>
+		<select name="calFrom" class="inlongest">
+		<optgroup label="Common speed units">
+		<option value="ms" >meters/second [m/s]</option>
+		<option value="kmh" >kilometers/hour [km/h]</option>
+		<option value="mph" selected>miles/hour [mph]</option>
+		<option value="kn" >knots [kn]</option>
+		<option value="fts" >feet/second [ft/s]</option>
+		</optgroup>
+		<optgroup label="Other speed units">
+		<option value="kmmin" >kilometers/minute [km/min]</option>
+		<option value="kms" >kilometers/second [km/s]</option>
+		<option value="mh" >meters/hour [m/h]</option>
+		<option value="mmin" >meters/minute [m/min]</option>
+		<option value="cmh" >centimeters/hour [cm/h]</option>
+		<option value="cmmin" >centimeters/minute [cm/min]</option>
+		<option value="cms" >centimeters/second [cm/s]</option>
+		<option value="mmh" >millimeters/hour [mm/h]</option>
+		<option value="mmmin" >millimeters/minute [mm/min]</option>
+		<option value="mms" >millimeters/second [mm/s]</option>
+		<option value="mimin" >miles/minute [mi/min]</option>
+		<option value="mis" >miles/second [mi/s]</option>
+		<option value="ydh" >yards/hour [yd/h]</option>
+		<option value="ydmin" >yards/minute [yd/min]</option>
+		<option value="yds" >yards/second [yd/s]</option>
+		<option value="fth" >feet/hour [ft/h]</option>
+		<option value="ftmin" >feet/minute [ft/min]</option>
+		<option value="inh" >inches/hour [in/h]</option>
+		<option value="inmin" >inches/minute [in/min]</option>
+		<option value="ins" >inches/second [in/s]</option>
+		<option value="c" >light speed [c]</option>
+		</optgroup>
+		</select>
+	</td></tr>
+	<tr><td>To</td><td>
+		<select name="calTo" class="inlongest">
+		<optgroup label="Common speed units">
+		<option value="ms" selected>meters/second [m/s]</option>
+		<option value="kmh" >kilometers/hour [km/h]</option>
+		<option value="mph" >miles/hour [mph]</option>
+		<option value="kn" >knots [kn]</option>
+		<option value="fts" >feet/second [ft/s]</option>
+		</optgroup>
+		<optgroup label="Other speed units">
+		<option value="kmmin" >kilometers/minute [km/min]</option>
+		<option value="kms" >kilometers/second [km/s]</option>
+		<option value="mh" >meters/hour [m/h]</option>
+		<option value="mmin" >meters/minute [m/min]</option>
+		<option value="cmh" >centimeters/hour [cm/h]</option>
+		<option value="cmmin" >centimeters/minute [cm/min]</option>
+		<option value="cms" >centimeters/second [cm/s]</option>
+		<option value="mmh" >millimeters/hour [mm/h]</option>
+		<option value="mmmin" >millimeters/minute [mm/min]</option>
+		<option value="mms" >millimeters/second [mm/s]</option>
+		<option value="mimin" >miles/minute [mi/min]</option>
+		<option value="mis" >miles/second [mi/s]</option>
+		<option value="ydh" >yards/hour [yd/h]</option>
+		<option value="ydmin" >yards/minute [yd/min]</option>
+		<option value="yds" >yards/second [yd/s]</option>
+		<option value="fth" >feet/hour [ft/h]</option>
+		<option value="ftmin" >feet/minute [ft/min]</option>
+		<option value="inh" >inches/hour [in/h]</option>
+		<option value="inmin" >inches/minute [in/min]</option>
+		<option value="ins" >inches/second [in/s]</option>
+		<option value="c" >light speed [c]</option>
+		</optgroup>
+		</select>
+	</td></tr>
+	<tr><td colspan="2" style="padding-top:10px; text-align: center;">
+		<input type="hidden" name="ctype2" value="cvt">
+		<input type="submit" name="x" value="&nbsp;Convert&nbsp;">
+		<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+	</td></tr>
+</table>
+</form>
+
+<br>
+<h3>Speed, distance, and time</h3>
+<h4>What is speed?</h4>
+<p>Speed is defined as the change of position of an object over time. In other words, it is a measure of the rate at which an object travels over a given distance. In the International System of Units (SI), speed is measured in units of meters per second (m/s). Other units of speed include kilometers per hour (km/h), miles per hour (mph), feet per second (ft/s), and many more. The chosen unit of speed is dependent on the measurement system used in a given country and also on what is being measured. For example, it would not make sense to measure the speed at which a snail moves in terms of meters per second, since a snail moves relatively slowly. Similarly, while we could measure the speed of a race car in terms of millimeters per second, this would result in a large number that would be unnecessarily difficult to deal with in calculations.</p>
+
+<h4>The relationship between speed, distance, and time</h4>
+<p>Speed, distance, and time are related by the following formula:</p>
+<table align="center" cellpadding="0" cellspacing="0"><tr><td rowspan="3">speed =&nbsp;</td><td align="center">distance</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">time</td></tr></table>
+<p>This formula shows that:</p>
+<ul>
+	<li>Speed increases if you cover more distance in the same amount of time, or if you cover a distance in a shorter period of time.</li>
+	<li>Distance can be calculated if you know the speed and time using the formula: <div style="text-align:center;">distance = speed &#215; time</div></li>
+	<li>Time required to cover a distance can be found if you know the speed and distance, using the formula:<br><table align="center" cellpadding="0" cellspacing="0"><tr><td rowspan="3">time =&nbsp;</td><td align="center">distance</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">speed</td></tr></table></li>
+</ul>
+<div class="panel">
+	<b>Example:</b><br>
+	<p>Imagine you are riding a bicycle at a constant speed of 10 meters per second (m/s) for 1 minute. How far will you have traveled by the end of that minute?</p>
+	<p>First, convert the time into seconds because the speed is in meters per second. One minute equals 60 seconds. Now, using the distance formula:</p>
+	<table align="center">
+		<tr><td>distance =</td><td>speed &#215; time</td></tr>
+		<tr><td align="right">=</td><td>10 m/s &#215; 60 s</td></tr>
+		<tr><td align="right">=</td><td>600 m</td></tr>
+	</table>
+	<p>This means you will have traveled 600 meters in one minute.</p>
+</div>
+<br><p>Understanding the relationship between speed, distance, and time is not just about solving physics problems; it helps us in everyday situations. Whether you are trying to calculate how long it will take to get to school at a certain speed, how fast you need to run to win a race, or even how speed limits on roads are determined to ensure safety, these concepts are incredibly useful.</p>
+
+<h4>Common units of speed</h4>
+<table class="cinfoT">
+	<tr align="center"><th>&nbsp;</th><th>m/s</th><th>km/h</th><th>mph</th><th>kn</th><th>ft/s</th></tr>
+	<tr><td>1 meter/second [m/s] =</td><td align="center">1</td><td align="center">3.6</td><td align="center">2.236928</td><td align="center">1.943844</td><td align="center">3.280840</td></tr>
+	<tr><td>1 kilometer/hour [km/h] =</td><td align="center">0.277778</td><td align="center">1</td><td align="center">0.621369</td><td align="center">0.539957</td><td align="center">0.911344</td></tr>
+	<tr><td>1 mile/hour [mph] =</td><td align="center">0.44704</td><td align="center">1.60935</td><td align="center">1</td><td align="center">0.868979</td><td align="center">1.466672</td></tr>
+	<tr><td>1 knot [kn] =</td><td align="center">0.514444</td><td align="center">1.852</td><td align="center">1.150775</td><td align="center">1</td><td align="center">1.687810</td></tr>
+	<tr><td>1 foot/second [ft/s] =</td><td align="center">0.3048</td><td align="center">1.09728</td><td align="center">0.681816</td><td align="center">0.592484</td><td align="center">1</td></tr>
+</table>
+
+<h4>Examples of different speeds</h4>
+<table class="cinfoT">
+	<tr align="center"><th>&nbsp;</th><th>m/s</th><th>km/h</th><th>mph</th></tr>
+	<tr><td>Average walking speed</td><td align="center">1.4</td><td align="center">5</td><td align="center">3.1</td></tr>
+	<tr><td>Peak human running speed</td><td align="center">12.42</td><td align="center">44.7</td><td align="center">27.8</td></tr>
+	<tr><td>Peak cheetah running speed</td><td align="center">33.53</td><td align="center">120.7</td><td align="center">75</td></tr>
+	<tr><td>Average orbital speed of the Earth</td><td align="center">29,783</td><td align="center">107,218</td><td align="center">66,623</td></tr>
+	<tr><td>Average orbital speed of the Sun</td><td align="center">251,000</td><td align="center">904,000</td><td align="center">561,000</td></tr>
+	<tr><td>Speed of sound in air (sea level, 20&deg;C)</td><td align="center">343</td><td align="center">1,235</td><td align="center">768</td></tr>
+	<tr><td>Speed of light in vacuum</td><td align="center">299,792,458</td><td align="center">1,079,252,848</td><td align="center">670,616,629</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

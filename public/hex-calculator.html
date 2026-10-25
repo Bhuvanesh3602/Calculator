@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Hex Calculator</title>
+	<meta name="description" content="This free hex calculator can add, subtract, multiply, and divide hexadecimal values, as well as convert between hexadecimal and decimal values." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/hex-calculator.html" itemprop="item"><span itemprop="name">hex calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Hex Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<h2>Hexadecimal Calculation&mdash;Add, Subtract, Multiply, or Divide</h2>
+<div class="panel">
+<form action="/hex-calculator.html" name="calform">
+<table align="center">
+	<tr>
+		<td align="center">
+		<input type="text" name="number1" maxlength="19" id="number1" value="8AB" class="inlong" style="text-align:left;">
+		<select name="c2op" id="c2op">
+			<option value="+" selected>+</option>
+			<option value="-" >-</option>
+			<option value="x" >&#215;</option>
+			<option value="/" >&#247;</option>
+		</select>
+		<input type="text" name="number2" maxlength="19" id="number2" value="B78" class="inlong" style="text-align:left;">
+		<span class="bigtext"><b> = ?</b></span>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="op">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+
+<br>
+<a name="hex2decimal"></a>
+<h2>Convert Hexadecimal Value to Decimal Value</h2>
+<div class="panel">
+<form action="/hex-calculator.html#hex2decimal" name="calform2">
+<table align="center">
+	<tr>
+		<td align="center">
+			Hexadecimal Value:			<input type="text" name="b2dnumber1" maxlength="32" id="b2dnumber1" value="DAD" class="inlongest" style="text-align:left;">
+			<span class="bigtext"><b> = ?</b></span>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="b2d">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+
+<br>
+<a name="decimal2hex"></a>
+<h2>Convert Decimal Value to Hexadecimal Value</h2>
+<div class="panel">
+<form action="/hex-calculator.html#decimal2hex" name="calform3">
+<table align="center">
+	<tr>
+		<td align="center">
+			Decimal Value:			<input type="text" name="d2bnumber1" maxlength="10" id="d2bnumber1" value="170" class="inlongest" style="text-align:left;">
+			<span class="bigtext"><b> = ?</b></span>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="d2b">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<br><p><fieldset><legend>Related</legend><a href="/binary-calculator.html">Binary Calculator</a> | <a href="/ip-subnet-calculator.html">IP Subnet Calculator</a></fieldset></p>
+
+<br>
+<p>The hexadecimal number system (hex) functions virtually identically to the decimal and binary systems. Instead of using a base of 10 or 2 respectively, it uses a base of 16. Hex uses 16 digits including 0-9, just as the decimal system does, but also uses the letters A, B, C, D, E, and F (equivalent to a, b, c, d, e, f) to represent the numbers 10-15. Every hex digit represents 4 binary digits, called nibbles, which makes representing large binary numbers simpler. For example, the binary value of 1010101010 can be represented as 2AA in hex. This helps computers to compress large binary values in a manner that can be easily converted between the two systems.</p>
+<p>Below are some typical conversions between hex, binary, and decimal values:</p>
+
+<br><p align="center"><b>Hex/Decimal Conversion</b></p>
+<table class="cinfoT" width="50%" align="center">
+<tr><td class="cinfoHd">Hex</td><td class="cinfoHdL">Binary</td><td class="cinfoHdL">Decimal</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>2</td><td>10</td><td>2</td></tr>
+<tr><td>3</td><td>11</td><td>3</td></tr>
+<tr><td>4</td><td>100</td><td>4</td></tr>
+<tr><td>5</td><td>101</td><td>5</td></tr>
+<tr><td>6</td><td>110</td><td>6</td></tr>
+<tr><td>7</td><td>111</td><td>7</td></tr>
+<tr><td>8</td><td>1000</td><td>8</td></tr>
+<tr><td>9</td><td>1001</td><td>9</td></tr>
+<tr><td>A</td><td>1010</td><td>10</td></tr>
+<tr><td>B</td><td>1011</td><td>11</td></tr>
+<tr><td>C</td><td>1100</td><td>12</td></tr>
+<tr><td>D</td><td>1101</td><td>13</td></tr>
+<tr><td>E</td><td>1110</td><td>14</td></tr>
+<tr><td>F</td><td>1111</td><td>15</td></tr>
+<tr><td>14</td><td>10100</td><td>20</td></tr>
+<tr><td>3F</td><td>111111</td><td>63</td></tr>
+</table><br>
+
+<p>Converting between decimal and hex involves understanding the place values of the different number systems.  A more in-depth discussion is available on the <a href="/binary-calculator.html">binary calculator page</a>. Note that converting between decimal and hex is quite similar to converting between decimal and binary. The ability to perform the conversion of either should make the other relatively simple. As previously mentioned, hex functions using the base of 16. This means that for the value 2AA, each place value represents a power of 16. Starting from the right, the first "A" represents the "ones" place, or 16<sup>0</sup>. The second "A" from the right represents 16<sup>1</sup>, and the 2 represents 16<sup>2</sup>. Remember that "A" in hex is equivalent to 10 in decimal. Knowing this information, it is then possible to convert from hex to decimal, as shown below: </p>
+<table align="center">
+<tr><td>EX:</td><td>2AA = (2 &#215; 16<sup>2</sup>) + (A &#215; 16<sup>1</sup>) + (A &#215; 16<sup>0</sup>)</td></tr>
+<tr><td>&nbsp;</td><td>= (2 &#215; 256) + (10 &#215; 16) + (10 &#215; 1)</td></tr>
+<tr><td>&nbsp;</td><td>= 512 + 160 + 10 = 682</td></tr>
+</table>
+<p>Converting from decimal to hex is slightly more involved, but uses the same concepts. Refer to the steps and examples below. It is important to work through the example provided in conjunction with the listed steps in order to understand the process:</p>
+<ol>
+<li>Find the largest power of 16 that is less than or equal to the number to be converted, which will be referred to as X.</li>
+<li>Determine how many times the power of 16 found in Step 1 goes into X, and take note of that number. </li>
+<li>Multiply the number found in Step 2 by the power of 16 and subtract this value from X. This new value will be referred to as Y.
+	<ul><li>Note that the number found in Step 2 will be the value written in the place value for the power of 16 that was found. If, for example, the largest power of 16 was found to be 16<sup>4</sup>, and the number in Step 2 was found to be 3, the hex value would have the number 3 in its 16<sup>4</sup> place value: 3qrst, where qrst represents the 16<sup>0 through 3</sup> place values.</li></ul></li>
+<li>Repeat Steps 1-3 using Y as the new starting value. Continue the process until 16 is larger than the remaining value, and assign the remainder to the 16<sup>0</sup> place value.</li>
+<li>Assign each of the values found in each iteration of Step 2 to its respective place value to determine the hex value.</li>
+</ol>
+<table align="center">
+<tr><td>EX:</td><td colspan="2">Convert decimal 1500 to hex</td></tr>
+<tr><td>&nbsp;</td><td>(1)</td><td>Largest power = 16<sup>2</sup> = 256</td></tr>
+<tr><td>&nbsp;</td><td>(2)</td><td>256 &#215; 5 = 1280, so (5 &#215; 16<sup>2</sup>)</td></tr>
+<tr><td>&nbsp;</td><td>(3)</td><td>1500 - 1280 = 220</td></tr>
+<tr><td>&nbsp;</td><td>(4)</td><td>16 &#215; 13 = 208, so (13 &#215; 16<sup>1</sup>)</td></tr>
+<tr><td>&nbsp;</td><td>(5)</td><td>220 - 208 = 12</td></tr>
+<tr><td>&nbsp;</td><td>(6)</td><td>16 is larger than 12, so 12 is the value in the 16<sup>0</sup> place value</td></tr>
+<tr><td>&nbsp;</td><td>(7)</td><td>1500 = (5 &#215; 16<sup>2</sup>) + (13 &#215; 16<sup>1</sup>) + (12 &#215; 16<sup>0</sup>)</td></tr>
+<tr><td>&nbsp;</td><td>(8)</td><td>Remember that 10-15 have letter numerals In hex: 13 = D, and 12 = C</td></tr>
+<tr><td>&nbsp;</td><td>(9)</td><td>Therefore the hex value of 1500 is: <b>5DC</b></td></tr>
+</table>
+<p>Converting from hex to decimal utilizes the same principles, but is arguably simpler. Multiply each digit in the hex value by its corresponding place value, and find the sum of each result. The process is the same regardless of whether the hex value contains letter numerals or not. </p>
+<table align="center">
+<tr><td>EX:</td><td colspan="2">Convert hex 1024 to decimal</td></tr>
+<tr><td>&nbsp;</td><td>(1)</td><td>(1 &#215; 16<sup>3</sup>) + (0 &#215; 16<sup>2</sup>) + (2 &#215; 16<sup>1</sup>) + (4 &#215; 16<sup>0</sup>)</td></tr>
+<tr><td>&nbsp;</td><td>(2)</td><td>4096 + 0 + 32 + 4 = 4132</td></tr>
+</table>
+
+<h3>Hex Addition</h3>
+<p>Hex addition follows the same rules as decimal addition with the only difference being the added numerals A, B, C, D, E, and F. It may be convenient to have the decimal equivalent values of A through F handy when performing hex operations if the values have not yet been committed to memory. Below is an example of hex addition. Work through the example, and refer to the text below it for further details. </p>
+
+EX:
+<ul>
+<table cellpadding="0">
+	<tr align="right" valign="bottom"><td colspan="2">&nbsp;</td><td><sup>1</sup>8</td><td><sup>1</sup>A</td><td>&nbsp;B</td></tr>
+	<tr align="right"><td>+ &nbsp; </td><td>&nbsp;</td><td>B</td><td>7</td><td>8</td></tr>
+	<tr align="right"><td colspan="5" bgcolor="#000000" height="1"></td></tr>
+	<tr align="right"><td>= &nbsp; </td><td>1</td><td>4</td><td>2</td><td>3</td></tr>
+</table>
+</ul>
+<p>Hex addition involves calculating basic decimal addition while converting between hex and decimal when values larger than 9 (the numerals A through F) are present. In the example above, B + 8 in decimal is 11 + 8 = 19. 19<sub>decimal</sub> is 13<sub>hex</sub>, since there is 1 set of 16, with 3 left over. Just like in decimal addition, the 1 carries over to the next column. Hence, the next column works out to be 1 + A (10) + 7 = 18<sub>decimal</sub>, or 12<sub>hex</sub>. Carry over the 1 to the final column resulting in 1 + 8 + B (11) = 20<sub>decimal</sub>, or 14<sub>hex</sub>. This yields the result of 1423<sub>hex</sub>.</p>
+
+<h3>Hex Subtraction</h3>
+<p>Hex subtraction can be computed much the same way as hex addition; by performing the operation while converting between hex and decimal values. The most significant difference between hex and decimal subtraction involves borrowing. <b>When borrowing in hex, the "1" that is borrowed represents 16<sub>decimal</sub> rather than 10<sub>decimal</sub>.</b> This is because the column that is being borrowed from is 16 times larger than the borrowing column (the same reason that the borrowed 1 in decimal represents 10). As long as this is noted, and conversions of the letter numerals A-F are done carefully, hex subtraction is not any more difficult than decimal subtraction. Work through the example, and refer to the text below it for further details.</p>
+EX:
+<ul>
+<table cellpadding="0">
+	<tr align="right" valign="bottom"><td colspan="2">&nbsp;</td><td>&nbsp;5</td><td>&nbsp;D</td><td><sup>1</sup>C</td></tr>
+	<tr align="right"><td>&ndash; &nbsp; </td><td>&nbsp;</td><td>3</td><td>A</td><td>F</td></tr>
+	<tr align="right"><td colspan="5" bgcolor="#000000" height="1"></td></tr>
+	<tr align="right"><td>= &nbsp; </td><td>&nbsp;</td><td>2</td><td>2</td><td>D</td></tr>
+</table>
+</ul>
+<p>In the first column on the right of the above example, C, or 12<sub>decimal</sub>, is smaller than F, or 15<sub>decimal</sub>. As such, it is necessary to borrow from the next column. This reduces the D, to C, and lends 1, or 16<sub>decimal</sub> to the first column. 16<sub>decimal</sub> + 12<sub>decimal</sub> - 15<sub>decimal</sub> = 13<sub>decimal</sub>, or D in the first column.  The following columns require no borrowing, making the calculations simple. Since 1 was borrowed, C - A = 12<sub>decimal</sub> - 10<sub>decimal</sub> = 2, and 5 - 3 = 2 yielding the final result of 22D. In the case where the number being subtracted is larger than the number being subtracted from, simply change the positions of the numbers, calculate the subtraction, and add a negative sign to the result. If the above example were instead 3AF - 5DC, it would then be written as is, except that the solution would be -22D. </p>
+
+<h3>Hex Multiplication</h3>
+<p>Hex multiplication can be tricky because the conversions between hex and decimal when performing the operations require more effort since the numerals tend to be larger. Having a hexadecimal multiplication table can be helpful (one is provided below). Otherwise, manual conversion between decimal and hex will be necessary for each step. Below is an example of hex multiplication. To the right of the example, each of the multiplication and addition steps is shown. Note that all of the numerals used are hex. Refer to the addition section if necessary. </p>
+EX:
+<ul>
+<table cellpadding="0">
+	<tr align="right" valign="bottom"><td colspan="2">&nbsp;</td><td>&nbsp;</td><td>F</td><td>A</td><td align="right">&nbsp; &nbsp; &nbsp; &nbsp; 3 &#215; A = 1E; 1 carried to F</td></tr>
+	<tr align="right"><td>&#215; &nbsp; </td><td>&nbsp;</td><td>&nbsp;</td><td>C</td><td>3</td><td align="right">3 &#215; F = 2D, + 1 = 2E</td></tr>
+	<tr align="right"><td colspan="5" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr align="right" valign="bottom"><td colspan="2">&nbsp;</td><td>2</td><td>E</td><td>E</td><td align="right">&nbsp; &nbsp; &nbsp; &nbsp; C &#215; A = 78; 7 carried to F</td></tr>
+	<tr align="right"><td>+ &nbsp; </td><td>B</td><td>B</td><td>8</td><td>0</td><td align="right">C &#215; F = B4, + 7 = BB</td></tr>
+	<tr align="right"><td colspan="5" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr align="right"><td>= &nbsp; </td><td>B</td><td>E</td><td>6</td><td>E</td></tr>
+</table>
+</ul>
+
+<h3>Hex Division</h3>
+<p>Long division in hex is identical to long division in decimal, except that the multiplication and subtraction occur in hex. It is also possible to convert to decimal and perform long division in decimal, then convert back once complete. For illustrative purposes, the division example will be calculated entirely in hex. As with multiplication, having a hexadecimal multiplication table (one is provided below) would be convenient while conducting hex division. Below is an example. Note that all numerals in the example are hex. Although no borrowing occurs in the example below, remember that borrowing in hex results in 16<sub>decimal</sub> being borrowed, rather than 10<sub>decimal</sub>. Refer to the hex subtraction section for further details.</p>
+<table><tr><td valign="top">EX: &nbsp; &nbsp;</td><td><table cellpadding="0" cellspacing="0">
+	<tr><td colspan="3"></td><td>D</td><td>E</td><td>F</td><td></td></tr>
+	<tr><td colspan="2"></td><td colspan="4" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr><td>12</td><td><img src="/img/long-division/long-division.svg" width="6" height="22"></td><td>F</td><td>A</td><td>C</td><td>E</td><td width="130" align="right"></td></tr>
+	<tr><td colspan="2"></td><td>E</td><td>A</td><td colspan="3" align="right">12 &#215; D = EA</td></tr>
+	<tr><td colspan="2"></td><td colspan="4" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr><td colspan="2"></td><td>1</td><td>0</td><td>C</td><td colspan="2" align="right">FA - EA = 10</td></tr>
+	<tr><td colspan="3"></td><td>F</td><td>C</td><td colspan="2" align="right">12 &#215; E = 10C</td></tr>
+	<tr><td colspan="3"></td><td colspan="3" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr><td colspan="3"></td><td>1</td><td>0</td><td>E</td><td align="right">10C - FC = 10</td></tr>
+	<tr><td colspan="3"></td><td>1</td><td>0</td><td>E</td><td align="right">12 &#215; F = 10E</td></tr>
+	<tr><td colspan="4"></td><td colspan="2" bgcolor="#000000" height="1"></td><td></td></tr>
+	<tr><td colspan="5"></td><td>0</td><td></td></tr>
+</table></td></tr></table>
+
+
+<h3>Hexadecimal Multiplication Table</h3>
+<style>
+table.multT{border-collapse:collapse;border-spacing:0;margin-top:0;}
+table.multT th, table.multT td {border: 1px solid #708ead; text-align:center; width:20px;}
+.multTH {background-color: #114477;color: #fff;}
+.multTD {background-color: #93adc7;}
+</style>
+<table class="multT" align="center">
+<tr><td style="background-color: #ccc;">&#215;</td><td class="multTH">1</td><td class="multTH">2</td><td class="multTH">3</td><td class="multTH">4</td><td class="multTH">5</td><td class="multTH">6</td><td class="multTH">7</td><td class="multTH">8</td><td class="multTH">9</td><td class="multTH">A</td><td class="multTH">B</td><td class="multTH">C</td><td class="multTH">D</td><td class="multTH">E</td><td class="multTH">F</td><td class="multTH">10</td></tr>
+<tr><td class="multTH">1</td><td class="multTD">1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>10</td></tr>
+<tr><td class="multTH">2</td><td>2</td><td class="multTD">4</td><td>6</td><td>8</td><td>A</td><td>C</td><td>E</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td><td>1A</td><td>1C</td><td>1E</td><td>20</td></tr>
+<tr><td class="multTH">3</td><td>3</td><td>6</td><td class="multTD">9</td><td>C</td><td>F</td><td>12</td><td>15</td><td>18</td><td>1B</td><td>1E</td><td>21</td><td>24</td><td>27</td><td>2A</td><td>2D</td><td>30</td></tr>
+<tr><td class="multTH">4</td><td>4</td><td>8</td><td>C</td><td class="multTD">10</td><td>14</td><td>18</td><td>1C</td><td>20</td><td>24</td><td>28</td><td>2C</td><td>30</td><td>34</td><td>38</td><td>3C</td><td>40</td></tr>
+<tr><td class="multTH">5</td><td>5</td><td>A</td><td>F</td><td>14</td><td class="multTD">19</td><td>1E</td><td>23</td><td>28</td><td>2D</td><td>32</td><td>37</td><td>3C</td><td>41</td><td>46</td><td>4B</td><td>50</td></tr>
+<tr><td class="multTH">6</td><td>6</td><td>C</td><td>12</td><td>18</td><td>1E</td><td class="multTD">24</td><td>2A</td><td>30</td><td>36</td><td>3C</td><td>42</td><td>48</td><td>4E</td><td>54</td><td>5A</td><td>60</td></tr>
+<tr><td class="multTH">7</td><td>7</td><td>E</td><td>15</td><td>1C</td><td>23</td><td>2A</td><td class="multTD">31</td><td>38</td><td>3F</td><td>46</td><td>4D</td><td>54</td><td>5B</td><td>62</td><td>69</td><td>70</td></tr>
+<tr><td class="multTH">8</td><td>8</td><td>10</td><td>18</td><td>20</td><td>28</td><td>30</td><td>38</td><td class="multTD">40</td><td>48</td><td>50</td><td>58</td><td>60</td><td>68</td><td>70</td><td>78</td><td>80</td></tr>
+<tr><td class="multTH">9</td><td>9</td><td>12</td><td>1B</td><td>24</td><td>2D</td><td>36</td><td>3F</td><td>48</td><td class="multTD">51</td><td>5A</td><td>63</td><td>6C</td><td>75</td><td>7E</td><td>87</td><td>90</td></tr>
+<tr><td class="multTH">A</td><td>A</td><td>14</td><td>1E</td><td>28</td><td>32</td><td>3C</td><td>46</td><td>50</td><td>5A</td><td class="multTD">64</td><td>6E</td><td>78</td><td>82</td><td>8C</td><td>96</td><td>A0</td></tr>
+<tr><td class="multTH">B</td><td>B</td><td>16</td><td>21</td><td>2C</td><td>37</td><td>42</td><td>4D</td><td>58</td><td>63</td><td>6E</td><td class="multTD">79</td><td>84</td><td>8F</td><td>9A</td><td>A5</td><td>B0</td></tr>
+<tr><td class="multTH">C</td><td>C</td><td>18</td><td>24</td><td>30</td><td>3C</td><td>48</td><td>54</td><td>60</td><td>6C</td><td>78</td><td>84</td><td class="multTD">90</td><td>9C</td><td>A8</td><td>B4</td><td>C0</td></tr>
+<tr><td class="multTH">D</td><td>D</td><td>1A</td><td>27</td><td>34</td><td>41</td><td>4E</td><td>5B</td><td>68</td><td>75</td><td>82</td><td>8F</td><td>9C</td><td class="multTD">A9</td><td>B6</td><td>C3</td><td>D0</td></tr>
+<tr><td class="multTH">E</td><td>E</td><td>1C</td><td>2A</td><td>38</td><td>46</td><td>54</td><td>62</td><td>70</td><td>7E</td><td>8C</td><td>9A</td><td>A8</td><td>B6</td><td class="multTD">C4</td><td>D2</td><td>E0</td></tr>
+<tr><td class="multTH">F</td><td>F</td><td>1E</td><td>2D</td><td>3C</td><td>4B</td><td>5A</td><td>69</td><td>78</td><td>87</td><td>96</td><td>A5</td><td>B4</td><td>C3</td><td>D2</td><td class="multTD">E1</td><td>F0</td></tr>
+<tr><td class="multTH">10</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>60</td><td>70</td><td>80</td><td>90</td><td>A0</td><td>B0</td><td>C0</td><td>D0</td><td>E0</td><td>F0</td><td class="multTD">100</td></tr>
+</table><br>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

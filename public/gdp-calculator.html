@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GDP Calculator</title>
+	<meta name="description" content="This free GDP calculator computes GDP using both the expenditure approach as well as the resource cost-income approach." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/gdp-calculator.html" itemprop="item"><span itemprop="name">gdp calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>GDP Calculator</h1>
+
+<p>The GDP (gross domestic product) can be calculated using either the expenditure approach or the resource cost-income approach below. If any clarification on the terminology or inputs is necessary, refer to the information section below the calculators.</p>
+<h2>Expenditure Approach</h2>
+<p>Using this approach:</p>
+<table>
+<tr><td valign="top"><b>GDP&nbsp;=</b></td><td>personal consumption + gross investment + government consumption + net exports of goods and services</td></tr>
+</table>
+
+<form name="calcf" action="/gdp-calculator.html">
+<table class="panel" id="standard" >
+	<tr>
+		<td align="right">Personal Consumption</td><td>			<input type="text" name="personalconsumption" id="personalconsumption" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Gross Investment</td><td>			<input type="text" name="grossinvestment" id="grossinvestment" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Government Consumption</td><td>			<input type="text" name="governmentconsumption" id="governmentconsumption" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Exports</td><td>			<input type="text" name="exportv" id="exportv" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Imports</td><td>			<input type="text" name="importv" id="importv" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><br>
+			<input type="submit" name="calc1" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<br>
+<a name="rciapproach"></a>
+<h2>Resource Cost-Income Approach</h2>
+<p>Using this approach:</p>
+<table>
+<tr><td valign="top"><b>GNP&nbsp;=</b></td><td>employee compensation + proprietors' income + rental income + corporate profits + interest income</td></tr>
+<tr><td valign="top"><b>GDP&nbsp;=</b></td><td>GNP + indirect business taxes + depreciation + net income of foreigners*</td></tr>
+</table>
+<form name="calcf2" action="/gdp-calculator.html#rciapproach">
+<table class="panel" id="standard" >
+	<tr>
+		<td align="right">Employee Compensation</td><td>			<input type="text" name="employeecompensation" id="employeecompensation" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Proprietors' Income</td><td>			<input type="text" name="proprietorsincome" id="proprietorsincome" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Rental Income</td><td>			<input type="text" name="rents" id="rents" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Corporate Profits</td><td>			<input type="text" name="corporateprofits" id="corporateprofits" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Interest Income</td><td>			<input type="text" name="interestincome" id="interestincome" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Indirect Business Taxes</td><td>			<input type="text" name="indirectbusinesstaxes" id="indirectbusinesstaxes" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Depreciation</td><td>			<input type="text" name="depreciation" id="depreciation" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td align="right">Net Income of Foreigners*</td><td>			<input type="text" name="netincomeofforeigners" id="netincomeofforeigners" value="" class="infull" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><br>
+			<input type="submit" name="calc2" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+		</td>
+	</tr>
+</table>
+</form>
+<p>* net income of foreigners refers to the income that domestic citizens earn abroad subtracted from the income foreigners earn domestically.</p>
+<br>
+
+<h3>Gross Domestic Product</h3>
+<p>Gross domestic product is defined by the Organisation for Economic Co-operation and Development (OECD) as "an aggregate measure of production equal to the sum of the gross values added of all resident and institutional units engaged in production (plus any taxes, and minus any subsidies, on products not included in the value of their outputs." More simply, it can be defined as a monetary measure of the market value of final goods produced over a period of time, typically quarterly or yearly, that is often used to determine the economic performance of a region or country. Generally, growth of more than two percent indicates significant prosperous activity in the economy. On the other hand, two consecutive three-month periods of contraction may indicate that an economy is in recession. </p>
+
+<h3>Measuring GDP</h3>
+<p>GDP can be measured in a number of different ways:</p>
+<ul>
+	<li>Production approach: This is the gross value of the goods and services added by all sectors of the economy such as agriculture, manufacturing, energy, construction, the service sector, and the government. In each sector, gross value added = gross value of output - value of intermediate consumption. Most countries use this production approach. However, one major drawback of this approach is the difficulty of differentiating between intermediate and final goods. </li>
+	<li>Resource cost-income approach: Consists of the addition of the value of profit and wages, as well as indirect business taxes, depreciation, and the net income of foreigners.</li>
+	<li>Spending approach: This is the value of the goods and services purchased by households and the government, including investment in machinery and buildings. It also includes the value of exports reduced by the total value of imports.</li>
+</ul>
+<p>In the United States, the Commerce Department undertakes the major project of estimating GDP using all three approaches every three months. Collecting data involves surveying hundreds of thousands of firms and households. Data is also collected from government departments overseeing activities such as agriculture, energy, health, and education, which results in an enormous amount of data. This typically results in an initial estimate being made based on a partial compilation of the data. Once the full data is available and has been analyzed (usually a few months later), a revised estimate is often released. </p>
+<p>According to the International Monetary Fund, not all productive activity is included in estimates of GDP. For example, unpaid work (such as that performed at home or by volunteers) and black-market activities are not included because they are difficult to measure and cannot easily be verified. Thus, a baker that bakes a loaf of bread for a customer would contribute to GDP, but would not do so if he baked that same loaf for his family (but the ingredients he purchased would). </p>
+<p>The calculators above measure GDP using two of the above approaches: The expenditure approach and the resource cost-income approach. The production approach is just a simple addition of the added values of all sectors.</p>
+
+<h3>Expenditure Approach:</h3>
+<table>
+<tr><td valign="top"><b>GDP&nbsp;=</b></td><td>personal consumption + gross investment + government consumption + net exports of goods and services</td></tr>
+</table>
+<ul>
+	<li>Personal consumption: This is typically the largest GDP component in the economy that is comprised of durable goods, nondurable goods, and services such as food, rent, jewelry, gasoline, and medical expenses (not including the purchase of new housing)</li>
+	<li>Gross investment: This includes business investment in equipment, but not the exchange of existing assets. For example, the construction of a new factory and the purchase of machinery and equipment for said factory would constitute a gross investment. The purchase of financial products is classified as "saving" rather than investment. </li>
+	<li>Government consumption: This includes the sum spent by the government on final goods and services such as public servant salaries, weapon purchases, and any investment expenditures, but not including transfer payments like social security or unemployment benefits. </li>
+	<li>Net exports: This includes gross exports and gross imports, where the net value is the result of subtracting gross imports from gross exports. </li>
+</ul>
+
+<h3>Resource Cost-Income approach: </h3>
+<table>
+<tr><td valign="top"><b>GNP&nbsp;=</b></td><td>employee compensation + proprietors' income + rental income + corporate profits + interest income</td></tr>
+<tr><td valign="top"><b>GDP&nbsp;=</b></td><td>GNP + indirect business taxes + depreciation + net income of foreigners</td></tr>
+</table>
+<ul>
+	<li>GNP (Gross national product): GNP is similar to GDP in that it is the market value of all products and services produced in a year through the labor and property supplied by the country's citizens. As shown in the above formula, it is included in GDP along with indirect business taxes, depreciation, and net income of foreigners. </li>
+	<li>Employee compensation: This measures the total amount paid to employees for the work they performed including wages, salaries, and employer contributions to social security and other similar programs. </li>
+	<li>Proprietors' income: This is the income received by non-corporate businesses, which includes sole proprietorships and partnerships. It includes payments for labor, capital, land, and entrepreneurship.</li>
+	<li>Rental income: This is the income received by property owners, but excludes rent paid to corporate real estate companies. </li>
+	<li>Corporate profits: This is a corporation's income, regardless whether it is paid to stockholders or reinvested. </li>
+	<li>Interest income: Interest income is a form of property income that owners of certain kinds of financial assets receive in return for their investment in those assets, such as deposits, debt securities, and loans. </li>
+	<li>Indirect business taxes: This includes general sales taxes, business property taxes, license fees, etc., but does not include subsidies. </li>
+	<li>Depreciation: In terms of GDP, depreciation is also referred to as the capital consumption allowance and measures the amount that a country must spend to maintain, rather than increase its productivity. </li>
+	<li>Net income of foreigners: This refers to the income that domestic citizens earn abroad subtracted from the income a foreigner earns domestically. </li>
+</ul>
+
+<h3>Gross domestic product as a comparison of living standards</h3>
+<p>Typically, nominal GDP estimates are used as a comparison between regions and countries. However, nominal GDP does not take factors such as cost of living in an area into account, and fluctuations in the exchange rate of a country's currency among other factors can result in significant differences in the reported nominal GDP. As such, when comparing differences in living standards between nations, GDP per capita at purchasing power parity (PPP) can be a better indicator than nominal GDP. This is because PPP allows the estimate of what the exchange rate between two countries would need to be in order for the exchange to be on par with the purchasing power of the two different currencies. Regardless of whether a basket of goods is purchased directly with one currency, or the currency is converted at the PPP rate to the other currency then used to buy a basket of goods, the purchasing power will remain the same. Thus, GDP per capita at PPP can be more representative of differences in living standards since it accounts for differences in the cost of living.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

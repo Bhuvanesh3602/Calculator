@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="212" height="143" viewBox="0 0 353 238" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<polygon points="90,208 145,208 145,62 110,152 100,173 90,184" style="fill:#fdcab6;stroke:#fdcab6;stroke-width:0" />
+<line x1="0" y1="208" x2="353" y2="208" style="stroke:#03198a;stroke-width:1.5" />
+<line x1="178" y1="208" x2="178" y2="5" style="stroke:#03198a;stroke-width:1.5" />
+<line x1="178" y1="95" x2="227" y2="95" style="stroke:#03198a;stroke-width:1.5" />
+<g font-family="Arial, sans-serif">
+<text x="80" y="233" fill="black" font-size="32">L<tspan font-size="22">b</tspan></text>
+<text x="125" y="233" fill="black" font-size="32">R<tspan font-size="22">b</tspan></text>
+<text x="113" y="190" fill="black" font-size="32">P</text>
+<text x="170" y="228" fill="black" font-size="32">&#956;</text>
+<text x="200" y="150" fill="black" font-size="32">&#963;</text>
+<text x="230" y="38" fill="black" font-size="32">N(&#956;, &#963;<tspan baseline-shift="super" font-size="22">2</tspan>)</text>
+</g>
+<path d="m 353,206 c -53.6,-0.225 -59.4,-4.56 -66.7,-8.66 -29.2,-16.3 -37.9,-44.5 -54.5,-86.9 -18.3,-46.6 -30.9,-107 -53.3,-107 -18.1,0 -32.2,59 -50.5,106 -16.7,42.4 -26.6,72.7 -55.8,89 -7.52,4.2 -15,8.34 -72.7,8.34" fill="none" stroke="#4e9a06" stroke-width="4" />
+</svg>

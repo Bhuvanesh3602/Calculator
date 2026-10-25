@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Confidence Interval Calculator</title>
+	<meta name="description" content="Calculator to compute the confidence interval or margin of error of a sample based on the desired confidence level. It also provides an error bar diagram." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/confidence-interval-calculator.html" itemprop="item"><span itemprop="name">confidence interval calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>Confidence Interval Calculator</h1>
+<p>Use this calculator to compute the confidence interval or margin of error, assuming the sample mean most likely follows a normal distribution. Use the <a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> if you have raw data only.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table class="panel" >
+	<tr>
+		<td>Sample size (amount), <b>n</b></td>
+		<td><input type="text" name="size" value="50" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Sample Mean (average), <b>X&#772;</b></td>
+		<td><input type="text" name="mean" value="20.6" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Standard Deviation, <b>&sigma;</b> or <b>s</b></td>
+		<td><input type="text" name="sd" value="3.2" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Confidence Level</td>
+		<td><input type="text" name="cl" value="95" class="innormal inpct"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+<br>
+<h3>What is the confidence interval?</h3>
+<p>A confidence interval is a statistical measure used to indicate the range of estimates within which an unknown statistical parameter is likely to fall. If the parameter is the population mean, the confidence interval is an estimate of possible values of the population mean.</p>
+<p>A confidence interval is determined through use of observed (sample) data and is calculated at a selected confidence level (chosen prior to the computation of the confidence interval). This confidence level, such as a 95% confidence level, indicates the reliability of the estimation procedure; it is not the degree of certainty that the computed confidence interval contains the true value of the parameter being studied. Specifically, the confidence level indicates the proportion of confidence intervals, that when constructed given the chosen confidence level over an infinite number of independent trials, will contain the true value of the parameter.</p>
+<p>For example, if 100 confidence intervals are computed at a 95% confidence level, it is expected that 95 of these 100 confidence intervals will contain the true value of the given parameter; it does not say anything about individual confidence intervals. If 1 of these 100 confidence intervals is selected, we cannot say that there is a 95% chance it contains the true value of the parameter &ndash; this is a common misconception. The selected confidence interval will either contain or will not contain the true value, but we cannot say anything about the probability of a specific confidence interval containing the true value of the parameter.</p>
+<p>Confidence intervals are typically written as (some value) &#177; (a range). The range can be written as an actual value or a percentage. It can also be written as simply the range of values. For example, the following are all equivalent confidence intervals:</p>
+<p style="text-align:center;">20.6 &#177;0.887</p>
+<p style="text-align:center;">or</p>
+<p style="text-align:center;">20.6 &#177;4.3%</p>
+<p style="text-align:center;">or</p>
+<p style="text-align:center;">[19.713 &ndash; 21.487]</p>
+
+<p><b>Calculating confidence intervals:</b></p>
+<p>This calculator computes confidence intervals for normally distributed data with an unknown mean, but known standard deviation. It does not calculate confidence intervals for data with an unknown mean and unknown standard deviation.</p>
+<p>Calculating a confidence interval involves determining the sample mean, X&#772;, and the population standard deviation, &sigma;, if possible. If the population standard deviation cannot be used, then the sample standard deviation, s, can be used when the sample size is greater than 30. For a sample size greater than 30, the population standard deviation and the sample standard deviation will be similar. Depending on which standard deviation is known, the equation used to calculate the confidence interval differs. For the purposes of this calculator, it is assumed that the population standard deviation is known or the sample size is larger enough therefore the population standard deviation and sample standard deviation is similar. Only the equation for a known standard deviation is shown.</p>
+<table cellpadding="0" cellspacing="0" align="center"><tr><td rowspan="3" nowrap>X&#772; &#177; Z&#215;</td><td align="center" nowrap>&sigma;</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center" nowrap>&radic;<span style="text-decoration:overline;">n</span></td></tr></table>
+<p>where Z is the Z-value for the chosen confidence level, X&#772; is the sample mean, &sigma; is the standard deviation, and n is the sample size. Assuming the following with a confidence level of 95%:</p>
+<p style="text-align:center;">X = 22.8</p>
+<p style="text-align:center;">Z = 1.960</p>
+<p style="text-align:center;">&sigma; = 2.7</p>
+<p style="text-align:center;">n = 100</p>
+The confidence interval is:
+<table cellpadding="0" cellspacing="0" align="center"><tr><td rowspan="3" nowrap>22.8 &#177;1.960&#215;</td><td align="center" nowrap>2.7</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center" nowrap>&radic;<span style="text-decoration:overline;">100</span></td></tr></table>
+<p style="text-align:center;">22.8 &#177;0.5292</p>
+
+<p><b>Z-values for Confidence Intervals</b></p>
+<table class="cinfoT" align="center">
+<tr><td class="cinfoHd">Confidence Level</td><td class="cinfoHdL">Z Value</td></tr>
+<tr><td>70%</td><td>1.036</td></tr>
+<tr><td>75%</td><td>1.150</td></tr>
+<tr><td>80%</td><td>1.282</td></tr>
+<tr><td>85%</td><td>1.440</td></tr>
+<tr><td>90%</td><td>1.645</td></tr>
+<tr><td>95%</td><td>1.960</td></tr>
+<tr><td>98%</td><td>2.326</td></tr>
+<tr><td>99%</td><td>2.576</td></tr>
+<tr><td>99.5%</td><td>2.807</td></tr>
+<tr><td>99.9%</td><td>3.291</td></tr>
+<tr><td>99.99%</td><td>3.891</td></tr>
+<tr><td>99.999%</td><td>4.417</td></tr>
+</table>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

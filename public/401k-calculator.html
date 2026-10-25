@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>401K Calculator</title>
+	<meta name="description" content="Free 401K calculator to plan and estimate a 401K balance and payout amount in retirement or help with early withdrawals or maximizing employer match." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/401k-calculator.html" itemprop="item"><span itemprop="name">401k calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<h1>401K Calculator</h1>
+
+<p>The 401(k) Calculator can estimate a 401(k) balance at retirement as well as distributions in retirement based on income, contribution percentage, age, salary increase, and investment return. It is mainly intended for use by U.S. residents.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel">
+<form name="f401k1" action="/401k-calculator.html#top">
+<div class="clefthalf">
+<table align="center" width="100%">
+<tr><td colspan="3" id="sectitle">Basic info</td></tr>
+<tr><td>Current age</td><td colspan="2"><input type="text" name="age" value="30" class="inlong"></td><td>&nbsp;</td></tr>
+<tr><td>Current annual salary</td><td colspan="2"><input type="text" name="income" id="income" value="75000" class="inlong indollar"></td></tr>
+<tr><td>Current 401(k) balance</td><td colspan="2"><input type="text" name="balance" id="balance" value="35000" class="inlong indollar"></td></tr>
+<tr><td>Contribution (% of salary)</td><td colspan="2"><input type="text" name="contribution" value="10" class="inlong inpct"></td></tr>
+<tr><td>Employer match</td><td colspan="2"><input type="text" name="ematch" value="50" class="inlong inpct"></td></tr>
+<tr><td>Employer match limit</td><td colspan="2"><input type="text" name="ematchend" value="3" class="inlong inpct"></td></tr>
+</table>
+</div>
+<div class="crighthalf">
+<table align="center" width="100%">
+<tr><td colspan="3" id="sectitle">Projections</td></tr>
+<tr><td>Expected retirement age</td><td><input type="text" name="retirementage" value="65" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Life expectancy</td><td><input type="text" name="lifeexpectancy" value="85" class="innormal"></td><td>&nbsp;</td></tr>
+<tr><td>Expected salary increase</td><td><input type="text" name="incomeincrease" value="3" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td>Expected annual return</td><td><input type="text" name="rate" value="6" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td>Expected inflation rate</td><td><input type="text" name="inflation" value="3" class="innormal inpct"></td><td>per year</td></tr>
+<tr><td colspan="3" align="center" style="padding-top:8px;"><input type="hidden" name="hideirslimit" value="0">
+	<input type="hidden" name="type" value="1">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.f401k1);">
+</td></tr>
+</table>
+</div><div id="clear"></div>
+</form></div>
+
+<a name="earlywithdrawal"></a>
+<br><h2>401(k) Early Withdrawal Costs Calculator</h2>
+<p>Early 401(k) withdrawals will result in a penalty. This calculation can determine the actual amount received if opting for an early withdrawal.</p>
+<form name="f401k2" action="/401k-calculator.html#earlywithdrawal">
+<table class="panel" align="center">
+<tr><td>Early withdrawal amount</td><td align="right"><input type="text" name="withdrawamt" id="withdrawamt" value="10000" class="inlong indollar"></td></tr>
+<tr><td>Federal income tax rate</td><td align="right"><input type="text" name="fedtax" value="25" class="inlong inpct"></td></tr>
+<tr><td>State income tax rate</td><td align="right"><input type="text" name="statetax" value="5" class="inlong inpct"></td></tr>
+<tr><td>Local/city income tax rate</td><td align="right"><input type="text" name="localtax" value="0" class="inlong inpct"></td></tr>
+<tr><td colspan="2">
+	<div style="padding: 5px 0px;">Are you employed?
+		<label for="isemployed1" class="cbcontainer"><input type="radio" name="isemployed" id="isemployed1" value="y" checked onClick="document.getElementById('is55plusdiv').style.display='none';" /><span class="rbmark"></span>Yes</label>
+		<label for="isemployed2" class="cbcontainer"><input type="radio" name="isemployed" id="isemployed2" value="n"  onClick="document.getElementById('is55plusdiv').style.display='block';" /><span class="rbmark"></span>No</label>
+	</div>
+	<div style="padding: 5px 0px; display:none;" id="is55plusdiv">
+		Were you 55 or older when you left employment?
+		<div style="text-align:center;">
+			<label for="is55plus1" class="cbcontainer"><input type="radio" name="is55plus" id="is55plus1" value="y"  /><span class="rbmark"></span>Yes</label>
+			<label for="is55plus2" class="cbcontainer"><input type="radio" name="is55plus" id="is55plus2" value="n" checked /><span class="rbmark"></span>No</label>
+		</div>
+	</div>
+</td></tr>
+<tr><td colspan="2">
+	<div style="padding: 5px 0px;">Do you have a qualifying disability?
+		<div style="text-align:center;">
+		<label for="isdisabled1" class="cbcontainer"><input type="radio" name="isdisabled" id="isdisabled1" value="y"  /><span class="rbmark"></span>Yes</label>
+		<label for="isdisabled2" class="cbcontainer"><input type="radio" name="isdisabled" id="isdisabled2" value="n" checked /><span class="rbmark"></span>No</label>
+		</div>
+	</div>
+</td></tr>
+<tr><td colspan="2">
+	<div style="padding: 5px 0px;">Do you qualify for other penalty exemptions?
+		<div style="text-align:center;">
+		<label for="isexempt1" class="cbcontainer"><input type="radio" name="isexempt" id="isexempt1" value="y"  /><span class="rbmark"></span>Yes</label>
+		<label for="isexempt2" class="cbcontainer"><input type="radio" name="isexempt" id="isexempt2" value="n" checked /><span class="rbmark"></span>No</label>
+		</div>
+	</div>
+</td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input type="hidden" name="type" value="2">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.f401k2);">
+</td></tr>
+</table></form>
+
+<a name="maximizematch"></a>
+<br><h2>Maximize Employer 401(k) Match Calculator</h2>
+<p>Contribution percentages that are too low or too high may not take full advantage of employer matches. If the percentage is too high, contributions may reach the IRS limit before the end of the year. As a result, employers will not match for the rest of the year. This calculation can show the contribution percentage window in order to take full advantage of the employer's matching contributions.</p>
+<form name="f401k3" action="/401k-calculator.html#maximizematch">
+<table class="panel" align="center">
+<tr><td>Current age</td><td align="right"><input type="text" name="age" value="30" class="inlong"></td></tr>
+<tr><td>Current annual salary</td><td align="right"><input type="text" name="income" id="income2" value="75000" class="inlong indollar"></td></tr>
+<tr><td>Employer match 1</td><td align="right"><input type="text" name="ematch" value="50" class="inlong inpct"></td></tr>
+<tr><td>Employer match 1 limit</td><td align="right"><input type="text" name="ematchend" value="3" class="inlong inpct"></td></tr>
+<tr><td>Employer match 2</td><td align="right"><input type="text" name="ematch2" value="20" class="inlong inpct"></td></tr>
+<tr><td>Employer match 2 limit</td><td align="right"><input type="text" name="ematchend2" value="6" class="inlong inpct"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input type="hidden" name="type" value="3">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.f401k3);">
+</td></tr>
+</table></form>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("income");
+proComma2("balance");
+proComma2("withdrawamt");
+proComma2("income2");
+</script>
+
+<br><p><fieldset><legend>Related</legend><a href="/retirement-calculator.html">Retirement Calculator</a> | <a href="/roth-ira-calculator.html">Roth IRA Calculator</a> | <a href="/annuity-payout-calculator.html">Annuity Payout Calculator</a></fieldset></p>
+
+<br>
+<h3>401(k) Information</h3>
+<p>A 401(k) is a form of retirement savings plan in the U.S. with tax benefits that are mainly available through an employer. It is named after subsection 401(k) in the Internal Revenue Code, which was made possible by the Revenue Act of 1978. Self-directed 401(k)s exist for people who can't participate in employer-sponsored 401(k)s. Contributions to a 401(k) are made as pre-tax deductions during payroll, and the dividends, interest, and capital gains of the 401(k) all benefit from tax deferment. This means that assets in a 401(k) grow tax-free and won't be taxed until a later point, usually during retirement. Employees, sometimes called plan participants, can contribute a certain percentage of their pre-tax salaries to their 401(k) plans. However, in addition to the annual limit set by the IRS, it is possible for employers to set limits on the percentage of their paychecks that employees can contribute. In addition, as part of a 401(k) plan, employers can choose to match employee contributions, usually up to a certain percentage of the employee's paycheck. The IRS contribution limit increases along with the general cost-of-living increase due to inflation. The 2025 deferral limit for 401(k) plans was $23,500, the 2026 limit is $24,500.</p>
+
+<h3>General Pros and Cons of a 401(k)</h3>
+<p><b>Pros</b></p>
+<ul>
+	<li>Tax-deferred growth&ndash;Similar to traditional IRAs or deferred annuities, growth of investments with a 401(k) are tax-deferred, which means earnings on interest, dividends, or capital gains accumulate tax-free. This gives these retirement plans an advantage over other methods of saving for retirements, such as cash, active investing accounts, or real estate.</li>
+	<li>Employer matching&ndash;401(k)s are known for often including an employer matching program. A survey has shown that 43% of employees would prefer to take a pay cut for a higher employer contribution to their 401(k)s, rather than the other way around. Experts have likened the aspect of employer matching of 401(k)s to "free money" or "pay raises" that should never be left on the table. Different employers use different methods of matching, such as a percentage of salary up to certain levels, or as a percentage of contributions up to a certain limit.</li>
+	<li>Tax-deductible&ndash;Contributions to traditional IRAs and other retirement plans may or may not be tax-deductible, as they can depend on tax brackets and other retirement plans in which an employee may be involved. On the other hand, contributions to a 401(k), both from employees and employers, are always tax-deductible because they reduce taxable income, lowering total taxes owed.</li>
+	<li>High contribution limits&ndash;401(k)s have relatively high annual contribution limits. For 2026, the limit is $24,500 for those under 50, $32,500 for those over 50, and $35,750 for those aged 60 to 63. In contrast, the combined annual IRA limit is $7,500 for those under 50, and $8,600 for those above 50.</li>
+	<li>Creditor protection&ndash;401(k) funds are generally protected from bankruptcy. This is also the reason why it is normally not recommended to use 401(k) funds to avoid foreclosure, pay off debt, or start a business.</li>
+</ul>
+<p><b>Cons</b></p>
+<ul>
+	<li>Few investment options&ndash;Generally speaking, 401(k)s have few investment options; because they normally originate from employers, they are limited to what is offered through employers' 401(k) plans, as compared to a typical, taxable brokerage account.</li>
+	<li>High fees&ndash;Compared to other forms of retirement savings, 401(k) plans charge higher fees, sometimes as a percentage of funds. This is mainly due to administration costs. Plan participants have little or no control over this, except to choose low-cost index funds or exchange-traded funds (ETFs) to compensate.</li>
+	<li>Illiquid&ndash; 401(k) funds can only be withdrawn without penalty in rare cases before 59 &#189;. This includes all contributions and any earnings over time.</li>
+	<li>Vesting periods&ndash;Employers may utilize vesting periods, meaning that employer contributions don't fully belong to employees until after a set point in time. For instance, if an employee were to part ways with their employer and a 401(k) plan that they were 50% vested in, they can only take half of the value of the assets contributed by their employer.</li>
+	<li>Waiting periods&ndash;Some employers don't allow participation in their 401(k)s until after a waiting period is over, usually to reduce employee turnover. 6 month waiting periods are fairly common, while a one-year waiting period is the longest waiting period permitted by law.</li>
+</ul>
+
+<h3>A 401(k) is a Defined Contribution Plan</h3>
+<p>Unlike a defined benefit plan (DBP), also known as a pension plan, which is based on formulas for determining retirement withdrawals, defined contribution plans (DCPs) allow their participants to choose from a variety of investment options. DCPs, 401(k)s in particular, have been gaining in popularity as compared to DBPs. Today, the 401(k) defined contribution pension plan is the most popular private-market retirement plan. The shift in the choice between DBPs and DCP can be attributed to a number of reasons, one of which is the projected length of time a person is likely to stay with a company. In the past, it was more common for a person to stay with a company for several decades, which made DBPs ideal since deriving the most value out of a DBP required a person to stay with their company for 25 years or more. However, this is no longer the case today, as the workforce turnover rate is much higher. DCPs are highly mobile in comparison to DBPs, and their values do not drop when a person switches companies. When an employee with a 401(k) plan changes employers, they generally have the option to:</p>
+<ol>
+	<li>Leave their assets in their previous employer's 401(k) plan</li>
+	<li>Rollover their previous 401(k) to their new employer's 401(k) plan</li>
+	<li>Rollover their old 401(k) to an Individual Retirement Account (IRA)</li>
+	<li>Cash-out their 401(k), but pay taxes and a 10% penalty</li>
+</ol>
+<p>Keep in mind that different employers may have rules regarding what is permissible. In general, 401(k) rollovers can only be requested once every twelve months. For more information about DBPs, DCPs, or to do calculations involving pension plans, please visit the <a href="/pension-calculator.html">Pension Calculator</a>.</p>
+
+<h3>401(k) Investments</h3>
+<p>In general, most 401(k) offerings allow an individual to invest in a variety of portfolios. These vary between mutual funds, index funds, or exchange-traded funds, all of which have an assorted mixture of stocks, bonds, international market equities, treasuries, and much more. All have different pros and cons. The above options usually provide slow and steady growth of assets over time. Automated portfolios that adjust exposure to risk based on projected retirement age, such as target retirement funds, are also common. Participants who want to use their 401(k) retirement funds to actively invest in individual stocks can do so if their plan is set up a certain way. If permitted by plan administrators, investors can transition an employer plan to a self-directed 401(k) or roll a 401(k) into an IRA, which, as a form of saving for retirement, is less stringent with investment options.</p>
+
+<h3>Employer Match</h3>
+<p>A 401(k) match is an employer's percentage match of a participating employee's contribution to their 401(k) plan, usually up to a certain limit denoted as a percentage of the employee's salary. There can be no match without an employee contribution, and not all 401(k)s offer employer matching.</p>
+<p>As an example, an employer that matches 50% of an employee's contribution for up to 6% of their salary would contribute a maximum of 3% of the employee's salary to the employee's 401(k). Another common matching scheme is a dollar-for-dollar employer match, up to a certain percentage of salary.</p>
+<p>Taking full advantage of an employer's match by contributing to a 401(k) can make even more financial sense than the opportunity cost of many other things, such as paying off high-interest debt. To illustrate, a 401(k) that matches 100% of contributions up to a certain amount generates an immediate 100% return on investment for the contributor (even more if considering tax-deferred growth over time), which is pretty hard to beat!</p>
+<p>Employers mainly offer 401(k) matches in order to attract and retain a talented workforce and to incentivize saving for retirement. Annual contributions to an employee's account cannot exceed the lesser of 100% of the participant's compensation, or $72,000 in 2026. Contributions from both employee and employer go into 401(k) plans untaxed, and the funds grow tax-free over time. The funds are taxed when withdrawn from a presumably advantageous standpoint since retired account holders are most likely in lower tax brackets than they were while working.</p>
+
+<p><b>401(k) Vesting Periods</b></p>
+<p>Some employers require a vesting period for their 401(k) plans in order to incentivize employees to stay long-term. Vesting refers to how much of a 401(k)'s employer contributions are owned by an employee. An employee that is fully vested has full ownership of the funds in their retirement plan. Unlike employer matches, employee contributions are always 100% vested.</p>
+<p>A 4-year vesting period is fairly common. After the first year of employment, an employee is entitled to 25% of employer contributions even if they leave the company. This increases to 50% in the second year and 75% in the third year, with the employee becoming fully vested after 4 years. This is referred to as graded vesting. Some companies do not have schedules that increase vested amounts each year, but instead allow employees to become fully vested after a certain period of time. This is called cliff vesting, which means all of the vestings take place at a certain point in the vesting schedule. In this case, an employee that leaves a company before becoming fully vested will have to forfeit all employer contributions. Different 401(k) plans have different rules regarding vesting. For more accurate information, it is best to speak with human resources or 401(k) plan administrators.</p>
+
+<h3>Early Withdrawal</h3>
+<p>Contributions and their subsequent interest earnings as part of a 401(k) plan cannot be withdrawn without penalty before the age of 59 &#189;. In some cases (described below), exceptions are made, and early withdrawals are permitted. Under these circumstances, early 401(k) withdrawals are still subject to ordinary income taxes, but not the 10% penalty.</p>
+
+<p><b>401(k) Hardship Withdrawal</b></p>
+<p>Some 401(k) plans allow for withdrawals if there is proof of hardship. In order to qualify, a person must submit substantial proof of hardship to administrators who will decide whether or not to grant a withdrawal. A hardship withdrawal cannot be returned to an account once a disbursement is made. Not all employers or plan administrators offer hardship withdrawals. Some of the conditions under which an early withdrawal might be granted are listed below:</p>
+<ul>
+	<li>Unexpected, unreimbursed medical expenses, or medical expenses that exceed 7.5% of adjusted gross income</li>
+	<li>Costs related to the purchase of a principal residence</li>
+	<li>Post-secondary tuition and education expenses for the next 12 months</li>
+	<li>Expenses to prevent foreclosure on or eviction from the participant's home</li>
+	<li>Burial or funeral expenses</li>
+	<li>Expenses for the repair of damage to a principal residence</li>
+</ul>
+<p><b>Non-Financial Hardship Withdrawal</b></p>
+<p>Not all early withdrawals have to be classified as financial hardship in order to be granted. Examples of these include the account holder:</p>
+<ul>
+	<li>passing away resulting in the account being paid to their beneficiary</li>
+	<li>having a qualifying disability</li>
+	<li>terminating employment when they are at least 55 years old</li>
+	<li>withdrawing an amount less than what is allowable as a medical expense deduction</li>
+	<li>withdrawing an amount that is related to qualified domestic relations orders, such as a court order to provide money to a divorced spouse, a child, or a dependent</li>
+	<li>beginning substantial equal periodic payments. See IRS rule 72(t) for more information</li>
+</ul>
+<p>It is important to consider the true costs of taking an early distribution from a 401(k). Taxes, penalties, and the reduction of assets that enjoy compounding, tax-deferred growth within the 401(k) should all be considered.</p>
+
+<h3>401(k) Distributions in Retirement</h3>
+<p>Anyone older than 59 &#189; can begin receiving distributions from their 401(k)s, but they can also choose to defer receiving distributions to allow more earnings to accumulate. Distributions can be deferred, at the latest, until the age of 73 (72 if you reach age 72 before Dec. 31, 2022). Between the ages of 59 &#189; and 73, participants have several options:</p>
+
+<p><b>Option 1: Receive Distributions</b></p>
+<p>Distributions can be received in the form of either a lump sum or in installments. A lump-sum distribution allows a person to receive all of their 401(k) funds immediately, but forfeits the benefits of tax-deferred compounding while also incurring income tax on the distribution on the year it is withdrawn, which can be a significant amount.</p>
+<p>Installment plans allow a person to receive a set amount from their 401(k) periodically. The payment amounts can be typically changed once a year, but certain plans allow for more frequent changes. When choosing the installment option, one of the hardest decisions to make is exactly how much to withdraw each month or year. There are many factors to consider, such as life expectancy, investment performance, how much a person may need to live comfortably, and Social Security. A common rule of thumb is the 4% rule, which suggests withdrawing 4% annually. Note that each distribution must be at least the required minimum distribution (RMD) in order to avoid a penalty. RMD is calculated based on life expectancy and the account balance at the end of the previous year.</p>
+
+<p><b>Option 2: Rollover</b></p>
+<p>It is also possible to roll over a 401k to an IRA or another employer's plan. No taxes will be imposed on rollovers. Both Roth and traditional IRAs generally offer more investment options. Moving after-tax money into a Roth IRA can help diversify retirement portfolios. Keep in mind that traditional IRAs also require minimum distributions at age 73.</p>
+
+<p><b>Option 3: Annuity</b></p>
+<p>Some plans allow 401(k)s to be converted into annuities, which are usually offered through private insurance companies. Similar to rollovers, no taxes will be imposed on conversions. The annuity will pay a monthly benefit for the duration of the owner's projected life expectancy. If a joint-and-survivor annuity is involved, the primary account holder and the designated beneficiary will receive monthly payments for the duration of both their expected lifetimes.</p>
+
+<p><b>Option 4: Do Nothing</b></p>
+<p>The distribution of funds can be postponed if the retiree wants to take advantage of the benefits of tax-deferred compounding for as long as possible. This is possible up until the age of 73, after which the government will require mandatory annual distributions.</p>
+
+<h3>Required Minimum Distributions</h3>
+<p>Anyone that reaches age 73 (72 if you reach age 72 before Dec. 31, 2022) is required to take distributions from their 401(k). This is called a required minimum distribution (RMD). Traditional, SIMPLE, and SEP IRAs have similar rules imposed by the IRS. The exact date at which RMDs are required is April 1st of the year after a retiree reaches the age of 73. In order to determine the exact amount, retirees can take their 401(k) retirement assets and divide it by a life-expectancy factor, which changes slightly every year.</p>
+<p>The federal penalty for not taking the RMD is a 50% tax on any amount not withdrawn in time. The amount of the required distribution is based on the prior year's December 31st account balance and an IRS life expectancy chart. In some cases, a person who has not withdrawn the necessary amount can attempt to avoid the penalty by withdrawing the shortfall immediately, filing Form 5329 with the IRS, and providing valid reasons as to why the deadline was missed. The IRS may forgive the missed withdrawal.</p>
+<p>There is one exception to the RMD rule: any employee with an employer-sponsored 401(k) when they turn 73 can get out of the RMD as long as they remain employed. This is only if their plan doesn't mandate RMDs and they don't own 5% or more of the company. However, as soon as they retire from the company, they will be subject to RMDs.</p>
+
+<h3>Self-Directed 401(k)</h3>
+<p>A self-directed (SD) 401(k), sometimes called a solo 401(k), is a way for self-employed individuals to participate in a 401(k) plan. Although their purpose is aimed specifically at the self-employed, SD 401(k)s can also be offered to employees as an alternative to a traditional 401(k) plan through their employers, though it is uncommon.</p>
+<p>For the most part, SD 401(k)s share the same characteristics as traditional 401(k)s, including:</p>
+<ul>
+	<li>Tax-deferred contributions</li>
+	<li>Specific contribution and distribution amounts</li>
+	<li>Early withdrawals penalty before 59 &#189;</li>
+	<li>Required minimum distributions after 73 (72 if you reach age 72 before Dec. 31, 2022)</li>
+</ul>
+<p>The main benefit of a solo 401(k) is that, for the most part, they can legally be used to invest in almost anything, which can include real estate, tax liens, precious metals, foreign currency, or even money lending. Keep in mind that there may be limits on types of investments as set by individual plans. The ability to expand investment horizons is one of the SD 401(k)'s main features.</p>
+<p>SD 401(k)s allow plan participants to borrow from their funds as personal loans for any reason, such as for credit card debt, mortgage payments, investments, or even a vacation. The limit is usually up to 50% of their account value, or $50,000, whichever is less.</p>
+
+<h3>Roth 401(k)</h3>
+<p>The Roth 401(k) is somewhat different from the traditional 401(K) as a retirement savings plan. It combines some features of the traditional 401(k) along with some features of the Roth IRA. The main difference is the timing of taxation. Similar to Roth IRAs, Roth 401(k)s are retirement plans that utilize after-tax contributions instead of pre-tax income. What this means is that taxes are paid upfront, and during retirement, qualified withdrawals are tax-free. The same annual contribution limits for 2026 still apply: $24,500 for individuals under 50, $32,500 for those aged 50 or older, and $35,750 for those aged 60 to 63.</p>
+<p>However, unlike the Roth IRA, contributions can't be withdrawn from a Roth 401(k) without penalty until five years after the plan starts, while a Roth IRA's contributions (not earnings) can be withdrawn at any time. This rule for the Roth 401(k) applies even after the age of 59 &#189;, when tax-free distributions are generally allowed. Also, unlike the Roth IRA, it has required minimum distributions (RMD) at age 73, though at that stage, a Roth 401(k) could be rolled into a Roth IRA to avoid RMDs, without any tax penalty. The ability to withdraw contributions at any time, penalty and tax-free, as well as not having an RMD are two significant advantages of a Roth IRA that are missing in Roth 401(k)s.</p>
+<p>It is possible to contribute to both forms of 401(k) simultaneously, as long as the sum of contributions is still within the annual contribution limits, similar to the treatment of the sums of traditional and Roth IRA annual contributions.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Hours Calculator</title>
+	<meta name="description" content="This hours calculator computes the number of hours and minutes between two times. A full version can calculate the hours between two times on different dates." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
+</head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/hours-calculator.html" itemprop="item"><span itemprop="name">hours calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Hours Calculator</h1>
+<p>Use the calculators below to find the number of hours and minutes between two times. For a full time card, please use the <a href="/time-card-calculator.html">Time Card Calculator</a>.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform" action="/hours-calculator.html">
+<table class="panel" >
+  <tr>
+		<td>Start Time:</td>
+		<td><input type="text" name="starttime" value="8:30" class="inlong"></td>
+		<td><select name="startunit">
+			<option value="a" selected>AM</option>
+			<option value="p" >PM</option>
+			</select>
+			<a href="#" onClick="return popEndTime('calform', 'starttime', 'startunit');">Now</a>
+		</td>
+		<td rowspan="2"><img src="/img/svg/swap.svg" width="18" height="18" alt="swap" onClick="return swapStaEnd();"></td>
+	</tr>
+	<tr>
+		<td>End Time:</td>
+		<td><input type="text" name="endtime" value="5:30" class="inlong"></td>
+		<td><select name="endunit">
+			<option value="a" >AM</option>
+			<option value="p" selected>PM</option>
+			</select>
+			<a href="#" onClick="return popEndTime('calform', 'endtime', 'endunit');">Now</a>
+		</td>
+	</tr>
+  <tr>
+  	<td align="center" colspan="4" style="padding-top:10px;">
+  		<input type="hidden" name="ctype" value="1">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+  	</td>
+  </tr>
+</table></form>
+<a name="twodates"></a><br>
+<h2>Hours Between Two Dates</h2>
+<form name="calform2" action="/hours-calculator.html#twodates">
+<table class="panel" >
+  <tr>
+		<td align="right" valign="top" style="padding-top:10px;">Start Time:</td><td valign="middle"><script>DateInput('today', true)</script>		<div style="padding-left:3px;padding-bottom:10px;"><input type="text" name="starttime2" value="8:30" class="inlong">
+		<select name="startunit2">
+			<option value="a" selected>AM</option>
+			<option value="p" >PM</option>
+		</select> <a href="#" onClick="return popEndTime('calform2', 'starttime2', 'startunit2');">Now</a></div>
+		</td>
+  </tr>
+  <tr>
+		<td align="right" valign="top" style="padding-top:10px;">End Time:</td><td valign="middle"><script>DateInput('ageat', true)</script>		<div style="padding-left:3px;"><input type="text" name="endtime2" value="5:30" class="inlong">
+		<select name="endunit2">
+			<option value="a" >AM</option>
+			<option value="p" selected>PM</option>
+		</select> <a href="#" onClick="return popEndTime('calform2', 'endtime2', 'endunit2');">Now</a></div>
+		</td>
+  </tr>
+  <tr>
+  	<td align="center" colspan="2" style="padding-top: 10px;">	   	<input type="hidden" name="ctype" value="2">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+    </td>
+  </tr>
+</table></form>
+<script>
+function popEndTime(petForm, petInput, petSelect){
+  var petDate = new Date();
+  var petHour = petDate.getHours();
+  var petMinute = petDate.getMinutes();
+  var strVal = ""+petHour;
+  if (petHour>12) strVal = ""+(petHour-12);
+  if (petMinute<10){
+  	strVal += ":0"+petMinute;
+  }else{
+  	strVal += ":"+petMinute;
+  }
+  eval("document."+petForm+"."+petInput+".value = '"+strVal+"';");
+  if (petHour<12){
+	  eval("document."+petForm+"."+petSelect+".getElementsByTagName('option')[0].selected = 'selected';");
+  }else{
+	  eval("document."+petForm+"."+petSelect+".getElementsByTagName('option')[1].selected = 'selected';");
+  }
+	return false;
+}
+function swapStaEnd(){
+	var tempS = document.calform.starttime.value;
+	var tempSu = document.calform.startunit.value;
+	document.calform.starttime.value = document.calform.endtime.value;
+	if ('a'==document.calform.endunit.value){
+		document.calform.startunit.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		document.calform.startunit.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	document.calform.endtime.value = tempS;
+	if ('a'==tempSu){
+		document.calform.endunit.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		document.calform.endunit.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	return false;
+}
+
+
+
+</script>
+
+<br><p><fieldset><legend>Related</legend><a href="/time-card-calculator.html">Time Card Calculator</a> | <a href="/time-calculator.html">Time Calculator</a></fieldset></p>
+
+<br>
+
+<p>An hour is most commonly defined as a period of time equal to 60 minutes, where a minute is equal to 60 seconds, and a second has a rigorous scientific definition. There are also 24 hours in a day. Most people read time using either a 12-hour clock or a 24-hour clock.</p>
+<p><b>12-hour clock:</b></p>
+<p>A 12-hour clock uses the numbers 1-12. Depending on the clock being used, most analog clocks or watches may not include an indication of whether the time is in the morning or evening. On digital clocks and watches, "AM" stands for ante meridiem, meaning "before midday," while "PM" stands for post meridiem, or "after noon." By convention, 12 AM denotes midnight, while 12 PM denotes noon. Using the terms "12 midnight" and "12 noon" can remove ambiguity in cases where a person may not be accustomed to conventions.</p>
+<p><b>24-hour clock:</b></p>
+<p>A 24-hour clock typically uses the numbers 0-23, where 00:00 indicates midnight, and a day runs from midnight to midnight over the course of 24 hours. This time format is an international standard, and is often used to avoid the ambiguity resulting from the use of a 12-hour clock. The hours from 0-11 denote what would be the AM hours on a 12-hour clock, while hours 12-23 denote the PM hours of a 12-hour clock. In certain countries, 24-hour time is referred to as military time, since this is the time format used by militaries (and other entities) around the world, where unambiguous time measurement is particularly important.</p>
+
+
+<br>
+<p><b>Hours in different time periods</b></p>
+<table class="cinfoT"><tbody><tr><td class="cinfoHd">Description</td><td class="cinfoHdL">Hours</td></tr>
+<tr><td valign="top">Hours in a day</td><td>24</td></tr>
+<tr><td valign="top">Hours in a week</td><td>168</td></tr>
+<tr><td valign="top">Hours in a month</td><td>672 for a 28-day month<br>696 for a 29-day month<br>720 for a 30-day month<br>744 for a 31-day month<br>730.5 on average</td></tr>
+<tr><td valign="top">Hours in a year</td><td>8,760 for a 365-day year<br>8,784 for a 366-day year<br>8,766 on average</td></tr>
+<tr><td valign="top">Hours in a decade</td><td>87,648 for a 2-leap-year decade<br>87,672 for a 3-leap-year decade<br>87,660 on average</td></tr>
+<tr><td valign="top">Hours in a century</td><td>876,600</td></tr>
+</table>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

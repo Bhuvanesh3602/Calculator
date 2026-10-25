@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Molarity Calculator</title>
+	<meta name="description" content="This free molarity calculator determines any of the four variables in the molarity equation, given the other three." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/molarity-calculator.html" itemprop="item"><span itemprop="name">molarity calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Molarity Calculator</h1>
+<p>Please provide any three values in the fields below to calculate the fourth value in the molarity equation:</p>
+<p style="text-align:center;">Molarity = <span class="frac"><span class="fracnum">Mass</span><span class="fracden">Molecular Weight &#215; Volume</span></span></p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calcf" action="/molarity-calculator.html">
+<table cellpadding="0" cellspacing="0" >
+<tr><td>
+<table class="panel">
+	<tr>
+		<td align="right">Mass</td><td>			<input type="text" name="cmass" id="cmass" value="100" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cmassdis"></span>
+		</td><td>
+<select name="cmassunit" id="cmassunit" >
+<option value="t" >t [metric ton]</option>
+<option value="kg" >kg [kilogram]</option>
+<option value="g" selected>g [gram]</option>
+<option value="mg" >mg [miligram]</option>
+<option value="ug" >&mu;g [microgram]</option>
+<option value="Da" >Da [atomic mass unit]</option>
+<option value="lb" >lb [pound]</option>
+<option value="oz" >oz [ounce]</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Molecular Weight</td><td>			<input type="text" name="cmw" id="cmw" value="58.44" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cmwdis"></span>
+		</td><td>
+<select name="cmwunit" >
+<option value="gm" selected>g/mol [gram/mole]</option>
+<option value="kgm" >kg/mol [kilogram/mole]</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Volume</td><td>			<input type="text" name="cvolume" id="cvolume" value="2" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cvolumedis"></span>
+		</td><td>
+<select name="cvolumeunit" >
+<option value="m" >m&sup3; [cubic meter]</option>
+<option value="cm" >cm&sup3; [cubic centimeter]</option>
+<option value="mm" >mm&sup3; [cubic milimeter]</option>
+<option value="L" selected>L [liter]</option>
+<option value="mL" >mL [milliliter]</option>
+<option value="gal" >gal [US gallon]</option>
+<option value="qt" >qt [US quart]</option>
+<option value="pt" >pt [US pint]</option>
+<option value="c" >c [US cup]</option>
+<option value="fl oz" >fl oz [US fluid ounce]</option>
+<option value="yd" >yd&sup3; [cubic yard]</option>
+<option value="ft" >ft&sup3; [cubic foot]</option>
+<option value="in" >in&sup3; [cubic inch]</option>
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Concentration</td><td>			<input type="text" name="cconcentration" id="cconcentration" value="" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');"><span id="cconcentrationdis"></span>
+		</td><td>
+<select name="cconcentrationunit" >
+<optgroup label="molarity">
+<option value="M" selected>M [molar, mole/liter]</option>
+<option value="mM" >mM [millimolar, millimole/liter]</option>
+<option value="uM" >&mu;M [micromolar, micromole/liter]</option>
+<option value="nM" >nM [nanomolar, nanomole/liter]</option>
+<option value="molm" >mol/m&sup3; [mole/cubic meter]</option>
+</optgroup>
+<optgroup label="mass concentration">
+<option value="kgl" >kg/L [kilogram/liter]</option>
+<option value="gl" >g/L [gram/liter]</option>
+<option value="mgl" >mg/L [miligram/liter]</option>
+<option value="ppm" >ppm [parts per million]</option>
+<option value="ppb" >ppb [parts per billion]</option>
+<option value="kgm" >kg/m&sup3; [kilogram/cubic meter]</option>
+<option value="gm" >g/m&sup3; [gram/cubic meter]</option>
+</optgroup>
+</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="3" align="center" style="padding-top:10px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf);">
+		</td>
+	</tr>
+</table>
+</td></tr></table></form>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/molecular-weight-calculator.html">Molecular Weight Calculator</a></fieldset></p>
+<br>
+
+<p>Molarity (M), also referred to as molar concentration, is a measure of the amount of a given substance per unit volume of a solution. It is typically measured in units of mol/L, which is often abbreviated as simply M. More specifically, in the context of a solute in solution, molarity is defined as the number of moles of solute per liter of solution. Molarity plays a critical role in laboratory experiments, pharmaceutical preparations, and industrial chemical processes.</p>
+<p>The formula for molarity is,</p>
+
+
+<p style="text-align:center;">M = <span class="frac"><span class="fracnum">n</span><span class="fracden">V</span></span></p>
+<p>where:</p>
+<ul>
+	<li>M is the molarity of the solution (mol/L),</li>
+	<li>n is the number of moles of solute (mol),</li>
+	<li>V is the volume of the solution (L).</li>
+</ul>
+<div class="panel">
+	<b>Example:</b><br>
+	If you dissolve 2 moles of sodium chloride (NaCl) in 1 liter of water, what is the molarity of the solution?
+	<p style="text-align:center;">M = <span class="frac"><span class="fracnum">n</span><span class="fracden">V</span></span> = <span class="frac"><span class="fracnum">2 mol</span><span class="fracden">1 L</span></span> = 2 M</p>
+	<p>This means the sodium chloride solution has a concentration of 2 M (2 moles per liter).</p>
+</div><br>
+<div class="panel">
+	<b>Example:</b><br>
+	<p>If you have a 1 M solution of hydrochloric acid (HCl) and need 0.5 moles of HCl, what volume of solution is required?</p>
+	<p style="text-align:center;">V = <span class="frac"><span class="fracnum">n</span><span class="fracden">M</span></span> = <span class="frac"><span class="fracnum">0.5 mol</span><span class="fracden">1 M</span></span> = 0.5 L</p>
+	<p>So, 0.5 liters (or 500 mL) of the 1 M HCl solution is required to obtain 0.5 moles of HCl.</p>
+</div>
+
+<h3>Measuring molarity using molecular weight</h3>
+<p>Often, we may not know the number of moles of solute directly and instead are given the mass of the solute. Given the mass of the solute, we can calculate the number of moles of solute by dividing the mass of the solute by its molecular weight. Note that for this calculator, we use the term "molecular weight" because it is generally accepted to be equivalent to the term molar mass, especially when the molecular weight is in units of g/mol. However, the exact definition of molecular weight is not quite equivalent to molar mass, and molar mass is the more correct term. At the bottom of this page, we will provide some disambiguation regarding many of the terms used in the context of molarity.</p>
+<p>Molar mass is the mass of one mole of a substance, typically expressed in grams per mole (g/mol). The formula to calculate molarity using molecular weight is,</p>
+
+<p style="text-align:center;">M = <span class="frac"><span class="fracnum"><span class="frac"><span class="fracnum">m</span><span class="fracden">MW</span></span></span><span class="fracden">&nbsp; &nbsp; V &nbsp; &nbsp;</span></span> = <span class="frac"><span class="fracnum">m</span><span class="fracden">MW&#215;V</span></span></p>
+
+<p>Where:</p>
+<ul>
+	<li>M is the molarity (mol/L),</li>
+	<li>m is the mass of the solute (g),</li>
+	<li>MW is the molecular weight of the solute (g/mol),</li>
+	<li>V is the volume of the solution (L).</li>
+</ul>
+
+<div class="panel">
+	<b>Example:</b><br>
+Suppose you have 10 grams of sodium chloride (NaCl) and dissolve it in water to form a solution of 500 mL (0.5 L). The molecular weight of NaCl is 58.44 g/mol. To find the molarity of the solution:
+
+<p style="text-align:center;">M = <span class="frac"><span class="fracnum">m</span><span class="fracden">MW&#215;V</span></span> = <span class="frac"><span class="fracnum">10 g</span><span class="fracden">58.44 g/mol &#215; 0.5 L</span></span> = 0.342 M</p>
+<p>Thus, the molarity of the sodium chloride solution is 0.342 M.</p>
+</div><br>
+<div class="panel">
+	<b>Example:</b><br>
+Suppose you need to prepare 2 liter of a 1 M solution of potassium nitrate (KNO<sub>3</sub>). The molecular weight of KNO<sub>3</sub> is 101.1 g/mol. How much potassium nitrate should you weigh out?
+First, rearrange the molarity equation to solve for the mass of solute m:
+<p style="text-align:center;">m = M&#215;MW&#215;V = 1 M &#215; 101.1 g/mol &#215; 2 L = 202.2 g</p>
+<p>So, you need to weigh out 202.2 grams of potassium nitrate to make 2 liter of a 1 M solution.</p>
+</div>
+
+
+<h3>Disambiguation of terminology</h3>
+<p>When dealing with molarity, there are many different terms used. Some of the terms used, while accepted for general use, are not exactly the same. In particular, "molecular weight" is often used interchangeably with "molar mass," but the two are not actually the same. Here we will do our best to define these terms and hopefully clear up any confusion.</p>
+<p><b>Molarity</b>&mdash;the number of moles of a solute per liter of solution.</p>
+<p><b>Molar concentration</b>&mdash;equivalent to molarity.</p>
+<p><b>Moles</b>&mdash;unit of measurement in the International System of Units. It measures the amount of a substance. One mole has 6.02214076 &#215; 10<sup>23</sup> particles (Avogadro number).</p>
+<p><b>Solvent</b>&mdash;the substance in a solution that is present in the largest quantity. A solvent dissolves a solute. Water is a common solvent.</p>
+<p><b>Solute</b>&mdash;a solute is any substance mixed into a solvent. A solute can be comprised of gases, liquids, or solids.</p>
+<p><b>Solution</b>&mdash;a liquid or solid mixture in which one or more solutes are dissolved by a solvent.</p>
+<p><b>Molar mass</b>&mdash;the mass of 1 mole of a substance, typically expressed in g/mol.</p>
+<p><b>Molecular weight</b>&mdash;commonly used interchangeably with molar mass, but is most accurately defined as relative molecular mass: the unitless ratio of the mass of a molecule to the atomic mass constant, which is equal to one dalton. Currently, after the redefinition of SI quantities in 2019, molecular weight varies very slightly from molar mass numerically. In the past, they were numerically equivalent, but with different units.</p>
+<p><b>Molecular mass</b>&mdash;the mass of a given molecule, typically in units of daltons (Da). Relative molecular mass is very close numerically to molar mass, but it takes into account the masses of each nuclide in a molecule, while molar mass uses the standard atomic weights of each element.</p>
+<p>Although molar mass, molecular weight, and molecular mass are not exactly the same, in less formal contexts where the units and quantities do not have to be absolutely correct, they can be used largely interchangeably. The main point here is to realize how the terms are being used and in what context. When used in the context of measuring molarity, each of these terms means more or less the same thing.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

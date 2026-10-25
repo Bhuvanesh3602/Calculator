@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="180" height="125" viewBox="0 0 180 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polyline points="16,96 26,96 26,106" style="stroke:blue;stroke-width:1" />
+<polyline points="56.86,31.59 51.05,39.73 59.19,45.54" style="stroke:blue;stroke-width:1" />
+<path d="M27.21 11.72 A15,15 0 0,1 15,18 " style="fill:none;stroke:blue;stroke-width:1" />
+<path d="M151.4 107 A15,15 0 0,1 155.79,93.28 " style="fill:none;stroke:blue;stroke-width:1" />
+<line x1="16" y1="106" x2="66" y2="36" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+<polygon points="15,3 15,107 175,107" style="fill:none;stroke:black;stroke-width:3" />
+<g style="font: 18px Arial, sans-serif; fill: #000;">
+<text x="2" y="65">a</text>
+<text x="85" y="123">b</text>
+<text x="95" y="53">c</text>
+<text x="45" y="79" fill="#4c7b25">h</text>
+<text x="140" y="103" fill="blue" font-size="15px">&#945;</text>
+<text x="20" y="29" fill="blue" font-size="15px">&#946;</text>
+</g>
+</svg>

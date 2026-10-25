@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Electricity Calculator</title>
+	<meta name="description" content="Free electricity calculator to estimate electricity usage as well as cost based on the power requirements and usage of appliances." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/electricity-calculator.html" itemprop="item"><span itemprop="name">electricity calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Electricity Calculator</h1>
+<p>Use the calculator below to estimate electricity usage and cost based on the power requirements and usage of appliances. The amount of time and power that each appliance is used varies significantly between households, so for the best results, adjust the usage for each appliance to most accurately reflect your personal usage.</p>
+<table cellpadding="0" cellspacing="0"><tr><td><form name="calform">
+	<table class="panel">
+		<tr>
+			<td align="right">Typical appliance:</td><td>				<select name="appliance"  onchange="setAppValue(this.value)">
+					<option value="">Define your own</option>
+					<optgroup label="House">
+						<option value="hvac:5:kW:24:hpd:30">Air conditioner (HVAC)</option>
+						<option value="ac:6000:btu:8:hpd:100">Air conditioner (window unit)</option>
+						<option value="heater:5:kW:24:hpd:50">Heater (home)</option>
+						<option value="heater:1500:W:8:hpd:100">Heater (portable)</option>
+						<option value="humidifier:200:W:8:hpd:100">Humidifier</option>
+						<option value="dehumidifier:300:W:8:hpd:100">Dehumidifier</option>
+						<option value="fan:25:W:8:hpd:50"">Fan (ceiling, table)</option>
+						<option value="light:7:W:8:hpd:100">Light bulb (LED)</option>
+						<option value="light:60:W:8:hpd:100">Light bulb (incandescent)</option>
+						<option value="waterheater:4:kW:1.5:hpd:100">Electric water heater</option>
+					</optgroup>
+					<optgroup label="Kitchen">
+						<option value="refrigerator:750:W:24:hpd:20">Refrigerator</option>
+						<option value="oven:2400:W:1:hpd:50">Electric range/oven</option>
+						<option value="cooktop:5000:W:1:hpd:30">Electric cooktop/stove</option>
+						<option value="Microwave:1000:W:10:mpd:75">Microwave oven</option>
+						<option value="Dishwashers:1500:W:1:hpd:60">Dishwashers</option>
+						<option value="Coffee:1000:W:3:hpd:30">Coffee maker</option>
+						<option value="Toaster:1000:W:15:mpd:100">Toaster</option>
+						<option value="kettle:1000:W:30:mpd:100">Electric kettle</option>
+						<option value="cooker:1000:W:45:mpd:50">Electric cooker</option>
+					</optgroup>
+					<optgroup label="Other">
+						<option value="vehicle:10:kW:1.5:hpd:100">Electric vehicle charger</option>
+						<option value="tv:100:W:2:hpd:80">Television</option>
+						<option value="washer:800:W:2:hpw:80">Clothes washer</option>
+						<option value="dryer:3000:W:2:hpw:50">Clothes dryer</option>
+						<option value="iron:1000:W:2:hpw:50">Clothes iron</option>
+						<option value="dryer:1500:W:10:mpd:50">Hair dryer</option>
+						<option value="computer:150:W:10:hpd:30">Desktop computer</option>
+						<option value="Laptop:60:W:10:hpd:30">Laptop computer</option>
+						<option value="phone:15:W:3:hpd:50">Phone</option>
+						<option value="pump:1.5:hp:10:hpd:50">Water pump/motor</option>
+					</optgroup>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Appliance power:</td><td>				<input type="text" name="power" id="power" value="1000" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="powerunit" id="powerunit" >
+					<option value="W">watt [W]</option>
+					<option value="kW">kilowatt [kW]</option>
+					<option value="btu">BTU/hour [BTU/h]</option>
+					<option value="hp">horsepower (metric) [hp]</option>
+					<option value="ton">ton (refrigeration)</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Use/run at:</td><td>				<input type="text" name="capacity" id="capacity" value="100" class="inhalf inpct" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				capacity <img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The percentage of the power actually being used. Most appliances do not run at their full capacity all the time. For example, an AC or oven will use less power to maintain the temperature. A fan may not be used at its full speed. The burners of a cooktop are typically not all used at the same time and at their full power.', '');" onmouseout="tooltip.hide();">
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Usage:</td><td>				<input type="text" name="usage" id="usage" value="24" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				<select name="usageunit" id="usageunit" >
+					<option value="mpd">minutes per day</option>
+					<option value="hpd" selected>hours per day</option>
+					<option value="hpw">hours per week</option>
+					<option value="hpm">hours per month</option>
+					<option value="dpw">days per week</option>
+					<option value="dpm">days per month</option>
+					<option value="dpy">days per year</option>
+					<option value="mpy">months per year</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">Electricity Price:</td><td>				<input type="text" name="price" id="price" value="0.15" class="inhalf indollar" onKeyUp="iptfieldCheck(this, '', 'pn');">
+				per kWh
+			</td>
+		</tr>
+		<tr>
+			<td  colspan="2" align="center" style="padding-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</form>
+</td></tr></table>
+<script>
+function setAppValue(savIn){
+	if (""!=savIn){
+		var appValues = savIn.split(":");
+		if (appValues.length==6){
+			document.getElementById("power").value=appValues[1];
+			document.getElementById("powerunit").value=appValues[2];
+			document.getElementById("usage").value=appValues[3];
+			document.getElementById("usageunit").value=appValues[4];
+			document.getElementById("capacity").value=appValues[5];
+		}
+	}
+}
+</script>
+
+
+
+<br>
+<h3>Units of electricity:</h3>
+<p>One of the most common units of electrical power for appliances is the watt (W). Other common units of power include kilowatts (kW), British thermal units (BTU), horsepower (hp), and tons.</p>
+<p><b>Watts, kilowatts and kilowatt-hours:</b></p>
+<p>Watts (W) is a unit of power used to quantify the rate of energy transfer. It is defined as 1 joule per second. A kilowatt is a multiple of a watt. One kilowatt (kW) is equal to 1,000 watts. Both watts and kilowatts are SI units of power and are the most common units of power used. Kilowatt-hours (kWh) are a unit of energy. One kilowatt-hour is equal to the energy used to maintain one kilowatt of power for one hour. Generally, when discussing the cost of electricity, we talk in terms of energy. Energy (E) and power (P) are related to each other through time (t):</p>
+<p style="text-align:center;">P = E/t</p>
+<p style="text-align:center;">E = Pt</p>
+<p>Electricity is most often measured and paid for based on the number of kilowatt-hours used. The reason that kilowatts-hours are typically used as a measurement of energy rather than watt-hours is simply because of scale: the amount of energy a typical household in the United States uses in a year is on the order of millions of watts, so it is easier to discuss in terms of kilowatt-hours instead.</p>
+<p><b>BTU and BTU/h</b></p>
+<p>British thermal units (BTU) are a measurement of heat used as part of the Imperial and US customary units of measurement. It is defined as the amount of heat that is required to increase the temperature of 1 pound of water by 1 degree Fahrenheit. Heat is a type of energy, so BTU can be directly compared to other measurements of energy such as joules (SI unit of energy), calories (metric unit), and kilowatt-hours (kWh).</p>
+<p style="text-align:center;">1 BTU = 0.2931 watt-hours</p>
+<p style="text-align:center;">1 BTU = 0.0002931 kWh</p>
+<p style="text-align:center;">1 kWh &asymp; 3412 BTU</p>
+<p>BTU/h, BTU per hour, is a unit of power that represents the energy transfer rate of BTU per hour. BTU/h is often abbreviated to just BTU to represent the power of appliances. For example, an AC marked with a label of 12,000 BTU actually has a energy transfer rate of 12,000 BTU per hour.</p>
+<p><b>Horsepower:</b></p>
+<p>Horsepower (hp) is a unit of power most commonly used to reference the output of engines or motors. There are a number of different definitions of horsepower. Two of them are mechanical horsepower and metric horsepower.</p>
+<p style="text-align:center;">1 unit of mechanical horsepower = 745.7 watts</p>
+<p style="text-align:center;">1 unit of metric horsepower = 735.5 watts</p>
+<p>The term "horsepower" was developed by James Watt, who compared the output of steam engines to the power of draft horses based on how many times a horse could turn a mill wheel in an hour.</p>
+<p><b>Ton:</b></p>
+<p>There are many different definitions of a ton that are related to the measurement of weight. In the context of power, the "ton" refers to the ton of refrigeration. The ton of refrigeration is defined as the rate of heat transfer necessary to melt 2,000 pounds (1 short ton) of pure ice at 0&deg;C in 24 hours. It is used mainly in the United States to describe how well refrigerators and air conditioners extract heat.</p>
+<p style="text-align:center;">1 ton &asymp; 3517 watts</p>
+<p style="text-align:center;">1 ton &asymp; 12000 BTU/h</p>
+
+<h3>Amount of energy used by common appliances:</h3>
+<p>Below is a table that shows the estimated energy requirements of various appliances (these values can vary significantly depending on the appliance). It is important to note that the requirements listed on the packaging of an appliance generally reflect the maximum energy requirements of an appliance. Typical usage of the appliance likely results in far lower energy use than stated, so it cannot be calculated directly as power requirement &#215; time.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Common appliances</td><td class="cinfoHdL">Estimated wattage (W)</td></tr>
+	<tr><td colspan="2"><b>Home appliances:</b></td></tr>
+	<tr><td>Air Conditioner (HVAC)</td><td align="center">2500-10000</td></tr>
+	<tr><td>Air conditioner (window unit)</td><td align="center">1500-5000</td></tr>
+	<tr><td>Heater (home)</td><td align="center">5000-20000</td></tr>
+	<tr><td>Heater (portable)</td><td align="center">750-2000</td></tr>
+	<tr><td>Humidifier</td><td align="center">25-350</td></tr>
+	<tr><td>Dehumidifier</td><td align="center">200-750</td></tr>
+	<tr><td>Fan (ceiling, table)</td><td align="center">15-200</td></tr>
+	<tr><td>Light bulb (LED)</td><td align="center">3-25</td></tr>
+	<tr><td>Light bulb (incandescent)</td><td align="center">15-200</td></tr>
+	<tr><td>Electric water heater</td><td align="center">3000-6600</td></tr>
+	<tr><td colspan="2"><b>Kitchen appliances:</b></td></tr>
+	<tr><td>Refrigerator</td><td align="center">500-1000</td></tr>
+	<tr><td>Electric range/oven</td><td align="center">2000-5000</td></tr>
+	<tr><td>Electric cooktop/stove</td><td align="center">750-5000</td></tr>
+	<tr><td>Microwave oven</td><td align="center">750-1500</td></tr>
+	<tr><td>Dishwasher</td><td align="center">1200-2000</td></tr>
+	<tr><td>Coffee maker</td><td align="center">600-1200</td></tr>
+	<tr><td>Toaster</td><td align="center">750-1500</td></tr>
+	<tr><td>Electric kettle</td><td align="center">1000-2000</td></tr>
+	<tr><td>Electric cooker</td><td align="center">160-1500</td></tr>
+	<tr><td colspan="2"><b>Other appliances:</b></td></tr>
+	<tr><td>Electric vehicle charger</td><td align="center">1,500-20,000</td></tr>
+	<tr><td>Television</td><td align="center">25-500</td></tr>
+	<tr><td>Washing machine</td><td align="center">400-1500</td></tr>
+	<tr><td>Clothes dryer</td><td align="center">1800-5000</td></tr>
+	<tr><td>Clothes iron</td><td align="center">750-2000</td></tr>
+	<tr><td>Hair dryer</td><td align="center">750-2000</td></tr>
+	<tr><td>Desktop computer</td><td align="center">100-250</td></tr>
+	<tr><td>Laptop computer</td><td align="center">35-150</td></tr>
+	<tr><td>Smart phone charger</td><td align="center">5-25</td></tr>
+	<tr><td>Water pump/motor</td><td align="center">750-2000</td></tr>
+</table>
+
+<h3>Energy saving tips:</h3>
+<p>Below are some tips for saving energy and lowering electricity bills. Not all of them are always possible, but implementing even a few of them can lead to savings.</p>
+<ol>
+	<li>Monitor your energy using habits. Many of us may not think much about how we are using energy. Consciously tracking some of your energy habits over a period of time can help to give you an idea of how you are using your electricity. Changes such as turning off lights or appliances that aren't being used, using a standing fan instead of the air conditioning when possible, putting on more clothing and using less heating, hand drying or washing smaller loads of laundry/dishes, and more, can have a significant effect on your savings.</li>
+	<li>Replace older light bulbs, particularly incandescent light bulbs, with more efficient LED light bulbs. A typical incandescent light bulb requires 75 W while an LED only requires 9 W. LEDs cost more in the short term, but if you have the opportunity to replace any incandescent light bulbs you may have, it will lead to significant future savings.</li>
+	<li>If possible, install a programmable thermostat. A large proportion of energy cost is typically due to heating/cooling. Programming a thermostat to adjust the temperature to suit your usage needs can lead to significant savings. It is also not necessary to buy a smart thermostat. If you have access to the thermostat, you can develop a habit of manually adjusting the thermostat to best suit your needs throughout the day.</li>
+	<li>Pay attention to energy efficiency when shopping for appliances. Purchasing appliances with energy efficiency in mind can lead to significant savings. Factor this into the cost of the appliance in the long run, not just the initial cost to purchase the appliance.</li>
+	<li>Check your windows. Heat loss through windows is common, especially in colder regions. If possible, replace your windows with more energy efficient windows that result in less heat loss. Similarly, if you live in hotter climates, look for windows that can reflect more light and reduce the amount of heat that comes in through your windows. Make use of curtains, blinds, or anything that can obstruct the sunlight during the brighter periods of the day to save on cooling costs.</li>
+	<li>Insulate your home as best as possible. Windows, doors, vents, the attic, walls, floors, basement, and crawlspace of your home, if not well-insulated, can lead to higher heating and cooling bills.</li>
+</ol>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Heat Index Calculator</title>
+	<meta name="description" content="This calculator estimates heat index temperature felt by the human body based on the actual measured air temperature together with humidity level or dew point." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/heat-index-calculator.html" itemprop="item"><span itemprop="name">heat index calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Heat Index Calculator</h1>
+<p>This calculator estimates the temperature felt by the body as a result of air temperature and relative humidity.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>Use Relative Humidity</h2><form name="calform" action="/heat-index-calculator.html">
+<table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right"><b>Air Temperature</b></td><td>			<input type="text" name="airtemperature" value="85" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'n');">
+			<select name="airtemperatureunit" >
+			<option value="fahrenheit" selected>Fahrenheit &deg;F</option>
+			<option value="celsius" >Celsius &deg;C</option>
+			<option value="kelvin" >Kelvin</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Relative Humidity</b></td><td>			<input type="text" name="humidity" value="70" class="inhalf inpct" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center" style="padding-top:10px;">
+		<input type="hidden" name="ctype" value="1">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+
+
+<a name="dewpoint"></a><br>
+<h2>Use Dew Point Temperature</h2>
+<form name="calform2" action="/heat-index-calculator.html#dewpoint">
+<table class="panel" >
+<tr><td align="center" valign="middle">
+<table>
+	<tr>
+		<td align="right"><b>Air Temperature</b></td><td>			<input type="text" name="airtemperature2" value="85" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'n');">
+			<select name="airtemperatureunit2" >
+			<option value="fahrenheit" selected>Fahrenheit &deg;F</option>
+			<option value="celsius" >Celsius &deg;C</option>
+			<option value="kelvin" >Kelvin</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+			<td align="right"><b>Dew Point Temperature</b></td><td>			<input type="text" name="dewpoint" value="70" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'n');">
+			<select name="dewpointunit" >
+			<option value="fahrenheit" selected>Fahrenheit &deg;F</option>
+			<option value="celsius" >Celsius &deg;C</option>
+			<option value="kelvin" >Kelvin</option>
+			</select>
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center" style="padding-top:10px;">
+		<input type="hidden" name="ctype" value="2">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+	</td></tr>
+</table>
+</td></tr></table></form>
+<br>
+<p><fieldset><legend>Related</legend><a href="/wind-chill-calculator.html">Wind Chill Calculator</a> | <a href="/dew-point-calculator.html">Dew Point Calculator</a></fieldset></p>
+
+<br>
+<h3>What is Heat Index?</h3>
+<p>Heat index is often referred to as humiture, and is similar to wind chill in its attempt to measure the perceived rather than the actual temperature. For example, an air temperature of 83&deg;F with a relative humidity of 70% would result in an estimated 88&deg;F perceived temperature. This difference in perceived and actual temperature is the result of a mixture of air temperature, relative humidity, and wind speed.</p>
+<p>The perception of heat is subjective, and can be affected by various factors such as menopause, pregnancy, and the effects of drugs or withdrawal, as well as differences in hydration, body shape, and metabolism. A higher relative humidity affects normal body cooling by reducing the rate of evaporation of sweat. The human body cools itself through perspiration, where heat is removed from the body as a result of the evaporation of sweat. The lower rate of evaporation subsequently lowers the rate at which the body cools, increasing the perception of heat. This perception of heat is what the heat index seeks to measure, and while it can technically be used indoors, it is most often used in reference to the outside temperature.</p>
+
+<h3>How to Calculate Heat Index?</h3>
+<p>Like the Wind Chill Temperature Index, the heat index used by the National Weather Service (NWS) in the United States is based on many assumptions such as body mass, height, clothing, individual physical activity, blood thickness, and wind speed. As such, depending on how significantly these assumptions vary from the reality of an individual, heat index estimates may not accurately reflect the perceived temperature. The equation used by the NWS to estimate heat index was developed by George Winterling in 1978, and is meant to be valid for temperatures of 80&deg;F or higher, and relative humidity of 40% or more. Below is a chart based on the NWS equation that can be used to estimate temperature and the level of danger associated with varying relative humidity percentages.</p>
+<p align="center"><img src="/img/heat-index.png" class="scaleimg" width="470" height="418" alt="heat index chart"></p>
+
+<h3>Potential effects of heat index</h3>
+<p>As described above, the heat index is the temperature equivalent perceived by humans as a result of air temperature, relative humidity, and wind speed. This temperature can have potentially severe medical effects. Under high air temperature and humidity (high heat index) conditions, perspiration is hindered due to reduced evaporation as a result of high humidity. Sweat is the human body's physiological response to high temperatures, and is an attempt to lower body temperature through the evaporation of sweat. When this is hindered, overheating and dehydration can occur, with varying severity. Below is a table indicating possible complications at varying levels of heat index values, obtained from Wikipedia.</p>
+<p><b>Effects of the heat index</b></p>
+
+<table class="cinfoT">
+		<tr><td class="cinfoHd">Celsius</td><td class="cinfoHdL">Fahrenheit</td><td class="cinfoHdL">Notes</td></tr>	<tr valign="top"><td nowrap>27-32&deg;C</td><td nowrap>80-90&deg;F</td><td>Caution: fatigue is possible with prolonged exposure and activity. Continuing activity could result in heat cramps.</td></tr>
+	<tr valign="top"><td nowrap>32-41&deg;C</td><td nowrap>90-105&deg;F</td><td>Extreme caution: heat cramps and heat exhaustion are possible. Continuing activity could result in heat stroke.</td></tr>
+	<tr valign="top"><td nowrap>41-54&deg;C</td><td nowrap>105-130&deg;F</td><td>Danger: heat cramps and heat exhaustion are likely; heat stroke is probable with continued activity.</td></tr>
+	<tr valign="top"><td nowrap>Over 54&deg;C</td><td nowrap>Over 130&deg;F</td><td>Extreme danger: heat stroke is imminent. </td></tr>
+</table>
+<br><p>Note that exposure to full sunshine can increase heat index values by up to 14&deg;F. Heat index values are particularly important for children. Young children are generally in more danger due to factors including larger skin surface relative to their small bodies, higher heat production as a result of exercise, and typically sweating less than adults. Also, children are often less aware than adults of the need to rest and re-hydrate. </p>
+<p>Thirst is a late sign of dehydration, and it is important to remain hydrated, particularly before, during, and after outdoor activities, especially those involving heavy physical exertion. In addition to children, people with certain conditions, including obesity, diabetes, heart disease, cystic fibrosis, and mental retardation are at greater risk of overheating and dehydration.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<line x1="41" y1="66" x2="81" y2="66" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+	<line x1="41" y1="66" x2="41" y2="1" stroke-dasharray="2, 2" style="stroke:#4c7b25;stroke-width:1" />
+	<circle r="2" cx="41" cy="66" fill="black"  />
+	<text x="60" y="65" fill="#4c7b25" font-size="18">r</text>
+	<text x="42" y="45" fill="#4c7b25" font-size="18">h</text>
+	<path d="M1,65 A40,16 0 0,0 81,65" style="fill:none;stroke:black;stroke-width:1" />
+	<path d="M1,65 A40,16 0 0,1 81,65" stroke-dasharray="2, 2" style="fill:none;stroke:black;stroke-width:1" />
+	<polyline points="1,65 41,1 81,65" style="stroke:black;stroke-width:1" />
+</svg>

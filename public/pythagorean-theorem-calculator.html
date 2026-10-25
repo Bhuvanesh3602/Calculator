@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pythagorean Theorem Calculator</title>
+	<meta name="description" content="Pythagorean Theorem calculator to find out the unknown length of a right triangle. It can provide the calculation steps, area, perimeter, height, and angles." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/pythagorean-theorem-calculator.html" itemprop="item"><span itemprop="name">pythagorean theorem calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Pythagorean Theorem Calculator</h1>
+<p>Please provide any 2 values below to solve the Pythagorean equation: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="clefthalf">
+<form name="calform">
+<table class="panel" align="center">
+	<tr>
+		<td>a =</td>
+		<td><input type="text" name="av" value="2" class="inhalf"></td>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			  <tr>
+			    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
+			    <td height="1" bgcolor="#000"></td>
+			  </tr>
+			  <tr>
+			    <td style="padding:3px;"><input type="text" name="asv" value="" class="innormal"></td>
+			  </tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>b =</td>
+		<td><input type="text" name="bv" value="" class="inhalf"></td>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			  <tr>
+			    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
+			    <td height="1" bgcolor="#000"></td>
+			  </tr>
+			  <tr>
+			    <td style="padding:3px;"><input type="text" name="bsv" value="" class="innormal"></td>
+			  </tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>c =</td>
+		<td><input type="text" name="cv" value="2" class="inhalf"></td>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+			  <tr>
+			    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
+			    <td height="1" bgcolor="#000"></td>
+			  </tr>
+			  <tr>
+			    <td style="padding:3px;"><input type="text" name="csv" value="5" class="innormal"></td>
+			  </tr>
+		</table></td>
+	</tr>
+  <tr>
+  	<td align="center" colspan="3" style="padding-top:10px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+    </td>
+  </tr>
+</table></form>
+</div>
+<div class="crighthalf" style="text-align:center; padding: 10px;">
+	<img src="/img/pythagorean-theorem/right-triangle.svg" width="180" height="125" alt="pythagorean theorem triangle">
+</div>
+<div id="clear"></div>
+<br><p><fieldset><legend>Related</legend><a href="/triangle-calculator.html">Triangle Calculator</a> | <a href="/right-triangle-calculator.html">Right Triangle Calculator</a></fieldset></p>
+
+
+<br><h3>Pythagorean Theorem</h3>
+<p>The Pythagorean Theorem, also known as Pythagoras' theorem, is a fundamental relation between the three sides of a right triangle. Given a right triangle, which is a triangle in which one of the angles is 90&deg;, the Pythagorean theorem states that the area of the square formed by the longest side of the right triangle (the hypotenuse) is equal to the sum of the area of the squares formed by the other two sides of the right triangle:</p>
+<p style="text-align:center;"><img src="/img/pythagorean-theorem/pythagorean-theorem.svg" width="230" height="210" alt="pythagorean theorem"></p>
+<p>In other words, given that the longest side c = the hypotenuse, and a and b = the other sides of the triangle:</p>
+<p style="text-align:center;">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></p>
+<p>This is known as the Pythagorean equation, named after the ancient Greek thinker Pythagoras. This relationship is useful because if two sides of a right triangle are known, the Pythagorean theorem can be used to determine the length of the third side. Referencing the above diagram, if</p>
+<p style="text-align:center;">a = 3 and b = 4</p>
+<p>the length of c can be determined as:</p>
+<p style="text-align:center;">c = &radic;<span style="text-decoration:overline;">a<sup>2</sup> + b<sup>2</sup></span> = &radic;<span style="text-decoration:overline;">3<sup>2</sup>+4<sup>2</sup></span> = &radic;<span style="text-decoration:overline;">25</span> = 5</p>
+<p>It follows that the length of a and b can also be determined if the lengths of the other two sides are known using the following relationships:</p>
+<p style="text-align:center;">a = &radic;<span style="text-decoration:overline;">c<sup>2</sup> - b<sup>2</sup></span></p>
+<p style="text-align:center;">b = &radic;<span style="text-decoration:overline;">c<sup>2</sup> - a<sup>2</sup></span></p>
+<p>The law of cosines is a generalization of the Pythagorean theorem that can be used to determine the length of any side of a triangle if the lengths and angles of the other two sides of the triangle are known. If the angle between the other sides is a right angle, the law of cosines reduces to the Pythagorean equation.</p>
+<p>There are a multitude of proofs for the Pythagorean theorem, possibly even the greatest number of any mathematical theorem.</p>
+
+<p><b>Algebraic proof:</b></p>
+<p style="text-align:center;"><img src="/img/pythagorean-theorem/pythagorean-theorem-proof.svg" width="310" height="180" alt="pythagorean theorem algebraic proof"></p>
+
+<p>In the figure above, there are two orientations of copies of right triangles used to form a smaller and larger square, labeled i and ii, that depict two algebraic proofs of the Pythagorean theorem.</p>
+<p>In the first one, i, the four copies of the same triangle are arranged around a square with sides c. This results in the formation of a larger square with sides of length b + a, and area of (b + a)<sup>2</sup>. The sum of the area of these four triangles and the smaller square must equal the area of the larger square such that:</p>
+<table align="center"><tr><td>(b + a)<sup>2</sup> = c<sup>2</sup> + 4</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">ab</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table></td><td> = c<sup>2</sup> + 2ab</td></tr></table>
+<p>which yields:</p>
+<table align="center">
+	<tr><td>c<sup>2</sup> =</td><td>(b + a)<sup>2</sup> - 2ab</td></tr>
+	<tr><td align="right">=</td><td>b<sup>2</sup> + 2ab + a<sup>2</sup> - 2ab</td></tr>
+	<tr><td align="right">=</td><td>a<sup>2</sup> + b<sup>2</sup></td></tr>
+</table>
+<p>which is the Pythagorean equation.</p>
+<p>In the second orientation shown in the figure, ii, the four copies of the same triangle are arranged such that they form an enclosed square with sides of length b - a, and area (b - a)<sup>2</sup>. The four triangles with area <table cellpadding="0" cellspacing="0" class="inlinetable"><tr><td>ab</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table> also form a larger square with sides of length c. The area of the larger square must then equal the sum of the areas of the four triangles and the smaller square such that:</p>
+<table align="center">
+	<tr><td><table align="center"><tr><td>(b - a)<sup>2</sup> + 4</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">ab</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2</td></tr></table></td><td> =</td></tr></table></td><td>(b - a)<sup>2</sup> + 2ab</td></tr>
+	<tr><td align="right">=</td><td>b<sup>2</sup> - 2ab + a<sup>2</sup> + 2ab</td></tr>
+	<tr><td align="right">=</td><td>a<sup>2</sup> + b<sup>2</sup></td></tr>
+</table>
+<p>Since the larger square has sides c and area c<sup>2</sup>, the above can be rewritten as:</p>
+<p style="text-align:center;">c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></p>
+<p>which is again, the Pythagorean equation.</p>
+<p>There are numerous other proofs ranging from algebraic and geometric proofs to proofs using differentials, but the above are two of the simplest versions.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

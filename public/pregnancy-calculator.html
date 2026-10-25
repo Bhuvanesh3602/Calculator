@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pregnancy Calculator</title>
+	<meta name="description" content="This calculator provides an estimated pregnancy schedule based on the due date, last period date, ultrasound date, conception date, or IVF transfer date." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
+	</head><body><div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/pregnancy-calculator.html" itemprop="item"><span itemprop="name">pregnancy calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Pregnancy Calculator</h1>
+<p>The Pregnancy Calculator can estimate a pregnancy schedule based on the provided due date, last period date, ultrasound date, conception date, or IVF transfer date.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel"><form name="calform"><table align="center">
+  <tr>
+	<td>Calculate Based On:		<select name="ccalcmethod" onChange="switchSel(this.value);">
+			<option value="due date" selected>Due Date</option>
+			<option value="last period" >Last Period</option>
+			<option value="ultrasound" >Ultrasound</option>
+			<option value="conception date" >Conception Date</option>
+			<option value="ivf" >IVF Transfer Date</option>
+		</select>
+    </td>
+  </tr>
+  <tr>
+  	<td style="padding:10px 0px;">
+  		<table id="ciduedate"><tr>
+			<td valign="middle">Your Due Date:</td><td valign="middle"><script>DateInput('dueDateDay', true, 'MM/DD/YYYY', '02/22/2027')</script>	   	</td></tr></table>
+
+  		<table id="cilastperiod" style="display:none"><tr>
+			<td valign="middle"><b>First Day</b> of Your Last Period:</td><td valign="middle"><script>DateInput('cLastPeriodDay', true, 'MM/DD/YYYY', '05/18/2026')</script></td></tr><tr><td valign="middle">Average Length of Your Cycles:</td><td valign="middle">			<select name="cCycleLength">
+	    <option value="22">22 days</option><option value="23">23 days</option><option value="24">24 days</option><option value="25">25 days</option><option value="26">26 days</option><option value="27">27 days</option><option value="28" selected>28 days</option><option value="29">29 days</option><option value="30">30 days</option><option value="31">31 days</option><option value="32">32 days</option><option value="33">33 days</option><option value="34">34 days</option><option value="35">35 days</option><option value="36">36 days</option><option value="37">37 days</option><option value="38">38 days</option><option value="39">39 days</option><option value="40">40 days</option><option value="41">41 days</option><option value="42">42 days</option><option value="43">43 days</option><option value="44">44 days</option>    	</select>
+	   	</td></tr></table>
+
+  		<table id="ciconceptiondate" style="display:none"><tr>
+			<td valign="middle">Conception Date:</td><td valign="middle"><script>DateInput('cConceptionDay', true, 'MM/DD/YYYY', '06/01/2026')</script>	   	</td></tr></table>
+
+  		<table id="ciultrasound" style="display:none"><tr>
+			<td valign="middle">Ultrasound Date:</td><td valign="middle"><script>DateInput('cUltrasoundDate', true, 'MM/DD/YYYY', '10/25/2026')</script></td></tr><tr><td valign="middle">Length of Pregnancy<Br>at the Time:</td><td valign="middle">			<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<input type="text" name="cUltrasoundWeek" value="22" class="inlongesthalf inuiinch"><span class="inuiinchspan">weeks</span>
+			</td><td>&nbsp;</td><td>
+				<input type="text" name="cUltrasoundDay" value="6" class="inlongesthalf inuiinch"><span class="inuiinchspan">days</span>
+			</td></tr></table>
+	   	</td></tr></table>
+
+  		<table id="civf" style="display:none"><tr>
+			<td valign="middle">Transfer Date:</td><td valign="middle"><script>DateInput('cIVFDay', true, 'MM/DD/YYYY', '05/23/2026')</script>		  </td></tr><tr>
+			<td valign="middle">Embryo Age:</td><td valign="middle">				<label for="civfage1" class="cbcontainer"><input type="radio" name="civfage" id="civfage1" value="3"  /><span class="rbmark"></span> day 3</label> &nbsp;
+				<label for="civfage3" class="cbcontainer"><input type="radio" name="civfage" id="civfage3" value="5" checked /><span class="rbmark"></span> day 5</label> &nbsp;
+				<label for="civfage4" class="cbcontainer"><input type="radio" name="civfage" id="civfage4" value="6"  /><span class="rbmark"></span> day 6</label>
+	   	</td></tr></table>
+	   	<script>
+	   		function switchSel(inVal){
+					document.getElementById("ciduedate").style.display = 'none';
+					document.getElementById("cilastperiod").style.display = 'none';
+					document.getElementById("ciconceptiondate").style.display = 'none';
+					document.getElementById("ciultrasound").style.display = 'none';
+					document.getElementById("civf").style.display = 'none';
+					if (inVal=="last period"){
+						document.getElementById("cilastperiod").style.display = 'block';
+					}else if (inVal=="conception date"){
+						document.getElementById("ciconceptiondate").style.display = 'block';
+					}else if (inVal=="ultrasound"){
+						document.getElementById("ciultrasound").style.display = 'block';
+					}else if (inVal=="ivf"){
+						document.getElementById("civf").style.display = 'block';
+					}else{
+						document.getElementById("ciduedate").style.display = 'block';
+					}
+	   		}
+	   		switchSel('due date');
+	   	</script>
+    </td>
+  </tr>
+  <tr>
+  	<td align="center">
+  		<input name="printit" value="0" type="hidden">
+  		<input type="submit" name="x" value="Calculate">
+  	</td>
+  </tr>
+</table></form></div>
+
+<p><br><fieldset><legend>Related</legend><a href="/ovulation-calculator.html">Ovulation Calculator</a> | <a href="/conception-calculator.html">Conception Calculator</a></fieldset><br></p>
+
+<h3>Pregnancy Term & Due Date</h3>
+<p>Pregnancy is a term used to describe a woman's state over a time period (~9 months) during which one or more offspring develops inside of a woman. Childbirth usually occurs approximately 38 weeks after conception, or about 40 weeks after the last menstrual period. The World Health Organization defines a normal pregnancy term to last between 37 and 42 weeks. During a person's first OB-GYN visit, the doctor will usually provide an estimated date (based on a sonogram) at which the child will be born, or due date. Alternatively, the due date can also be estimated based on a person's last menstrual period.</p>
+<p>While the due date can be estimated, the actual length of pregnancy depends on various factors, including age, length of previous pregnancies, and weight of the mother at birth.<sup>1</sup> However, there are still more factors affecting natural variation in pregnancy terms that are not well understood. Studies have shown that fewer than 4% of births occur on the exact due date, 60% occur within a week of the due date, and almost 90% occur within two weeks of the due date.<sup>2</sup> As such, while it is possible to be fairly confident that a person's child will be born within about two weeks of the due date, it is currently not possible to predict the exact day of birth with certainty.</p>
+
+<h3>Pregnancy Detection</h3>
+<p>Pregnancy can be detected either by using pregnancy tests or by the woman herself noticing a number of symptoms, including a missed menstrual period, increased basal body temperature, fatigue, nausea, and increased frequency of urination.</p>
+<p>Pregnancy tests involve the detection of hormones that serve as biomarkers for pregnancy and include clinical blood or urine tests that can detect pregnancy from six to eight days after fertilization. While clinical blood tests are more accurate, and can detect exact amounts of the hormone hCG (which is only present during pregnancy) earlier and in smaller quantities, they take more time to evaluate and are more expensive than home pregnancy urine tests. It is also possible to get a clinical urine test, but these are not necessarily more accurate than a home pregnancy test, and can potentially be more costly.</p>
+
+<h3>Pregnancy Management</h3>
+<p>There are a number of factors that need to be considered during pregnancy, many of which are highly dependent on the individual's situation, such as medication, weight gain, exercise, and nutrition.</p>
+
+<p><b>Medication:</b></p>
+<p>Taking certain medications during pregnancy can have lasting effects on the fetus. In the U.S., drugs are classified into categories A, B, C, D, and X by the Food and Drug Administration (FDA) based on potential benefits vs. fetal risks. Drugs that have positive benefits for the mother with low risk to the fetus are classified as category A, while drugs with proven, significant fetal risks that outweigh potential benefits to the mother are classified as category X. A person that is pregnant should consult their doctor regarding any medications they plan to use during their pregnancy.</p>
+
+<p><b>Weight gain:</b></p>
+<p>Weight gain is a largely inevitable and necessary aspect of pregnancy that varies between people. It affects many aspects of fetal development, such as the weight of the baby, the placenta, extra circulatory fluid, and its fat and protein stores. Weight management merits consideration because insufficient or excessive weight gain can have negative effects for both mother and fetus, including the need for cesarean section (C-section) and gestational hypertension. While the values vary between women, the Institute of Medicine recommends an overall pregnancy weight gain of 25-35 pounds for women who are considered "normal" weight (BMI 18.5-24.9), 28-40 pounds for those considered underweight (BMI < 18.5), 15-25 pounds for those considered overweight (BMI 25-29.9), and 11-20 pounds for those considered obese (BMI > 30).<sup>3</sup> Our <a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain Calculator</a> is based on the Institute of Medicine recommendations.</p>
+
+<p><b>Exercise:</b></p>
+<p>Studies indicate that aerobic exercise during pregnancy helps to improve or maintain physical fitness as well as possibly decreasing the risk of C-sections. Although it varies between women, regular aerobic and strength-conditioning exercise are often recommended for pregnant women, and women who exercised regularly before pregnancy, who have uncomplicated pregnancies, should be able to continue high-intensity exercise programs.<sup>4</sup> The American College of Obstetricians and Gynecologists suggests that given an uncomplicated pregnancy, fetal injuries are unlikely to occur as a result of exercise. Nevertheless, caution is advised, and a pregnant woman should consult their doctor if any of the following symptoms present: vaginal bleeding, shortness of breath, dizziness, headache, calf pain or swelling, amniotic fluid leakage, decreased fetal movement, preterm labor, muscle weakness, or chest pain.<sup>5</sup></p>
+
+<p><b>Nutrition:</b></p>
+<p>Nutrition during pregnancy is particularly important for the health of the mother and baby. Pregnancy requires different nutritional considerations than a person would have in a non-pregnant state due to increased energy and specific micronutrient requirements.<sup>6</sup></p>
+<p>Certain vitamins such as Vitamin B9, also known as folic acid, can help decrease the risk of certain defects, while other nutrients such as DHA omega-3 that is necessary for proper brain and retinal development cannot be produced efficiently by infants, and can only be obtained through the placenta during pregnancy, or in breast milk after birth. There are many other micronutrients that aid proper fetal development, and there exist myriad sources of information on what pregnant women should or shouldn't eat or do. All of the information can be different to sift through and can vary from person to person. Pregnant women should consult their doctors and/or dietitian to help determine the best course of action for their own specific needs.</p>
+
+
+<br><ol class="reference">
+<li>Jukic, AM, Baird, DD, Weinberg, CR, et al. 2013. "Length of human pregnancy and contributors to its natural variation. Human Reproduction 28(10): 2848-55. PMC3777570.</li>
+<li>Moore, Keith. 2015. "How accurate are 'due dates'?" BBC, February 3, 2015. www.bbc.com/news/magazine-31046144.</li>
+<li>Institute of Medicine. 2009. "Weight Gain During Pregnancy: Reexamining the Guidelines." National Academies Press.</li>
+<li>Davies, GA, Wolfe, LA, Mottola, MF, et al. 2003. "Exercise in pregnancy and the postpartum period." Journal of Obstetrics and Gynaecology Canada 25(6): 516-29. </li>
+<li>Artal, R., O'Toole, M. 2003. "Guidelines of the American College of Obstetricians and Gynecologists for exercise during pregnancy and the postpartum period." British Journal of Sports Medicine 37: 6-12. doi:10.1136/bjsm.37.1.6</li>
+<li>Lammi-Keefe, CJ, Couch, SC, Philipson, E. 2008. "Handbook of Nutrition and Pregnancy." Humana Press.</li>
+</ol>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

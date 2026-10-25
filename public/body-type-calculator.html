@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Body Type Calculator</title>
+	<meta name="description" content="This free body type calculator estimates body type based on provided measurements of bust, waist, and hip size, and their relation to societal conventions." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/body-type-calculator.html" itemprop="item"><span itemprop="name">body type calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Body Type Calculator</h1>
+
+<p>The Body Type Calculator is designed for females to find their "body shape," which can be used for getting targeted outfit Ideas. Even though there is some research linking certain body shapes with some health risks, the body shape result of this calculator is not intended to be a serious indication of health or an ideal that must be met. Instead, the waist-hip ratio, which is also shown in the results of this calculator, is a better indicator of health.</p><br><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput"><form name="calform">
+<table class="panel" >
+	<tr>
+		<td>Bust Size</td>
+		<td><input type="text" name="bustsize" id="bustsizeinput" value="36" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		<td>
+			<select name="bustsizeunit">
+				<option value="inch" selected>inches</option>
+				<option value="centimeter">cm</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Waist Size</td>
+		<td><input type="text" name="waistsize" value="24" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		<td>
+			<select name="waistsizeunit">
+				<option value="inch" selected>inches</option>
+				<option value="centimeter">cm</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>High Hip Size</td>
+		<td><input type="text" name="highhipsize" value="32" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		<td>
+			<select name="highhipsizeunit">
+				<option value="inch" selected>inches</option>
+				<option value="centimeter">cm</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Hip Size</td>
+		<td><input type="text" name="hipsize" value="36" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		<td>
+			<select name="hipsizeunit">
+				<option value="inch" selected>inches</option>
+				<option value="centimeter">cm</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" style="padding-top:8px;">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form></div>
+<div class="rightresult" style="padding-top:20px;"><img src="/img/body-measure.svg" width="160" height="140" alt="body measure"></div>
+<div id="clear"></div>
+
+<p>When measuring, be sure to stand straight with arms to the side. Make sure the tape is snug against the body, but not too tight such that it compresses the body (making the measurement inaccurate).</p>
+<p><b>Bust size</b>&mdash;the circumference measured around the chest over the fullest part of the breasts, while wearing a properly fitted bra.</p>
+<p><b>Waist size</b>&mdash;the smallest circumference measured around the natural waist, just above the belly button.</p>
+<p><b>High hip size</b>&mdash;the circumference of the upper swell of the hip over the pelvic region. It is around 7 inches (18 cm) below the natural waist.</p>
+<p><b>Hip size</b>&mdash;the largest circumference measured around the hips over the largest part of the buttocks.</p>
+
+<br>
+<h3>Female body shapes in the fashion industry</h3>
+<p>In the fashion industry, body shapes are often categorized into four classes.</p>
+<p><b>Apple, or inverted triangle</b></p>
+<p>This body shape describes a person who has broader shoulders and bust than they do hips.</p>
+<p><b>Banana, straight, or rectangle</b></p>
+<p>This body shape describes a person who typically has waist measurements that are less than 9 inches smaller than the hip or bust measurements.</p>
+<p><b>Pear, spoon, bell, or triangle</b></p>
+<p>This body shape describes a person who has hip measurements greater than their bust measurements.</p>
+<p><b>Hourglass, X shape, triangles opposing, or facing inwards</b></p>
+<p>This body shape (typically presented as the "ideal") describes a person with hip and bust measurements nearly equal in size, with a narrower waist measurement.</p>
+<p align="center"><img src="/img/body-shape.gif" alt="body shape" class="scaleimg"></p>
+<p>A study of more than 6,000 women conducted at North Carolina State University in 2005 revealed that 46% of women were banana-shaped; just over 20% were pear-shaped; just under 14% were apple-shaped; and only 8% were hourglass-shaped.</p>
+
+<br><h3>What is my body shape?</h3>
+<p>The female body shapes are based on societal standards that are subjective and are different in different cultures. The algorithm used in this calculator is based on a study published in the International Journal of Clothing Science and Technology, which breaks down the body shapes of women into 7 categories<sup>1</sup>. There are very wide ranges of actual sizes within each shape. Also, some body shapes may not fit into any of the shapes listed below.</p>
+<p><b>Hourglass</b></p>
+<p style="padding-left:10px;">If (bust - hips) &le; 1" AND (hips - bust) &lt; 3.6" AND (bust - waist) &ge; 9" OR (hips - waist) &ge; 10"</p>
+<p><b>Bottom hourglass</b></p>
+<p style="padding-left:10px;">If (hips - bust) &ge; 3.6" AND (hips - bust) &lt; 10" AND (hips - waist) &ge; 9" AND (high hip/waist) &lt; 1.193</p>
+<p><b>Top hourglass</b></p>
+<p style="padding-left:10px;">If (bust - hips) &gt; 1" AND (bust - hips) &lt; 10" AND (bust - waist) &ge; 9"</p>
+<p><b>Spoon</b></p>
+<p style="padding-left:10px;">If (hips - bust) &gt; 2" AND (hips - waist) &ge; 7" AND (high hip/waist) &ge; 1.193</p>
+<p><b>Triangle</b></p>
+<p style="padding-left:10px;">If (hips - bust) &ge; 3.6" AND (hips - waist) &lt; 9"</p>
+<p><b>Inverted triangle</b></p>
+<p style="padding-left:10px;">If (bust - hips) &ge; 3.6" AND (bust - waist) &lt; 9"</p>
+<p><b>Rectangle</b></p>
+<p style="padding-left:10px;">If (hips - bust) &lt; 3.6" AND (bust - hips) &lt; 3.6" AND (bust - waist) &lt; 9" AND (hips - waist) &lt; 10"</p>
+
+<br><h3>Waist-hip ratio</h3>
+<p>Waist-hip ratio (WHR) is defined as the ratio of waist circumference to hip circumference. The value is calculated by dividing waist measurement by hip measurement. A person with a 34" waist and 40" hip would therefore have a waist-hip ratio of 34/40, or 0.85. Waist-hip ratio is sometimes used as an indicator of certain health conditions. Research has shown that people with more weight around their waist, or who have "apple-shaped" bodies, are at higher risk than those with more weight around their hips, or who have "pear-shaped" bodies. According to the National Institute of Diabetes, Digestive and Kidney Diseases (NIDDK), women with WHRs above 0.8 and men with WHRs above 1.0 have higher health risks as a result of their fat distribution.</p>
+<p>WHR is also used as a measurement of obesity. The World Health Organization (WHO) defines males with a WHR above 0.90 and females with a WHR above 0.85 as obese. This corresponds to a body mass index (BMI) above 30. Obesity can be an indicator of a number of serious health conditions such as hypertension, coronary heart disease, diabetes, some cancers, and more. WHR has been found to be more effective than both waist circumference and BMI for predicting mortality in people above the age of 75; WHR has also been found to be a better predictor of cardiovascular disease than both these measures. According to a study by Yusuf S, et al.<sup>2</sup>, were obesity to be re-defined based on WHR rather than BMI, the proportion of people who would be categorized as being at risk of heart attack would increase three times.</p>
+<p>Abdominal fat (which corresponds to people with "apple-shaped" bodies) has been found to result in higher health risks than other peripheral fat. A higher WHR indicates more abdominal fat, and the higher the ratio, the higher the risk of potential health complications. Refer to the Body Fat Calculator for more information regarding different types of fat and the risks associated with being overweight or obese.</p>
+<p>WHR is also correlated with fertility, with different values being optimal for males and females. Females with WHRs above 0.80 have been found to have significantly lower pregnancy rates than those with WHRs between 0.70 and 0.79. Studies have also shown that men with WHRs around 0.9 are more fertile, tend to be healthier, and also have a lower chance of both prostate and testicular cancer.</p>
+<p>Aside from the associated health risks, WHR has also been studied in relation to cognitive ability, as a measure of female attractiveness, and even in relation to food composition in a diet.</p>
+
+<br>
+<ol class="reference">
+	<li>Lee, J.Y., Istook,C.L., Nam, Y. J., and Park, S. M.,, "Comparison of body shape between USA and Korean women", International Journal of Clothing Science and Technology, Vol.19, No.5, 2007, pp.374-391.</li>
+	<li>Yusuf S, Hawken S, Ounpuu S, Bautista L, Franzosi MG, Commerford P, Lang CC, Rumboldt Z, Onen CL, Lisheng L, Tanomsup S, Wangai P, Razak F, Sharma AM, Anand SS (November 2005). "Obesity and the risk of myocardial infarction in 27,000 participants from 52 countries: a case-control study". Lancet. 366 (9497): 1640-9.</li>
+</ol>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

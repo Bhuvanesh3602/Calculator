@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Overweight Calculator</title>
+	<meta name="description" content="This free calculator computes BMI and relates the calculated value to standards used to indicate the possible state of being overweight." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/overweight-calculator.html" itemprop="item"><span itemprop="name">overweight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Overweight Calculator</h1>
+<p>This calculator can be used to calculate your overweight status.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><span id="ucframe"></span>
+<div class="leftinput">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<div class="panel2">
+<form name="calform"><table id="calinputtable">
+<tr>
+	<td width="60">Age</td>
+	<td><input type="text" name="cage" id="cage" value="25" class="inlongest" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>Male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>Female</label></td>
+</tr>
+</table>
+<table id="standardheightweight">
+<tr>
+	<td width="60">Height</td>
+	<td>
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inlongesthalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inlongesthalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Weight</td>
+	<td><input type="text" name="cpound" id="cpound" value="160" class="inlongest inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table id="metricheightweight">
+<tr>
+	<td width="60">Height</td>
+	<td><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="65" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="266">
+<tr>
+	<td align="right" style="padding-top:8px;">
+		<input name="printit" value="0" type="hidden">
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+</div>
+<div class="rightresult">
+<br><h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('T3ZlcndlaWdodCBDYWxjdWxhdG9y', 0, 'T3ZlcndlaWdodCBDYWxjdWxhdG9y', '', '');"></h2><br><p class="verybigtext">Your weight is <font color='green'><b>Normal</b>.</font></p><p class="bigtext">Normal weight range for the height: 128.9 - 174.2 lbs.</p></div>
+<div id="clear"></div>
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"popMenu('standard',1);return false;\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"popMenu('metric',1);return false;\">Metric Units</a></li> <li><a href=\"#\" onclick=\"popMenu('other',0);return false;\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"popMenu('standard',1);return false;\">US Units</a></li> <li><a href=\"#\" onclick=\"popMenu('metric',1);return false;\">Metric Units</a></li> <li><a href=\"#\" onclick=\"popMenu('other',0);return false;\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucframe").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+}
+popMenu("standard",0);
+</script>
+
+<br><fieldset><legend>Related:</legend><a href="/body-fat-calculator.html">Body Fat Calculator</a> | <a href="/calorie-calculator.html">Calorie Calculator</a> | <a href="/ideal-weight-calculator.html">Ideal Weight Calculator</a></fieldset>
+
+<br><h3>What Is Being Overweight and Obesity?</h3>
+<p>Overweight refers to increased body weight in relation to height beyond the accepted standard. The standard has been defined by the medical profession on the basis of a variety of reference percentiles based on body mass index (BMI) in various populations. A widely used set of reference BMI values is that developed by three doctors (Must A, Dallal GE, and Dietz WH &dash; Reference Data for Obesity, 1991) which is based on the sample from the first National Health and Nutrition Examination Survey (NHANES I).</p>
+<p>Becoming overweight may or may not be due to increases in body fat. It may also be due to an increase in lean muscle. For example, professional athletes or military personnel may be very lean and muscular, with very little body fat, yet they may weigh more than others of the same height. While they may qualify as overweight due to their large muscle mass, they are not necessarily fat.</p>
+<p>Obesity is defined as an excessively high amount of body fat or adipose tissue in relation to lean body mass. Being obese means that body fat is now beyond an accepted standard for your height.</p>
+<p>Currently, 34 percent of Americans are overweight and a separate 34 percent are obese, according to the Center for Disease Control and Prevention in Atlanta.</p>
+
+<h3>Genetics Matter, But Don't Tell the Whole Story</h3>
+<p>There is a clear genetic tendency for obesity. But only for a relatively small percentage of the population. There is also a genetic tendency to becoming overweight, but this is less clearly defined.</p>
+<p>Genetics don't tell the whole story, however. "Genes are not destiny," states the Harvard School of Public Health in a recent study.</p>
+<p>For example, studies show that some of us have a genetic tendency to gain weight while eating fried foods, while others can consume all the fries they want to without gaining much weight.</p>
+<p>In 2008, for example, a group of scientists demonstrated that physical activity offsets the effects of one obesity-promoting gene, a common variant of FTO. The study, in which 17,058 Danish men and women took part, found that people who carried the obesity-promoting gene, and who were inactive, had higher BMIs than people without the gene variant who were inactive. Having a genetic predisposition to obesity did not seem to matter, however, for people who were active: Their BMIs were no higher or lower than those of people who did not have the obesity gene.</p>
+
+<h3>Physical Activity Makes the Difference</h3>
+<p>It adds up to this: Physical activity gets energy out and helps keep you at a healthy weight, regardless of your genetic inheritance.</p>
+<p>The best way to avoid being fat forever is to not get too fat in the first place. The latest research shows that, once you've been heavy and lost weight, you have to eat less and exercise more to simply maintain your body at a new, lower weight than would someone at the same height and weight who has never been heavy &mdash; essentially dieting for the rest of your life just to break even.</p>
+
+<h3>It Helps to Never Gain Too Much Weight</h3>
+<p>This is because the very act of losing weight places your body in a metabolically disadvantaged state &mdash; for how long, nobody is sure. Therefore, you need fewer calories simply to stay thinner, even if you're not trying to lose. There's a penalty to pay for having been overweight, experts say.</p>
+<p>A study, published in the New England Journal of Medicine, suggests that if a person loses 10 percent of his or her body weight &mdash; going from, for example, 150 pounds to 135 pounds &mdash; there is a long-lasting change in the levels of hunger-controlling hormones which will make her crave food. The body seeks to defend that formerly heavier weight you got to, and it has vigorous mechanisms to achieve that, the study shows. As soon as you drop your guard, the weight creeps back on because your metabolism is not working as efficiently. That's why losing a great deal of weight and keeping it off happens so infrequently.</p>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

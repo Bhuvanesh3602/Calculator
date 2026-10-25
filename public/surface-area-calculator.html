@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Surface Area Calculator</title>
+	<meta name="description" content="This calculator computes the surface area of a number of common shapes, including sphere, cone, cube, cylinder, capsule, cap, conical frustum, and more." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/surface-area-calculator.html" itemprop="item"><span itemprop="name">surface area calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Surface Area Calculator</h1>
+<p>Use the calculators below to calculate the surface area of several common shapes.</p>
+
+<a name="ball"></a>
+<h2>Ball Surface Area</h2>
+<table ><tr><td>
+<form name="calform" action="/surface-area-calculator.html#ball">
+<table class="panel">
+	<tr>
+		<td align="right">Radius (r)</td><td>		<input type="text" name="ballradius" id="ballradius" value="" class="inhalf">
+			<select name="ballradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="ballcal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/ball.svg" width="82" height="82" alt="ball"></td></tr></table>
+
+
+<a name="cone"></a>
+<br><h2>Cone Surface Area</h2>
+<table ><tr><td>
+<form name="calform2" action="/surface-area-calculator.html#cone">
+<table class="panel">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="coneradius" id="coneradius" value="" class="inhalf">
+			<select name="coneradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="coneheight" id="coneheight" value="" class="inhalf">
+			<select name="coneheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="conecal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/cone.svg" width="82" height="82" alt="cone"></td></tr></table>
+
+
+<a name="cube"></a>
+<br><h2>Cube Surface Area</h2>
+<table ><tr><td>
+<form  name="calform3" action="/surface-area-calculator.html#cube">
+<table class="panel">
+	<tr>
+		<td align="right">Edge Length (a)</td><td>		<input type="text" name="cubeedge" id="cubeedge" value="" class="inhalf">
+			<select name="cubeedgeunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="cubecal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/cube.svg" width="82" height="82" alt="cube"></td></tr></table>
+
+
+<a name="cylinder"></a>
+<br><h2>Cylindrical Tank Surface Area</h2>
+<table ><tr><td>
+<form name="calform4" action="/surface-area-calculator.html#cylinder">
+<table class="panel">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="ctankradius" id="ctankradius" value="" class="inhalf">
+			<select name="ctankradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="ctanklength" id="ctanklength" value="" class="inhalf">
+			<select name="ctanklengthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="cylcal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/cylinder.svg" width="82" height="100" alt="cylinder"></td></tr></table>
+
+
+<a name="rectangular"></a>
+<br><h2>Rectangular Tank Surface Area</h2>
+<table ><tr><td>
+<form name="calform5" action="/surface-area-calculator.html#rectangular">
+<table class="panel">
+	<tr>
+		<td align="right">Length (l)</td><td>		<input type="text" name="rtanklength" id="rtanklength" value="" class="inhalf">
+			<select name="rtanklengthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Width (w)</td><td>		<input type="text" name="rtankwidth" id="rtankwidth" value="" class="inhalf">
+			<select name="rtankwidthunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rtankheight" id="rtankheight" value="" class="inhalf">
+			<select name="rtankheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="rectcal" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform5);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/prism.svg" width="82" height="100" alt="prism"></td></tr></table>
+
+<a name="capsule"></a>
+<br><h2>Capsule Surface Area</h2>
+<table ><tr><td>
+<form name="calform6" action="/surface-area-calculator.html#capsule">
+<table class="panel">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="rcapsuleradius" id="rcapsuleradius" value="" class="inhalf">
+			<select name="rcapsuleradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rcapsuleheight" id="rcapsuleheight" value="" class="inhalf">
+			<select name="rcapsuleheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="capsule" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform6);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/capsule.svg" width="82" height="126" alt="capsule"></td></tr></table>
+
+
+<a name="cap"></a>
+<br><h2>Cap Surface Area</h2>
+<p>Please provide any two values below to calculate.</p><table ><tr><td>
+<form name="calform7" action="/surface-area-calculator.html#cap">
+<table class="panel">
+	<tr>
+		<td align="right">Base Radius (r)</td><td>		<input type="text" name="ccapbaseradius" id="ccapbaseradius" value="" class="inhalf">
+			<select name="ccapbaseradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Ball Radius (R)</td><td>		<input type="text" name="ccapballradius" id="ccapballradius" value="" class="inhalf">
+			<select name="ccapballradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="ccapheight" id="ccapheight" value="" class="inhalf">
+			<select name="ccapheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="cap" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform7);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/cap.svg" width="82" height="50" alt="cap"></td></tr></table>
+
+
+<a name="conicalfrustum"></a>
+<br><h2>Conical Frustum Surface Area</h2>
+<table ><tr><td>
+<form name="calform8" action="/surface-area-calculator.html#conicalfrustum">
+<table class="panel">
+	<tr>
+		<td align="right">Top Radius (r)</td><td>		<input type="text" name="rconicalfrustumtopradius" id="rconicalfrustumtopradius" value="" class="inhalf">
+			<select name="rconicalfrustumtopradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Bottom Radius (R)</td><td>		<input type="text" name="rconicalfrustumbottomradius" id="rconicalfrustumbottomradius" value="" class="inhalf">
+			<select name="rconicalfrustumbottomradiusunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="rconicalfrustumheight" id="rconicalfrustumheight" value="" class="inhalf">
+			<select name="rconicalfrustumheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="conicalfrustum" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform8);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/conical-frustum.svg" width="82" height="100" alt="conical frustum"></td></tr></table>
+
+
+<a name="ellipsoid"></a>
+<br><h2>Ellipsoid Surface Area</h2>
+<table ><tr><td>
+<form name="calform9" action="/surface-area-calculator.html#ellipsoid">
+<table class="panel">
+	<tr>
+		<td align="right">Axis 1 (a)</td><td>		<input type="text" name="rellipsoidaxis1" id="rellipsoidaxis1" value="" class="inhalf">
+			<select name="rellipsoidaxis1unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Axis 2 (b)</td><td>		<input type="text" name="rellipsoidaxis2" id="rellipsoidaxis2" value="" class="inhalf">
+			<select name="rellipsoidaxis2unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Axis 3 (c)</td><td>		<input type="text" name="rellipsoidaxis3" id="rellipsoidaxis3" value="" class="inhalf">
+			<select name="rellipsoidaxis3unit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="ellipsoid" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform9);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/ellipsoid.svg" width="82" height="100" alt="ellipsoid"></td></tr></table>
+
+
+<a name="squarepyramid"></a>
+<br><h2>Square Pyramid Surface Area</h2>
+<table ><tr><td>
+<form name="calform10" action="/surface-area-calculator.html#squarepyramid">
+<table class="panel">
+	<tr>
+		<td align="right">Base Edge (a)</td><td>		<input type="text" name="csquarepyramidedge" id="csquarepyramidedge" value="" class="inhalf">
+			<select name="csquarepyramidedgeunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Height (h)</td><td>		<input type="text" name="csquarepyramidheight" id="csquarepyramidheight" value="" class="inhalf">
+			<select name="csquarepyramidheightunit">
+				<option value="miles">miles</option>
+				<option value="yards">yards</option>
+				<option value="feet" selected>feet</option>
+				<option value="inches">inches</option>
+				<option value="kilometers">kilometers</option>
+				<option value="meters">meters</option>
+				<option value="centimeters">centimeters</option>
+				<option value="millimeters">millimeters</option>
+				<option value="micrometers">micrometers</option>
+				<option value="nanometers">nanometers</option>
+				<option value="angstroms">angstroms</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:8px;">
+			<input type="submit" name="squarepyramid" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform10);">
+		</td>
+	</tr>
+</table>
+</form>
+</td><td valign="top" align="center"><img src="/img/surface-area/square-pyramid.svg" width="82" height="82" alt="square pyramid"></td></tr></table>
+
+<br><p><fieldset><legend>Related</legend><a href="/volume-calculator.html">Volume Calculator</a> | <a href="/area-calculator.html">Area Calculator</a> | <a href="/body-surface-area-calculator.html">Body Surface Area Calculator</a></fieldset></p>
+
+<br><br>
+<p>The surface area of a solid is a measure of the total area occupied by the surface of an object. All of the objects addressed in this calculator are described in more detail on the <a href="/volume-calculator.html">Volume Calculator</a> and <a href="/area-calculator.html">Area Calculator</a> pages. As such, this calculator will focus on the equations for calculating the surface area of the objects and the use of these equations. Please refer to the aforementioned calculators for more detail on each individual object.</p>
+
+<h3>Sphere</h3>
+<p>The surface area (SA) of a sphere can be calculated using the equation:</p>
+
+<p align="center">SA = 4&pi;r<sup>2</sup><br>
+where <b>r</b> is the radius</p>
+
+<p>Xael doesn't like sharing her chocolate truffles with anyone. When she receives a box of Lindt truffles, she proceeds to calculate the surface area of each truffle in order to determine the total surface area she has to lick to decrease the probability that anyone will try to eat her truffles. Given that each truffle has a radius of 0.325 inches:</p>
+
+<p align="center">SA = 4 &#215; &pi; &#215; 0.325<sup>2</sup> = 1.327 in<sup>2</sup></p>
+
+<h3>Cone</h3>
+<p>The surface area of a circular cone can be calculated by summing the surface area of each of its individual components. The "base SA" refers to the circle that comprises the base in a closed circular cone, while the lateral SA refers to the rest of the area of the cone between the base and its apex. The equations to calculate each, as well as the total SA of a closed circular cone are shown below:</p>
+<p align="center">base SA = &pi;r<sup>2</sup><br>
+	lateral SA = &pi;r&radic;<span style="text-decoration:overline;">r<sup>2</sup> + h<sup>2</sup></span><br>
+	total SA = &pi;r(r + &radic;<span style="text-decoration:overline;">r<sup>2</sup> + h<sup>2</sup></span>)<br>
+	where <b>r</b> is the radius and <b>h</b> is the height</p>
+<p>Athena has recently taken an interest in Southeast Asian culture, and is particularly fascinated by the conical hat, typically referred to as a "rice hat," which is commonly used in a number of southeast Asian countries. She decides to make one of her own, and being a very practical person not mired in sentimentality, retrieves her mother's wedding dress from the dark recesses of the wardrobe in which it resides. She determines the surface area of material she needs to create her hat with a radius of 1 foot and a height of 0.5 feet as follows:</p>
+<p align="center">lateral SA = &pi; &#215; 0.4&radic;<span style="text-decoration:overline;">0.4<sup>2</sup> + 0.5<sup>2</sup></span> = 0.805 ft<sup>2</sup></p>
+
+<h3>Cube</h3>
+<p>The surface area of a cube can be calculated by summing the total areas of its six square faces:</p>
+
+<p align="center">SA = 6a<sup>2</sup><br>
+	where <b>a</b> is the edge length</p>
+
+<p>Anne wants to give her younger brother a Rubik's cube for his birthday, but knows that her brother has a short attention span and is easily frustrated. She custom orders a Rubik's Cube in which all the faces are black, and has to pay for the customization based on the surface area of the cube with an edge length of 4 inches. </p>
+
+<p align="center">SA = 6 &#215; 4<sup>2</sup> = 96 in<sup>2</sup></p>
+
+<h3>Cylindrical Tank</h3>
+<p>The surface area of a closed cylinder can be calculated by summing the total areas of its base and lateral surface:</p>
+<p align="center">
+	base SA = 2&pi;r<sup>2</sup><br>
+	lateral SA = 2&pi;rh<br>
+	total SA = 2&pi;r(r + h)
+where <b>r</b> is the radius and <b>h</b> is the height</p>
+<p>Jeremy has a large cylindrical fish tank that he bathes in because he doesn't like showers or bathtubs. He is curious whether his heated water cools faster than when in a bathtub, and needs to calculate the surface area of his cylindrical tank of height 5.5 feet and radius of 3.5 feet. </p>
+
+<p align="center">total SA = 2&pi; &#215; 3.5(3.5 + 5.5) =  197.920 ft<sup>2</sup></p>
+<h3>Rectangular Tank</h3>
+<p>The surface area of a rectangular tank is the sum of the area of each of its faces:</p>
+<p align="center">
+	SA = 2lw + 2lh + 2wh<br>
+	where <b>l</b> is the length, <b>w</b> is the width, and <b>h</b> is the height</p>
+
+<p>Banana, the eldest daughter of a long line of banana farmers, wants to teach her spoiled rotten little sister, Banana-Bread, a lesson about hope and expectations. Banana-Bread has been clamoring all week long about wanting a new set of drawers to house her new Batman action figures. As such, Banana buys her a large Barbie doll house with limited edition kitchen utensils, oven, apron, and realistic rotting bananas for Batman. She packs these into a rectangular box of similar dimensions as the drawer that Banana-Bread wants, and needs to determine the amount of wrapping paper she needs to complete her presentation of the gift of the 3 ft &#215; 4 ft &#215; 5 ft surprise:</p>
+
+<p align="center">SA = (2 &#215; 3 &#215; 4) + (2 &#215; 4 &#215; 5) + (2 &#215; 3 &#215; 5) = 94 ft<sup>2</sup></p>
+<h3>Capsule</h3>
+
+<p>The surface area of a capsule can be determined by combining the surface area equations for a sphere and the lateral surface area of a cylinder. Note that the surface area of the bases of the cylinder is not included since it does not comprise part of the surface area of a capsule. The total surface area is calculated as follows: </p>
+<p align="center">
+	SA = 4&pi;r<sup>2</sup> + 2&pi;rh<br>
+	where <b>r</b> is the radius and <b>h</b> is the height
+
+<p>Horatio is manufacturing a placebo that purports to hone a person's individuality, critical thinking, and ability to objectively and logically approach different situations. He has already tested the market and has found that a vast majority of the sample population exhibit none of these qualities, and are very ready to purchase his product, further entrenching themselves within the traits they so desperately seek to escape. Horatio needs to determine the surface area of each capsule so that he can coat them with an excessive layer of sugar and appeal to the sugar predisposed tongues of the population in preparation for his next placebo that "cures" all forms of diabetes mellitus. Given each capsule has <b>r</b> of 0.05 inches and <b>h</b> of 0.5 inches: </p>
+
+<p align="center">SA = 4&pi; &#215; 0.05<sup>2</sup> + 2&pi; &#215; 0.05 &#215; 0.5 = 0.188 in<sup>2</sup></p>
+
+<h3>Spherical Cap</h3>
+
+<p>The surface area of a spherical cap is based on the height of the segment in question. The calculator provided assumes a solid sphere and includes the base of the cap in the calculation of surface area, where the total surface area is the sum of the area of the base and that of the lateral surface of the spherical cap. If using this calculator to compute the surface area of a hollow sphere, subtract the surface area of the base. Given two values of height, cap radius, or base radius, the third value can be calculated using the equations provided on the <a href="/volume-calculator.html">Volume Calculator</a>. The surface area equations are as follows:</p>
+<p align="center">
+	spherical cap SA = 2&pi;Rh<br>
+	base SA = &pi;r<sup>2</sup><br>
+	Total solid sphere SA = 2&pi;Rh + &pi;r<sup>2</sup><br>
+	where <b>R</b> is the spherical cap radius, <b>r</b> is the base radius, and <b>h</b> is the height
+</p>
+
+<p>Jennifer is jealous of the globe that her older brother Lawrence received for his birthday. Since Jennifer is two-thirds the age of her brother, she decides that she deserves one-third of her brother's globe. After returning her father's hand saw to the toolshed, she calculates the surface area of her hollow portion of the globe with <b>R</b> of 0.80 feet and <b>h</b> 0.53 feet as shown below: </p>
+
+<p align="center">SA = 2&pi; &#215; 0.80 &#215; 0.53 = 2.664 ft<sup>2</sup></p>
+
+<h3>Conical Frustum</h3>
+
+<p>The surface area of a solid, right conical frustum is the sum of the areas of its two circular ends and that of its lateral face:</p>
+<p align="center">
+	circular end SA = &pi;(R<sup>2</sup> + r<sup>2</sup>)<br>
+	lateral SA = &pi;(R+r)&radic;<span style="text-decoration:overline;">(R-r)<sup>2</sup> + h<sup>2</sup></span><br>
+	total SA = &pi;(R<sup>2</sup> + r<sup>2</sup>) + &pi;(R+r)&radic;<span style="text-decoration:overline;">(R-r)<sup>2</sup> + h<sup>2</sup></span><br>
+	where <b>R</b> and <b>r</b> are the radii of the ends, <b>h</b> is the height
+</p>
+
+<p>Paul is making a volcano in the shape of a conical frustum for his science fair project. Paul views volcanic eruptions as a violent phenomenon, and being against all forms of violence, decides to make his volcano in the form of a closed conical frustum that does not erupt. Although his volcano is unlikely to impress the science fair judges, Paul must still determine the surface area of material he needs to coat the outer wall of his volcano with <b>R</b> of 1 foot, <b>r</b> of 0.3 feet, and <b>h</b> of 1.5 feet:</p>
+
+<p align="center">total SA = &pi;(1<sup>2</sup> + 0.3<sup>2</sup>) + &pi;(1 + 0.3) &radic;<span style="text-decoration:overline;">(1 - 0.3)<sup>2</sup> + 1.5<sup>2</sup></span> = 10.185 ft<sup>2</sup></p>
+
+<h3>Ellipsoid</h3>
+
+<p>Calculating the surface area of an ellipsoid does not have a simple, exact formula such as a cube or other simpler shape does. The calculator above uses an approximate formula that assumes a nearly spherical ellipsoid:</p>
+
+<p align="center">SA &asymp; 4&pi; <sup>1.6</sup>&radic;<span style="text-decoration:overline;">(a<sup>1.6</sup>b<sup>1.6</sup> + a<sup>1.6</sup>c<sup>1.6</sup> + b<sup>1.6</sup>c<sup>1.6</sup>)/3</span><br>
+	where <b>a</b>, <b>b</b>, and <b>c</b> are the axes of the ellipse</p>
+
+<p>Coltaine has always enjoyed cooking and recently won a ceramic knife from a contest. Unfortunately for his family, who almost exclusively eat meat, Coltaine has been practicing his cutting technique on an excessive amount of vegetables. Rather than eating his vegetables, Coltaine's father stares dejectedly at his plate, and estimates the surface area of the elliptical cuts of zucchini with axes 0.1, 0.2, and 0.35 inches:</p>
+
+<p align="center">SA &asymp; 4&pi; <sup>1.6</sup>&radic;<span style="text-decoration:overline;">(0.1<sup>1.6</sup>0.2<sup>1.6</sup> + 0.1<sup>1.6</sup>0.35<sup>1.6</sup> + 0.2<sup>1.6</sup>0.35<sup>1.6</sup>)/3</span> = 0.562 in<sup>2</sup></p>
+
+<h3>Square Pyramid</h3>
+
+<p>The surface area of a square pyramid is comprised of the area of its square base and the area of each of its four triangular faces. Given height <b>h</b> and edge length <b>a</b>, the surface area can be calculated using the following equations:</p>
+<p align="center">
+	base SA = a<sup>2</sup><br>
+	lateral SA = 2a&radic;<span style="text-decoration:overline;">(a/2)<sup>2</sup> + h<sup>2</sup></span><br>
+	total SA = a<sup>2</sup> + 2a&radic;<span style="text-decoration:overline;">(a/2)<sup>2</sup> + h<sup>2</sup>
+</p>
+
+<p>Vonquayla's classroom recently completed building a model of the Great Pyramid of Giza. However, she feels that the model does not exude the feeling of architectural wonder that the original does and decides that coating it with "snow" would at least impart an aspect of wonder. She calculates the surface area of melted sugar she would need to fully coat the pyramid with edge length <b>a</b> of 3 feet and height <b>h</b> of 5 feet:</p>
+<p align="center">
+	total SA = 3<sup>2</sup> + 2 &#215; 3&radic;<span style="text-decoration:overline;">(3/2)<sup>2</sup> + 5<sup>2</sup></span> = 40.321 ft<sup>2</sup>
+</p>
+<p>Unlike the Great Pyramid of Giza that has stood for thousands of years, its model, made of graham crackers and coated in sugar, lasted only a matter of days. </p>
+
+
+<h3>Common Area Units</h3>
+<table class="cinfoT" align="center">
+	<tr align="right"><td class="cinfoHd">Unit</td><td class="cinfoHdL">meter<sup>2</sup></td></tr>
+	<tr align="right"><td>kilometer<sup>2</sup></td><td class="cinfoBodL">1,000,000</td></tr>
+	<tr align="right"><td>centimeter<sup>2</sup></td><td class="cinfoBodL">0.0001</td></tr>
+	<tr align="right"><td>millimeter<sup>2</sup></td><td class="cinfoBodL">0.000001</td></tr>
+	<tr align="right"><td>micrometer<sup>2</sup></td><td class="cinfoBodL">0.000000000001</td></tr>
+	<tr align="right"><td>hectare</td><td class="cinfoBodL">10,000</td></tr>
+	<tr align="right"><td>mile<sup>2</sup></td><td class="cinfoBodL">2,589,990</td></tr>
+	<tr align="right"><td>yard<sup>2</sup></td><td class="cinfoBodL">0.83613</td></tr>
+	<tr align="right"><td>foot<sup>2</sup></td><td class="cinfoBodL">0.092903</td></tr>
+	<tr align="right"><td>inch<sup>2</sup></td><td class="cinfoBodL">0.00064516</td></tr>
+	<tr align="right"><td>acre</td><td class="cinfoBodL">4,046.86</td></tr>
+</table>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

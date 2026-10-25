@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="157" height="87" version="1.1" viewBox="0 0 157 87" xmlns="http://www.w3.org/2000/svg">
+<line x1="78" y1="43" x2="2" y2="43" stroke-dasharray="3, 2" style="stroke:blue;stroke-width:1" />
+<line x1="78" y1="43" x2="78" y2="2" stroke-dasharray="3, 2" style="stroke:blue;stroke-width:1" />
+<circle r="2" cx="78" cy="43" fill="black" />
+<ellipse rx="77" ry="42" cx="78" cy="43" style="fill:none;stroke:#000;stroke-width:2" />
+<g font-family="Arial, sans-serif">
+<text x="5" y="52" fill="black" font-size="11">semi-major axes</text>
+<text x="35" y="26" fill="black" font-size="11">semi-minor axes</text>
+</g>
+</svg>

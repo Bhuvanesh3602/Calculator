@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="464" version="1.1" viewBox="0 0 300 464" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(0 21)">
+<rect width="310" height="3" x="-5" y="29"  style="fill:#838383;stroke:#000;stroke-width:1;"  />
+<path d="M93 60 L62 60 A5,5 0 0,1 60,59 A42,42 0 0,1 60,2 A5,5 0 0,1 62,1 L93 1 L99 6 L212 6 L218 1 L249 1 A5,5 0 0,1 251,2 A42,42 0 0,1 251,59 A5,5 0 0,1 249,60 L218 60 L212 55 L99 55 Z" style="fill:#eceed6;stroke:#000;stroke-width:2;" />
+<path d="M93 60 L62 60 A5,5 0 0,1 60,59 A42,42 0 0,1 60,2 A5,5 0 0,1 62,1 L93 1 L99 6 L212 6 L218 1 L249 1 A5,5 0 0,1 251,2 A42,42 0 0,1 251,59 A5,5 0 0,1 249,60 L218 60 L212 55 L99 55 Z" style="fill:#eceed6;stroke-width:0;" />
+<rect width="12" height="59" x="74" y="1"  style="fill:#9acd32;stroke-width:0;" />
+<rect width="12" height="49" x="100" y="6"  style="fill:#ff0000;stroke-width:0;" />
+<rect width="12" height="49" x="124" y="6"  style="fill:#6495ed;stroke-width:0;" />
+<rect width="12" height="49" x="198" y="6"  style="fill:#cfb53b;stroke-width:0;" />
+</g>
+<g stroke="black" fill="none" stroke-width="1" >
+<line x1="130" y1="13" x2="130" y2="24" />
+<line x1="80" y1="84" x2="80" y2="95" />
+<line x1="106" y1="79" x2="106" y2="92" />
+<line x1="204" y1="79" x2="204" y2="94" />
+</g>
+<g fill="black" >
+<polygon points="127,18 130,26 133,18" />
+<polygon points="77,90 80,82 83,90" />
+<polygon points="103,85 106,77 109,85" />
+<polygon points="201,85 204,77 207,85" />
+</g>
+<g font-family="arial, sans-serif" fill="#000" font-size="12px" stroke-width="0">
+<text x="106" y="10">Multiplier</text>
+<text x="40" y="103">1<tspan baseline-shift="super" font-size="10">st</tspan> Band</text>
+<text x="101" y="103">2<tspan baseline-shift="super" font-size="10">nd</tspan> Band</text>
+<text x="180" y="103">Tolerance</text>
+</g>
+<g transform="translate(0 -38)">
+<rect width="298" height="300" x="1" y="200" style="fill:#fff;stroke:#ccc;stroke-width:1;" />
+<rect width="298" height="29" x="1" y="170" style="fill:#e0f0fe;stroke:#ccc;stroke-width:1;" />
+<g stroke="#ccc" fill="none" stroke-width="1" >
+<line x1="1" y1="225" x2="299" y2="225" />
+<line x1="1" y1="250" x2="299" y2="250" />
+<line x1="1" y1="275" x2="299" y2="275" />
+<line x1="1" y1="300" x2="299" y2="300" />
+<line x1="1" y1="325" x2="299" y2="325" />
+<line x1="1" y1="350" x2="299" y2="350" />
+<line x1="1" y1="375" x2="299" y2="375" />
+<line x1="1" y1="400" x2="299" y2="400" />
+<line x1="1" y1="425" x2="299" y2="425" />
+<line x1="1" y1="450" x2="299" y2="450" />
+<line x1="1" y1="475" x2="299" y2="475" />
+<line x1="65" y1="170" x2="65" y2="500" />
+<line x1="175" y1="170" x2="175" y2="500" />
+<line x1="234" y1="170" x2="234" y2="500" />
+</g>
+<g stroke="#000" fill="none" stroke-width="1" >
+<rect width="19" height="19" x="4" y="203" style="fill:#000;" />
+<rect width="19" height="19" x="4" y="228" style="fill:#964b00;" />
+<rect width="19" height="19" x="4" y="253" style="fill:#ff0000;" />
+<rect width="19" height="19" x="4" y="278" style="fill:#ffa500;" />
+<rect width="19" height="19" x="4" y="303" style="fill:#ffff00;" />
+<rect width="19" height="19" x="4" y="328" style="fill:#9acd32;" />
+<rect width="19" height="19" x="4" y="353" style="fill:#6495ed;" />
+<rect width="19" height="19" x="4" y="378" style="fill:#9400d3;" />
+<rect width="19" height="19" x="4" y="403" style="fill:#a0a0a0;" />
+<rect width="19" height="19" x="4" y="428" style="fill:#fff;" />
+<rect width="19" height="19" x="4" y="453" style="fill:#cfb53b;" />
+<rect width="19" height="19" x="4" y="478" style="fill:#c0c0c0;" />
+</g>
+<g font-family="arial, sans-serif" fill="#000" font-size="12px" stroke-width="0">
+<text x="25" y="217">Black</text>
+<text x="25" y="242">Brown</text>
+<text x="25" y="267">Red</text>
+<text x="25" y="292">Orange</text>
+<text x="25" y="317">Yellow</text>
+<text x="25" y="342">Green</text>
+<text x="25" y="367">Blue</text>
+<text x="25" y="392">Violet</text>
+<text x="25" y="417">Grey</text>
+<text x="25" y="442">White</text>
+<text x="25" y="467">Gold</text>
+<text x="25" y="492">Silver</text>
+</g>
+<g font-family="arial, sans-serif" fill="#000" font-size="12px" stroke-width="0" dominant-baseline="middle" text-anchor="middle">
+<g font-weight="bold">
+<text x="33" y="193">Color</text>
+<text x="120" y="182">1<tspan baseline-shift="super" font-size="10">st</tspan>, 2<tspan baseline-shift="super" font-size="10">nd</tspan> Band</text>
+<text x="120" y="193">Significant Figures</text>
+<text x="204" y="193">Multiplier</text>
+<text x="266" y="193">Tolerance</text>	
+</g>
+<text x="120" y="214">0</text>
+<text x="120" y="239">1</text>
+<text x="120" y="264">2</text>
+<text x="120" y="289">3</text>
+<text x="120" y="314">4</text>
+<text x="120" y="339">5</text>
+<text x="120" y="364">6</text>
+<text x="120" y="389">7</text>
+<text x="120" y="414">8</text>
+<text x="120" y="439">9</text>
+<text x="204" y="214">&#215;1</text>
+<text x="204" y="239">&#215;10</text>
+<text x="204" y="264">&#215;100</text>
+<text x="204" y="289">&#215;1K</text>
+<text x="204" y="314">&#215;10K</text>
+<text x="204" y="339">&#215;100K</text>
+<text x="204" y="364">&#215;1M</text>
+<text x="204" y="389">&#215;10M</text>
+<text x="204" y="414">&#215;100M</text>
+<text x="204" y="439">&#215;1G</text>
+<text x="204" y="464">&#215;0.1</text>
+<text x="204" y="489">&#215;0.01</text>
+<text x="266" y="239">&#177;1% (F)</text>
+<text x="266" y="264">&#177;2% (G)</text>
+<text x="266" y="289">&#177;0.05% (W)</text>
+<text x="266" y="314">&#177;0.02% (P)</text>
+<text x="266" y="339">&#177;0.5% (D)</text>
+<text x="266" y="364">&#177;0.25% (C)</text>
+<text x="266" y="389">&#177;0.1% (B)</text>
+<text x="266" y="414">&#177;0.01% (L)</text>
+<text x="266" y="464">&#177;5% (J)</text>
+<text x="266" y="489">&#177;10% (K)</text>
+</g>
+</g>
+</svg>

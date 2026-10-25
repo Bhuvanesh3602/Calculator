@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mutual Fund Calculator</title>
+	<meta name="description" content="Free calculator to estimate the ending balance and net return of mutual funds. It can also calculate the IRR after accounting for charges and fees." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mutual-fund-calculator.html" itemprop="item"><span itemprop="name">mutual fund calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Mutual Fund Calculator</h1>
+
+<p>The mutual fund calculator can be used to estimate the ending balance and net return of mutual funds. It can also calculate the internal rate of return (IRR) after accounting for charges and fees.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div class="clefthalf">
+<form name="calform" action="/mutual-fund-calculator.html#cresults">
+<table class="panel" align="center">
+<tr>
+	<td>Initial investment</td>
+	<td><input type="text" name="cinvestamt" id="cinvestamt" value="20000" class="inlonger indollar"></td>
+</tr>
+<tr>
+	<td>Annual contribution</td>
+	<td><input type="text" name="cannualadd" id="cannualadd" value="0" class="inlonger indollar"></td>
+</tr>
+<tr>
+	<td>Monthly contribution</td>
+	<td><input type="text" name="cmonthlyadd" id="cmonthlyadd" value="1000" class="inlonger indollar"></td>
+</tr>
+<tr>
+	<td>Rate of return<img class="ttimg" alt="?" src="/img/svg/help.svg" width="16" height="16" onmouseover="tooltip.show('The annual rate of return you expect from the mutual fund. This is the rate of return before fees and charges. It typically varies across different funds and over time. Most funds provide historical data to help potential investors understand possible returns and risks.', '');" onmouseout="tooltip.hide();"></td>
+	<td><input type="text" name="creturnrate" id="creturnrate" value="5" class="inlonger inuipound"><span class="inuipoundspan">% /year</span></td>
+</tr>
+<tr>
+	<td>Holding length</td>
+	<td nowrap>
+		<input type="text" name="cyears" id="cyears" value="5" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+		<input type="text" name="cmonths" id="cmonths" value="0" class="innormal inuiyear"><span class="inuiinchspan">months</span>
+	</td>
+</tr>
+<tr>
+	<td>Sales charge<img class="ttimg" alt="?" src="/img/svg/help.svg" width="16" height="16" onmouseover="tooltip.show('The sales charge is a fee charged upfront when purchasing the fund, also known as a front-end load. It is typically a percentage of the investment amount and directly reduces the amount invested in the fund.', '');" onmouseout="tooltip.hide();"></td>
+	<td><input type="text" name="csalecharge" id="csalecharge" value="2" class="inlonger inpct"></td>
+</tr>
+<tr>
+	<td>Deferred sales <span style="white-space: nowrap;">charge<img class="ttimg" alt="?" src="/img/svg/help.svg" width="16" height="16" onmouseover="tooltip.show('The deferred sales charge is a fee charged when redeeming or selling the fund, also called a back-end load. It is typically a percentage of the lesser of the initial investment amount or the fund\'s value at redemption. In many cases, the deferred sales charge decreases with the length of the holding period and may eventually be reduced to zero if the fund is held long enough.', '');" onmouseout="tooltip.hide();"></span></td>
+	<td><input type="text" name="cdefercharge" id="cdefercharge" value="0" class="inlonger inpct"></td>
+</tr>
+<tr>
+	<td>Operating <span style="white-space: nowrap;">expenses<img class="ttimg" alt="?" src="/img/svg/help.svg" width="16" height="16" onmouseover="tooltip.show('Operating expenses are the fees charged to keep the fund running. They are ongoing annual fees charged continuously as a percentage of the fund\'s balance. These expenses may include management fees, 12b-1 fees, and other administrative costs.', '');" onmouseout="tooltip.hide();"></span></td>
+	<td><input type="text" name="coperatecost" id="coperatecost" value="0.5" class="inlonger inuipound"><span class="inuipoundspan">% /year</span></td>
+</tr>
+<tr>
+	<td align="center" colspan="2" style="padding:10px 0px 3px 0px;">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div><div class="crighthalf">
+<div style="padding-left:33px;"><a name="cresults"></a><div class="espaceforM">&nbsp;</div><h2 class="h2result">Results<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TXV0dWFsIEZ1bmQgQ2FsY3VsYXRvcg==', 0, 'TXV0dWFsIEZ1bmQgQ2FsY3VsYXRvcg==', '', '');"></h2><table cellpadding='3' width='100%'><tr><td><b>Ending value</b></td><td align=right><b>$90,077.09</b></td></tr><tr><td>Total principal</td><td align=right>$80,000.00</td></tr><tr><td>Total contributions</td><td align=right>$60,000.00</td></tr><tr><td><b>Net return</b></td><td align=right><b>$10,077.09</b></td></tr><tr><td>Net IRR<img class="ttimg" alt="?" src="/img/svg/help.svg" width="16" height="16" onmouseover="tooltip.show('IRR is the annualized discount rate that considers all cash flows, including all fees. It is an annualized indicator of the investment\'s true return after all fees are accounted for.', '');" onmouseout="tooltip.hide();"></td><td align="right">3.844% per year</td></tr><tr><td>Sales charge</td><td align=right>$1,600.00</td></tr><tr><td>Operating expenses</td><td align=right>$1,323.40</td></tr><tr><td><b>Total charges and fees</b></td><td align=right><b>$2,923.40</b></td></tr><tr><td align="center" colspan="2"><g onclick="ttline2HideTT();"><svg width="300" height="116"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 58.5 8 A 50 50 0 0 1 107.299 47.109 L 58.5 58 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Initial investment <br>$20,000.00 (22%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58" x2="58.5" y2="8" class="mcpline" /><path d="M 107.299 47.109 A 50 50 0 1 1 20.017 26.078 L 58.5 58 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Total contributions <br>$60,000.00 (65%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58" x2="107.299" y2="47.109" class="mcpline" /><path d="M 20.017 26.078 A 50 50 0 0 1 27.029 19.147 L 58.5 58 Z" fill="#910000"  onmousemove="ttpieShowTT(evt, '#910000', 'Fees and charges <br>$2,923.40 (3%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58" x2="20.017" y2="26.078" class="mcpline" /><path d="M 27.029 19.147 A 50 50 0 0 1 58.5 8 L 58.5 58 Z" fill="#1aadce"  onmousemove="ttpieShowTT(evt, '#1aadce', 'Net return <br>$10,077.09 (11%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58" x2="27.029" y2="19.147" class="mcpline" /><line x1="58.5" y1="58" x2="58.5" y2="8" class="mcpline" /><circle cx="58.5" cy="58" r="22.5" fill="white" /><text x="80.388" y="30.689" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Initial investment <br>$20,000.00 (22%)');" onmouseout="ttpieHideTT();">22%</text><text x="50.301" y="92.026" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Total contributions <br>$60,000.00 (65%)');" onmouseout="ttpieHideTT();">65%</text><text x="33.896" y="33.107" class="mcplabel" stroke="#910000" onmousemove="ttpieShowTT(evt, '#910000', 'Fees and charges <br>$2,923.40 (3%)');" onmouseout="ttpieHideTT();">3%</text><text x="46.814" y="25.008" class="mcplabel" stroke="#1aadce" onmousemove="ttpieShowTT(evt, '#1aadce', 'Net return <br>$10,077.09 (11%)');" onmouseout="ttpieHideTT();">11%</text><rect x="117" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="142" y="19" class="mcplegend">Initial investment</text><rect x="117" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="142" y="37" class="mcplegend">Total contributions</text><rect x="117" y="44" rx="3" ry="3" width="20" height="14" style="fill:#910000;" /><text x="142" y="55" class="mcplegend">Fees and charges</text><rect x="117" y="62" rx="3" ry="3" width="20" height="14" style="fill:#1aadce;" /><text x="142" y="73" class="mcplegend">Net return</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></td></tr></table></div></div>
+<div id="clear"></div>
+
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cinvestamt");
+proComma2("cannualadd");
+proComma2("cmonthlyadd");
+</script>
+
+<fieldset><legend>Related</legend><a href="/investment-calculator.html">Investment Calculator</a> | <a href="/irr-calculator.html">IRR Calculator</a> | <a href="/bond-calculator.html">Bond Calculator</a></fieldset>
+<br><br>
+
+<p>A mutual fund is an investment fund that pools money from many investors to purchase assets such as stocks, bonds, or other securities. Each investor owns shares of the mutual fund, which represent a proportional interest in the fund's holding assets. At the end of each trading day, the net asset value (NAV), or per-share value, of the mutual fund is calculated by dividing the total value of the fund's assets by the number of shares outstanding. When investors purchase or sell shares of a mutual fund, the transactions are executed at the NAV of the trading day on which the order is placed, provided the order is submitted within the required time frame.</p>
+<p>Mutual funds normally have stated investment objectives, such as growth, income, capital preservation, or a combination of these goals. Based on these objectives, mutual funds can be defined and categorized by the primary types of assets they hold, including money market funds, bond (fixed-income) funds, stock (equity) funds, hybrid funds, and more. They may also be categorized by management style, such as passively managed funds that track the performance of an index (for example, a stock or bond market index), or actively managed funds, which seek to outperform a specific benchmark. In addition, mutual funds may be categorized by their structure, including open-end funds, closed-end funds, and unit investment trusts.</p>
+<p>Mutual funds are a very popular choice among investors because they generally offer diversification, low investment minimums, simplicity, liquidity, and professional management. Mutual funds constitute the largest category of investment funds globally. Today, trillions of dollars are managed by mutual funds worldwide, with more than 50% of those in the United States. They are widely used in retirement accounts, long-term savings plans, diversified investment portfolios, and various other purposes.</p>
+
+<h2>Mutual fund fees and expenses</h2>
+<p>Mutual funds are managed by fund managers or investment teams based on the fund's objectives and categories. Inevitably, investing in mutual funds comes with costs. There are many different fees and expenses associated with mutual fund investments, which can generally be grouped into one-time transaction fees and ongoing periodic fees.</p>
+
+<h3>Transaction Fees</h3>
+<p>Many mutual funds impose sales charges, also known as loads, which are commissions paid when buying or selling fund shares. Depending on when the charges are applied, they can be categorized as:</p>
+<p><b>Sales charge on purchase (front-end load)</b>&mdash;This is a fee charged upfront when purchasing the fund. It is typically a percentage of the investment amount and directly reduces the amount invested in the fund. For example, if an investor invests $20,000 in a mutual fund with a 5% front-end sales charge, the sales charge is $1,000, and the actual amount used to purchase fund shares is $19,000.</p>
+<p><b>Deferred sales charge (back-end load)</b>&mdash;A deferred sales charge is a fee charged when redeeming or selling fund shares. It is typically calculated as a percentage of the lesser of the original investment amount or the fund's value at redemption. For example, if an investor invests $20,000 in a mutual fund with a 5% deferred sales charge and the investment grows to $30,000 at the time of sale, the charge is calculated based on the original investment of $20,000, resulting in a $1,000 fee. The investor would receive $29,000. If, instead, the investment declines in value to $10,000 at the time of sale, the deferred sales charge would be calculated based on the fund's value at redemption, resulting in a fee of $500. In this case, the investor would receive $9,500.</p>
+<p>To incentivize longer holding, many mutual funds implement a contingent deferred sales charge (CDSC), under which the back-end sales charge decreases over time and may eventually be reduced to zero if the fund is held long enough. For example, a CDSC might start at 5% and decrease by 1% for each year the fund is held. If an investor sells after holding the fund for three years, the deferred sales charge would be 2%.</p>
+<p>Mutual funds normally charge either a front-end or a deferred sales charge, but rarely both. Some funds are marketed as no-load funds, meaning they do not charge sales.</p>
+<p>In addition to sales charges, mutual funds may impose other one-time fees, such as purchase fees, redemption fees, exchange fees, and account maintenance fees.</p>
+
+<h3>Periodic Fees</h3>
+<p>Periodic fees are ongoing fees charged while an investor holds the mutual fund. These fees are mainly used to cover the fund's operating expenses and are typically a percentage of the fund's average net asset value. They generally include management fees, distribution and service fees (12b-1 fees in the U.S.), and other operating expenses. Together, the periodic fees are commonly reflected as the fund's expense ratio.</p>
+<p>The amount of periodic fees depends heavily on the type of fund. Actively managed funds normally charge higher fees than passive index funds due to the heavier involvement of the management team. Generally, expense ratio rarely exceeds 2% per year even for actively managed mutual funds. Some passive index mutual funds may have very low expense ratios, such as 0.1% or less.</p>
+<p>Fees and expenses can have a significant impact on a mutual fund's total return. It is important for investors to consider not only the nominal returns of a fund, but also its fees, expenses, volatilities, and other characteristics when investing. Our calculator above can estimate the net internal rate of return (IRR) of a mutual fund by accounting for both investment performance and associated fees and expenses, providing a more comprehensive measure of the fund performance.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

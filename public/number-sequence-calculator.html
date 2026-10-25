@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Number Sequence Calculator</title>
+	<meta name="description" content="This free number sequence calculator can determine the terms (as well as the sum of all terms) of the arithmetic, geometric, or Fibonacci sequence." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/number-sequence-calculator.html" itemprop="item"><span itemprop="name">number sequence calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Number Sequence Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg"></div>
+<h2>Arithmetic Sequence Calculator</h2>
+<p>definition: a<sub>n</sub> = a<sub>1</sub> + f &#215; (n-1)<br>example: 1, 3, 5, 7, 9 11, 13, ...</p>
+<form name="calform" action="/number-sequence-calculator.html">
+<table class="panel">
+	<tr>
+		<td align="right">the first number</td>
+		<td><input type="text" name="afirstnumber" id="afirstnumber" value="2" class="inlong"></td>
+	</tr>
+	<tr>
+		<td align="right">common difference (f)</td>
+		<td><input type="text" name="afactor" id="afactor" value="5" class="inlong"></td>
+	</tr>
+	<tr>
+		<td align="right">the n<sup>th</sup> number to obtain</td>
+		<td><input type="text" name="athenumber" id="athenumber" value="20" class="inlong"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input name="ctype" value="1" type="hidden">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<a name="geometric"></a>
+<br><h2>Geometric Sequence Calculator</h2>
+<p>definition: a<sub>n</sub> = a &#215; r<sub>n-1</sub> <br>example: 1, 2, 4, 8, 16, 32, 64, 128, ...</p>
+
+<form name="calform2" action="/number-sequence-calculator.html#geometric">
+<table class="panel">
+	<tr>
+		<td align="right">the first number</td>
+		<td><input type="text" name="gfirstnumber" id="gfirstnumber" value="2" class="inlong"></td>
+	</tr>
+	<tr>
+		<td align="right">common ratio (r)</td>
+		<td><input type="text" name="gfactor" id="gfactor" value="5" class="inlong"></td>
+	</tr>
+	<tr>
+		<td align="right">the n<sup>th</sup> number to obtain</td>
+		<td><input type="text" name="gthenumber" id="gthenumber" value="12" class="inlong"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input name="ctype" value="2" type="hidden">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table></form>
+
+<a name="fibonacci"></a>
+<br><h2>Fibonacci Sequence Calculator</h2>
+<p>definition: a<sub>0</sub>=0; a<sub>1</sub>=1; a<sub>n</sub> = a<sub>n-1</sub> + a<sub>n-2</sub>;<br>example: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...</p>
+<form name="calform3" action="/number-sequence-calculator.html#fibonacci">
+<table class="panel">
+	<tr>
+		<td align="right">the n<sup>th</sup> number to obtain</td>
+		<td><input type="text" name="fthenumber" id="fthenumber" value="10" class="inlong"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top:10px;">
+			<input name="ctype" value="3" type="hidden">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table></form>
+
+
+<br><br>
+<p>In mathematics, a sequence is an ordered list of objects. Accordingly, a number sequence is an ordered list of numbers that follow a particular pattern. The individual elements in a sequence is often referred to as term, and the number of terms in a sequence is called its length, which can be infinite. In a number sequence, the order of the sequence is important, and depending on the sequence, it is possible for the same terms to appear multiple times. There are many different types of number sequences, three of the most common of which include arithmetic sequences, geometric sequences, and Fibonacci sequences.</p>
+<p>Sequences have many applications in various mathematical disciplines due to their properties of convergence. A series is convergent if the sequence converges to some limit, while a sequence that does not converge is divergent. Sequences are used to study functions, spaces, and other mathematical structures. They are particularly useful as a basis for series (essentially describe an operation of adding infinite quantities to a starting quantity), which are generally used in differential equations and the area of mathematics referred to as analysis. There are multiple ways to denote sequences, one of which involves simply listing the sequence in cases where the pattern of the sequence is easily discernible. In cases that have more complex patterns, indexing is usually the preferred notation. Indexing involves writing a general formula that allows the determination of the <b>n<sup>th</sup></b> term of a sequence as a function of <b>n</b>. </p>
+
+<h3>Arithmetic Sequence</h3>
+<p>An arithmetic sequence is a number sequence in which the difference between each successive term remains constant. This difference can either be positive or negative, and dependent on the sign will result in terms of the arithmetic sequence tending towards positive or negative infinity. The general form of an arithmetic sequence can be written as: </p>
+
+<table align="center">
+<tr><td>&nbsp;</td><td valign="top"><div class="bigtext">a<sub>n</sub> = a<sub>1</sub> + f &#215; (n-1) </div> &nbsp; or more generally</td><td valign="top">where <b>a<sub>n</sub></b> refers to the <b>n<sup>th</sup></b> <br>term in the sequence</td></tr>
+<tr><td>&nbsp;</td><td valign="top" class="bigtext">a<sub>n</sub> = a<sub>m</sub> + f &#215; (n-m)</td><td valign="top"><b>a<sub>1</sub></b> is the first term</td></tr>
+<tr><td>i.e. &nbsp; </td><td valign="top" class="bigtext">a<sub>1</sub>, a<sub>1</sub> + f, a<sub>1</sub> + 2f, ...</td><td valign="top"><b>f</b> is the common difference</td></tr>
+<tr><td>EX: &nbsp; </td><td valign="top" colspan="2" class="bigtext">1, 3, 5, 7, 9, 11, 13, ...</td></tr>
+</table>
+
+<p>It is clear in the sequence above that the common difference <b>f</b>, is 2. Using the equation above to calculate the 5<sup>th</sup> term:</p>
+<table align="center">
+<tr><td valign="top">EX: &nbsp; <td valign="top" colspan="2" class="bigtext">a<sub>5</sub> = a<sub>1</sub> + f &#215; (n-1)<br>
+		a<sub>5</sub> = 1 + 2 &#215; (5-1)<br>
+		a<sub>5</sub> = 1 + 8 = 9</td></tr>
+</table>
+<p>Looking back at the listed sequence, it can be seen that the 5th term, <b>a<sub>5</sub></b>, found using the equation, matches the listed sequence as expected. It is also commonly desirable, and simple, to compute the sum of an arithmetic sequence using the following formula in combination with the previous formula to find <b>a<sub>n</sub></b>:</p>
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td class="bigtext">n &#215; (a<sub>1</sub> + a<sub>n</sub>)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center" class="bigtext">2</td></tr></table></td>
+</tr></table>
+<p>Using the same number sequence in the previous example, find the sum of the arithmetic sequence through the 5<sup>th</sup> term:</p>
+<table align="center">
+<tr><td valign="top">EX: &nbsp; </td><td valign="top" colspan="2">
+		1 + 3 + 5 + 7 + 9 = 25<br>
+		(5 &#215; (1 + 9))/2 = 50/2 = 25</td></tr>
+</table>
+
+
+<h3>Geometric Sequence</h3>
+<p>A geometric sequence is a number sequence in which each successive number after the first number is the multiplication of the previous number with a fixed, non-zero number (common ratio). The general form of a geometric sequence can be written as: </p>
+<table align="center">
+<tr><td>&nbsp;</td><td valign="top" class="bigtext">a<sub>n</sub> = a &#215; r<sup>n-1</sup></td><td valign="top">where <b>a<sub>n</sub></b> refers to the <b>n<sup>th</sup></b> term in the sequence</td></tr>
+<tr><td valign="top">i.e. &nbsp; </td><td valign="top" class="bigtext">a, ar, ar<sup>2</sup>, ar<sup>3</sup>, ...</td><td valign="top"><b>a</b> is the scale factor and <b>r</b> is the common ratio</td></tr>
+<tr><td>EX: &nbsp; </td><td valign="top" class="bigtext" colspan="2">1, 2, 4, 8, 16, 32, 64, 128, ...</td></tr>
+</table>
+
+<p>In the example above, the common ratio <b>r</b> is 2, and the scale factor <b>a</b> is 1. Using the equation above, calculate the 8<sup>th</sup> term:</p>
+<table align="center">
+<tr><td valign="top">EX: &nbsp; </td><td valign="top" colspan="2" class="bigtext">
+	a<sub>8</sub> = a &#215; r<sup>8-1</sup><br>
+	a<sub>8</sub> = 1  &#215; 2<sup>7</sup> = 128</td></tr>
+</table>
+
+<p>Comparing the value found using the equation to the geometric sequence above confirms that they match. The equation for calculating the sum of a geometric sequence:</p>
+
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td class="bigtext">a &#215; (1 - r<sup>n</sup>)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center" class="bigtext">1 - r</td></tr></table></td>
+</tr></table>
+
+<p>Using the same geometric sequence above, find the sum of the geometric sequence through the 3<sup>rd</sup> term. </p>
+<p class="bigtext" align="center">EX: &nbsp; 1 + 2 + 4 = 7</p>
+<table align="center"><tr>
+<td><table cellpadding="0"><tr><td class="bigtext">1 &#215; (1-2<sup>3</sup>)</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center" class="bigtext">1 - 2</td></tr></table></td>
+<td>&nbsp;=&nbsp;</td>
+<td><table cellpadding="0"><tr><td class="bigtext">-7</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center" class="bigtext">-1</td></tr></table></td>
+<td>&nbsp;= 7</td>
+</tr></table>
+
+<h3>Fibonacci Sequence</h3>
+
+<p>A Fibonacci sequence is a sequence in which every number following the first two is the sum of the two preceding numbers. The first two numbers in a Fibonacci sequence are defined as either 1 and 1, or 0 and 1 depending on the chosen starting point. Fibonacci numbers occur often, as well as unexpectedly within mathematics and are the subject of many studies. They have applications within computer algorithms (such as Euclid's algorithm to compute the <a href="/gcf-calculator.html">greatest common factor</a>), economics, and biological settings including the branching in trees, the flowering of an artichoke, as well as many others. Mathematically, the Fibonacci sequence is written as:</p>
+<table align="center">
+<tr><td>&nbsp;</td><td valign="top" class="bigtext">a<sub>n</sub> = a<sub>n-1</sub> + a<sub>n-2</sub></td><td valign="top">where <b>a<sub>n</sub></b> refers to the <b>n<sup>th</sup></b> term in the sequence</td></tr>
+<tr><td>EX: &nbsp; </td><td valign="top" class="bigtext">0, 1, 1, 2, 3, 5, 8, 13, 21, ...</td><td valign="top">a<sub>0</sub> = 0; a<sub>1</sub> = 1</td></tr>
+</table>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

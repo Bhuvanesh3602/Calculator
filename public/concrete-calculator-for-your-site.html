@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Concrete Calculator for Your Site</title>
+	<meta name="description" content="Free concrete calculator that can be used on your site." />
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/calculators-for-your-site.html" itemprop="item"><span itemprop="name">calculators for your site</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/concrete-calculator-for-your-site.html" itemprop="item"><span itemprop="name">concrete calculator for your site</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Concrete Calculator for Your Site</h1>
+
+<p>Feel free to use our Concrete Calculator on your website. The example implementation is shown below. It is possible to alter the color, font, and certain parts of the code to best fit your website.</p>
+
+<!--
+TERMS OF USE
+BY USING THE CODE, YOU AGREE:
+1. THAT THE MATERIALS ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND
+2. NOT TO CHANGE ANY OF THE JAVASCRIPT CODE, INCLUDING THE LICENSE TEXT
+3. NOT TO REMOVE THE LINE OF TEXT "powered by calculator.net"
+4. THAT THE COPYRIGHT BELONGS TO calculator.net
+5. NOT TO REMOVE THE TERMS OF USE
+-->
+<!--BEGIN OF THE CALCULATOR CODE-->
+<script>
+//JAVASCRIPT BEGIN
+/*****************************************
+(C) https://www.calculator.net all right reserved.
+*****************************************/
+function gObj(obj) {var theObj;if(document.all){if(typeof obj=="string"){return document.all(obj);}else{return obj.style;}}if(document.getElementById){if(typeof obj=="string"){return document.getElementById(obj);}else{return obj.style;}}return null;}function trimAll(sString){while (sString.substring(0,1) == ' '){sString = sString.substring(1, sString.length);}while (sString.substring(sString.length-1, sString.length) == ' '){sString = sString.substring(0,sString.length-1);} return sString;}function isNumber(val){val=val+"";if (val.length<1) return false;if (isNaN(val)){return false;}else{return true;}}function showquickobjmsg(C,B,A){if(B){C="<font color=red>"+C+"</font>"}gObj(A).innerHTML=C}function calcslab(A){th=trimAll(gObj("slablength").value+"");SG=trimAll(gObj("slablengthunit").value+"");NP=trimAll(gObj("slabwidth").value+"");gd=trimAll(gObj("slabwidthunit").value+"");IB=trimAll(gObj("slabthick").value+"");gE=trimAll(gObj("slabthickunit").value+"");KR=trimAll(gObj("slabquantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(th)){showquickobjmsg("the length need to be numeric",true,A);return }else{if(!isNumber(NP)){showquickobjmsg("the width need to be numeric",true,A);return }else{if(!isNumber(IB)){showquickobjmsg("the thickness or height need to be numeric",true,A);return }else{if(!isNumber(KR)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}}th=parseFloat(th);NP=parseFloat(NP);IB=parseFloat(IB);if((th<0)||(NP<0)||(IB<0)||(KR<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(SG=="foot"){th=th*0.3048}else{if(SG=="inch"){th=th*0.0254}else{if(SG=="yard"){th=th*0.9144}else{if(SG=="centimeter"){th=th*0.01}}}}if(gd=="foot"){NP=NP*0.3048}else{if(gd=="inch"){NP=NP*0.0254}else{if(gd=="yard"){NP=NP*0.9144}else{if(gd=="centimeter"){NP=NP*0.01}}}}if(gE=="foot"){IB=IB*0.3048}else{if(gE=="inch"){IB=IB*0.0254}else{if(gE=="yard"){IB=IB*0.9144}else{if(gE=="centimeter"){IB=IB*0.01}}}}ET=th*NP*IB*KR;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)}function calchole(A){wG=trimAll(gObj("holediameter").value+"");kK=trimAll(gObj("holediameterunit").value+"");Mh=trimAll(gObj("holedepth").value+"");GR=trimAll(gObj("holedepthunit").value+"");Ff=trimAll(gObj("holequantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(wG)){showquickobjmsg("the diameter need to be numeric",true,A);return }else{if(!isNumber(Mh)){showquickobjmsg("the depth or height need to be numeric",true,A);return }else{if(!isNumber(Ff)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}wG=parseFloat(wG);Mh=parseFloat(Mh);Ff=parseFloat(Ff);if((wG<0)||(Mh<0)||(Ff<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(kK=="foot"){wG=wG*0.3048}else{if(kK=="inch"){wG=wG*0.0254}else{if(kK=="yard"){wG=wG*0.9144}else{if(kK=="centimeter"){wG=wG*0.01}}}}if(GR=="foot"){Mh=Mh*0.3048}else{if(GR=="inch"){Mh=Mh*0.0254}else{if(GR=="yard"){Mh=Mh*0.9144}else{if(GR=="centimeter"){Mh=Mh*0.01}}}}ET=Mh*3.14159*wG*wG*Ff/4;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)}function calctube(A){OJ=trimAll(gObj("tubediameter").value+"");ZN=trimAll(gObj("tubediameterunit").value+"");cT=trimAll(gObj("tubeindiameter").value+"");KQ=trimAll(gObj("tubeindiameterunit").value+"");lf=trimAll(gObj("tubedepth").value+"");WL=trimAll(gObj("tubedepthunit").value+"");lY=trimAll(gObj("tubequantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(OJ)){showquickobjmsg("the outer diameter need to be numeric",true,A);return }else{if(!isNumber(cT)){showquickobjmsg("the inner diameter need to be numeric",true,A);return }else{if(!isNumber(lf)){showquickobjmsg("the length or height need to be numeric",true,A);return }else{if(!isNumber(lY)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}}OJ=parseFloat(OJ);cT=parseFloat(cT);lf=parseFloat(lf);if((OJ<0)||(cT<0)||(lf<0)||(lY<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(OJ<cT){showquickobjmsg("the inner diamerter needs to be smaller than outer diamerter",true,A);return }if(ZN=="foot"){OJ=OJ*0.3048}else{if(ZN=="inch"){OJ=OJ*0.0254}else{if(ZN=="yard"){OJ=OJ*0.9144}else{if(ZN=="centimeter"){OJ=OJ*0.01}}}}if(KQ=="foot"){cT=cT*0.3048}else{if(KQ=="inch"){cT=cT*0.0254}else{if(KQ=="yard"){cT=cT*0.9144}else{if(KQ=="centimeter"){cT=cT*0.01}}}}if(WL=="foot"){lf=lf*0.3048}else{if(WL=="inch"){lf=lf*0.0254}else{if(WL=="yard"){lf=lf*0.9144}else{if(WL=="centimeter"){lf=lf*0.01}}}}ET=lf*3.14159*(OJ*OJ-cT*cT)*lY/4;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)};
+//JAVASCRIPT END
+</script>
+
+<!--YOU CAN CHANGE THE FOLLOWING CODE-->
+<form name="calcf">
+<h2>Slabs, Square Footings, or Walls</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>length</td>
+		<td><input type="text" name="slablength" style="width:100px;" id="slablength" value="2.5" style="text-align: right;"></td>
+		<td><select id="slablengthunit" name="slablengthunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>width</td>
+		<td><input type="text" name="slabwidth" style="width:100px;" id="slabwidth" value="5" style="text-align: right;"></td>
+		<td><select id="slabwidthunit" name="slabwidthunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>thickness or height</td>
+		<td><input type="text" name="slabthick" style="width:100px;" id="slabthick" value="5" style="text-align: right;"></td>
+		<td><select id="slabthickunit" name="slabthickunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="slabquantity" style="width:100px;" id="slabquantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calcslab('coutputslab');"></td>
+	</tr>
+</table>
+<div id="coutputslab"></div>
+<h2>Hole, Column, or Round Footings</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>diameter</td>
+		<td><input type="text" name="holediameter" style="width:100px;" id="holediameter" value="2.5" style="text-align: right;"></td>
+		<td><select id="holediameterunit" name="holediameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>depth or height</td>
+		<td><input type="text" name="holedepth" style="width:100px;" id="holedepth" value="6" style="text-align: right;"></td>
+		<td><select id="holedepthunit" name="holedepthunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="holequantity" style="width:100px;" id="holequantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calchole('coutputhole');"></td>
+	</tr>
+</table>
+<div id="coutputhole"></div>
+<h2>Circular Slab or Tube</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>outer diameter</td>
+		<td><input type="text" name="tubediameter" style="width:100px;" id="tubediameter" value="5" style="text-align: right;"></td>
+		<td><select id="tubediameterunit" name="tubediameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>inner diameter</td>
+		<td><input type="text" name="tubeindiameter" style="width:100px;" id="tubeindiameter" value="4" style="text-align: right;"></td>
+		<td><select id="tubeindiameterunit" name="tubeindiameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>length or height</td>
+		<td><input type="text" name="tubedepth" style="width:100px;" id="tubedepth" value="5" style="text-align: right;"></td>
+		<td><select id="tubedepthunit" name="tubedepthunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="tubequantity" style="width:100px;" id="tubequantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calctube('coutputtube');"></td>
+	</tr>
+</table>
+<div id="coutputtube"></div>
+<br><div id="calfootnote">powered by <a href="https://www.calculator.net" rel="nofollow">calculator.net</a></div>
+<!--END OF THE CALCULATOR CODE-->
+
+
+<h2><br>Installation Instructions</h2>
+To install, copy all of the code in the following text area into the html source code of your website. Note that calculator.net permits the changing of the HTML and CSS to make the calculator fit the style of your site, but not any of the JavaScript. See the Terms of Use for further detail.
+<p><b>TERMS OF USE</b><br>BY COPYING THE CODE FOR USE, YOU <b>AGREE</b>:<br>
+1. THAT THE MATERIALS ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND<br>
+2. NOT TO CHANGE ANY OF THE JAVASCRIPT CODE, INCLUDING THE LICENSE TEXT<br>
+3. NOT TO REMOVE THE LINE OF TEXT "powered by calculator.net"<br>
+4. THAT THE COPYRIGHT BELONGS TO calculator.net<br>
+5. NOT TO REMOVE THE TERMS OF USE
+</p>
+
+
+<textarea rows="10" cols="50" class="infulltxarea" id="outputhtml" onClick="gObj('outputhtml').focus();gObj('outputhtml').select();">
+<!--
+TERMS OF USE
+BY USING THE CODE, YOU AGREE:
+1. THAT THE MATERIALS ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND
+2. NOT TO CHANGE ANY OF THE JAVASCRIPT CODE, INCLUDING THE LICENSE TEXT
+3. NOT TO REMOVE THE LINE OF TEXT "powered by calculator.net"
+4. THAT THE COPYRIGHT BELONGS TO calculator.net
+5. NOT TO REMOVE THE TERMS OF USE
+-->
+<!--BEGIN OF THE CALCULATOR CODE-->
+<script>
+//JAVASCRIPT BEGIN
+/*****************************************
+(C) https://www.calculator.net all right reserved.
+*****************************************/
+function gObj(obj) {var theObj;if(document.all){if(typeof obj=="string"){return document.all(obj);}else{return obj.style;}}if(document.getElementById){if(typeof obj=="string"){return document.getElementById(obj);}else{return obj.style;}}return null;}function trimAll(sString){while (sString.substring(0,1) == ' '){sString = sString.substring(1, sString.length);}while (sString.substring(sString.length-1, sString.length) == ' '){sString = sString.substring(0,sString.length-1);} return sString;}function isNumber(val){val=val+"";if (val.length<1) return false;if (isNaN(val)){return false;}else{return true;}}function showquickobjmsg(C,B,A){if(B){C="<font color=red>"+C+"</font>"}gObj(A).innerHTML=C}function calcslab(A){th=trimAll(gObj("slablength").value+"");SG=trimAll(gObj("slablengthunit").value+"");NP=trimAll(gObj("slabwidth").value+"");gd=trimAll(gObj("slabwidthunit").value+"");IB=trimAll(gObj("slabthick").value+"");gE=trimAll(gObj("slabthickunit").value+"");KR=trimAll(gObj("slabquantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(th)){showquickobjmsg("the length need to be numeric",true,A);return }else{if(!isNumber(NP)){showquickobjmsg("the width need to be numeric",true,A);return }else{if(!isNumber(IB)){showquickobjmsg("the thickness or height need to be numeric",true,A);return }else{if(!isNumber(KR)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}}th=parseFloat(th);NP=parseFloat(NP);IB=parseFloat(IB);if((th<0)||(NP<0)||(IB<0)||(KR<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(SG=="foot"){th=th*0.3048}else{if(SG=="inch"){th=th*0.0254}else{if(SG=="yard"){th=th*0.9144}else{if(SG=="centimeter"){th=th*0.01}}}}if(gd=="foot"){NP=NP*0.3048}else{if(gd=="inch"){NP=NP*0.0254}else{if(gd=="yard"){NP=NP*0.9144}else{if(gd=="centimeter"){NP=NP*0.01}}}}if(gE=="foot"){IB=IB*0.3048}else{if(gE=="inch"){IB=IB*0.0254}else{if(gE=="yard"){IB=IB*0.9144}else{if(gE=="centimeter"){IB=IB*0.01}}}}ET=th*NP*IB*KR;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)}function calchole(A){wG=trimAll(gObj("holediameter").value+"");kK=trimAll(gObj("holediameterunit").value+"");Mh=trimAll(gObj("holedepth").value+"");GR=trimAll(gObj("holedepthunit").value+"");Ff=trimAll(gObj("holequantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(wG)){showquickobjmsg("the diameter need to be numeric",true,A);return }else{if(!isNumber(Mh)){showquickobjmsg("the depth or height need to be numeric",true,A);return }else{if(!isNumber(Ff)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}wG=parseFloat(wG);Mh=parseFloat(Mh);Ff=parseFloat(Ff);if((wG<0)||(Mh<0)||(Ff<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(kK=="foot"){wG=wG*0.3048}else{if(kK=="inch"){wG=wG*0.0254}else{if(kK=="yard"){wG=wG*0.9144}else{if(kK=="centimeter"){wG=wG*0.01}}}}if(GR=="foot"){Mh=Mh*0.3048}else{if(GR=="inch"){Mh=Mh*0.0254}else{if(GR=="yard"){Mh=Mh*0.9144}else{if(GR=="centimeter"){Mh=Mh*0.01}}}}ET=Mh*3.14159*wG*wG*Ff/4;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)}function calctube(A){OJ=trimAll(gObj("tubediameter").value+"");ZN=trimAll(gObj("tubediameterunit").value+"");cT=trimAll(gObj("tubeindiameter").value+"");KQ=trimAll(gObj("tubeindiameterunit").value+"");lf=trimAll(gObj("tubedepth").value+"");WL=trimAll(gObj("tubedepthunit").value+"");lY=trimAll(gObj("tubequantity").value+"");if(typeof (cc)!="undefined"){return }if(!isNumber(OJ)){showquickobjmsg("the outer diameter need to be numeric",true,A);return }else{if(!isNumber(cT)){showquickobjmsg("the inner diameter need to be numeric",true,A);return }else{if(!isNumber(lf)){showquickobjmsg("the length or height need to be numeric",true,A);return }else{if(!isNumber(lY)){showquickobjmsg("the quantity need to be numeric",true,A);return }}}}OJ=parseFloat(OJ);cT=parseFloat(cT);lf=parseFloat(lf);if((OJ<0)||(cT<0)||(lf<0)||(lY<0)){showquickobjmsg("all the number need to be positive",true,A);return }if(OJ<cT){showquickobjmsg("the inner diamerter needs to be smaller than outer diamerter",true,A);return }if(ZN=="foot"){OJ=OJ*0.3048}else{if(ZN=="inch"){OJ=OJ*0.0254}else{if(ZN=="yard"){OJ=OJ*0.9144}else{if(ZN=="centimeter"){OJ=OJ*0.01}}}}if(KQ=="foot"){cT=cT*0.3048}else{if(KQ=="inch"){cT=cT*0.0254}else{if(KQ=="yard"){cT=cT*0.9144}else{if(KQ=="centimeter"){cT=cT*0.01}}}}if(WL=="foot"){lf=lf*0.3048}else{if(WL=="inch"){lf=lf*0.0254}else{if(WL=="yard"){lf=lf*0.9144}else{if(WL=="centimeter"){lf=lf*0.01}}}}ET=lf*3.14159*(OJ*OJ-cT*cT)*lY/4;gA=ET/0.3048/0.3048/0.3048;PP=ET/0.9144/0.9144/0.9144;bQ=ET*2130;vH=gA*133;ko="<b>Results:</b><br><font color=green><b>"+gA.toPrecision(3)+"</b></font> cubic feet";ko+=" or <font color=green><b>"+PP.toPrecision(3)+"</b></font> cubic yards";ko+=" or <font color=green><b>"+ET.toPrecision(3)+"</b></font> cubic meters";ko+="<br> if pre-mixed concrete*, it is ";ko+=" <font color=green><b>"+vH.toPrecision(3)+"</b></font> lbs";ko+=" or <font color=green><b>"+bQ.toPrecision(3)+"</b></font> kgs";ko+="<br> if 60 lbs per bag, it is <font color=green><b>"+(vH/60).toPrecision(3)+"</b></font> bags";ko+="<br> if 80 lbs per bag, it is <font color=green><b>"+(vH/80).toPrecision(3)+"</b></font> bags";showquickobjmsg(ko,false,A)};
+//JAVASCRIPT END
+</script>
+
+<!--YOU CAN CHANGE THE FOLLOWING CODE-->
+<form name="calcf">
+<h2>Slabs, Square Footings, or Walls</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>length</td>
+		<td><input type="text" name="slablength" style="width:100px;" id="slablength" value="2.5" style="text-align: right;"></td>
+		<td><select id="slablengthunit" name="slablengthunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>width</td>
+		<td><input type="text" name="slabwidth" style="width:100px;" id="slabwidth" value="5" style="text-align: right;"></td>
+		<td><select id="slabwidthunit" name="slabwidthunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>thickness or height</td>
+		<td><input type="text" name="slabthick" style="width:100px;" id="slabthick" value="5" style="text-align: right;"></td>
+		<td><select id="slabthickunit" name="slabthickunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="slabquantity" style="width:100px;" id="slabquantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calcslab('coutputslab');"></td>
+	</tr>
+</table>
+<div id="coutputslab"></div>
+<h2>Hole, Column, or Round Footings</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>diameter</td>
+		<td><input type="text" name="holediameter" style="width:100px;" id="holediameter" value="2.5" style="text-align: right;"></td>
+		<td><select id="holediameterunit" name="holediameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>depth or height</td>
+		<td><input type="text" name="holedepth" style="width:100px;" id="holedepth" value="6" style="text-align: right;"></td>
+		<td><select id="holedepthunit" name="holedepthunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="holequantity" style="width:100px;" id="holequantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calchole('coutputhole');"></td>
+	</tr>
+</table>
+<div id="coutputhole"></div>
+<h2>Circular Slab or Tube</h2>
+<table border="0" cellspacing="0" cellpadding="4" bgcolor="#dddddd" id="standard">
+	<tr>
+		<td>outer diameter</td>
+		<td><input type="text" name="tubediameter" style="width:100px;" id="tubediameter" value="5" style="text-align: right;"></td>
+		<td><select id="tubediameterunit" name="tubediameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>inner diameter</td>
+		<td><input type="text" name="tubeindiameter" style="width:100px;" id="tubeindiameter" value="4" style="text-align: right;"></td>
+		<td><select id="tubeindiameterunit" name="tubeindiameterunit"><option value="foot" selected>foot</option><option value="inch">inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>length or height</td>
+		<td><input type="text" name="tubedepth" style="width:100px;" id="tubedepth" value="5" style="text-align: right;"></td>
+		<td><select id="tubedepthunit" name="tubedepthunit"><option value="foot">foot</option><option value="inch" selected>inch</option><option value="yard">yard</option><option value="meter">meter</option><option value="centimeter">centimeter</option></select></td>
+	</tr>
+	<tr>
+		<td>quantity</td>
+		<td colspan="2"><input type="text" name="tubequantity" style="width:100px;" id="tubequantity" value="1" style="text-align: right;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><input type="button" value="Calculate" onclick="javascript:calctube('coutputtube');"></td>
+	</tr>
+</table>
+<div id="coutputtube"></div>
+<br><div id="calfootnote">powered by <a href="https://www.calculator.net" rel="nofollow">calculator.net</a></div>
+<!--END OF THE CALCULATOR CODE--></textarea>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

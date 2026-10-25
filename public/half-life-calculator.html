@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Half-Life Calculator</title>
+	<meta name="description" content="This calculator computes any of the values in the half-life formula given the rest values. It also converts between half-life, mean lifetime, decay constant." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/half-life-calculator.html" itemprop="item"><span itemprop="name">half-life calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Half-Life Calculator</h1>
+
+<p>The following tools can generate any one of the values from the other three in the half-life formula for a substance undergoing decay to decrease by half.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>Half-Life Calculator</h2>
+<p>Please provide any three of the following to calculate the fourth value.</p><div class="panel">
+<form name="calform" action="/half-life-calculator.html">
+<table align="center">
+<tr><td align="center"><input type="hidden" name="type" value="1">
+	<table cellpadding="2">
+		<tr>
+			<td align="center">quantity remains<br>N<sub>t</sub></td>
+			<td align="center">initial quantity<br>N<sub>0</sub></td>
+			<td align="center">time<br>t</td>
+			<td align="center">half-life<br>t<sub>1/2</sub></td>
+		</tr>
+		<tr>
+			<td align="center"><input type="text" name="nt" value="10" class="inlong"></td>
+			<td align="center"><input type="text" name="n0" value="100" class="inlong"></td>
+			<td align="center"><input type="text" name="t" value="50" class="inlong"></td>
+			<td align="center"><input type="text" name="t12" value="" class="inlong"></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center" style="padding-top: 10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</td></tr></table></form>
+</div>
+
+<a name="conversion"></a>
+<h2><br>Half-Life, Mean Lifetime, and Decay Constant Conversion</h2>
+<p>Please provide any one of the following to get the other two.</p><div class="panel">
+<form name="calform2" action="/half-life-calculator.html#conversion">
+<table align="center">
+<tr><td align="center" valign="middle"><input type="hidden" name="type" value="2">
+	<table cellpadding="2">
+		<tr>
+			<td align="center">half-life<br>t<sub>1/2</sub></td>
+			<td align="center" class="bigtext">&nbsp;</td>
+			<td align="center">mean lifetime<br>&#964;</td>
+			<td align="center" class="bigtext">&nbsp;</td>
+			<td align="center">decay constant<br>&#955;</td>
+		</tr>
+		<tr>
+			<td align="center"><input type="text" name="chalflife" value="" class="inlong"></td>
+			<td align="center" class="bigtext"><b>=</b></td>
+			<td align="center"><input type="text" name="cmeanlifetime" value="" class="inlong"></td>
+			<td align="center" class="bigtext"><b>=</b></td>
+			<td align="center"><input type="text" name="cdecayconstant" value="" class="inlong"></td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center" style="padding-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+			</td>
+		</tr>
+	</table>
+</td></tr></table></form>
+</div>
+
+<h2><br>Definition and Formula</h2>
+<p>Half-life is defined as the amount of time it takes a given quantity to decrease to half of its initial value. The term is most commonly used in relation to atoms undergoing radioactive decay, but can be used to describe other types of decay, whether exponential or not. One of the most well-known applications of half-life is carbon-14 dating. The half-life of carbon-14 is approximately 5,730 years, and it can be reliably used to measure dates up to around 50,000 years ago. The process of carbon-14 dating was developed by William Libby, and is based on the fact that carbon-14 is constantly being made in the atmosphere. It is incorporated into plants through photosynthesis, and then into animals when they consume plants. The carbon-14 undergoes radioactive decay once the plant or animal dies, and measuring the amount of carbon-14 in a sample conveys information about when the plant or animal died.</p>
+<p>Below are shown three equivalent formulas describing exponential decay:</p>
+<p align="center"><img src="/img/half-life/half-life-equation1.svg" width="170" height="96" alt="exponential decay formulas"></p>
+<ul>
+where<br>
+&nbsp; &nbsp; <b>N<sub>0</sub></b> is the initial quantity<br>
+&nbsp; &nbsp; <b>N<sub>t</sub></b> is the remaining quantity after time, <b>t</b><br>
+&nbsp; &nbsp; <b>t<sub>1/2</sub></b> is the half-life<br>
+&nbsp; &nbsp; <b>&#964;</b> is the mean lifetime<br>
+&nbsp; &nbsp; <b>&#955;</b> is the decay constant<br>
+</ul>
+
+<p>If an archaeologist found a fossil sample that contained 25% carbon-14 in comparison to a living sample, the time of the fossil sample's death could be determined by rearranging equation 1, since <b>N<sub>t</sub></b>, <b>N<sub>0</sub></b>, and <b>t<sub>1/2</sub></b> are known.</p>
+<p align="center"><img src="/img/half-life/half-life-equation2.svg" width="280" height="97" alt="exponential decay example"></p>
+<p>This means that the fossil is 11,460 years old.</p>
+
+<h3>Derivation of the Relationship Between Half-Life Constants</h3>
+<p>Using the above equations, it is also possible for a relationship to be derived between <b>t<sub>1/2</b></sub>, <b>&#964;</b>, and <b>&#955;</b>. This relationship enables the determination of all values, as long as at least one is known. </p>
+<p align="center"><img src="/img/half-life/half-life-equation3.svg" width="320" height="188" alt="Relationship between half-life constants"></p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

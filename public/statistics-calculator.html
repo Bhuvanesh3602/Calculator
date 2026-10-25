@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Statistics Calculator</title>
+	<meta name="description" content="This statistics calculator computes a number of common statistical values including standard deviation, mean, sum, geometric mean, and more, given a data set." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/css/sci.css" /><script src="/js/statistics.js" async></script>
+</head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/statistics-calculator.html" itemprop="item"><span itemprop="name">statistics calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Statistics Calculator</h1>
+<style>
+.staInPutListX{
+	float:left;
+	border-radius: 3px;
+	color: #fff;
+	margin-top:2px;
+	background-color:#ec0202;
+	width: 15px;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+.staInPutListX:active {
+	background-color:#ff0000;
+	color:#ffffff;
+}
+#staquickmsg{
+	font-size:13px;
+	padding:0px 3px;
+	margin:0px;
+	color:#333;
+}
+#staOutPut{
+	font-size:20px;
+	padding:3px;
+	margin:2px;
+	cursor:text;
+	text-align:right;
+	background-color:#336699;
+	border:1px solid #336699;
+	color:#fff;
+}
+#staInPutList{
+	height: 208px;
+	width: 280px;
+	overflow-y: scroll;"
+	font-size:18px;
+	padding:3px 0px;
+	margin:2px 0px;
+	cursor:text;
+	text-align:left;
+	background-color:#fff;
+	border:1px solid #aaa;
+	border-radius: 3px;
+	color:#000;
+}
+#staInPutList div{
+	display: inline-block;
+	border-bottom:1px solid #ddd;
+	margin: 0px 8px;
+	width:110px;
+	text-align:right;
+	font-size:13px;
+}
+.scinm{height:20px;padding: 5px 0px;}
+.sciop{height:20px;padding: 5px 0px;}
+.scieq{height:20px;padding: 5px 0px;}
+</style>
+<div id="statistics">
+	<table align="center" id="sciout"><tr><td valign="bottom">
+				<div id="staquickmsg">&nbsp;</div>
+		<div id="staOutPut">0</div>
+		<div>
+			<div>
+				<span onclick="cs(7)" class="scinm">7</span>
+				<span onclick="cs(8)" class="scinm">8</span>
+				<span onclick="cs(9)" class="scinm">9</span>
+				<span onclick="cs('x')" class="sciop" style="text-decoration: overline;">x</span>
+				<span onclick="cs('x2')" class="sciop" style="text-decoration: overline;">x<sup>2</sup></span>
+			</div>
+			<div>
+				<div onclick="cs(4)" class="scinm">4</div>
+				<div onclick="cs(5)" class="scinm">5</div>
+				<div onclick="cs(6)" class="scinm">6</div>
+				<div onclick="cs('sum')" class="sciop">&#931;x</div>
+				<div onclick="cs('sum2')" class="sciop">&#931;x<sup>2</sup></div>
+			</div>
+			<div>
+				<div onclick="cs(1)" class="scinm">1</div>
+				<div onclick="cs(2)" class="scinm">2</div>
+				<div onclick="cs(3)" class="scinm">3</div>
+				<div onclick="cs('psd')" class="sciop">&#963;</div>
+				<div onclick="cs('psd2')" class="sciop">&#963;<sup>2</sup></div>
+			</div>
+			<div>
+				<div onclick="cs(0)" class="scinm">0</div>
+				<div onclick="cs('.')" class="scinm">.</div>
+				<div onclick="cs('EXP')" class="sciop">EXP</div>
+				<div onclick="cs('s')" class="sciop">s</div>
+				<div onclick="cs('s2')" class="sciop">s<sup>2</sup></div>
+			</div>
+			<div>
+				<div onclick="cs('CAS')" class="scieq">CAD</div>
+				<div onclick="cs('C')" class="scieq">C</div>
+				<div onclick="cs('ADD')" class="scieq" style="color:#F00;">ADD</div>
+				<div onclick="cs('+/-')" class="sciop">&#177;</div>
+				<div onclick="cs('GM')" class="sciop">GM</div>
+			</div>
+		</div>
+		</td><td valign="bottom"><div id="staInPutList"></div>	</td></tr></table>
+</div>
+
+
+<br><a name="inputfields"></a>
+<h2 class="h2red">or Provide Values Separated by Comma Below</h2>
+<table class="panel" align="center"><tr><td align="center">
+<form action="/statistics-calculator.html#inputfields" name="calform">
+<textarea name="numberinputs" class="infulltxarea" rows="3">10, 2, 38, 23, 38, 23, 21, 23</textarea>
+<div style="margin-top:15px;">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</div>
+</form>
+</td></tr></table>
+<br><br>
+<p>Above is a simple, generalized statistics calculator that computes statistical values such as the <a href="/mean-median-mode-range-calculator.html">mean</a>, population <a href="/standard-deviation-calculator.html">standard deviation</a>, sample standard deviation, and geometric mean among others. Many of these values are more well described in other calculators also available on this website. Visit the hyperlinks provided for more detail on how to calculate these values, as well as basic examples and applications of each. Note that while the computation of variance is not explicitly shown, it is calculated as the standard deviation squared, or <b>&#963;<sup>2</sup></b>. Simply ensure that the correct standard deviation is being used (<b>s</b> vs. <b>&#963;</b>) and square the value to obtain the variance.</p>
+
+<a name="geometric-mean"></a>
+<h3>Geometric Mean</h3>
+
+<p>The geometric mean in mathematics is a type of average that uses the product of the values in a set to indicate central tendency. This is in contrast to the arithmetic mean that performs the same function using the sum of the values in the set rather than their products. The geometric mean is useful in cases where the values being compared vary largely. Imagine a car that is rated on a scale of 0-5 for fuel efficiency, and a scale of 0-100 for safety. If the arithmetic means were used, the safety of the vehicle would be given far more weight, since a small percentage change on a larger scale will result in a larger difference than a large percentage change on a smaller scale; a change of fuel efficiency rating from 2 to 5 which is a 250% increase in rating would be overshadowed by a 6.25% rating change of 80 to 85 if only the arithmetic mean were considered. The geometric mean accounts for this by normalizing the ranges being averaged, resulting in none of the ranges dominating the weighting. Unlike the arithmetic mean, any given percentage change in the geometric mean has the same effect on the geometric mean. The equation for calculating the geometric mean is as follows:</p>
+<p align="center"><img src="/img/statistics/statistics-1.svg" width="200" height="55" alt="geometric mean equation"></p>
+
+<p>In the equation above, <b>i</b> is the index that refers to the location of a value in a set, <b>x<sub>i</sub></b> is an individual value, and <b>N</b> is the total number of values. <b>i=1</b> refers to the starting index, i.e. for a data set 1, 5, 7, 9, 12, <b>i=1</b> is 1, <b>i=2</b> is 5, <b>i=3</b> is 7, and so on. The notation above essentially means to multiply each value in the set through the <b>n<sup>th</sup></b> value, and then take the <b>n<sup>th</sup></b> root of the product. Refer to the <a href="/root-calculator.html">root calculator</a> if necessary for a review of <b>n<sup>th</sup></b> roots. Below is an example using the listed data set:</p>
+<p align="center"><img src="/img/statistics/statistics-2.svg" width="295" height="55" alt="geometric mean example"></p>
+
+<p>The geometric mean has applications within proportional growth, the social sciences, aspect ratios, geometry, and finance among others, and like most other statistical values, can provide highly useful information when used in the proper contexts.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

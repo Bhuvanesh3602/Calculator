@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Auto Lease Calculator</title>
+	<meta name="description" content="Free auto lease calculator to find the monthly payment and total cost for an auto lease. It also compares the cost of leasing to that of purchasing a vehicle." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/auto-lease-calculator.html" itemprop="item"><span itemprop="name">auto lease calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Auto Lease Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+<table align="center"><tr><td>
+<div id="topmenu"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">Total Price</a></li> <li><a href="#" onclick="popMenu('reverse');">Monthly Payment</a></li></ul></div>
+<form name="calform">
+<table id="calinputtable" class="panel2" cellpadding="3">
+<tr><td>
+		<span id="cloanamountid1">Auto Price</span>
+		<span id="cmonthlypayid1">Monthly Pay</span>
+	</td><td>
+		<span id="cloanamountid2"><input type="text" name="cloanamount" id="cloanamount" value="50000" class="inhalf indollar"></span>
+		<span id="cmonthlypayid2"><input type="text" name="cmonthlypay" id="cmonthlypay" value="600" class="inhalf indollar"></span>
+	</td><td>&nbsp;</td></tr>
+<tr><td>Lease Term</td><td><input type="text" name="cloanterm" id="cloanterm" value="36" class="inhalf inuipound"><span class="inuipoundspan">months</span></td></tr>
+<tr><td><select name="cratetype" id="cratetype"  onChange="return switchMF(this.value);"><option value="interestrate" >Interest Rate(%)</option><option value="moneyfactor" selected>Money Factor</option></select></td><td><input type="text" name="cinterestrate" id="cinterestrate" value="0.00208" class="inhalf"></td></tr>
+<tr><td>Down Payment</td><td><input type="text" name="cdownpayment" id="cdownpayment" value="10000" class="inhalf indollar"></td></tr>
+<tr><td>Trade-in Value <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The amount that a dealership will offer for your current vehicle when you trade it in as a partial payment towards the vehicle you want to purchase or lease.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="ctradeinvalue" id="ctradeinvalue" value="0" class="inhalf indollar"></td></tr>
+<tr><td>Sales Tax <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The tax that is imposed by the state or local government. This tax is usually calculated as a percentage of the total purchase price and varies based on location.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="csaletax" id="csaletax" value="7" class="inhalf inpct"></td></tr>
+<tr><td>Residual Value <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Residual value is an estimation of the worth of the vehicle at the end of the lease period. Financial institutions that issue lease contracts, not the dealers, set residual values on vehicles. Sometimes, it is also called the lease-end value.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="cresidualvalue" id="cresidualvalue" value="24000" class="inhalf indollar"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="hidden" name="ctype" id="ctype" value="standard">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+</td></tr></table>
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cmonthlypay");
+proComma2("cdownpayment");
+proComma2("ctradeinvalue");
+proComma2("cresidualvalue");
+
+function switchMF(smfVal){
+	var cucthisunitval = (document.getElementById("cinterestrate").value+"").replaceAll(',', '').replaceAll(' ', '');
+	if (isNumber(cucthisunitval)){
+		cucthisunitval = parseFloat(cucthisunitval);
+		if (document.getElementById("cratetype").value=='moneyfactor'){
+			document.getElementById("cinterestrate").value = Math.round(100000.0*cucthisunitval/2400)/100000;
+			document.getElementById("cinterestrate").classList.remove('inpct');
+		}else{
+			document.getElementById("cinterestrate").value = cucthisunitval*2400;
+			document.getElementById("cinterestrate").classList.add('inpct');
+		}
+	}else{
+		if (document.getElementById("cratetype").value=='moneyfactor'){
+			document.getElementById("cinterestrate").classList.remove('inpct');
+		}else{
+			document.getElementById("cinterestrate").classList.add('inpct');
+		}
+	}
+	return false;
+}
+
+</script>
+<p><fieldset><legend>Related</legend><a href="/auto-loan-calculator.html">Auto Loan Calculator</a> | <a href="/lease-calculator.html">Lease Calculator</a></fieldset></p>
+<br><br>
+
+<p>The Auto Lease Calculator can help estimate monthly lease payments based on total auto price or vice versa. For more information about or to do calculations involving leases in general, please use the <a href="/lease-calculator.html">Lease Calculator</a>.</p>
+
+<h3>Auto Leases</h3>
+<p>A lease is a contract allowing a party to convey property to another party for a specified time, usually in return for a periodic payment. A car lease allows a person to drive a car for a fixed period of time as they make a down payment as well as monthly lease payments until the lease ends. It can help to think of a car lease as a long-term car rental; while car rentals generally last for as little as a day or even just a few hours, car leases average between two and four years. Many leases allow the purchase of the leased vehicles through a purchase option agreement at a specified price once the lease ends. It is important to note that choosing to add such an option at the beginning of a lease will add a small amount to the monthly lease payment. Most car leases can be found at dealerships or private car dealers.</p>
+<p>Several variables are required to calculate the monthly lease on any vehicle:</p>
+<ul>
+	<li><b>Auto Price</b>&mdash;Also known as capitalized cost, it refers to the retail price of the car. It is possible to negotiate this figure down (the same strategy used for buying cars) for a more affordable lease. Actually, many experts claim it is better to negotiate with car salesmen as if buying the car outright, and only when the desired figure is reached should a potential lessee reveal that they intend to lease the car and not buy.</li>
+	<li><b>Money Factor</b>&mdash;This is the interest rate expressed differently and used specifically in the context of car leases. Lessors use the money factor as a way to determine lease rates that correspond to each lessee's credit history. They generally work very similarly: the poorer the credit history of the lessee, the higher their money factor, and the pricier the lease. To get the money factor, divide the APR on the lease by 24 or 2400, depending on whether it is expressed as a decimal or percent.</li>
+	<li><b>Lease Term</b>&mdash;This is the length of the lease. Most leases run between 2 to 4 years.</li>
+	<li><b>Residual Value</b>&mdash;Sometimes called lease-end value. In essence, the residual value of a car is the amount it can be bought for at the end of the lease. Financial institutions that issue lease contracts, not the dealers, set residual values on vehicles. It is an estimation of the worth of the car at the end of the lease period. The difference between the price of the car minus residual value will result in the depreciation of the car after a lease, which is amortized throughout the lease loan. Therefore, auto leases tend to be more affordable for slowly-depreciating vehicles because they hold their residual values well.</li>
+</ul>
+
+<p><b>Mileage</b></p>
+<p>Most leases will have a mileage cap, which is the maximum number of miles the car can be driven during the life of the lease. In the U.S., standard auto leases generally allow annual mileage limits of 10,000 to 15,000, with most coming in at 12,000. If the lessee exceeds this limit, there will be a penalty charge per mile over the limit when the lease ends. In the U.S., the average cost is between 5 to 20 cents per mile over.</p>
+<p>There exist certain car leases called "high mileage leases," which give lessees several thousand additional miles to work with annually. Although the monthly lease payments for high mileage leases tend to cost more than the standard leases, they may be helpful to those who are prone to racking up a ton of miles. Keep in mind that the average American drives around 18,000 miles a year. Lessees that go over their mileage limits have the option to avoid the penalties by buying the vehicle at the end of the lease.</p>
+
+<p><b>Wear and Tear</b></p>
+<p>It is expected that leased vehicles are returned to lessors in reasonable condition at the end of the lease period. When returned, vehicles will go through thorough inspections (usually a contracted third-party) to ensure that there is nothing out of the ordinary given the mileage accrued. As should be stated more specifically in each individual lease contract, any pertinent damage or faults accrued during the use of leased vehicles that are attributed to the lessee (such as collisions of their doing) will most likely come out of their own pocket. On the other hand, wear and tear can be the financial responsibility of either party, depending on whether visual inspection shows that it was "normal" wear and tear or "excessive" wear and tear. The two are explained in detail below.</p>
+<ul>
+	<li><b>Normal</b>&mdash;Normal wear and tear is not the financial responsibility of the lessee. Each lessor's definition of "normal" is different, but they tend to follow a basic pattern. Minor physical damage that has a diameter of less than half an inch is considered normal. This may include exterior dings and scratches that can be easily buffed out, interior stains or damage that can be removed, minor nicks or scuffs on the wheel covers, and no broken parts or missing equipment. Also, the routine replacement of items that match the manufacturer's recommended guidelines, such as tires, brakes, and light bulbs, is considered normal.</li>
+	<li><b>Excessive</b>&mdash;Excessive wear and tear is the financial responsibility of the lessee. While lessors generally do not gouge lessees for every single little dent or ding, any broken or missing parts will be considered excessive, such as frame damage that impacts the structural integrity of a vehicle, bent or broken rims, or mechanical or electrical components that no longer function properly. Excessive wear and tear may also refer to punctures to the exterior body larger than two inches that significantly hampers the appearance of a vehicle or reduces its marketability. If the cost to repair excessive wear and tear exceeds the cost to replace the whole vehicle (an example being engine failure due to accident), the lessee can be held liable for either cost, whichever one is cheaper.</li>
+</ul>
+<p>Lessees can potentially avoid excessive wear and tear charges by taking good care of their leased vehicles. This can include adding protection such as car door guards, or assuring that small children are properly attended to. In the days prior to the return of the vehicle to the lessor, it can work in the lessee's favor to ensure that the car has as much curb appeal as possible. Giving it a wash, buffing out any scratches, replacing small broken parts, and removing stains from upholstery can help. Wear and tear insurance is available for lessees who feel that they might need it to cover excessive wear and tear.  Lessees with too much excessive wear and tear have the option to avoid penalties if they buy the vehicle at the end of the lease.</p>
+
+<p><b>Maintenance</b></p>
+<p>Most lease contracts will require the lessee to perform regular upkeep of the vehicle, such as servicing it (with proof) on a regular basis. Failure to do so can result in penalties and/or void warranties. Maintenance of leased vehicles generally includes routine jobs such as changing the engine oil, tires, brakes, and topping up fluids where necessary. Be sure to read the lease terms carefully as maintenance rules from lease to lease can differ greatly.</p>
+
+<h3>Why Lease?</h3>
+<p>There can be many reasons why people choose to lease rather than buy. The following are a few:</p>
+<ul>
+	<li>People who cannot afford to buy new cars but enjoy driving them can do so by leasing instead, which requires a lower down payment and monthly payment. All other upfront costs are relatively minor.</li>
+	<li>In the U.S., leased cars can be written off as a business expense. Because leases are defined by the IRS as an operating expense, they can potentially be deducted from taxes, which is particularly beneficial for small business owners and the self-employed.</li>
+	<li>Leases are great for people who don't want to worry about the maintenance associated with cars, which are less during their first several years. Perpetually leasing new cars can relieve this hassle. In addition, most leased cars will still be covered by a manufacturer's warranty, relieving the lessee of expensive repairs.</li>
+	<li>It is possible to lease a car for a few years as a way to test drive a certain car before fully committing to a purchase of it at the end of the lease.</li>
+</ul>
+<p>These are just some examples. However, that's not to say that there aren't any cons associated with leases. Firstly, similar to renting a house instead of buying, when the lease ends, there is no equity built. Also, because there is never actual ownership of the car as it is still legal property of the lessor, the lessee may not do as they please to it; there are certain restrictions in place regarding what modifications may be done. Secondly, there are distance limits in place, so lessees probably need to think twice before going on lengthy cross-country road trips in their leased cars.</p>
+<p>Leasing or buying a car is an important and potentially complex decision, and the Auto Lease Calculator can help. Included underneath the calculated lease information is data conveyed as if the car was purchased instead of leased. Right off the bat, it is easy to see that upfront payments and monthly payments are higher for purchased cars.</p>
+
+<h3>Getting out of a Car Lease Early</h3>
+<p>Lessees, for various reasons, often find that they want to get out of their auto leases. Most commonly, they end up not liking certain features of their leased vehicles and, as a result, no longer want to drive them. Another common reason is a change in lifestyle; for instance, maybe the lessee's family has grown larger, and the 2-seater convertible isn't big enough, or, due to a new longer commute, they desire a more fuel-efficient vehicle. For others, due to unexpected financial situations, they cannot continue making monthly lease payments. Whatever the case, there are some choices the lessee can have to break a lease.</p>
+<ul>
+	<li><b>Returning the car to the lessor</b>&mdash;This is probably the simplest way to get out of an auto lease, but there will be fees involved, which usually include an early termination fee and the remaining depreciation on the car.</li>
+	<li><b>Transfer the lease</b>&mdash;A car lease swap involves the legal transfer of a leased vehicle from an initial lessee to a new lessee. The new lessee takes over the lease on the same terms as the original, which includes making the same monthly payment for the remaining duration. However, there are typical administration fees for transferring leases, which can amount to several hundred dollars. There are specialist lease swap websites available to get the process started. They are helpful not only in that they can match up buyers and sellers of leases, but are transparent about the administrative costs. Make sure this is permitted within the terms of the lease agreement, and that it is legal in the respective U.S. state.</li>
+	<li><b>Buyout the leased vehicle</b>&mdash;In most cases, it's possible to do an early buyout of the car from the lessor at a specified price. By doing so, the lease effectively ends, and because the lessee becomes the rightful owner afterward, they can do as they please with it, including selling or trading the vehicle. Generally, this strategy only makes sense if the buyout of the lease is less than or close to the resale value of the car.</li>
+	<li><b>Talk to the lessor</b>&mdash;Lessees in financial trouble can ask lessors to see if they will offer payment relief for a few months. In some cases, they will agree to temporarily suspend payments, but the lessee will have to make up the difference later on.</li>
+</ul>
+
+<h3>Explanation of How the Calculator Computes Monthly Leases</h3>
+<p>Take a car leasable for 3 years and has an agreed-upon value of $50,000 after negotiations on the auto price (capitalized cost) as an example. The lending financial institution for the lease has placed a residual value of $25,000 on the car after the 3 years and has given the lessee an APR of 6% after a down payment of $8,000. Assume that the down payment is solely to reduce the capitalized cost, not as payment for any upfront fees. For simplicity's sake, assume that all fees are rolled into the auto price. The lessee is also willing to trade in a used car with a value of $5,000, and the transaction occurs in a state with a 6% tax rate.</p>
+<p>First, arrive at a true figure for the capitalized cost. In order to do this, subtract any trade-ins or down payments from the agreed-upon value of the car. If there are no trade-ins or down payments made, simply use the original agreed-upon value.</p>
+<p align="center">$50,000 - $8,000 - $5,000 = $37,000</p>
+<p>Subtract the residual value as supplied by the financial institution,</p>
+<p align="center">$37,000 - $25,000 = $12,000</p>
+<p>This is the amount that needs to be amortized over the life of the lease. Simply divide by the term, 36 months, to get the monthly depreciation:</p>
+<p align="center">$12,000/36 = $333.33</p>
+<p>Next, convert APR into money factor.</p>
+<p align="center">(0.06)/24 = 0.0025</p>
+<p>Add the capitalized cost and residual value, then multiply by the money factor to get the monthly interest charge,</p>
+<p align="center">($37,000 + $25,000) &#215; 0.0025 = $155.00</p>
+<p>Add the monthly depreciation and the monthly interest, then multiply this figure by the tax rate to get the monthly tax amount. If there is no sales tax, simply ignore this step.</p>
+<p align="center">($155.00 + $333.33) &#215; 0.06 = $29.30</p>
+<p>Finally, add all three charges together to arrive at the monthly lease payment amount:</p>
+<p align="center">$333.33 + $155.00 + $29.30 = $517.63</p>
+
+
+
+<script>
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "reverse"){
+		htmlVal = htmlVal + "<ul><li><a href=\"#\" onclick=\"popMenu('standard',1);\">Total Price</a></li> <li id='menuon'><a href=\"#\" onclick=\"popMenu('reverse',1);\">Monthly Payment</a></li></ul>";
+		document.getElementById("ctype").value="reverse";
+		document.getElementById("cloanamountid1").style.display = 'none';
+		document.getElementById("cloanamountid2").style.display = 'none';
+		document.getElementById("cmonthlypayid1").style.display = 'inline';
+		document.getElementById("cmonthlypayid2").style.display = 'inline';
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = htmlVal + "<ul><li id='menuon'><a href=\"#\" onclick=\"popMenu('standard',1);\">Total Price</a></li> <li><a href=\"#\" onclick=\"popMenu('reverse',1);\">Monthly Payment</a></li></ul>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("cloanamountid1").style.display = 'inline';
+		document.getElementById("cloanamountid2").style.display = 'inline';
+		document.getElementById("cmonthlypayid1").style.display = 'none';
+		document.getElementById("cmonthlypayid2").style.display = 'none';
+		if (insubmit==1) document.calform.submit();
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+}
+popMenu("standard",0);
+</script>
+
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

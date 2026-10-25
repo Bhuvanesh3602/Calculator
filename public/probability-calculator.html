@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Probability Calculator</title>
+	<meta name="description" content="This calculator can calculate the probability of two events, as well as that of a normal distribution. Also, learn more about different types of probabilities." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/probability-calculator.html" itemprop="item"><span itemprop="name">probability calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Probability Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<h2>Probability of Two Events</h2>
+<p>To find out the union, intersection, and other related probabilities of two independent events.</p>
+<form action="/probability-calculator.html" name="calform">
+<table class="panel">
+	<tr>
+		<td>Probability of A: <b>P(A)</b></td>
+		<td><input type="text" name="cal1pa" value="0.5" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of B: <b>P(B)</b></td>
+		<td><input type="text" name="cal1pb" value="0.4" class="innormal"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="twoe">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+<div>Please input values between 0 and 1.</div>
+
+<a name="solver"></a>
+<br>
+<h2>Probability Solver for Two Events</h2>
+<p>Please provide any 2 values below to calculate the rest probabilities of two independent events.</p>
+<form action="/probability-calculator.html#solver" name="calform3">
+<table class="panel">
+	<tr>
+		<td>Probability of A: <b>P(A)</b></td>
+		<td><input type="text" name="cal3pa" value="0.5" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of B: <b>P(B)</b></td>
+		<td><input type="text" name="cal3pb" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of A NOT occuring: <b>P(A')</b></td>
+		<td><input type="text" name="cal3na" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of B NOT occuring: <b>P(B')</b></td>
+		<td><input type="text" name="cal3nb" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of A and B both occuring: <b>P(A&#x2229;B)</b></td>
+		<td><input type="text" name="cal3and" value="0.4" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability that A or B or both occur: <b>P(A&#8746;B)</b></td>
+		<td><input type="text" name="cal3or" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability that A or B occurs but NOT both: <b>P(A&Delta;B)</b></td>
+		<td><input type="text" name="cal3xor" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability of neither A nor B occuring: <b>P((A&#8746;B)')</b></td>
+		<td><input type="text" name="cal3nab" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="twos">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table>
+</form>
+<div>Please input values between 0 and 1.</div>
+
+<br><a name="series"></a>
+<h2>Probability of a Series of Independent Events</h2>
+<form action="/probability-calculator.html#series" name="calform4">
+<table class="panel" width="360">	<tr>
+		<td>&nbsp;</td>
+		<td align="center">Probability</td>
+		<td align="center">Repeat Times</td>
+	</tr>
+	<tr>
+		<td>Event A</td>
+		<td align="center"><input type="text" name="cal4pa" value="0.6" class="inlong"></td>
+		<td align="center"><input type="text" name="cal4par" value="5" class="inlong"></td>
+	</tr>
+	<tr>
+		<td>Event B</td>
+		<td align="center"><input type="text" name="cal4pb" value="0.3" class="inlong"></td>
+		<td align="center"><input type="text" name="cal4pbr" value="3" class="inlong"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="3" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="series">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+		</td>
+	</tr>
+</table></form>
+
+<br><a name="probofnd"></a>
+<br><h2>Probability of a Normal Distribution</h2>
+<img src="/img/probability/normal-distribution.svg" width="212" height="143" alt="normal distribution" align="right">
+<p>Use the calculator below to find the area <b>P</b> shown in the normal distribution, as well as the confidence intervals for a range of confidence levels.</p>
+<form action="/probability-calculator.html#probofnd" name="calform2">
+<table class="panel">
+	<tr>
+		<td><b>Mean: (&#181;)</b></td>
+		<td><input type="text" name="val2mean" value="0" class="innormal"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><b>Standard Deviation (&#963;):</b></td>
+		<td><input type="text" name="val2deviation" value="1" class="innormal"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><b>Left Bound (L<sub>b</sub>):</b></td>
+		<td><input type="text" name="val2lb" value="-1" class="innormal"></td>
+		<td>For negative infinite, use -inf</td>
+	</tr>
+	<tr>
+		<td><b>Right Bound (R<sub>b</sub>):</b></td>
+		<td><input type="text" name="val2rb" value="1" class="innormal"></td>
+		<td>For positive infinite, use inf</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="3" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="normal">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<br><p><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a> | <a href="/statistics-calculator.html">Statistics Calculator</a></fieldset></p>
+
+<br>
+<h2>Probability of Two Events</h2>
+
+<p>Probability is the measure of the likelihood of an event occurring. It is quantified as a number between 0 and 1, with 1 signifying certainty, and 0 signifying that the event cannot occur. It follows that the higher the probability of an event, the more certain it is that the event will occur. In its most general case, probability can be defined numerically as the number of desired outcomes divided by the total number of outcomes. This is further affected by whether the events being studied are independent, mutually exclusive, or conditional, among other things. The calculator provided computes the probability that an event A or B does not occur, the probability A and/or B occur when they are not mutually exclusive, the probability that both event A and B occur, and the probability that either event A or event B occurs, but not both. </p>
+
+<h3>Complement of A and B</h3>
+
+<p>Given a probability <b>A</b>, denoted by <b>P(A)</b>, it is simple to calculate the complement, or the probability that the event described by <b>P(A)</b> does not occur, <b>P(A')</b>. If, for example, <b>P(A) = 0.65</b> represents the probability that Bob does not do his homework, his teacher Sally can predict the probability that Bob does his homework as follows: </p>
+
+<p align="center">P(A') = 1 - P(A) = 1 - 0.65 = 0.35</p>
+
+<p>Given this scenario, there is, therefore, a 35% chance that Bob does his homework. Any <b>P(B')</b> would be calculated in the same manner, and it is worth noting that in the calculator above, can be independent; i.e. if <b>P(A) = 0.65, P(B)</b> does not necessarily have to equal <b>0.35</b>, and can equal <b>0.30</b> or some other number. </p>
+
+<h3>Intersection of A and B</h3>
+
+<p>The intersection of events <b>A</b> and <b>B</b>, written as <b>P(A &#x2229; B)</b> or <b>P(A AND B)</b> is the joint probability of at least two events, shown below in a Venn diagram. In the case where <b>A</b> and <b>B</b> are mutually exclusive events, <b>P(A &#x2229; B) = 0</b>. Consider the probability of rolling a 4 and 6 on a single roll of a die; it is not possible. These events would therefore be considered mutually exclusive. Computing <b>P(A &#x2229; B)</b> is simple if the events are independent. In this case, the probabilities of events <b>A</b> and <b>B</b> are multiplied. To find the probability that two separate rolls of a die result in 6 each time:</p>
+<p align="center">P(A &#x2229; B) = P(A) &#215; P(B)</p>
+<p align="center"><img src="/img/probability/probability-1.svg" width="156" height="114" alt="Intersection of A and B"></p>
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">6</td></tr></table></td>
+<td>&#215;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">1</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">6</td></tr></table></td>
+<td>= 0.0278</td>
+</tr></table>
+
+
+
+<p>The calculator provided considers the case where the probabilities are independent. Calculating the probability is slightly more involved when the events are dependent, and involves an understanding of conditional probability, or the probability of event <b>A</b> given that event <b>B</b> has occurred, <b>P(A|B)</b>. Take the example of a bag of 10 marbles, 7 of which are black, and 3 of which are blue. Calculate the probability of drawing a black marble if a blue marble has been withdrawn without replacement (the blue marble is removed from the bag, reducing the total number of marbles in the bag):</p>
+
+<p>Probability of drawing a blue marble:</p>
+<p align="center">P(A) = 3/10</p>
+<p>Probability of drawing a black marble:</p>
+<p align="center">P(B) = 7/10</p>
+<p>Probability of drawing a black marble given that a blue marble was drawn:</p>
+<p align="center">P(B|A) = 7/9</p>
+
+<p>As can be seen, the probability that a black marble is drawn is affected by any previous event where a black or blue marble was drawn without replacement. Thus, if a person wanted to determine the probability of withdrawing a blue and then black marble from the bag: </p>
+
+<p>Probability of drawing a blue and then black marble using the probabilities calculated above:</p>
+<p align="center">P(A &#x2229; B) = P(A) &#215; P(B|A) = (3/10) &#215; (7/9) = 0.2333</p>
+
+<h3>Union of A and B</h3>
+
+<p>In probability, the union of events, <b>P(A U B)</b>, essentially involves the condition where any or all of the events being considered occur, shown in the Venn diagram below. Note that <b>P(A U B)</b> can also be written as <b>P(A OR B)</b>. In this case, the "inclusive OR" is being used. This means that while at least one of the conditions within the union must hold true, all conditions can be simultaneously true. There are two cases for the union of events; the events are either mutually exclusive, or the events are not mutually exclusive. In the case where the events are mutually exclusive, the calculation of the probability is simpler: </p>
+<p align="center">P(A U B) = P(A) + P(B)</p>
+<p align="center"><img src="/img/probability/probability-21.svg" width="216" height="114" alt="Union of A and B exclusive"></p>
+
+<p>A basic example of mutually exclusive events would be the rolling of a dice, where event <b>A</b> is the probability that an even number is rolled, and event <b>B</b> is the probability that an odd number is rolled. It is clear in this case that the events are mutually exclusive since a number cannot be both even and odd, so <b>P(A U B)</b> would be <b>3/6 + 3/6 = 1</b>, since a standard dice only has odd and even numbers. </p>
+
+<p>The calculator above computes the other case, where the events <b>A</b> and <b>B</b> are not mutually exclusive. In this case:</p>
+<p align="center">P(A U B) = P(A) + P(B) - P(A &#x2229; B)
+<p align="center"><img src="/img/probability/probability-22.svg" width="156" height="114" alt="Union of A and B non-exclusive"></p>
+
+<p>Using the example of rolling dice again, find the probability that an even number or a number that is a multiple of 3 is rolled. Here the set is represented by the 6 values of the dice, written as:</p>
+
+<table align="center">
+<tr><td>&nbsp;</td><td>S = {1,2,3,4,5,6}</td></tr>
+<tr><td>Probability of an even number:</td><td>P(A) = {2,4,6} = 3/6</td></tr>
+<tr><td>Probability of a multiple of 3:</td><td>P(B) = {3,6} = 2/6</td></tr>
+<tr><td>Intersection of A and B: </td><td>P(A &#x2229; B) = {6} = 1/6</td></tr>
+<tr><td>&nbsp;</td><td>P(A U B) = 3/6 + 2/6 -1/6 = 2/3</td></tr>
+</table>
+
+<h3>Exclusive OR of A and B</h3>
+<p>Another possible scenario that the calculator above computes is <b>P(A XOR B)</b>, shown in the Venn diagram below. The "Exclusive OR" operation is defined as the event that A or B occurs, but not simultaneously. The equation is as follows:</p>
+<p align="center">P(A XOR B) = P(A) + P(B) - 2 &#215; P(A &#x2229; B)</p>
+<p align="center"><img src="/img/probability/probability-3.svg" width="156" height="114" alt="Exclusive OR of A and B"></p>
+
+<p>As an example, imagine it is Halloween, and two buckets of candy are set outside the house, one containing Snickers, and the other containing Reese's. Multiple flashing neon signs are placed around the buckets of candy insisting that each trick-or-treater only takes one Snickers OR Reese's but not both! It is unlikely, however, that every child adheres to the flashing neon signs. Given a probability of Reese's being chosen as <b>P(A) = 0.65</b>, or Snickers being chosen with <b>P(B) = 0.349</b>, and a <b>P(unlikely) = 0.001</b> that a child exercises restraint while considering the detriments of a potential future cavity, calculate the probability that Snickers or Reese's is chosen, but not both: </p>
+
+<p align="center">0.65 + 0.349 - 2 &#215; 0.65 &#215; 0.349 = 0.999 - 0.4537 = 0.5453</p>
+
+<p>Therefore, there is a 54.53% chance that Snickers or Reese's is chosen, but not both. </p>
+
+
+<h2>Normal Distribution</h2>
+<p>The normal distribution or Gaussian distribution is a continuous probability distribution that follows the function of:</p>
+<p align="center"><img src="/img/probability/normal-function.svg" width="180" height="62" alt="normal distribution function"></p>
+
+<p>where <b>&mu;</b> is the mean and <b>&#963;<sup>2</sup></b> is the variance. Note that <a href="/standard-deviation-calculator.html">standard deviation</a> is typically denoted as <b>&#963;</b>. Also, in the special case where <b>&mu; = 0</b> and <b>&#963; = 1</b>, the distribution is referred to as a standard normal distribution. Above, along with the calculator, is a diagram of a typical normal distribution curve.</p>
+<p>The normal distribution is often used to describe and approximate any variable that tends to cluster around the mean, for example, the heights of male students in a college, the leaf sizes on a tree, the scores of a test, etc. Use the "Normal Distribution" calculator above to determine the probability of an event with a normal distribution lying between two given values (i.e. <b>P</b> in the diagram above); for example, the probability of the height of a male student is between 5 and 6 feet in a college. Finding <b>P</b> as shown in the above diagram involves standardizing the two desired values to a z-score by subtracting the given mean and dividing by the standard deviation, as well as using a Z-table to find probabilities for Z. If, for example, it is desired to find the probability that a student at a university has a height between 60 inches and 72 inches tall given a mean of 68 inches tall with a standard deviation of 4 inches, 60 and 72 inches would be standardized as such:</p>
+
+<div align="center">Given <b>&mu;</b> = 68; <b>&#963;</b> = 4</div>
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">60 - 68</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td>=</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">-8</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td>= -2</td>
+</tr></table>
+<table align="center"><tr>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">72 - 68</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td>=</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">4</td></tr></table></td>
+<td>= 1</td>
+</tr></table>
+
+<p align="center"><img src="/img/probability/probability-4.svg" width="212" height="143" alt="normal distribution example"></p>
+<p>The graph above illustrates the area of interest in the normal distribution. In order to determine the probability represented by the shaded area of the graph, use the standard normal Z-table provided at the bottom of the page. Note that there are different types of standard normal Z-tables. The table below provides the probability that a statistic is between 0 and Z, where 0 is the mean in the standard normal distribution. There are also Z-tables that provide the probabilities left or right of Z, both of which can be used to calculate the desired probability by subtracting the relevant values. </p>
+
+<p>For this example, to determine the probability of a value between 0 and 2, find 2 in the first column of the table, since this table by definition provides probabilities between the mean (which is 0 in the standard normal distribution) and the number of choices, in this case, 2. Note that since the value in question is 2.0, the table is read by lining up the 2 row with the 0 column, and reading the value therein. If, instead, the value in question were 2.11, the 2.1 row would be matched with the 0.01 column and the value would be 0.48257. Also, note that even though the actual value of interest is -2 on the graph, the table only provides positive values. Since the normal distribution is symmetrical, only the displacement is important, and a displacement of 0 to -2 or 0 to 2 is the same, and will have the same area under the curve. Thus, the probability of a value falling between 0 and 2 is 0.47725 , while a value between 0 and 1 has a probability of 0.34134. Since the desired area is between -2 and 1, the probabilities are added to yield 0.81859, or approximately 81.859%. Returning to the example, this means that there is an 81.859% chance in this case that a male student at the given university has a height between 60 and 72 inches. </p>
+
+<p>The calculator also provides a table of confidence intervals for various confidence levels. Refer to the <a href="/sample-size-calculator.html">Sample Size Calculator for Proportions</a> for a more detailed explanation of confidence intervals and levels. Briefly, a confidence interval is a way of estimating a population parameter that provides an interval of the parameter rather than a single value. A confidence interval is always qualified by a confidence level, usually expressed as a percentage such as 95%. It is an indicator of the reliability of the estimate.</p>
+
+<br>
+<div>
+<div><b>Z Table from Mean (0 to Z)</b></div>
+<table class="cinfoT" >
+<tr><td class="cinfoHd">z</td><td class="cinfoHdL">0</td><td class="cinfoHdL">0.01</td><td class="cinfoHdL">0.02</td><td class="cinfoHdL">0.03</td><td class="cinfoHdL">0.04</td><td class="cinfoHdL">0.05</td><td class="cinfoHdL">0.06</td><td class="cinfoHdL">0.07</td><td class="cinfoHdL">0.08</td><td class="cinfoHdL">0.09</td></tr>
+<tr><td><b>0</b></td><td>0</td><td>0.00399</td><td>0.00798</td><td>0.01197</td><td>0.01595</td><td>0.01994</td><td>0.02392</td><td>0.0279</td><td>0.03188</td><td>0.03586</td></tr>
+<tr><td><b>0.1</b></td><td>0.03983</td><td>0.0438</td><td>0.04776</td><td>0.05172</td><td>0.05567</td><td>0.05962</td><td>0.06356</td><td>0.06749</td><td>0.07142</td><td>0.07535</td></tr>
+<tr><td><b>0.2</b></td><td>0.07926</td><td>0.08317</td><td>0.08706</td><td>0.09095</td><td>0.09483</td><td>0.09871</td><td>0.10257</td><td>0.10642</td><td>0.11026</td><td>0.11409</td></tr>
+<tr><td><b>0.3</b></td><td>0.11791</td><td>0.12172</td><td>0.12552</td><td>0.1293</td><td>0.13307</td><td>0.13683</td><td>0.14058</td><td>0.14431</td><td>0.14803</td><td>0.15173</td></tr>
+<tr><td><b>0.4</b></td><td>0.15542</td><td>0.1591</td><td>0.16276</td><td>0.1664</td><td>0.17003</td><td>0.17364</td><td>0.17724</td><td>0.18082</td><td>0.18439</td><td>0.18793</td></tr>
+<tr><td><b>0.5</b></td><td>0.19146</td><td>0.19497</td><td>0.19847</td><td>0.20194</td><td>0.2054</td><td>0.20884</td><td>0.21226</td><td>0.21566</td><td>0.21904</td><td>0.2224</td></tr>
+<tr><td><b>0.6</b></td><td>0.22575</td><td>0.22907</td><td>0.23237</td><td>0.23565</td><td>0.23891</td><td>0.24215</td><td>0.24537</td><td>0.24857</td><td>0.25175</td><td>0.2549</td></tr>
+<tr><td><b>0.7</b></td><td>0.25804</td><td>0.26115</td><td>0.26424</td><td>0.2673</td><td>0.27035</td><td>0.27337</td><td>0.27637</td><td>0.27935</td><td>0.2823</td><td>0.28524</td></tr>
+<tr><td><b>0.8</b></td><td>0.28814</td><td>0.29103</td><td>0.29389</td><td>0.29673</td><td>0.29955</td><td>0.30234</td><td>0.30511</td><td>0.30785</td><td>0.31057</td><td>0.31327</td></tr>
+<tr><td><b>0.9</b></td><td>0.31594</td><td>0.31859</td><td>0.32121</td><td>0.32381</td><td>0.32639</td><td>0.32894</td><td>0.33147</td><td>0.33398</td><td>0.33646</td><td>0.33891</td></tr>
+<tr><td><b>1</b></td><td>0.34134</td><td>0.34375</td><td>0.34614</td><td>0.34849</td><td>0.35083</td><td>0.35314</td><td>0.35543</td><td>0.35769</td><td>0.35993</td><td>0.36214</td></tr>
+<tr><td><b>1.1</b></td><td>0.36433</td><td>0.3665</td><td>0.36864</td><td>0.37076</td><td>0.37286</td><td>0.37493</td><td>0.37698</td><td>0.379</td><td>0.381</td><td>0.38298</td></tr>
+<tr><td><b>1.2</b></td><td>0.38493</td><td>0.38686</td><td>0.38877</td><td>0.39065</td><td>0.39251</td><td>0.39435</td><td>0.39617</td><td>0.39796</td><td>0.39973</td><td>0.40147</td></tr>
+<tr><td><b>1.3</b></td><td>0.4032</td><td>0.4049</td><td>0.40658</td><td>0.40824</td><td>0.40988</td><td>0.41149</td><td>0.41308</td><td>0.41466</td><td>0.41621</td><td>0.41774</td></tr>
+<tr><td><b>1.4</b></td><td>0.41924</td><td>0.42073</td><td>0.4222</td><td>0.42364</td><td>0.42507</td><td>0.42647</td><td>0.42785</td><td>0.42922</td><td>0.43056</td><td>0.43189</td></tr>
+<tr><td><b>1.5</b></td><td>0.43319</td><td>0.43448</td><td>0.43574</td><td>0.43699</td><td>0.43822</td><td>0.43943</td><td>0.44062</td><td>0.44179</td><td>0.44295</td><td>0.44408</td></tr>
+<tr><td><b>1.6</b></td><td>0.4452</td><td>0.4463</td><td>0.44738</td><td>0.44845</td><td>0.4495</td><td>0.45053</td><td>0.45154</td><td>0.45254</td><td>0.45352</td><td>0.45449</td></tr>
+<tr><td><b>1.7</b></td><td>0.45543</td><td>0.45637</td><td>0.45728</td><td>0.45818</td><td>0.45907</td><td>0.45994</td><td>0.4608</td><td>0.46164</td><td>0.46246</td><td>0.46327</td></tr>
+<tr><td><b>1.8</b></td><td>0.46407</td><td>0.46485</td><td>0.46562</td><td>0.46638</td><td>0.46712</td><td>0.46784</td><td>0.46856</td><td>0.46926</td><td>0.46995</td><td>0.47062</td></tr>
+<tr><td><b>1.9</b></td><td>0.47128</td><td>0.47193</td><td>0.47257</td><td>0.4732</td><td>0.47381</td><td>0.47441</td><td>0.475</td><td>0.47558</td><td>0.47615</td><td>0.4767</td></tr>
+<tr><td><b>2</b></td><td>0.47725</td><td>0.47778</td><td>0.47831</td><td>0.47882</td><td>0.47932</td><td>0.47982</td><td>0.4803</td><td>0.48077</td><td>0.48124</td><td>0.48169</td></tr>
+<tr><td><b>2.1</b></td><td>0.48214</td><td>0.48257</td><td>0.483</td><td>0.48341</td><td>0.48382</td><td>0.48422</td><td>0.48461</td><td>0.485</td><td>0.48537</td><td>0.48574</td></tr>
+<tr><td><b>2.2</b></td><td>0.4861</td><td>0.48645</td><td>0.48679</td><td>0.48713</td><td>0.48745</td><td>0.48778</td><td>0.48809</td><td>0.4884</td><td>0.4887</td><td>0.48899</td></tr>
+<tr><td><b>2.3</b></td><td>0.48928</td><td>0.48956</td><td>0.48983</td><td>0.4901</td><td>0.49036</td><td>0.49061</td><td>0.49086</td><td>0.49111</td><td>0.49134</td><td>0.49158</td></tr>
+<tr><td><b>2.4</b></td><td>0.4918</td><td>0.49202</td><td>0.49224</td><td>0.49245</td><td>0.49266</td><td>0.49286</td><td>0.49305</td><td>0.49324</td><td>0.49343</td><td>0.49361</td></tr>
+<tr><td><b>2.5</b></td><td>0.49379</td><td>0.49396</td><td>0.49413</td><td>0.4943</td><td>0.49446</td><td>0.49461</td><td>0.49477</td><td>0.49492</td><td>0.49506</td><td>0.4952</td></tr>
+<tr><td><b>2.6</b></td><td>0.49534</td><td>0.49547</td><td>0.4956</td><td>0.49573</td><td>0.49585</td><td>0.49598</td><td>0.49609</td><td>0.49621</td><td>0.49632</td><td>0.49643</td></tr>
+<tr><td><b>2.7</b></td><td>0.49653</td><td>0.49664</td><td>0.49674</td><td>0.49683</td><td>0.49693</td><td>0.49702</td><td>0.49711</td><td>0.4972</td><td>0.49728</td><td>0.49736</td></tr>
+<tr><td><b>2.8</b></td><td>0.49744</td><td>0.49752</td><td>0.4976</td><td>0.49767</td><td>0.49774</td><td>0.49781</td><td>0.49788</td><td>0.49795</td><td>0.49801</td><td>0.49807</td></tr>
+<tr><td><b>2.9</b></td><td>0.49813</td><td>0.49819</td><td>0.49825</td><td>0.49831</td><td>0.49836</td><td>0.49841</td><td>0.49846</td><td>0.49851</td><td>0.49856</td><td>0.49861</td></tr>
+<tr><td><b>3</b></td><td>0.49865</td><td>0.49869</td><td>0.49874</td><td>0.49878</td><td>0.49882</td><td>0.49886</td><td>0.49889</td><td>0.49893</td><td>0.49896</td><td>0.499</td></tr>
+<tr><td><b>3.1</b></td><td>0.49903</td><td>0.49906</td><td>0.4991</td><td>0.49913</td><td>0.49916</td><td>0.49918</td><td>0.49921</td><td>0.49924</td><td>0.49926</td><td>0.49929</td></tr>
+<tr><td><b>3.2</b></td><td>0.49931</td><td>0.49934</td><td>0.49936</td><td>0.49938</td><td>0.4994</td><td>0.49942</td><td>0.49944</td><td>0.49946</td><td>0.49948</td><td>0.4995</td></tr>
+<tr><td><b>3.3</b></td><td>0.49952</td><td>0.49953</td><td>0.49955</td><td>0.49957</td><td>0.49958</td><td>0.4996</td><td>0.49961</td><td>0.49962</td><td>0.49964</td><td>0.49965</td></tr>
+<tr><td><b>3.4</b></td><td>0.49966</td><td>0.49968</td><td>0.49969</td><td>0.4997</td><td>0.49971</td><td>0.49972</td><td>0.49973</td><td>0.49974</td><td>0.49975</td><td>0.49976</td></tr>
+<tr><td><b>3.5</b></td><td>0.49977</td><td>0.49978</td><td>0.49978</td><td>0.49979</td><td>0.4998</td><td>0.49981</td><td>0.49981</td><td>0.49982</td><td>0.49983</td><td>0.49983</td></tr>
+<tr><td><b>3.6</b></td><td>0.49984</td><td>0.49985</td><td>0.49985</td><td>0.49986</td><td>0.49986</td><td>0.49987</td><td>0.49987</td><td>0.49988</td><td>0.49988</td><td>0.49989</td></tr>
+<tr><td><b>3.7</b></td><td>0.49989</td><td>0.4999</td><td>0.4999</td><td>0.4999</td><td>0.49991</td><td>0.49991</td><td>0.49992</td><td>0.49992</td><td>0.49992</td><td>0.49992</td></tr>
+<tr><td><b>3.8</b></td><td>0.49993</td><td>0.49993</td><td>0.49993</td><td>0.49994</td><td>0.49994</td><td>0.49994</td><td>0.49994</td><td>0.49995</td><td>0.49995</td><td>0.49995</td></tr>
+<tr><td><b>3.9</b></td><td>0.49995</td><td>0.49995</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49997</td><td>0.49997</td></tr>
+<tr><td><b>4</b></td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49998</td><td>0.49998</td><td>0.49998</td><td>0.49998</td></tr>
+</table>
+</div>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

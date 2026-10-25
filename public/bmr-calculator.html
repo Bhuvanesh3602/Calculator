@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BMR Calculator</title>
+	<meta name="description" content="This free BMR calculator estimates basal metabolic rate based on well-known formulas. Also, learn more about variables that affect BMR." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script src="/js/quick-conversion.js" async></script></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/bmr-calculator.html" itemprop="item"><span itemprop="name">bmr calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>BMR Calculator</h1>
+<p>The <i>Basal Metabolic Rate (BMR) Calculator</i> estimates your basal metabolic rate&mdash;the amount of energy expended while at rest in a neutrally temperate environment, and in a post-absorptive state (meaning that the digestive system is inactive, which requires about 12 hours of fasting).</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<span id="ucvtwraper"></span>
+
+<div class="leftinput">
+<div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standart');">US units</a></li><li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+
+<div class="panel2" style="padding-top:12px;">
+<form name="calform"><table id="calinputtable" width="305">
+<tr>
+	<td width="70">Age</td>
+	<td width="235"><input type="text" name="cage" id="cage" value="25" class="inlongesthalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> ages 15 - 80</td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td style="padding:6px 0px;"><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span>male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span>female</label></td>
+</tr>
+</table>
+<table width="305" id="standardheightweight">
+<tr>
+	<td width="70">Height</td>
+	<td width="235">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inlongesthalf inuifoot" onKeyUp="iptfieldCheck(this, '0', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inlongesthalf inuiinch" onKeyUp="iptfieldCheck(this, '0', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td width="70">Weight</td>
+	<td width="235" style="padding:6px 0px;"><input type="text" name="cpound" id="cpound" value="160" class="inlongest inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="305" id="metricheightweight">
+<tr>
+	<td width="70">Height</td>
+	<td width="235"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr id="metricweight">
+	<td>Weight</td>
+	<td><input type="text" name="ckg" id="ckg" value="60" class="inlongest inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="305">
+<tr>
+	<td>
+		<div id="ccsettingtitle" style="margin: 10px 0px;text-align:center;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
+		<div id="ccsettingcontent" style="display: none;">
+			<input type="hidden" name="cmop" id="cmoreoption" value="0">
+			<div><b>Results unit:</b></div>
+			<div>
+				<label for="coutunit1" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit1" value="c" checked /><span class="rbmark"></span> Calories</label> &nbsp;
+				<label for="coutunit2" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit2" value="j"  /><span class="rbmark"></span> Kilojoules</label>
+			</div>
+
+			<div style="padding-top:15px;"><b>BMR estimation formula:</b> <a href="#BMRformula"><img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg"></a></div>
+			<div>
+				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="m" checked /><span class="rbmark"></span> Mifflin St Jeor</label></div>
+				<div><label for="cformula3" class="cbcontainer"><input type="radio" name="cformula" id="cformula3" value="h"  /><span class="rbmark"></span> Revised Harris-Benedict</label></div>
+				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="k"  /><span class="rbmark"></span> Katch-McArdle</label> &nbsp; <a href="/body-fat-calculator.html">Body Fat:</a> <input type="text" name="cfatpct" value="20" class="in4char inpct" onKeyUp="iptfieldCheck(this, '', 'pn');"></div>
+			</div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td align="center" style="padding:10px;">
+		<input type="hidden" name="ctype" id="ctype" value="standard">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+</div>
+<div class="rightresult">
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Qk1SIENhbGN1bGF0b3I=', 0, 'Qk1SIENhbGN1bGF0b3I=', '', '');"></h2><div class='verybigtext' style='padding-top: 12px;'>BMR = <font color="green"><b>1,717</b></font> Calories/day</div><br><div>Daily calorie needs based on activity level</div><table class="cinfoT cinfoTS"><tr><td class="cinfoHd">Activity Level</td><td class="cinfoHdL">Calorie</td></tr><tr><td>Sedentary: little or no exercise</td><td align="center">2,060</td></tr><tr><td>Exercise 1-3 times/week</td><td align="center">2,361</td></tr><tr><td>Exercise 4-5 times/week</td><td align="center">2,515</td></tr><tr><td>Daily exercise or intense exercise 3-4 times/week</td><td align="center">2,661</td></tr><tr><td>Intense exercise 6-7 times/week</td><td align="center">2,962</td></tr><tr><td>Very intense exercise daily, or physical job</td><td align="center">3,262</td></tr></table><p class="smalltext"><b>Exercise:</b> 15-30 minutes of elevated heart rate activity.<br><b>Intense exercise:</b> 45-120 minutes of elevated heart rate activity.<br><b>Very intense exercise:</b> 2+ hours of elevated heart rate activity.</p></div>
+<div id="clear"></div>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/body-fat-calculator.html">Body Fat Calculator</a> | <a href="/calorie-calculator.html">Calorie Calculator</a></fieldset></p>
+
+<br>
+<p>The basal metabolic rate (BMR) is the amount of energy needed while resting in a temperate environment when the digestive system is inactive. It is the equivalent of figuring out how much gas an idle car consumes while parked. In such a state, energy will be used only to maintain vital organs, which include the heart, brain, kidneys, nervous system, intestines, liver, lungs, sex organs, muscles, and skin. For most people, upwards of ~70% of total energy (calories) burned each day is due to upkeep. Physical activity makes up ~20% of expenditure and ~10% is used for the digestion of food, also known as thermogenesis.</p>
+<p>The BMR is measured under very restrictive circumstances while awake. An accurate BMR measurement requires that a person's sympathetic nervous system is inactive, which means the person must be completely rested. Basal metabolism is usually the largest component of a person's total caloric needs. The daily caloric need is the BMR value multiplied by a factor with a value between 1.2 and 1.9, depending on activity level.</p>
+<p>In most situations, the BMR is estimated with equations summarized from statistical data. The Harris-Benedict Equation was one of the earliest equations introduced. It was revised in 1984 to be more accurate and was used up until 1990, when the Mifflin-St Jeor Equation was introduced. The Mifflin-St Jeor Equation has been shown to be more accurate than the revised Harris-Benedict Equation. The Katch-McArdle Formula is slightly different in that it calculates resting daily energy expenditure (RDEE), which takes lean body mass into account, something that neither the Mifflin-St Jeor nor the Harris-Benedict Equation does. Of these equations, the Mifflin-St Jeor Equation is considered the most accurate equation for calculating BMR with the exception that the Katch-McArdle Formula can be more accurate for people who are leaner and know their body fat percentage. You can pick the equation to be used in the calculation by expanding the settings.</p>
+<a name="BMRformula"></a>
+<p>The three equations used by the calculator are listed below:</p>
+<p class="morelinespace">
+<div><b>Mifflin-St Jeor Equation:</b></div>
+<div style="padding-left:10px;">For men:</div>
+<div style="text-align:center;">BMR = 10W + 6.25H - 5A + 5</div>
+<div style="padding-left:10px;">For women:</div>
+<div style="text-align:center;">BMR = 10W + 6.25H - 5A - 161</div>
+</p>
+<p class="morelinespace">
+<div><b>Revised Harris-Benedict Equation:</b></div>
+<div style="padding-left:10px;">For men:</div>
+<div style="text-align:center;">BMR = 13.397W + 4.799H - 5.677A + 88.362</div>
+<div style="padding-left:10px;">For women:</div>
+<div style="text-align:center;">BMR = 9.247W + 3.098H - 4.330A + 447.593</div>
+</p>
+<p class="morelinespace">
+<div><b>Katch-McArdle Formula:</b></div>
+<div style="text-align:center;">BMR = 370 + 21.6(1 - F)W</div>
+</p>
+<p>where:<br>
+<div style="padding-left:10px;">
+W is body weight in kg<br>
+H is body height in cm<br>
+A is age<br>
+F is body fat in percentage
+</div></p>
+
+<h3>BMR Variables</h3>
+<p><b>Muscle Mass</b> &ndash; Aerobic exercises, such as running or cycling, have no effect on BMR. However, anaerobic exercises, such as weight-lifting, indirectly lead to a higher BMR because they build muscle mass, increasing resting energy consumption. The more muscle mass in the physical composition of an individual, the higher the BMR required to sustain their body at a certain level.</p>
+<p><b>Age</b> &ndash; The more elderly and limber an individual, the lower their BMR, or the lower the minimum caloric intake required to sustain the functioning of their organs at a certain level.</p>
+<p><b>Genetics</b> &ndash; Hereditary traits passed down from ancestors influence BMR.</p>
+<p><b>Weather</b> &ndash; Cold environments raise BMR because of the energy required to create a homeostatic body temperature. Likewise, too much external heat can raise BMR as the body expends energy to cool off internal organs. BMR increases approximately 7% for every increase of 1.36 degrees Fahrenheit in the body's internal temperature.</p>
+<p><b>Diet</b> &ndash; Small, routinely dispersed meals increase BMR. On the other hand, starvation can reduce BMR by as much as 30%. Similar to a phone that goes into power-saving mode during the last 5% of its battery, a human body will make sacrifices such as energy levels, moods, upkeep of bodily physique, and brain functions in order to more efficiently utilize what little caloric energy is being used to sustain it.</p>
+<p><b>Pregnancy</b> &ndash; Ensuring the livelihood of a separate fetus internally increases BMR. This is why pregnant women tend to eat more than usual. Also, menopause can increase or decrease BMR depending on hormonal changes.</p>
+<p><b>Supplements</b> &ndash; Certain supplements or drugs raise BMR, mostly to fuel weight loss. Caffeine is a common one.</p>
+
+<h3>BMR Tests</h3>
+<p>Online BMR tests with rigid formulas are not the most accurate method of determining an individual's BMR. It is better to consult a certified specialist or measure BMR through a calorimetry device. These handheld devices are available in many health and fitness clubs, doctor offices, and weight-loss clinics.</p>
+
+<h3>Resting Metabolic Rate</h3>
+<p>While the two are used interchangeably, there is a key difference in their definitions. Resting metabolic rate, or RMR for short, is the rate at which the body burns energy in a relaxed, but not fully inactive state. It is also sometimes defined as resting energy expenditure, or REE. BMR measurements must meet total physiological equilibrium while RMR conditions of measurement can be altered and defined by contextual limitations.</p>
+
+<h3>Modern Wisdom</h3>
+<p>A 2005 meta-analysis study on BMR* showed that when controlling all factors of metabolic rate, there is still a 26% unknown variance between people. Essentially, an average person eating an average diet will likely have expected BMR values, but there are factors that are still not understood that determines BMR precisely. </p>
+<p>Therefore, all BMR calculations, even using the most precise methods through specialists, will not be perfectly accurate in their measurements. Not all human bodily functions are well understood just yet, so calculating total daily energy expenditure (TDEE) derived from BMR estimates are just that, estimates. When working towards any sort of health or fitness goal, BMR can aid in laying down the foundations, but from there on, it has little else to offer. A calculated BMR and thus TDEE may result in unsatisfactory results because of their rough estimates, but maintaining a daily journal of exercise, food consumption, etc., can help track the factors that lead to any given results and help determine what works, as well as what needs to be improved upon. Tracking progress in said journal and making adjustments over time as needed is generally the best indication of progress towards reaching personal goals. </p>
+
+<h3>Reference</h3>
+<p class="smalltext">* Johnstone AM, Murison SD, Duncan JS, Rance KA, Speakman JR, Factors influencing variation in basal metabolic rate include fat-free mass, fat mass, age, and circulating thyroxine but not sex, circulating leptin, or triiodothyronine1. Am J Clin Nutr 2005; 82: 941-948.</p>
+
+<script>
+function cshmoreoption(optVar){
+	if (optVar==1){
+		document.getElementById("ccsettingcontent").style.display = 'block';
+		document.getElementById("cmoreoption").value = "1";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
+	}else{
+		document.getElementById("ccsettingcontent").style.display = 'none';
+		document.getElementById("cmoreoption").value = "0";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
+	}
+	return false;
+}
+cshmoreoption(0);
+
+function popMenu(inval, insubmit){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucvtwraper").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else if (inval == "standard"){
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+		document.getElementById("ucvtwraper").innerHTML ="";
+		if (insubmit==1) document.calform.submit();
+	}else{
+		htmlVal = document.getElementById("topmenu").innerHTML ;
+		ucvtPopCvt();
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard",0);
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Horsepower Calculator</title>
+	<meta name="description" content="This free calculator determines horsepower as a unit of power given force, distance, and time. Also provided is a converter for common units of power." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/horsepower-calculator.html" itemprop="item"><span itemprop="name">horsepower calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Horsepower Calculator</h1>
+
+
+<p>Horsepower is a measurement of power, or the rate at which work is done. This calculator can be used to compute horsepower according to its definition and to convert between different power units. To find the engine horsepower of a vehicle, please use our <a href="/engine-horsepower-calculator.html">Engine Horsepower Calculator</a>.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><a name="definition"></a>
+<h2>Horsepower Calculation Based on Definition</h2>
+<table cellspacing="0" cellpadding="0" border="0"><tr>
+<td>By definition &nbsp; Power = force&#215;</td>
+<td><table cellspacing="0" cellpadding="0" border="0"><tr><td>distance</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">time</td></tr></table></td>
+</tr></table>
+
+<form action="/horsepower-calculator.html#definition" name="calform">
+<table class="panel" >
+	<tr>
+		<td align="right"><b>Force:</b></td><td>		<input type="text" name="force" value="10" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="forceunit" >
+				<option value="newton" selected>newton</option>
+				<option value="kilonewton" >kilonewton</option>
+				<option value="pound-force" >pound-force</option>
+				<option value="kilogram-force" >kilogram-force</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Distance:</b></td><td>		<input type="text" name="distance" value="3" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="distanceunit" >
+				<option value="meter" selected>meter</option>
+				<option value="kilometer" >kilometer</option>
+				<option value="mile" >mile</option>
+				<option value="yard" >yard</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Time:</b></td><td>		<input type="text" name="time" value="2" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="timeunit" >
+				<option value="second" selected>second</option>
+				<option value="minute" >minute</option>
+				<option value="hour" >hour</option>
+				<option value="day" >day</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top: 10px;">
+			<input type="hidden" name="calctype" value="def">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+
+<a name="converter"></a>
+<h2>Horsepower Converter</h2>
+<p>Converts between different units of power.</p>
+<form action="/horsepower-calculator.html#converter" name="calform2">
+<table class="panel">
+	<tr>
+		<td><b>Amount:</b></td>
+		<td><b>Convert From:</b></td>
+		<td><b>Convert To:</b></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="convertamount" value="1" class="innormal"></td>
+		<td>
+			<select name="convertfrom">
+				<option value="Watt" >Watt</option>
+				<option value="Kilowatt" >Kilowatt</option>
+				<option value="Mechanical Horsepower" selected>Mechanical Horsepower</option>
+				<option value="Metric Horsepower" >Metric Horsepower</option>
+				<option value="Electrical Horsepower" >Electrical Horsepower</option>
+				<option value="Boiler Horsepower" >Boiler Horsepower</option>
+				<option value="BTU/h" >BTU/h</option>
+			</select>
+		</td>
+		<td>
+			<select name="convertto">
+				<option value="Watt" selected>Watt</option>
+				<option value="Kilowatt" >Kilowatt</option>
+				<option value="Mechanical Horsepower" >Mechanical Horsepower</option>
+				<option value="Metric Horsepower" >Metric Horsepower</option>
+				<option value="Electrical Horsepower" >Electrical Horsepower</option>
+				<option value="Boiler Horsepower" >Boiler Horsepower</option>
+				<option value="BTU/h" >BTU/h</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="3" style="padding-top: 10px;">
+			<input type="hidden" name="calctype" value="con">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table></form>
+
+
+<br><h3>Horsepower</h3>
+<p>Horsepower is a unit of measurement of power developed by engineer James Watt in the late 18<sup>th</sup> century. Although its original purpose was to compare the output of steam engines with the power of horses (hence its name), it has since been adopted as a unit of measurement for all sorts of engines used to power things such as vehicles, lawn mowers, boats, chainsaws, and airplanes. </p>
+<p>Horsepower is commonly used today to refer to the potential work output of a vehicle's engine, and as such, is a widely cited measurement for performance comparisons. Although horsepower is an important metric for doing so, it should not be the only consideration in determining a vehicle's ability as there are other factors such as power-to-weight ratio, torque, drivetrain, and forced induction. For more information or to do calculations on vehicle horsepower, use the <a href="/engine-horsepower-calculator.html">Engine Horsepower Calculator</a>. </p>
+<p>When measuring horsepower output of anything, to ensure precise comparisons between them, it is important to be consistent in the methodology used to determine horsepower. </p>
+
+<h3>Watt</h3>
+<p>Horsepower is not recognized in the International System of Units (SI); SI uses a measurement of power (a rate at which energy is generated or used) called a watt, which is named after James Watt. A watt is defined as one joule per second and is generally used to quantify a rate of energy transfer for lower rates of power consumption such as lightbulb or smartphone charging. On the other hand, kilowatts are commonly used for larger scale measures such as appliances and devices like refrigerators or servers. Energy is often presented using units of kilowatt hours (kWh), usually within the context of electric utilities delivering energy to household consumers. </p>
+
+<h3>BTU</h3>
+<p>The British Thermal Unit (BTU) is another unit of energy, and one unit of BTU is the amount needed to heat one pound of water by one degree Fahrenheit. Coincidentally, one BTU is also roughly the amount of energy released by burning one match. BTU is commonly used to compare the energy inherent in different fuels. 1 BTU is equivalent to 0.293 watt-hour or 1,055 joules. </p>
+
+<h3>Different Horsepowers</h3>
+<p>When the term horsepower is used, people are probably referring to mechanical horsepower. However, there are other lesser known definitions of the word.</p>
+
+<ul>
+	<li><b>Mechanical Horsepower, hp(I)</b>&mdash;550 foot-pounds per second, approximately 745.7 watts. The most common definition of horsepower, mechanical horsepower, is the horsepower James Watt invented in 1782.</li>
+	<li><b>Metric Horsepower, hp(M)</b>&mdash;75 kgf-m per second, approximately 735.499 watts</li>
+	<li><b>Boiler Horsepower, hp(S)</b>&mdash;34.5 pounds of water evaporated per hour at 212 degrees Fahrenheit, approximately 9,809.5 watts. This definition is mainly used to denote a boiler's capacity to deliver steam to a steam engine.</li>
+	<li><b>Electrical Horsepower</b>&mdash;746 watts. This definition is mainly used for electrical machines.</li>
+</ul>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

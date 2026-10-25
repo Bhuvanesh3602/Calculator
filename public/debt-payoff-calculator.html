@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Debt Payoff Calculator</title>
+	<meta name="description" content="Free calculator for finding the best way to pay off multiple debts such as those related to credit cards, auto loans, or mortgages." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head><body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/debt-payoff-calculator.html" itemprop="item"><span itemprop="name">debt payoff calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Debt Payoff Calculator</h1><p>The calculator below estimates the amount of time required to pay back one or more debts. Additionally, it gives users the most cost-efficient payoff sequence, with the option of adding extra payments. This calculator utilizes the debt avalanche method, considered the most cost-efficient payoff strategy from a financial perspective.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div class="panel"><form name="calform" action="/debt-payoff-calculator.html#calresult">
+
+<table width="520">
+<tr valign="bottom" align="center">
+	<td width="30">&nbsp;</td>
+	<td width="220">Debt name</td>
+	<td width="90">Remaining balance</td>
+	<td width="90">Monthly or min. payment</td>
+	<td width="90">Interest rate</td>
+</tr>
+<tr><td width="30">1.</td><td width="220"><input type="text" name="cnm1" value="Auto loan" class="inlongest"></td><td width="90"><input type="text" name="cbal1" id="cbal1" value="25000" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy1" id="cmpy1" value="519" class="inlong indollar"></td><td width="90"><input type="text" name="cint1" value="4.9" class="innormal inpct"></td></tr><tr><td width="30">2.</td><td width="220"><input type="text" name="cnm2" value="Home mortgage" class="inlongest"></td><td width="90"><input type="text" name="cbal2" id="cbal2" value="250000" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy2" id="cmpy2" value="1800" class="inlong indollar"></td><td width="90"><input type="text" name="cint2" value="4" class="innormal inpct"></td></tr><tr><td width="30">3.</td><td width="220"><input type="text" name="cnm3" value="Credit card 1" class="inlongest"></td><td width="90"><input type="text" name="cbal3" id="cbal3" value="6000" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy3" id="cmpy3" value="150" class="inlong indollar"></td><td width="90"><input type="text" name="cint3" value="18.99" class="innormal inpct"></td></tr><tr><td width="30">4.</td><td width="220"><input type="text" name="cnm4" value="Credit card 2" class="inlongest"></td><td width="90"><input type="text" name="cbal4" id="cbal4" value="3000" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy4" id="cmpy4" value="60" class="inlong indollar"></td><td width="90"><input type="text" name="cint4" value="16.99" class="innormal inpct"></td></tr><tr><td width="30">5.</td><td width="220"><input type="text" name="cnm5" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal5" id="cbal5" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy5" id="cmpy5" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint5" value="" class="innormal inpct"></td></tr><tr><td width="30">6.</td><td width="220"><input type="text" name="cnm6" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal6" id="cbal6" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy6" id="cmpy6" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint6" value="" class="innormal inpct"></td></tr></table><div style="padding: 5px 50px;" id="cacrmoredesc"><a href="#" onClick="return showHideMoreFields('cacrmore', 'show')">Show more input fields</a></div><table id="cacrmore" width="520" style="display:none;"><tr><td width="30">7.</td><td width="220"><input type="text" name="cnm7" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal7" id="cbal7" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy7" id="cmpy7" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint7" value="" class="innormal inpct"></td></tr><tr><td width="30">8.</td><td width="220"><input type="text" name="cnm8" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal8" id="cbal8" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy8" id="cmpy8" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint8" value="" class="innormal inpct"></td></tr><tr><td width="30">9.</td><td width="220"><input type="text" name="cnm9" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal9" id="cbal9" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy9" id="cmpy9" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint9" value="" class="innormal inpct"></td></tr><tr><td width="30">10.</td><td width="220"><input type="text" name="cnm10" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal10" id="cbal10" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy10" id="cmpy10" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint10" value="" class="innormal inpct"></td></tr><tr><td width="30">11.</td><td width="220"><input type="text" name="cnm11" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal11" id="cbal11" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy11" id="cmpy11" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint11" value="" class="innormal inpct"></td></tr><tr><td width="30">12.</td><td width="220"><input type="text" name="cnm12" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal12" id="cbal12" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy12" id="cmpy12" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint12" value="" class="innormal inpct"></td></tr><tr><td width="30">13.</td><td width="220"><input type="text" name="cnm13" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal13" id="cbal13" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy13" id="cmpy13" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint13" value="" class="innormal inpct"></td></tr><tr><td width="30">14.</td><td width="220"><input type="text" name="cnm14" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal14" id="cbal14" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy14" id="cmpy14" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint14" value="" class="innormal inpct"></td></tr><tr><td width="30">15.</td><td width="220"><input type="text" name="cnm15" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal15" id="cbal15" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy15" id="cmpy15" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint15" value="" class="innormal inpct"></td></tr><tr><td width="30">16.</td><td width="220"><input type="text" name="cnm16" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal16" id="cbal16" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy16" id="cmpy16" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint16" value="" class="innormal inpct"></td></tr><tr><td width="30">17.</td><td width="220"><input type="text" name="cnm17" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal17" id="cbal17" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy17" id="cmpy17" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint17" value="" class="innormal inpct"></td></tr><tr><td width="30">18.</td><td width="220"><input type="text" name="cnm18" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal18" id="cbal18" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy18" id="cmpy18" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint18" value="" class="innormal inpct"></td></tr><tr><td width="30">19.</td><td width="220"><input type="text" name="cnm19" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal19" id="cbal19" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy19" id="cmpy19" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint19" value="" class="innormal inpct"></td></tr><tr><td width="30">20.</td><td width="220"><input type="text" name="cnm20" value="" class="inlongest"></td><td width="90"><input type="text" name="cbal20" id="cbal20" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cmpy20" id="cmpy20" value="" class="inlong indollar"></td><td width="90"><input type="text" name="cint20" value="" class="innormal inpct"></td></tr></table>
+
+<br><div><b>Extra payments:</b></div>
+<table style="padding-left: 15px;">
+	<tr>
+		<td><input type="text" name="cextramonthpay" id="cextramonthpay" value="100" class="inlong indollar">
+		per month</td>
+	</tr>
+	<tr>
+		<td><input type="text" name="cextrayearpay" id="cextrayearpay" value="0" class="inlong indollar">
+		per year</td>
+	</tr>
+	<tr>
+		<td><input type="text" name="cextraonepay" id="cextraonepay" value="0" class="inlong indollar">
+		of one-time payment made during the <input type="text" name="cextraonepayon" value="5" class="innormal"><sup>th</sup> month</td>
+	</tr>
+</table>
+
+<br><div><b>Fixed total amount towards monthly payment?</b></div>
+<div style="padding-left: 15px;">
+<label for="cfixpay1" class="cbcontainer"><input type="radio" name="cfixpay" id="cfixpay1" value="y" checked /><span class="rbmark"></span>Yes</label> &nbsp;
+<label for="cfixpay2" class="cbcontainer"><input type="radio" name="cfixpay" id="cfixpay2" value="n"  /><span class="rbmark"></span>No</label>
+
+<div style="padding: 3px 0px 10px 0px;">If "Yes" is chosen, after a debt has been paid off, the money that was being paid to that specific debt will be distributed towards paying off remaining debts; the total amount initially allotted to monthly payments will be fixed until all debts are paid off. If "No" is chosen, after a debt is paid off, the monthly payment for that particular debt will not be distributed towards paying off the remaining debts. In this case, the total amount allotted to monthly payments decreases as debts are paid off. </div>
+</div>
+<table width="250">
+<tr><td align="right">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form></div>
+
+
+<p><fieldset><legend>Related</legend><a href="/debt-consolidation-calculator.html">Debt Consolidation Calculator</a> | <a href="/payment-calculator.html">Payment Calculator</a></fieldset></p>
+
+<br>
+<p>Loans and debts are basic economic activities in modern society. Companies, individuals, and even governments assume debts to maintain operations. Most people will take on some loans during their lifetime, be it mortgage loans, student loans, auto loans, credit card debt, or other obligations.</p>
+<p>If used responsibly, debts can help people own homes, purchase cars, and keep their life rolling. However, debt can also lead to high levels of stress. This can cause severe mental, physical, and medical problems over time. Also, excessive debts, especially credit card debt, can encourage people to overspend, costing them significant amounts of money in interest expenses. It may also interfere with financial planning, reduce credit scores, and eventually damage personal lives.</p>
+
+<h3>Pay off Debts Early</h3>
+<p>Most people like the feeling of being debt-free and, when possible, will pay off debts earlier. One common way to pay off loans more quickly is to make extra payments on top of the required minimum monthly payments.</p>
+<p>Borrowers can make one-time extra payments or pay additional amounts every month or year. Those extra payments will lower the principal amounts owed. They also move the payoff date forward and reduce the amount of interest paid over the life of the loan.</p>
+<p>The Debt Payoff Calculator above can accommodate a one-time extra payment or multiple periodic extra payments either separately or combined.</p>
+<p>Before deciding to pay off a debt early, borrowers should find out if the loan requires an early payoff penalty and evaluate whether paying off that debt faster is a wise decision financially.</p>
+<p>While making extra payments towards a loan can help, it is unnecessary in most cases, and the opportunity costs deserve consideration. For instance, an emergency fund can bring peace of mind when incidents like medical emergencies or car accidents occur. Moreover, stocks that perform well during good years can offer a greater financial benefit than extra payments towards a low-interest debt.</p>
+<p>Conventional wisdom has it that borrowers should pay off high-interest debts such as credit card balances as early as possible. They should then evaluate their financial situations to decide whether it makes sense to make extra payments on low-interest debts such as a home mortgage.</p>
+
+<h3>How to Pay Off Debts Early?</h3>
+<p>Once borrowers decide to pay off debts early, they may struggle to act. Achieving such a goal often takes firm financial discipline. Finding extra funds to pay off the debts usually involves actions such as creating a budget, cutting unnecessary spending, selling unwanted items, and changing one's lifestyle.</p>
+<p>Borrowers should also use the right strategies to pay off their debts. Listed below are some of the most common techniques:</p>
+
+<p><b>Debt Avalanche</b></p>
+<p>This debt repayment method results in the lowest total interest cost. It prioritizes the repayment of debts with the highest interest rates while paying the minimum required amount for each other debt. This continues like an avalanche, where the highest interest rate debt tumbles down to the next highest interest rate debt until the borrower pays off every debt and the avalanche ends.</p>
+<p>In other words, a credit card with an 18% interest rate will receive priority over a 5% mortgage or 12% personal loan, regardless of the balance due for each. The Debt Payoff Calculator uses this method, and in the results, it orders debts from top to bottom, starting with the highest interest rates first.</p>
+
+<p><b>Debt Snowball</b></p>
+<p>In contrast, this debt repayment method starts with the smallest debt first, regardless of the interest rate. As smaller debts get paid off, the borrower then directs payments toward the next smallest debt amount.</p>
+<p>This method often results in borrowers paying more interest than with the debt avalanche method. However, the resulting boost in confidence (even if small) can provide a significant emotional stimulus that may allow a person in debt to remain motivated or even make some sacrifices to contribute more towards paying off remaining debts. The Debt Payoff Calculator does not use this method.</p>
+
+<p><b>Debt Consolidation</b></p>
+<p>Debt consolidation involves taking out a single, larger loan. This usually takes the form of a home equity loan, personal loan, or balance-transfer credit card. Borrowers use that new loan (usually at a lower interest rate) to pay off all existing smaller debts.</p>
+<p>Debt consolidation is most helpful when paying off higher interest debts, such as credit card balances. This can lower the monthly repayment amount in many situations, making it is less stressful to pay off debt. Also, having one sole monthly payment instead of several can simplify the repayment process.</p>
+<p>For more information or to perform calculations involving debt consolidation, use the <a href="/debt-consolidation-calculator.html">Debt Consolidation Calculator</a>.</p>
+
+<h3>Alternative Methods of Managing Mounting Debt</h3>
+<p>Sometimes, individual borrowers may struggle in situations where they simply cannot repay their mounting debts. A lack of financial means, serious illness, and a poor mindset are some of the reasons this occurs.</p>
+<p>In the U.S., borrowers have alternative methods that can salvage their situations. They should carefully weigh these options and assess in detail whether they should use them or not, as many of these methods may potentially leave borrowers worse off than before. Higher costs, lower credit scores, and additional debt are some of the possible consequences. For these reasons, some personal financial advisors suggest avoiding the options listed below at any cost.</p>
+
+<p><b>Debt Management</b></p>
+<p>Debt management first involves consulting with a credit counselor from a credit counseling agency. The U.S. Department of Justice contains <a href="https://www.justice.gov/ust/list-credit-counseling-agencies-approved-pursuant-11-usc-111">a list of approved credit counseling agencies by state</a>.</p>
+<p>Credit counselors review each debtor's financial situation. From there, the counselor usually contacts creditors and negotiates with them to potentially reduce interest rates or monthly payments for their clients.</p>
+<p>Suppose they deem a debt management plan viable. In that case, the credit counselor will extend an offer to the debtor. The agency will take responsibility for all their debts every month and pay each of the creditors individually. In turn, the agency requires the debtor to make one monthly payment to the credit counseling agency (instead of several to each creditor) and possibly other fees. Usually, credit counselors will also require debtors to avoid opening new lines of credit and close their credit cards to avoid accruing new debt.</p>
+<p>Debt management can offer relief from constant calls, emails, and letters from creditors. It provides the most benefit to people disciplined enough to stay on repayment plans and slowly reduce debt over the long term. Although debt management may negatively affect credit scores at first, it prevents the more severe effects that would probably come with a debt settlement or bankruptcy.</p>
+
+<p><b>Debt Settlement</b></p>
+<p>Debt settlement involves negotiating with creditors to settle an existing debt for less than the amount owed. This usually entails a 45% to 50% debt reduction, not including an additional debt settlement fee. Borrowers who choose debt settlement typically pay 20% of the outstanding balance in fees.</p>
+<p>Debt settlement typically leads to a significant negative impact on credit scores and reports. Additionally, the IRS treats forgiven debts as income, requiring the payment of income taxes to the IRS.</p>
+
+<p><b>Bankruptcy</b></p>
+<p>Bankruptcy is the legal status of a person or entity that cannot repay debts to creditors. While six types of bankruptcies exist, generally, only two of them pertain to individual debtors.</p>
+<p>The first and most common type is Chapter 7 bankruptcy. The primary purpose of a Chapter 7 bankruptcy is to discharge debt, relieving the filer of the legal obligation to pay it back. However, this will likely entail the sale of some personal assets to pay off creditors. Also, this process cannot discharge obligations such as tax debt, student loan debt, child support, or alimony.</p>
+<p>Chapter 7 filers should expect the process to take between six months and one year.</p>
+<p>The second is Chapter 13, which constitutes a reorganization. This puts the filer on a payment plan that can last anywhere from three to five years.</p>
+<p>Once the borrower completes the payment plan, any remaining debt gets discharged. Unlike Chapter 7, Chapter 13 bankruptcy often allows for the retention of valuable assets rather than having the Court sell them.</p>
+<p>One's assets and income usually determine whether a borrower files for a Chapter 7 or Chapter 13 bankruptcy. However, filing for bankruptcy will negatively impact one's credit report for up to a decade. This makes it difficult to apply for loans, mortgages, or new credit cards. Landlords and future employers generally view bankruptcy as unfavorable, and it can affect future rental or job applications.</p>
+
+
+
+
+<script>
+function showHideMoreFields(shmfFieldName, shmfValue){
+	if (shmfValue=='show'){
+		document.getElementById(shmfFieldName).style.display = 'block';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'hide\')">Hide fields below</a>';
+	}else{
+		document.getElementById(shmfFieldName).style.display = 'none';
+		document.getElementById(shmfFieldName+"desc").innerHTML='<a href="#" onClick="return showHideMoreFields(\''+shmfFieldName+'\', \'show\')">Show more input fields</a>';
+	}
+	return false;
+}
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cextramonthpay");
+proComma2("cextrayearpay");
+proComma2("cextraonepay");
+for (let i = 1; i <=20; i++) {
+	proComma2("cbal"+i);
+	proComma2("cmpy"+i);
+}
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

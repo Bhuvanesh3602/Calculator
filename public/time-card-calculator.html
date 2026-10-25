@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Time Card Calculator</title>
+	<meta name="description" content="This free time card calculator generates weekly time reports based on provided work times and hourly rates. It can account for various overtime situations." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/time-card-calculator.html" itemprop="item"><span itemprop="name">time card calculator</span></a><meta itemprop="position" content="3" /></span></div>
+		<h1>Time Card Calculator</h1>
+<p>This time card calculator generates easily printable weekly time reports based on work hours and rates. The calculator accepts most time formats, such as 8:00AM, 8.30, 15:30, etc. The values entered can be saved in the browser for future use.</p>
+<form name="timecardform">
+<table border="0" cellspacing="0" cellpadding="5" align="center">
+	<tr>
+		<td bgcolor="#cefab0" align="center" valign="bottom"><b>Date</b></td>
+		<td bgcolor="#cefab0" align="center" valign="bottom"><b>From</b></td>
+		<td bgcolor="#cefab0" align="center" valign="bottom"><b>To</b></td>
+		<td bgcolor="#cefab0" align="center"><b>Break<br>Deduction</b></td>
+		<td bgcolor="#cefab0" align="center">&nbsp;</td>
+	</tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label1" value="Monday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from11" value="8:30AM" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to11" value="5:00PM"class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate11" value="0:30" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(1)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label2" value="Tuesday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from12" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to12" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate12" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(2)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label3" value="Wednesday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from13" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to13" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate13" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(3)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label4" value="Thursday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from14" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to14" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate14" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(4)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label5" value="Friday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from15" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to15" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate15" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(5)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label6" value="Saturday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from16" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to16" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate16" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(6)"></td></tr>
+<tr>
+<td bgcolor="#cefab0"><input type="text" name="label7" value="Sunday" class="inlonger"></td><td bgcolor="#cefab0"><input type="text" name="from17" value="" class="innormal"></td><td bgcolor="#cefab0"><input type="text" name="to17" value=""class="innormal"></td><td bgcolor="#cefab0" nowrap><input type="text" name="rate17" value="" class="innormal"></td><td bgcolor="#cefab0"><img src="/img/svg/close.svg" width="18" height="18" alt="close" onClick="clearOne(7)"></td></tr>
+	<tr bgcolor="#cefab0">
+		<td colspan="5" align="center">
+			<b><a href="#" onClick="return copyDown();">Copy first row's data down</a> &nbsp; <a href="#" onClick="return clearAll();">Clear all</a></b>
+		</td>
+	</tr>
+	<tr bgcolor="#b2d8fb">
+		<td colspan="5">
+			<table cellpadding="5">
+	<tr>
+		<td valign="top"><b>Round Time:</b></td><td valign="top">		<select name="crt" >
+			<option value="" selected>No Round</option>
+			<option value="5m">Round to the nearest 5 minutes</option>
+			<option value="10m">Round to the nearest 10 minutes</option>
+			<option value="15m">Round to the nearest 15 minutes</option>
+			<option value="30m">Round to the nearest 30 minutes</option>
+			<option value="h">Round to the nearest hour</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Report Header:</b></td><td>			<input type="text" name="repheader" size="28" value="" >
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Report Notes:</b></td><td>			<textarea rows="2" cols="25" name="repnote" ></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td>			<div><label for="usepayment" class="cbcontainer"><input type="checkbox" name="usepayment" id="usepayment" value="1"  onClick="showHidePayment();"><span class="cbmark"></span>Include payment information</label></div>
+			<div id="payratesetting" style="display:none;"><br>
+			<div class="inputLabel"><b>Base Pay Rate:</b></div>
+			<div><input type="text" name="payrate" value="35"class="innormal indollar"> per hour</div>
+
+			<br><div class="inputLabel"><b>Overtime Pay:</b></div>
+			<div><label for="cpo1"><input type="radio" name="cpo" id="cpo1" value="n"  onClick="showHideOt('n');" /> No overtime rate, pay base rate for overtime worked</label></div>
+			<div><label for="cpo4"><input type="radio" name="cpo" id="cpo4" value="nd"  onClick="showHideOt('nd');" /> No overtime pay, pay max <input type="text" name="oth3" value="8"class="in2char"> hours per day</label></div>
+			<div><label for="cpo5"><input type="radio" name="cpo" id="cpo5" value="nw"  onClick="showHideOt('nw');" /> No overtime pay, pay max <input type="text" name="oth4" value="40"class="in2char"> hours per week</label></div>
+
+			<br><div><label for="cpo2"><input type="radio" name="cpo" id="cpo2" value="d"  onClick="showHideOt('d');" /> Overtime pay after <input type="text" name="oth1" value="8"class="in2char"> hours per day</label></div>
+			<div><label for="cpo3"><input type="radio" name="cpo" id="cpo3" value="w" checked onClick="showHideOt('w');" /> Overtime pay after <input type="text" name="oth2" value="40"class="in2char"> hours per week</label></div>
+			<div id="otrdiv" style="padding-top:15px;"><b>Overtime Rate:</b>
+						<input type="text" name="otrate" value="1.5"class="in4char"> times base rate</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td>			<div><label for="showblankdays" class="cbcontainer"><input type="checkbox" name="showblankdays" id="showblankdays" value="1" ><span class="cbmark"></span>Show blank days in report</label></div>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td>			<div><label for="savedata" class="cbcontainer"><input type="checkbox" name="savedata" id="savedata" value="1" ><span class="cbmark"></span>Save values to this browser</label></div>
+			<input type="hidden" name="printit" value="0">
+		</td>
+	</tr>
+			</table>
+		</td>
+	</tr>
+	<tr bgcolor="#dddddd">
+		<td colspan="5" align="center">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.timecardform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function copyDown(){
+	inputForm = document.timecardform;
+	for (var i=2;i<8;i++){
+		eval("inputForm.from1"+i+".value=inputForm.from11.value;");
+		eval("inputForm.to1"+i+".value=inputForm.to11.value;");
+		eval("inputForm.rate1"+i+".value=inputForm.rate11.value;");
+	}
+	return false;
+}
+
+function clearAll(){
+	inputForm = document.timecardform;
+	for (var i=1;i<8;i++){
+		//eval("inputForm.label"+i+".value='';");
+		eval("inputForm.from1"+i+".value='';");
+		eval("inputForm.to1"+i+".value='';");
+		eval("inputForm.rate1"+i+".value='';");
+	}
+	return false;
+}
+function clearOne(rowNum){
+	inputForm = document.timecardform;
+	//eval("inputForm.label"+rowNum+".value='';");
+	eval("inputForm.from1"+rowNum+".value='';");
+	eval("inputForm.to1"+rowNum+".value='';");
+	eval("inputForm.rate1"+rowNum+".value='';");
+	return false;
+}
+function showHidePayment(){
+	if (document.timecardform.usepayment.checked){
+		document.getElementById("payratesetting").style.display = 'block';
+	}else{
+		document.getElementById("payratesetting").style.display = 'none';
+	}
+}
+function showHideOt(shV){
+	if ((shV=='n')||(shV=='nd')||(shV=='nw')){
+		document.getElementById("otrdiv").style.display = 'none';
+	}else{
+		document.getElementById("otrdiv").style.display = 'block';
+	}
+}
+showHidePayment();
+showHideOt("w");
+</script>
+
+<br><br><h3>Wages and Overtime</h3>
+<p>- Under the Fair Labor Standards Act (FLSA), the federal minimum wage is $7.25 per hour at the time of writing (Jan. 2026). In cases where the state in which the employee works also has a minimum wage, the employee is entitled to the higher of the two wages. Most states in the United States have a minimum wage higher than $7.25. Non-exempt employees (see below) that are covered by the FLSA are also entitled to an overtime rate at least 1.5 times that of their standard rate for hours worked over 40 hours per workweek (defined as any fixed and regularly recurring period of 168 hours).</p>
+<p>There are also regulations surrounding what constitutes hours worked, as well as regulations governing recordkeeping and child labor.</p>
+
+<h3>Exempt vs. non-exempt employees</h3>
+<p>Most workers are classified as either exempt or non-exempt employees, and are protected by a number of requirements placed by the Fair Labor Standards Act (FLSA). In addition, many states also have wage and hour laws. As such, it is important both as an employer and as an employee to understand one's position. </p>
+<p><b>Non-exempt employees</b> are employees that are entitled to minimum wage as well as overtime pay under the FLSA. Employers are also required to pay these workers an overtime rate of 1.5 times their standard rate when they work more than 40 hours per workweek. A non-exempt employee that is not paid overtime wages can file an FLSA overtime claim through the U.S. Department of Labor. Most workers that are paid an hourly wage fall under this category. </p>
+<p><b>Exempt employees</b> are those that are not protected by the FLSA and are not entitled to overtime pay. Certain job types are exempt by definition, including commissioned sales employees, computer professionals, farm workers, drivers, salesmen, seasonal workers, and those performing executive, administrative, or professional roles. Refer to the U.S. Department of Labor resources for a list of typical exemptions, but note that the list is not necessarily exhaustive. For most professions, if an employee meets the following three rules, the employee is an exempt employee:</p>
+<ol>
+	<li>The employee is paid at least $35,568 per year ($684 per week)</li>
+	<li>The employee is paid on a salary rather than an hourly basis</li>
+	<li>The employee performs exempt job duties (discussed below)</li>
+</ol>
+<p>Exempt job duties are categorized mainly as executive, professional, and administrative job duties. Further detail is available through the U.S. Department of Labor, but below is a brief summary of the three main categories of exempt job duties. </p>
+
+<p><b>Executive exemption:</b></p>
+<p>On top of needing to meet the requirement of earning a minimum salary of $684 per week, employees that qualify for the executive employee exemption must perform executive duties such as managing the enterprise as a whole or a department or subdivision within the enterprise. The employee must also supervise at least two other employees and have primary duties involving some level of control over the hiring and firing process of other employees.</p>
+
+<p><b>Administrative exemption:</b></p>
+<p>Like executive and professional exemptions, administrative exemption still requires an employee to earn a minimum salary of $684 per week. Among other requirements, these employees must also perform non-manual office work directly related to management or general business operations to qualify for the administrative employee exemption. This includes roles such as human resource staff, public relations, payroll, and accounting.</p>
+
+<p><b>Professional exemption:</b></p>
+<p>This exemption includes both "learned professionals" as well as "creative professionals." In both cases, the $684 minimum salary must still be met. In the case of a learned professional, the employee must primarily perform work that requires advanced knowledge, defined as work that is predominantly intellectual in character in the fields of science or learning. The creative professional's work must require invention, imagination, originality, or talent in a recognized artistic or creative field. Some professions that fit within these categories include lawyers, physicians, teachers, architects, registered nurses, writers, journalists, actors, and musicians. </p>
+
+<p><b>Other exemptions:</b></p>
+<p>Some other common exemptions exist, including exemptions for computer employees and outside sales employees. The computer employee exemption applies to those who earn a minimum of $684 in salary, or are compensated at a rate of $27.63 per hour. This includes computer system analysts, programmers, and software engineers. The outside sales employee exemption applies to those whose primary duty is to make sales or obtain orders or contracts outside of their place of business. </p>
+
+<p><b>Professions that are NOT exempt:</b></p>
+<p>Generally, the exemptions discussed above only apply to "white collar" employees. "Blue-collar" workers, such as those who perform manual labor or other repetitive operations with their hands that require physical skill and energy, are not included within the exemptions regardless of whether they meet the salary and duties requirements discussed above. No matter how highly paid non-management employees in production, maintenance, or construction are, they are entitled to a minimum wage and overtime pay. This includes professions such as carpenters, electricians, mechanics, plumbers, ironworkers, craftsmen, and construction workers. </p>
+<p>The exemptions also do not apply to police, firefighters, paramedics, correctional officers, park rangers, and other first responders whose role involves performing tasks such as preventing, controlling, or extinguishing fire or rescuing fire, crime, or accident victims. Roles that involve performing surveilling and apprehending suspects and other similar work are also not subject to exemption. </p>
+
+<h3>Brief history of time cards/clocks</h3>
+<p>Time cards have been used since the late 19<sup>th</sup> century in the form of clock cards, which were rectangular cards on which the working hours of the day and days of the week were printed. The need for clock cards arose partly due to industrialization, the increasing use of factory labor, and the need for a more effective way to track workers' hours so as to improve efficiency. </p>
+<p>The first clock card time recording machine, the Rochester Time Recorder, was invented by Daniel M. Cooper in 1894. This clock was able to print accurate clock-in and clock-out times on individual clock cards that employees would carry and insert into the clock whenever they started or ended their shift. Upon insertion, the time recorder would print the exact time on the card, allowing the company timekeeper to then calculate how many hours each employee worked at the end of each week. </p>
+<p>Although the Rochester Time Recorder was the first recording machine that made use of clock cards, it was not the first attempt at creating a machine to track employee hours. In 1888, William Bundy invented the Bundy Key Recorder, a time recorder that would print the exact time (as well as specific key number) an employee inserted their designated number key on a piece of pre-printed tape. In that same year, Dr. Alexander Dey invented the Dey's Dial Recorder, another time keeping machine that had employees' allocated numbers marked around a large dial on the machine. Employees would select their number on the dial, and push a pointer arm inward along a guide, thereby printing the exact time on a sheet inside the machine, next to their employee number. </p>
+<p>The need for these types of time recording technologies increased in the early 20<sup>th</sup> century, and large companies such as the International Business Machines Corporation, better known today as IBM, became involved in the development of new technologies, even creating a Time Recorder Division. Headed by Thomas J. Watson, IBM would go on to develop a large range of time recording solutions such as time attendance recorders and time stamp recording systems, some of which had features such as printing a stamp in red ink when an employee arrived late, along with increased accuracy. </p>
+<p>While time recorders and clock cards are still in use today, there are many new electronic time tracking solutions, including the use of radio-frequency identification (RFID), magnetic cards, and biometric time recorders.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

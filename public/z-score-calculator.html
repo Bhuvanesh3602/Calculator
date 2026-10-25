@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Z-score Calculator</title>
+	<meta name="description" content="Calculator to find out the z-score of a normal distribution, convert between z-score and probability, and find the probability between 2 z-scores." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/z-score-calculator.html" itemprop="item"><span itemprop="name">z-score calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Z-score Calculator</h1>
+<p>Use this calculator to compute the z-score of a normal distribution.</p>
+<form action="/z-score-calculator.html" name="calform">
+<table class="panel" >
+	<tr>
+		<td>Raw Score, <b>x</b></td>
+		<td><input type="text" name="c1raw" value="5" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Population Mean, <b>&mu;</b></td>
+		<td><input type="text" name="c1mean" value="3" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Standard Deviation, <b>&sigma;</b></td>
+		<td><input type="text" name="c1sd" value="2" class="innormal"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="zscore">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table>
+</form>
+
+<a name="converter"></a>
+<br>
+<h2>Z-score and Probability Converter</h2>
+<p>Please provide any one value to convert between z-score and probability. This is the equivalent of referencing a z-table.</p>
+<form action="/z-score-calculator.html#converter" name="calform2">
+<table class="panel" >
+	<tr>
+		<td>Z-score, <b>Z</b></td>
+		<td><input type="text" name="c2z" value="2" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability, <b>P</b>(x&lt;Z)</td>
+		<td><input type="text" name="c2p" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability, <b>P</b>(x&gt;Z)</td>
+		<td><input type="text" name="c2pg" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability, <b>P</b>(0 to Z or Z to 0)</td>
+		<td><input type="text" name="c2p0" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability, <b>P</b>(-Z&lt;x&lt;Z)</td>
+		<td><input type="text" name="c2pin" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Probability, <b>P</b>(x&lt;-Z or x&gt;Z)</td>
+		<td><input type="text" name="c2pout" value="" class="innormal"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="converter">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table>
+</form>
+
+
+<br><a name="range"></a>
+<br><h2>Probability between Two Z-scores</h2>
+<img src="/img/z-score/normal-distribution.svg" width="212" height="143" alt="z-score" align="right"><p>Use this calculator to find the probability (area P in the diagram) between two z-scores.</p><form action="/z-score-calculator.html#range" name="calform3">
+<table class="panel" >
+	<tr>
+		<td>Left Bound, <b>Z<sub>1</sub></b></td>
+		<td><input type="text" name="c3z1" value="-1" class="innormal"></td>
+	</tr>
+	<tr>
+		<td>Right Bound, <b>Z<sub>2</sub></b></td>
+		<td><input type="text" name="c3z2" value="0" class="innormal"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="range">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+		</td>
+	</tr>
+</table>
+</form>
+
+
+<br><p><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset></p>
+
+<br>
+<h3>What is z-score?</h3>
+<p>The z-score, also referred to as standard score, z-value, and normal score, among other things, is a dimensionless quantity that is used to indicate the signed, fractional, number of standard deviations by which an event is above the mean value being measured. Values above the mean have positive z-scores, while values below the mean have negative z-scores.</p>
+<p>The z-score can be calculated by subtracting the population mean from the raw score, or data point in question (a test score, height, age, etc.), then dividing the difference by the population standard deviation:</p>
+<table align="center"><tr><td>z =</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">x - &mu;</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&sigma;</td></tr></table></td></tr></table>
+<p>where x is the raw score, &mu; is the population mean, and &sigma; is the population standard deviation. For a sample, the formula is similar, except that the sample mean and population standard deviation are used instead of the population mean and population standard deviation.</p>
+<p>The z-score has numerous applications and can be used to perform a z-test, calculate prediction intervals, process control applications, comparison of scores on different scales, and more.</p>
+
+<h3>Z-table</h3>
+<p>A z-table, also known as a standard normal table or unit normal table, is a table that consists of standardized values that are used to determine the probability that a given statistic is below, above, or between the standard normal distribution. A z-score of 0 indicates that the given point is identical to the mean. On the graph of the standard normal distribution, z = 0 is therefore the center of the curve. A positive z-value indicates that the point lies to the right of the mean, and a negative z-value indicates that the point lies left of the mean. There are a few different types of z-tables.</p>
+<p>The values in the table below represent the area between z = 0 and the given z-score.</p>
+
+<div><div><b>Z Table from Mean (0 to Z)</b></div>
+<table class="cinfoT" >
+<tr><td class="cinfoHd">z</td><td class="cinfoHdL">0</td><td class="cinfoHdL">0.01</td><td class="cinfoHdL">0.02</td><td class="cinfoHdL">0.03</td><td class="cinfoHdL">0.04</td><td class="cinfoHdL">0.05</td><td class="cinfoHdL">0.06</td><td class="cinfoHdL">0.07</td><td class="cinfoHdL">0.08</td><td class="cinfoHdL">0.09</td></tr>
+<tr><td><b>0</b></td><td>0</td><td>0.00399</td><td>0.00798</td><td>0.01197</td><td>0.01595</td><td>0.01994</td><td>0.02392</td><td>0.0279</td><td>0.03188</td><td>0.03586</td></tr>
+<tr><td><b>0.1</b></td><td>0.03983</td><td>0.0438</td><td>0.04776</td><td>0.05172</td><td>0.05567</td><td>0.05962</td><td>0.06356</td><td>0.06749</td><td>0.07142</td><td>0.07535</td></tr>
+<tr><td><b>0.2</b></td><td>0.07926</td><td>0.08317</td><td>0.08706</td><td>0.09095</td><td>0.09483</td><td>0.09871</td><td>0.10257</td><td>0.10642</td><td>0.11026</td><td>0.11409</td></tr>
+<tr><td><b>0.3</b></td><td>0.11791</td><td>0.12172</td><td>0.12552</td><td>0.1293</td><td>0.13307</td><td>0.13683</td><td>0.14058</td><td>0.14431</td><td>0.14803</td><td>0.15173</td></tr>
+<tr><td><b>0.4</b></td><td>0.15542</td><td>0.1591</td><td>0.16276</td><td>0.1664</td><td>0.17003</td><td>0.17364</td><td>0.17724</td><td>0.18082</td><td>0.18439</td><td>0.18793</td></tr>
+<tr><td><b>0.5</b></td><td>0.19146</td><td>0.19497</td><td>0.19847</td><td>0.20194</td><td>0.2054</td><td>0.20884</td><td>0.21226</td><td>0.21566</td><td>0.21904</td><td>0.2224</td></tr>
+<tr><td><b>0.6</b></td><td>0.22575</td><td>0.22907</td><td>0.23237</td><td>0.23565</td><td>0.23891</td><td>0.24215</td><td>0.24537</td><td>0.24857</td><td>0.25175</td><td>0.2549</td></tr>
+<tr><td><b>0.7</b></td><td>0.25804</td><td>0.26115</td><td>0.26424</td><td>0.2673</td><td>0.27035</td><td>0.27337</td><td>0.27637</td><td>0.27935</td><td>0.2823</td><td>0.28524</td></tr>
+<tr><td><b>0.8</b></td><td>0.28814</td><td>0.29103</td><td>0.29389</td><td>0.29673</td><td>0.29955</td><td>0.30234</td><td>0.30511</td><td>0.30785</td><td>0.31057</td><td>0.31327</td></tr>
+<tr><td><b>0.9</b></td><td>0.31594</td><td>0.31859</td><td>0.32121</td><td>0.32381</td><td>0.32639</td><td>0.32894</td><td>0.33147</td><td>0.33398</td><td>0.33646</td><td>0.33891</td></tr>
+<tr><td><b>1</b></td><td>0.34134</td><td>0.34375</td><td>0.34614</td><td>0.34849</td><td>0.35083</td><td>0.35314</td><td>0.35543</td><td>0.35769</td><td>0.35993</td><td>0.36214</td></tr>
+<tr><td><b>1.1</b></td><td>0.36433</td><td>0.3665</td><td>0.36864</td><td>0.37076</td><td>0.37286</td><td>0.37493</td><td>0.37698</td><td>0.379</td><td>0.381</td><td>0.38298</td></tr>
+<tr><td><b>1.2</b></td><td>0.38493</td><td>0.38686</td><td>0.38877</td><td>0.39065</td><td>0.39251</td><td>0.39435</td><td>0.39617</td><td>0.39796</td><td>0.39973</td><td>0.40147</td></tr>
+<tr><td><b>1.3</b></td><td>0.4032</td><td>0.4049</td><td>0.40658</td><td>0.40824</td><td>0.40988</td><td>0.41149</td><td>0.41308</td><td>0.41466</td><td>0.41621</td><td>0.41774</td></tr>
+<tr><td><b>1.4</b></td><td>0.41924</td><td>0.42073</td><td>0.4222</td><td>0.42364</td><td>0.42507</td><td>0.42647</td><td>0.42785</td><td>0.42922</td><td>0.43056</td><td>0.43189</td></tr>
+<tr><td><b>1.5</b></td><td>0.43319</td><td>0.43448</td><td>0.43574</td><td>0.43699</td><td>0.43822</td><td>0.43943</td><td>0.44062</td><td>0.44179</td><td>0.44295</td><td>0.44408</td></tr>
+<tr><td><b>1.6</b></td><td>0.4452</td><td>0.4463</td><td>0.44738</td><td>0.44845</td><td>0.4495</td><td>0.45053</td><td>0.45154</td><td>0.45254</td><td>0.45352</td><td>0.45449</td></tr>
+<tr><td><b>1.7</b></td><td>0.45543</td><td>0.45637</td><td>0.45728</td><td>0.45818</td><td>0.45907</td><td>0.45994</td><td>0.4608</td><td>0.46164</td><td>0.46246</td><td>0.46327</td></tr>
+<tr><td><b>1.8</b></td><td>0.46407</td><td>0.46485</td><td>0.46562</td><td>0.46638</td><td>0.46712</td><td>0.46784</td><td>0.46856</td><td>0.46926</td><td>0.46995</td><td>0.47062</td></tr>
+<tr><td><b>1.9</b></td><td>0.47128</td><td>0.47193</td><td>0.47257</td><td>0.4732</td><td>0.47381</td><td>0.47441</td><td>0.475</td><td>0.47558</td><td>0.47615</td><td>0.4767</td></tr>
+<tr><td><b>2</b></td><td>0.47725</td><td>0.47778</td><td>0.47831</td><td>0.47882</td><td>0.47932</td><td>0.47982</td><td>0.4803</td><td>0.48077</td><td>0.48124</td><td>0.48169</td></tr>
+<tr><td><b>2.1</b></td><td>0.48214</td><td>0.48257</td><td>0.483</td><td>0.48341</td><td>0.48382</td><td>0.48422</td><td>0.48461</td><td>0.485</td><td>0.48537</td><td>0.48574</td></tr>
+<tr><td><b>2.2</b></td><td>0.4861</td><td>0.48645</td><td>0.48679</td><td>0.48713</td><td>0.48745</td><td>0.48778</td><td>0.48809</td><td>0.4884</td><td>0.4887</td><td>0.48899</td></tr>
+<tr><td><b>2.3</b></td><td>0.48928</td><td>0.48956</td><td>0.48983</td><td>0.4901</td><td>0.49036</td><td>0.49061</td><td>0.49086</td><td>0.49111</td><td>0.49134</td><td>0.49158</td></tr>
+<tr><td><b>2.4</b></td><td>0.4918</td><td>0.49202</td><td>0.49224</td><td>0.49245</td><td>0.49266</td><td>0.49286</td><td>0.49305</td><td>0.49324</td><td>0.49343</td><td>0.49361</td></tr>
+<tr><td><b>2.5</b></td><td>0.49379</td><td>0.49396</td><td>0.49413</td><td>0.4943</td><td>0.49446</td><td>0.49461</td><td>0.49477</td><td>0.49492</td><td>0.49506</td><td>0.4952</td></tr>
+<tr><td><b>2.6</b></td><td>0.49534</td><td>0.49547</td><td>0.4956</td><td>0.49573</td><td>0.49585</td><td>0.49598</td><td>0.49609</td><td>0.49621</td><td>0.49632</td><td>0.49643</td></tr>
+<tr><td><b>2.7</b></td><td>0.49653</td><td>0.49664</td><td>0.49674</td><td>0.49683</td><td>0.49693</td><td>0.49702</td><td>0.49711</td><td>0.4972</td><td>0.49728</td><td>0.49736</td></tr>
+<tr><td><b>2.8</b></td><td>0.49744</td><td>0.49752</td><td>0.4976</td><td>0.49767</td><td>0.49774</td><td>0.49781</td><td>0.49788</td><td>0.49795</td><td>0.49801</td><td>0.49807</td></tr>
+<tr><td><b>2.9</b></td><td>0.49813</td><td>0.49819</td><td>0.49825</td><td>0.49831</td><td>0.49836</td><td>0.49841</td><td>0.49846</td><td>0.49851</td><td>0.49856</td><td>0.49861</td></tr>
+<tr><td><b>3</b></td><td>0.49865</td><td>0.49869</td><td>0.49874</td><td>0.49878</td><td>0.49882</td><td>0.49886</td><td>0.49889</td><td>0.49893</td><td>0.49896</td><td>0.499</td></tr>
+<tr><td><b>3.1</b></td><td>0.49903</td><td>0.49906</td><td>0.4991</td><td>0.49913</td><td>0.49916</td><td>0.49918</td><td>0.49921</td><td>0.49924</td><td>0.49926</td><td>0.49929</td></tr>
+<tr><td><b>3.2</b></td><td>0.49931</td><td>0.49934</td><td>0.49936</td><td>0.49938</td><td>0.4994</td><td>0.49942</td><td>0.49944</td><td>0.49946</td><td>0.49948</td><td>0.4995</td></tr>
+<tr><td><b>3.3</b></td><td>0.49952</td><td>0.49953</td><td>0.49955</td><td>0.49957</td><td>0.49958</td><td>0.4996</td><td>0.49961</td><td>0.49962</td><td>0.49964</td><td>0.49965</td></tr>
+<tr><td><b>3.4</b></td><td>0.49966</td><td>0.49968</td><td>0.49969</td><td>0.4997</td><td>0.49971</td><td>0.49972</td><td>0.49973</td><td>0.49974</td><td>0.49975</td><td>0.49976</td></tr>
+<tr><td><b>3.5</b></td><td>0.49977</td><td>0.49978</td><td>0.49978</td><td>0.49979</td><td>0.4998</td><td>0.49981</td><td>0.49981</td><td>0.49982</td><td>0.49983</td><td>0.49983</td></tr>
+<tr><td><b>3.6</b></td><td>0.49984</td><td>0.49985</td><td>0.49985</td><td>0.49986</td><td>0.49986</td><td>0.49987</td><td>0.49987</td><td>0.49988</td><td>0.49988</td><td>0.49989</td></tr>
+<tr><td><b>3.7</b></td><td>0.49989</td><td>0.4999</td><td>0.4999</td><td>0.4999</td><td>0.49991</td><td>0.49991</td><td>0.49992</td><td>0.49992</td><td>0.49992</td><td>0.49992</td></tr>
+<tr><td><b>3.8</b></td><td>0.49993</td><td>0.49993</td><td>0.49993</td><td>0.49994</td><td>0.49994</td><td>0.49994</td><td>0.49994</td><td>0.49995</td><td>0.49995</td><td>0.49995</td></tr>
+<tr><td><b>3.9</b></td><td>0.49995</td><td>0.49995</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49996</td><td>0.49997</td><td>0.49997</td></tr>
+<tr><td><b>4</b></td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49997</td><td>0.49998</td><td>0.49998</td><td>0.49998</td><td>0.49998</td></tr>
+</table>
+</div>
+
+<br><p><b>How to read the z-table</b></p>
+<p>In the table above,</p>
+<ul>
+	<li>the column headings define the z-score to the hundredth's place.</li>
+	<li>the row headings define the z-score to the tenth's place.</li>
+	<li>each value in the table is the area between z = 0 and the z-score of the given value, which represents the probability that a data point will lie within the referenced region in the standard normal distribution.</li>
+</ul>
+<p>For example, referencing the right-tail z-table above, a data point with a z-score of 1.12 corresponds to an area of 0.36864 (row 13, column 4). This means that for a normally distributed population, there is a 36.864% chance, a data point will have a z-score between 0 and 1.12.</p>
+<p>Because there are various z-tables, it is important to pay attention to the given z-table to know what area is being referenced.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>

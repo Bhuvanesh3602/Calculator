@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="250" height="191" viewBox="0 0 250 191" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="125,1 240,59 249,83 125,22 1,83 10,59" fill="#0058a4" />
+<polygon points="125,22 1,83 41,83 41,190 209,190 209,83 249,83" fill="#bbbbbb" />
+<polygon points="41,190 209,190 199,170 50,170" fill="#888" />
+<g style="stroke:black;stroke-width:1">
+<line x1="2" y1="83" x2="124" y2="83" />
+<line x1="125" y1="82" x2="125" y2="23" />
+<line x1="210" y1="88" x2="248" y2="88" />
+<line x1="91" y1="66" x2="121" y2="66" />
+<line x1="125" y1="1" x2="125" y2="22" stroke="#004988" />
+
+</g>
+<g style="fill:black;stroke-width:0">
+<polygon points="9,80 1,83 9,86" />
+<polygon points="116,80 125,83 116,86" />
+<polygon points="122,75 125,83 128,75" />
+<polygon points="122,31 125,22 128,31" />
+<polygon points="217,85 209,88 217,91" />
+<polygon points="241,85 249,88 241,91" />
+</g>
+<path d="M224 83 A25,25 0 0,1 226.6,72 " style="fill:none;stroke:black;stroke-width:1" />
+<g style="font: 15px Arial, sans-serif; fill: #000;">
+<text x="138" y="66" transform="rotate(-90, 138, 66)">rise</text>
+<text x="50" y="93">run</text>
+<text x="155" y="80">roof angle</text>
+<text x="90" y="186">base area</text>
+<text x="42" y="71">pitch =</text>
+<text x="93" y="63">rise</text>
+<text x="95" y="78">run</text>
+<text x="210" y="100">eaves</text>
+<text x="215" y="112">stick</text>
+<text x="219" y="124">out</text>
+</g>
+</svg>

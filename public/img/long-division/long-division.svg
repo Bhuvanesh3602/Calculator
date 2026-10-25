@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="11px" height="50px" viewBox="0 0 11 50">
+	<style>
+		.sline{fill:none;stroke:black;stroke-width:2;}
+	</style>
+	<path d="M 10,0 L 10, 20 A 50,50 0 0,1 0,50" class="sline"/>
+</svg>

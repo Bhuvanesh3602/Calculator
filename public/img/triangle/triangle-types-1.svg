@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="386" height="112" version="1.1" viewBox="0 0 386 112" xmlns="http://www.w3.org/2000/svg">
+<g style="fill:none;stroke:#336699;stroke-width:1">
+<path d="M10 78 A15,15 0 0,1 17,90" />
+<path d="M89 90 A15,15 0 0,1 96,78" />
+<path d="M60 15 A15,15 0 0,1 46,15" />
+<path d="M153 80.7 A10,10 0 0,1 160,90" />
+<path d="M190 90 A10,10 0 0,1 197,80.7" />
+<path d="M178 12.3 A10,10 0 0,1 172,12.3" />
+<path d="M179 14.3 A10,10 0 0,1 171,14.3" />
+<path d="M251 83 A8,8 0 0,1 260.8,90" />
+<path d="M250 81 A10,10 0 0,1 263,90" />
+<path d="M249.5 79 A12,12 0 0,1 265.2,90" />
+<path d="M373 90 A10,10 0 0,1 374.4,85" />
+<path d="M371 90 A12,12 0 0,1 372.7,84" />
+<path d="M243.9 9 A12,12 0 0,1 236,14.5" />
+</g>
+<polygon points="3,90 103,90 53,3" style="fill:none;stroke:black;stroke-width:2" />
+<polygon points="150,90 200,90 175,3" style="fill:none;stroke:black;stroke-width:2" />
+<polygon points="253,90 383,90 233,3" style="fill:none;stroke:black;stroke-width:2" />
+<g style="stroke:#4c7b25;stroke-width:1">
+<line x1="53" y1="84" x2="53" y2="96" />
+<line x1="23" y1="43.5" x2="33" y2="49.5" />
+<line x1="83" y1="43.5" x2="73" y2="49.5" />
+<line x1="174" y1="84" x2="174" y2="96" />
+<line x1="176" y1="84" x2="176" y2="96" />
+<line x1="157" y1="44.5" x2="168" y2="48.5" />
+<line x1="193" y1="44.5" x2="182" y2="48.5" />
+<line x1="316" y1="84" x2="316" y2="96" />
+<line x1="318" y1="84" x2="318" y2="96" />
+<line x1="320" y1="84" x2="320" y2="96" />
+<line x1="237.5" y1="47" x2="248.5" y2="44" />
+<line x1="237" y1="45" x2="248" y2="42" />
+<line x1="311" y1="41.5" x2="305" y2="51.5" />
+</g>
+<g font-family="sans-serif" stroke-width="0">
+	<g fill="#000" font-size="16px">
+		<text x="15" y="108">Equilateral</text>
+		<text x="141" y="108">Isosceles</text>
+		<text x="286" y="108">Scalene</text>
+	</g>
+	<g fill="#336699" font-size="15px">
+		<text x="17" y="85">60&#176;</text>
+		<text x="70" y="85">60&#176;</text>
+		<text x="42" y="33">60&#176;</text>
+	</g>
+</g>
+</svg>

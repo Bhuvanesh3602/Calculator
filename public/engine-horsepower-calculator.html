@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Engine Horsepower Calculator</title>
+	<meta name="description" content="This free engine horsepower calculator estimates vehicle engine horsepower using two different methods: the elapsed time method and the trap-speed method." />
+	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"></head>
+<body>
+<div id="headerout">
+	<div id="header">
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
+</div>
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/engine-horsepower-calculator.html" itemprop="item"><span itemprop="name">engine horsepower calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Engine Horsepower Calculator</h1>
+
+
+<p>The following two calculators can be used to estimate the engine horsepower of a vehicle based on the weight of the vehicle, elapsed time, and speed used to finish a quarter mile run. Vehicle weight should include not only the vehicle, but also the driver, the passenger, and anything else of significant weight. To estimate the peak horsepower, maximum work output should be applied from start to finish. The results of all calculations are estimations only.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<a name="et"></a>
+<h2>The Elapsed Time (ET) Method</h2>
+<p>This method uses the vehicle weight and the elapsed time (ET) to finish a quarter mile (402.3 meters) on the formula of <table class="inlinetable" cellpadding="0" cellspacing="0"><tr><td rowspan="3">&nbsp;Horsepower  =&nbsp;</td><td align="center">Weight</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">(ET/5.825)<sup>3</sup></td></tr></table>.</p>
+<form action="/engine-horsepower-calculator.html#et" name="calform">
+<table class="panel" >
+	<tr>
+		<td align="right"><b>Vehicle Weight:</b></td><td>		<input type="text" name="v1weight" value="5000" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="v1weightunit" class="inhalf">
+				<option value="pound" selected>pound</option>
+				<option value="ton" >ton</option>
+				<option value="kilogram" >kilogram</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Time to Finish Quarter Mile (ET):</b></td><td>		<input type="text" name="v1time" value="20" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="v1timeunit" class="inhalf">
+				<option value="second" selected>second</option>
+				<option value="minute" >minute</option>
+				<option value="hour" >hour</option>
+				<option value="day" >day</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="et">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+
+<a name="tsm"></a>
+<h2>The Trap-Speed Method</h2>
+<p>This method uses the vehicle weight and the speed at which the vehicle finished a quarter mile (402.3 meters) on the formula of <table class="inlinetable" cellpadding="0" cellspacing="0"><tr><td rowspan="3">&nbsp;Horsepower = Weight&#215;(</td><td align="center">Speed</td><td rowspan="3">)<sup>3</sup></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">234</td></tr></table>. The speed used should be the speed attained at the quarter-mile point, not the average speed.</p>
+<form action="/engine-horsepower-calculator.html#tsm" name="calform2">
+<table class="panel" >
+	<tr>
+		<td align="right"><b>Vehicle Weight:</b></td><td>		<input type="text" name="v2weight" value="5000" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="v2weightunit" >
+				<option value="pound" selected>pound</option>
+				<option value="ton" >ton</option>
+				<option value="kilogram" >kilogram</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>Speed When Finishing Quarter Mile:</b></td><td>		<input type="text" name="v2speed" value="70" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+			<select name="v2speedunit" >
+				<option value="mph" selected>miles per hour</option>
+				<option value="kmph" >kilometers per hour</option>
+				<option value="mps" >meters per second</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">
+			<input type="hidden" name="calctype" value="trap">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+		</td>
+	</tr>
+</table></form>
+
+<br><h3>Precautions</h3>
+<p>When measuring the elapsed time or trap-speed at the maximum work output of an engine, special precautions need to be taken. First, all drivers need to know exactly what they're doing. Inexperience can lead to repercussions, some of which can be serious and life-threatening. Second, do not measure elapsed time on a quarter mile on public streets or highways; driving over the speed limit is illegal and the driver's attention needs to be focused on driving, not measuring times. These activities can endanger not only the driver, but other people as well. There are legal places to measure elapsed time, such as on drag strips, rural roads that are privately owned, and during special events that take place at raceways or airports. Third, ensure that the vehicle is in complete working order, as taking a vehicle to its limits entails certain risks. Check that tires are properly inflated and secured soundly, that airbags are functional, and that the engine is properly tuned and in good shape.</p>
+
+<h3>What Is Horsepower?</h3>
+<p>The idea of horsepower was created by the 19<sup>th</sup> century engineer James Watt, who built some of the first steam engines. Watt's work was remarkable, and to honor him, his name was given to the unit of power, the watt (no, he didn't invent the light bulb, but his name is on every one).</p>
+<p>Watt was working in a mine, using horses to pull wagons of coal. He wanted to determine how much coal a pony could pull in a wagon over a given length. He measured how many feet a horse could pull  22,000 pounds of coal in one minute. He then increased that amount to 33,000 foot-pounds in a minute, and called it horsepower.</p>
+<p>It's a perfectly arbitrary amount, but it became the measure of how much work engines could do &ndash; no one had ever measured this before. So, imagine a horse pulling a wagon of coal out of a mine; with 1 horsepower of effort, the horse pulls 330 pounds of coal 100 feet in one minute.</p>
+
+<h3>Measuring Horsepower</h3>
+<p>Horsepower is measured by a dynamometer, which is a rotor in a housing. It takes a certain amount of power to make the rotor go around at a certain speed.</p>
+<p>If you put a car into neutral, and then floor the engine while it is attached to a dynamometer, the device puts a load on the engine and sees whether it can turn the load or how fast it can turn the load around. If you run the engine at 5000 rotations per minute, (rpm), you see how much load turns on the dynamometer to calculate horsepower.</p>
+<p>Every engine has a peak horsepower &ndash; an rpm value at which the power available from the engine is at its maximum. You will often see this expressed in a brochure or a review in a magazine as "320 HP @ 6500 rpm".</p>
+
+<h3>Gross or Net Horsepower</h3>
+<p>Gross horsepower is a measure of the work output of an engine on just a dynamometer, when the engine is not connected to the usual accessories apparent in a running car. Net horsepower measures engine output when connected to belt-driven accessories such as water pumps, power steering pumps, and alternators. There are also parasitic losses in power caused by transmission drag and clutch or converter slippage that net horsepower takes into account. As a result of powering these moving parts, net horsepower can be considerably lower than gross horsepower.</p>
+
+<h3>Horsepower Versus Torque</h3>
+<p>Torque is defined as a rotating force. It's measured as the amount of force multiplied by the length of the lever through which it acts. For example, if you use a one-foot-long wrench to apply 10 pounds of force to a bolt head, you're generating 10-pound-feet of torque. Note that torque is measured in pound-feet, and horsepower is measured in foot-pounds per second.</p>
+<p>Torque is the force that can be applied to push the vehicle forward. At a given vehicle weight, a high torque means the vehicle can accelerate faster and is more responsive. Although not always true, generally, the more torque produced by an engine, the more work potential it has. Similarly, an engine that produces more horsepower generally has a greater ability to generate higher torque.</p>
+<p>To understand the relationship between horsepower and torque clearer, think of the difference between a racing car and a tractor. A racing car is light, and so its high level of horsepower puts the torque through the gearing system to make it go fast. A tractor, on the other hand, is a massive, heavy piece of machinery that is intended to do work. The tractor can't go fast, but its gearing applies torque so that it can push and pull. If you put the same high horsepower engine on a racing car and a tractor, the result would be a speedy racing car, but not a vehicle that could break down a concrete wall. The slow tractor applies its work to pressure on the wall and breaks it down.</p>
+<p>This is why, when you look up the specs for a car in an automobile magazine, you will see indications for both horsepower and torque.</p>
+
+<h3>Horsepower and Performance</h3>
+<p>What we call a "high-performance" car is just a vehicle with a lot of horsepower and a low weight; the power-to-weight ratio is the essential determination for a high-performance car. A typical example would be a Ferrari, which might have 800 horsepower on a 3,500 pound car. This puts the power-to-weight ratio at about 0.229. In comparison, a Ford Explorer, which sells for about a tenth of the price of the Ferrari, might have about 300 horsepower to move about 4,500 pounds. Its power-to-weight ratio is much lower (about 0.067). The Ferrari will go from zero to 60 miles per hour much faster than the Ford Explorer.</p>
+
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div class="topNavAbs">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js"></script>
+</body>
+</html>
