@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="208" height="22" viewBox="0 0 208 22" xmlns="http://www.w3.org/2000/svg">
+<svg width="208" height="22" viewBox="0 0 208 22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>adxcal.com</title>
-  <style>
-    .cls-1 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 800; font-size: 21px; fill: #ffffff; letter-spacing: -0.5px; }
-    .cls-2 { fill: #ccff99; }
-  </style>
-  <text x="0" y="18" class="cls-1">adxcal<tspan class="cls-2">.com</tspan></text>
+  <defs>
+    <clipPath id="icon-clip">
+      <rect x="0" y="0" width="22" height="22" rx="4.5" ry="4.5" />
+    </clipPath>
+    <style>
+      .cls-brand { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 800; font-size: 20px; fill: #ffffff; letter-spacing: -0.5px; }
+      .cls-tld { fill: #ccff99; }
+    </style>
+  </defs>
+  <!-- App Icon -->
+  <g clip-path="url(#icon-clip)">
+    <image href="data:image/png;base64,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" x="0" y="0" width="22" height="22" preserveAspectRatio="xMidYMid slice" />
+  </g>
+  <!-- App Logo Text -->
+  <text x="28" y="17" class="cls-brand">adxcal<tspan class="cls-tld">.com</tspan></text>
 </svg>

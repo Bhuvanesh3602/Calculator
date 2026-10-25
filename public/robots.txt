@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calculator.bhuvanesh-s3602.workers.dev/sitemap.xml
