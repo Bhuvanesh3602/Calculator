@@ -10,7 +10,7 @@
 <body>
 <div id="headerout">
 	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="Calculator.net"></a></div>
+		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
 		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
 </div>
 <div id="clear"></div><div id="contentout"><div id="content">
@@ -74,7 +74,7 @@
 <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form>	</div>
 </div>
 <div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.calculator.net">calculator.net</a></div></div></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
 <div class="topNavAbs">
 <a href="/financial-calculator.html">Financial</a>
 <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>

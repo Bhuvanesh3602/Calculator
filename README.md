@@ -1,6 +1,6 @@
-# Calculator.net Full Clone
+# adxcal.com Full Clone
 
-A complete, self-contained clone of [Calculator.net](https://www.calculator.net/) featuring all **218+ calculators**, identical responsive design and styling, local assets, instant live search, and interactive calculation engines.
+A complete, self-contained clone of [adxcal.com](https://www.adxcal.com/) featuring all **218+ calculators**, identical responsive design and styling, local assets, instant live search, and interactive calculation engines.
 
 ---
 

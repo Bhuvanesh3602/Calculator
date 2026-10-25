@@ -1,5 +1,5 @@
 /*
-(C) calculator.net all right reserved.
+(C) adxcal.com all right reserved.
 */
 function gObj(obj) {return document.getElementById(obj);}
 function trimAll(sString){return sString.trim();}

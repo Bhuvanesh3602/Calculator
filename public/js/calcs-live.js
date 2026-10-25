@@ -1,5 +1,5 @@
 /**
- * Live Client-Side Calculation Engine for Calculator.net Clone
+ * Live Client-Side Calculation Engine for adxcal.com Clone
  * Accurately reproduces interactive calculations for top calculators with instant updates.
  */
 

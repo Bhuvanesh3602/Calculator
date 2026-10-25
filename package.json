@@ -1,7 +1,7 @@
 {
-  "name": "calculator-net-clone",
+  "name": "adxcal-clone",
   "version": "1.0.0",
-  "description": "Full complete clone of Calculator.net with all 218+ calculators, URLs, assets, search, and live interactive calculations.",
+  "description": "Full complete clone of adxcal.com with all 218+ calculators, URLs, assets, search, and live interactive calculations.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,7 +13,7 @@
     "financial",
     "fitness",
     "science",
-    "calculator.net"
+    "adxcal.com"
   ],
   "author": "Antigravity",
   "license": "ISC"

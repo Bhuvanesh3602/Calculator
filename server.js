@@ -107,7 +107,7 @@ function serveNotFound(res, pathname) {
 function startServer(port) {
   server.listen(port, () => {
     console.log(`=======================================================`);
-    console.log(` Calculator.net Full Clone Server Running!             `);
+    console.log(` adxcal.com Full Clone Server Running!             `);
     console.log(` Port: ${port}                                         `);
     console.log(` URL:  http://localhost:${port}/                      `);
     console.log(` All 218+ calculators & URLs are active and live!       `);
