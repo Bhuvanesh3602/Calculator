@@ -1,244 +1,447 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Grade Calculator</title>
-	<meta name="description" content="This free grade calculator can calculate a weighted average grade. It accepts both numerical as well as letter grades." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/grade-calculator.html" itemprop="item"><span itemprop="name">grade calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Grade Calculator</h1>
-<p>Use this calculator to find out the grade of a course based on weighted averages. This calculator accepts both numerical as well as letter grades. It also can calculate the grade needed for the remaining assignments in order to get a desired grade for an ongoing course.</p>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="gradeform" action="/grade-calculator.html"><table class="panel"><tr><td><table><tr valign="top"><td align="center"><b>Assignment/Exam</b><br>(optional) </td><td align="center"><b>Grade</b></td><td align="center"><b>Weight</b></td></tr><tr><td><input type='text' name='d1' class='inlonger' value='Homework 1' /></td><td><input type='text' name='s1' value='90' class='in4char'/><select name="l1" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" selected>A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w1' value='5' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d2' class='inlonger' value='Project' /></td><td><input type='text' name='s2' value='B' class='in4char'/><select name="l2" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" selected>B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w2' value='20' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d3' class='inlonger' value='Midterm exam' /></td><td><input type='text' name='s3' value='88' class='in4char'/><select name="l3" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" selected>B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w3' value='20' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d4' class='inlonger' value='' /></td><td><input type='text' name='s4' value='' class='in4char'/><select name="l4" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w4' value='' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d5' class='inlonger' value='' /></td><td><input type='text' name='s5' value='' class='in4char'/><select name="l5" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w5' value='' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d6' class='inlonger' value='' /></td><td><input type='text' name='s6' value='' class='in4char'/><select name="l6" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w6' value='' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d7' class='inlonger' value='' /></td><td><input type='text' name='s7' value='' class='in4char'/><select name="l7" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w7' value='' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><table><tr><td><input type='text' name='d8' class='inlonger' value='' /></td><td><input type='text' name='s8' value='' class='in4char'/><select name="l8" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type='text' name='w8' value='' class='innormal inpct' onChange='updateRemaining();' /></td></tr></table><div id="morerows"></div> 
-<div style="text-align:center;padding-top:8px;"><a href="#" onClick="return addRows();" >+ add more rows</a></div>
-
-<div id="gradeplanning" style="padding-top:10px;">
-	<div id="sectitle">Final Grade Planning (Optional)</div>
-		<table align="center">
-			<tr><td valign="top" style="padding-top:7px;">Final Grade Goal<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The final grade you want to achieve for the course if the course grade is not finalized yet.', '');" onmouseout="tooltip.hide();"></td><td>
-				<input type="text" name="sgoal" value="" class="innormal" />
-				<select name="lgoal" style="display:none;">
-				<option value="">&nbsp;-</option>
-				<option value="a+"  >A+</option>
-				<option value="a"  >A</option>
-				<option value="a-"  >A-</option>
-				<option value="b+"  >B+</option>
-				<option value="b"  >B</option>
-				<option value="b-"  >B-</option>
-				<option value="c+"  >C+</option>
-				<option value="c"  >C</option>
-				<option value="c-"  >C-</option>
-				<option value="d+"  >D+</option>
-				<option value="d"  >D</option>
-				<option value="d-"  >D-</option>
-				<option value="f"  >F</option>
-				</select>
-			</td></tr>
-			<tr><td valign="top" style="padding-top:7px;">Weight of Remaining Tasks</td><td>
-				<input type="text" name="wremain" value="" class="innormal" />
-			</td></tr>
-		</table>
-</div>
-
-<div id="gradesettings" style="display:none;padding-top:10px;">
-	<div id="sectitle">Settings <img src="/img/close.png" width="18" height="18" align="right" onClick="document.getElementById('gradesettings').style.display='none';return false;"></div>
-		<table align="center">
-			<tr><td valign="top" style="padding-top:7px;">Grade Format:</td><td>
-				<div><label for="format2" class="cbcontainer"><input type="radio" name="format" id="format2" value="p" checked onClick="showHideGrade();" /><span class="rbmark"></span>Points, percentage, mix</label></div>
-				<div><label for="format1" class="cbcontainer"><input type="radio" name="format" id="format1" value="l"  onClick="showHideGrade();" /><span class="rbmark"></span>Letters</label></div>
-			</td></tr>
-			<tr><td valign="top" style="padding-top:7px;">Weight Format:</td><td>
-				<div><label for="weight1" class="cbcontainer"><input type="radio" name="weight" id="weight1" value="p" checked onClick="showHideWeight();" /><span class="rbmark"></span>Percentage</label></div>
-				<div><label for="weight2" class="cbcontainer"><input type="radio" name="weight" id="weight2" value="o"  onClick="showHideWeight();" /><span class="rbmark"></span>Points</label></div>
-			</td></tr>
-			<tr><td colspan="2">
-				<label for="plan" class="cbcontainer"><input type="checkbox" name="plan" id="plan" value="1" checked onClick="showHidePlanning();" /><span class="cbmark"></span>Show Final Grade Planning Options</label>
-			</td></tr>
-		</table>
-</div>
-
-
-<input name="printit" value="0" type="hidden"><input type="hidden" name="ftype" value="1">
-<table align="center" style="padding-top:8px;"><tr>
-	<td><input type="submit" name="x" value="Calculate"></td>
-	<td><input type="button" value="Clear" onClick="clearForm(document.gradeform);"></td>
-	<td>&nbsp; <a href="#" onclick="document.getElementById('gradesettings').style.display='block';return false;"><b>Settings</b></a></td>
-</tr></table>
-
-
-</td></tr></table></form><script>
-var rowCount = 8;
-function clearFormS(formObj){
-	var allElements = formObj.elements;
-	for (i = 0; i < allElements.length; i++){
-		if ( allElements[i].type == 'text' ) allElements[i].value='';
-		if ( allElements[i].type == 'select-one' ) allElements[i].selectedIndex=0;;
-	}
-	document.getElementById("morerows").innerHTML = "";
-	rowCount = 8;
-	return false;
-}
-function showHideGrade(){
-	var allElements = document.gradeform.elements;
-	if (document.getElementById('format1').checked){
-		for (i = 0; i < allElements.length; i++){
-			$tempV = allElements[i].name.substring(0, 1);
-			if ("l"==$tempV) allElements[i].style.display = 'block';
-			if ("s"==$tempV) allElements[i].style.display = 'none';
-		}
-	}else{
-		for (i = 0; i < allElements.length; i++){
-			$tempV = allElements[i].name.substring(0, 1);
-			if ("l"==$tempV) allElements[i].style.display = 'none';
-			if ("s"==$tempV) allElements[i].style.display = 'block';
-		}
-	}
-	return false;
-}
-showHideGrade();
-function showHideWeight(){
-	var allElements = document.gradeform.elements;
-	if (document.getElementById('weight1').checked){
-		for (i = 0; i < allElements.length; i++){
-			$tempV = allElements[i].name.substring(0, 1);
-			if ("w"==$tempV){
-				allElements[i].classList.remove("inpct");
-				allElements[i].classList.add("inpct");
-			}
-		}
-	}else{
-		for (i = 0; i < allElements.length; i++){
-			$tempV = allElements[i].name.substring(0, 1);
-			if ("w"==$tempV){
-				 allElements[i].classList.remove("inpct");
-			}
-		}
-	}
-	return false;
-}
-showHideWeight();
-
-function showHidePlanning(){
-	if (document.getElementById('plan').checked){
-		document.getElementById('gradeplanning').style.display = 'block';
-	}else{
-		document.getElementById('gradeplanning').style.display = 'none';
-	}
-	return false;
-}
-showHidePlanning();
-
-function addRows(){
-	var addValue = '';
-	for (i = 0; i < 3; i++){
-		rowCount++;
-		addValue += '<table><tr><td><input type="text" name="d'+rowCount+'" class="inlonger" value="" /></td><td><input type="text" name="s'+rowCount+'" value="" class="in4char"/><select name="l'+rowCount+'" style="display:none;"><option value="">&nbsp;-</option><option value="a+" >A+</option><option value="a" >A</option><option value="a-" >A-</option><option value="b+" >B+</option><option value="b" >B</option><option value="b-" >B-</option><option value="c+" >C+</option><option value="c" >C</option><option value="c-" >C-</option><option value="d+" >D+</option><option value="d" >D</option><option value="d-" >D-</option><option value="f" >F</option></select></td><td><input type="text" name="w'+rowCount+'" value="" class="innormal inpct" onChange="updateRemaining();" /></td></tr></table>';
-	}
-	document.getElementById("morerows").insertAdjacentHTML("beforeEnd", addValue);
-	showHideGrade();
-	showHideWeight();
-	return false;
-}
-
-function updateRemaining(){
-	var allElements = document.gradeform.elements;
-	var weightpct = 0;
-	if (document.getElementById('weight1').checked){
-		for (i = 0; i < allElements.length; i++){
-			$tempV = allElements[i].name.substring(0, 1);
-			if ("w"==$tempV){
-				if ("wremain"!=allElements[i].name){
-					var temppct = trimAll(""+allElements[i].value);
-					if (isNumber(temppct)) weightpct += parseFloat(temppct);
-				}
-			}
-		}
-		weightpct = 100 - weightpct;
-		if (weightpct<0) weightpct =0;
-		document.gradeform.wremain.value = weightpct;
-	}
-	return false;
-}
-</script>
-
-<a name="gplanning"></a>
-<br><h2> Final Grade Calculator</h2>
-<p>Use this calculator to find out the grade needed on the final exam in order to get a desired grade in a course. It accepts letter grades, percentage grades, and other numerical inputs.</p>
-<form name="graderaiseform" action="/grade-calculator.html#gplanning">
-<table class="panel" cellspacing="10" >
-	<tr>
-		<td align="right"><b>Your current grade:</b></td>
-		<td><input type='text' name='grcCurrentGPA' value='88' class='inlong' /></td>
-	</tr>
-	<tr>
-		<td align="right"><b>The grade you want:</b></td>
-		<td><input type='text' name='grcTargetGPA' value='85' class='inlong' /></td>
-	</tr>
-	<tr>
-		<td align="right"><b>Your final is worth:</b></td>
-		<td><input type='text' name='grcCurrentCredit' value='40' class='inlong inpct' /></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center"><input type="hidden" name="ftype" value="2"><input type="submit" name="x" value="Calculate"> <input type="button" value="Clear" onClick="clearForm(document.graderaiseform);"></td>
-	</tr>
-</table>
-</form>
-<br><p><fieldset><legend>Related</legend><a href="/gpa-calculator.html">GPA Calculator</a></fieldset></p>
-
-<br>
-<p>The calculators above use the following letter grades and their typical corresponding numerical equivalents based on grade points.</p>
-
-<table class="cinfoT" align="center">
-<tr><td class="cinfoHd">Letter Grade</td><td class="cinfoHdL">GPA</td><td class="cinfoHdL">Percentage</td></tr>
-<tr align="center"><td>A+</td><td>4.3</td><td>97-100%</td></tr>
-<tr align="center"><td>A</td><td>4</td><td>93-96%</td></tr>
-<tr align="center"><td>A-</td><td>3.7</td><td>90-92%</td></tr>
-<tr align="center"><td>B+</td><td>3.3</td><td>87-89%</td></tr>
-<tr align="center"><td>B</td><td>3</td><td>83-86%</td></tr>
-<tr align="center"><td>B-</td><td>2.7</td><td>80-82%</td></tr>
-<tr align="center"><td>C+</td><td>2.3</td><td>77-79%</td></tr>
-<tr align="center"><td>C</td><td>2</td><td>73-76%</td></tr>
-<tr align="center"><td>C-</td><td>1.7</td><td>70-72%</td></tr>
-<tr align="center"><td>D+</td><td>1.3</td><td>67-69%</td></tr>
-<tr align="center"><td>D</td><td>1</td><td>63-66%</td></tr>
-<tr align="center"><td>D-</td><td>0.7</td><td>60-62%</td></tr>
-<tr align="center"><td>F</td><td>0</td><td>0-59%</td></tr>
-</table>
-
-<h3>Brief history of different grading systems</h3>
-<p>In 1785, students at Yale were ranked based on "optimi" being the highest rank, followed by second optimi, inferiore (lower), and pejores (worse). At William and Mary, students were ranked as either No. 1, or No. 2, where No. 1 represented students that were first in their class, while No. 2 represented those who were "orderly, correct and attentive." Meanwhile at Harvard, students were graded based on a numerical system from 1-200 (except for math and philosophy where 1-100 was used). Later, shortly after 1883, Harvard used a system of "Classes" where students were either Class I, II, III, IV, or V, with V representing a failing grade. All of these examples show the subjective, arbitrary, and inconsistent nature with which different institutions graded their students, demonstrating the need for a more standardized, albeit equally arbitrary grading system.</p>
-<p>In 1887, Mount Holyoke College became the first college to use letter grades similar to those commonly used today. The college used a grading scale with the letters A, B, C, D, and E, where E represented a failing grade. This grading system however, was far stricter than those commonly used today, with a failing grade being defined as anything below 75%. The college later re-defined their grading system, adding the letter F for a failing grade (still below 75%). This system of using a letter grading scale became increasingly popular within colleges and high schools, eventually leading to the letter grading systems typically used today. However, there is still significant variation regarding what may constitute an A, or whether a system uses plusses or minuses (i.e. A+ or B-), among other differences. </p>
-
-<h3>An alternative to the letter grading system</h3>
-<p>Letter grades provide an easy means to generalize a student's performance. They can be more effective than qualitative evaluations in situations where "right" or "wrong" answers can be easily quantified, such as an algebra exam, but alone may not provide a student with enough feedback in regards to an assessment like a written paper (which is much more subjective). </p>
-<p>Although a written analysis of each individual student's work may be a more effective form of feedback, there exists the argument that students and parents are unlikely to read the feedback, and that teachers do not have the time to write such an analysis. There is precedence for this type of evaluation system however, in Saint Ann's School in New York City, an arts-oriented private school that does not have a letter grading system. Instead, teachers write anecdotal reports for each student. This method of evaluation focuses on promoting learning and improvement, rather than the pursuit of a certain letter grade in a course. For better or for worse however, these types of programs constitute a minority in the United States, and though the experience may be better for the student, most institutions still use a fairly standard letter grading system that students will have to adjust to. The time investment that this type of evaluation method requires of teachers/professors is likely not viable on university campuses with hundreds of students per course. As such, although there are other high schools such as Sanborn High School that approach grading in a more qualitative way, it remains to be seen whether such grading methods can be scalable. Until then, more generalized forms of grading like the letter grading system are unlikely to be entirely replaced. However, many educators already try to create an environment that limits the role that grades play in motivating students. One could argue that a combination of these two systems would likely be the most realistic, and effective way to provide a more standardized evaluation of students, while promoting learning.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade Calculator – Weighted Grade & Final Exam Grade Calculator</title>
+<meta name="description" content="Free grade calculator: find your weighted average, course grade, and the score you need on your final exam. Works with percentages, points, and letter grades (A+ to F).">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.adxcal.com/grade-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.adxcal.com/grade-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.adxcal.com/grade-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta name="author" content="adxcal.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="adxcal.com">
+<meta property="og:title" content="Grade Calculator – Weighted Grade & Final Exam Grade Calculator">
+<meta property="og:description" content="Free grade calculator: find your weighted average, course grade, and the score you need on your final exam. Works with percentages, points, and letter grades (A+ to F).">
+<meta property="og:url" content="https://www.adxcal.com/grade-calculator.html">
+<meta property="og:image" content="https://www.adxcal.com/img/og-grade-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grade calculator showing weighted average and final exam grade">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grade Calculator – Weighted Grade & Final Exam Grade Calculator">
+<meta name="twitter:description" content="Free grade calculator: find your weighted average, course grade, and the score you need on your final exam. Works with percentages, points, and letter grades (A+ to F).">
+<meta name="twitter:image" content="https://www.adxcal.com/img/og-grade-calculator.png">
+
+<!-- Performance -->
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<script src="/js/common.js" defer></script>
+
+<style>
+.grade-row{display:flex;gap:6px;align-items:center;margin-bottom:4px}
+.grade-row .g{display:inline-block}
+details{margin:8px 0;padding:8px 12px;border:1px solid #ddd;border-radius:6px}
+summary{cursor:pointer;list-style:none}
+summary h3{display:inline;font-size:1em;margin:0}
+.formula{background:#f4f7fb;border-left:4px solid #1a5fb4;padding:10px 14px;margin:12px 0;font-family:Consolas,monospace;overflow-x:auto}
+.toc a{margin-right:12px}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.adxcal.com/#org",
+   "name": "adxcal.com",
+   "url": "https://www.adxcal.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/apple-touch-icon.png"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.adxcal.com/#website",
+   "url": "https://www.adxcal.com/",
+   "name": "adxcal.com",
+   "publisher": {
+    "@id": "https://www.adxcal.com/#org"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://www.adxcal.com/grade-calculator.html#webpage",
+   "url": "https://www.adxcal.com/grade-calculator.html",
+   "name": "Grade Calculator – Weighted Grade & Final Exam Grade Calculator",
+   "description": "Free grade calculator: find your weighted average, course grade, and the score you need on your final exam. Works with percentages, points, and letter grades (A+ to F).",
+   "isPartOf": {
+    "@id": "https://www.adxcal.com/#website"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-10-25",
+   "breadcrumb": {
+    "@id": "https://www.adxcal.com/grade-calculator.html#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/img/og-grade-calculator.png"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://www.adxcal.com/grade-calculator.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.adxcal.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Other Calculators",
+     "item": "https://www.adxcal.com/other-calculator.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Grade Calculator",
+     "item": "https://www.adxcal.com/grade-calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Grade Calculator",
+   "url": "https://www.adxcal.com/grade-calculator.html",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Any",
+   "browserRequirements": "Requires JavaScript",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "description": "Free grade calculator: find your weighted average, course grade, and the score you need on your final exam. Works with percentages, points, and letter grades (A+ to F)."
+  },
+  {
+   "@type": "HowTo",
+   "name": "How to calculate your weighted course grade",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Enter assignments",
+     "text": "List each assignment or exam with the grade you received."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Enter weights",
+     "text": "Add the weight of each item as a percentage of the course grade."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Click Calculate",
+     "text": "The calculator returns your weighted average and letter grade."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "name": "Plan the final (optional)",
+     "text": "Enter your goal grade and remaining weight to see the score needed."
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate my weighted grade?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Multiply each grade by its weight (as a decimal), add the results, then divide by the total of the weights used. Formula: Weighted grade = (g1×w1 + g2×w2 + … + gn×wn) ÷ (w1 + w2 + … + wn)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I calculate the grade I need on my final exam?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Use: Needed score = (Goal − Current × (1 − F)) ÷ F, where F is the final exam weight as a decimal. Example: current grade 88%, goal 85%, final worth 40% → (85 − 88×0.6) ÷ 0.4 = 80.5%."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is a weighted average grade?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A weighted average gives each assignment a different importance. A final exam worth 40% affects your course grade far more than a homework worth 5%."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use letter grades in this calculator?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Open Settings, choose Letters, and select A+ through F for each assignment. Letters are converted using the standard 4.3 GPA scale shown on this page."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What percentage is an A, B, or C?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On the common US scale: A is 93–96%, A- is 90–92%, B+ is 87–89%, B is 83–86%, C is 73–76%, D is 63–66%, and F is below 60%. Your school may use a different scale."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if my weights do not add up to 100%?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The calculator divides by the total of the weights you entered, so the result is still your average over the work completed so far. Use the Remaining Tasks weight to plan for unfinished work."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<div id="headerout">
+ <header id="header">
+  <div id="logo"><a href="/" title="adxcal.com home"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com calculators"></a></div>
+  <div id="login"><a href="/my-account/sign-in.php" rel="nofollow">sign in</a></div>
+ </header>
+</div>
+<div id="clear"></div>
+
+<div id="contentout">
+<main id="content">
+ <nav id="breadcrumbs" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/other-calculator.html">other</a> / <a href="/grade-calculator.html" aria-current="page">grade calculator</a></nav>
+
+ <h1>Grade Calculator</h1>
+ <p>Use this <strong>grade calculator</strong> to find your course grade from a <strong>weighted average</strong>. It accepts percentages, points, and letter grades (A+ to F), and can also work out the <a href="#gplanning">grade you need on your final exam</a> to reach a target grade.</p>
+ <p class="toc"><a href="#calculator">Calculator</a><a href="#gplanning">Final grade</a><a href="#how-to">How to calculate</a><a href="#scale">Grade scale</a><a href="#faq">FAQ</a></p>
+
+ <div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+ <section id="calculator" aria-label="Weighted grade calculator">
+ <form name="gradeform" action="/grade-calculator.html" method="get">
+ <table class="panel"><tr><td>
+  <div class="grade-row"><b class="inlonger">Assignment/Exam<br>(optional)</b><b class="in4char">Grade</b><b class="innormal">Weight</b></div>
+  <div class="grade-row">
+<input type="text" name="d1" class="inlonger" value="Homework 1" aria-label="Assignment 1 name" autocomplete="off">
+<span class="g"><input type="text" name="s1" value="90" class="in4char" aria-label="Grade for assignment 1" inputmode="decimal"><select name="l1" style="display:none" aria-label="Letter grade 1"><option value="">-</option><option value="a+">A+</option><option value="a" selected>A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w1" value="5" class="innormal inpct" aria-label="Weight for assignment 1" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d2" class="inlonger" value="Project" aria-label="Assignment 2 name" autocomplete="off">
+<span class="g"><input type="text" name="s2" value="B" class="in4char" aria-label="Grade for assignment 2" inputmode="decimal"><select name="l2" style="display:none" aria-label="Letter grade 2"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b" selected>B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w2" value="20" class="innormal inpct" aria-label="Weight for assignment 2" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d3" class="inlonger" value="Midterm exam" aria-label="Assignment 3 name" autocomplete="off">
+<span class="g"><input type="text" name="s3" value="88" class="in4char" aria-label="Grade for assignment 3" inputmode="decimal"><select name="l3" style="display:none" aria-label="Letter grade 3"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+" selected>B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w3" value="20" class="innormal inpct" aria-label="Weight for assignment 3" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d4" class="inlonger" value="" aria-label="Assignment 4 name" autocomplete="off">
+<span class="g"><input type="text" name="s4" value="" class="in4char" aria-label="Grade for assignment 4" inputmode="decimal"><select name="l4" style="display:none" aria-label="Letter grade 4"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w4" value="" class="innormal inpct" aria-label="Weight for assignment 4" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d5" class="inlonger" value="" aria-label="Assignment 5 name" autocomplete="off">
+<span class="g"><input type="text" name="s5" value="" class="in4char" aria-label="Grade for assignment 5" inputmode="decimal"><select name="l5" style="display:none" aria-label="Letter grade 5"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w5" value="" class="innormal inpct" aria-label="Weight for assignment 5" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d6" class="inlonger" value="" aria-label="Assignment 6 name" autocomplete="off">
+<span class="g"><input type="text" name="s6" value="" class="in4char" aria-label="Grade for assignment 6" inputmode="decimal"><select name="l6" style="display:none" aria-label="Letter grade 6"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w6" value="" class="innormal inpct" aria-label="Weight for assignment 6" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d7" class="inlonger" value="" aria-label="Assignment 7 name" autocomplete="off">
+<span class="g"><input type="text" name="s7" value="" class="in4char" aria-label="Grade for assignment 7" inputmode="decimal"><select name="l7" style="display:none" aria-label="Letter grade 7"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w7" value="" class="innormal inpct" aria-label="Weight for assignment 7" inputmode="decimal" onchange="updateRemaining();">
+</div>
+<div class="grade-row">
+<input type="text" name="d8" class="inlonger" value="" aria-label="Assignment 8 name" autocomplete="off">
+<span class="g"><input type="text" name="s8" value="" class="in4char" aria-label="Grade for assignment 8" inputmode="decimal"><select name="l8" style="display:none" aria-label="Letter grade 8"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></span>
+<input type="text" name="w8" value="" class="innormal inpct" aria-label="Weight for assignment 8" inputmode="decimal" onchange="updateRemaining();">
+</div>
+
+  <div id="morerows"></div>
+  <div style="text-align:center;padding-top:8px;"><a href="#" onclick="return addRows();">+ add more rows</a></div>
+
+  <div id="gradeplanning" style="padding-top:10px;">
+   <div class="sectitle"><b>Final Grade Planning (Optional)</b></div>
+   <table align="center">
+    <tr><td><label for="sgoal">Final Grade Goal</label></td><td>
+      <input type="text" id="sgoal" name="sgoal" value="" class="innormal" inputmode="decimal">
+      <select name="lgoal" style="display:none" aria-label="Goal letter grade"><option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option></select></td></tr>
+    <tr><td><label for="wremain">Weight of Remaining Tasks</label></td><td><input type="text" id="wremain" name="wremain" value="" class="innormal" inputmode="decimal"></td></tr>
+   </table>
+  </div>
+
+  <div id="gradesettings" style="display:none;padding-top:10px;">
+   <div class="sectitle"><b>Settings</b> <a href="#" onclick="document.getElementById('gradesettings').style.display='none';return false;" aria-label="Close settings">✕</a></div>
+   <table align="center">
+    <tr><td>Grade Format:</td><td>
+      <div><label for="format2" class="cbcontainer"><input type="radio" name="format" id="format2" value="p" checked onclick="showHideGrade();"><span class="rbmark"></span>Points, percentage, mix</label></div>
+      <div><label for="format1" class="cbcontainer"><input type="radio" name="format" id="format1" value="l" onclick="showHideGrade();"><span class="rbmark"></span>Letters</label></div></td></tr>
+    <tr><td>Weight Format:</td><td>
+      <div><label for="weight1" class="cbcontainer"><input type="radio" name="weight" id="weight1" value="p" checked onclick="showHideWeight();"><span class="rbmark"></span>Percentage</label></div>
+      <div><label for="weight2" class="cbcontainer"><input type="radio" name="weight" id="weight2" value="o" onclick="showHideWeight();"><span class="rbmark"></span>Points</label></div></td></tr>
+    <tr><td colspan="2"><label for="plan" class="cbcontainer"><input type="checkbox" name="plan" id="plan" value="1" checked onclick="showHidePlanning();"><span class="cbmark"></span>Show Final Grade Planning Options</label></td></tr>
+   </table>
+  </div>
+
+  <input name="printit" value="0" type="hidden"><input type="hidden" name="ftype" value="1">
+  <table align="center" style="padding-top:8px;"><tr>
+   <td><input type="submit" name="x" value="Calculate"></td>
+   <td><input type="button" value="Clear" onclick="clearForm(document.gradeform);"></td>
+   <td>&nbsp; <a href="#" onclick="document.getElementById('gradesettings').style.display='block';return false;"><b>Settings</b></a></td>
+  </tr></table>
+ </td></tr></table>
+ </form>
+ </section>
+
+ <section id="gplanning" aria-label="Final exam grade calculator">
+ <h2>Final Grade Calculator</h2>
+ <p>Find out the score you need on your final exam to get the course grade you want. It accepts letter grades, percentages, and other numerical inputs.</p>
+ <form name="graderaiseform" action="/grade-calculator.html#gplanning" method="get">
+ <table class="panel" cellspacing="10">
+  <tr><td align="right"><label for="grcCurrentGPA"><b>Your current grade:</b></label></td><td><input type="text" id="grcCurrentGPA" name="grcCurrentGPA" value="88" class="inlong" inputmode="decimal"></td></tr>
+  <tr><td align="right"><label for="grcTargetGPA"><b>The grade you want:</b></label></td><td><input type="text" id="grcTargetGPA" name="grcTargetGPA" value="85" class="inlong" inputmode="decimal"></td></tr>
+  <tr><td align="right"><label for="grcCurrentCredit"><b>Your final is worth:</b></label></td><td><input type="text" id="grcCurrentCredit" name="grcCurrentCredit" value="40" class="inlong inpct" inputmode="decimal"></td></tr>
+  <tr><td colspan="2" align="center"><input type="hidden" name="ftype" value="2"><input type="submit" name="x" value="Calculate"> <input type="button" value="Clear" onclick="clearForm(document.graderaiseform);"></td></tr>
+ </table>
+ </form>
+ <aside><strong>Related:</strong> <a href="/gpa-calculator.html">GPA Calculator</a></aside>
+ </section>
+
+ <section id="how-to">
+ <h2>How to Calculate a Weighted Grade</h2>
+ <p>A weighted grade counts each assignment by how much it is worth. Multiply every grade by its weight, add the results, and divide by the total weight.</p>
+ <div class="formula">Weighted grade = (g₁×w₁ + g₂×w₂ + … + gₙ×wₙ) ÷ (w₁ + w₂ + … + wₙ)</div>
+ <h3>Example</h3>
+ <p>Homework 90% (weight 5), Project 85% (weight 20), Midterm 88% (weight 20):</p>
+ <div class="formula">(90×5 + 85×20 + 88×20) ÷ (5 + 20 + 20) = 3910 ÷ 45 = <strong>86.9%</strong> (B+)</div>
+ <h3>How to Calculate the Grade Needed on a Final Exam</h3>
+ <div class="formula">Needed score = (Goal − Current × (1 − F)) ÷ F &nbsp;&nbsp; (F = final weight as a decimal)</div>
+ <p>With a current grade of 88%, a goal of 85%, and a final worth 40%: (85 − 88×0.6) ÷ 0.4 = <strong>80.5%</strong>.</p>
+ </section>
+
+ <section id="scale">
+ <h2>Letter Grade, GPA and Percentage Scale</h2>
+ <p>The calculators above use these letter grades and typical numerical equivalents. Your school may use a different scale.</p>
+ <table class="cinfoT" align="center">
+  <caption class="sr-only">Letter grade to GPA and percentage conversion</caption>
+  <thead><tr><th class="cinfoHd" scope="col">Letter Grade</th><th class="cinfoHdL" scope="col">GPA</th><th class="cinfoHdL" scope="col">Percentage</th></tr></thead>
+  <tbody>
+<tr align="center"><td>A+</td><td>4.3</td><td>97-100%</td></tr>
+<tr align="center"><td>A</td><td>4.0</td><td>93-96%</td></tr>
+<tr align="center"><td>A-</td><td>3.7</td><td>90-92%</td></tr>
+<tr align="center"><td>B+</td><td>3.3</td><td>87-89%</td></tr>
+<tr align="center"><td>B</td><td>3.0</td><td>83-86%</td></tr>
+<tr align="center"><td>B-</td><td>2.7</td><td>80-82%</td></tr>
+<tr align="center"><td>C+</td><td>2.3</td><td>77-79%</td></tr>
+<tr align="center"><td>C</td><td>2.0</td><td>73-76%</td></tr>
+<tr align="center"><td>C-</td><td>1.7</td><td>70-72%</td></tr>
+<tr align="center"><td>D+</td><td>1.3</td><td>67-69%</td></tr>
+<tr align="center"><td>D</td><td>1.0</td><td>63-66%</td></tr>
+<tr align="center"><td>D-</td><td>0.7</td><td>60-62%</td></tr>
+<tr align="center"><td>F</td><td>0.0</td><td>0-59%</td></tr>
+  </tbody>
+ </table>
+ </section>
+
+ <section id="faq">
+ <h2>Grade Calculator FAQ</h2>
+ <details><summary><h3>How do I calculate my weighted grade?</h3></summary><p>Multiply each grade by its weight (as a decimal), add the results, then divide by the total of the weights used. Formula: Weighted grade = (g1×w1 + g2×w2 + … + gn×wn) ÷ (w1 + w2 + … + wn).</p></details>
+<details><summary><h3>How do I calculate the grade I need on my final exam?</h3></summary><p>Use: Needed score = (Goal − Current × (1 − F)) ÷ F, where F is the final exam weight as a decimal. Example: current grade 88%, goal 85%, final worth 40% → (85 − 88×0.6) ÷ 0.4 = 80.5%.</p></details>
+<details><summary><h3>What is a weighted average grade?</h3></summary><p>A weighted average gives each assignment a different importance. A final exam worth 40% affects your course grade far more than a homework worth 5%.</p></details>
+<details><summary><h3>Can I use letter grades in this calculator?</h3></summary><p>Yes. Open Settings, choose Letters, and select A+ through F for each assignment. Letters are converted using the standard 4.3 GPA scale shown on this page.</p></details>
+<details><summary><h3>What percentage is an A, B, or C?</h3></summary><p>On the common US scale: A is 93–96%, A- is 90–92%, B+ is 87–89%, B is 83–86%, C is 73–76%, D is 63–66%, and F is below 60%. Your school may use a different scale.</p></details>
+<details><summary><h3>What if my weights do not add up to 100%?</h3></summary><p>The calculator divides by the total of the weights you entered, so the result is still your average over the work completed so far. Use the Remaining Tasks weight to plan for unfinished work.</p></details>
+
+ </section>
+
+ <section id="history">
+ <h2>Brief History of Grading Systems</h2>
+ <p>In 1785, students at Yale were ranked as "optimi", second optimi, inferiore, and pejores. At William and Mary, students were ranked No. 1 or No. 2, while Harvard used a 1-200 numerical system and, after 1883, "Classes" I to V, with V a failing grade. These examples show how inconsistent early grading was.</p>
+ <p>In 1887, Mount Holyoke College became the first college to use letter grades similar to today's: A, B, C, D, and E, where E meant failing (below 75%). The college later added F for failing. Letter grading then spread through colleges and high schools, though what counts as an A, or whether plus and minus grades are used, still varies by school.</p>
+ <h3>An Alternative to Letter Grades</h3>
+ <p>Letter grades summarise performance quickly and suit work with clear right or wrong answers, such as an algebra exam, but give less feedback on subjective work like a written paper. Some schools, such as Saint Ann's School in New York City, use written reports instead of letters to focus on learning rather than a grade. Most institutions still use letter grades, partly because written evaluations are hard to scale to courses with hundreds of students.</p>
+ </section>
+</main>
+
+<aside id="right" aria-label="More calculators">
+ <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search">
+  <table align="center" id="searchbox"><tr>
+   <td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td>
+   <td><span id="bluebtn" onclick="return calcSearch();" role="button" tabindex="0">Search</span></td></tr>
+   <tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table>
+ </form>
+ <nav id="othercalc" aria-label="Other calculators">
+  <div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div>
+  <div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div>
+  <div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div>
+ </nav>
+</aside>
+</div>
+
+<div id="clear"></div>
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp; &copy; 2008 - 2026 <a href="https://www.adxcal.com/">adxcal.com</a></div></div></footer>
+
+<div class="topNavAbs">
+ <a href="/financial-calculator.html">Financial</a>
+ <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+ <a href="/math-calculator.html">Math</a>
+ <a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+
+<script>
+var rowCount = 8;
+function showHideGrade(){
+ var f=document.getElementById('format1').checked, els=document.gradeform.elements;
+ for(var i=0;i<els.length;i++){var c=els[i].name.charAt(0);
+  if(c==='l'&&els[i].tagName==='SELECT'&&els[i].name!=='lgoal') els[i].style.display=f?'block':'none';
+  if(c==='s'&&els[i].type==='text'&&els[i].name!=='sgoal') els[i].style.display=f?'none':'block';}
+ return false;}
+function showHideWeight(){
+ var p=document.getElementById('weight1').checked, els=document.gradeform.elements;
+ for(var i=0;i<els.length;i++){ if(els[i].name.charAt(0)==='w'){els[i].classList.remove('inpct'); if(p) els[i].classList.add('inpct');} }
+ return false;}
+function showHidePlanning(){
+ document.getElementById('gradeplanning').style.display=document.getElementById('plan').checked?'block':'none';
+ return false;}
+function addRows(){
+ var L='<option value="">-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option>', h='';
+ for(var i=0;i<3;i++){rowCount++;
+  h+='<div class="grade-row"><input type="text" name="d'+rowCount+'" class="inlonger" aria-label="Assignment '+rowCount+' name"><span class="g"><input type="text" name="s'+rowCount+'" class="in4char" aria-label="Grade '+rowCount+'"><select name="l'+rowCount+'" style="display:none" aria-label="Letter grade '+rowCount+'">'+L+'</select></span><input type="text" name="w'+rowCount+'" class="innormal inpct" aria-label="Weight '+rowCount+'" onchange="updateRemaining();"></div>';}
+ document.getElementById('morerows').insertAdjacentHTML('beforeend',h);
+ showHideGrade(); showHideWeight(); return false;}
+function updateRemaining(){
+ var els=document.gradeform.elements, total=0;
+ if(!document.getElementById('weight1').checked) return false;
+ for(var i=0;i<els.length;i++){
+  if(els[i].name.charAt(0)==='w'&&els[i].name!=='wremain'){var v=parseFloat((''+els[i].value).trim()); if(!isNaN(v)) total+=v;} }
+ document.gradeform.wremain.value=Math.max(0,100-total); return false;}
+showHideGrade(); showHideWeight(); showHidePlanning();
+</script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

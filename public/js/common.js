@@ -99,3 +99,48 @@ function saveCalResult(scrName, scrNum, scrSubName, scrRName, scrRVal){
 }
 function srDeleteRow(e,t){return fetch("/my-account/save-delete.php?srid="+e).then(e=>e.text()).then(n=>{if("deleted"==n.trim()){var a=gObj("savedlist"+e);a&&(a.style.display="none");var l=gObj("sclUl"+t);if(l){var s=l.getElementsByTagName("li"),r=0;for(let i=0;i<s.length;i++)"none"!=s[i].style.display&&(r=1);if(0==r){var o=gObj("sclWrapper"+t);o&&(o.style.display="none")}}}else alert("Something went wrong. Please try again!")}).catch(e=>{alert("Something went wrong. Please try again!")}),!0}
 function shSavedResults(l){return"+ Saved Calculations"==gObj("sclTitle"+l).innerHTML?(gObj("sclTitle"+l).innerHTML="Close",gObj("sclList"+l).style.display="block",gObj("sclWrapper"+l).classList.add("panel")):(gObj("sclTitle"+l).innerHTML="+ Saved Calculations",gObj("sclList"+l).style.display="none",gObj("sclWrapper"+l).classList.remove("panel")),!0}
+
+
+// Global Print Handler for All Pages
+function initGlobalPrint() {
+	var printDiv = document.getElementById("printit");
+	if (printDiv) {
+		var printLinks = printDiv.getElementsByTagName("a");
+		for (var i = 0; i < printLinks.length; i++) {
+			printLinks[i].onclick = function(e) {
+				if (e && e.preventDefault) e.preventDefault();
+				window.print();
+				return false;
+			};
+		}
+	} else {
+		var path = (window.location.pathname || "").toLowerCase();
+		if (path !== '/' && path !== '' && !path.endsWith('/index.html') && !path.endsWith('/sitemap.html') && !path.endsWith('/about-us.html')) {
+			var breadcrumbs = document.getElementById("breadcrumbs") || document.querySelector("nav#breadcrumbs");
+			if (breadcrumbs && breadcrumbs.parentNode) {
+				var pDiv = document.createElement("div");
+				pDiv.id = "printit";
+				pDiv.innerHTML = '<a href="#" onclick="window.print();return false;" rel="nofollow">Print</a>';
+				breadcrumbs.parentNode.insertBefore(pDiv, breadcrumbs.nextSibling);
+			}
+		}
+	}
+
+	document.addEventListener("click", function(e) {
+		var target = e.target;
+		if (target && target.tagName === "A") {
+			var oc = target.getAttribute("onclick") || "";
+			if (oc.indexOf("printit") > -1) {
+				e.preventDefault();
+				window.print();
+				return false;
+			}
+		}
+	}, true);
+}
+
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initGlobalPrint);
+} else {
+	initGlobalPrint();
+}

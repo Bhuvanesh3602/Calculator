@@ -393,3 +393,63 @@ fieldset div:hover{
 @media (max-width:490px){
 	#homelistwrap {grid-template-columns: auto;}
 }
+
+
+@media print {
+	#headerout, #right, #footer, .topNavAbs, #searchbox, #printit, #insmdc, #topmenu, #breadcrumbs, .toc, #login, form input[type="submit"], form input[type="button"], form input[type="reset"] {
+		display: none !important;
+	}
+	body {
+		background: #fff !important;
+		color: #000 !important;
+		text-align: left !important;
+		font-size: 12pt !important;
+	}
+	#contentout, #content, main#content {
+		width: 100% !important;
+		max-width: 100% !important;
+		float: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		border: none !important;
+		box-shadow: none !important;
+	}
+	.leftinput, .rightresult, .clefthalf, .crighthalf, .leftchart, .rightpie {
+		width: 100% !important;
+		float: none !important;
+	}
+	.panel, .panel2 {
+		background: #fff !important;
+		border: 1px solid #ccc !important;
+		box-shadow: none !important;
+		padding: 8px !important;
+		margin-bottom: 15px !important;
+	}
+	.h2result {
+		background: #518428 !important;
+		color: #fff !important;
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+		padding: 6px 10px !important;
+	}
+	.result_box, table.cinfoT {
+		background: #fff !important;
+		border: 1px solid #bbb !important;
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+	}
+	table.cinfoT td, table.cinfoT th {
+		border: 1px solid #ddd !important;
+		padding: 4px 8px !important;
+	}
+	table, .panel, .panel2, .h2result, .result_box, .cinfoT {
+		page-break-inside: avoid !important;
+		break-inside: avoid !important;
+	}
+	input[type="text"], input[type="number"], select {
+		border: 1px solid #999 !important;
+		box-shadow: none !important;
+		background: #fff !important;
+		color: #000 !important;
+	}
+}

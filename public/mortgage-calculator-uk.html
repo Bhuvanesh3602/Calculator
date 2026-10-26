@@ -1,113 +1,447 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Mortgage Calculator UK</title>
-	<meta name="description" content="Free online mortgage calculator specifically customized for use in the UK including amortization tables and the respective graphs." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/mortgage-calculator-uk.html" itemprop="item"><span itemprop="name">mortgage calculator uk</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Mortgage Calculator UK</h1>
-<p>The UK Mortgage Calculator is mainly intended for United Kingdom residents using the British Pound currency.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<div class="leftinput">
-<div class="panel" style="padding: 12px 5px;"><form name="calform" action="/mortgage-calculator-uk.html#ukmortgage">
-<table align="center">
-<tr><td align="right">Home Price</td><td nowrap>&pound; <input type="text" name="chouseprice" id="chouseprice" value="500000" class="inhalf"></td></tr>
-<tr><td align="right">Mortgage Deposit</td><td style="padding-left:15px;"><input type="text" name="cdownpayment" id="cdownpayment" value="25" class="inhalf inpct"></td></tr>
-<tr><td align="right">Loan Term</td><td style="padding-left:15px;"><input type="text" name="cloanterm" id="cloanterm" value="25" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td></tr>
-<tr><td align="right">Interest Rate</td><td style="padding-left:15px;"><input type="text" name="cinterestrate" id="cinterestrate" value="5" class="inhalf inpct"></td></tr>
-<tr><td colspan="2"><br><label for="caddoptional" class="cbcontainer"><input type="checkbox" name="caddoptional" id="caddoptional" value="1" checked /><span class="cbmark"></span><b>Include Optionals Below</b></label></td></tr>
-<tr><td align="right">Taxes</td><td style="padding-left:15px;"><input type="text" name="cpropertytaxes" id="cpropertytaxes" value="1.2" class="inhalf inpct"></td></tr>
-<tr><td align="right">Home Insurance</td><td nowrap>&pound; <input type="text" name="chomeins" id="chomeins" value="2500" class="inhalf inuiyear"><span class="inuiyearspan">/year</span></td></tr>
-<tr><td align="right">Mortgage Insurance</td><td nowrap>&pound; <input type="text" name="cpmi" id="cpmi" value="0" class="inhalf inuiyear"><span class="inuiyearspan">/year</span></td></tr>
-<tr><td align="right">Other Costs</td><td nowrap>&pound; <input type="text" name="cothercost" id="cothercost" value="6000" class="inhalf inuiyear"><span class="inuiyearspan">/year</span></td></tr>
-<tr><td align="right">Start Date</td><td align="right"><select name="cstartmonth" id="cstartmonth"><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10" selected>Oct</option><option value="11">Nov</option><option value="12">Dec</option></select> <input type="text" name="cstartyear" size="4" id="cstartyear" value="2026" class="innormal"></td></tr>
-<tr><td colspan="2" align="center" style="padding-top:8px;">
-	<input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td></tr>
-</table></form></div>
-</div><div class="rightresult"><a name="ukmortgage"></a><div class="espaceforM">&nbsp;</div>
-<h2 class="h2result">Interest Only: &nbsp; &pound;1,562.50<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('TW9ydGdhZ2UgQ2FsY3VsYXRvciBVSw==', 0, 'TW9ydGdhZ2UgQ2FsY3VsYXRvciBVSw==', '', '');"></h2><h2 class="h2result">Monthly Repayment: &nbsp; &pound;2,192.21</h2><table cellpadding='3' width='100%'><tr><td>&nbsp;</td><td align=right><b>Monthly</b></td><td align=right><b>Total</b></td></tr><tr bgcolor='#dddddd'><td><b>Mortgage Payment</b></td><td align=right><b>&pound;2,192.21</b></td><td align=right><b>&pound;657,663.80</b></td></tr><tr><td>Taxes</td><td align=right>&pound;500.00</td><td align=right>&pound;150,000.00</td></tr><tr><td>Home Insurance</td><td align=right>&pound;208.33</td><td align=right>&pound;62,500.00</td></tr><tr><td>Other Costs</td><td align=right>&pound;500.00</td><td align=right>&pound;150,000.00</td></tr><tr bgcolor='#dddddd'><td><b>Total Out-of-Pocket</b></td><td align=right>&pound;3,400.55</td><td align=right>&pound;1,020,163.80</td></tr><tr><td colspan='2'>Loan Amount</td><td align='right'>&pound;375,000.00</td></tr><tr><td colspan='2'>Mortgage Deposit</td><td align='right'>&pound;125,000.00</td></tr><tr><td colspan='2'>Total Interest</td><td align='right'>&pound;282,663.80</td></tr><tr><td colspan="3" style="text-align:center;"><g onclick="ttline2HideTT();"><svg width="306" height="120"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 58.5 8 A 50.5 50.5 0 1 1 18.662 89.536 L 58.5 58.5 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Mortgage Repayment <br>&pound;2,192.21 (64%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58.5" x2="58.5" y2="8" class="mcpline" /><path d="M 18.662 89.536 A 50.5 50.5 0 0 1 9.723 45.419 L 58.5 58.5 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Taxes <br>&pound;500.00 (15%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58.5" x2="18.662" y2="89.536" class="mcpline" /><path d="M 9.723 45.419 A 50.5 50.5 0 0 1 39.537 11.695 L 58.5 58.5 Z" fill="#910000"  onmousemove="ttpieShowTT(evt, '#910000', 'Other Cost <br>&pound;500.00 (15%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58.5" x2="9.723" y2="45.419" class="mcpline" /><path d="M 39.537 11.695 A 50.5 50.5 0 0 1 58.5 8 L 58.5 58.5 Z" fill="#1aadce"  onmousemove="ttpieShowTT(evt, '#1aadce', 'Home Insurance <br>&pound;208.33 (6%)');" onmouseout="ttpieHideTT();" /><line x1="58.5" y1="58.5" x2="39.537" y2="11.695" class="mcpline" /><line x1="58.5" y1="58.5" x2="58.5" y2="8" class="mcpline" /><circle cx="58.5" cy="58.5" r="20.2" fill="white" /><text x="90.396" y="74.084" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Mortgage Repayment <br>&pound;2,192.21 (64%)');" onmouseout="ttpieHideTT();">64%</text><text x="23.707" y="65.55" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Taxes <br>&pound;500.00 (15%)');" onmouseout="ttpieHideTT();">15%</text><text x="31.903" y="34.987" class="mcplabel" stroke="#910000" onmousemove="ttpieShowTT(evt, '#910000', 'Other Cost <br>&pound;500.00 (15%)');" onmouseout="ttpieHideTT();">15%</text><text x="51.709" y="23.656" class="mcplabel" stroke="#1aadce" onmousemove="ttpieShowTT(evt, '#1aadce', 'Home Insurance <br>&pound;208.33 (6%)');" onmouseout="ttpieHideTT();">6%</text><rect x="117" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="142" y="19" class="mcplegend">Mortgage Repayment</text><rect x="117" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="142" y="37" class="mcplegend">Taxes</text><rect x="117" y="44" rx="3" ry="3" width="20" height="14" style="fill:#910000;" /><text x="142" y="55" class="mcplegend">Other Cost</text><rect x="117" y="62" rx="3" ry="3" width="20" height="14" style="fill:#1aadce;" /><text x="142" y="73" class="mcplegend">Home Insurance</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></td></tr></table></div><div id="clear"></div>
-<h2 style="padding-bottom: 10px;">Amortization schedule</h2><div class="crighthalf"><div style="text-align:center;"><svg width="300" height="180"><style>.mclgrid{stroke:#999;stroke-width:0.5;} .mcllegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcltitle{fill: #000; font-family:arial,helvetica,sans-serif; font-size: 15px; dominant-baseline:middle;text-anchor:middle;} .mcllabely{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:middle; text-anchor:end;} .mcllabelx{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:hanging; text-anchor:middle;} .mcldot:hover {stroke-width:10;} .mcldot {stroke-width:0;}</style><text x="165" y="172" class="mcltitle">Year</text><line x1="37" y1="145" x2="292" y2="145" class="mclgrid" /><text x="35" y="145" class="mcllabely">0</text><line x1="37" y1="105.321" x2="292" y2="105.321" class="mclgrid" /><text x="35" y="105.321" class="mcllabely">200K</text><line x1="37" y1="65.643" x2="292" y2="65.643" class="mclgrid" /><text x="35" y="65.643" class="mcllabely">400K</text><line x1="37" y1="25.964" x2="292" y2="25.964" class="mclgrid" /><text x="35" y="25.964" class="mcllabely">600K</text><line x1="40" y1="8" x2="40" y2="149" class="mclgrid" /><text x="40" y="150" class="mcllabelx">0</text><line x1="90.4" y1="8" x2="90.4" y2="149" class="mclgrid" /><text x="90.4" y="150" class="mcllabelx">5</text><line x1="140.8" y1="8" x2="140.8" y2="149" class="mclgrid" /><text x="140.8" y="150" class="mcllabelx">10</text><line x1="191.2" y1="8" x2="191.2" y2="149" class="mclgrid" /><text x="191.2" y="150" class="mcllabelx">15</text><line x1="241.6" y1="8" x2="241.6" y2="149" class="mclgrid" /><text x="241.6" y="150" class="mcllabelx">20</text><line x1="292" y1="8" x2="292" y2="149" class="mclgrid" /><text x="292" y="150" class="mcllabelx">25</text><path d="M 40 70.602 L 40 70.727 L 40.84 70.853 L 41.68 70.979 L 42.52 71.105 L 43.36 71.232 L 44.2 71.36 L 45.04 71.488 L 45.88 71.617 L 46.72 71.746 L 47.56 71.875 L 48.4 72.006 L 49.24 72.136 L 50.08 72.268 L 50.92 72.4 L 51.76 72.532 L 52.6 72.665 L 53.44 72.799 L 54.28 72.933 L 55.12 73.067 L 55.96 73.202 L 56.8 73.338 L 57.64 73.475 L 58.48 73.611 L 59.32 73.749 L 60.16 73.887 L 61 74.026 L 61.84 74.165 L 62.68 74.305 L 63.52 74.445 L 64.36 74.586 L 65.2 74.727 L 66.04 74.87 L 66.88 75.012 L 67.72 75.156 L 68.56 75.299 L 69.4 75.444 L 70.24 75.589 L 71.08 75.735 L 71.92 75.881 L 72.76 76.028 L 73.6 76.176 L 74.44 76.324 L 75.28 76.472 L 76.12 76.622 L 76.96 76.772 L 77.8 76.922 L 78.64 77.074 L 79.48 77.226 L 80.32 77.378 L 81.16 77.531 L 82 77.685 L 82.84 77.84 L 83.68 77.995 L 84.52 78.15 L 85.36 78.307 L 86.2 78.464 L 87.04 78.622 L 87.88 78.78 L 88.72 78.939 L 89.56 79.099 L 90.4 79.259 L 91.24 79.42 L 92.08 79.582 L 92.92 79.744 L 93.76 79.907 L 94.6 80.071 L 95.44 80.235 L 96.28 80.4 L 97.12 80.566 L 97.96 80.732 L 98.8 80.899 L 99.64 81.067 L 100.48 81.236 L 101.32 81.405 L 102.16 81.575 L 103 81.746 L 103.84 81.917 L 104.68 82.089 L 105.52 82.262 L 106.36 82.435 L 107.2 82.61 L 108.04 82.784 L 108.88 82.96 L 109.72 83.137 L 110.56 83.314 L 111.4 83.492 L 112.24 83.67 L 113.08 83.85 L 113.92 84.03 L 114.76 84.211 L 115.6 84.392 L 116.44 84.575 L 117.28 84.758 L 118.12 84.942 L 118.96 85.126 L 119.8 85.312 L 120.64 85.498 L 121.48 85.685 L 122.32 85.873 L 123.16 86.061 L 124 86.251 L 124.84 86.441 L 125.68 86.632 L 126.52 86.824 L 127.36 87.016 L 128.2 87.209 L 129.04 87.404 L 129.88 87.598 L 130.72 87.794 L 131.56 87.991 L 132.4 88.188 L 133.24 88.386 L 134.08 88.585 L 134.92 88.785 L 135.76 88.986 L 136.6 89.187 L 137.44 89.39 L 138.28 89.593 L 139.12 89.797 L 139.96 90.002 L 140.8 90.208 L 141.64 90.414 L 142.48 90.622 L 143.32 90.83 L 144.16 91.039 L 145 91.25 L 145.84 91.46 L 146.68 91.672 L 147.52 91.885 L 148.36 92.099 L 149.2 92.313 L 150.04 92.529 L 150.88 92.745 L 151.72 92.962 L 152.56 93.18 L 153.4 93.399 L 154.24 93.619 L 155.08 93.84 L 155.92 94.062 L 156.76 94.284 L 157.6 94.508 L 158.44 94.732 L 159.28 94.958 L 160.12 95.184 L 160.96 95.412 L 161.8 95.64 L 162.64 95.869 L 163.48 96.099 L 164.32 96.331 L 165.16 96.563 L 166 96.796 L 166.84 97.03 L 167.68 97.265 L 168.52 97.501 L 169.36 97.738 L 170.2 97.976 L 171.04 98.215 L 171.88 98.455 L 172.72 98.696 L 173.56 98.938 L 174.4 99.181 L 175.24 99.425 L 176.08 99.67 L 176.92 99.916 L 177.76 100.163 L 178.6 100.411 L 179.44 100.66 L 180.28 100.91 L 181.12 101.162 L 181.96 101.414 L 182.8 101.667 L 183.64 101.922 L 184.48 102.177 L 185.32 102.434 L 186.16 102.691 L 187 102.95 L 187.84 103.209 L 188.68 103.47 L 189.52 103.732 L 190.36 103.995 L 191.2 104.259 L 192.04 104.524 L 192.88 104.791 L 193.72 105.058 L 194.56 105.326 L 195.4 105.596 L 196.24 105.867 L 197.08 106.139 L 197.92 106.412 L 198.76 106.686 L 199.6 106.961 L 200.44 107.238 L 201.28 107.515 L 202.12 107.794 L 202.96 108.074 L 203.8 108.355 L 204.64 108.637 L 205.48 108.92 L 206.32 109.205 L 207.16 109.491 L 208 109.778 L 208.84 110.066 L 209.68 110.355 L 210.52 110.646 L 211.36 110.938 L 212.2 111.231 L 213.04 111.525 L 213.88 111.82 L 214.72 112.117 L 215.56 112.415 L 216.4 112.714 L 217.24 113.014 L 218.08 113.316 L 218.92 113.619 L 219.76 113.923 L 220.6 114.229 L 221.44 114.535 L 222.28 114.843 L 223.12 115.153 L 223.96 115.463 L 224.8 115.775 L 225.64 116.088 L 226.48 116.403 L 227.32 116.718 L 228.16 117.035 L 229 117.354 L 229.84 117.674 L 230.68 117.995 L 231.52 118.317 L 232.36 118.641 L 233.2 118.966 L 234.04 119.292 L 234.88 119.62 L 235.72 119.949 L 236.56 120.28 L 237.4 120.612 L 238.24 120.945 L 239.08 121.28 L 239.92 121.616 L 240.76 121.953 L 241.6 122.292 L 242.44 122.632 L 243.28 122.974 L 244.12 123.317 L 244.96 123.662 L 245.8 124.008 L 246.64 124.355 L 247.48 124.704 L 248.32 125.055 L 249.16 125.406 L 250 125.76 L 250.84 126.114 L 251.68 126.471 L 252.52 126.828 L 253.36 127.188 L 254.2 127.548 L 255.04 127.911 L 255.88 128.274 L 256.72 128.639 L 257.56 129.006 L 258.4 129.374 L 259.24 129.744 L 260.08 130.116 L 260.92 130.489 L 261.76 130.863 L 262.6 131.239 L 263.44 131.617 L 264.28 131.996 L 265.12 132.377 L 265.96 132.759 L 266.8 133.143 L 267.64 133.528 L 268.48 133.915 L 269.32 134.304 L 270.16 134.694 L 271 135.086 L 271.84 135.48 L 272.68 135.875 L 273.52 136.272 L 274.36 136.671 L 275.2 137.071 L 276.04 137.473 L 276.88 137.876 L 277.72 138.282 L 278.56 138.689 L 279.4 139.097 L 280.24 139.508 L 281.08 139.92 L 281.92 140.333 L 282.76 140.749 L 283.6 141.166 L 284.44 141.585 L 285.28 142.006 L 286.12 142.428 L 286.96 142.852 L 287.8 143.278 L 288.64 143.706 L 289.48 144.136 L 290.32 144.567 L 291.16 145" fill="none" stroke="#2b7ddb" stroke-width="3" /><path d="M 40 145 L 40 144.69 L 40.84 144.381 L 41.68 144.072 L 42.52 143.763 L 43.36 143.455 L 44.2 143.148 L 45.04 142.841 L 45.88 142.535 L 46.72 142.229 L 47.56 141.924 L 48.4 141.619 L 49.24 141.315 L 50.08 141.011 L 50.92 140.708 L 51.76 140.406 L 52.6 140.104 L 53.44 139.802 L 54.28 139.502 L 55.12 139.201 L 55.96 138.902 L 56.8 138.602 L 57.64 138.304 L 58.48 138.006 L 59.32 137.708 L 60.16 137.412 L 61 137.115 L 61.84 136.819 L 62.68 136.524 L 63.52 136.23 L 64.36 135.936 L 65.2 135.642 L 66.04 135.35 L 66.88 135.057 L 67.72 134.766 L 68.56 134.475 L 69.4 134.184 L 70.24 133.895 L 71.08 133.605 L 71.92 133.317 L 72.76 133.029 L 73.6 132.741 L 74.44 132.455 L 75.28 132.168 L 76.12 131.883 L 76.96 131.598 L 77.8 131.314 L 78.64 131.03 L 79.48 130.747 L 80.32 130.465 L 81.16 130.183 L 82 129.902 L 82.84 129.621 L 83.68 129.341 L 84.52 129.062 L 85.36 128.784 L 86.2 128.506 L 87.04 128.229 L 87.88 127.952 L 88.72 127.676 L 89.56 127.401 L 90.4 127.126 L 91.24 126.852 L 92.08 126.579 L 92.92 126.306 L 93.76 126.035 L 94.6 125.763 L 95.44 125.493 L 96.28 125.223 L 97.12 124.954 L 97.96 124.685 L 98.8 124.418 L 99.64 124.15 L 100.48 123.884 L 101.32 123.618 L 102.16 123.353 L 103 123.089 L 103.84 122.826 L 104.68 122.563 L 105.52 122.301 L 106.36 122.039 L 107.2 121.779 L 108.04 121.519 L 108.88 121.259 L 109.72 121.001 L 110.56 120.743 L 111.4 120.486 L 112.24 120.23 L 113.08 119.974 L 113.92 119.719 L 114.76 119.465 L 115.6 119.212 L 116.44 118.96 L 117.28 118.708 L 118.12 118.457 L 118.96 118.207 L 119.8 117.957 L 120.64 117.708 L 121.48 117.46 L 122.32 117.213 L 123.16 116.967 L 124 116.721 L 124.84 116.477 L 125.68 116.233 L 126.52 115.989 L 127.36 115.747 L 128.2 115.505 L 129.04 115.265 L 129.88 115.025 L 130.72 114.785 L 131.56 114.547 L 132.4 114.309 L 133.24 114.073 L 134.08 113.837 L 134.92 113.602 L 135.76 113.368 L 136.6 113.134 L 137.44 112.902 L 138.28 112.67 L 139.12 112.439 L 139.96 112.209 L 140.8 111.98 L 141.64 111.752 L 142.48 111.524 L 143.32 111.298 L 144.16 111.072 L 145 110.847 L 145.84 110.623 L 146.68 110.4 L 147.52 110.178 L 148.36 109.957 L 149.2 109.736 L 150.04 109.517 L 150.88 109.298 L 151.72 109.08 L 152.56 108.863 L 153.4 108.647 L 154.24 108.432 L 155.08 108.218 L 155.92 108.005 L 156.76 107.793 L 157.6 107.582 L 158.44 107.371 L 159.28 107.162 L 160.12 106.953 L 160.96 106.746 L 161.8 106.539 L 162.64 106.333 L 163.48 106.129 L 164.32 105.925 L 165.16 105.722 L 166 105.52 L 166.84 105.32 L 167.68 105.12 L 168.52 104.921 L 169.36 104.723 L 170.2 104.526 L 171.04 104.33 L 171.88 104.135 L 172.72 103.941 L 173.56 103.748 L 174.4 103.556 L 175.24 103.365 L 176.08 103.175 L 176.92 102.987 L 177.76 102.799 L 178.6 102.612 L 179.44 102.426 L 180.28 102.241 L 181.12 102.058 L 181.96 101.875 L 182.8 101.693 L 183.64 101.513 L 184.48 101.333 L 185.32 101.155 L 186.16 100.978 L 187 100.801 L 187.84 100.626 L 188.68 100.452 L 189.52 100.279 L 190.36 100.107 L 191.2 99.936 L 192.04 99.766 L 192.88 99.598 L 193.72 99.43 L 194.56 99.264 L 195.4 99.098 L 196.24 98.934 L 197.08 98.771 L 197.92 98.609 L 198.76 98.448 L 199.6 98.289 L 200.44 98.13 L 201.28 97.973 L 202.12 97.817 L 202.96 97.662 L 203.8 97.508 L 204.64 97.355 L 205.48 97.204 L 206.32 97.053 L 207.16 96.904 L 208 96.756 L 208.84 96.61 L 209.68 96.464 L 210.52 96.32 L 211.36 96.176 L 212.2 96.035 L 213.04 95.894 L 213.88 95.754 L 214.72 95.616 L 215.56 95.479 L 216.4 95.343 L 217.24 95.209 L 218.08 95.076 L 218.92 94.943 L 219.76 94.813 L 220.6 94.683 L 221.44 94.555 L 222.28 94.428 L 223.12 94.302 L 223.96 94.178 L 224.8 94.055 L 225.64 93.933 L 226.48 93.813 L 227.32 93.694 L 228.16 93.576 L 229 93.459 L 229.84 93.344 L 230.68 93.23 L 231.52 93.118 L 232.36 93.007 L 233.2 92.897 L 234.04 92.788 L 234.88 92.681 L 235.72 92.575 L 236.56 92.471 L 237.4 92.368 L 238.24 92.266 L 239.08 92.166 L 239.92 92.067 L 240.76 91.97 L 241.6 91.874 L 242.44 91.779 L 243.28 91.686 L 244.12 91.594 L 244.96 91.504 L 245.8 91.415 L 246.64 91.328 L 247.48 91.241 L 248.32 91.157 L 249.16 91.074 L 250 90.992 L 250.84 90.912 L 251.68 90.833 L 252.52 90.756 L 253.36 90.68 L 254.2 90.606 L 255.04 90.533 L 255.88 90.462 L 256.72 90.393 L 257.56 90.324 L 258.4 90.258 L 259.24 90.193 L 260.08 90.129 L 260.92 90.067 L 261.76 90.007 L 262.6 89.948 L 263.44 89.89 L 264.28 89.835 L 265.12 89.78 L 265.96 89.728 L 266.8 89.677 L 267.64 89.627 L 268.48 89.58 L 269.32 89.533 L 270.16 89.489 L 271 89.446 L 271.84 89.405 L 272.68 89.365 L 273.52 89.327 L 274.36 89.291 L 275.2 89.256 L 276.04 89.223 L 276.88 89.191 L 277.72 89.162 L 278.56 89.134 L 279.4 89.107 L 280.24 89.083 L 281.08 89.06 L 281.92 89.039 L 282.76 89.019 L 283.6 89.002 L 284.44 88.986 L 285.28 88.971 L 286.12 88.959 L 286.96 88.948 L 287.8 88.939 L 288.64 88.932 L 289.48 88.927 L 290.32 88.923 L 291.16 88.921" fill="none" stroke="#8bbc21" stroke-width="3" /><path d="M 40 145 L 40 144.565 L 40.84 144.13 L 41.68 143.695 L 42.52 143.26 L 43.36 142.825 L 44.2 142.39 L 45.04 141.956 L 45.88 141.521 L 46.72 141.086 L 47.56 140.651 L 48.4 140.216 L 49.24 139.781 L 50.08 139.346 L 50.92 138.911 L 51.76 138.476 L 52.6 138.041 L 53.44 137.606 L 54.28 137.171 L 55.12 136.737 L 55.96 136.302 L 56.8 135.867 L 57.64 135.432 L 58.48 134.997 L 59.32 134.562 L 60.16 134.127 L 61 133.692 L 61.84 133.257 L 62.68 132.822 L 63.52 132.387 L 64.36 131.952 L 65.2 131.517 L 66.04 131.083 L 66.88 130.648 L 67.72 130.213 L 68.56 129.778 L 69.4 129.343 L 70.24 128.908 L 71.08 128.473 L 71.92 128.038 L 72.76 127.603 L 73.6 127.168 L 74.44 126.733 L 75.28 126.298 L 76.12 125.863 L 76.96 125.429 L 77.8 124.994 L 78.64 124.559 L 79.48 124.124 L 80.32 123.689 L 81.16 123.254 L 82 122.819 L 82.84 122.384 L 83.68 121.949 L 84.52 121.514 L 85.36 121.079 L 86.2 120.644 L 87.04 120.21 L 87.88 119.775 L 88.72 119.34 L 89.56 118.905 L 90.4 118.47 L 91.24 118.035 L 92.08 117.6 L 92.92 117.165 L 93.76 116.73 L 94.6 116.295 L 95.44 115.86 L 96.28 115.425 L 97.12 114.99 L 97.96 114.556 L 98.8 114.121 L 99.64 113.686 L 100.48 113.251 L 101.32 112.816 L 102.16 112.381 L 103 111.946 L 103.84 111.511 L 104.68 111.076 L 105.52 110.641 L 106.36 110.206 L 107.2 109.771 L 108.04 109.337 L 108.88 108.902 L 109.72 108.467 L 110.56 108.032 L 111.4 107.597 L 112.24 107.162 L 113.08 106.727 L 113.92 106.292 L 114.76 105.857 L 115.6 105.422 L 116.44 104.987 L 117.28 104.552 L 118.12 104.117 L 118.96 103.683 L 119.8 103.248 L 120.64 102.813 L 121.48 102.378 L 122.32 101.943 L 123.16 101.508 L 124 101.073 L 124.84 100.638 L 125.68 100.203 L 126.52 99.768 L 127.36 99.333 L 128.2 98.898 L 129.04 98.463 L 129.88 98.029 L 130.72 97.594 L 131.56 97.159 L 132.4 96.724 L 133.24 96.289 L 134.08 95.854 L 134.92 95.419 L 135.76 94.984 L 136.6 94.549 L 137.44 94.114 L 138.28 93.679 L 139.12 93.244 L 139.96 92.81 L 140.8 92.375 L 141.64 91.94 L 142.48 91.505 L 143.32 91.07 L 144.16 90.635 L 145 90.2 L 145.84 89.765 L 146.68 89.33 L 147.52 88.895 L 148.36 88.46 L 149.2 88.025 L 150.04 87.59 L 150.88 87.156 L 151.72 86.721 L 152.56 86.286 L 153.4 85.851 L 154.24 85.416 L 155.08 84.981 L 155.92 84.546 L 156.76 84.111 L 157.6 83.676 L 158.44 83.241 L 159.28 82.806 L 160.12 82.371 L 160.96 81.937 L 161.8 81.502 L 162.64 81.067 L 163.48 80.632 L 164.32 80.197 L 165.16 79.762 L 166 79.327 L 166.84 78.892 L 167.68 78.457 L 168.52 78.022 L 169.36 77.587 L 170.2 77.152 L 171.04 76.717 L 171.88 76.283 L 172.72 75.848 L 173.56 75.413 L 174.4 74.978 L 175.24 74.543 L 176.08 74.108 L 176.92 73.673 L 177.76 73.238 L 178.6 72.803 L 179.44 72.368 L 180.28 71.933 L 181.12 71.498 L 181.96 71.063 L 182.8 70.629 L 183.64 70.194 L 184.48 69.759 L 185.32 69.324 L 186.16 68.889 L 187 68.454 L 187.84 68.019 L 188.68 67.584 L 189.52 67.149 L 190.36 66.714 L 191.2 66.279 L 192.04 65.844 L 192.88 65.41 L 193.72 64.975 L 194.56 64.54 L 195.4 64.105 L 196.24 63.67 L 197.08 63.235 L 197.92 62.8 L 198.76 62.365 L 199.6 61.93 L 200.44 61.495 L 201.28 61.06 L 202.12 60.625 L 202.96 60.19 L 203.8 59.756 L 204.64 59.321 L 205.48 58.886 L 206.32 58.451 L 207.16 58.016 L 208 57.581 L 208.84 57.146 L 209.68 56.711 L 210.52 56.276 L 211.36 55.841 L 212.2 55.406 L 213.04 54.971 L 213.88 54.537 L 214.72 54.102 L 215.56 53.667 L 216.4 53.232 L 217.24 52.797 L 218.08 52.362 L 218.92 51.927 L 219.76 51.492 L 220.6 51.057 L 221.44 50.622 L 222.28 50.187 L 223.12 49.752 L 223.96 49.317 L 224.8 48.883 L 225.64 48.448 L 226.48 48.013 L 227.32 47.578 L 228.16 47.143 L 229 46.708 L 229.84 46.273 L 230.68 45.838 L 231.52 45.403 L 232.36 44.968 L 233.2 44.533 L 234.04 44.098 L 234.88 43.663 L 235.72 43.229 L 236.56 42.794 L 237.4 42.359 L 238.24 41.924 L 239.08 41.489 L 239.92 41.054 L 240.76 40.619 L 241.6 40.184 L 242.44 39.749 L 243.28 39.314 L 244.12 38.879 L 244.96 38.444 L 245.8 38.01 L 246.64 37.575 L 247.48 37.14 L 248.32 36.705 L 249.16 36.27 L 250 35.835 L 250.84 35.4 L 251.68 34.965 L 252.52 34.53 L 253.36 34.095 L 254.2 33.66 L 255.04 33.225 L 255.88 32.79 L 256.72 32.356 L 257.56 31.921 L 258.4 31.486 L 259.24 31.051 L 260.08 30.616 L 260.92 30.181 L 261.76 29.746 L 262.6 29.311 L 263.44 28.876 L 264.28 28.441 L 265.12 28.006 L 265.96 27.571 L 266.8 27.137 L 267.64 26.702 L 268.48 26.267 L 269.32 25.832 L 270.16 25.397 L 271 24.962 L 271.84 24.527 L 272.68 24.092 L 273.52 23.657 L 274.36 23.222 L 275.2 22.787 L 276.04 22.352 L 276.88 21.917 L 277.72 21.483 L 278.56 21.048 L 279.4 20.613 L 280.24 20.178 L 281.08 19.743 L 281.92 19.308 L 282.76 18.873 L 283.6 18.438 L 284.44 18.003 L 285.28 17.568 L 286.12 17.133 L 286.96 16.698 L 287.8 16.263 L 288.64 15.829 L 289.48 15.394 L 290.32 14.959 L 291.16 14.524" fill="none" stroke="#910000" stroke-width="3" /><rect x="40" y="8" width="252" height="137" style="stroke:#666;stroke-width:0.5;fill:none;" /><rect x="45" y="17" width="20" height="6" style="fill:#2b7ddb;" /><text x="70" y="24" class="mcvsblegend">Balance</text><rect x="45" y="35" width="20" height="6" style="fill:#8bbc21;" /><text x="70" y="42" class="mcvsblegend">Interest</text><rect x="45" y="53" width="20" height="6" style="fill:#910000;" /><text x="70" y="60" class="mcvsblegend">Payment</text></svg></div><br></div><div class="clefthalf"><div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div><div id="monthlyamo" style="display:none;"><table class="cinfoT"><tr align="center"><th>Month</th><th>Date</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>10/2026</td><td>&pound;1,562</td><td>&pound;630</td><td>&pound;374,370</td></tr><tr align="right"><td>2</td><td>11/2026</td><td>&pound;1,560</td><td>&pound;632</td><td>&pound;373,738</td></tr><tr align="right"><td>3</td><td>12/2026</td><td>&pound;1,557</td><td>&pound;635</td><td>&pound;373,103</td></tr><tr align="right"><td>4</td><td>1/2027</td><td>&pound;1,555</td><td>&pound;638</td><td>&pound;372,465</td></tr><tr align="right"><td>5</td><td>2/2027</td><td>&pound;1,552</td><td>&pound;640</td><td>&pound;371,825</td></tr><tr align="right"><td>6</td><td>3/2027</td><td>&pound;1,549</td><td>&pound;643</td><td>&pound;371,182</td></tr><tr align="right"><td>7</td><td>4/2027</td><td>&pound;1,547</td><td>&pound;646</td><td>&pound;370,537</td></tr><tr align="right"><td>8</td><td>5/2027</td><td>&pound;1,544</td><td>&pound;648</td><td>&pound;369,888</td></tr><tr align="right"><td>9</td><td>6/2027</td><td>&pound;1,541</td><td>&pound;651</td><td>&pound;369,237</td></tr><tr align="right"><td>10</td><td>7/2027</td><td>&pound;1,538</td><td>&pound;654</td><td>&pound;368,583</td></tr><tr align="right"><td>11</td><td>8/2027</td><td>&pound;1,536</td><td>&pound;656</td><td>&pound;367,927</td></tr><tr align="right"><td>12</td><td>9/2027</td><td>&pound;1,533</td><td>&pound;659</td><td>&pound;367,268</td></tr><tr><td colspan="5" align="center">End of year 1</td></tr><tr align="right"><td>13</td><td>10/2027</td><td>&pound;1,530</td><td>&pound;662</td><td>&pound;366,606</td></tr><tr align="right"><td>14</td><td>11/2027</td><td>&pound;1,528</td><td>&pound;665</td><td>&pound;365,941</td></tr><tr align="right"><td>15</td><td>12/2027</td><td>&pound;1,525</td><td>&pound;667</td><td>&pound;365,274</td></tr><tr align="right"><td>16</td><td>1/2028</td><td>&pound;1,522</td><td>&pound;670</td><td>&pound;364,604</td></tr><tr align="right"><td>17</td><td>2/2028</td><td>&pound;1,519</td><td>&pound;673</td><td>&pound;363,931</td></tr><tr align="right"><td>18</td><td>3/2028</td><td>&pound;1,516</td><td>&pound;676</td><td>&pound;363,255</td></tr><tr align="right"><td>19</td><td>4/2028</td><td>&pound;1,514</td><td>&pound;679</td><td>&pound;362,576</td></tr><tr align="right"><td>20</td><td>5/2028</td><td>&pound;1,511</td><td>&pound;681</td><td>&pound;361,895</td></tr><tr align="right"><td>21</td><td>6/2028</td><td>&pound;1,508</td><td>&pound;684</td><td>&pound;361,210</td></tr><tr align="right"><td>22</td><td>7/2028</td><td>&pound;1,505</td><td>&pound;687</td><td>&pound;360,523</td></tr><tr align="right"><td>23</td><td>8/2028</td><td>&pound;1,502</td><td>&pound;690</td><td>&pound;359,833</td></tr><tr align="right"><td>24</td><td>9/2028</td><td>&pound;1,499</td><td>&pound;693</td><td>&pound;359,140</td></tr><tr><td colspan="5" align="center">End of year 2</td></tr><tr align="right"><td>25</td><td>10/2028</td><td>&pound;1,496</td><td>&pound;696</td><td>&pound;358,444</td></tr><tr align="right"><td>26</td><td>11/2028</td><td>&pound;1,494</td><td>&pound;699</td><td>&pound;357,746</td></tr><tr align="right"><td>27</td><td>12/2028</td><td>&pound;1,491</td><td>&pound;702</td><td>&pound;357,044</td></tr><tr align="right"><td>28</td><td>1/2029</td><td>&pound;1,488</td><td>&pound;705</td><td>&pound;356,339</td></tr><tr align="right"><td>29</td><td>2/2029</td><td>&pound;1,485</td><td>&pound;707</td><td>&pound;355,632</td></tr><tr align="right"><td>30</td><td>3/2029</td><td>&pound;1,482</td><td>&pound;710</td><td>&pound;354,922</td></tr><tr align="right"><td>31</td><td>4/2029</td><td>&pound;1,479</td><td>&pound;713</td><td>&pound;354,208</td></tr><tr align="right"><td>32</td><td>5/2029</td><td>&pound;1,476</td><td>&pound;716</td><td>&pound;353,492</td></tr><tr align="right"><td>33</td><td>6/2029</td><td>&pound;1,473</td><td>&pound;719</td><td>&pound;352,773</td></tr><tr align="right"><td>34</td><td>7/2029</td><td>&pound;1,470</td><td>&pound;722</td><td>&pound;352,050</td></tr><tr align="right"><td>35</td><td>8/2029</td><td>&pound;1,467</td><td>&pound;725</td><td>&pound;351,325</td></tr><tr align="right"><td>36</td><td>9/2029</td><td>&pound;1,464</td><td>&pound;728</td><td>&pound;350,597</td></tr><tr><td colspan="5" align="center">End of year 3</td></tr><tr align="right"><td>37</td><td>10/2029</td><td>&pound;1,461</td><td>&pound;731</td><td>&pound;349,865</td></tr><tr align="right"><td>38</td><td>11/2029</td><td>&pound;1,458</td><td>&pound;734</td><td>&pound;349,131</td></tr><tr align="right"><td>39</td><td>12/2029</td><td>&pound;1,455</td><td>&pound;738</td><td>&pound;348,393</td></tr><tr align="right"><td>40</td><td>1/2030</td><td>&pound;1,452</td><td>&pound;741</td><td>&pound;347,653</td></tr><tr align="right"><td>41</td><td>2/2030</td><td>&pound;1,449</td><td>&pound;744</td><td>&pound;346,909</td></tr><tr align="right"><td>42</td><td>3/2030</td><td>&pound;1,445</td><td>&pound;747</td><td>&pound;346,162</td></tr><tr align="right"><td>43</td><td>4/2030</td><td>&pound;1,442</td><td>&pound;750</td><td>&pound;345,412</td></tr><tr align="right"><td>44</td><td>5/2030</td><td>&pound;1,439</td><td>&pound;753</td><td>&pound;344,659</td></tr><tr align="right"><td>45</td><td>6/2030</td><td>&pound;1,436</td><td>&pound;756</td><td>&pound;343,903</td></tr><tr align="right"><td>46</td><td>7/2030</td><td>&pound;1,433</td><td>&pound;759</td><td>&pound;343,144</td></tr><tr align="right"><td>47</td><td>8/2030</td><td>&pound;1,430</td><td>&pound;762</td><td>&pound;342,381</td></tr><tr align="right"><td>48</td><td>9/2030</td><td>&pound;1,427</td><td>&pound;766</td><td>&pound;341,616</td></tr><tr><td colspan="5" align="center">End of year 4</td></tr><tr align="right"><td>49</td><td>10/2030</td><td>&pound;1,423</td><td>&pound;769</td><td>&pound;340,847</td></tr><tr align="right"><td>50</td><td>11/2030</td><td>&pound;1,420</td><td>&pound;772</td><td>&pound;340,075</td></tr><tr align="right"><td>51</td><td>12/2030</td><td>&pound;1,417</td><td>&pound;775</td><td>&pound;339,300</td></tr><tr align="right"><td>52</td><td>1/2031</td><td>&pound;1,414</td><td>&pound;778</td><td>&pound;338,521</td></tr><tr align="right"><td>53</td><td>2/2031</td><td>&pound;1,411</td><td>&pound;782</td><td>&pound;337,740</td></tr><tr align="right"><td>54</td><td>3/2031</td><td>&pound;1,407</td><td>&pound;785</td><td>&pound;336,955</td></tr><tr align="right"><td>55</td><td>4/2031</td><td>&pound;1,404</td><td>&pound;788</td><td>&pound;336,166</td></tr><tr align="right"><td>56</td><td>5/2031</td><td>&pound;1,401</td><td>&pound;792</td><td>&pound;335,375</td></tr><tr align="right"><td>57</td><td>6/2031</td><td>&pound;1,397</td><td>&pound;795</td><td>&pound;334,580</td></tr><tr align="right"><td>58</td><td>7/2031</td><td>&pound;1,394</td><td>&pound;798</td><td>&pound;333,782</td></tr><tr align="right"><td>59</td><td>8/2031</td><td>&pound;1,391</td><td>&pound;801</td><td>&pound;332,981</td></tr><tr align="right"><td>60</td><td>9/2031</td><td>&pound;1,387</td><td>&pound;805</td><td>&pound;332,176</td></tr><tr><td colspan="5" align="center">End of year 5</td></tr><tr align="right"><td>61</td><td>10/2031</td><td>&pound;1,384</td><td>&pound;808</td><td>&pound;331,368</td></tr><tr align="right"><td>62</td><td>11/2031</td><td>&pound;1,381</td><td>&pound;812</td><td>&pound;330,556</td></tr><tr align="right"><td>63</td><td>12/2031</td><td>&pound;1,377</td><td>&pound;815</td><td>&pound;329,741</td></tr><tr align="right"><td>64</td><td>1/2032</td><td>&pound;1,374</td><td>&pound;818</td><td>&pound;328,923</td></tr><tr align="right"><td>65</td><td>2/2032</td><td>&pound;1,371</td><td>&pound;822</td><td>&pound;328,101</td></tr><tr align="right"><td>66</td><td>3/2032</td><td>&pound;1,367</td><td>&pound;825</td><td>&pound;327,276</td></tr><tr align="right"><td>67</td><td>4/2032</td><td>&pound;1,364</td><td>&pound;829</td><td>&pound;326,447</td></tr><tr align="right"><td>68</td><td>5/2032</td><td>&pound;1,360</td><td>&pound;832</td><td>&pound;325,615</td></tr><tr align="right"><td>69</td><td>6/2032</td><td>&pound;1,357</td><td>&pound;835</td><td>&pound;324,780</td></tr><tr align="right"><td>70</td><td>7/2032</td><td>&pound;1,353</td><td>&pound;839</td><td>&pound;323,941</td></tr><tr align="right"><td>71</td><td>8/2032</td><td>&pound;1,350</td><td>&pound;842</td><td>&pound;323,099</td></tr><tr align="right"><td>72</td><td>9/2032</td><td>&pound;1,346</td><td>&pound;846</td><td>&pound;322,253</td></tr><tr><td colspan="5" align="center">End of year 6</td></tr><tr align="right"><td>73</td><td>10/2032</td><td>&pound;1,343</td><td>&pound;849</td><td>&pound;321,403</td></tr><tr align="right"><td>74</td><td>11/2032</td><td>&pound;1,339</td><td>&pound;853</td><td>&pound;320,550</td></tr><tr align="right"><td>75</td><td>12/2032</td><td>&pound;1,336</td><td>&pound;857</td><td>&pound;319,693</td></tr><tr align="right"><td>76</td><td>1/2033</td><td>&pound;1,332</td><td>&pound;860</td><td>&pound;318,833</td></tr><tr align="right"><td>77</td><td>2/2033</td><td>&pound;1,328</td><td>&pound;864</td><td>&pound;317,970</td></tr><tr align="right"><td>78</td><td>3/2033</td><td>&pound;1,325</td><td>&pound;867</td><td>&pound;317,102</td></tr><tr align="right"><td>79</td><td>4/2033</td><td>&pound;1,321</td><td>&pound;871</td><td>&pound;316,231</td></tr><tr align="right"><td>80</td><td>5/2033</td><td>&pound;1,318</td><td>&pound;875</td><td>&pound;315,357</td></tr><tr align="right"><td>81</td><td>6/2033</td><td>&pound;1,314</td><td>&pound;878</td><td>&pound;314,478</td></tr><tr align="right"><td>82</td><td>7/2033</td><td>&pound;1,310</td><td>&pound;882</td><td>&pound;313,597</td></tr><tr align="right"><td>83</td><td>8/2033</td><td>&pound;1,307</td><td>&pound;886</td><td>&pound;312,711</td></tr><tr align="right"><td>84</td><td>9/2033</td><td>&pound;1,303</td><td>&pound;889</td><td>&pound;311,822</td></tr><tr><td colspan="5" align="center">End of year 7</td></tr><tr align="right"><td>85</td><td>10/2033</td><td>&pound;1,299</td><td>&pound;893</td><td>&pound;310,929</td></tr><tr align="right"><td>86</td><td>11/2033</td><td>&pound;1,296</td><td>&pound;897</td><td>&pound;310,032</td></tr><tr align="right"><td>87</td><td>12/2033</td><td>&pound;1,292</td><td>&pound;900</td><td>&pound;309,132</td></tr><tr align="right"><td>88</td><td>1/2034</td><td>&pound;1,288</td><td>&pound;904</td><td>&pound;308,228</td></tr><tr align="right"><td>89</td><td>2/2034</td><td>&pound;1,284</td><td>&pound;908</td><td>&pound;307,320</td></tr><tr align="right"><td>90</td><td>3/2034</td><td>&pound;1,280</td><td>&pound;912</td><td>&pound;306,408</td></tr><tr align="right"><td>91</td><td>4/2034</td><td>&pound;1,277</td><td>&pound;916</td><td>&pound;305,492</td></tr><tr align="right"><td>92</td><td>5/2034</td><td>&pound;1,273</td><td>&pound;919</td><td>&pound;304,573</td></tr><tr align="right"><td>93</td><td>6/2034</td><td>&pound;1,269</td><td>&pound;923</td><td>&pound;303,650</td></tr><tr align="right"><td>94</td><td>7/2034</td><td>&pound;1,265</td><td>&pound;927</td><td>&pound;302,723</td></tr><tr align="right"><td>95</td><td>8/2034</td><td>&pound;1,261</td><td>&pound;931</td><td>&pound;301,792</td></tr><tr align="right"><td>96</td><td>9/2034</td><td>&pound;1,257</td><td>&pound;935</td><td>&pound;300,857</td></tr><tr><td colspan="5" align="center">End of year 8</td></tr><tr align="right"><td>97</td><td>10/2034</td><td>&pound;1,254</td><td>&pound;939</td><td>&pound;299,919</td></tr><tr align="right"><td>98</td><td>11/2034</td><td>&pound;1,250</td><td>&pound;943</td><td>&pound;298,976</td></tr><tr align="right"><td>99</td><td>12/2034</td><td>&pound;1,246</td><td>&pound;946</td><td>&pound;298,030</td></tr><tr align="right"><td>100</td><td>1/2035</td><td>&pound;1,242</td><td>&pound;950</td><td>&pound;297,079</td></tr><tr align="right"><td>101</td><td>2/2035</td><td>&pound;1,238</td><td>&pound;954</td><td>&pound;296,125</td></tr><tr align="right"><td>102</td><td>3/2035</td><td>&pound;1,234</td><td>&pound;958</td><td>&pound;295,166</td></tr><tr align="right"><td>103</td><td>4/2035</td><td>&pound;1,230</td><td>&pound;962</td><td>&pound;294,204</td></tr><tr align="right"><td>104</td><td>5/2035</td><td>&pound;1,226</td><td>&pound;966</td><td>&pound;293,238</td></tr><tr align="right"><td>105</td><td>6/2035</td><td>&pound;1,222</td><td>&pound;970</td><td>&pound;292,267</td></tr><tr align="right"><td>106</td><td>7/2035</td><td>&pound;1,218</td><td>&pound;974</td><td>&pound;291,293</td></tr><tr align="right"><td>107</td><td>8/2035</td><td>&pound;1,214</td><td>&pound;978</td><td>&pound;290,314</td></tr><tr align="right"><td>108</td><td>9/2035</td><td>&pound;1,210</td><td>&pound;983</td><td>&pound;289,332</td></tr><tr><td colspan="5" align="center">End of year 9</td></tr><tr align="right"><td>109</td><td>10/2035</td><td>&pound;1,206</td><td>&pound;987</td><td>&pound;288,345</td></tr><tr align="right"><td>110</td><td>11/2035</td><td>&pound;1,201</td><td>&pound;991</td><td>&pound;287,354</td></tr><tr align="right"><td>111</td><td>12/2035</td><td>&pound;1,197</td><td>&pound;995</td><td>&pound;286,360</td></tr><tr align="right"><td>112</td><td>1/2036</td><td>&pound;1,193</td><td>&pound;999</td><td>&pound;285,360</td></tr><tr align="right"><td>113</td><td>2/2036</td><td>&pound;1,189</td><td>&pound;1,003</td><td>&pound;284,357</td></tr><tr align="right"><td>114</td><td>3/2036</td><td>&pound;1,185</td><td>&pound;1,007</td><td>&pound;283,350</td></tr><tr align="right"><td>115</td><td>4/2036</td><td>&pound;1,181</td><td>&pound;1,012</td><td>&pound;282,338</td></tr><tr align="right"><td>116</td><td>5/2036</td><td>&pound;1,176</td><td>&pound;1,016</td><td>&pound;281,322</td></tr><tr align="right"><td>117</td><td>6/2036</td><td>&pound;1,172</td><td>&pound;1,020</td><td>&pound;280,302</td></tr><tr align="right"><td>118</td><td>7/2036</td><td>&pound;1,168</td><td>&pound;1,024</td><td>&pound;279,278</td></tr><tr align="right"><td>119</td><td>8/2036</td><td>&pound;1,164</td><td>&pound;1,029</td><td>&pound;278,250</td></tr><tr align="right"><td>120</td><td>9/2036</td><td>&pound;1,159</td><td>&pound;1,033</td><td>&pound;277,217</td></tr><tr><td colspan="5" align="center">End of year 10</td></tr><tr align="right"><td>121</td><td>10/2036</td><td>&pound;1,155</td><td>&pound;1,037</td><td>&pound;276,180</td></tr><tr align="right"><td>122</td><td>11/2036</td><td>&pound;1,151</td><td>&pound;1,041</td><td>&pound;275,138</td></tr><tr align="right"><td>123</td><td>12/2036</td><td>&pound;1,146</td><td>&pound;1,046</td><td>&pound;274,092</td></tr><tr align="right"><td>124</td><td>1/2037</td><td>&pound;1,142</td><td>&pound;1,050</td><td>&pound;273,042</td></tr><tr align="right"><td>125</td><td>2/2037</td><td>&pound;1,138</td><td>&pound;1,055</td><td>&pound;271,988</td></tr><tr align="right"><td>126</td><td>3/2037</td><td>&pound;1,133</td><td>&pound;1,059</td><td>&pound;270,929</td></tr><tr align="right"><td>127</td><td>4/2037</td><td>&pound;1,129</td><td>&pound;1,063</td><td>&pound;269,865</td></tr><tr align="right"><td>128</td><td>5/2037</td><td>&pound;1,124</td><td>&pound;1,068</td><td>&pound;268,798</td></tr><tr align="right"><td>129</td><td>6/2037</td><td>&pound;1,120</td><td>&pound;1,072</td><td>&pound;267,725</td></tr><tr align="right"><td>130</td><td>7/2037</td><td>&pound;1,116</td><td>&pound;1,077</td><td>&pound;266,649</td></tr><tr align="right"><td>131</td><td>8/2037</td><td>&pound;1,111</td><td>&pound;1,081</td><td>&pound;265,568</td></tr><tr align="right"><td>132</td><td>9/2037</td><td>&pound;1,107</td><td>&pound;1,086</td><td>&pound;264,482</td></tr><tr><td colspan="5" align="center">End of year 11</td></tr><tr align="right"><td>133</td><td>10/2037</td><td>&pound;1,102</td><td>&pound;1,090</td><td>&pound;263,392</td></tr><tr align="right"><td>134</td><td>11/2037</td><td>&pound;1,097</td><td>&pound;1,095</td><td>&pound;262,297</td></tr><tr align="right"><td>135</td><td>12/2037</td><td>&pound;1,093</td><td>&pound;1,099</td><td>&pound;261,198</td></tr><tr align="right"><td>136</td><td>1/2038</td><td>&pound;1,088</td><td>&pound;1,104</td><td>&pound;260,094</td></tr><tr align="right"><td>137</td><td>2/2038</td><td>&pound;1,084</td><td>&pound;1,108</td><td>&pound;258,985</td></tr><tr align="right"><td>138</td><td>3/2038</td><td>&pound;1,079</td><td>&pound;1,113</td><td>&pound;257,872</td></tr><tr align="right"><td>139</td><td>4/2038</td><td>&pound;1,074</td><td>&pound;1,118</td><td>&pound;256,754</td></tr><tr align="right"><td>140</td><td>5/2038</td><td>&pound;1,070</td><td>&pound;1,122</td><td>&pound;255,632</td></tr><tr align="right"><td>141</td><td>6/2038</td><td>&pound;1,065</td><td>&pound;1,127</td><td>&pound;254,505</td></tr><tr align="right"><td>142</td><td>7/2038</td><td>&pound;1,060</td><td>&pound;1,132</td><td>&pound;253,373</td></tr><tr align="right"><td>143</td><td>8/2038</td><td>&pound;1,056</td><td>&pound;1,136</td><td>&pound;252,237</td></tr><tr align="right"><td>144</td><td>9/2038</td><td>&pound;1,051</td><td>&pound;1,141</td><td>&pound;251,095</td></tr><tr><td colspan="5" align="center">End of year 12</td></tr><tr align="right"><td>145</td><td>10/2038</td><td>&pound;1,046</td><td>&pound;1,146</td><td>&pound;249,949</td></tr><tr align="right"><td>146</td><td>11/2038</td><td>&pound;1,041</td><td>&pound;1,151</td><td>&pound;248,799</td></tr><tr align="right"><td>147</td><td>12/2038</td><td>&pound;1,037</td><td>&pound;1,156</td><td>&pound;247,643</td></tr><tr align="right"><td>148</td><td>1/2039</td><td>&pound;1,032</td><td>&pound;1,160</td><td>&pound;246,483</td></tr><tr align="right"><td>149</td><td>2/2039</td><td>&pound;1,027</td><td>&pound;1,165</td><td>&pound;245,318</td></tr><tr align="right"><td>150</td><td>3/2039</td><td>&pound;1,022</td><td>&pound;1,170</td><td>&pound;244,147</td></tr><tr align="right"><td>151</td><td>4/2039</td><td>&pound;1,017</td><td>&pound;1,175</td><td>&pound;242,973</td></tr><tr align="right"><td>152</td><td>5/2039</td><td>&pound;1,012</td><td>&pound;1,180</td><td>&pound;241,793</td></tr><tr align="right"><td>153</td><td>6/2039</td><td>&pound;1,007</td><td>&pound;1,185</td><td>&pound;240,608</td></tr><tr align="right"><td>154</td><td>7/2039</td><td>&pound;1,003</td><td>&pound;1,190</td><td>&pound;239,418</td></tr><tr align="right"><td>155</td><td>8/2039</td><td>&pound;998</td><td>&pound;1,195</td><td>&pound;238,224</td></tr><tr align="right"><td>156</td><td>9/2039</td><td>&pound;993</td><td>&pound;1,200</td><td>&pound;237,024</td></tr><tr><td colspan="5" align="center">End of year 13</td></tr><tr align="right"><td>157</td><td>10/2039</td><td>&pound;988</td><td>&pound;1,205</td><td>&pound;235,819</td></tr><tr align="right"><td>158</td><td>11/2039</td><td>&pound;983</td><td>&pound;1,210</td><td>&pound;234,610</td></tr><tr align="right"><td>159</td><td>12/2039</td><td>&pound;978</td><td>&pound;1,215</td><td>&pound;233,395</td></tr><tr align="right"><td>160</td><td>1/2040</td><td>&pound;972</td><td>&pound;1,220</td><td>&pound;232,175</td></tr><tr align="right"><td>161</td><td>2/2040</td><td>&pound;967</td><td>&pound;1,225</td><td>&pound;230,951</td></tr><tr align="right"><td>162</td><td>3/2040</td><td>&pound;962</td><td>&pound;1,230</td><td>&pound;229,721</td></tr><tr align="right"><td>163</td><td>4/2040</td><td>&pound;957</td><td>&pound;1,235</td><td>&pound;228,486</td></tr><tr align="right"><td>164</td><td>5/2040</td><td>&pound;952</td><td>&pound;1,240</td><td>&pound;227,245</td></tr><tr align="right"><td>165</td><td>6/2040</td><td>&pound;947</td><td>&pound;1,245</td><td>&pound;226,000</td></tr><tr align="right"><td>166</td><td>7/2040</td><td>&pound;942</td><td>&pound;1,251</td><td>&pound;224,750</td></tr><tr align="right"><td>167</td><td>8/2040</td><td>&pound;936</td><td>&pound;1,256</td><td>&pound;223,494</td></tr><tr align="right"><td>168</td><td>9/2040</td><td>&pound;931</td><td>&pound;1,261</td><td>&pound;222,233</td></tr><tr><td colspan="5" align="center">End of year 14</td></tr><tr align="right"><td>169</td><td>10/2040</td><td>&pound;926</td><td>&pound;1,266</td><td>&pound;220,967</td></tr><tr align="right"><td>170</td><td>11/2040</td><td>&pound;921</td><td>&pound;1,272</td><td>&pound;219,695</td></tr><tr align="right"><td>171</td><td>12/2040</td><td>&pound;915</td><td>&pound;1,277</td><td>&pound;218,418</td></tr><tr align="right"><td>172</td><td>1/2041</td><td>&pound;910</td><td>&pound;1,282</td><td>&pound;217,136</td></tr><tr align="right"><td>173</td><td>2/2041</td><td>&pound;905</td><td>&pound;1,287</td><td>&pound;215,849</td></tr><tr align="right"><td>174</td><td>3/2041</td><td>&pound;899</td><td>&pound;1,293</td><td>&pound;214,556</td></tr><tr align="right"><td>175</td><td>4/2041</td><td>&pound;894</td><td>&pound;1,298</td><td>&pound;213,258</td></tr><tr align="right"><td>176</td><td>5/2041</td><td>&pound;889</td><td>&pound;1,304</td><td>&pound;211,954</td></tr><tr align="right"><td>177</td><td>6/2041</td><td>&pound;883</td><td>&pound;1,309</td><td>&pound;210,645</td></tr><tr align="right"><td>178</td><td>7/2041</td><td>&pound;878</td><td>&pound;1,315</td><td>&pound;209,330</td></tr><tr align="right"><td>179</td><td>8/2041</td><td>&pound;872</td><td>&pound;1,320</td><td>&pound;208,010</td></tr><tr align="right"><td>180</td><td>9/2041</td><td>&pound;867</td><td>&pound;1,326</td><td>&pound;206,685</td></tr><tr><td colspan="5" align="center">End of year 15</td></tr><tr align="right"><td>181</td><td>10/2041</td><td>&pound;861</td><td>&pound;1,331</td><td>&pound;205,354</td></tr><tr align="right"><td>182</td><td>11/2041</td><td>&pound;856</td><td>&pound;1,337</td><td>&pound;204,017</td></tr><tr align="right"><td>183</td><td>12/2041</td><td>&pound;850</td><td>&pound;1,342</td><td>&pound;202,675</td></tr><tr align="right"><td>184</td><td>1/2042</td><td>&pound;844</td><td>&pound;1,348</td><td>&pound;201,327</td></tr><tr align="right"><td>185</td><td>2/2042</td><td>&pound;839</td><td>&pound;1,353</td><td>&pound;199,974</td></tr><tr align="right"><td>186</td><td>3/2042</td><td>&pound;833</td><td>&pound;1,359</td><td>&pound;198,615</td></tr><tr align="right"><td>187</td><td>4/2042</td><td>&pound;828</td><td>&pound;1,365</td><td>&pound;197,250</td></tr><tr align="right"><td>188</td><td>5/2042</td><td>&pound;822</td><td>&pound;1,370</td><td>&pound;195,880</td></tr><tr align="right"><td>189</td><td>6/2042</td><td>&pound;816</td><td>&pound;1,376</td><td>&pound;194,504</td></tr><tr align="right"><td>190</td><td>7/2042</td><td>&pound;810</td><td>&pound;1,382</td><td>&pound;193,122</td></tr><tr align="right"><td>191</td><td>8/2042</td><td>&pound;805</td><td>&pound;1,388</td><td>&pound;191,735</td></tr><tr align="right"><td>192</td><td>9/2042</td><td>&pound;799</td><td>&pound;1,393</td><td>&pound;190,341</td></tr><tr><td colspan="5" align="center">End of year 16</td></tr><tr align="right"><td>193</td><td>10/2042</td><td>&pound;793</td><td>&pound;1,399</td><td>&pound;188,942</td></tr><tr align="right"><td>194</td><td>11/2042</td><td>&pound;787</td><td>&pound;1,405</td><td>&pound;187,537</td></tr><tr align="right"><td>195</td><td>12/2042</td><td>&pound;781</td><td>&pound;1,411</td><td>&pound;186,126</td></tr><tr align="right"><td>196</td><td>1/2043</td><td>&pound;776</td><td>&pound;1,417</td><td>&pound;184,710</td></tr><tr align="right"><td>197</td><td>2/2043</td><td>&pound;770</td><td>&pound;1,423</td><td>&pound;183,287</td></tr><tr align="right"><td>198</td><td>3/2043</td><td>&pound;764</td><td>&pound;1,429</td><td>&pound;181,859</td></tr><tr align="right"><td>199</td><td>4/2043</td><td>&pound;758</td><td>&pound;1,434</td><td>&pound;180,424</td></tr><tr align="right"><td>200</td><td>5/2043</td><td>&pound;752</td><td>&pound;1,440</td><td>&pound;178,984</td></tr><tr align="right"><td>201</td><td>6/2043</td><td>&pound;746</td><td>&pound;1,446</td><td>&pound;177,537</td></tr><tr align="right"><td>202</td><td>7/2043</td><td>&pound;740</td><td>&pound;1,452</td><td>&pound;176,085</td></tr><tr align="right"><td>203</td><td>8/2043</td><td>&pound;734</td><td>&pound;1,459</td><td>&pound;174,626</td></tr><tr align="right"><td>204</td><td>9/2043</td><td>&pound;728</td><td>&pound;1,465</td><td>&pound;173,162</td></tr><tr><td colspan="5" align="center">End of year 17</td></tr><tr align="right"><td>205</td><td>10/2043</td><td>&pound;722</td><td>&pound;1,471</td><td>&pound;171,691</td></tr><tr align="right"><td>206</td><td>11/2043</td><td>&pound;715</td><td>&pound;1,477</td><td>&pound;170,214</td></tr><tr align="right"><td>207</td><td>12/2043</td><td>&pound;709</td><td>&pound;1,483</td><td>&pound;168,731</td></tr><tr align="right"><td>208</td><td>1/2044</td><td>&pound;703</td><td>&pound;1,489</td><td>&pound;167,242</td></tr><tr align="right"><td>209</td><td>2/2044</td><td>&pound;697</td><td>&pound;1,495</td><td>&pound;165,747</td></tr><tr align="right"><td>210</td><td>3/2044</td><td>&pound;691</td><td>&pound;1,502</td><td>&pound;164,245</td></tr><tr align="right"><td>211</td><td>4/2044</td><td>&pound;684</td><td>&pound;1,508</td><td>&pound;162,737</td></tr><tr align="right"><td>212</td><td>5/2044</td><td>&pound;678</td><td>&pound;1,514</td><td>&pound;161,223</td></tr><tr align="right"><td>213</td><td>6/2044</td><td>&pound;672</td><td>&pound;1,520</td><td>&pound;159,703</td></tr><tr align="right"><td>214</td><td>7/2044</td><td>&pound;665</td><td>&pound;1,527</td><td>&pound;158,176</td></tr><tr align="right"><td>215</td><td>8/2044</td><td>&pound;659</td><td>&pound;1,533</td><td>&pound;156,643</td></tr><tr align="right"><td>216</td><td>9/2044</td><td>&pound;653</td><td>&pound;1,540</td><td>&pound;155,103</td></tr><tr><td colspan="5" align="center">End of year 18</td></tr><tr align="right"><td>217</td><td>10/2044</td><td>&pound;646</td><td>&pound;1,546</td><td>&pound;153,557</td></tr><tr align="right"><td>218</td><td>11/2044</td><td>&pound;640</td><td>&pound;1,552</td><td>&pound;152,005</td></tr><tr align="right"><td>219</td><td>12/2044</td><td>&pound;633</td><td>&pound;1,559</td><td>&pound;150,446</td></tr><tr align="right"><td>220</td><td>1/2045</td><td>&pound;627</td><td>&pound;1,565</td><td>&pound;148,881</td></tr><tr align="right"><td>221</td><td>2/2045</td><td>&pound;620</td><td>&pound;1,572</td><td>&pound;147,309</td></tr><tr align="right"><td>222</td><td>3/2045</td><td>&pound;614</td><td>&pound;1,578</td><td>&pound;145,730</td></tr><tr align="right"><td>223</td><td>4/2045</td><td>&pound;607</td><td>&pound;1,585</td><td>&pound;144,145</td></tr><tr align="right"><td>224</td><td>5/2045</td><td>&pound;601</td><td>&pound;1,592</td><td>&pound;142,554</td></tr><tr align="right"><td>225</td><td>6/2045</td><td>&pound;594</td><td>&pound;1,598</td><td>&pound;140,955</td></tr><tr align="right"><td>226</td><td>7/2045</td><td>&pound;587</td><td>&pound;1,605</td><td>&pound;139,350</td></tr><tr align="right"><td>227</td><td>8/2045</td><td>&pound;581</td><td>&pound;1,612</td><td>&pound;137,739</td></tr><tr align="right"><td>228</td><td>9/2045</td><td>&pound;574</td><td>&pound;1,618</td><td>&pound;136,121</td></tr><tr><td colspan="5" align="center">End of year 19</td></tr><tr align="right"><td>229</td><td>10/2045</td><td>&pound;567</td><td>&pound;1,625</td><td>&pound;134,496</td></tr><tr align="right"><td>230</td><td>11/2045</td><td>&pound;560</td><td>&pound;1,632</td><td>&pound;132,864</td></tr><tr align="right"><td>231</td><td>12/2045</td><td>&pound;554</td><td>&pound;1,639</td><td>&pound;131,225</td></tr><tr align="right"><td>232</td><td>1/2046</td><td>&pound;547</td><td>&pound;1,645</td><td>&pound;129,580</td></tr><tr align="right"><td>233</td><td>2/2046</td><td>&pound;540</td><td>&pound;1,652</td><td>&pound;127,927</td></tr><tr align="right"><td>234</td><td>3/2046</td><td>&pound;533</td><td>&pound;1,659</td><td>&pound;126,268</td></tr><tr align="right"><td>235</td><td>4/2046</td><td>&pound;526</td><td>&pound;1,666</td><td>&pound;124,602</td></tr><tr align="right"><td>236</td><td>5/2046</td><td>&pound;519</td><td>&pound;1,673</td><td>&pound;122,929</td></tr><tr align="right"><td>237</td><td>6/2046</td><td>&pound;512</td><td>&pound;1,680</td><td>&pound;121,249</td></tr><tr align="right"><td>238</td><td>7/2046</td><td>&pound;505</td><td>&pound;1,687</td><td>&pound;119,562</td></tr><tr align="right"><td>239</td><td>8/2046</td><td>&pound;498</td><td>&pound;1,694</td><td>&pound;117,868</td></tr><tr align="right"><td>240</td><td>9/2046</td><td>&pound;491</td><td>&pound;1,701</td><td>&pound;116,167</td></tr><tr><td colspan="5" align="center">End of year 20</td></tr><tr align="right"><td>241</td><td>10/2046</td><td>&pound;484</td><td>&pound;1,708</td><td>&pound;114,459</td></tr><tr align="right"><td>242</td><td>11/2046</td><td>&pound;477</td><td>&pound;1,715</td><td>&pound;112,743</td></tr><tr align="right"><td>243</td><td>12/2046</td><td>&pound;470</td><td>&pound;1,722</td><td>&pound;111,021</td></tr><tr align="right"><td>244</td><td>1/2047</td><td>&pound;463</td><td>&pound;1,730</td><td>&pound;109,291</td></tr><tr align="right"><td>245</td><td>2/2047</td><td>&pound;455</td><td>&pound;1,737</td><td>&pound;107,555</td></tr><tr align="right"><td>246</td><td>3/2047</td><td>&pound;448</td><td>&pound;1,744</td><td>&pound;105,810</td></tr><tr align="right"><td>247</td><td>4/2047</td><td>&pound;441</td><td>&pound;1,751</td><td>&pound;104,059</td></tr><tr align="right"><td>248</td><td>5/2047</td><td>&pound;434</td><td>&pound;1,759</td><td>&pound;102,300</td></tr><tr align="right"><td>249</td><td>6/2047</td><td>&pound;426</td><td>&pound;1,766</td><td>&pound;100,535</td></tr><tr align="right"><td>250</td><td>7/2047</td><td>&pound;419</td><td>&pound;1,773</td><td>&pound;98,761</td></tr><tr align="right"><td>251</td><td>8/2047</td><td>&pound;412</td><td>&pound;1,781</td><td>&pound;96,980</td></tr><tr align="right"><td>252</td><td>9/2047</td><td>&pound;404</td><td>&pound;1,788</td><td>&pound;95,192</td></tr><tr><td colspan="5" align="center">End of year 21</td></tr><tr align="right"><td>253</td><td>10/2047</td><td>&pound;397</td><td>&pound;1,796</td><td>&pound;93,397</td></tr><tr align="right"><td>254</td><td>11/2047</td><td>&pound;389</td><td>&pound;1,803</td><td>&pound;91,594</td></tr><tr align="right"><td>255</td><td>12/2047</td><td>&pound;382</td><td>&pound;1,811</td><td>&pound;89,783</td></tr><tr align="right"><td>256</td><td>1/2048</td><td>&pound;374</td><td>&pound;1,818</td><td>&pound;87,965</td></tr><tr align="right"><td>257</td><td>2/2048</td><td>&pound;367</td><td>&pound;1,826</td><td>&pound;86,139</td></tr><tr align="right"><td>258</td><td>3/2048</td><td>&pound;359</td><td>&pound;1,833</td><td>&pound;84,306</td></tr><tr align="right"><td>259</td><td>4/2048</td><td>&pound;351</td><td>&pound;1,841</td><td>&pound;82,465</td></tr><tr align="right"><td>260</td><td>5/2048</td><td>&pound;344</td><td>&pound;1,849</td><td>&pound;80,616</td></tr><tr align="right"><td>261</td><td>6/2048</td><td>&pound;336</td><td>&pound;1,856</td><td>&pound;78,760</td></tr><tr align="right"><td>262</td><td>7/2048</td><td>&pound;328</td><td>&pound;1,864</td><td>&pound;76,896</td></tr><tr align="right"><td>263</td><td>8/2048</td><td>&pound;320</td><td>&pound;1,872</td><td>&pound;75,024</td></tr><tr align="right"><td>264</td><td>9/2048</td><td>&pound;313</td><td>&pound;1,880</td><td>&pound;73,145</td></tr><tr><td colspan="5" align="center">End of year 22</td></tr><tr align="right"><td>265</td><td>10/2048</td><td>&pound;305</td><td>&pound;1,887</td><td>&pound;71,257</td></tr><tr align="right"><td>266</td><td>11/2048</td><td>&pound;297</td><td>&pound;1,895</td><td>&pound;69,362</td></tr><tr align="right"><td>267</td><td>12/2048</td><td>&pound;289</td><td>&pound;1,903</td><td>&pound;67,459</td></tr><tr align="right"><td>268</td><td>1/2049</td><td>&pound;281</td><td>&pound;1,911</td><td>&pound;65,548</td></tr><tr align="right"><td>269</td><td>2/2049</td><td>&pound;273</td><td>&pound;1,919</td><td>&pound;63,629</td></tr><tr align="right"><td>270</td><td>3/2049</td><td>&pound;265</td><td>&pound;1,927</td><td>&pound;61,701</td></tr><tr align="right"><td>271</td><td>4/2049</td><td>&pound;257</td><td>&pound;1,935</td><td>&pound;59,766</td></tr><tr align="right"><td>272</td><td>5/2049</td><td>&pound;249</td><td>&pound;1,943</td><td>&pound;57,823</td></tr><tr align="right"><td>273</td><td>6/2049</td><td>&pound;241</td><td>&pound;1,951</td><td>&pound;55,872</td></tr><tr align="right"><td>274</td><td>7/2049</td><td>&pound;233</td><td>&pound;1,959</td><td>&pound;53,912</td></tr><tr align="right"><td>275</td><td>8/2049</td><td>&pound;225</td><td>&pound;1,968</td><td>&pound;51,945</td></tr><tr align="right"><td>276</td><td>9/2049</td><td>&pound;216</td><td>&pound;1,976</td><td>&pound;49,969</td></tr><tr><td colspan="5" align="center">End of year 23</td></tr><tr align="right"><td>277</td><td>10/2049</td><td>&pound;208</td><td>&pound;1,984</td><td>&pound;47,985</td></tr><tr align="right"><td>278</td><td>11/2049</td><td>&pound;200</td><td>&pound;1,992</td><td>&pound;45,993</td></tr><tr align="right"><td>279</td><td>12/2049</td><td>&pound;192</td><td>&pound;2,001</td><td>&pound;43,992</td></tr><tr align="right"><td>280</td><td>1/2050</td><td>&pound;183</td><td>&pound;2,009</td><td>&pound;41,983</td></tr><tr align="right"><td>281</td><td>2/2050</td><td>&pound;175</td><td>&pound;2,017</td><td>&pound;39,966</td></tr><tr align="right"><td>282</td><td>3/2050</td><td>&pound;167</td><td>&pound;2,026</td><td>&pound;37,940</td></tr><tr align="right"><td>283</td><td>4/2050</td><td>&pound;158</td><td>&pound;2,034</td><td>&pound;35,906</td></tr><tr align="right"><td>284</td><td>5/2050</td><td>&pound;150</td><td>&pound;2,043</td><td>&pound;33,864</td></tr><tr align="right"><td>285</td><td>6/2050</td><td>&pound;141</td><td>&pound;2,051</td><td>&pound;31,812</td></tr><tr align="right"><td>286</td><td>7/2050</td><td>&pound;133</td><td>&pound;2,060</td><td>&pound;29,753</td></tr><tr align="right"><td>287</td><td>8/2050</td><td>&pound;124</td><td>&pound;2,068</td><td>&pound;27,685</td></tr><tr align="right"><td>288</td><td>9/2050</td><td>&pound;115</td><td>&pound;2,077</td><td>&pound;25,608</td></tr><tr><td colspan="5" align="center">End of year 24</td></tr><tr align="right"><td>289</td><td>10/2050</td><td>&pound;107</td><td>&pound;2,086</td><td>&pound;23,522</td></tr><tr align="right"><td>290</td><td>11/2050</td><td>&pound;98</td><td>&pound;2,094</td><td>&pound;21,428</td></tr><tr align="right"><td>291</td><td>12/2050</td><td>&pound;89</td><td>&pound;2,103</td><td>&pound;19,325</td></tr><tr align="right"><td>292</td><td>1/2051</td><td>&pound;81</td><td>&pound;2,112</td><td>&pound;17,213</td></tr><tr align="right"><td>293</td><td>2/2051</td><td>&pound;72</td><td>&pound;2,120</td><td>&pound;15,093</td></tr><tr align="right"><td>294</td><td>3/2051</td><td>&pound;63</td><td>&pound;2,129</td><td>&pound;12,964</td></tr><tr align="right"><td>295</td><td>4/2051</td><td>&pound;54</td><td>&pound;2,138</td><td>&pound;10,825</td></tr><tr align="right"><td>296</td><td>5/2051</td><td>&pound;45</td><td>&pound;2,147</td><td>&pound;8,678</td></tr><tr align="right"><td>297</td><td>6/2051</td><td>&pound;36</td><td>&pound;2,156</td><td>&pound;6,522</td></tr><tr align="right"><td>298</td><td>7/2051</td><td>&pound;27</td><td>&pound;2,165</td><td>&pound;4,357</td></tr><tr align="right"><td>299</td><td>8/2051</td><td>&pound;18</td><td>&pound;2,174</td><td>&pound;2,183</td></tr><tr align="right"><td>300</td><td>9/2051</td><td>&pound;9</td><td>&pound;2,183</td><td>&pound;0</td></tr><tr><td colspan="5" align="center">End of year 25</td></tr></table></div><div id="yearlyamo"><table class="cinfoT"><tr align="center"><th>Year</th><th>Date</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>10/26-9/27</td><td>&pound;18,574</td><td>&pound;7,732</td><td>&pound;367,268</td></tr><tr align="right"><td>2</td><td>10/27-9/28</td><td>&pound;18,179</td><td>&pound;8,128</td><td>&pound;359,140</td></tr><tr align="right"><td>3</td><td>10/28-9/29</td><td>&pound;17,763</td><td>&pound;8,544</td><td>&pound;350,597</td></tr><tr align="right"><td>4</td><td>10/29-9/30</td><td>&pound;17,326</td><td>&pound;8,981</td><td>&pound;341,616</td></tr><tr align="right"><td>5</td><td>10/30-9/31</td><td>&pound;16,866</td><td>&pound;9,440</td><td>&pound;332,176</td></tr><tr align="right"><td>6</td><td>10/31-9/32</td><td>&pound;16,383</td><td>&pound;9,923</td><td>&pound;322,253</td></tr><tr align="right"><td>7</td><td>10/32-9/33</td><td>&pound;15,876</td><td>&pound;10,431</td><td>&pound;311,822</td></tr><tr align="right"><td>8</td><td>10/33-9/34</td><td>&pound;15,342</td><td>&pound;10,964</td><td>&pound;300,857</td></tr><tr align="right"><td>9</td><td>10/34-9/35</td><td>&pound;14,781</td><td>&pound;11,525</td><td>&pound;289,332</td></tr><tr align="right"><td>10</td><td>10/35-9/36</td><td>&pound;14,191</td><td>&pound;12,115</td><td>&pound;277,217</td></tr><tr align="right"><td>11</td><td>10/36-9/37</td><td>&pound;13,572</td><td>&pound;12,735</td><td>&pound;264,482</td></tr><tr align="right"><td>12</td><td>10/37-9/38</td><td>&pound;12,920</td><td>&pound;13,386</td><td>&pound;251,095</td></tr><tr align="right"><td>13</td><td>10/38-9/39</td><td>&pound;12,235</td><td>&pound;14,071</td><td>&pound;237,024</td></tr><tr align="right"><td>14</td><td>10/39-9/40</td><td>&pound;11,515</td><td>&pound;14,791</td><td>&pound;222,233</td></tr><tr align="right"><td>15</td><td>10/40-9/41</td><td>&pound;10,759</td><td>&pound;15,548</td><td>&pound;206,685</td></tr><tr align="right"><td>16</td><td>10/41-9/42</td><td>&pound;9,963</td><td>&pound;16,343</td><td>&pound;190,341</td></tr><tr align="right"><td>17</td><td>10/42-9/43</td><td>&pound;9,127</td><td>&pound;17,180</td><td>&pound;173,162</td></tr><tr align="right"><td>18</td><td>10/43-9/44</td><td>&pound;8,248</td><td>&pound;18,059</td><td>&pound;155,103</td></tr><tr align="right"><td>19</td><td>10/44-9/45</td><td>&pound;7,324</td><td>&pound;18,982</td><td>&pound;136,121</td></tr><tr align="right"><td>20</td><td>10/45-9/46</td><td>&pound;6,353</td><td>&pound;19,954</td><td>&pound;116,167</td></tr><tr align="right"><td>21</td><td>10/46-9/47</td><td>&pound;5,332</td><td>&pound;20,975</td><td>&pound;95,192</td></tr><tr align="right"><td>22</td><td>10/47-9/48</td><td>&pound;4,259</td><td>&pound;22,048</td><td>&pound;73,145</td></tr><tr align="right"><td>23</td><td>10/48-9/49</td><td>&pound;3,131</td><td>&pound;23,176</td><td>&pound;49,969</td></tr><tr align="right"><td>24</td><td>10/49-9/50</td><td>&pound;1,945</td><td>&pound;24,361</td><td>&pound;25,608</td></tr><tr align="right"><td>25</td><td>10/50-9/51</td><td>&pound;699</td><td>&pound;25,608</td><td>&pound;0</td></tr></table></div></div><div id="clear"></div><script>
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("chouseprice");
-proComma2("cdownpayment");
-proComma2("cpropertytaxes");
-proComma2("chomeins");
-proComma2("cothercost");
-proComma2("cpmi");
-
-function amoChange(acVal){
-	if (document.getElementById("monthlyamo")){
-		if (acVal==1){
-			document.getElementById("monthlyamo").style.display = "block";
-			document.getElementById("yearlyamo").style.display = "none";
-			document.getElementById("amoselect").innerHTML = "<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule</b>";
-		}else{
-			document.getElementById("monthlyamo").style.display = "none";
-			document.getElementById("yearlyamo").style.display = "block";
-			document.getElementById("amoselect").innerHTML = "Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
-		}
-	}
-}
-amoChange(0);
-</script>
-
-<br><br>
-<p>In the United Kingdom (UK), it is usually very helpful when potential mortgage borrowers show good preparation for the process by bringing along all the information that may be required when applying for a mortgage at a bank, such as:</p>
-<ol>
-	<li>addresses for the last three years, no gaps</li>
-	<li>income information for the last three months, as well as three years of income records</li>
-	<li>bank statements for the past three months, though it can help to have more</li>
-	<li>documentation of loans or credit cards</li>
-</ol>
-<p>On top of that, a good second step is to check credit scores and raise any questionable negative marks with the banker that issues the mortgage. Assuming good credit in the UK, it is possible to borrow with a relatively small down payment. There are many mortgage loan products requiring deposits of 5% or less of the property value, though it can change accordingly with market conditions.</p>
-
-<h3>Tracker Mortgage</h3>
-<p>A tracker mortgage is a type of mortgage that follows the movements of other rates, the most common of which is the Bank of England base rate. Most banks in the UK favor variable-rate mortgages in one form or another. Therefore, there are a wider variety of mortgages of this type in the UK. Some mortgages start out as trackers and, after a few years, become standard variable-rate mortgages.</p>
-<p>Introductory tracker rates can be among the lowest mortgage interest rates available. However, like all variable rates, they can go up as well as down. Also, most introductory tracker rates will likely have an early repayment charge when remortgaged or repaid during the introductory period. Borrowers with a lifetime tracker mortgage can expect to see early repayment charges for a period after being taken out.</p>
-
-<h3>Flexible Mortgage</h3>
-<p>A flexible mortgage is a mortgage type that allows the borrower to overpay, underpay, or take a payment holiday from a mortgage from time to time. The overpayment feature can be used to pay the loan down faster, either in lump sums or as part of the regular payment process. The underpayment feature is used to make lower monthly payments from time to time, and payment holidays can be used to avoid payment for brief stints, sometimes up to six months. However, these features usually come with special charges and conditions, so shop around carefully and compare the costs of flexible mortgages.</p>
-
-<h3>Stamp Duty</h3>
-<p>A unique aspect of mortgages in the UK is stamp duty, which is a tax that is charged as a percentage of the purchase price when a property is bought. Depending on the price bracket that the property falls in, the percentage can vary:</p>
-<table class="cinfoT" align="center">
-	<tr><td>Up to &pound;250,000</td><td>0%</td></tr>
-	<tr><td>From &pound;250,001 to &pound;925,000</td><td>5%</td></tr>
-	<tr><td>From &pound;925,001 to &pound;1,500,000</td><td>10%</td></tr>
-	<tr><td>Over &pound;1,500,001</td><td>12%</td></tr>
-</table>
-<p>There is a special discount (relief) for first-time buyers if the purchase price is &pound;625,000 or less. Stamp tax is not applicable for first-time buyers of properties worth &pound;425,000 or less and the existing rate of 5% will apply between &pound;425,000 and &pound;625,000. Properties over &pound;625,000 follow the same rules as buyers not buying for the first time.</p>
-<p>There are other special rules that apply in regards to stamp duty in the UK, such as higher rates for additional properties and different rates in different countries. Furthermore, special rules apply in specific instances, including the replacement of a main residence, when corporate bodies or shared ownership properties are involved, when buying six or more properties in one transaction, for multiple transfers between the same buyers and sellers, and many more. Stamp duty can be complex, and it is best to consult professionals to determine the precise rate that will be charged on any property purchase.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator UK – Monthly Repayments, Interest-Only & Stamp Duty</title>
+<meta name="description" content="Free UK mortgage calculator in pounds (£): work out monthly repayments, interest-only payments, total interest and a full amortisation schedule. Includes stamp duty bands for England.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.adxcal.com/mortgage-calculator-uk.html">
+<link rel="alternate" hreflang="en-gb" href="https://www.adxcal.com/mortgage-calculator-uk.html">
+<link rel="alternate" hreflang="x-default" href="https://www.adxcal.com/mortgage-calculator-uk.html">
+<meta name="geo.region" content="GB">
+<meta name="theme-color" content="#1a5fb4">
+<meta name="author" content="adxcal.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="adxcal.com">
+<meta property="og:title" content="Mortgage Calculator UK – Monthly Repayments, Interest-Only & Stamp Duty">
+<meta property="og:description" content="Free UK mortgage calculator in pounds (£): work out monthly repayments, interest-only payments, total interest and a full amortisation schedule. Includes stamp duty bands for England.">
+<meta property="og:url" content="https://www.adxcal.com/mortgage-calculator-uk.html">
+<meta property="og:image" content="https://www.adxcal.com/img/og-mortgage-calculator-uk.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="UK mortgage calculator showing monthly repayment in pounds">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Calculator UK – Monthly Repayments, Interest-Only & Stamp Duty">
+<meta name="twitter:description" content="Free UK mortgage calculator in pounds (£): work out monthly repayments, interest-only payments, total interest and a full amortisation schedule. Includes stamp duty bands for England.">
+<meta name="twitter:image" content="https://www.adxcal.com/img/og-mortgage-calculator-uk.png">
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<script src="/js/common.js" defer></script>
+<style>
+details{margin:8px 0;padding:8px 12px;border:1px solid #ddd;border-radius:6px}
+summary{cursor:pointer;list-style:none} summary h3{display:inline;font-size:1em;margin:0}
+.formula{background:#f4f7fb;border-left:4px solid #1a5fb4;padding:10px 14px;margin:12px 0;font-family:Consolas,monospace;overflow-x:auto}
+.toc a{margin-right:12px} .tablewrap{overflow-x:auto}
+.disclaimer{background:#fff8e5;border:1px solid #f0d28a;padding:10px 14px;border-radius:6px;font-size:.9em}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.adxcal.com/#org",
+   "name": "adxcal.com",
+   "url": "https://www.adxcal.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/apple-touch-icon.png"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.adxcal.com/#website",
+   "url": "https://www.adxcal.com/",
+   "name": "adxcal.com",
+   "publisher": {
+    "@id": "https://www.adxcal.com/#org"
+   },
+   "inLanguage": "en-GB"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://www.adxcal.com/mortgage-calculator-uk.html#webpage",
+   "url": "https://www.adxcal.com/mortgage-calculator-uk.html",
+   "name": "Mortgage Calculator UK – Monthly Repayments, Interest-Only & Stamp Duty",
+   "description": "Free UK mortgage calculator in pounds (£): work out monthly repayments, interest-only payments, total interest and a full amortisation schedule. Includes stamp duty bands for England.",
+   "isPartOf": {
+    "@id": "https://www.adxcal.com/#website"
+   },
+   "inLanguage": "en-GB",
+   "dateModified": "2026-10-25",
+   "breadcrumb": {
+    "@id": "https://www.adxcal.com/mortgage-calculator-uk.html#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/img/og-mortgage-calculator-uk.png"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://www.adxcal.com/mortgage-calculator-uk.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.adxcal.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Financial Calculators",
+     "item": "https://www.adxcal.com/financial-calculator.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Mortgage Calculator UK",
+     "item": "https://www.adxcal.com/mortgage-calculator-uk.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Mortgage Calculator UK",
+   "url": "https://www.adxcal.com/mortgage-calculator-uk.html",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "Any",
+   "browserRequirements": "Requires JavaScript",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+   },
+   "description": "Free UK mortgage calculator in pounds (£): work out monthly repayments, interest-only payments, total interest and a full amortisation schedule. Includes stamp duty bands for England.",
+   "countriesSupported": "GB",
+   "inLanguage": "en-GB"
+  },
+  {
+   "@type": "HowTo",
+   "name": "How to calculate your UK mortgage repayments",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Enter the home price and deposit",
+     "text": "Enter the property price in pounds and your deposit as a percentage."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Set the term and interest rate",
+     "text": "Enter the loan term in years and the annual interest rate."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Add optional costs",
+     "text": "Tick the optional box to include taxes, home insurance, mortgage insurance and other yearly costs."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "name": "Click Calculate",
+     "text": "See your monthly repayment, interest-only payment, total interest and the amortisation schedule."
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate my monthly mortgage payment?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Use M = P × r × (1 + r)^n ÷ ((1 + r)^n − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12) and n is the number of monthly payments. For a £375,000 loan at 5% over 25 years (300 payments), the repayment is about £2,192 per month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the difference between repayment and interest-only?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "With a repayment mortgage each payment covers interest and some of the loan, so the debt is cleared by the end of the term. With interest-only you pay just the interest, so the full loan is still owed at the end and you need a separate plan to repay it. On £375,000 at 5%, interest-only is £1,562.50 a month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much deposit do I need for a mortgage in the UK?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Many lenders offer mortgages with a deposit of 5% of the property price, though larger deposits usually unlock lower interest rates. Availability changes with market conditions."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much stamp duty will I pay?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In England and Northern Ireland, Stamp Duty Land Tax is charged on bands of the price: 0% up to £125,000, 2% from £125,001 to £250,000, 5% from £250,001 to £925,000, 10% from £925,001 to £1.5 million and 12% above that. First-time buyers pay 0% up to £300,000 and 5% from £300,001 to £500,000 and get no relief above £500,000. Scotland (LBTT) and Wales (LTT) use different rules. Always confirm current rates on GOV.UK."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is a tracker mortgage?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A tracker mortgage follows another rate, most commonly the Bank of England base rate, plus a set margin. Your payments can go up or down when that rate moves, and there may be early repayment charges."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is a flexible mortgage?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A flexible mortgage lets you overpay, underpay or take a payment holiday. These features often come with conditions or charges, so compare the total cost."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What documents do I need to apply for a mortgage?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Lenders usually ask for your addresses for the last three years with no gaps, proof of income (typically recent payslips and several years of records), around three months of bank statements, and details of any loans or credit cards."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I overpay my mortgage?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often yes, but many fixed-rate deals limit how much you can overpay each year without an early repayment charge. Check your offer or ask your lender before overpaying."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div id="headerout">
+ <header id="header">
+  <div id="logo"><a href="/" title="adxcal.com home"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com calculators"></a></div>
+  <div id="login"><a href="/my-account/sign-in.php" rel="nofollow">sign in</a></div>
+ </header>
+</div>
+<div id="clear"></div>
+
+<div id="contentout">
+<main id="content">
+ <nav id="breadcrumbs" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/financial-calculator.html">financial</a> / <a href="/mortgage-calculator-uk.html" aria-current="page">mortgage calculator uk</a></nav>
+ <div id="printit"><a href="#" onclick="document.calform.printit.value=1;document.calform.submit();return false;" rel="nofollow">Print</a></div>
+
+ <h1>Mortgage Calculator UK</h1>
+ <p>The <strong>UK Mortgage Calculator</strong> works out your <strong>monthly mortgage repayment</strong>, interest-only payment, total interest and full amortisation schedule in <strong>British pounds (£)</strong>. You can also include yearly costs such as taxes, home insurance and other costs. See also the <a href="#stamp-duty">stamp duty bands</a> for England.</p>
+ <p class="toc"><a href="#calculator">Calculator</a><a href="#how-it-works">How it works</a><a href="#repayment-vs-io">Repayment vs interest-only</a><a href="#ukmortgage-types">Mortgage types</a><a href="#stamp-duty">Stamp duty</a><a href="#faq">FAQ</a></p>
+
+ <div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+ <section id="calculator" aria-label="UK mortgage calculator">
+ <div class="leftinput">
+  <div class="panel" style="padding:12px 5px;">
+  <form name="calform" action="/mortgage-calculator-uk.html#ukmortgage" method="get">
+  <table align="center">
+   <tr><td align="right"><label for="chouseprice">Home Price</label></td><td nowrap>&pound; <input type="text" name="chouseprice" id="chouseprice" value="500000" class="inhalf" inputmode="decimal"></td></tr>
+   <tr><td align="right"><label for="cdownpayment">Mortgage Deposit</label></td><td style="padding-left:15px;"><input type="text" name="cdownpayment" id="cdownpayment" value="25" class="inhalf inpct" inputmode="decimal"></td></tr>
+   <tr><td align="right"><label for="cloanterm">Loan Term</label></td><td style="padding-left:15px;"><input type="text" name="cloanterm" id="cloanterm" value="25" class="inhalf inuiyear" inputmode="numeric"><span class="inuiyearspan">years</span></td></tr>
+   <tr><td align="right"><label for="cinterestrate">Interest Rate</label></td><td style="padding-left:15px;"><input type="text" name="cinterestrate" id="cinterestrate" value="5" class="inhalf inpct" inputmode="decimal"></td></tr>
+   <tr><td colspan="2"><br><label for="caddoptional" class="cbcontainer"><input type="checkbox" name="caddoptional" id="caddoptional" value="1" checked><span class="cbmark"></span><b>Include Optionals Below</b></label></td></tr>
+   <tr><td align="right"><label for="cpropertytaxes">Taxes</label></td><td style="padding-left:15px;"><input type="text" name="cpropertytaxes" id="cpropertytaxes" value="1.2" class="inhalf inpct" inputmode="decimal" title="Yearly taxes as a percentage of the home price"></td></tr>
+   <tr><td align="right"><label for="chomeins">Home Insurance</label></td><td nowrap>&pound; <input type="text" name="chomeins" id="chomeins" value="2500" class="inhalf inuiyear" inputmode="decimal"><span class="inuiyearspan">/year</span></td></tr>
+   <tr><td align="right"><label for="cpmi">Mortgage Insurance</label></td><td nowrap>&pound; <input type="text" name="cpmi" id="cpmi" value="0" class="inhalf inuiyear" inputmode="decimal"><span class="inuiyearspan">/year</span></td></tr>
+   <tr><td align="right"><label for="cothercost">Other Costs</label></td><td nowrap>&pound; <input type="text" name="cothercost" id="cothercost" value="6000" class="inhalf inuiyear" inputmode="decimal"><span class="inuiyearspan">/year</span></td></tr>
+   <tr><td align="right"><label for="cstartmonth">Start Date</label></td><td align="right"><select name="cstartmonth" id="cstartmonth"><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10" selected>Oct</option><option value="11">Nov</option><option value="12">Dec</option></select> <input type="text" name="cstartyear" size="4" id="cstartyear" value="2026" class="innormal" aria-label="Start year" inputmode="numeric"></td></tr>
+   <tr><td colspan="2" align="center" style="padding-top:8px;">
+    <input name="printit" value="0" type="hidden">
+    <input type="submit" name="x" value="Calculate"> <input type="button" value="Clear" onclick="clearForm(document.calform);"></td></tr>
+  </table>
+  </form>
+  </div>
+ </div>
+
+ <!-- ===== SERVER OUTPUT START: your PHP renders this block with real values. Sample shown for the default inputs. ===== -->
+ <div class="rightresult" id="ukmortgage" aria-live="polite">
+  <div class="espaceforM">&nbsp;</div>
+  <h2 class="h2result">Interest Only: &nbsp; &pound;1,562.50<img src="/img/save.svg" width="19" height="20" alt="Save this calculation" title="Save this calculation" style="float:right;padding-top:3px;cursor:pointer;" onclick="saveCalResult('TW9ydGdhZ2UgQ2FsY3VsYXRvciBVSw==', 0, 'TW9ydGdhZ2UgQ2FsY3VsYXRvciBVSw==', '', '');"></h2>
+  <h2 class="h2result">Monthly Repayment: &nbsp; &pound;2,192.21</h2>
+  <table cellpadding="3" width="100%">
+<tr><td>&nbsp;</td><td align="right"><b>Monthly</b></td><td align="right"><b>Total</b></td></tr>
+<tr bgcolor="#dddddd"><td><b>Mortgage Payment</b></td><td align="right"><b>&pound;2,192.21</b></td><td align="right"><b>&pound;657,663.80</b></td></tr>
+<tr><td>Taxes</td><td align="right">&pound;500.00</td><td align="right">&pound;150,000.00</td></tr>
+<tr><td>Home Insurance</td><td align="right">&pound;208.33</td><td align="right">&pound;62,500.00</td></tr>
+<tr><td>Other Costs</td><td align="right">&pound;500.00</td><td align="right">&pound;150,000.00</td></tr>
+<tr bgcolor="#dddddd"><td><b>Total Out-of-Pocket</b></td><td align="right">&pound;3,400.55</td><td align="right">&pound;1,020,163.80</td></tr>
+<tr><td colspan="2">Loan Amount</td><td align="right">&pound;375,000.00</td></tr>
+<tr><td colspan="2">Mortgage Deposit</td><td align="right">&pound;125,000.00</td></tr>
+<tr><td colspan="2">Total Interest</td><td align="right">&pound;282,663.80</td></tr>
+</table>
+  <!-- KEEP YOUR EXISTING SERVER-GENERATED PIE CHART SVG HERE (cost breakdown) -->
+ </div>
+ <div id="clear"></div>
+
+ <h2 style="padding-bottom:10px;">Amortisation schedule</h2>
+ <div class="crighthalf">
+  <!-- KEEP YOUR EXISTING SERVER-GENERATED LINE CHART SVG HERE (balance, interest, payment) -->
+ </div>
+ <div class="clefthalf">
+  <div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div>
+  <!-- KEEP YOUR EXISTING SERVER-GENERATED MONTHLY SCHEDULE TABLE HERE: <div id="monthlyamo" style="display:none;"> ... </div> -->
+  <div id="yearlyamo" class="tablewrap"><table class="cinfoT">
+   <thead><tr align="center"><th scope="col">Year</th><th scope="col">Date</th><th scope="col">Interest</th><th scope="col">Principal</th><th scope="col">Ending Balance</th></tr></thead>
+   <tbody>
+<tr align="right"><td>1</td><td>10/2026-9/2027</td><td>&pound;18,574</td><td>&pound;7,732</td><td>&pound;367,268</td></tr>
+<tr align="right"><td>2</td><td>10/2027-9/2028</td><td>&pound;18,179</td><td>&pound;8,128</td><td>&pound;359,140</td></tr>
+<tr align="right"><td>3</td><td>10/2028-9/2029</td><td>&pound;17,763</td><td>&pound;8,544</td><td>&pound;350,597</td></tr>
+<tr align="right"><td>4</td><td>10/2029-9/2030</td><td>&pound;17,326</td><td>&pound;8,981</td><td>&pound;341,616</td></tr>
+<tr align="right"><td>5</td><td>10/2030-9/2031</td><td>&pound;16,866</td><td>&pound;9,440</td><td>&pound;332,176</td></tr>
+<tr align="right"><td>6</td><td>10/2031-9/2032</td><td>&pound;16,383</td><td>&pound;9,923</td><td>&pound;322,253</td></tr>
+<tr align="right"><td>7</td><td>10/2032-9/2033</td><td>&pound;15,876</td><td>&pound;10,431</td><td>&pound;311,822</td></tr>
+<tr align="right"><td>8</td><td>10/2033-9/2034</td><td>&pound;15,342</td><td>&pound;10,964</td><td>&pound;300,857</td></tr>
+<tr align="right"><td>9</td><td>10/2034-9/2035</td><td>&pound;14,781</td><td>&pound;11,525</td><td>&pound;289,332</td></tr>
+<tr align="right"><td>10</td><td>10/2035-9/2036</td><td>&pound;14,191</td><td>&pound;12,115</td><td>&pound;277,217</td></tr>
+<tr align="right"><td>11</td><td>10/2036-9/2037</td><td>&pound;13,572</td><td>&pound;12,735</td><td>&pound;264,482</td></tr>
+<tr align="right"><td>12</td><td>10/2037-9/2038</td><td>&pound;12,920</td><td>&pound;13,386</td><td>&pound;251,095</td></tr>
+<tr align="right"><td>13</td><td>10/2038-9/2039</td><td>&pound;12,235</td><td>&pound;14,071</td><td>&pound;237,024</td></tr>
+<tr align="right"><td>14</td><td>10/2039-9/2040</td><td>&pound;11,515</td><td>&pound;14,791</td><td>&pound;222,233</td></tr>
+<tr align="right"><td>15</td><td>10/2040-9/2041</td><td>&pound;10,759</td><td>&pound;15,548</td><td>&pound;206,685</td></tr>
+<tr align="right"><td>16</td><td>10/2041-9/2042</td><td>&pound;9,963</td><td>&pound;16,343</td><td>&pound;190,341</td></tr>
+<tr align="right"><td>17</td><td>10/2042-9/2043</td><td>&pound;9,127</td><td>&pound;17,180</td><td>&pound;173,162</td></tr>
+<tr align="right"><td>18</td><td>10/2043-9/2044</td><td>&pound;8,248</td><td>&pound;18,059</td><td>&pound;155,103</td></tr>
+<tr align="right"><td>19</td><td>10/2044-9/2045</td><td>&pound;7,324</td><td>&pound;18,982</td><td>&pound;136,121</td></tr>
+<tr align="right"><td>20</td><td>10/2045-9/2046</td><td>&pound;6,353</td><td>&pound;19,954</td><td>&pound;116,167</td></tr>
+<tr align="right"><td>21</td><td>10/2046-9/2047</td><td>&pound;5,332</td><td>&pound;20,975</td><td>&pound;95,192</td></tr>
+<tr align="right"><td>22</td><td>10/2047-9/2048</td><td>&pound;4,259</td><td>&pound;22,048</td><td>&pound;73,145</td></tr>
+<tr align="right"><td>23</td><td>10/2048-9/2049</td><td>&pound;3,131</td><td>&pound;23,176</td><td>&pound;49,969</td></tr>
+<tr align="right"><td>24</td><td>10/2049-9/2050</td><td>&pound;1,945</td><td>&pound;24,361</td><td>&pound;25,608</td></tr>
+<tr align="right"><td>25</td><td>10/2050-9/2051</td><td>&pound;699</td><td>&pound;25,608</td><td>&pound;0</td></tr>
+   </tbody></table></div>
+ </div>
+ <!-- ===== SERVER OUTPUT END ===== -->
+ <div id="clear"></div>
+ </section>
+
+ <p class="disclaimer"><strong>Important:</strong> Results are estimates for information only and are not financial advice. Your home may be repossessed if you do not keep up repayments on your mortgage. Speak to a qualified mortgage adviser for advice on your circumstances.</p>
+
+ <section id="how-it-works">
+ <h2>How Your Monthly Mortgage Payment Is Calculated</h2>
+ <p>For a standard repayment mortgage the monthly payment is:</p>
+ <div class="formula">M = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</div>
+ <p>where <strong>P</strong> is the loan amount (home price minus deposit), <strong>r</strong> is the monthly interest rate (annual rate ÷ 12) and <strong>n</strong> is the number of monthly payments (years × 12).</p>
+ <h3>Example</h3>
+ <p>A £500,000 home with a 25% deposit gives a £375,000 loan. At 5% over 25 years (300 payments), r = 0.05 ÷ 12 and the monthly repayment is about <strong>&pound;2,192.21</strong>. Over the full term you would pay about &pound;657,664 in total, of which &pound;282,664 is interest.</p>
+ </section>
+
+ <section id="repayment-vs-io">
+ <h2>Repayment vs Interest-Only Mortgage</h2>
+ <p>With a <strong>repayment</strong> mortgage each payment covers the interest plus part of the loan, so the debt is fully cleared at the end of the term. With an <strong>interest-only</strong> mortgage you pay just the interest, so the monthly cost is lower, but you still owe the whole loan at the end and need a separate plan to repay it.</p>
+ <div class="formula">Interest-only payment = loan × annual rate ÷ 12 = £375,000 × 5% ÷ 12 = &pound;1,562.50</div>
+ </section>
+
+ <section id="ukmortgage-types">
+ <h2>Applying for a Mortgage in the UK</h2>
+ <p>It helps potential borrowers to arrive prepared with the information a lender may ask for:</p>
+ <ol>
+  <li>addresses for the last three years, with no gaps</li>
+  <li>income information for the last three months, as well as three years of income records</li>
+  <li>bank statements for the past three months, though more can help</li>
+  <li>documentation of loans or credit cards</li>
+ </ol>
+ <p>A good second step is to check your credit score and raise any questionable negative marks with the lender. With good credit it is possible to borrow with a relatively small deposit: many mortgage products require a deposit of 5% or less of the property value, although this changes with market conditions.</p>
+
+ <h3>Tracker Mortgage</h3>
+ <p>A tracker mortgage follows the movements of another rate, most commonly the Bank of England base rate. Most UK banks favour variable-rate mortgages in one form or another, so there is a wider variety of them in the UK. Some mortgages start as trackers and after a few years become standard variable-rate mortgages.</p>
+ <p>Introductory tracker rates can be among the lowest available, but like all variable rates they can go up as well as down. Most introductory trackers will also carry an early repayment charge if you remortgage or repay during the introductory period, and lifetime trackers usually carry early repayment charges for a period after being taken out.</p>
+
+ <h3>Flexible Mortgage</h3>
+ <p>A flexible mortgage lets you overpay, underpay or take a payment holiday from time to time. Overpayments can pay the loan down faster, either in lump sums or as part of regular payments. Underpayments allow lower payments occasionally, and payment holidays can pause payments for a short time, sometimes up to six months. These features usually come with special charges and conditions, so shop around and compare the costs.</p>
+ </section>
+
+ <section id="stamp-duty">
+ <h2>Stamp Duty (England and Northern Ireland)</h2>
+ <p>Stamp Duty Land Tax (SDLT) is charged on the purchase price of a property in England and Northern Ireland, in bands (you pay each rate only on the slice of the price within that band). The standard residential rates in force since 1 April 2025 are:</p>
+ <div class="tablewrap"><table class="cinfoT" align="center">
+  <thead><tr><th class="cinfoHd" scope="col">Part of the price</th><th class="cinfoHdL" scope="col">Standard rate</th></tr></thead>
+  <tbody>
+  <tr><td>Up to &pound;125,000</td><td align="center">0%</td></tr>
+  <tr><td>&pound;125,001 to &pound;250,000</td><td align="center">2%</td></tr>
+  <tr><td>&pound;250,001 to &pound;925,000</td><td align="center">5%</td></tr>
+  <tr><td>&pound;925,001 to &pound;1,500,000</td><td align="center">10%</td></tr>
+  <tr><td>Over &pound;1,500,000</td><td align="center">12%</td></tr>
+  </tbody></table></div>
+ <p><strong>First-time buyers</strong> pay 0% on the first &pound;300,000 and 5% on the portion from &pound;300,001 to &pound;500,000. There is no first-time buyer relief if the price is over &pound;500,000, and the standard rates apply instead.</p>
+ <p><strong>Example:</strong> on a &pound;500,000 home, a standard buyer pays 0% on the first &pound;125,000, 2% on the next &pound;125,000 (&pound;2,500) and 5% on the remaining &pound;250,000 (&pound;12,500), a total of <strong>&pound;15,000</strong>. An eligible first-time buyer pays 5% on &pound;200,000 (&pound;10,000), a total of <strong>&pound;10,000</strong>.</p>
+ <p>Buyers of additional properties, such as second homes and buy-to-lets, pay a 5% surcharge on top of these rates, and non-UK residents pay a further 2% surcharge. Other special rules apply, for example to shared ownership, companies, purchasing six or more properties in one transaction, and linked transactions.</p>
+ <p><strong>Scotland and Wales:</strong> Scotland charges Land and Buildings Transaction Tax (LBTT) and Wales charges Land Transaction Tax (LTT), each with different rates and thresholds. Stamp duty can be complex and rates change, so check the current figures on <a href="https://www.gov.uk/stamp-duty-land-tax/residential-property-rates" rel="noopener">GOV.UK</a> and speak to a professional.</p>
+ <p><small>Stamp duty rates shown for England and Northern Ireland, last checked October 2026.</small></p>
+ </section>
+
+ <section id="faq">
+ <h2>UK Mortgage Calculator FAQ</h2>
+ <details><summary><h3>How do I calculate my monthly mortgage payment?</h3></summary><p>Use M = P × r × (1 + r)^n ÷ ((1 + r)^n − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12) and n is the number of monthly payments. For a £375,000 loan at 5% over 25 years (300 payments), the repayment is about £2,192 per month.</p></details>
+<details><summary><h3>What is the difference between repayment and interest-only?</h3></summary><p>With a repayment mortgage each payment covers interest and some of the loan, so the debt is cleared by the end of the term. With interest-only you pay just the interest, so the full loan is still owed at the end and you need a separate plan to repay it. On £375,000 at 5%, interest-only is £1,562.50 a month.</p></details>
+<details><summary><h3>How much deposit do I need for a mortgage in the UK?</h3></summary><p>Many lenders offer mortgages with a deposit of 5% of the property price, though larger deposits usually unlock lower interest rates. Availability changes with market conditions.</p></details>
+<details><summary><h3>How much stamp duty will I pay?</h3></summary><p>In England and Northern Ireland, Stamp Duty Land Tax is charged on bands of the price: 0% up to £125,000, 2% from £125,001 to £250,000, 5% from £250,001 to £925,000, 10% from £925,001 to £1.5 million and 12% above that. First-time buyers pay 0% up to £300,000 and 5% from £300,001 to £500,000 and get no relief above £500,000. Scotland (LBTT) and Wales (LTT) use different rules. Always confirm current rates on GOV.UK.</p></details>
+<details><summary><h3>What is a tracker mortgage?</h3></summary><p>A tracker mortgage follows another rate, most commonly the Bank of England base rate, plus a set margin. Your payments can go up or down when that rate moves, and there may be early repayment charges.</p></details>
+<details><summary><h3>What is a flexible mortgage?</h3></summary><p>A flexible mortgage lets you overpay, underpay or take a payment holiday. These features often come with conditions or charges, so compare the total cost.</p></details>
+<details><summary><h3>What documents do I need to apply for a mortgage?</h3></summary><p>Lenders usually ask for your addresses for the last three years with no gaps, proof of income (typically recent payslips and several years of records), around three months of bank statements, and details of any loans or credit cards.</p></details>
+<details><summary><h3>Can I overpay my mortgage?</h3></summary><p>Often yes, but many fixed-rate deals limit how much you can overpay each year without an early repayment charge. Check your offer or ask your lender before overpaying.</p></details>
+
+ <aside><strong>Related:</strong> <a href="/mortgage-calculator.html">Mortgage Calculator (US)</a> | <a href="/loan-calculator.html">Loan Calculator</a> | <a href="/amortization-calculator.html">Amortization Calculator</a> | <a href="/mortgage-payoff-calculator.html">Mortgage Payoff Calculator</a> | <a href="/interest-calculator.html">Interest Calculator</a></aside>
+ </section>
+</main>
+
+<aside id="right" aria-label="More calculators">
+ <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search">
+  <table align="center" id="searchbox"><tr>
+   <td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td>
+   <td><span id="bluebtn" onclick="return calcSearch();" role="button" tabindex="0">Search</span></td></tr>
+   <tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table>
+ </form>
+ <nav id="othercalc" aria-label="Financial calculators">
+  <div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div>
+  <div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div>
+  <div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div>
+ </nav>
+</aside>
+</div>
+
+<div id="clear"></div>
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp; &copy; 2008 - 2026 <a href="https://www.adxcal.com/">adxcal.com</a></div></div></footer>
+<div class="topNavAbs">
+ <a href="/financial-calculator.html" class="topNavOn">Financial</a>
+ <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+ <a href="/math-calculator.html">Math</a>
+ <a href="/other-calculator.html">Other</a>
+</div>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);if(!m)return;m.onblur=function(){insertComma2(m,'d');};insertComma2(m,'d');}
+["chouseprice","cdownpayment","cpropertytaxes","chomeins","cothercost","cpmi"].forEach(proComma2);
+
+function amoChange(v){
+ var mo=document.getElementById("monthlyamo"), ye=document.getElementById("yearlyamo"), sel=document.getElementById("amoselect");
+ if(!mo||!ye||!sel) return false;
+ if(v==1){
+  mo.style.display="block"; ye.style.display="none";
+  sel.innerHTML="<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule";
+ }else{
+  mo.style.display="none"; ye.style.display="block";
+  sel.innerHTML="Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
+ }
+ return false;}
+amoChange(0);
+</script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

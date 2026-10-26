@@ -1,60 +1,309 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Age Calculator</title>
-	<meta name="description" content="This free age calculator computes age in terms of years, months, weeks, days, hours, minutes, and seconds, given a date of birth." />
-	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json">	<script type="text/javascript" src="/js/calendardateinput.js"></script>
-</head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/age-calculator.html" itemprop="item"><span itemprop="name">age calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Age Calculator</h1>
-<p>The Age Calculator can determine the age or interval between two dates. The calculated age will be displayed in years, months, weeks, days, hours, minutes, and seconds.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<div class="panel">
-<form name="calcf">
-<table align="center">
-  <tr>
-		<td align="right" valign="middle">Date of Birth</td><td valign="middle"><script>DateInput('today', true)</script>    </td>
-  </tr>
-  <tr>
-		<td align="right" valign="middle">Age at the Date of</td><td valign="middle"><script>DateInput('ageat', true)</script>    </td>
-  </tr>
-  <tr>
-  	<td align="right" valign="middle">&nbsp;</td><td valign="middle" style="padding-top: 10px;">    	<input type="submit" name="x" value="Calculate">
-    </td>
-  </tr>
-</table></form></div>
-<br><p><fieldset><legend>Related</legend><a href="/date-calculator.html">Date Calculator</a> | <a href="/time-calculator.html">Time Calculator</a></fieldset></p>
-
-<br>
-<p>The age of a person can be counted differently in different cultures. This calculator is based on the most common age system. In this system, age increases on a person's birthday. For example, the age of a person who has lived for 3 years and 11 months is 3, and their age will increase to 4 on their next birthday one month later. Most western countries use this age system.</p>
-<p>In some cultures, age is expressed by counting years with or without including the current year. For example, a person who is twenty years old is the same age as another person who is in their twenty-first year of life. In one of the traditional Chinese age systems, people are born at age 1 and their age increases up at the Traditional Chinese New Year rather than their birthday. For example, if one baby is born just one day before the Traditional Chinese New Year, 2 days later, the baby will be 2 even though he/she is only 2 days old.</p>
-
-<p>In some situations, the months and day result of this age calculator may be confusing, especially when the starting date is the end of a month. For example, we count Feb. 20 to Mar. 20 to be one month. However, there are two ways to calculate the age from Feb. 28, 2022 to Mar. 31, 2022. If we consider Feb. 28 to Mar. 28 to be one month, then the result is one month and 3 days. If we consider both Feb. 28 and Mar. 31 as the end of the month, then the result is one month. Both calculation results are reasonable. Similar situations exist for dates like Apr. 30 to May 31, May 30 to June 30, etc. The confusion comes from the uneven number of days in different months. In our calculations, we use the former method.</p>
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator – Calculate Exact Age in Years, Months, Days & More</title>
+<meta name="description" content="Free age calculator: enter a date of birth to get your exact age in years, months, weeks, days, hours, minutes and seconds, or the age on any past or future date.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.adxcal.com/age-calculator.html">
+<link rel="alternate" hreflang="en" href="https://www.adxcal.com/age-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://www.adxcal.com/age-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta name="author" content="adxcal.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="adxcal.com">
+<meta property="og:title" content="Age Calculator – Calculate Exact Age in Years, Months, Days & More">
+<meta property="og:description" content="Free age calculator: enter a date of birth to get your exact age in years, months, weeks, days, hours, minutes and seconds, or the age on any past or future date.">
+<meta property="og:url" content="https://www.adxcal.com/age-calculator.html">
+<meta property="og:image" content="https://www.adxcal.com/img/og-age-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Age calculator showing exact age in years, months and days">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Age Calculator – Calculate Exact Age in Years, Months, Days & More">
+<meta name="twitter:description" content="Free age calculator: enter a date of birth to get your exact age in years, months, weeks, days, hours, minutes and seconds, or the age on any past or future date.">
+<meta name="twitter:image" content="https://www.adxcal.com/img/og-age-calculator.png">
+<link rel="preconnect" href="//d26tpo4cm8sb6k.cloudfront.net" crossorigin>
+<link rel="preload" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" as="style">
+<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<!-- Kept synchronous on purpose: the DateInput() calls below run inline and need these loaded first -->
+<script src="/js/common.js"></script>
+<script src="/js/calendardateinput.js"></script>
+<style>
+details{margin:8px 0;padding:8px 12px;border:1px solid #ddd;border-radius:6px}
+summary{cursor:pointer;list-style:none} summary h3{display:inline;font-size:1em;margin:0}
+.formula{background:#f4f7fb;border-left:4px solid #1a5fb4;padding:10px 14px;margin:12px 0;font-family:Consolas,monospace;overflow-x:auto}
+.toc a{margin-right:12px} .tablewrap{overflow-x:auto}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.adxcal.com/#org",
+   "name": "adxcal.com",
+   "url": "https://www.adxcal.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/apple-touch-icon.png"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.adxcal.com/#website",
+   "url": "https://www.adxcal.com/",
+   "name": "adxcal.com",
+   "publisher": {
+    "@id": "https://www.adxcal.com/#org"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://www.adxcal.com/age-calculator.html#webpage",
+   "url": "https://www.adxcal.com/age-calculator.html",
+   "name": "Age Calculator – Calculate Exact Age in Years, Months, Days & More",
+   "description": "Free age calculator: enter a date of birth to get your exact age in years, months, weeks, days, hours, minutes and seconds, or the age on any past or future date.",
+   "isPartOf": {
+    "@id": "https://www.adxcal.com/#website"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-10-25",
+   "breadcrumb": {
+    "@id": "https://www.adxcal.com/age-calculator.html#breadcrumb"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.adxcal.com/img/og-age-calculator.png"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://www.adxcal.com/age-calculator.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.adxcal.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Other Calculators",
+     "item": "https://www.adxcal.com/other-calculator.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Age Calculator",
+     "item": "https://www.adxcal.com/age-calculator.html"
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "name": "Age Calculator",
+   "url": "https://www.adxcal.com/age-calculator.html",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Any",
+   "browserRequirements": "Requires JavaScript",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "description": "Free age calculator: enter a date of birth to get your exact age in years, months, weeks, days, hours, minutes and seconds, or the age on any past or future date."
+  },
+  {
+   "@type": "HowTo",
+   "name": "How to calculate your exact age",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Enter your date of birth",
+     "text": "Pick the day, month and year you were born."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Choose the end date",
+     "text": "Leave it as today, or pick any past or future date for 'Age at the Date of'."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Click Calculate",
+     "text": "See your age in years, months, weeks, days, hours, minutes and seconds."
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate my age from my date of birth?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Subtract your birth year from the current year, then subtract one more year if your birthday has not happened yet this year. For an exact age, count the full months and remaining days since your last birthday. The calculator above does this automatically."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I calculate age on a specific date?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Enter your date of birth and set the 'Age at the Date of' field to the date you want, in the past or the future. The result is your exact age on that day."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the age calculator account for leap years?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The count uses the real calendar, including leap years and the different lengths of each month, so day counts are exact."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why do months and days sometimes look odd at the end of a month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Months have different lengths, so there are two reasonable ways to count from a date such as Feb. 28 to Mar. 31. This calculator counts whole months from the same day of the month and then the leftover days, so Feb. 28 to Mar. 31 is 1 month and 3 days."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How is age counted in different cultures?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most Western countries increase age on the birthday. In some traditional East Asian systems, a person is 1 at birth and gains a year at the New Year instead. South Korea moved to the international age system for most legal and administrative purposes in June 2023."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the age of someone born in a given year?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is the current year minus the birth year, minus 1 if their birthday has not yet occurred this year. Use the calculator with the exact birth date for a precise answer."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I calculate the time between two dates that are not birthdays?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Put the start date in the first field and the end date in the second to get the interval in years, months, weeks, days, hours, minutes and seconds. For adding or subtracting days, see the Date Calculator."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<div id="headerout">
+ <header id="header">
+  <div id="logo"><a href="/" title="adxcal.com home"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com calculators"></a></div>
+  <div id="login"><a href="/my-account/sign-in.php" rel="nofollow">sign in</a></div>
+ </header>
+</div>
+<div id="clear"></div>
+
+<div id="contentout">
+<main id="content">
+ <nav id="breadcrumbs" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/other-calculator.html">other</a> / <a href="/age-calculator.html" aria-current="page">age calculator</a></nav>
+
+ <h1>Age Calculator</h1>
+ <p>The <strong>Age Calculator</strong> finds your exact age, or the interval between two dates, from a date of birth. The result is shown in <strong>years, months, weeks, days, hours, minutes and seconds</strong>.</p>
+ <p class="toc"><a href="#calculator">Calculator</a><a href="#how-to">How to calculate age</a><a href="#age-systems">Age systems</a><a href="#month-end">Month-end rule</a><a href="#faq">FAQ</a></p>
+
+ <div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+ <section id="calculator" aria-label="Age calculator" class="panel">
+ <form name="calcf" method="get" action="/age-calculator.html">
+ <table align="center">
+  <tr><td align="right" valign="middle">Date of Birth</td><td valign="middle"><script>DateInput('today', true)</script></td></tr>
+  <tr><td align="right" valign="middle">Age at the Date of</td><td valign="middle"><script>DateInput('ageat', true)</script></td></tr>
+  <tr><td align="right" valign="middle">&nbsp;</td><td valign="middle" style="padding-top:10px;"><input type="submit" name="x" value="Calculate"></td></tr>
+ </table>
+ <noscript><p>Please enable JavaScript to use the date pickers.</p></noscript>
+ </form>
+ </section>
+ <aside><strong>Related:</strong> <a href="/date-calculator.html">Date Calculator</a> | <a href="/time-calculator.html">Time Calculator</a> | <a href="/hours-calculator.html">Hours Calculator</a></aside>
+
+ <section id="how-to">
+ <h2>How to Calculate Age</h2>
+ <p>Your age is the number of full years between your date of birth and the date you are measuring to. To find it by hand:</p>
+ <ol>
+  <li>Subtract the birth year from the current year.</li>
+  <li>If your birthday has not happened yet this year, subtract 1.</li>
+  <li>For months and days, count the full months since your last birthday, then the days left over.</li>
+ </ol>
+ <h3>Example</h3>
+ <p>Born on May 15, 2000, and measured on October 25, 2026:</p>
+ <div class="formula">May 15, 2000 → May 15, 2026 = 26 years<br>May 15 → Oct 15, 2026 = 5 months<br>Oct 15 → Oct 25, 2026 = 10 days<br><strong>Age = 26 years, 5 months, 10 days</strong></div>
+ <p>You can also use the second date field to find your age on any past or future date, for example your age on a future graduation or retirement day, or the interval between any two dates.</p>
+ </section>
+
+ <section id="age-systems">
+ <h2>How Age Is Counted in Different Cultures</h2>
+ <p>The age of a person can be counted differently in different cultures. This calculator uses the most common system, in which age increases on a person's birthday. For example, a person who has lived 3 years and 11 months is 3, and turns 4 on their next birthday one month later. Most Western countries use this system.</p>
+ <p>In some cultures, age is expressed by counting years with or without including the current year. A person who is twenty years old is the same age as someone in their twenty-first year of life. In one traditional Chinese age system, people are born at age 1 and gain a year at the Traditional Chinese New Year rather than on their birthday. A baby born one day before the Traditional Chinese New Year would be 2 two days later, even though only 2 days old.</p>
+ <p>South Korea traditionally used a similar system, but moved to the international age system (age increases on the birthday) for most legal and administrative purposes in June 2023.</p>
+ </section>
+
+ <section id="month-end">
+ <h2>Why Months and Days Can Look Confusing at Month-End</h2>
+ <p>In some situations the months and days result can be confusing, especially when the starting date is at the end of a month. We count Feb. 20 to Mar. 20 as one month, but there are two ways to calculate the age from Feb. 28, 2022 to Mar. 31, 2022. If Feb. 28 to Mar. 28 is one month, the result is one month and 3 days. If both Feb. 28 and Mar. 31 are treated as the end of the month, the result is one month. Both are reasonable. Similar cases include Apr. 30 to May 31 and May 30 to June 30. The confusion comes from the uneven number of days in different months. This calculator uses the first method: whole months from the same day of the month, plus the leftover days.</p>
+ </section>
+
+ <section id="faq">
+ <h2>Age Calculator FAQ</h2>
+ <details><summary><h3>How do I calculate my age from my date of birth?</h3></summary><p>Subtract your birth year from the current year, then subtract one more year if your birthday has not happened yet this year. For an exact age, count the full months and remaining days since your last birthday. The calculator above does this automatically.</p></details>
+<details><summary><h3>How do I calculate age on a specific date?</h3></summary><p>Enter your date of birth and set the 'Age at the Date of' field to the date you want, in the past or the future. The result is your exact age on that day.</p></details>
+<details><summary><h3>Does the age calculator account for leap years?</h3></summary><p>Yes. The count uses the real calendar, including leap years and the different lengths of each month, so day counts are exact.</p></details>
+<details><summary><h3>Why do months and days sometimes look odd at the end of a month?</h3></summary><p>Months have different lengths, so there are two reasonable ways to count from a date such as Feb. 28 to Mar. 31. This calculator counts whole months from the same day of the month and then the leftover days, so Feb. 28 to Mar. 31 is 1 month and 3 days.</p></details>
+<details><summary><h3>How is age counted in different cultures?</h3></summary><p>Most Western countries increase age on the birthday. In some traditional East Asian systems, a person is 1 at birth and gains a year at the New Year instead. South Korea moved to the international age system for most legal and administrative purposes in June 2023.</p></details>
+<details><summary><h3>What is the age of someone born in a given year?</h3></summary><p>It is the current year minus the birth year, minus 1 if their birthday has not yet occurred this year. Use the calculator with the exact birth date for a precise answer.</p></details>
+<details><summary><h3>Can I calculate the time between two dates that are not birthdays?</h3></summary><p>Yes. Put the start date in the first field and the end date in the second to get the interval in years, months, weeks, days, hours, minutes and seconds. For adding or subtracting days, see the Date Calculator.</p></details>
+
+ </section>
+</main>
+
+<aside id="right" aria-label="More calculators">
+ <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search">
+  <table align="center" id="searchbox"><tr>
+   <td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td>
+   <td><span id="bluebtn" onclick="return calcSearch();" role="button" tabindex="0">Search</span></td></tr>
+   <tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table>
+ </form>
+ <nav id="othercalc" aria-label="Other calculators">
+  <div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div>
+  <div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div>
+  <div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div>
+ </nav>
+</aside>
+</div>
+
+<div id="clear"></div>
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp; &copy; 2008 - 2026 <a href="https://www.adxcal.com/">adxcal.com</a></div></div></footer>
+<div class="topNavAbs">
+ <a href="/financial-calculator.html">Financial</a>
+ <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+ <a href="/math-calculator.html">Math</a>
+ <a href="/other-calculator.html" class="topNavOn">Other</a>
+</div>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>
