@@ -1,203 +1,480 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Personal Loan Calculator</title>
-	<meta name="description" content="Free personal loan calculator that returns the monthly payment, real loan cost, and the APR after considering the fee, insurance, interest of a personal loan." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/personal-loan-calculator.html" itemprop="item"><span itemprop="name">personal loan calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Personal Loan Calculator</h1>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput"><div class="panel">
-<form name="calform" action="/personal-loan-calculator.html#result">
-<table id="calinputtable" align="center">
-<tr><td>Loan amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="20000" class="inlonger indollar"></td></tr>
-<tr><td>Interest rate</td><td><input type="text" name="cinterestrate" id="cinterestrate" value="10" class="inlonger inpct"></td></tr>
-<tr><td>Loan term</td><td nowrap>
-		<input type="text" name="cyears" id="cyears" value="5" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
-		<input type="text" name="cmonths" id="cmonths" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>
-</td></tr>
-<tr><td>Start date</td><td><select name="cstartmonth" id="cstartmonth"><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10" selected>Oct</option><option value="11">Nov</option><option value="12">Dec</option></select> <input type="text" name="cstartyear" id="cstartyear" value="2026" class="in4char"></td></tr>
-
-<tr><td colspan="2"><br><label for="caddoptional" class="cbcontainer"><input type="checkbox" name="caddoptional" id="caddoptional" value="1"  onClick="caddoptfun();" /><span class="cbmark"></span><b><span id="caddoptionaldesc">Add fee and insurance</span></b></label></td></tr>
-<tr><td colspan="2">
-	<div id="caddoptionalinputs">
-	<div style="padding-top:8px;"><b>Origination fee</b> <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('It is the fee that the lender charges the borrower for providing the loan. The origination fee may encompass the costs associated with processing the application, underwriting, funding the loan, as well as other administrative services.', '');" onmouseout="tooltip.hide();"></div>
-	<table>
-		<tr>
-			<td style="padding-left:20px;">Amount</td>
-			<td><input type="text" name="corigamount" id="corigamount" value="5" class="inlong inpct"></td>
-			<td><select name="corigisa" onChange="cUpdateSymb(this.value);"><option value="percentage" selected>%</option><option value="amount">$</option></select></td>
-		</tr>
-		<tr>
-			<td valign="top" align="right" style="padding-top:5px;">to be</td>
-			<td colspan="2">
-				<label for="corigpaid2" class="cbcontainer"><input name="corigpaid" id="corigpaid2" value="deduct" type="radio" checked><span class="rbmark"></span>deducted from loan</label><br>
-				<label for="corigpaid1" class="cbcontainer"><input name="corigpaid" id="corigpaid1" value="upfront" type="radio" ><span class="rbmark"></span>paid upfront</label>
-			</td>
-		</tr>
-		<tr><td colspan="3"><div style="height:8px;"></div></td></tr>
-		<tr><td><b>Insurance</b> <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Some lenders may require the borrower to purchase credit insurance for personal loans as a form of protection.', '');" onmouseout="tooltip.hide();"></td><td colspan="2"><input type="text" name="cinsurance" id="cinsurance" value="0" class="inlonger indollar inuiinch"><span class="inuiinchspan">/month</span></td></tr>
-	</table>
-	</div>
-</td></tr>
-<tr><td colspan="2" align="center" style="padding-top:8px;">
-	<input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td></tr>
-</table>
-</form>
-<script>
-function cUpdateSymb(ofType){
-	var cloanamount = (document.getElementById("cloanamount").value+"").replaceAll(',', '').replaceAll(' ', '');
-	var corigamount = (document.getElementById("corigamount").value+"").replaceAll(',', '').replaceAll(' ', '');
-
-	if (isNumber(cloanamount)&&isNumber(corigamount)){
-		cloanamount = parseFloat(cloanamount);
-		corigamount = parseFloat(corigamount);
-		if (ofType=='percentage'){
-			document.getElementById("corigamount").value = Math.round(100000.0*corigamount/cloanamount)/1000;
-			document.getElementById("corigamount").classList.remove('indollar');
-			document.getElementById("corigamount").classList.add('inpct');
-		}else{
-			document.getElementById("corigamount").value = Math.round(cloanamount*corigamount/100);
-			document.getElementById("corigamount").classList.remove('inpct');
-			document.getElementById("corigamount").classList.add('indollar');
-		}
-		proComma("corigamount");
-	}else{
-		if (ofType=='percentage'){
-			document.getElementById("corigamount").classList.remove('indollar');
-			document.getElementById("corigamount").classList.add('inpct');
-		}else{
-			document.getElementById("corigamount").classList.remove('inpct');
-			document.getElementById("corigamount").classList.add('indollar');
-		}
-	}
-	return false;
-}
-function caddoptfun(){
-	if (document.calform.caddoptional.checked){
-		document.getElementById("caddoptionalinputs").style.display = 'block';
-		document.getElementById("caddoptionaldesc").innerHTML = 'Include fee and insurance below';
-	}else{
-		document.getElementById("caddoptionalinputs").style.display = 'none';
-		document.getElementById("caddoptionaldesc").innerHTML = 'Include fee and insurance';
-	}
-}
-caddoptfun();
-
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("cloanamount");
-proComma2("cinsurance");
-proComma2("corigamount");
-</script>
-
-</div></div>
-<div class="rightresult">
-<a name="result"></a><div class="espaceforM">&nbsp;</div>
-<h2 class="h2result">Monthly pay: &nbsp; $424.94<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGVyc29uYWwgTG9hbiBDYWxjdWxhdG9y', 0, 'UGVyc29uYWwgTG9hbiBDYWxjdWxhdG9y', 'TW9udGhseSBQYXk=', 'JDQyNC45NA==');"></h2><table cellpadding='3' width='100%'><tr><td colspan='2'>Total of 60 loan payments</td><td align='right'>$25,496.45</td></tr><tr><td colspan='2'>Total interest</td><td align='right'>$5,496.45</td></tr><tr><td colspan='2'>Payoff date</td><td align='right'>Oct. 2031</td></tr></table><div style="text-align:center; padding: 8px 0px;"><g onclick="ttline2HideTT();"><svg width="310" height="100"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 56 8 A 42 42 0 1 1 14.979 40.987 L 56 50 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Loan amount <br>$20,000.00 (78%)');" onmouseout="ttpieHideTT();" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><path d="M 14.979 40.987 A 42 42 0 0 1 56 8 L 56 50 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$5,496.45 (22%)');" onmouseout="ttpieHideTT();" /><line x1="56" y1="50" x2="14.979" y2="40.987" class="mcpline" /><line x1="56" y1="50" x2="56" y2="8" class="mcpline" /><circle cx="56" cy="50" r="14.7" fill="white" /><text x="72.92" y="71.041" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Loan amount <br>$20,000.00 (78%)');" onmouseout="ttpieHideTT();">78%</text><text x="39.08" y="28.959" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$5,496.45 (22%)');" onmouseout="ttpieHideTT();">22%</text><rect x="112" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="137" y="19" class="mcplegend">Loan amount</text><rect x="112" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="137" y="37" class="mcplegend">Interest</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div>
-</div><div id="clear"></div>
-<div id="pLoanRateTable"></div>
-<h2 style="padding-bottom: 10px;">Amortization schedule</h2><div class="crighthalf"><div style="text-align:center;"><svg width="300" height="180"><style>.mclgrid{stroke:#999;stroke-width:0.5;} .mcllegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcltitle{fill: #000; font-family:arial,helvetica,sans-serif; font-size: 15px; dominant-baseline:middle;text-anchor:middle;} .mcllabely{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:middle; text-anchor:end;} .mcllabelx{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:hanging; text-anchor:middle;} .mcldot:hover {stroke-width:10;} .mcldot {stroke-width:0;}</style><text x="165" y="172" class="mcltitle">Year</text><line x1="37" y1="145" x2="292" y2="145" class="mclgrid" /><text x="35" y="145" class="mcllabely">$0</text><line x1="37" y1="119.413" x2="292" y2="119.413" class="mclgrid" /><text x="35" y="119.413" class="mcllabely">$5K</text><line x1="37" y1="93.826" x2="292" y2="93.826" class="mclgrid" /><text x="35" y="93.826" class="mcllabely">$10K</text><line x1="37" y1="68.239" x2="292" y2="68.239" class="mclgrid" /><text x="35" y="68.239" class="mcllabely">$15K</text><line x1="37" y1="42.651" x2="292" y2="42.651" class="mclgrid" /><text x="35" y="42.651" class="mcllabely">$20K</text><line x1="37" y1="17.064" x2="292" y2="17.064" class="mclgrid" /><text x="35" y="17.064" class="mcllabely">$25K</text><line x1="40" y1="8" x2="40" y2="149" class="mclgrid" /><text x="40" y="150" class="mcllabelx">0</text><line x1="90.4" y1="8" x2="90.4" y2="149" class="mclgrid" /><text x="90.4" y="150" class="mcllabelx">1</text><line x1="140.8" y1="8" x2="140.8" y2="149" class="mclgrid" /><text x="140.8" y="150" class="mcllabelx">2</text><line x1="191.2" y1="8" x2="191.2" y2="149" class="mclgrid" /><text x="191.2" y="150" class="mcllabelx">3</text><line x1="241.6" y1="8" x2="241.6" y2="149" class="mclgrid" /><text x="241.6" y="150" class="mcllabelx">4</text><line x1="292" y1="8" x2="292" y2="149" class="mclgrid" /><text x="292" y="150" class="mcllabelx">5</text><path d="M 40 42.651 L 40 43.973 L 44.2 45.306 L 48.4 46.65 L 52.6 48.005 L 56.8 49.371 L 61 50.749 L 65.2 52.138 L 69.4 53.539 L 73.6 54.951 L 77.8 56.375 L 82 57.811 L 86.2 59.259 L 90.4 60.719 L 94.6 62.192 L 98.8 63.676 L 103 65.173 L 107.2 66.683 L 111.4 68.205 L 115.6 69.739 L 119.8 71.287 L 124 72.847 L 128.2 74.42 L 132.4 76.007 L 136.6 77.606 L 140.8 79.219 L 145 80.846 L 149.2 82.486 L 153.4 84.139 L 157.6 85.807 L 161.8 87.488 L 166 89.184 L 170.2 90.893 L 174.4 92.617 L 178.6 94.355 L 182.8 96.107 L 187 97.874 L 191.2 99.656 L 195.4 101.453 L 199.6 103.265 L 203.8 105.092 L 208 106.934 L 212.2 108.791 L 216.4 110.664 L 220.6 112.552 L 224.8 114.457 L 229 116.377 L 233.2 118.313 L 237.4 120.265 L 241.6 122.233 L 245.8 124.218 L 250 126.22 L 254.2 128.238 L 258.4 130.273 L 262.6 132.325 L 266.8 134.394 L 271 136.48 L 275.2 138.583 L 279.4 140.705 L 283.6 142.843 L 287.8 145" fill="none" stroke="#2b7ddb" stroke-width="3" /><path d="M 40 145 L 40 144.147 L 44.2 143.305 L 48.4 142.474 L 52.6 141.655 L 56.8 140.847 L 61 140.05 L 65.2 139.264 L 69.4 138.49 L 73.6 137.728 L 77.8 136.978 L 82 136.239 L 86.2 135.513 L 90.4 134.798 L 94.6 134.096 L 98.8 133.406 L 103 132.728 L 107.2 132.063 L 111.4 131.41 L 115.6 130.77 L 119.8 130.143 L 124 129.529 L 128.2 128.927 L 132.4 128.339 L 136.6 127.764 L 140.8 127.203 L 145 126.655 L 149.2 126.12 L 153.4 125.599 L 157.6 125.092 L 161.8 124.599 L 166 124.119 L 170.2 123.654 L 174.4 123.203 L 178.6 122.767 L 182.8 122.345 L 187 121.937 L 191.2 121.545 L 195.4 121.167 L 199.6 120.804 L 203.8 120.456 L 208 120.123 L 212.2 119.806 L 216.4 119.504 L 220.6 119.218 L 224.8 118.948 L 229 118.693 L 233.2 118.455 L 237.4 118.233 L 241.6 118.026 L 245.8 117.837 L 250 117.663 L 254.2 117.507 L 258.4 117.367 L 262.6 117.245 L 266.8 117.139 L 271 117.051 L 275.2 116.98 L 279.4 116.926 L 283.6 116.89 L 287.8 116.872" fill="none" stroke="#8bbc21" stroke-width="3" /><path d="M 40 145 L 40 142.825 L 44.2 140.651 L 48.4 138.476 L 52.6 136.302 L 56.8 134.127 L 61 131.952 L 65.2 129.778 L 69.4 127.603 L 73.6 125.429 L 77.8 123.254 L 82 121.079 L 86.2 118.905 L 90.4 116.73 L 94.6 114.556 L 98.8 112.381 L 103 110.206 L 107.2 108.032 L 111.4 105.857 L 115.6 103.683 L 119.8 101.508 L 124 99.333 L 128.2 97.159 L 132.4 94.984 L 136.6 92.81 L 140.8 90.635 L 145 88.46 L 149.2 86.286 L 153.4 84.111 L 157.6 81.937 L 161.8 79.762 L 166 77.587 L 170.2 75.413 L 174.4 73.238 L 178.6 71.063 L 182.8 68.889 L 187 66.714 L 191.2 64.54 L 195.4 62.365 L 199.6 60.19 L 203.8 58.016 L 208 55.841 L 212.2 53.667 L 216.4 51.492 L 220.6 49.317 L 224.8 47.143 L 229 44.968 L 233.2 42.794 L 237.4 40.619 L 241.6 38.444 L 245.8 36.27 L 250 34.095 L 254.2 31.921 L 258.4 29.746 L 262.6 27.571 L 266.8 25.397 L 271 23.222 L 275.2 21.048 L 279.4 18.873 L 283.6 16.698 L 287.8 14.524" fill="none" stroke="#910000" stroke-width="3" /><rect x="40" y="8" width="252" height="137" style="stroke:#666;stroke-width:0.5;fill:none;" /><rect x="45" y="17" width="20" height="6" style="fill:#2b7ddb;" /><text x="70" y="24" class="mcvsblegend">Balance</text><rect x="45" y="35" width="20" height="6" style="fill:#8bbc21;" /><text x="70" y="42" class="mcvsblegend">Interest</text><rect x="45" y="53" width="20" height="6" style="fill:#910000;" /><text x="70" y="60" class="mcvsblegend">Payment</text></svg></div><br></div><div class="clefthalf"><div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div><div id="monthlyamo" style="display:none;"><table class="cinfoT"><tr align="center"><th>Month</th><th>Date</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>10/2026</td><td>$166.67</td><td>$258.27</td><td>$19,741.73</td></tr><tr align="right"><td>2</td><td>11/2026</td><td>$164.51</td><td>$260.43</td><td>$19,481.30</td></tr><tr align="right"><td>3</td><td>12/2026</td><td>$162.34</td><td>$262.60</td><td>$19,218.70</td></tr><tr align="right"><td>4</td><td>1/2027</td><td>$160.16</td><td>$264.79</td><td>$18,953.92</td></tr><tr align="right"><td>5</td><td>2/2027</td><td>$157.95</td><td>$266.99</td><td>$18,686.93</td></tr><tr align="right"><td>6</td><td>3/2027</td><td>$155.72</td><td>$269.22</td><td>$18,417.71</td></tr><tr align="right"><td>7</td><td>4/2027</td><td>$153.48</td><td>$271.46</td><td>$18,146.25</td></tr><tr align="right"><td>8</td><td>5/2027</td><td>$151.22</td><td>$273.72</td><td>$17,872.53</td></tr><tr align="right"><td>9</td><td>6/2027</td><td>$148.94</td><td>$276.00</td><td>$17,596.52</td></tr><tr align="right"><td>10</td><td>7/2027</td><td>$146.64</td><td>$278.30</td><td>$17,318.22</td></tr><tr align="right"><td>11</td><td>8/2027</td><td>$144.32</td><td>$280.62</td><td>$17,037.60</td></tr><tr align="right"><td>12</td><td>9/2027</td><td>$141.98</td><td>$282.96</td><td>$16,754.64</td></tr><tr><td colspan="5" align="center">End of year 1</td></tr><tr align="right"><td>13</td><td>10/2027</td><td>$139.62</td><td>$285.32</td><td>$16,469.32</td></tr><tr align="right"><td>14</td><td>11/2027</td><td>$137.24</td><td>$287.70</td><td>$16,181.62</td></tr><tr align="right"><td>15</td><td>12/2027</td><td>$134.85</td><td>$290.09</td><td>$15,891.53</td></tr><tr align="right"><td>16</td><td>1/2028</td><td>$132.43</td><td>$292.51</td><td>$15,599.02</td></tr><tr align="right"><td>17</td><td>2/2028</td><td>$129.99</td><td>$294.95</td><td>$15,304.07</td></tr><tr align="right"><td>18</td><td>3/2028</td><td>$127.53</td><td>$297.41</td><td>$15,006.66</td></tr><tr align="right"><td>19</td><td>4/2028</td><td>$125.06</td><td>$299.89</td><td>$14,706.78</td></tr><tr align="right"><td>20</td><td>5/2028</td><td>$122.56</td><td>$302.38</td><td>$14,404.39</td></tr><tr align="right"><td>21</td><td>6/2028</td><td>$120.04</td><td>$304.90</td><td>$14,099.49</td></tr><tr align="right"><td>22</td><td>7/2028</td><td>$117.50</td><td>$307.45</td><td>$13,792.04</td></tr><tr align="right"><td>23</td><td>8/2028</td><td>$114.93</td><td>$310.01</td><td>$13,482.03</td></tr><tr align="right"><td>24</td><td>9/2028</td><td>$112.35</td><td>$312.59</td><td>$13,169.44</td></tr><tr><td colspan="5" align="center">End of year 2</td></tr><tr align="right"><td>25</td><td>10/2028</td><td>$109.75</td><td>$315.20</td><td>$12,854.25</td></tr><tr align="right"><td>26</td><td>11/2028</td><td>$107.12</td><td>$317.82</td><td>$12,536.43</td></tr><tr align="right"><td>27</td><td>12/2028</td><td>$104.47</td><td>$320.47</td><td>$12,215.95</td></tr><tr align="right"><td>28</td><td>1/2029</td><td>$101.80</td><td>$323.14</td><td>$11,892.81</td></tr><tr align="right"><td>29</td><td>2/2029</td><td>$99.11</td><td>$325.83</td><td>$11,566.98</td></tr><tr align="right"><td>30</td><td>3/2029</td><td>$96.39</td><td>$328.55</td><td>$11,238.43</td></tr><tr align="right"><td>31</td><td>4/2029</td><td>$93.65</td><td>$331.29</td><td>$10,907.14</td></tr><tr align="right"><td>32</td><td>5/2029</td><td>$90.89</td><td>$334.05</td><td>$10,573.09</td></tr><tr align="right"><td>33</td><td>6/2029</td><td>$88.11</td><td>$336.83</td><td>$10,236.26</td></tr><tr align="right"><td>34</td><td>7/2029</td><td>$85.30</td><td>$339.64</td><td>$9,896.62</td></tr><tr align="right"><td>35</td><td>8/2029</td><td>$82.47</td><td>$342.47</td><td>$9,554.16</td></tr><tr align="right"><td>36</td><td>9/2029</td><td>$79.62</td><td>$345.32</td><td>$9,208.83</td></tr><tr><td colspan="5" align="center">End of year 3</td></tr><tr align="right"><td>37</td><td>10/2029</td><td>$76.74</td><td>$348.20</td><td>$8,860.63</td></tr><tr align="right"><td>38</td><td>11/2029</td><td>$73.84</td><td>$351.10</td><td>$8,509.53</td></tr><tr align="right"><td>39</td><td>12/2029</td><td>$70.91</td><td>$354.03</td><td>$8,155.50</td></tr><tr align="right"><td>40</td><td>1/2030</td><td>$67.96</td><td>$356.98</td><td>$7,798.52</td></tr><tr align="right"><td>41</td><td>2/2030</td><td>$64.99</td><td>$359.95</td><td>$7,438.57</td></tr><tr align="right"><td>42</td><td>3/2030</td><td>$61.99</td><td>$362.95</td><td>$7,075.62</td></tr><tr align="right"><td>43</td><td>4/2030</td><td>$58.96</td><td>$365.98</td><td>$6,709.64</td></tr><tr align="right"><td>44</td><td>5/2030</td><td>$55.91</td><td>$369.03</td><td>$6,340.61</td></tr><tr align="right"><td>45</td><td>6/2030</td><td>$52.84</td><td>$372.10</td><td>$5,968.51</td></tr><tr align="right"><td>46</td><td>7/2030</td><td>$49.74</td><td>$375.20</td><td>$5,593.31</td></tr><tr align="right"><td>47</td><td>8/2030</td><td>$46.61</td><td>$378.33</td><td>$5,214.98</td></tr><tr align="right"><td>48</td><td>9/2030</td><td>$43.46</td><td>$381.48</td><td>$4,833.49</td></tr><tr><td colspan="5" align="center">End of year 4</td></tr><tr align="right"><td>49</td><td>10/2030</td><td>$40.28</td><td>$384.66</td><td>$4,448.83</td></tr><tr align="right"><td>50</td><td>11/2030</td><td>$37.07</td><td>$387.87</td><td>$4,060.96</td></tr><tr align="right"><td>51</td><td>12/2030</td><td>$33.84</td><td>$391.10</td><td>$3,669.87</td></tr><tr align="right"><td>52</td><td>1/2031</td><td>$30.58</td><td>$394.36</td><td>$3,275.51</td></tr><tr align="right"><td>53</td><td>2/2031</td><td>$27.30</td><td>$397.65</td><td>$2,877.86</td></tr><tr align="right"><td>54</td><td>3/2031</td><td>$23.98</td><td>$400.96</td><td>$2,476.90</td></tr><tr align="right"><td>55</td><td>4/2031</td><td>$20.64</td><td>$404.30</td><td>$2,072.60</td></tr><tr align="right"><td>56</td><td>5/2031</td><td>$17.27</td><td>$407.67</td><td>$1,664.93</td></tr><tr align="right"><td>57</td><td>6/2031</td><td>$13.87</td><td>$411.07</td><td>$1,253.87</td></tr><tr align="right"><td>58</td><td>7/2031</td><td>$10.45</td><td>$414.49</td><td>$839.38</td></tr><tr align="right"><td>59</td><td>8/2031</td><td>$6.99</td><td>$417.95</td><td>$421.43</td></tr><tr align="right"><td>60</td><td>9/2031</td><td>$3.51</td><td>$421.43</td><td>$0.00</td></tr><tr><td colspan="5" align="center">End of year 5</td></tr></table></div><div id="yearlyamo"><table class="cinfoT"><tr align="center"><th>Year</th><th>Date</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>10/26-9/27</td><td>$1,853.93</td><td>$3,245.36</td><td>$16,754.64</td></tr><tr align="right"><td>2</td><td>10/27-9/28</td><td>$1,514.10</td><td>$3,585.19</td><td>$13,169.44</td></tr><tr align="right"><td>3</td><td>10/28-9/29</td><td>$1,138.68</td><td>$3,960.61</td><td>$9,208.83</td></tr><tr align="right"><td>4</td><td>10/29-9/30</td><td>$723.95</td><td>$4,375.34</td><td>$4,833.49</td></tr><tr align="right"><td>5</td><td>10/30-9/31</td><td>$265.80</td><td>$4,833.49</td><td>$0.00</td></tr></table></div></div><div id="clear"></div><script>
-function amoChange(acVal){
-	if (document.getElementById("monthlyamo")){
-		if (acVal==1){
-			document.getElementById("monthlyamo").style.display = "block";
-			document.getElementById("yearlyamo").style.display = "none";
-			document.getElementById("amoselect").innerHTML = "<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule</b>";
-		}else{
-			document.getElementById("monthlyamo").style.display = "none";
-			document.getElementById("yearlyamo").style.display = "block";
-			document.getElementById("amoselect").innerHTML = "Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
-		}
-	}
-}
-amoChange(0);
-</script>
-		<p><fieldset><legend>Related</legend><a href="/credit-card-calculator.html">Credit Card Calculator</a> | <a href="/loan-calculator.html">Loan Calculator</a> | <a href="/debt-consolidation-calculator.html">Debt Consolidation Calculator</a></fieldset></p>
-
-<br>
-<p>The Personal Loan Calculator can give concise visuals to help determine what monthly payments and total costs will look like over the life of a personal loan. Since most personal loans come with fees and/or insurance, the end cost for them can actually be higher than advertised. The calculator takes all of these variables into account when determining the real annual percentage rate, or APR for the loan. Using this APR for loan comparisons is most likely to be more precise.</p>
-
-<h3>What are Personal Loans?</h3>
-<p>Personal loans are loans with fixed amounts, interest rates, and monthly payback amounts over defined periods of time. Typical personal loans range from $5,000 to $35,000 with terms of 3 or 5 years in the U.S. They are not backed by collateral (like a car or home, for example) as is typical for secured loans. Instead, lenders use the credit score, income, debt level, and many other factors to determine whether to grant the personal loan and at what interest rate. Due to their unsecured nature, personal loans are usually packaged at relatively higher interest rates (as high as 25% or more) to reflect the higher risk the lender takes on.</p>
-<div class="panel">
-	<p align="center"><b>Secured Personal Loans</b></p>
-	<p>Although uncommon, secured personal loans do exist. They are usually offered at banks and credit unions backed by a car, personal savings, or certificates of deposits as collateral. Like all other secured loans such as mortgages and auto loans, borrowers risk losing the collateral if timely repayments are not made. Generally, the maximum loan limit is based on the collateral the borrower is willing to put up. Most online lenders only offer unsecured personal loans. While the Personal Loan Calculator is mainly intended for unsecured personal loans, it can be used for secured personal loans as long as the inputs correctly reflect the loan conditions.</p>
-</div>
-<p><b>Traditional Personal Loans</b></p>
-<p>Before the arrival of the internet, personal loans were generally provided by banks, credit unions, and other financial institutions. They are able to profit off this system by taking in money in the form of savings accounts, checking accounts, money market accounts, or certificates of deposit (CDs), and lending the money back out at higher interest rates. Pawnshops and cash advance stores also provide personal loans at high interest rates.</p>
-<p><b>Personal Loans from P2P Lenders</b></p>
-<p>The advent of the internet introduced a new way of lending, shaping the landscape of the personal loan industry. Instead of borrowers going to lending institutions that provide personal loans (as is done traditionally), borrowers can now go to online financial service companies that match them up with lenders directly. The majority of these lenders are regular people with some extra money to invest. The entire process is called peer-to-peer lending, or abbreviated as P2P lending. P2P borrowers generally offer loans with more favorable terms because of the relatively low risk and low cost for the P2P service providers. P2P service providers generally operate only through a website, which is much cheaper to run than a brick-and-mortar bank or credit union. Also, P2P service providers do not lend directly, but act instead as middlemen and take a small cut of all transactions. The lenders bear the loss when borrowers default. As a result, these P2P service providers operate with very low risk.</p>
-
-<h3>Why Use Personal Loans?</h3>
-<p>About half of all personal loans are used for debt consolidation. The interest rates of personal loans are normally lower than credit cards, making personal loans a great vehicle through which a person could consolidate credit card debt or other debts sitting at higher interest rates. When deciding to take a personal loan for debt consolidation, the fees should be fully considered. The fee included APR is a better reference than the interest rate for comparison purposes. Other common uses of personal loans include the payment of medical bills, home renovations, small business expansions, vacations, weddings, and other larger purchases. The following are a number of more specific examples of uses of personal loans:</p>
-<ul>
-	<li>A person has an $8,000 balance with a 19.99% interest on one credit card and a $7,000 balance with 24.99% interest rate on another. A P2P lender is willing to lend him $16,000 for 5 years at an interest rate of 12% along with a 5% fee up front. The APR of this loan is 14.284%, which is lower than the interest rate on both credit cards. Thus, he can use this loan to pay off his credit card debt at a significantly lower interest rate.</li>
-	<li>A small business owner who needs the extra funds to finance an ad for their business in the newspaper that has a high chance of bringing in lots of revenue.</li>
-	<li>A broke but high-potential college student who needs the extra funds to finance a temporary move to a new location where they can potentially score a prestigious job and immediately become a high earner to pay off the loan.</li>
-</ul>
-<div class="panel">
-	<p align="center"><b>Try to Avoid Fraudulent or Predatory Loans</b></p>
-	<p>Unfortunately, fraudulent or predatory lenders do exist. Firstly, it is unusual for a lender to extend an offer without first asking for credit history, and a lender doing so may be a telltale sign to avoid them. Loans advertised through physical mail or by phone have a high chance of being predatory. The same is often said for auto title loans, cash advances, no-credit-check loans, and payday loans. Generally, these loans come with very high interest rates, exorbitant fees, and very short payback terms.</p>
-</div>
-
-<h3>Personal Loans and Creditworthiness</h3>
-<p>The creditworthiness of an individual is probably the main determining factor affecting the grant of a personal loan. Good or excellent credit scores are important, especially when seeking personal loans at good rates. People with lower credit scores will find few options when seeking a loan, and loans they may secure usually come with unfavorable rates. Like credit cards or any other loan signed with a lender, defaulting on personal loans can damage a person's credit score. Lenders that look beyond credit scores do exist; they use other factors such as debt-to-income ratios, stable employment history, etc.</p>
-
-<h3>Personal Loan Application</h3>
-<p>The application process is usually fairly straightforward. To apply, the lenders normally ask for some basic information, including personal, employment, income, and credit report information, among a handful of other things. This information will most likely come from documents such as income tax returns, recent pay stubs, W-2 forms, or a personal financial statement. Many lenders today allow borrowers to submit applications online. After submission, information is assessed and verified by the lender. Some lenders decide instantly, while others may take a few days or weeks. Applicants can either be accepted, rejected, or accepted with conditions. Regarding the latter, the lender will only lend if certain conditions are met, such as submitting additional pay stubs or documents related to assets or debts.</p>
-<p>If approved, personal loans can be funded as quickly as within 24 hours, making them quite handy when cash is required immediately. They should appear as a lump sum in a checking account supplied during the initial application, as many lenders require an account to send personal loan funds via direct deposit. Some lenders can send checks or load money into prepaid debit cards. When spending the loan money, be sure to stay within legal boundaries as denoted in the contract.</p>
-
-<h3>Personal Loan Fees</h3>
-<p>Aside from the typical principal and interest payments made on any type of loan, for personal loans, there are several fees to take note of.</p>
-<ul>
-	<li><b>Origination fee</b>&mdash;Sometimes called an application fee, it helps to cover costs associated with processing applications. It typically ranges from 1% to 5% of the loan amount. Some lenders ask for the origination fee upfront while most deduct the fee after approval. For instance, $10,000 borrowed with a 3% origination fee will only net $9,700 for the borrower (the repayment is still based on $10,000, however).</li>
-	<li><b>Prepayment fee</b>&mdash;this fee is only applicable when a borrower pays off their personal loan or makes repayments ahead of schedule. Personal loans containing prepayment fees are less common nowadays.</li>
-	<li><b>Late payment fee</b>&mdash;Lenders can charge a fee for paying too late. Avoid this by simply paying all dues on time. It can help to contact lenders ahead of time if a payment cannot be made on a due date, as some are willing to extend deadlines.  This fee can be flat or assessed as a percentage of the payment, depending on the lender.</li>
-</ul>
-<p>Some lenders may ask borrowers to purchase personal loan insurance policies that cover events like death, disability, or job loss. While this can be beneficial for some, such insurance is not required by law.</p>
-
-<h3>Personal Loan Alternatives</h3>
-<p>There are several alternatives borrowers can consider before taking out unsecured personal loans or when no reputable source is willing to lend.</p>
-<ul>
-	<li><b>Borrow from close friends or family who are willing to help.</b> Most of the time, family or friends are willing to lend at zero or low interest rates.</li>
-	<li><b>Ask for someone to help cosign a personal loan.</b> A cosigner can be anyone, such as a spouse, parent, guardian, relative, or close friend. However, they must have good credit standing, stable employment, and basically be a person who would have gotten the personal loan had they applied. The cosigner does take on risks when they represent the personal loan borrower though; should the borrower default, the cosigner is next in line to make the payments.</li>
-	<li><b>Apply for and use zero or low introductory rate credit cards.</b> These types of credit cards tend to be great at carrying debt month-to-month without incurring interest for a borrower who intends to pay them off at a future date, which is a great reason to choose them over personal loans. Just be wary of rollover fees and mark the date on the calendar concerning when the credit card issuer's interest-free period expires.</li>
-	<li><b>Secure loans to existing collateral such as a house, a car, or expensive jewelry.</b> Most lenders see secured loans as less risky than unsecured loans and are more willing to offer higher loan amounts with more favorable rates. A common method that can be used to borrow a large sum of money involves collateralizing a home through a home equity line of credit (HELOC). However, please note that lenders can lawfully take ownership of any collateral signed; failing to make payments on a HELOC can potentially result in foreclosure.</li>
-	<li><b>Nonprofit or religious organizations in the community</b> can often be a lifesaver for people struggling financially.</li>
-	<li><b>Crowdfunding is also a great way to raise money.</b> Best of all, repayment is not required! It is a tall task to successfully crowdfund though. Generally, the populous isn't going to crowdfund anyone or any cause unless they like and believe in the purpose of the crowdfunding project. While there is no way to know who may or may not receive crowdfunding, people starting new, promising businesses, requesting disaster relief, or more rarely, struggling with financial problems out of their control are the kinds of people who typically receive crowdfunding.</li>
-</ul>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Personal Loan Calculator: Monthly Payment, APR &amp; Total Cost | adxcal.com</title>
+
+	<meta name="description" content="Free personal loan calculator. Get your monthly payment, total interest, real loan cost and the APR after the origination fee and insurance, plus a full amortization schedule." />
+	
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html">
+
+<meta property="og:title" content="Personal Loan Calculator: Monthly Payment, APR &amp; Total Cost | adxcal.com">
+<meta property="og:description" content="Free personal loan calculator. Get your monthly payment, total interest, real loan cost and the APR after the origination fee and insurance, plus a full amortization schedule.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Personal Loan Calculator: Monthly Payment, APR &amp; Total Cost | adxcal.com">
+<meta name="twitter:description" content="Free personal loan calculator. Get your monthly payment, total interest, real loan cost and the APR after the origination fee and insurance, plus a full amortization schedule.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Personal Loan Calculator: Monthly Payment, APR &amp; Total Cost | adxcal.com","url":"https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html","description":"Free personal loan calculator. Get your monthly payment, total interest, real loan cost and the APR after the origination fee and insurance, plus a full amortization schedule.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Financial"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Financial","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Personal Loan Calculator: Monthly Payment, APR &amp; Total Cost | adxcal.com","item":"https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/personal-loan-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/personal-loan-calculator.html" itemprop="item"><span itemprop="name">personal loan calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Personal Loan Calculator</h1>
+
+
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput"><div class="panel">
+
+<form name="calform" action="/personal-loan-calculator.html#result">
+
+<table id="calinputtable" align="center">
+
+<tr><td>Loan amount</td><td><input type="text" name="cloanamount" id="cloanamount" value="20000" class="inlonger indollar"></td></tr>
+
+<tr><td>Interest rate</td><td><input type="text" name="cinterestrate" id="cinterestrate" value="10" class="inlonger inpct"></td></tr>
+
+<tr><td>Loan term</td><td nowrap>
+
+		<input type="text" name="cyears" id="cyears" value="5" class="innormal inuiyear"><span class="inuiyearspan">years</span>&nbsp;
+
+		<input type="text" name="cmonths" id="cmonths" value="0" class="innormal inuiyear"><span class="inuipoundspan">months</span>
+
+</td></tr>
+
+<tr><td>Start date</td><td><select name="cstartmonth" id="cstartmonth"><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option><option value="4">Apr</option><option value="5">May</option><option value="6">Jun</option><option value="7">Jul</option><option value="8">Aug</option><option value="9">Sep</option><option value="10" selected>Oct</option><option value="11">Nov</option><option value="12">Dec</option></select> <input type="text" name="cstartyear" id="cstartyear" value="2026" class="in4char"></td></tr>
+
+
+
+<tr><td colspan="2"><br><label for="caddoptional" class="cbcontainer"><input type="checkbox" name="caddoptional" id="caddoptional" value="1"  onClick="caddoptfun();" /><span class="cbmark"></span><b><span id="caddoptionaldesc">Add fee and insurance</span></b></label></td></tr>
+
+<tr><td colspan="2">
+
+	<div id="caddoptionalinputs">
+
+	<div style="padding-top:8px;"><b>Origination fee</b> <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('It is the fee that the lender charges the borrower for providing the loan. The origination fee may encompass the costs associated with processing the application, underwriting, funding the loan, as well as other administrative services.', '');" onmouseout="tooltip.hide();"></div>
+
+	<table>
+
+		<tr>
+
+			<td style="padding-left:20px;">Amount</td>
+
+			<td><input type="text" name="corigamount" id="corigamount" value="5" class="inlong inpct"></td>
+
+			<td><select name="corigisa" onChange="cUpdateSymb(this.value);"><option value="percentage" selected>%</option><option value="amount">$</option></select></td>
+
+		</tr>
+
+		<tr>
+
+			<td valign="top" align="right" style="padding-top:5px;">to be</td>
+
+			<td colspan="2">
+
+				<label for="corigpaid2" class="cbcontainer"><input name="corigpaid" id="corigpaid2" value="deduct" type="radio" checked><span class="rbmark"></span>deducted from loan</label><br>
+
+				<label for="corigpaid1" class="cbcontainer"><input name="corigpaid" id="corigpaid1" value="upfront" type="radio" ><span class="rbmark"></span>paid upfront</label>
+
+			</td>
+
+		</tr>
+
+		<tr><td colspan="3"><div style="height:8px;"></div></td></tr>
+
+		<tr><td><b>Insurance</b> <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Some lenders may require the borrower to purchase credit insurance for personal loans as a form of protection.', '');" onmouseout="tooltip.hide();"></td><td colspan="2"><input type="text" name="cinsurance" id="cinsurance" value="0" class="inlonger indollar inuiinch"><span class="inuiinchspan">/month</span></td></tr>
+
+	</table>
+
+	</div>
+
+</td></tr>
+
+<tr><td colspan="2" align="center" style="padding-top:8px;">
+
+	<input name="printit" value="0" type="hidden">
+
+	<input type="submit" name="x" value="Calculate">
+
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+
+</td></tr>
+
+</table>
+
+</form>
+
+<script>
+
+function cUpdateSymb(ofType){
+
+	var cloanamount = (document.getElementById("cloanamount").value+"").replaceAll(',', '').replaceAll(' ', '');
+
+	var corigamount = (document.getElementById("corigamount").value+"").replaceAll(',', '').replaceAll(' ', '');
+
+
+
+	if (isNumber(cloanamount)&&isNumber(corigamount)){
+
+		cloanamount = parseFloat(cloanamount);
+
+		corigamount = parseFloat(corigamount);
+
+		if (ofType=='percentage'){
+
+			document.getElementById("corigamount").value = Math.round(100000.0*corigamount/cloanamount)/1000;
+
+			document.getElementById("corigamount").classList.remove('indollar');
+
+			document.getElementById("corigamount").classList.add('inpct');
+
+		}else{
+
+			document.getElementById("corigamount").value = Math.round(cloanamount*corigamount/100);
+
+			document.getElementById("corigamount").classList.remove('inpct');
+
+			document.getElementById("corigamount").classList.add('indollar');
+
+		}
+
+		proComma("corigamount");
+
+	}else{
+
+		if (ofType=='percentage'){
+
+			document.getElementById("corigamount").classList.remove('indollar');
+
+			document.getElementById("corigamount").classList.add('inpct');
+
+		}else{
+
+			document.getElementById("corigamount").classList.remove('inpct');
+
+			document.getElementById("corigamount").classList.add('indollar');
+
+		}
+
+	}
+
+	return false;
+
+}
+
+function caddoptfun(){
+
+	if (document.calform.caddoptional.checked){
+
+		document.getElementById("caddoptionalinputs").style.display = 'block';
+
+		document.getElementById("caddoptionaldesc").innerHTML = 'Include fee and insurance below';
+
+	}else{
+
+		document.getElementById("caddoptionalinputs").style.display = 'none';
+
+		document.getElementById("caddoptionaldesc").innerHTML = 'Include fee and insurance';
+
+	}
+
+}
+
+caddoptfun();
+
+
+
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+
+proComma2("cloanamount");
+
+proComma2("cinsurance");
+
+proComma2("corigamount");
+
+</script>
+
+
+
+</div></div>
+
+<div class="rightresult">
+
+<a name="result"></a><div class="espaceforM">&nbsp;</div>
+
+<h2 class="h2result">Monthly pay: &nbsp; $424.94<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGVyc29uYWwgTG9hbiBDYWxjdWxhdG9y', 0, 'UGVyc29uYWwgTG9hbiBDYWxjdWxhdG9y', 'TW9udGhseSBQYXk=', 'JDQyNC45NA==');"></h2><table cellpadding='3' width='100%'><tr><td colspan='2'>Total of 60 loan payments</td><td align='right'>$25,496.45</td></tr><tr><td colspan='2'>Total interest</td><td align='right'>$5,496.45</td></tr><tr><td colspan='2'>Payoff date</td><td align='right'>Oct. 2031</td></tr></table>
+
+<!-- UNCHANGED: your server-generated pie chart (SVG + ttpie tooltip script) goes here exactly as in your original output -->
+
+</div><div id="clear"></div>
+
+<div id="pLoanRateTable"></div>
+
+<h2 style="padding-bottom: 10px;">Amortization schedule</h2>
+
+<!-- UNCHANGED: your server-generated balance/interest/payment line chart (SVG, inside <div class="crighthalf">) goes here exactly as in your original output -->
+
+<div class="clefthalf"><div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div>
+
+<!-- UNCHANGED: your server-generated <div id="monthlyamo" style="display:none;"> monthly table (60 rows) goes here exactly as in your original output -->
+
+<div id="yearlyamo"><table class="cinfoT"><tr align="center"><th>Year</th><th>Date</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>10/26-9/27</td><td>$1,853.93</td><td>$3,245.36</td><td>$16,754.64</td></tr><tr align="right"><td>2</td><td>10/27-9/28</td><td>$1,514.10</td><td>$3,585.19</td><td>$13,169.44</td></tr><tr align="right"><td>3</td><td>10/28-9/29</td><td>$1,138.68</td><td>$3,960.61</td><td>$9,208.83</td></tr><tr align="right"><td>4</td><td>10/29-9/30</td><td>$723.95</td><td>$4,375.34</td><td>$4,833.49</td></tr><tr align="right"><td>5</td><td>10/30-9/31</td><td>$265.80</td><td>$4,833.49</td><td>$0.00</td></tr></table></div></div><div id="clear"></div><script>
+
+function amoChange(acVal){
+
+	if (document.getElementById("monthlyamo")){
+
+		if (acVal==1){
+
+			document.getElementById("monthlyamo").style.display = "block";
+
+			document.getElementById("yearlyamo").style.display = "none";
+
+			document.getElementById("amoselect").innerHTML = "<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule</b>";
+
+		}else{
+
+			document.getElementById("monthlyamo").style.display = "none";
+
+			document.getElementById("yearlyamo").style.display = "block";
+
+			document.getElementById("amoselect").innerHTML = "Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
+
+		}
+
+	}
+
+}
+
+amoChange(0);
+
+</script>
+
+		<p><fieldset><legend>Related</legend><a href="/credit-card-calculator.html">Credit Card Calculator</a> | <a href="/loan-calculator.html">Loan Calculator</a> | <a href="/debt-consolidation-calculator.html">Debt Consolidation Calculator</a></fieldset></p>
+
+
+
+<br>
+
+<p>The Personal Loan Calculator can give concise visuals to help determine what monthly payments and total costs will look like over the life of a personal loan. Since most personal loans come with fees and/or insurance, the end cost for them can actually be higher than advertised. The calculator takes all of these variables into account when determining the real annual percentage rate, or APR for the loan. Using this APR for loan comparisons is most likely to be more precise.</p>
+
+
+
+<h3>What are Personal Loans?</h3>
+
+<p>Personal loans are loans with fixed amounts, interest rates, and monthly payback amounts over defined periods of time. Typical personal loans range from $5,000 to $35,000 with terms of 3 or 5 years in the U.S. They are not backed by collateral (like a car or home, for example) as is typical for secured loans. Instead, lenders use the credit score, income, debt level, and many other factors to determine whether to grant the personal loan and at what interest rate. Due to their unsecured nature, personal loans are usually packaged at relatively higher interest rates (as high as 25% or more) to reflect the higher risk the lender takes on.</p>
+
+<div class="panel">
+
+	<p align="center"><b>Secured Personal Loans</b></p>
+
+	<p>Although uncommon, secured personal loans do exist. They are usually offered at banks and credit unions backed by a car, personal savings, or certificates of deposits as collateral. Like all other secured loans such as mortgages and auto loans, borrowers risk losing the collateral if timely repayments are not made. Generally, the maximum loan limit is based on the collateral the borrower is willing to put up. Most online lenders only offer unsecured personal loans. While the Personal Loan Calculator is mainly intended for unsecured personal loans, it can be used for secured personal loans as long as the inputs correctly reflect the loan conditions.</p>
+
+</div>
+
+<p><b>Traditional Personal Loans</b></p>
+
+<p>Before the arrival of the internet, personal loans were generally provided by banks, credit unions, and other financial institutions. They are able to profit off this system by taking in money in the form of savings accounts, checking accounts, money market accounts, or certificates of deposit (CDs), and lending the money back out at higher interest rates. Pawnshops and cash advance stores also provide personal loans at high interest rates.</p>
+
+<p><b>Personal Loans from P2P Lenders</b></p>
+
+<p>The advent of the internet introduced a new way of lending, shaping the landscape of the personal loan industry. Instead of borrowers going to lending institutions that provide personal loans (as is done traditionally), borrowers can now go to online financial service companies that match them up with lenders directly. The majority of these lenders are regular people with some extra money to invest. The entire process is called peer-to-peer lending, or abbreviated as P2P lending. P2P borrowers generally offer loans with more favorable terms because of the relatively low risk and low cost for the P2P service providers. P2P service providers generally operate only through a website, which is much cheaper to run than a brick-and-mortar bank or credit union. Also, P2P service providers do not lend directly, but act instead as middlemen and take a small cut of all transactions. The lenders bear the loss when borrowers default. As a result, these P2P service providers operate with very low risk.</p>
+
+
+
+<h3>Why Use Personal Loans?</h3>
+
+<p>About half of all personal loans are used for debt consolidation. The interest rates of personal loans are normally lower than credit cards, making personal loans a great vehicle through which a person could consolidate credit card debt or other debts sitting at higher interest rates. When deciding to take a personal loan for debt consolidation, the fees should be fully considered. The fee included APR is a better reference than the interest rate for comparison purposes. Other common uses of personal loans include the payment of medical bills, home renovations, small business expansions, vacations, weddings, and other larger purchases. The following are a number of more specific examples of uses of personal loans:</p>
+
+<ul>
+
+	<li>A person has an $8,000 balance with a 19.99% interest on one credit card and a $7,000 balance with 24.99% interest rate on another. A P2P lender is willing to lend him $16,000 for 5 years at an interest rate of 12% along with a 5% fee up front. The APR of this loan is 14.284%, which is lower than the interest rate on both credit cards. Thus, he can use this loan to pay off his credit card debt at a significantly lower interest rate.</li>
+
+	<li>A small business owner who needs the extra funds to finance an ad for their business in the newspaper that has a high chance of bringing in lots of revenue.</li>
+
+	<li>A broke but high-potential college student who needs the extra funds to finance a temporary move to a new location where they can potentially score a prestigious job and immediately become a high earner to pay off the loan.</li>
+
+</ul>
+
+<div class="panel">
+
+	<p align="center"><b>Try to Avoid Fraudulent or Predatory Loans</b></p>
+
+	<p>Unfortunately, fraudulent or predatory lenders do exist. Firstly, it is unusual for a lender to extend an offer without first asking for credit history, and a lender doing so may be a telltale sign to avoid them. Loans advertised through physical mail or by phone have a high chance of being predatory. The same is often said for auto title loans, cash advances, no-credit-check loans, and payday loans. Generally, these loans come with very high interest rates, exorbitant fees, and very short payback terms.</p>
+
+</div>
+
+
+
+<h3>Personal Loans and Creditworthiness</h3>
+
+<p>The creditworthiness of an individual is probably the main determining factor affecting the grant of a personal loan. Good or excellent credit scores are important, especially when seeking personal loans at good rates. People with lower credit scores will find few options when seeking a loan, and loans they may secure usually come with unfavorable rates. Like credit cards or any other loan signed with a lender, defaulting on personal loans can damage a person's credit score. Lenders that look beyond credit scores do exist; they use other factors such as debt-to-income ratios, stable employment history, etc.</p>
+
+
+
+<h3>Personal Loan Application</h3>
+
+<p>The application process is usually fairly straightforward. To apply, the lenders normally ask for some basic information, including personal, employment, income, and credit report information, among a handful of other things. This information will most likely come from documents such as income tax returns, recent pay stubs, W-2 forms, or a personal financial statement. Many lenders today allow borrowers to submit applications online. After submission, information is assessed and verified by the lender. Some lenders decide instantly, while others may take a few days or weeks. Applicants can either be accepted, rejected, or accepted with conditions. Regarding the latter, the lender will only lend if certain conditions are met, such as submitting additional pay stubs or documents related to assets or debts.</p>
+
+<p>If approved, personal loans can be funded as quickly as within 24 hours, making them quite handy when cash is required immediately. They should appear as a lump sum in a checking account supplied during the initial application, as many lenders require an account to send personal loan funds via direct deposit. Some lenders can send checks or load money into prepaid debit cards. When spending the loan money, be sure to stay within legal boundaries as denoted in the contract.</p>
+
+
+
+<h3>Personal Loan Fees</h3>
+
+<p>Aside from the typical principal and interest payments made on any type of loan, for personal loans, there are several fees to take note of.</p>
+
+<ul>
+
+	<li><b>Origination fee</b>&mdash;Sometimes called an application fee, it helps to cover costs associated with processing applications. It typically ranges from 1% to 5% of the loan amount. Some lenders ask for the origination fee upfront while most deduct the fee after approval. For instance, $10,000 borrowed with a 3% origination fee will only net $9,700 for the borrower (the repayment is still based on $10,000, however).</li>
+
+	<li><b>Prepayment fee</b>&mdash;this fee is only applicable when a borrower pays off their personal loan or makes repayments ahead of schedule. Personal loans containing prepayment fees are less common nowadays.</li>
+
+	<li><b>Late payment fee</b>&mdash;Lenders can charge a fee for paying too late. Avoid this by simply paying all dues on time. It can help to contact lenders ahead of time if a payment cannot be made on a due date, as some are willing to extend deadlines.  This fee can be flat or assessed as a percentage of the payment, depending on the lender.</li>
+
+</ul>
+
+<p>Some lenders may ask borrowers to purchase personal loan insurance policies that cover events like death, disability, or job loss. While this can be beneficial for some, such insurance is not required by law.</p>
+
+
+
+<h3>Personal Loan Alternatives</h3>
+
+<p>There are several alternatives borrowers can consider before taking out unsecured personal loans or when no reputable source is willing to lend.</p>
+
+<ul>
+
+	<li><b>Borrow from close friends or family who are willing to help.</b> Most of the time, family or friends are willing to lend at zero or low interest rates.</li>
+
+	<li><b>Ask for someone to help cosign a personal loan.</b> A cosigner can be anyone, such as a spouse, parent, guardian, relative, or close friend. However, they must have good credit standing, stable employment, and basically be a person who would have gotten the personal loan had they applied. The cosigner does take on risks when they represent the personal loan borrower though; should the borrower default, the cosigner is next in line to make the payments.</li>
+
+	<li><b>Apply for and use zero or low introductory rate credit cards.</b> These types of credit cards tend to be great at carrying debt month-to-month without incurring interest for a borrower who intends to pay them off at a future date, which is a great reason to choose them over personal loans. Just be wary of rollover fees and mark the date on the calendar concerning when the credit card issuer's interest-free period expires.</li>
+
+	<li><b>Secure loans to existing collateral such as a house, a car, or expensive jewelry.</b> Most lenders see secured loans as less risky than unsecured loans and are more willing to offer higher loan amounts with more favorable rates. A common method that can be used to borrow a large sum of money involves collateralizing a home through a home equity line of credit (HELOC). However, please note that lenders can lawfully take ownership of any collateral signed; failing to make payments on a HELOC can potentially result in foreclosure.</li>
+
+	<li><b>Nonprofit or religious organizations in the community</b> can often be a lifesaver for people struggling financially.</li>
+
+	<li><b>Crowdfunding is also a great way to raise money.</b> Best of all, repayment is not required! It is a tall task to successfully crowdfund though. Generally, the populous isn't going to crowdfund anyone or any cause unless they like and believe in the purpose of the crowdfunding project. While there is no way to know who may or may not receive crowdfunding, people starting new, promising businesses, requesting disaster relief, or more rarely, struggling with financial problems out of their control are the kinds of people who typically receive crowdfunding.</li>
+
+</ul>
+
+
+
+<!-- ===== ADDED SEO CONTENT (uses your existing h3 / p styles) ===== -->
+
+<h3>How to Calculate a Personal Loan Payment</h3>
+
+<p>The monthly payment on a fixed-rate personal loan is calculated with this formula:</p>
+
+<p><b>M = P &times; r &divide; (1 &minus; (1 + r)<sup>&minus;n</sup>)</b></p>
+
+<p>Here <b>M</b> is the monthly payment, <b>P</b> is the loan amount, <b>r</b> is the monthly interest rate (the annual rate divided by 12), and <b>n</b> is the total number of monthly payments. For example, a $20,000 loan at 10% for 5 years (60 payments) has a monthly payment of $424.94. Over the full term you pay $25,496.45, of which $5,496.45 is interest.</p>
+
+<p>If the loan has an origination fee or insurance, the calculator also finds the APR, which is the real yearly cost of the loan including those charges.</p>
+
+<h3>Interest Rate vs. APR</h3>
+
+<p>The interest rate is only the price of borrowing the money. The APR adds the fees and insurance, so it shows what the loan really costs. In the example above, a $16,000 loan at 12% with a 5% upfront fee has an APR of 14.284%. When you compare lenders, compare the APR, not just the interest rate.</p>
+
+<h3>Frequently Asked Questions</h3>
+
+<p><b>How is a personal loan monthly payment calculated?</b><br>The monthly payment is M = P x r / (1 - (1 + r)^-n), where P is the loan amount, r is the monthly interest rate (annual rate divided by 12) and n is the number of monthly payments. For a $20,000 loan at 10% for 5 years, the payment is about $424.94 and the total interest is about $5,496.45.</p>
+
+<p><b>What is the difference between interest rate and APR on a personal loan?</b><br>The interest rate is only the cost of borrowing the money. The APR also includes fees such as the origination fee and any required insurance, so it shows the real cost of the loan. Comparing APRs is more accurate than comparing interest rates.</p>
+
+<p><b>How does an origination fee work?</b><br>An origination fee is charged by the lender to process the loan and usually ranges from 1% to 5% of the loan amount. Most lenders deduct it from the loan, so $10,000 borrowed with a 3% fee nets $9,700, while repayment is still based on $10,000.</p>
+
+<p><b>How much can I borrow with a personal loan?</b><br>Typical personal loans in the U.S. range from $5,000 to $35,000 with terms of 3 or 5 years. The amount you are offered depends on your credit score, income and existing debt.</p>
+
+<p><b>Are personal loans secured or unsecured?</b><br>Most personal loans are unsecured, which means they are not backed by collateral such as a car or home. Because of the higher risk to the lender, rates can be as high as 25% or more. Secured personal loans exist but are less common.</p>
+
+<p><b>Is a personal loan a good way to consolidate debt?</b><br>It can be, because personal loan rates are normally lower than credit card rates. About half of all personal loans are used for debt consolidation. Compare the loan's APR, which includes fees, with the rates on the debts you want to pay off.</p>
+
+<p><b>How fast can I get a personal loan?</b><br>Some lenders decide instantly and others take a few days or weeks. If approved, a personal loan can be funded as quickly as within 24 hours, usually as a lump sum by direct deposit.</p>
+
+<p><i>This calculator provides estimates for information only and is not financial advice. Check the final terms with your lender.</i></p>
+
+<!-- ===== END ADDED SEO CONTENT ===== -->
+
+
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

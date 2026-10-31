@@ -1,197 +1,311 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Percentage Calculator</title>
-	<meta name="description" content="This free percentage calculator computes a number of values involving percentages, including the percentage difference between two given values." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/percent-calculator.html" itemprop="item"><span itemprop="name">percentage calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Percentage Calculator</h1>
-<p>Please provide any two values below and click the "Calculate" button to get the third value.</p>
-
-<form name="calform" action="/percent-calculator.html">
-<table class="panel" cellpadding="5">
-  <tr>
-    <td align="center" valign="middle" class="verybigtext">
-<input type="text" name="cpar1" id="cpar1" value="" class="inlong inpct"> of
-<input type="text" name="cpar2" id="cpar2" value="" class="inlong">
-&nbsp; = &nbsp;
-<input type="text" name="cpar3" id="cpar3" value="" class="inlong">
-	</td>
-  </tr>
-  <tr>
-	<td align="center">
-		<input name="ctype" value="1" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-    </td>
-  </tr>
-</table>
-</form>
-
-
-<a name="pctcommon"></a>
-<br><h2>Percentage Calculator in Common Phrases</h2>
-<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" ><tr><td class="verybigtext">
-what is
-<input type="text" name="c21par1" value="" class="inlong inpct"> of
-<input type="text" name="c21par2" value="" class="inlong">
-</td>
-<td align="center"> &nbsp; <input name="ctype" value="21" type="hidden">
-<input type="submit" name="x" value="Calculate">
-</td></tr></table></form>
-
-<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" style="margin-top:5px;" ><tr><td class="verybigtext" nowrap>
-<input type="text" name="c22par1" value="" class="innormal">
-is what % of
-<input type="text" name="c22par2" value="" class="inlong">
-</td>
-<td align="center"> &nbsp; <input name="ctype" value="22" type="hidden">
-<input type="submit" name="x" value="Calculate">
-</td></tr></table></form>
-
-<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" style="margin-top:5px;" ><tr><td class="verybigtext">
-<input type="text" name="c23par1" value="" class="inlong">
-is
-<input type="text" name="c23par2" value="" class="inlong inpct"> of what
-</td>
-<td align="center"> &nbsp; <input name="ctype" value="23" type="hidden">
-<input type="submit" name="x" value="Calculate">
-</td></tr></table></form>
-
-<a name="pctdifference"></a>
-<br><h2>Percentage Difference Calculator</h2>
-<form name="calform3" action="/percent-calculator.html#pctdifference">
-<table class="panel" cellpadding="5"  >
-  <tr>
-    <td>Value 1</td>
-    <td><input type="text" name="c3par1" value="" class="inlongest"></td>
-  </tr>
-  <tr>
-    <td>Value 2</td>
-    <td><input type="text" name="c3par2" value="" class="inlongest"></td>
-  </tr>
-  <tr>
-	<td colspan="2" align="center">
-		<input name="ctype" value="3" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
-    </td>
-  </tr>
-</table>
-</form>
-
-<a name="pctincrease"></a>
-<br><h2>Percentage Change Calculator</h2>
-<p>Please provide any two values below and click the "Calculate" button to get the third value.</p>
-
-<form name="calform2" action="/percent-calculator.html#pctincrease">
-<table class="panel" cellpadding="5" >
-  <tr>
-    <td class="verybigtext">
-<input type="text" name="c2par1" value="" class="inlong">
-<select name="c2type" class="bigtext">
-<option value="increase" selected>Increase</option>
-<option value="decrease" >Decrease</option>
-</select>
-<input type="text" name="c2par2" value="" class="inlong inpct">
- =
-<input type="text" name="c2par3" value="" class="inlong">
-	</td>
-  </tr>
-  <tr>
-	<td align="center">
-		<input name="ctype" value="2" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-    </td>
-  </tr>
-</table>
-</form>
-
-<br><br><br>
-<h3>What is a percentage?</h3>
-<p>In mathematics, a percentage is a number or ratio that represents a fraction of 100. It is one of the ways to represent a dimensionless relationship between two numbers; other methods include ratios, fractions, and decimals. Percentages are often denoted by the symbol "%" written after the number. They can also be denoted by writing "percent" or "pct" after the number. For example, 35% is equivalent to the decimal 0.35, or the fractions <img src="/img/percent/f7-20.svg" style="vertical-align:middle;">.</p>
-
-<p>Percentages are computed by multiplying the value of a ratio by 100. For example, if 25 out of 50 students in a classroom are male, <img src="/img/percent/f1-2.svg" style="vertical-align:middle;">. The value of the ratio is therefore 0.5, and multiplying this by 100 yields:</p>
-<p style="text-align:center;">0.5 &#215; 100 = 50</p>
-<p>In other words, the ratio of 25 males to students in the classroom is equivalent to 50% of students in the classroom being male.</p>
-
-
-
-
-<h3>Percentage formula</h3>
-<p>Although the percentage formula can be written in different forms, it is essentially an algebraic equation involving three values. </p>
-
-<p align="center">P &#215; V<sub>1</sub> = V<sub>2</sub></p>
-
-<p>P is the percentage, V<sub>1</sub> is the first value that the percentage will modify, and V<sub>2</sub> is the result of the percentage operating on V<sub>1</sub>. The calculator provided automatically converts the input percentage into a decimal to compute the solution. However, if solving for the percentage, the value returned will be the actual percentage, not its decimal representation.
-
-<p align="center">EX: P &#215; 30 = 1.5
-<table align="center"><tr>
-<td>P = </td>
-<td><table cellpadding="0"><tr><td>1.5</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">30</td></tr></table></td>
-<td> = 0.05 &#215; 100 = 5%</td>
-</tr></table>
-</p>
-
-<p>If solving manually, the formula requires the percentage in decimal form, so the solution for P needs to be multiplied by 100 in order to convert it to a percent. This is essentially what the calculator above does, except that it accepts inputs in percent rather than decimal form.</p>
-
-
-<h3>Percentage difference formula</h3>
-<p>The percentage difference between two values is calculated by dividing the absolute value of the difference between two numbers by the average of those two numbers. Multiplying the result by 100 will yield the solution in percent, rather than decimal form. Refer to the equation below for clarification.</p>
-
-<table align="center"><tr>
-<td>Percentage Difference = </td>
-<td><table cellpadding="0"><tr align="center"><td>|V<sub>1</sub> - V<sub>2</sub>|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>(V<sub>1</sub> + V<sub>2</sub>)/2</td></tr></table></td>
-<td> &#215; 100</td>
-</tr></table>
-<table align="center"><tr>
-<td>EX: </td>
-<td><table cellpadding="0"><tr align="center"><td>|10 - 6|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>(10 + 6)/2</td></tr></table></td>
-<td> = </td>
-<td><table cellpadding="0"><tr align="center"><td>4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>8</td></tr></table></td>
-<td> = 0.5 = 50%</td>
-</tr></table>
-
-<h3>Percentage change formula</h3>
-<p>Percentage increase and decrease are calculated by computing the difference between two values and comparing that difference to the initial value. Mathematically, this involves using the absolute value of the difference between two values then dividing the result by the initial value, essentially calculating how much the initial value has changed.</p>
-
-<p>The percentage increase calculator above computes an increase or decrease of a specific percentage of the input number. It basically involves converting a percent into its decimal equivalent, and either subtracting (decrease) or adding (increase) the decimal equivalent from and to 1, respectively. Multiplying the original number by this value will result in either an increase or decrease of the number by the given percent. Refer to the example below for clarification.</p>
-
-<p align="center">
-	EX: 	500 increased by 10% (0.1)<br>
-		500 &#215; (1 + 0.1) = 550<br><br>
-
-		500 decreased by 10%<br>
-		500 &#215; (1 &ndash; 0.1) = 450
-</p>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Percentage Calculator – Percent of, Change, Difference &amp; FAQ</title>
+	<meta name="description" content="Free percentage calculator: find X% of a number, what percent one number is of another, percentage increase, decrease and difference. Includes formulas, examples and FAQ." />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: calculator -->
+	
+
+	<!-- Structured data: FAQ (must match the visible FAQ below) -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator – Percent of, Change, Difference &amp; FAQ","url":"https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html","description":"Free percentage calculator: find X% of a number, what percent one number is of another, percentage increase, decrease and difference. Includes formulas, examples and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Percentage Calculator – Percent of, Change, Difference &amp; FAQ","item":"https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Percentage Calculator – Percent of, Change, Difference &amp; FAQ">
+<meta property="og:description" content="Free percentage calculator: find X% of a number, what percent one number is of another, percentage increase, decrease and difference. Includes formulas, examples and FAQ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Percentage Calculator – Percent of, Change, Difference &amp; FAQ">
+<meta name="twitter:description" content="Free percentage calculator: find X% of a number, what percent one number is of another, percentage increase, decrease and difference. Includes formulas, examples and FAQ.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator – Percent of, Change, Difference &amp; FAQ","url":"https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html","description":"Free percentage calculator: find X% of a number, what percent one number is of another, percentage increase, decrease and difference. Includes formulas, examples and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Percentage Calculator – Percent of, Change, Difference &amp; FAQ","item":"https://calculator.bhuvanesh-s3602.workers.dev/percent-calculator.html"}]}</script></head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+
+<div id="contentout"><div id="content" role="main">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/percent-calculator.html" itemprop="item"><span itemprop="name">percentage calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Percentage Calculator</h1>
+<p>Please provide any two values below and click the "Calculate" button to get the third value.</p>
+
+<p><strong>On this page:</strong> <a href="#pctcommon">Common phrases</a> | <a href="#pctdifference">Percentage difference</a> | <a href="#pctincrease">Percentage change</a> | <a href="#formulas">Formulas</a> | <a href="#faq">FAQ</a></p>
+
+<form name="calform" action="/percent-calculator.html">
+<table class="panel" cellpadding="5">
+  <tr>
+    <td align="center" valign="middle" class="verybigtext">
+<input type="text" name="cpar1" id="cpar1" value="" class="inlong inpct" aria-label="Percentage" inputmode="decimal"> of
+<input type="text" name="cpar2" id="cpar2" value="" class="inlong" aria-label="Value" inputmode="decimal">
+&nbsp; = &nbsp;
+<input type="text" name="cpar3" id="cpar3" value="" class="inlong" aria-label="Result" inputmode="decimal">
+	</td>
+  </tr>
+  <tr>
+	<td align="center">
+		<input name="ctype" value="1" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+    </td>
+  </tr>
+</table>
+</form>
+
+
+<a name="pctcommon"></a>
+<br><h2>Percentage Calculator in Common Phrases</h2>
+<p>Quickly answer the most common percentage questions: "what is X% of Y", "X is what % of Y" and "X is Y% of what".</p>
+
+<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" ><tr><td class="verybigtext">
+what is
+<input type="text" name="c21par1" value="" class="inlong inpct" aria-label="Percentage" inputmode="decimal"> of
+<input type="text" name="c21par2" value="" class="inlong" aria-label="Value" inputmode="decimal">
+</td>
+<td align="center"> &nbsp; <input name="ctype" value="21" type="hidden">
+<input type="submit" name="x" value="Calculate">
+</td></tr></table></form>
+
+<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" style="margin-top:5px;" ><tr><td class="verybigtext" nowrap>
+<input type="text" name="c22par1" value="" class="innormal" aria-label="First value" inputmode="decimal">
+is what % of
+<input type="text" name="c22par2" value="" class="inlong" aria-label="Second value" inputmode="decimal">
+</td>
+<td align="center"> &nbsp; <input name="ctype" value="22" type="hidden">
+<input type="submit" name="x" value="Calculate">
+</td></tr></table></form>
+
+<form name="calc" action="/percent-calculator.html#pctcommon"><table class="panel" style="margin-top:5px;" ><tr><td class="verybigtext">
+<input type="text" name="c23par1" value="" class="inlong" aria-label="Known value" inputmode="decimal">
+is
+<input type="text" name="c23par2" value="" class="inlong inpct" aria-label="Percentage" inputmode="decimal"> of what
+</td>
+<td align="center"> &nbsp; <input name="ctype" value="23" type="hidden">
+<input type="submit" name="x" value="Calculate">
+</td></tr></table></form>
+
+
+<a name="pctdifference"></a>
+<br><h2>Percentage Difference Calculator</h2>
+<p>Find the percentage difference between two values when neither is the original or reference value.</p>
+<form name="calform3" action="/percent-calculator.html#pctdifference">
+<table class="panel" cellpadding="5"  >
+  <tr>
+    <td><label for="c3par1">Value 1</label></td>
+    <td><input type="text" name="c3par1" id="c3par1" value="" class="inlongest" inputmode="decimal"></td>
+  </tr>
+  <tr>
+    <td><label for="c3par2">Value 2</label></td>
+    <td><input type="text" name="c3par2" id="c3par2" value="" class="inlongest" inputmode="decimal"></td>
+  </tr>
+  <tr>
+	<td colspan="2" align="center">
+		<input name="ctype" value="3" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+    </td>
+  </tr>
+</table>
+</form>
+
+
+<a name="pctincrease"></a>
+<br><h2>Percentage Change Calculator</h2>
+<p>Please provide any two values below and click the "Calculate" button to get the third value.</p>
+
+<form name="calform2" action="/percent-calculator.html#pctincrease">
+<table class="panel" cellpadding="5" >
+  <tr>
+    <td class="verybigtext">
+<input type="text" name="c2par1" value="" class="inlong" aria-label="Starting value" inputmode="decimal">
+<select name="c2type" class="bigtext" aria-label="Increase or decrease">
+<option value="increase" selected>Increase</option>
+<option value="decrease" >Decrease</option>
+</select>
+<input type="text" name="c2par2" value="" class="inlong inpct" aria-label="Percentage" inputmode="decimal">
+ =
+<input type="text" name="c2par3" value="" class="inlong" aria-label="Result" inputmode="decimal">
+	</td>
+  </tr>
+  <tr>
+	<td align="center">
+		<input name="ctype" value="2" type="hidden">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+    </td>
+  </tr>
+</table>
+</form>
+
+<fieldset><legend>Related</legend><a href="/percent-error-calculator.html">Percent Error Calculator</a> | <a href="/fraction-calculator.html">Fraction Calculator</a> | <a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset>
+
+<br><br>
+<h3>What is a percentage?</h3>
+<p>In mathematics, a percentage is a number or ratio that represents a fraction of 100. It is one of the ways to represent a dimensionless relationship between two numbers; other methods include ratios, fractions, and decimals. Percentages are often denoted by the symbol "%" written after the number. They can also be denoted by writing "percent" or "pct" after the number. For example, 35% is equivalent to the decimal 0.35, or the fractions <img src="/img/percent/f7-20.svg" alt="7/20" style="vertical-align:middle;">.</p>
+
+<p>Percentages are computed by multiplying the value of a ratio by 100. For example, if 25 out of 50 students in a classroom are male, <img src="/img/percent/f1-2.svg" alt="1/2" style="vertical-align:middle;">. The value of the ratio is therefore 0.5, and multiplying this by 100 yields:</p>
+<p style="text-align:center;">0.5 &#215; 100 = 50</p>
+<p>In other words, the ratio of 25 males to students in the classroom is equivalent to 50% of students in the classroom being male.</p>
+
+
+<h3 id="formulas">Percentage formula</h3>
+<p>Although the percentage formula can be written in different forms, it is essentially an algebraic equation involving three values. </p>
+
+<p align="center">P &#215; V<sub>1</sub> = V<sub>2</sub></p>
+
+<p>P is the percentage, V<sub>1</sub> is the first value that the percentage will modify, and V<sub>2</sub> is the result of the percentage operating on V<sub>1</sub>. The calculator provided automatically converts the input percentage into a decimal to compute the solution. However, if solving for the percentage, the value returned will be the actual percentage, not its decimal representation.</p>
+
+<p align="center">EX: P &#215; 30 = 1.5
+
+<table align="center"><tr>
+<td>P = </td>
+<td><table cellpadding="0"><tr><td>1.5</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">30</td></tr></table></td>
+<td> = 0.05 &#215; 100 = 5%</td>
+</tr></table>
+</p>
+
+<p>If solving manually, the formula requires the percentage in decimal form, so the solution for P needs to be multiplied by 100 in order to convert it to a percent. This is essentially what the calculator above does, except that it accepts inputs in percent rather than decimal form.</p>
+
+
+<h3>Percentage difference formula</h3>
+<p>The percentage difference between two values is calculated by dividing the absolute value of the difference between two numbers by the average of those two numbers. Multiplying the result by 100 will yield the solution in percent, rather than decimal form. Refer to the equation below for clarification.</p>
+
+<table align="center"><tr>
+<td>Percentage Difference = </td>
+<td><table cellpadding="0"><tr align="center"><td>|V<sub>1</sub> - V<sub>2</sub>|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>(V<sub>1</sub> + V<sub>2</sub>)/2</td></tr></table></td>
+<td> &#215; 100</td>
+</tr></table>
+<table align="center"><tr>
+<td>EX: </td>
+<td><table cellpadding="0"><tr align="center"><td>|10 - 6|</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>(10 + 6)/2</td></tr></table></td>
+<td> = </td>
+<td><table cellpadding="0"><tr align="center"><td>4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr align="center"><td>8</td></tr></table></td>
+<td> = 0.5 = 50%</td>
+</tr></table>
+
+<h3>Percentage change formula</h3>
+<p>Percentage increase and decrease are calculated by computing the difference between two values and comparing that difference to the initial value. Mathematically, this involves using the absolute value of the difference between two values then dividing the result by the initial value, essentially calculating how much the initial value has changed.</p>
+
+<p>The percentage increase calculator above computes an increase or decrease of a specific percentage of the input number. It basically involves converting a percent into its decimal equivalent, and either subtracting (decrease) or adding (increase) the decimal equivalent from and to 1, respectively. Multiplying the original number by this value will result in either an increase or decrease of the number by the given percent. Refer to the example below for clarification.</p>
+
+<p align="center">
+	EX: 	500 increased by 10% (0.1)<br>
+		500 &#215; (1 + 0.1) = 550<br><br>
+
+		500 decreased by 10%<br>
+		500 &#215; (1 &ndash; 0.1) = 450
+</p>
+
+<h3 id="faq">Percentage Calculator &ndash; Frequently Asked Questions</h3>
+
+<h3>How do you calculate a percentage?</h3>
+<p>Divide the part by the whole and multiply by 100. Percentage = (part &divide; whole) &times; 100. For example, 25 out of 50 is 25 &divide; 50 = 0.5, and 0.5 &times; 100 = 50%.</p>
+
+<h3>How do you find X% of a number?</h3>
+<p>Convert the percentage to a decimal by dividing by 100, then multiply by the number. For example, 20% of 50 = 0.20 &times; 50 = 10.</p>
+
+<h3>How do you find what percent one number is of another?</h3>
+<p>Divide the first number by the second and multiply by 100. For example, 15 is what percent of 60? 15 &divide; 60 &times; 100 = 25%.</p>
+
+<h3>How do you find a number when you know a percentage of it?</h3>
+<p>Divide the known value by the percentage written as a decimal. For example, if 30 is 20% of a number, the number is 30 &divide; 0.20 = 150.</p>
+
+<h3>How do you calculate percentage increase?</h3>
+<p>Percentage increase = (new value &minus; old value) &divide; old value &times; 100. For example, going from 80 to 100 is (100 &minus; 80) &divide; 80 &times; 100 = 25% increase. To increase a number by a percentage, multiply it by (1 + percentage as a decimal): 500 increased by 10% is 500 &times; 1.1 = 550.</p>
+
+<h3>How do you calculate percentage decrease?</h3>
+<p>Percentage decrease = (old value &minus; new value) &divide; old value &times; 100. For example, going from 100 to 80 is (100 &minus; 80) &divide; 100 &times; 100 = 20% decrease. To decrease a number by a percentage, multiply it by (1 &minus; percentage as a decimal): 500 decreased by 10% is 500 &times; 0.9 = 450.</p>
+
+<h3>What is the difference between percentage change and percentage difference?</h3>
+<p>Percentage change compares a new value with an original value and divides by the original. Percentage difference compares two values that have no original or reference, and divides by their average: |V<sub>1</sub> &minus; V<sub>2</sub>| &divide; ((V<sub>1</sub> + V<sub>2</sub>) &divide; 2) &times; 100. For example, the percentage difference between 10 and 6 is 4 &divide; 8 &times; 100 = 50%. If you are comparing a measurement with a known true value, use the <a href="/percent-error-calculator.html">percent error calculator</a>.</p>
+
+<h3>How do you calculate a discount or sale price?</h3>
+<p>Multiply the original price by (1 &minus; discount as a decimal). For example, 25% off $80 is 80 &times; 0.75 = $60, so you save $20.</p>
+
+<h3>How do you convert a percent to a decimal or a fraction?</h3>
+<p>To get a decimal, divide the percent by 100 (35% = 0.35). To get a fraction, put the percent over 100 and simplify (35% = 35/100 = 7/20). To go back to a percent, multiply the decimal by 100. For fraction simplification, see the <a href="/fraction-calculator.html">fraction calculator</a>.</p>
+
+<h3>How do I calculate a percentage for marks or a test score?</h3>
+<p>Divide the marks obtained by the total marks and multiply by 100. For example, 432 out of 500 is 432 &divide; 500 &times; 100 = 86.4%.</p>
+
+<h3>Can a percentage be greater than 100%?</h3>
+<p>Yes. A percentage above 100% means the part is larger than the reference value. For example, 150 is 150% of 100, and a quantity that doubles has increased by 100%.</p>
+
+<h3>What is the difference between percent and percentage points?</h3>
+<p>Percentage points describe the simple arithmetic difference between two percentages, while percent describes a relative change. If an interest rate rises from 10% to 15%, it has risen by 5 percentage points, which is a 50% increase.</p>
+
+</div>
+
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+		</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators" placeholder="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form>
+
+<div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>
+	</div>
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

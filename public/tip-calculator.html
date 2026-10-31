@@ -1,122 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Tip Calculator</title>
-	<meta name="description" content="This free tip calculator computes tip amounts for various situations. It can also calculate the tip amount split between a given number of people." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tip-calculator.html" itemprop="item"><span itemprop="name">tip calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Tip Calculator</h1>
-<p>The Tip Calculator calculates tip amount for various percentages of the cost of the service, and also provides a total amount that includes the tip. In the U.S., a tip of 15% of the before tax meal price is typically expected.</p>
-
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<table class="panel" ><tr><td><form action="/tip-calculator.html" name="calform">
-	<table align="center">
-		<tr>
-			<td align="center"><b>Price: </b><input type="text" name="serviceprice" class="inlonger indollar" value="55" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
-		</tr>
-		<tr>
-			<td align="center" style="padding-top: 10px;">
-				<input name="ctype" value="1" type="hidden">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform);">
-			</td>
-		</tr>
-	</table>
-</form></td></tr></table>
-
-
-<a name="sharebill"></a>
-<br><h2>Shared Bill Tip Calculator</h2>
-<p>The Shared Bill Tip Calculator considers the cost of the service, number of people, and chosen tip percentage to calculate the tip per person, as well as the total cost per person.</p>
-<table class="panel" ><tr><td><form action="/tip-calculator.html#sharebill" name="calform2">
-	<table align="center">
-		<tr>
-			<td class="bigtext">Price</td>
-			<td align="right"><input type="text" name="billamount" class="bigtext inlong indollar" value="55" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="bigtext">Tip %</td>
-			<td align="right"><input type="text" name="tippct" class="bigtext inlong inpct" value="15" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
-		</tr>
-		<tr>
-			<td class="bigtext">Number of People</td>
-			<td align="right"><input type="text" name="numberofpeople" class="bigtext inlong" value="1" onKeyUp="iptfieldCheck(this, 'r', 'pi');"></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center" style="padding-top:10px;">
-				<input name="ctype" value="2" type="hidden">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-			</td>
-		</tr>
-	</table>
-</form></td></tr></table>
-<br>
-<p>A tip or gratuity is an extra sum of money paid to certain service workers for a provided service. Tip amounts, as well as acceptance, vary in different parts of the world. In some countries in East Asia, such as Japan, tips are seen as insulting and can sometimes be interpreted as a bribe. In yet other countries, such as the United States, tipping is widely expected, and in many cases, is even factored into a service worker's compensation towards satisfying the minimum wage requirement. This is important to note, since although tipping is entirely voluntary, many servers depend on tips to make a living in countries like the United States. As such, as a tourist, it can be helpful to research the tipping customs in the countries being visited. In the U.S. or any other country where tipping is expected, depending on the restaurant or the number of patrons at a table, gratuity may be automatically applied to the bill amount. As previously mentioned, tipping can be offensive in some countries, so although a citizen of the United States that is visiting another country may want to express their appreciation of the service provided, the gesture may, in some cases, result in the opposite effect.</p>
-
-<p>Below is a map that provides some information regarding whether or not a tip is expected, or how a tip may be received in certain regions, as well as a table of typical tip amounts in the United States and Canada for different services.</p>
-
-<div style="text-align:center;"><img src="/img/tip-map.png" class="scaleimg" width="630" height="320" alt="Global tip map"></div>
-
-<table align="center"><tr><td>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #774DD5; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, insulted if tipped</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #6BAED6; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, surprised/confused if tipped</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #08519C; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, neutral/grateful when tipped</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #74C476; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;rounding-up the bill, not expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #238B45; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;rounding-up the bill, expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FFF89B; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;5-10%, not expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #F8E81C; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;5-10%, expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FEB55B; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;~10%, not expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FF8C00; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;10-15%, not expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FF6747; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;10-15%, expected</div>
-<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #BD0026; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;15-20%, expected</div></td></tr></table>
-</p>
-
-
-<table class="cinfoT" align="center">
-	<tr><td class="cinfoHd">Services</td><td class="cinfoHdL">Typical Tip</td></tr>
-	<tr><td>Restaurants, Bartenders</td><td class="cinfoBodL">15%-20%</td></tr>
-	<tr><td>Food Delivery</td><td class="cinfoBodL">15%-20% depending on the distance, total price, etc.</td></tr>
-	<tr><td>Hotel Room Service</td><td class="cinfoBodL">Normally the charge is included in the price already. If not, 15-20%</td></tr>
-	<tr><td>Hotel Housekeeping</td><td class="cinfoBodL">Not expected, $1-$2 per person per night.</td></tr>
-	<tr><td>Automotive Services, Mechanic</td><td class="cinfoBodL">Not expected, Or a few dollars depending on the amount</td></tr>
-	<tr><td>Mover, Furniture, or Appliance Delivery</td><td class="cinfoBodL">Not expected, Or $5, $10, $20 each depending on the amount</td></tr>
-	<tr><td>Plumber, Handyman, Electrician, Cleaner, or Other Home Services</td><td class="cinfoBodL">Not expected, Or $5, $10, $20 each depending on the amount</td></tr>
-	<tr><td>Hairstylists, Barber, Nail Service, etc.</td><td class="cinfoBodL">10%-20%</td></tr>
-	<tr><td>Massage</td><td class="cinfoBodL">10%-20%</td></tr>
-	<tr><td>Taxi or Limo Drivers </td><td class="cinfoBodL">15%-20%</td></tr>
-	<tr><td>Shuttle Drivers, Parking Attendant </td><td class="cinfoBodL">$1-$3</td></tr>
-	<tr><td>Tour Guides </td><td class="cinfoBodL">$1-$5 depending on the length of the tour</td></tr>
-</table>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Tip Calculator – Calculate Tip &amp; Split the Bill (Free)</title>
+	<meta name="description" content="Free tip calculator. Find the tip amount and total for 15%, 18%, 20% or any percentage, and split the bill and tip between any number of people. Includes a tipping guide and FAQs." />
+	<meta name="keywords" content="tip calculator, gratuity calculator, how much to tip, 15% tip, 18% tip, 20% tip, split bill calculator, restaurant tip calculator, tipping guide" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tip Calculator – Calculate Tip &amp; Split the Bill (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html","description":"Free tip calculator. Find the tip amount and total for 15%, 18%, 20% or any percentage, and split the bill and tip between any number of people. Includes a tipping guide and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Tip Calculator – Calculate Tip &amp; Split the Bill (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Tip Calculator – Calculate Tip &amp; Split the Bill (Free)">
+<meta property="og:description" content="Free tip calculator. Find the tip amount and total for 15%, 18%, 20% or any percentage, and split the bill and tip between any number of people. Includes a tipping guide and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tip Calculator – Calculate Tip &amp; Split the Bill (Free)">
+<meta name="twitter:description" content="Free tip calculator. Find the tip amount and total for 15%, 18%, 20% or any percentage, and split the bill and tip between any number of people. Includes a tipping guide and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tip Calculator – Calculate Tip &amp; Split the Bill (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html","description":"Free tip calculator. Find the tip amount and total for 15%, 18%, 20% or any percentage, and split the bill and tip between any number of people. Includes a tipping guide and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Tip Calculator – Calculate Tip &amp; Split the Bill (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tip-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tip-calculator.html" itemprop="item"><span itemprop="name">tip calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Tip Calculator</h1>
+<p>This free Tip Calculator calculates the tip amount for various percentages of the cost of the service, and also provides a total amount that includes the tip. You can also split the bill and tip between a number of people. In the U.S., a tip of 15% of the before tax meal price is typically expected.</p>
+
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<table class="panel" ><tr><td><form action="/tip-calculator.html" name="calform">
+	<table align="center">
+		<tr>
+			<td align="center"><b>Price: </b><input type="text" name="serviceprice" class="inlonger indollar" value="55" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		</tr>
+		<tr>
+			<td align="center" style="padding-top: 10px;">
+				<input name="ctype" value="1" type="hidden">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</form></td></tr></table>
+
+
+<a name="sharebill"></a>
+<br><h2>Shared Bill Tip Calculator</h2>
+<p>The Shared Bill Tip Calculator considers the cost of the service, number of people, and chosen tip percentage to calculate the tip per person, as well as the total cost per person.</p>
+<table class="panel" ><tr><td><form action="/tip-calculator.html#sharebill" name="calform2">
+	<table align="center">
+		<tr>
+			<td class="bigtext">Price</td>
+			<td align="right"><input type="text" name="billamount" class="bigtext inlong indollar" value="55" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="bigtext">Tip %</td>
+			<td align="right"><input type="text" name="tippct" class="bigtext inlong inpct" value="15" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td>
+		</tr>
+		<tr>
+			<td class="bigtext">Number of People</td>
+			<td align="right"><input type="text" name="numberofpeople" class="bigtext inlong" value="1" onKeyUp="iptfieldCheck(this, 'r', 'pi');"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" style="padding-top:10px;">
+				<input name="ctype" value="2" type="hidden">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+			</td>
+		</tr>
+	</table>
+</form></td></tr></table>
+<br>
+
+<h2>How to Calculate a Tip</h2>
+<p>Enter the price of the meal or service and click <b>Calculate</b> to see the tip amount and total at several tip percentages. To split a bill, use the Shared Bill Tip Calculator: enter the price, your chosen tip percentage and the number of people to get the tip per person and the total per person.</p>
+
+<h3>Tip Formulas</h3>
+<table class="cinfoT">
+	<tr><td>Tip amount</td><td class="cinfoBodL">tip = bill &times; tip % / 100</td></tr>
+	<tr><td>Total with tip</td><td class="cinfoBodL">total = bill + tip</td></tr>
+	<tr><td>Tip per person</td><td class="cinfoBodL">tip &divide; number of people</td></tr>
+	<tr><td>Total per person</td><td class="cinfoBodL">total &divide; number of people</td></tr>
+</table>
+
+<h3>Example 1: Simple tip</h3>
+<p>A meal costs $55 before tax and you want to leave a 15% tip.</p>
+<p align="center">tip = 55 &times; 0.15 = $8.25<br>total = 55 + 8.25 = $63.25</p>
+
+<h3>Example 2: Splitting the bill</h3>
+<p>A group of 4 people has a $120 bill and agrees on an 18% tip.</p>
+<p align="center">tip = 120 &times; 0.18 = $21.60<br>total = 120 + 21.60 = $141.60<br>tip per person = $5.40<br>total per person = $35.40</p>
+
+<h3>Quick Tip Chart</h3>
+<table class="cinfoT">
+	<tr><td><b>Bill</b></td><td class="cinfoBodL"><b>15% tip</b></td><td class="cinfoBodL"><b>18% tip</b></td><td class="cinfoBodL"><b>20% tip</b></td></tr>
+	<tr><td>$20</td><td class="cinfoBodL">$3.00</td><td class="cinfoBodL">$3.60</td><td class="cinfoBodL">$4.00</td></tr>
+	<tr><td>$50</td><td class="cinfoBodL">$7.50</td><td class="cinfoBodL">$9.00</td><td class="cinfoBodL">$10.00</td></tr>
+	<tr><td>$75</td><td class="cinfoBodL">$11.25</td><td class="cinfoBodL">$13.50</td><td class="cinfoBodL">$15.00</td></tr>
+	<tr><td>$100</td><td class="cinfoBodL">$15.00</td><td class="cinfoBodL">$18.00</td><td class="cinfoBodL">$20.00</td></tr>
+	<tr><td>$150</td><td class="cinfoBodL">$22.50</td><td class="cinfoBodL">$27.00</td><td class="cinfoBodL">$30.00</td></tr>
+</table>
+
+<h3>Tip in Your Head</h3>
+<p>Move the decimal point one place to the left to find 10% of the bill. For 20%, double that amount. For 15%, add half of the 10% amount to it. On a $60 bill, 10% is $6, 20% is $12 and 15% is $9.</p>
+
+<h2>About Tipping</h2>
+<p>A tip or gratuity is an extra sum of money paid to certain service workers for a provided service. Tip amounts, as well as acceptance, vary in different parts of the world. In some countries in East Asia, such as Japan, tips are seen as insulting and can sometimes be interpreted as a bribe. In yet other countries, such as the United States, tipping is widely expected, and in many cases, is even factored into a service worker's compensation towards satisfying the minimum wage requirement. This is important to note, since although tipping is entirely voluntary, many servers depend on tips to make a living in countries like the United States. As such, as a tourist, it can be helpful to research the tipping customs in the countries being visited. In the U.S. or any other country where tipping is expected, depending on the restaurant or the number of patrons at a table, gratuity may be automatically applied to the bill amount. As previously mentioned, tipping can be offensive in some countries, so although a citizen of the United States that is visiting another country may want to express their appreciation of the service provided, the gesture may, in some cases, result in the opposite effect.</p>
+
+<p>Below is a map that provides some information regarding whether or not a tip is expected, or how a tip may be received in certain regions, as well as a table of typical tip amounts in the United States and Canada for different services.</p>
+
+<div style="text-align:center;"><img src="/img/tip-map.png" class="scaleimg" width="630" height="320" alt="World map showing tipping customs by country, from no tipping to 15-20% expected"></div>
+
+<table align="center"><tr><td>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #774DD5; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, insulted if tipped</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #6BAED6; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, surprised/confused if tipped</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #08519C; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;no tips at all, neutral/grateful when tipped</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #74C476; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;rounding-up the bill, not expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #238B45; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;rounding-up the bill, expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FFF89B; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;5-10%, not expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #F8E81C; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;5-10%, expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FEB55B; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;~10%, not expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FF8C00; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;10-15%, not expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #FF6747; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;10-15%, expected</div>
+<div><span style="display:inline-block; width:1.5em; height:1.5em; margin:1px 0; border:1px #555 solid; background-color: #BD0026; color:black; font-size:100%; text-align:center;">&#160;</span>&#160;15-20%, expected</div></td></tr></table>
+<br>
+
+<h3>Typical Tips in the United States and Canada</h3>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Services</td><td class="cinfoHdL">Typical Tip</td></tr>
+	<tr><td>Restaurants, Bartenders</td><td class="cinfoBodL">15%-20%</td></tr>
+	<tr><td>Food Delivery</td><td class="cinfoBodL">15%-20% depending on the distance, total price, etc.</td></tr>
+	<tr><td>Hotel Room Service</td><td class="cinfoBodL">Normally the charge is included in the price already. If not, 15-20%</td></tr>
+	<tr><td>Hotel Housekeeping</td><td class="cinfoBodL">Not expected, $1-$2 per person per night.</td></tr>
+	<tr><td>Automotive Services, Mechanic</td><td class="cinfoBodL">Not expected, Or a few dollars depending on the amount</td></tr>
+	<tr><td>Mover, Furniture, or Appliance Delivery</td><td class="cinfoBodL">Not expected, Or $5, $10, $20 each depending on the amount</td></tr>
+	<tr><td>Plumber, Handyman, Electrician, Cleaner, or Other Home Services</td><td class="cinfoBodL">Not expected, Or $5, $10, $20 each depending on the amount</td></tr>
+	<tr><td>Hairstylists, Barber, Nail Service, etc.</td><td class="cinfoBodL">10%-20%</td></tr>
+	<tr><td>Massage</td><td class="cinfoBodL">10%-20%</td></tr>
+	<tr><td>Taxi or Limo Drivers </td><td class="cinfoBodL">15%-20%</td></tr>
+	<tr><td>Shuttle Drivers, Parking Attendant </td><td class="cinfoBodL">$1-$3</td></tr>
+	<tr><td>Tour Guides </td><td class="cinfoBodL">$1-$5 depending on the length of the tour</td></tr>
+</table>
+<br>
+
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details>
+<summary><b>How do you calculate a tip?</b></summary>
+<p>Multiply the bill by the tip percentage divided by 100. For example, a 15% tip on a $55 bill is 55 &times; 0.15 = $8.25, so the total is $63.25.</p>
+</details>
+<br>
+<details>
+<summary><b>How much should I tip at a restaurant?</b></summary>
+<p>In the United States and Canada, a tip of 15% to 20% of the pre-tax bill is typical for restaurants and bartenders. Many people tip 18% to 20% for good service.</p>
+</details>
+<br>
+<details>
+<summary><b>Should I tip on the pre-tax or post-tax amount?</b></summary>
+<p>A tip is typically calculated on the before-tax price of the meal. Some people tip on the total including tax, which gives a slightly larger tip. Both are acceptable.</p>
+</details>
+<br>
+<details>
+<summary><b>How do you split a bill with a tip?</b></summary>
+<p>Add the tip to the bill to get the total, then divide by the number of people. For a $120 bill with an 18% tip split between 4 people, the tip is $21.60, the total is $141.60, and each person pays $35.40.</p>
+</details>
+<br>
+<details>
+<summary><b>How can I calculate a 15% or 20% tip quickly in my head?</b></summary>
+<p>Find 10% by moving the decimal point one place to the left. For 20%, double that amount. For 15%, add half of the 10% amount to the 10% amount. On a $60 bill, 10% is $6, 20% is $12, and 15% is $9.</p>
+</details>
+<br>
+<details>
+<summary><b>Is the tip already included in the bill?</b></summary>
+<p>Sometimes. Depending on the restaurant or the size of the group, a gratuity or service charge may be automatically added to the bill. Check the bill before adding an extra tip.</p>
+</details>
+<br>
+<details>
+<summary><b>Is tipping expected in every country?</b></summary>
+<p>No. Tipping is widely expected in the United States, but in some countries, such as Japan, tipping is not customary and can even be seen as insulting. It helps to research local customs before you travel.</p>
+</details>
+<br>
+<details>
+<summary><b>How much should I tip for food delivery, taxis and hair services?</b></summary>
+<p>Typical amounts in the United States and Canada are 15% to 20% for food delivery and taxi or limo drivers, and 10% to 20% for hairstylists, barbers, nail services and massage.</p>
+</details>
+<br>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>
+<meta charset="utf-8">
 	<title>Healthy Weight Calculator</title>
 	<meta name="description" content="This calculator estimates a healthy body weight range based on body mass index. Also, learn more about the effects of being underweight, overweight, or obese." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
+	<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html">
+
+<meta property="og:title" content="Healthy Weight Calculator">
+<meta property="og:description" content="This calculator estimates a healthy body weight range based on body mass index. Also, learn more about the effects of being underweight, overweight, or obese.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Healthy Weight Calculator">
+<meta name="twitter:description" content="This calculator estimates a healthy body weight range based on body mass index. Also, learn more about the effects of being underweight, overweight, or obese.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Healthy Weight Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html","description":"This calculator estimates a healthy body weight range based on body mass index. Also, learn more about the effects of being underweight, overweight, or obese.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"Healthy Weight Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/healthy-weight-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
 <div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/healthy-weight-calculator.html" itemprop="item"><span itemprop="name">healthy weight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Healthy Weight Calculator</h1>
 <p>This calculator computes a healthy body weight range based on a person's height and is most accurate for adults aged 18 or older.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
 <div id="topmenu" class="topmenucenter"></div>
@@ -108,13 +141,8 @@ popMenu("standard");
 <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
 </div>
 <div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
 </body>
 </html>

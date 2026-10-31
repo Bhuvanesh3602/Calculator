@@ -1,188 +1,306 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Sample Size Calculator</title>
-	<meta name="description" content="This free sample size calculator determines the sample size required to meet a given set of constraints. Also, learn more about population standard deviation." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/sample-size-calculator.html" itemprop="item"><span itemprop="name">sample size calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Sample Size Calculator</h1><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<h2>Find Out The Sample Size</h2>
-<p>This calculator computes the minimum number of necessary samples to meet the desired statistical constraints.</p>
-
-	<form action="/sample-size-calculator.html" name="calform">
-	<table class="panel">
-		<tr>
-			<td align="right">Confidence Level:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The confidence level is the probability that the true value being studied falls within a specified range of values. For example, if a survey shows with a 95% confidence level that the average weight of people in a city is between 140 and 150 lbs, this means that there is a 95% chance that the real average weight is indeed between 140 and 150 lbs. On the other hand, there is 5% chance that the real average weight is either smaller than 140 or higher than 150 lbs.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="hidden" name="type" value="1">
-				<select name="cl" class="innormal">
-				<option value="70" >70%</option>
-				<option value="75" >75%</option>
-				<option value="80" >80%</option>
-				<option value="85" >85%</option>
-				<option value="90" >90%</option>
-				<option value="95" selected>95%</option>
-				<option value="98" >98%</option>
-				<option value="99" >99%</option>
-				<option value="99.9" >99.9%</option>
-				<option value="99.99" >99.99%</option>
-				<option value="99.999" >99.999%</option>
-				</select>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="right">Margin of Error:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The margin of error or confidence interval is a way to express sampling error in a measurement or survey. For example, if a measurement shows that the height of a tree is 10 &plusmn0.2 feet, the margin of error is 0.2 feet in absolute terms, or 0.2/10 = 2% in relative terms. As another example, if a survey shows that 5 &plusmn1% of people are vegan, the margin of error is 1% in absolute terms or 1/5 = 20% in relative terms. Use the relative percentage as the value for margin of error for this field.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="ci" value="5" class="innormal inpct"></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="right">Population Proportion:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('A population proportion describes a percentage of the value associated with a survey. For example, if 33% of Americans have a bachelor degree, 33% is the population proportion for a survey regarding bachelor degrees in the US. As another example, when measuring the height of a person, since there is an equal chance of the measured value being either higher or lower than the true value, the population proportion is 50%.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="pp" value="50" class="innormal inpct"></td>
-			<td>Use 50% if not sure</td>
-		</tr>
-		<tr>
-			<td align="right">Population Size:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The population size is the total number of subjects in a study. For example, if surveying the percentage of vegan students in a university with 10,000 students, the population size is 10,000. On the other hand, when measuring the height of a person, the number of measurements that can be taken can be unlimited, so the population size is infinity.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="ps" value="" class="innormal"></td>
-			<td>Leave blank if unlimited population size.</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right" style="padding-top:10px;">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform);">
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-	</table></form>
-<br><a name="findci"></a>
-<h2>Find Out the Margin of Error</h2>
-<p>This calculator gives out the margin of error or confidence interval of observation or survey.</p>
-	<form action="/sample-size-calculator.html#findci" name="calform2">
-	<table class="panel">
-		<tr>
-			<td align="right">Confidence Level:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The confidence level is the probability that the true value being studied falls within a specified range of values. For example, if a survey shows with a 95% confidence level that the average weight of people in a city is between 140 and 150 lbs, this means that there is a 95% chance that the real average weight is indeed between 140 and 150 lbs. On the other hand, there is 5% chance that the real average weight is either smaller than 140 or higher than 150 lbs.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="hidden" name="type" value="2">
-				<select name="cl2" class="innormal">
-				<option value="70" >70%</option>
-				<option value="75" >75%</option>
-				<option value="80" >80%</option>
-				<option value="85" >85%</option>
-				<option value="90" >90%</option>
-				<option value="95" selected>95%</option>
-				<option value="98" >98%</option>
-				<option value="99" >99%</option>
-				<option value="99.9" >99.9%</option>
-				<option value="99.99" >99.99%</option>
-				<option value="99.999" >99.999%</option>
-				</select>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="right">Sample Size:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The sample size is the number of observations made or surveys conducted. For example, if a person called 200 people and asked them their opinions, the sample size is 200. As another example, if a student weighs 50 mice to find their average weight, the sample size is 50.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="ss2" value="100" class="innormal"></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="right">Population Proportion:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('A population proportion describes a percentage of the value associated with a survey. For example, if 33% of Americans have a bachelor degree, 33% is the population proportion for a survey regarding bachelor degrees in the US. As another example, when measuring the height of a person, since there is an equal chance of the measured value being either higher or lower than the true value, the population proportion is 50%.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="pc2" value="60" class="innormal inpct"></td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="right">Population Size:<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The population size is the total number of subjects in a study. For example, if surveying the percentage of vegan students in a university with 10,000 students, the population size is 10,000. On the other hand, when measuring the height of a person, the number of measurements that can be taken can be unlimited, so the population size is infinity.', '');" onmouseout="tooltip.hide();"></td>
-			<td align="right"><input type="text" name="ps2" value="" class="innormal"></td>
-			<td>Leave blank if unlimited population size.</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right" style="padding-top:10px;">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-	</table></form>
-
-<br><p><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> | <a href="/probability-calculator.html">Probability Calculator</a></fieldset></p>
-
-<br>
-
-<p>In statistics, information is often inferred about a population by studying a finite number of individuals from that population, i.e. the population is sampled, and it is assumed that characteristics of the sample are representative of the overall population. For the following, it is assumed that there is a population of individuals where some proportion, <b>p</b>, of the population is distinguishable from the other <b>1-p</b> in some way; e.g., <b>p</b> may be the proportion of individuals who have brown hair, while the remaining <b>1-p</b> have black, blond, red, etc. Thus, to estimate <b>p</b> in the population, a sample of <b>n</b> individuals could be taken from the population, and the sample proportion, <b>p&#770;</b>, calculated for sampled individuals who have brown hair. Unfortunately, unless the full population is sampled, the estimate <b>p&#770;</b> most likely won't equal the true value <b>p</b>, since <b>p&#770;</b> suffers from sampling noise, i.e. it depends on the particular individuals that were sampled. However, sampling statistics can be used to calculate what are called confidence intervals, which are an indication of how close the estimate <b>p&#770;</b> is to the true value <b>p</b>. </p>
-
-<h3>Statistics of a Random Sample</h3>
-<p>The uncertainty in a given random sample (namely that is expected that the proportion estimate, <b>p&#770;</b>, is a good, but not perfect, approximation for the true proportion <b>p</b>) can be summarized by saying that the estimate <b>p&#770;</b> is normally distributed with mean <b>p</b> and variance <b>p(1-p)/n</b>. For an explanation of why the sample estimate is normally distributed, study the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>. As defined below, confidence level, confidence intervals, and sample sizes are all calculated with respect to this sampling distribution. In short, the confidence interval gives an interval around <b>p</b> in which an estimate <b>p&#770;</b> is "likely" to be. The confidence level gives just how "likely" this is &ndash; e.g., a 95% confidence level indicates that it is expected that an estimate <b>p&#770;</b> lies in the confidence interval for 95% of the random samples that could be taken. The confidence interval depends on the sample size, <b>n</b> (the variance of the sample distribution is inversely proportional to <b>n</b>, meaning that the estimate gets closer to the true proportion as <b>n</b> increases); thus, an acceptable error rate in the estimate can also be set, called the margin of error, <b>&epsilon;</b>, and solved for the sample size required for the chosen confidence interval to be smaller than <b>e</b>; a calculation known as "sample size calculation." </p>
-
-<h3>Confidence Level</h3>
-<p>The confidence level is a measure of certainty regarding how accurately a sample reflects the population being studied within a chosen confidence interval. The most commonly used confidence levels are 90%, 95%, and 99%, which each have their own corresponding z-scores (which can be found using an equation or widely available tables like the one provided below) based on the chosen confidence level. Note that using z-scores assumes that the sampling distribution is normally distributed, as described above in "Statistics of a Random Sample." Given that an experiment or survey is repeated many times, the confidence level essentially indicates the percentage of the time that the resulting interval found from repeated tests will contain the true result. </p>
-<table class="cinfoT" align="center">
-<tr><td class="cinfoHd">Confidence Level</td><td class="cinfoHdL">z-score (&#177;)</td></tr>
-<tr><td>0.70</td><td>1.04</td></tr>
-<tr><td>0.75</td><td>1.15</td></tr>
-<tr><td>0.80</td><td>1.28</td></tr>
-<tr><td>0.85</td><td>1.44</td></tr>
-<tr><td>0.92</td><td>1.75</td></tr>
-<tr><td>0.95</td><td>1.96</td></tr>
-<tr><td>0.96</td><td>2.05</td></tr>
-<tr><td>0.98</td><td>2.33</td></tr>
-<tr><td>0.99</td><td>2.58</td></tr>
-<tr><td>0.999</td><td>3.29</td></tr>
-<tr><td>0.9999</td><td>3.89</td></tr>
-<tr><td>0.99999</td><td>4.42</td></tr>
-</table>
-
-<h3>Confidence Interval</h3>
-<p>In statistics, a confidence interval is an estimated range of likely values for a population parameter, for example, 40 &#177; 2 or 40 &#177; 5%. Taking the commonly used 95% confidence level as an example, if the same population were sampled multiple times, and interval estimates made on each occasion, in approximately 95% of the cases, the true population parameter would be contained within the interval. Note that the 95% probability refers to the reliability of the estimation procedure and not to a specific interval. Once an interval is calculated, it either contains or does not contain the population parameter of interest. Some factors that affect the width of a confidence interval include: size of the sample, confidence level, and variability within the sample. </p>
-<p>There are different equations that can be used to calculate confidence intervals depending on factors such as whether the standard deviation is known or smaller samples (n<30) are involved, among others. The calculator provided on this page calculates the confidence interval for a proportion and uses the following equations: </p>
-<p align="center"><img src="/img/sample-size/sample-size-1.svg" width="306" height="153" alt="confidence interval equations"></p>
-<table align="center"><tr><td>
-where
-<div style="padding-left:15px;"><b>z</b> is z score<br>
-<b>p&#770;</b> is the population proportion<br>
-<b>n</b> and <b>n'</b> are sample size<br>
-<b>N</b> is the population size</div></td></tr></table>
-<p>Within statistics, a population is a set of events or elements that have some relevance regarding a given question or experiment. It can refer to an existing group of objects, systems, or even a hypothetical group of objects. Most commonly, however, population is used to refer to a group of people, whether they are the number of employees in a company, number of people within a certain age group of some geographic area, or number of students in a university's library at any given time. </p>
-<p>It is important to note that the equation needs to be adjusted when considering a finite population, as shown above. The <b>(N-n)/(N-1)</b> term in the finite population equation is referred to as the finite population correction factor, and is necessary because it cannot be assumed that all individuals in a sample are independent. For example, if the study population involves 10 people in a room with ages ranging from 1 to 100, and one of those chosen has an age of 100, the next person chosen is more likely to have a lower age. The finite population correction factor accounts for factors such as these. Refer below for an example of calculating a confidence interval with an unlimited population. </p>
-<p>EX: Given that 120 people work at Company Q, 85 of which drink coffee daily, find the 99% confidence interval of the true proportion of people who drink coffee at Company Q on a daily basis.</p>
-<p align="center"><img src="/img/sample-size/sample-size-2.svg" width="262" height="161" alt="confidence interval example"></p>
-
-<h3>Sample Size Calculation</h3>
-<p>Sample size is a statistical concept that involves determining the number of observations or replicates (the repetition of an experimental condition used to estimate the variability of a phenomenon) that should be included in a statistical sample. It is an important aspect of any empirical study requiring that inferences be made about a population based on a sample. Essentially, sample sizes are used to represent parts of a population chosen for any given survey or experiment. To carry out this calculation, set the margin of error, <b>&epsilon;</b>, or the maximum distance desired for the sample estimate to deviate from the true value. To do this, use the confidence interval equation above, but set the term to the right of the &#177; sign equal to the margin of error, and solve for the resulting equation for sample size, <b>n</b>. The equation for calculating sample size is shown below. </p>
-<p align="center"><img src="/img/sample-size/sample-size-3.svg" width="320" height="110" alt="sample size equations"></p>
-<table align="center"><tr><td>
-where
-<div style="padding-left:15px;"><b>z</b> is the z score<br>
-<b>&epsilon;</b> is the margin of error<br>
-<b>N</b> is the population size<br>
-<b>p&#770;</b> is the population proportion</div></td></tr></table>
-<p>EX: Determine the sample size necessary to estimate the proportion of people shopping at a supermarket in the U.S. that identify as vegan with 95% confidence, and a margin of error of 5%. Assume a population proportion of 0.5, and unlimited population size. Remember that <b>z</b> for a 95% confidence level is 1.96. Refer to the table provided in the confidence level section for <b>z</b> scores of a range of confidence levels.</p>
-<p align="center"><img src="/img/sample-size/sample-size-4.svg" width="260" height="99" alt="sample size example"></p>
-<p>Thus, for the case above, a sample size of at least 385 people would be necessary. In the above example, some studies estimate that approximately 6% of the U.S. population identify as vegan, so rather than assuming 0.5 for <b>p&#770;</b>, 0.06 would be used. If it was known that 40 out of 500 people that entered a particular supermarket on a given day were vegan, <b>p&#770;</b>  would then be 0.08.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sample Size Calculator – Find Sample Size &amp; Margin of Error</title>
+<meta name="description" content="Free sample size calculator: find the sample size needed for your confidence level, margin of error and population proportion, or calculate margin of error. Includes formulas and FAQ." />
+<meta name="keywords" content="sample size calculator, margin of error calculator, confidence level, confidence interval, population proportion, survey sample size, z-score table">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- Open Graph / Twitter -->
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/common.js" async></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- Structured data: calculator app -->
+
+
+<!-- Structured data: FAQ (matches the visible FAQ section below) -->
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Sample Size Calculator – Find Sample Size &amp; Margin of Error","url":"https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html","description":"Free sample size calculator: find the sample size needed for your confidence level, margin of error and population proportion, or calculate margin of error. Includes formulas and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Sample Size Calculator – Find Sample Size &amp; Margin of Error","item":"https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Sample Size Calculator – Find Sample Size &amp; Margin of Error">
+<meta property="og:description" content="Free sample size calculator: find the sample size needed for your confidence level, margin of error and population proportion, or calculate margin of error. Includes formulas and FAQ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sample Size Calculator – Find Sample Size &amp; Margin of Error">
+<meta name="twitter:description" content="Free sample size calculator: find the sample size needed for your confidence level, margin of error and population proportion, or calculate margin of error. Includes formulas and FAQ.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Sample Size Calculator – Find Sample Size &amp; Margin of Error","url":"https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html","description":"Free sample size calculator: find the sample size needed for your confidence level, margin of error and population proportion, or calculate margin of error. Includes formulas and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Sample Size Calculator – Find Sample Size &amp; Margin of Error","item":"https://calculator.bhuvanesh-s3602.workers.dev/sample-size-calculator.html"}]}</script></head>
+
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+<div id="contentout"><div id="content">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/sample-size-calculator.html" itemprop="item"><span itemprop="name">sample size calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Sample Size Calculator</h1>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use the sample size calculator"></div>
+
+<p>Use this free <strong>sample size calculator</strong> to find the minimum number of responses needed for your survey or study, or to calculate the <strong>margin of error</strong> of results you already have. Jump to: <a href="#findss">sample size</a> | <a href="#findci">margin of error</a> | <a href="#formulas">formulas</a> | <a href="#zscores">z-score table</a> | <a href="#faq">FAQ</a></p>
+
+<a id="findss"></a>
+<h2>Find Out The Sample Size</h2>
+<p>This calculator computes the minimum number of necessary samples to meet the desired statistical constraints.</p>
+
+	<form action="/sample-size-calculator.html" name="calform" method="get">
+	<table class="panel">
+		<tr>
+			<td align="right"><label for="cl">Confidence Level:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The confidence level is the probability that the true value being studied falls within a specified range of values. For example, if a survey shows with a 95% confidence level that the average weight of people in a city is between 140 and 150 lbs, this means that there is a 95% chance that the real average weight is indeed between 140 and 150 lbs. On the other hand, there is 5% chance that the real average weight is either smaller than 140 or higher than 150 lbs.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="hidden" name="type" value="1">
+				<select name="cl" id="cl" class="innormal">
+				<option value="70" >70%</option>
+				<option value="75" >75%</option>
+				<option value="80" >80%</option>
+				<option value="85" >85%</option>
+				<option value="90" >90%</option>
+				<option value="95" selected>95%</option>
+				<option value="98" >98%</option>
+				<option value="99" >99%</option>
+				<option value="99.9" >99.9%</option>
+				<option value="99.99" >99.99%</option>
+				<option value="99.999" >99.999%</option>
+				</select>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="ci">Margin of Error:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The margin of error or confidence interval is a way to express sampling error in a measurement or survey. For example, if a measurement shows that the height of a tree is 10 &plusmn;0.2 feet, the margin of error is 0.2 feet in absolute terms, or 0.2/10 = 2% in relative terms. As another example, if a survey shows that 5 &plusmn;1% of people are vegan, the margin of error is 1% in absolute terms or 1/5 = 20% in relative terms. Use the relative percentage as the value for margin of error for this field.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="ci" id="ci" value="5" class="innormal inpct" inputmode="decimal"></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="pp">Population Proportion:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('A population proportion describes a percentage of the value associated with a survey. For example, if 33% of Americans have a bachelor degree, 33% is the population proportion for a survey regarding bachelor degrees in the US. As another example, when measuring the height of a person, since there is an equal chance of the measured value being either higher or lower than the true value, the population proportion is 50%.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="pp" id="pp" value="50" class="innormal inpct" inputmode="decimal"></td>
+			<td>Use 50% if not sure</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="ps">Population Size:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The population size is the total number of subjects in a study. For example, if surveying the percentage of vegan students in a university with 10,000 students, the population size is 10,000. On the other hand, when measuring the height of a person, the number of measurements that can be taken can be unlimited, so the population size is infinity.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="ps" id="ps" value="" class="innormal" inputmode="numeric"></td>
+			<td>Leave blank if unlimited population size.</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right" style="padding-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table></form>
+
+<br><a id="findci"></a>
+<h2>Find Out the Margin of Error</h2>
+<p>This calculator gives out the margin of error or confidence interval of observation or survey.</p>
+
+	<form action="/sample-size-calculator.html#findci" name="calform2" method="get">
+	<table class="panel">
+		<tr>
+			<td align="right"><label for="cl2">Confidence Level:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The confidence level is the probability that the true value being studied falls within a specified range of values. For example, if a survey shows with a 95% confidence level that the average weight of people in a city is between 140 and 150 lbs, this means that there is a 95% chance that the real average weight is indeed between 140 and 150 lbs. On the other hand, there is 5% chance that the real average weight is either smaller than 140 or higher than 150 lbs.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="hidden" name="type" value="2">
+				<select name="cl2" id="cl2" class="innormal">
+				<option value="70" >70%</option>
+				<option value="75" >75%</option>
+				<option value="80" >80%</option>
+				<option value="85" >85%</option>
+				<option value="90" >90%</option>
+				<option value="95" selected>95%</option>
+				<option value="98" >98%</option>
+				<option value="99" >99%</option>
+				<option value="99.9" >99.9%</option>
+				<option value="99.99" >99.99%</option>
+				<option value="99.999" >99.999%</option>
+				</select>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="ss2">Sample Size:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The sample size is the number of observations made or surveys conducted. For example, if a person called 200 people and asked them their opinions, the sample size is 200. As another example, if a student weighs 50 mice to find their average weight, the sample size is 50.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="ss2" id="ss2" value="100" class="innormal" inputmode="numeric"></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="pc2">Population Proportion:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('A population proportion describes a percentage of the value associated with a survey. For example, if 33% of Americans have a bachelor degree, 33% is the population proportion for a survey regarding bachelor degrees in the US. As another example, when measuring the height of a person, since there is an equal chance of the measured value being either higher or lower than the true value, the population proportion is 50%.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="pc2" id="pc2" value="60" class="innormal inpct" inputmode="decimal"></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right"><label for="ps2">Population Size:</label><img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The population size is the total number of subjects in a study. For example, if surveying the percentage of vegan students in a university with 10,000 students, the population size is 10,000. On the other hand, when measuring the height of a person, the number of measurements that can be taken can be unlimited, so the population size is infinity.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><input type="text" name="ps2" id="ps2" value="" class="innormal" inputmode="numeric"></td>
+			<td>Leave blank if unlimited population size.</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right" style="padding-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table></form>
+
+<br><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a> | <a href="/probability-calculator.html">Probability Calculator</a> | <a href="/percent-calculator.html">Percentage Calculator</a></fieldset>
+<br>
+
+<article>
+<h2 id="formulas">How Sample Size and Margin of Error Are Calculated</h2>
+<p>In statistics, information is often inferred about a population by studying a finite number of individuals from that population, i.e. the population is sampled, and it is assumed that characteristics of the sample are representative of the overall population. For the following, it is assumed that there is a population of individuals where some proportion, <b>p</b>, of the population is distinguishable from the other <b>1-p</b> in some way; e.g., <b>p</b> may be the proportion of individuals who have brown hair, while the remaining <b>1-p</b> have black, blond, red, etc. Thus, to estimate <b>p</b> in the population, a sample of <b>n</b> individuals could be taken from the population, and the sample proportion, <b>p&#770;</b>, calculated for sampled individuals who have brown hair. Unfortunately, unless the full population is sampled, the estimate <b>p&#770;</b> most likely won't equal the true value <b>p</b>, since <b>p&#770;</b> suffers from sampling noise, i.e. it depends on the particular individuals that were sampled. However, sampling statistics can be used to calculate what are called confidence intervals, which are an indication of how close the estimate <b>p&#770;</b> is to the true value <b>p</b>.</p>
+
+<h3>Statistics of a Random Sample</h3>
+<p>The uncertainty in a given random sample (namely that is expected that the proportion estimate, <b>p&#770;</b>, is a good, but not perfect, approximation for the true proportion <b>p</b>) can be summarized by saying that the estimate <b>p&#770;</b> is normally distributed with mean <b>p</b> and variance <b>p(1-p)/n</b>. For an explanation of why the sample estimate is normally distributed, study the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem" target="_blank" rel="noopener">Central Limit Theorem</a>. As defined below, confidence level, confidence intervals, and sample sizes are all calculated with respect to this sampling distribution. In short, the confidence interval gives an interval around <b>p</b> in which an estimate <b>p&#770;</b> is "likely" to be. The confidence level gives just how "likely" this is &ndash; e.g., a 95% confidence level indicates that it is expected that an estimate <b>p&#770;</b> lies in the confidence interval for 95% of the random samples that could be taken. The confidence interval depends on the sample size, <b>n</b> (the variance of the sample distribution is inversely proportional to <b>n</b>, meaning that the estimate gets closer to the true proportion as <b>n</b> increases); thus, an acceptable error rate in the estimate can also be set, called the margin of error, <b>&epsilon;</b>, and solved for the sample size required for the chosen confidence interval to be smaller than <b>&epsilon;</b>; a calculation known as "sample size calculation."</p>
+
+<h3>Confidence Level</h3>
+<p>The confidence level is a measure of certainty regarding how accurately a sample reflects the population being studied within a chosen confidence interval. The most commonly used confidence levels are 90%, 95%, and 99%, which each have their own corresponding z-scores (which can be found using an equation or widely available tables like the one provided below) based on the chosen confidence level. Note that using z-scores assumes that the sampling distribution is normally distributed, as described above in "Statistics of a Random Sample." Given that an experiment or survey is repeated many times, the confidence level essentially indicates the percentage of the time that the resulting interval found from repeated tests will contain the true result.</p>
+
+<table class="cinfoT" align="center" id="zscores">
+<caption><b>Z-score table for common confidence levels</b></caption>
+<tr><th class="cinfoHd" scope="col">Confidence Level</th><th class="cinfoHdL" scope="col">z-score (&#177;)</th></tr>
+<tr><td>0.70</td><td>1.04</td></tr>
+<tr><td>0.75</td><td>1.15</td></tr>
+<tr><td>0.80</td><td>1.28</td></tr>
+<tr><td>0.85</td><td>1.44</td></tr>
+<tr><td>0.90</td><td>1.645</td></tr>
+<tr><td>0.92</td><td>1.75</td></tr>
+<tr><td>0.95</td><td>1.96</td></tr>
+<tr><td>0.96</td><td>2.05</td></tr>
+<tr><td>0.98</td><td>2.33</td></tr>
+<tr><td>0.99</td><td>2.58</td></tr>
+<tr><td>0.999</td><td>3.29</td></tr>
+<tr><td>0.9999</td><td>3.89</td></tr>
+<tr><td>0.99999</td><td>4.42</td></tr>
+</table>
+
+<h3>Confidence Interval</h3>
+<p>In statistics, a confidence interval is an estimated range of likely values for a population parameter, for example, 40 &#177; 2 or 40 &#177; 5%. Taking the commonly used 95% confidence level as an example, if the same population were sampled multiple times, and interval estimates made on each occasion, in approximately 95% of the cases, the true population parameter would be contained within the interval. Note that the 95% probability refers to the reliability of the estimation procedure and not to a specific interval. Once an interval is calculated, it either contains or does not contain the population parameter of interest. Some factors that affect the width of a confidence interval include: size of the sample, confidence level, and variability within the sample.</p>
+<p>There are different equations that can be used to calculate confidence intervals depending on factors such as whether the standard deviation is known or smaller samples (n&lt;30) are involved, among others. The calculator provided on this page calculates the confidence interval for a proportion and uses the following equations:</p>
+<p align="center"><img src="/img/sample-size/sample-size-1.svg" width="306" height="153" loading="lazy" alt="Confidence interval equations for a proportion, with and without finite population correction"></p>
+<table align="center"><tr><td>
+where
+<div style="padding-left:15px;"><b>z</b> is z score<br>
+<b>p&#770;</b> is the population proportion<br>
+<b>n</b> and <b>n'</b> are sample size<br>
+<b>N</b> is the population size</div></td></tr></table>
+
+<p>Within statistics, a population is a set of events or elements that have some relevance regarding a given question or experiment. It can refer to an existing group of objects, systems, or even a hypothetical group of objects. Most commonly, however, population is used to refer to a group of people, whether they are the number of employees in a company, number of people within a certain age group of some geographic area, or number of students in a university's library at any given time.</p>
+<p>It is important to note that the equation needs to be adjusted when considering a finite population, as shown above. The <b>(N-n)/(N-1)</b> term in the finite population equation is referred to as the finite population correction factor, and is necessary because it cannot be assumed that all individuals in a sample are independent. For example, if the study population involves 10 people in a room with ages ranging from 1 to 100, and one of those chosen has an age of 100, the next person chosen is more likely to have a lower age. The finite population correction factor accounts for factors such as these. Refer below for an example of calculating a confidence interval with an unlimited population.</p>
+<p>EX: Given that 120 people work at Company Q, 85 of which drink coffee daily, find the 99% confidence interval of the true proportion of people who drink coffee at Company Q on a daily basis.</p>
+<p align="center"><img src="/img/sample-size/sample-size-2.svg" width="262" height="161" loading="lazy" alt="Worked example: 99% confidence interval for the share of coffee drinkers at Company Q"></p>
+
+<h3>Sample Size Calculation</h3>
+<p>Sample size is a statistical concept that involves determining the number of observations or replicates (the repetition of an experimental condition used to estimate the variability of a phenomenon) that should be included in a statistical sample. It is an important aspect of any empirical study requiring that inferences be made about a population based on a sample. Essentially, sample sizes are used to represent parts of a population chosen for any given survey or experiment. To carry out this calculation, set the margin of error, <b>&epsilon;</b>, or the maximum distance desired for the sample estimate to deviate from the true value. To do this, use the confidence interval equation above, but set the term to the right of the &#177; sign equal to the margin of error, and solve for the resulting equation for sample size, <b>n</b>. The equation for calculating sample size is shown below.</p>
+<p align="center"><img src="/img/sample-size/sample-size-3.svg" width="320" height="110" loading="lazy" alt="Sample size formula: n = z squared times p(1-p) divided by margin of error squared, with finite population adjustment"></p>
+<table align="center"><tr><td>
+where
+<div style="padding-left:15px;"><b>z</b> is the z score<br>
+<b>&epsilon;</b> is the margin of error<br>
+<b>N</b> is the population size<br>
+<b>p&#770;</b> is the population proportion</div></td></tr></table>
+<p>EX: Determine the sample size necessary to estimate the proportion of people shopping at a supermarket in the U.S. that identify as vegan with 95% confidence, and a margin of error of 5%. Assume a population proportion of 0.5, and unlimited population size. Remember that <b>z</b> for a 95% confidence level is 1.96. Refer to the table provided in the confidence level section for <b>z</b> scores of a range of confidence levels.</p>
+<p align="center"><img src="/img/sample-size/sample-size-4.svg" width="260" height="99" loading="lazy" alt="Worked example: sample size of 385 for 95% confidence and 5% margin of error"></p>
+<p>Thus, for the case above, a sample size of at least 385 people would be necessary. In the above example, some studies estimate that approximately 6% of the U.S. population identify as vegan, so rather than assuming 0.5 for <b>p&#770;</b>, 0.06 would be used. If it was known that 40 out of 500 people that entered a particular supermarket on a given day were vegan, <b>p&#770;</b> would then be 0.08.</p>
+
+<h3>Quick Reference: Common Sample Sizes</h3>
+<table class="cinfoT" align="center">
+<caption><b>Sample size at 95% confidence, p = 50%, large population</b></caption>
+<tr><th class="cinfoHd" scope="col">Margin of Error</th><th class="cinfoHdL" scope="col">Sample Size</th></tr>
+<tr><td>&#177;10%</td><td>97</td></tr>
+<tr><td>&#177;5%</td><td>385</td></tr>
+<tr><td>&#177;3%</td><td>1,068</td></tr>
+<tr><td>&#177;2%</td><td>2,401</td></tr>
+<tr><td>&#177;1%</td><td>9,604</td></tr>
+</table>
+</article>
+
+<section id="faq">
+<h2>Sample Size Calculator FAQ: Frequently Asked Questions</h2>
+
+<h3>What is a sample size calculator?</h3>
+<p>A sample size calculator finds the minimum number of people or observations you need in a survey or experiment so that your results reach a chosen confidence level and margin of error.</p>
+
+<h3>How do you calculate sample size?</h3>
+<p>For an unlimited population, <b>n = z&sup2; &times; p(1 &minus; p) / &epsilon;&sup2;</b>, where <b>z</b> is the z-score for your confidence level, <b>p</b> is the population proportion and <b>&epsilon;</b> is the margin of error. For a finite population, adjust the result with <b>n' = n &times; N / (n + N &minus; 1)</b>.</p>
+
+<h3>What sample size do I need for a 95% confidence level and 5% margin of error?</h3>
+<p>With a population proportion of 50% and an unlimited population, you need at least <b>385</b> respondents (1.96&sup2; &times; 0.5 &times; 0.5 / 0.05&sup2; = 384.16, rounded up).</p>
+
+<h3>What population proportion should I use if I am not sure?</h3>
+<p>Use 50%. It gives the largest possible variance, p(1 &minus; p), so it produces the most conservative (largest) sample size and protects you from under-sampling.</p>
+
+<h3>What is the difference between confidence level and margin of error?</h3>
+<p>The confidence level is how often the method would capture the true value if the study were repeated many times (for example 95%). The margin of error is how far the sample estimate may be from the true value (for example &#177;5%). Raising the confidence level or lowering the margin of error both require a larger sample.</p>
+
+<h3>What is a good sample size for a survey?</h3>
+<p>It depends on the precision you need. At 95% confidence, about 385 responses give &#177;5%, about 1,068 give &#177;3%, about 2,401 give &#177;2% and about 9,604 give &#177;1% (population proportion 50%, large population).</p>
+
+<h3>Does population size affect the sample size?</h3>
+<p>Only when the population is small. For large populations the required sample size levels off, which is why national polls need only about 1,000 people. For finite populations, the correction factor reduces the sample needed, for example from 385 to about 371 for a population of 10,000.</p>
+
+<h3>What is the z-score for 90%, 95% and 99% confidence?</h3>
+<p>The z-scores are about <b>1.645</b> for 90%, <b>1.96</b> for 95% and <b>2.576</b> for 99% confidence. See the <a href="#zscores">z-score table</a> above for more levels.</p>
+
+<h3>How do I calculate the margin of error?</h3>
+<p>Margin of error = <b>z &times; &radic;(p&#770;(1 &minus; p&#770;) / n)</b>. For a finite population, multiply the result by &radic;((N &minus; n) / (N &minus; 1)). Use the <a href="#findci">margin of error calculator</a> on this page to do it automatically.</p>
+
+<h3>Does a larger sample size always make results more accurate?</h3>
+<p>A larger sample reduces random sampling error, but with diminishing returns: halving the margin of error needs about four times the sample. It does not fix bias caused by poor sampling methods or badly worded questions.</p>
+
+<h3>What does a 95% confidence interval really mean?</h3>
+<p>If the study were repeated many times, about 95% of the intervals calculated this way would contain the true population value. It describes the reliability of the method, not a 95% probability for one specific interval.</p>
+</section>
+
+</div>
+
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+		</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

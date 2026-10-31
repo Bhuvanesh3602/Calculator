@@ -1,198 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>One Rep Max Calculator</title>
-	<meta name="description" content="This free calculator estimates a person's one rep max (1RM) based on the number of repetitions they can perform with a given weight." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/one-rep-max-calculator.html" itemprop="item"><span itemprop="name">one rep max calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>One Rep Max Calculator</h1>
-<p>Use this One Rep Max (1RM) Calculator to estimate the maximum weight you can lift for a single repetition based on the number of repetitions you can perform with a certain weight. For the most accurate estimate, please use a weight that you can lift between 1 and 10 times. Refer to the "<a href="/one-rep-max-calculator.html#emethods">Estimation methods</a>" section for more detail on the formulas used and how this calculator works. </p>
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div>
-<form action="/one-rep-max-calculator.html" name="calform">
-<table  class="panel">
-<tr>
-	<td>Weight Lifted</td>
-	<td>
-		<table border="0" cellpadding="0" cellspacing="0"><tr>
-			<td><input type="text" name="clift" value="100" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pn');"></td>
-			<td style="padding-left:3px;"><select name="cliftunit" >
-				<option value="kg" selected>kilograms</option>
-				<option value="lb" >pounds</option>
-			</select></td>
-		</tr></table>
-	</td>
-</tr>
-<tr>
-	<td>Repeated</td>
-	<td><input type="text" name="crepeat" value="5" class="inlong inuiyear" onKeyUp="iptfieldCheck(this, 'r', 'pi');"><span class="inuiyearspan">times</span> &nbsp; (1-10)</td>
-</tr>
-<tr>
-	<td colspan="2">
-		<div id="ccsettingtitle" style="margin: 10px 0px;text-align:center;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
-		<div id="ccsettingcontent" style="display: none;">
-			<input type="hidden" name="cmop" id="cmoreoption" value="0">
-			<div><b>Desired unit:</b></div>
-			<div style="padding-left:25px;">
-				<label for="coutunit1" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit1" value="kg" checked /><span class="rbmark"></span> Kilogram</label> &nbsp;
-				<label for="coutunit2" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit2" value="lb"  /><span class="rbmark"></span> Pound</label>
-			</div>
-			<div style="padding-top:10px;"><b>1RM estimation formula:</b> <a href="#emethods"><img class="ttimg" src="/img/svg/help.svg"></a></div>
-			<div style="padding-left:25px;padding-bottom:10px;">
-				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="e" checked /><span class="rbmark"></span> Epley</label></div>
-				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="b"  /><span class="rbmark"></span> Brzycki</label></div>
-				<div><label for="cformula3" class="cbcontainer"><input type="radio" name="cformula" id="cformula3" value="l"  /><span class="rbmark"></span> Lombardi</label></div>
-			</div>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td colspan="2" align="center">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table>
-</form>
-</div>
-<script>
-function cshmoreoption(optVar){
-	if (optVar==1){
-		document.getElementById("ccsettingcontent").style.display = 'block';
-		document.getElementById("cmoreoption").value = "1";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
-	}else{
-		document.getElementById("ccsettingcontent").style.display = 'none';
-		document.getElementById("cmoreoption").value = "0";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
-	}
-	return false;
-}
-cshmoreoption(0);
-</script>
-
-<br><br><p>A "one rep max" (one-repetition maximum) is the maximum weight a person can lift for one complete repetition of a specific exercise while maintaining proper form. It is a measure that is commonly used in weightlifting competitions since it represents the peak force that a person's muscles can generate in an all-out effort.</p>
-<p>A person's one rep max typically differs based on the exercise, whether it be a bench press, squat, deadlift, overhead press, or whatever other exercise is being performed. Thus, it is important to measure a one rep max for a given exercise rather than applying a one rep max in one exercise to other exercises.</p>
-
-<h2>How to use this calculator to save (and improve) your 1RM</h2>
-<p>After using the calculator to calculate your 1RM, there will be a save icon on the right side of the result bar. Click the save icon to save your 1RM for future reference. You can then look back at your previous 1RM for various exercises to gauge your progress. The following sections provide detail on the 1RM calculation as well as methods for working toward improving your 1RM.</p>
-
-<h2>Why one rep max is important</h2>
-<p>Knowing your one rep max (1RM) is valuable because it provides a quantitative measure (or estimate) of your maximal strength for a given exercise, which enables you to design a workout program and train accordingly based on your goals.</p>
-<p>For example, you can use your 1RM to manage your targeted training intensity. This enables you to design a workout program that is challenging enough to promote strength gain while also ensuring proper technique and safety.</p>
-<p>Since it provides a quantitative measure, knowing your 1RM also allows you to track your strength progress over time and set goals for improvement. Without a quantitative measure, it can be difficult to motivate ourselves to train. Seeing improvement in your 1RM can help motivate you to train, or if you don't see improvement, you can use your 1RM to adjust your workout program to help you achieve your desired strength gains.</p>
-
-<h2>How to measure one rep max</h2>
-<p>The two primary methods for measuring one rep max are direct measurement by performing a strength test for a given exercise and using estimation methods. There are advantages and disadvantages to using either method, as described below.</p>
-
-<h3>How to directly measure one rep max</h3>
-<p>Directly measuring one rep max involves progressively increasing the weight as you perform a specific exercise. As you increase the weight, taking breaks between each trial, the number of repetitions of the exercise you can perform should continue to decrease until your muscles reach failure and you can only perform one repetition of the exercise with proper form.</p>
-<p>This method of measuring one rep max can be dangerous, and it is important to only attempt using direct measurement for exercises you are experienced in performing, ideally with the help of a spotter (someone who can help you push your limits while ensuring your safety in the case that anything goes wrong). The steps for directly measuring your one rep max are generally as follows:</p>
-<ul>
-	<li><b>Warm up:</b> Begin by warming up the muscle groups you will be using.</li>
-	<li><b>Find a spotter:</b> Finding your one rep max involves pushing your limits. Having a spotter helps you do this in a safe manner.</li>
-	<li><b>Start with a comfortable weight:</b> The weight you select shouldn't be too light. It should be a weight you know you can lift for ~5-10 reps, but not a weight that you can lift for many more.</li>
-	<li><b>Rest and recover:</b> Between each set, you should rest and recover fully before attempting the next set. Your break may last anywhere from 2-5 minutes.</li>
-	<li><b>Progressively increase weight:</b> After enough rest, attempt the next weight. Depending how you felt on the first set, you may find yourself wanting to increase the weight significantly if the first set was too easy, or you may find that the first weight you selected was more difficult and closer to your 1RM than expected. In the second case, the next selected increment may be smaller.</li>
-	<li><b>Repeat the process:</b> Continue the process of resting and recovering and progressively increasing weight. Once you can only do one repetition with good form, you have found your estimated one rep max. Note that form is incredibly important. It may be possible to lift more weight if your form is compromised, but this is not a good estimate of your one rep max and can result in injury. Remember that injury will slow your overall progress towards your strength goals, so push your limits as safely as possible.</li>
-	<li><b>Record your estimated 1RM:</b> Note your 1RM and save it somewhere (you can do so in the above calculator).</li>
-</ul>
-<p>Generally, it is not recommended for beginners to attempt direct measurement of their one rep max. When a person first starts weightlifting, it is better to focus on learning proper form for a given exercise rather than trying to find their one rep max. However, as discussed above, knowing your one rep max can help a person design a challenging and effective workout program, even as a beginner. Thus, it can still be valuable for beginners to determine their one rep max. One way to do this more safely than using direct measurement is to use estimation methods for finding your one rep max.</p>
-<p><b>Advantages of direct measurement of 1RM</b></p>
-<ul>
-	<li><b>Straightforward:</b> The above steps are outlined mainly for safety, but in its most concise form, all you need to do to find your 1RM for a given exercise is to keep lifting more weight until you can only do one proper repetition.</li>
-	<li><b>More accurate:</b> Direct measurement of 1RM is relatively accurate, and is likely more accurate than estimation methods (though as the number of reps gets closer and closer to 1, estimation methods are also quite accurate). Refer below for more detail on estimation methods.</li>
-</ul>
-<p><b>Disadvantages of direct measurement of 1RM</b></p>
-<ul>
-	<li><b>Higher risk of injury:</b> The risk of injury for direct measurement is higher since the goal is to lift more and more weight until failure.</li>
-	<li><b>Time consuming:</b> Since you need ample rest between each attempt, direct measurement takes more time than using estimation methods.</li>
-</ul>
-
-<a name="emethods"></a><h3>How to estimate one rep max</h3>
-<p>There are various formulas used to estimate one rep max. This calculator provides calculations for the Epley, Brzycki, and Lombardi formulas:</p>
-<p><b>Epley Formula:</b></p>
-<p style="text-align:center;">1RM = Weight Lifted &#215; (1 + <span class="frac"><span class="fracnum">No. of Repetitions</span><span class="fracden">30</span></span>)</p>
-<p><b>Brzycki Formula:</b></p><p style="text-align:center;">1RM = Weight Lifted &#215; <span class="frac"><span class="fracnum">36</span><span class="fracden">37 &ndash; No. of Repetitions</span></span></p>
-<p><b>Lombardi Formula:</b></p>
-<p style="text-align:center;">1RM = Weight Lifted &#215; (No. of Repetitions)<sup>0.10</sup></p>
-<p>The formulas are relatively straightforward; to use them, just plug the amount of weight lifted and the number of repetitions at that weight for a given exercise. The two most popular formulas are the Epley and Brzycki formulas. These formulas return the same result when an input of 10 repetitions is used, but otherwise return slightly different results. There are also more complex formulas that consider more factors, but this calculator does not use those formulas. All of these formulas provide a safer and quicker estimate of 1RM that can be used as a reasonable starting point. Usually, the estimates are within 10% or so of a person's actual one rep max, though in some cases it can vary to a larger degree. Use the following steps to find the values you need to plug into the calculator:</p>
-<ul>
-	<li><b>Select a challenging but safe weight:</b> To start, you want to pick a weight that you know you can lift for between 3-10 reps. If you are unsure, it is fine to pick a lighter weight to start; if you manage to complete 10 reps then stop, take a break and increase the weight to a point where you will only be able to complete 3-10 reps. If your muscles reach failure within 3-10 reps, skip to the final step. Note that the lower the number of reps it takes you to reach failure, the higher the accuracy of the estimated 1RM. In the context of lifting, failure is the point at which you can no longer complete a repetition with proper form; do not count the failed repetition, just the maximum number of repetitions completed with proper form.</li>
-	<li><b>Repeat until failure:</b> Keep resting and increasing the weight until you reach failure. Remember, the lower the number of reps to failure, the more accurate the estimate of 1RM.</li>
-	<li><b>Record the weight and number of reps:</b> Once you find a weight that results in failure within 3-10 reps, record the weight and number of reps and plug them into the calculator. If you reach failure at 9-10 reps, you may want to consider increasing the weight slightly so that you fail at a lower number of reps to provide a more accurate result.</li>
-</ul>
-<p>Like direct measurement of 1RM, there are advantages and disadvantages to using formulas to estimate one rep max.</p>
-<p><b>Advantages of estimation methods for calculating 1RM</b></p>
-<ul>
-	<li><b>Lower risk of injury:</b> There is a lower risk of injury since you are lifting lower weights for more reps.</li>
-	<li><b>Time efficient:</b> Directly measuring 1RM requires you to be fully rested before attempting each subsequent lift. This takes more time especially as you approach your 1RM. Estimation methods only require you to find a weight you can lift ideally for fewer than 10 reps. Once you have found a weight in this range, you can use various formulas to estimate your 1RM. It is generally much quicker to find this weight than it is to directly find 1RM.</li>
-	<li><b>Accessible:</b> Because you are not lifting too near your limit, using estimation methods is much more accessible to beginners as well as those with physical limitations or health conditions.</li>
-</ul>
-<p><b>Disadvantages of estimation methods for calculating 1RM</b></p>
-<ul>
-	<li><b>Less accurate:</b> Using formulas to estimate 1RM is less accurate on multiple levels. First, since direct measurement involves physically testing your limits to find your 1RM, it is inherently more accurate. On top of this, while 1RM formulas are designed based on empirical data, this data is often skewed towards more experienced lifters, since these are the types of populations that data is more likely to be collected from. This means that the formulas, though they are meant to be as generalized as possible, tend to be less accurate for beginners. This is especially disadvantageous since beginners are more likely to be using estimation methods. Also, because dedicated beginner lifters tend to experience more rapid strength gains, their 1RM may continually shift such that estimates cannot keep up with their rate of improvement.</li>
-</ul>
-<h2>How to use one rep max</h2>
-<p>Once you have measured your one rep max, you can use it to help manage your targeted training intensity based on your strength goals. In general, lifting at a certain percentage of your one rep max promotes different things. For example, lifting a lower weight for many repetitions rapidly (while still maintaining proper form) can be helpful for promoting explosive power. On the other hand, if you want to promote strength, lifting at near your one rep max for fewer repetitions is more beneficial. While it is not an exact science, and different sources provide varying repetition ranges and percentages of one rep max, below is a general guideline for targeting strength, endurance, and muscle growth, etc.</p>
-<ul>
-	<li><b>50-60% of one rep max for 3-5 reps (4-6 sets)</b>&mdash;Lifting a lower number of reps at a lighter weight can help with promoting explosive power. Since it is a lighter weight and lower number of reps, try to keep the breaks between your sets shorter.</li>
-	<li><b>~70% of one rep max for 10-15 reps (4-6 sets)</b>&mdash;Lifting at around 70% of your 1RM for more repetitions helps promote muscle endurance.</li>
-	<li><b>70-80% of one rep max for 7-12 reps (3-5 sets)</b>&mdash;Lifting in this range can help with muscle growth.</li>
-	<li><b>80-100% of one rep max for 1-3 reps (3-4 sets)</b>&mdash;Lifting in this range promotes a combination of muscle growth, power, and overall strength. Since you are training within or at the upper range of your one rep max, use a spotter whenever possible to decrease risk of injury.</li>
-</ul>
-<p>The results of the calculator will provide your one rep max as well as various percentages of your one rep max. You can use the save function of the calculator to save your one rep max and update it as needed, as well as to reference various percentages of your one rep max. Note that the number repetitions corresponding to a given percentage of your one rep max is not necessarily the number of reps you want to perform for your workout. The number of reps you want to perform at a given percentage is dependent on your training goals, as detailed above.</p>
-
-<h2>How to improve one rep max</h2>
-<p>The following are some general ways to improve your one rep max that are primarily useful for beginners. Since one rep max is specific to each individual exercise, and there are too many exercises to cover, more detailed tips for improving one rep max for a specific exercise will not be discussed. There are ample resources available online and a safe way to work towards your goals may be to consult a trained professional.</p>
-<ul>
-	<li><b>Prioritize safety</b>&mdash;One of the most straightforward and obvious ways to improve strength is to consistently train. Injuries happen, especially when pushing our limits, but we can reduce the chance of injury by being safety conscious.</li>
-	<ul>
-		<li><b>Prioritize proper form</b>&mdash;Form can almost always be improved and/or adjusted. Be conscious and dedicated to learning and maintaining proper form. Particularly when we are near our limits, it is necessary to maintain proper form and to know when to stop pushing to avoid injury.</li>
-		<li><b>Get a spotter</b>&mdash;Whenever possible, and especially when attempting heavier weights, train with a spotter. A spotter can help with preventing injury both directly and by observing your training and form.</li>
-	</ul>
-	<li><b>Train consistently</b>&mdash;This may be obvious, but building strength requires consistency. It is much more difficult to build strength than it is to maintain it.</li>
-	<ul>
-		<li><b>Adjust weight and repetitions appropriately</b>&mdash;When trying to improve one rep max, you should try to train at 85%-100% of your one rep max. On any given day, we may not feel up to training at 100%, or even 85%, and may feel that it is better to just skip a day. However, training at 70% is still better than not training. Of course, there are times when we should rest entirely, and this is also an important part of gaining strength and improving your one rep max.</li>
-	</ul>
-	<li><b>Rest</b>&mdash;It is definitely possible to overtrain. Muscles need time to recover and grow, and pushing them to their limits constantly can negatively impact your strength goals, especially in the case of injury. If your muscles are too fatigued, you will not be able to train them as effectively, and are more likely to injure yourself. Injuries can last a long time and severely set back your strength goals.</li>
-	<li><b>Vary your workouts</b>&mdash;In the beginning, just repeatedly performing the exercise you want to improve will likely result in strength gains. However, eventually it will likely lead to a plateau. This is in part because muscles adapt, and at some point will need to be trained differently in order for you to observe further strength gains.</li>
-	<ul>
-		<li><b>Try different types of sets</b>&mdash;There are many different types of sets. The most common is a straight set, where you lift a given weight linearly for some number of repetitions. Other types of sets include:
-			<br><i>Supersets</i>&mdash;A superset is a type of set in which you perform multiple different exercises without rest between the sets. For example, you may start with a bench press, then perform an incline bench press, chest flys, or some other chest exercise. A superset may target the same muscle group or different muscle groups.
-			<br><i>Compound sets</i>&mdash;A compound set is very similar to a superset in that it is performed without rest between sets. The difference is that a compound set works the same muscle groups while a superset doesn't necessarily have to work the same muscle group.
-			<br><i>Pyramid sets</i>&mdash;A pyramid set involves starting with a lower weight and performing many repetitions of the exercise then increasing weight while decreasing the number of repetitions. The goal of a pyramid set is to create more stress in the muscles to promote muscle growth.</li>
-		<li><b>Train your surrounding muscles</b>&mdash;Training your surrounding muscles is helpful both for safety as well as for improving strength. These are our supportive muscles, so training them reduces our risk of injury especially when attempting heavy lifts. In addition, strengthening these muscles may help with overall strength especially in the case that you are at a plateau. Do not underestimate the benefit of having well balanced supportive muscles in aiding you towards your strength goals. Training your supportive muscles may just get you past the plateau.</li>
-	</ul>
-</ul>
-
-<br><p><b>Disclaimer:</b> Always consult with a qualified fitness professional or healthcare provider before engaging in maximal strength testing or starting a new exercise program. Safety should be the top priority when assessing and training for maximal strength.</p>
-
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas</title>
+	<meta name="description" content="Free one rep max (1RM) calculator. Estimate your max lift for bench press, squat or deadlift from the weight and reps you can do, using Epley, Brzycki or Lombardi formulas. In kg or lb." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas","url":"https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html","description":"Free one rep max (1RM) calculator. Estimate your max lift for bench press, squat or deadlift from the weight and reps you can do, using Epley, Brzycki or Lombardi formulas. In kg or lb.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas","item":"https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas">
+<meta property="og:description" content="Free one rep max (1RM) calculator. Estimate your max lift for bench press, squat or deadlift from the weight and reps you can do, using Epley, Brzycki or Lombardi formulas. In kg or lb.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas">
+<meta name="twitter:description" content="Free one rep max (1RM) calculator. Estimate your max lift for bench press, squat or deadlift from the weight and reps you can do, using Epley, Brzycki or Lombardi formulas. In kg or lb.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas","url":"https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html","description":"Free one rep max (1RM) calculator. Estimate your max lift for bench press, squat or deadlift from the weight and reps you can do, using Epley, Brzycki or Lombardi formulas. In kg or lb.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"One Rep Max Calculator (1RM) – Epley, Brzycki &amp; Lombardi Formulas","item":"https://calculator.bhuvanesh-s3602.workers.dev/one-rep-max-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+
+<script>
+function cshmoreoption(optVar){
+	if (optVar==1){
+		document.getElementById("ccsettingcontent").style.display = 'block';
+		document.getElementById("cmoreoption").value = "1";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
+	}else{
+		document.getElementById("ccsettingcontent").style.display = 'none';
+		document.getElementById("cmoreoption").value = "0";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
+	}
+	return false;
+}
+cshmoreoption(0);
+</script>
+
+<article>
+<br><br><p>A "one rep max" (one-repetition maximum) is the maximum weight a person can lift for one complete repetition of a specific exercise while maintaining proper form. It is a measure that is commonly used in weightlifting competitions since it represents the peak force that a person's muscles can generate in an all-out effort.</p>
+<p>A person's one rep max typically differs based on the exercise, whether it be a bench press, squat, deadlift, overhead press, or whatever other exercise is being performed. Thus, it is important to measure a one rep max for a given exercise rather than applying a one rep max in one exercise to other exercises.</p>
+
+<h2>How to use this calculator to save (and improve) your 1RM</h2>
+<p>After using the calculator to calculate your 1RM, there will be a save icon on the right side of the result bar. Click the save icon to save your 1RM for future reference. You can then look back at your previous 1RM for various exercises to gauge your progress. The following sections provide detail on the 1RM calculation as well as methods for working toward improving your 1RM.</p>
+
+<h2>Why one rep max is important</h2>
+<p>Knowing your one rep max (1RM) is valuable because it provides a quantitative measure (or estimate) of your maximal strength for a given exercise, which enables you to design a workout program and train accordingly based on your goals.</p>
+<p>For example, you can use your 1RM to manage your targeted training intensity. This enables you to design a workout program that is challenging enough to promote strength gain while also ensuring proper technique and safety.</p>
+<p>Since it provides a quantitative measure, knowing your 1RM also allows you to track your strength progress over time and set goals for improvement. Without a quantitative measure, it can be difficult to motivate ourselves to train. Seeing improvement in your 1RM can help motivate you to train, or if you don't see improvement, you can use your 1RM to adjust your workout program to help you achieve your desired strength gains.</p>
+
+<h2>How to measure one rep max</h2>
+<p>The two primary methods for measuring one rep max are direct measurement by performing a strength test for a given exercise and using estimation methods. There are advantages and disadvantages to using either method, as described below.</p>
+
+<h3>How to directly measure one rep max</h3>
+<p>Directly measuring one rep max involves progressively increasing the weight as you perform a specific exercise. As you increase the weight, taking breaks between each trial, the number of repetitions of the exercise you can perform should continue to decrease until your muscles reach failure and you can only perform one repetition of the exercise with proper form.</p>
+<p>This method of measuring one rep max can be dangerous, and it is important to only attempt using direct measurement for exercises you are experienced in performing, ideally with the help of a spotter (someone who can help you push your limits while ensuring your safety in the case that anything goes wrong). The steps for directly measuring your one rep max are generally as follows:</p>
+<ul>
+	<li><b>Warm up:</b> Begin by warming up the muscle groups you will be using.</li>
+	<li><b>Find a spotter:</b> Finding your one rep max involves pushing your limits. Having a spotter helps you do this in a safe manner.</li>
+	<li><b>Start with a comfortable weight:</b> The weight you select shouldn't be too light. It should be a weight you know you can lift for ~5-10 reps, but not a weight that you can lift for many more.</li>
+	<li><b>Rest and recover:</b> Between each set, you should rest and recover fully before attempting the next set. Your break may last anywhere from 2-5 minutes.</li>
+	<li><b>Progressively increase weight:</b> After enough rest, attempt the next weight. Depending how you felt on the first set, you may find yourself wanting to increase the weight significantly if the first set was too easy, or you may find that the first weight you selected was more difficult and closer to your 1RM than expected. In the second case, the next selected increment may be smaller.</li>
+	<li><b>Repeat the process:</b> Continue the process of resting and recovering and progressively increasing weight. Once you can only do one repetition with good form, you have found your estimated one rep max. Note that form is incredibly important. It may be possible to lift more weight if your form is compromised, but this is not a good estimate of your one rep max and can result in injury. Remember that injury will slow your overall progress towards your strength goals, so push your limits as safely as possible.</li>
+	<li><b>Record your estimated 1RM:</b> Note your 1RM and save it somewhere (you can do so in the above calculator).</li>
+</ul>
+<p>Generally, it is not recommended for beginners to attempt direct measurement of their one rep max. When a person first starts weightlifting, it is better to focus on learning proper form for a given exercise rather than trying to find their one rep max. However, as discussed above, knowing your one rep max can help a person design a challenging and effective workout program, even as a beginner. Thus, it can still be valuable for beginners to determine their one rep max. One way to do this more safely than using direct measurement is to use estimation methods for finding your one rep max.</p>
+
+<p><b>Advantages of direct measurement of 1RM</b></p>
+<ul>
+	<li><b>Straightforward:</b> The above steps are outlined mainly for safety, but in its most concise form, all you need to do to find your 1RM for a given exercise is to keep lifting more weight until you can only do one proper repetition.</li>
+	<li><b>More accurate:</b> Direct measurement of 1RM is relatively accurate, and is likely more accurate than estimation methods (though as the number of reps gets closer and closer to 1, estimation methods are also quite accurate). Refer below for more detail on estimation methods.</li>
+</ul>
+<p><b>Disadvantages of direct measurement of 1RM</b></p>
+<ul>
+	<li><b>Higher risk of injury:</b> The risk of injury for direct measurement is higher since the goal is to lift more and more weight until failure.</li>
+	<li><b>Time consuming:</b> Since you need ample rest between each attempt, direct measurement takes more time than using estimation methods.</li>
+</ul>
+
+<a name="emethods" id="emethods"></a><h3>How to estimate one rep max</h3>
+<p>There are various formulas used to estimate one rep max. This calculator provides calculations for the Epley, Brzycki, and Lombardi formulas:</p>
+<p><b>Epley Formula:</b></p>
+<p style="text-align:center;">1RM = Weight Lifted &#215; (1 + <span class="frac"><span class="fracnum">No. of Repetitions</span><span class="fracden">30</span></span>)</p>
+<p><b>Brzycki Formula:</b></p><p style="text-align:center;">1RM = Weight Lifted &#215; <span class="frac"><span class="fracnum">36</span><span class="fracden">37 &ndash; No. of Repetitions</span></span></p>
+<p><b>Lombardi Formula:</b></p>
+<p style="text-align:center;">1RM = Weight Lifted &#215; (No. of Repetitions)<sup>0.10</sup></p>
+<p>The formulas are relatively straightforward; to use them, just plug the amount of weight lifted and the number of repetitions at that weight for a given exercise. The two most popular formulas are the Epley and Brzycki formulas. These formulas return the same result when an input of 10 repetitions is used, but otherwise return slightly different results. There are also more complex formulas that consider more factors, but this calculator does not use those formulas. All of these formulas provide a safer and quicker estimate of 1RM that can be used as a reasonable starting point. Usually, the estimates are within 10% or so of a person's actual one rep max, though in some cases it can vary to a larger degree. Use the following steps to find the values you need to plug into the calculator:</p>
+<ul>
+	<li><b>Select a challenging but safe weight:</b> To start, you want to pick a weight that you know you can lift for between 3-10 reps. If you are unsure, it is fine to pick a lighter weight to start; if you manage to complete 10 reps then stop, take a break and increase the weight to a point where you will only be able to complete 3-10 reps. If your muscles reach failure within 3-10 reps, skip to the final step. Note that the lower the number of reps it takes you to reach failure, the higher the accuracy of the estimated 1RM. In the context of lifting, failure is the point at which you can no longer complete a repetition with proper form; do not count the failed repetition, just the maximum number of repetitions completed with proper form.</li>
+	<li><b>Repeat until failure:</b> Keep resting and increasing the weight until you reach failure. Remember, the lower the number of reps to failure, the more accurate the estimate of 1RM.</li>
+	<li><b>Record the weight and number of reps:</b> Once you find a weight that results in failure within 3-10 reps, record the weight and number of reps and plug them into the calculator. If you reach failure at 9-10 reps, you may want to consider increasing the weight slightly so that you fail at a lower number of reps to provide a more accurate result.</li>
+</ul>
+<p>Like direct measurement of 1RM, there are advantages and disadvantages to using formulas to estimate one rep max.</p>
+<p><b>Advantages of estimation methods for calculating 1RM</b></p>
+<ul>
+	<li><b>Lower risk of injury:</b> There is a lower risk of injury since you are lifting lower weights for more reps.</li>
+	<li><b>Time efficient:</b> Directly measuring 1RM requires you to be fully rested before attempting each subsequent lift. This takes more time especially as you approach your 1RM. Estimation methods only require you to find a weight you can lift ideally for fewer than 10 reps. Once you have found a weight in this range, you can use various formulas to estimate your 1RM. It is generally much quicker to find this weight than it is to directly find 1RM.</li>
+	<li><b>Accessible:</b> Because you are not lifting too near your limit, using estimation methods is much more accessible to beginners as well as those with physical limitations or health conditions.</li>
+</ul>
+<p><b>Disadvantages of estimation methods for calculating 1RM</b></p>
+<ul>
+	<li><b>Less accurate:</b> Using formulas to estimate 1RM is less accurate on multiple levels. First, since direct measurement involves physically testing your limits to find your 1RM, it is inherently more accurate. On top of this, while 1RM formulas are designed based on empirical data, this data is often skewed towards more experienced lifters, since these are the types of populations that data is more likely to be collected from. This means that the formulas, though they are meant to be as generalized as possible, tend to be less accurate for beginners. This is especially disadvantageous since beginners are more likely to be using estimation methods. Also, because dedicated beginner lifters tend to experience more rapid strength gains, their 1RM may continually shift such that estimates cannot keep up with their rate of improvement.</li>
+</ul>
+
+<h2>How to use one rep max</h2>
+<p>Once you have measured your one rep max, you can use it to help manage your targeted training intensity based on your strength goals. In general, lifting at a certain percentage of your one rep max promotes different things. For example, lifting a lower weight for many repetitions rapidly (while still maintaining proper form) can be helpful for promoting explosive power. On the other hand, if you want to promote strength, lifting at near your one rep max for fewer repetitions is more beneficial. While it is not an exact science, and different sources provide varying repetition ranges and percentages of one rep max, below is a general guideline for targeting strength, endurance, and muscle growth, etc.</p>
+<ul>
+	<li><b>50-60% of one rep max for 3-5 reps (4-6 sets)</b>&mdash;Lifting a lower number of reps at a lighter weight can help with promoting explosive power. Since it is a lighter weight and lower number of reps, try to keep the breaks between your sets shorter.</li>
+	<li><b>~70% of one rep max for 10-15 reps (4-6 sets)</b>&mdash;Lifting at around 70% of your 1RM for more repetitions helps promote muscle endurance.</li>
+	<li><b>70-80% of one rep max for 7-12 reps (3-5 sets)</b>&mdash;Lifting in this range can help with muscle growth.</li>
+	<li><b>80-100% of one rep max for 1-3 reps (3-4 sets)</b>&mdash;Lifting in this range promotes a combination of muscle growth, power, and overall strength. Since you are training within or at the upper range of your one rep max, use a spotter whenever possible to decrease risk of injury.</li>
+</ul>
+<p>The results of the calculator will provide your one rep max as well as various percentages of your one rep max. You can use the save function of the calculator to save your one rep max and update it as needed, as well as to reference various percentages of your one rep max. Note that the number repetitions corresponding to a given percentage of your one rep max is not necessarily the number of reps you want to perform for your workout. The number of reps you want to perform at a given percentage is dependent on your training goals, as detailed above.</p>
+
+<h2>How to improve one rep max</h2>
+<p>The following are some general ways to improve your one rep max that are primarily useful for beginners. Since one rep max is specific to each individual exercise, and there are too many exercises to cover, more detailed tips for improving one rep max for a specific exercise will not be discussed. There are ample resources available online and a safe way to work towards your goals may be to consult a trained professional.</p>
+<ul>
+	<li><b>Prioritize safety</b>&mdash;One of the most straightforward and obvious ways to improve strength is to consistently train. Injuries happen, especially when pushing our limits, but we can reduce the chance of injury by being safety conscious.</li>
+	<ul>
+		<li><b>Prioritize proper form</b>&mdash;Form can almost always be improved and/or adjusted. Be conscious and dedicated to learning and maintaining proper form. Particularly when we are near our limits, it is necessary to maintain proper form and to know when to stop pushing to avoid injury.</li>
+		<li><b>Get a spotter</b>&mdash;Whenever possible, and especially when attempting heavier weights, train with a spotter. A spotter can help with preventing injury both directly and by observing your training and form.</li>
+	</ul>
+	<li><b>Train consistently</b>&mdash;This may be obvious, but building strength requires consistency. It is much more difficult to build strength than it is to maintain it.</li>
+	<ul>
+		<li><b>Adjust weight and repetitions appropriately</b>&mdash;When trying to improve one rep max, you should try to train at 85%-100% of your one rep max. On any given day, we may not feel up to training at 100%, or even 85%, and may feel that it is better to just skip a day. However, training at 70% is still better than not training. Of course, there are times when we should rest entirely, and this is also an important part of gaining strength and improving your one rep max.</li>
+	</ul>
+	<li><b>Rest</b>&mdash;It is definitely possible to overtrain. Muscles need time to recover and grow, and pushing them to their limits constantly can negatively impact your strength goals, especially in the case of injury. If your muscles are too fatigued, you will not be able to train them as effectively, and are more likely to injure yourself. Injuries can last a long time and severely set back your strength goals.</li>
+	<li><b>Vary your workouts</b>&mdash;In the beginning, just repeatedly performing the exercise you want to improve will likely result in strength gains. However, eventually it will likely lead to a plateau. This is in part because muscles adapt, and at some point will need to be trained differently in order for you to observe further strength gains.</li>
+	<ul>
+		<li><b>Try different types of sets</b>&mdash;There are many different types of sets. The most common is a straight set, where you lift a given weight linearly for some number of repetitions. Other types of sets include:
+			<br><i>Supersets</i>&mdash;A superset is a type of set in which you perform multiple different exercises without rest between the sets. For example, you may start with a bench press, then perform an incline bench press, chest flys, or some other chest exercise. A superset may target the same muscle group or different muscle groups.
+			<br><i>Compound sets</i>&mdash;A compound set is very similar to a superset in that it is performed without rest between sets. The difference is that a compound set works the same muscle groups while a superset doesn't necessarily have to work the same muscle group.
+			<br><i>Pyramid sets</i>&mdash;A pyramid set involves starting with a lower weight and performing many repetitions of the exercise then increasing weight while decreasing the number of repetitions. The goal of a pyramid set is to create more stress in the muscles to promote muscle growth.</li>
+		<li><b>Train your surrounding muscles</b>&mdash;Training your surrounding muscles is helpful both for safety as well as for improving strength. These are our supportive muscles, so training them reduces our risk of injury especially when attempting heavy lifts. In addition, strengthening these muscles may help with overall strength especially in the case that you are at a plateau. Do not underestimate the benefit of having well balanced supportive muscles in aiding you towards your strength goals. Training your supportive muscles may just get you past the plateau.</li>
+	</ul>
+</ul>
+</article>
+
+<section id="faq">
+<h2>One Rep Max Calculator: Frequently Asked Questions</h2>
+
+<h3>What is a one rep max (1RM)?</h3>
+<p>A one rep max is the maximum weight you can lift for one complete repetition of a specific exercise with proper form. It is a measure of your peak strength for that exercise.</p>
+
+<h3>How do I calculate my one rep max?</h3>
+<p>Lift a weight you can perform for 1 to 10 repetitions with good form, then enter the weight and the number of reps in the calculator. For example, the Epley formula is 1RM = weight &times; (1 + reps &divide; 30), so 100 kg for 5 reps gives about 116.7 kg.</p>
+
+<h3>Which 1RM formula is the most accurate: Epley, Brzycki or Lombardi?</h3>
+<p>No single formula is best for everyone. Epley and Brzycki are the most popular and give the same result at 10 reps. All three are usually within about 10% of a real one rep max, and they are most accurate when you use a weight you can lift for fewer reps.</p>
+
+<h3>How many reps should I use for the most accurate estimate?</h3>
+<p>Use a weight you can lift between 1 and 10 times. The fewer reps you complete before failure, the more accurate the estimated 1RM will be. If you reach 9 to 10 reps, consider increasing the weight.</p>
+
+<h3>Is my one rep max the same for every exercise?</h3>
+<p>No. Your 1RM is different for each exercise, such as bench press, squat, deadlift or overhead press. Measure or estimate it separately for every exercise.</p>
+
+<h3>Is it safe to test my true one rep max?</h3>
+<p>Direct 1RM testing carries a higher risk of injury, so it is not recommended for beginners. Warm up, use a spotter and keep proper form. Estimating your 1RM from a lighter, multi-rep set is a safer option.</p>
+
+<h3>What percentage of my 1RM should I train at?</h3>
+<p>As a general guide: 50 to 60% for 3 to 5 reps builds explosive power, about 70% for 10 to 15 reps builds muscular endurance, 70 to 80% for 7 to 12 reps promotes muscle growth, and 80 to 100% for 1 to 3 reps builds maximal strength.</p>
+
+<h3>How can I increase my one rep max?</h3>
+<p>Train consistently, focus on proper form, use a spotter for heavy lifts, rest enough to recover, vary your workouts and strengthen the supporting muscles around the lift. A qualified coach can help you build a plan.</p>
+
+<h3>Can I use the calculator in pounds or kilograms?</h3>
+<p>Yes. Choose kilograms or pounds for the weight you lifted, and open the Settings option to choose the unit for the result.</p>
+</section>
+
+<br><p><b>Disclaimer:</b> Always consult with a qualified fitness professional or healthcare provider before engaging in maximal strength testing or starting a new exercise program. Safety should be the top priority when assessing and training for maximal strength.</p>
+
+</main>
+
+	<aside id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" aria-label="Search calculators" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</aside>
+</div>
+
+<div id="clear"></div>
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></footer>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

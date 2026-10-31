@@ -1,372 +1,803 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Stair Calculator</title>
-	<meta name="description" content="This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/stair-calculator.html" itemprop="item"><span itemprop="name">stair calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Stair Calculator</h1>
-	<p>The Stair Calculator is an online tool for calculating various parameters involved in the construction of stairs. Refer to the figure adjacent to the calculator as a reference. A fraction to decimal conversion table for common fractions used in measurements is also provided at the bottom of the page.</p>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>Basic Version</h2>
-<div class="clefthalf">
-<form name="calform" action="/stair-calculator.html">
-<table align="center"><tr><td>
-<div id="topmenuout"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('one');">Use One Run</a></li> <li><a href="#" onclick="popMenu('total');">Use Total Run</a></li></ul></div></div>
-<div class="panel2">
-<table id="onerunblock">
-<tr>
-	<td width="80">Run</td>
-	<td>
-		<input type="text" name="run" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="rununit">
-			<option value="foot">feet</option>
-			<option value="inch" selected>inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table id="totalrunblock">
-<tr>
-	<td width="80">Total Run</td>
-	<td>
-		<input type="text" name="totalrun" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="totalrununit">
-			<option value="foot" selected>feet</option>
-			<option value="inch">inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table id="calinputtable">
-<tr>
-	<td width="80">Total Rise</td>
-	<td>
-		<input type="hidden" name="ctype" id="ctype" value="one">
-		<input type="text" name="totalheight" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="totalheightunit">
-			<option value="foot" selected>feet</option>
-			<option value="inch">inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table width="310">
-<tr>
-	<td align="center" style="padding-top: 8px;">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table></div>
-</td></tr></table>
-</form>
-</div><div class="crighthalf">
-<div style="text-align:center;"><img src="/img/stair/stair.svg" width="320" height="223" alt="stair"></div>
-</div><div id="clear"></div>
-
-
-<br><a name="comprehensive"></a>
-<h2>Comprehensive Version</h2>
-
-
-<div class="clefthalf"><form name="calform2" action="/stair-calculator.html#comprehensive">
-<table align="center"><tr><td>
-<div id="topmenuout2"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu2('one');">Use One Run</a></li> <li><a href="#" onclick="popMenu2('total');">Use Total Run</a></li></ul></div></div>
-<div class="panel2">
-<table id="onerunblock2">
-<tr>
-	<td width="80">Run</td>
-	<td>
-		<input type="text" name="run2" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="rununit2">
-			<option value="foot">feet</option>
-			<option value="inch" selected>inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table id="totalrunblock2">
-<tr>
-	<td width="80">Total Run</td>
-	<td>
-		<input type="text" name="totalrun2" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="totalrununit2">
-			<option value="foot" selected>feet</option>
-			<option value="inch">inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-</table>
-<table id="calinputtable2">
-<tr>
-	<td width="80">Total Rise</td>
-	<td>
-		<input type="hidden" name="ctype2" id="ctype2" value="one">
-		<input type="text" name="totalheight2" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		<select name="totalheightunit2">
-			<option value="foot" selected>feet</option>
-			<option value="inch">inches</option>
-			<option value="meter">meters</option>
-			<option value="centimeter">centimeters</option>
-		</select>
-	</td>
-</tr>
-<tr><td colspan="2" height="8"></td></tr>
-<tr>
-	<td width="80" valign="top" style="padding-top:5px;">Rise</td>
-	<td>
-		<div><label for="risesetting1" class="cbcontainer"><input type="radio" name="risesetting" id="risesetting1" value="r" checked onClick="shRise('r');" /><span class="rbmark"></span>Fixed rise (step height)</label></div>
-		<div><label for="risesetting2" class="cbcontainer"><input type="radio" name="risesetting" id="risesetting2" value="s"  onClick="shRise('s');" /><span class="rbmark"></span>Fixed number of steps</label></div>
-		<div id="fixedrise" style="display:none;padding-top:10px;">
-			<div class="inputLabel">Rise (step height)</div>
-			<input type="text" name="rise2" value="7" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-			<select name="riseunit2">
-				<option value="foot">feet</option>
-				<option value="inch" selected>inches</option>
-				<option value="meter">meters</option>
-				<option value="centimeter">centimeters</option>
-			</select>
-		</div>
-		<div id="fixedstep" style="display:none;padding-top:10px;">
-			<div class="inputLabel">Number of steps</div>
-			<input type="text" name="step2" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-		</div>
-	</td>
-</tr>
-
-<tr><td colspan="2" height="8"></td></tr>
-<tr>
-	<td width="80" valign="top" style="padding-top:5px;">Tread</td>
-	<td>
-		<div><label for="treadsetting2" class="cbcontainer"><input type="radio" name="treadsetting" id="treadsetting2" value="n" checked onClick="shTread('n');" /><span class="rbmark"></span>No tread</label> &nbsp;
-			<label for="treadsetting1" class="cbcontainer"><input type="radio" name="treadsetting" id="treadsetting1" value="y"  onClick="shTread('y');" /><span class="rbmark"></span>Has tread</label></div>
-
-		<div id="treadthickness" style="display:none;padding-top:10px;">
-			<div class="inputLabel">Tread thickness</div>
-			<input type="text" name="treadthickness2" value="1" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-			<select name="treadthicknessunit2">
-				<option value="foot">feet</option>
-				<option value="inch" selected>inches</option>
-				<option value="meter">meters</option>
-				<option value="centimeter">centimeters</option>
-			</select>
-		</div>
-	</td>
-</tr>
-
-<tr><td colspan="2" height="8"></td></tr>
-<tr>
-	<td width="80" valign="top" style="padding-top:5px;">Headroom</td>
-	<td>
-		<div><label for="headroomsetting2" class="cbcontainer"><input type="radio" name="headroomsetting" id="headroomsetting2" value="n" checked onClick="shHeadroom('n');" /><span class="rbmark"></span>No headroom restriction</label></div>
-		<div><label for="headroomsetting1" class="cbcontainer"><input type="radio" name="headroomsetting" id="headroomsetting1" value="y"  onClick="shHeadroom('y');" /><span class="rbmark"></span>Has headroom restriction</label></div>
-
-		<div id="headroomdiv" style="display:none;padding-top:10px;">
-			<div class="inputLabel">Floor opening</div>
-			<input type="text" name="flooropen" value="20" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-			<select name="flooropenunit">
-				<option value="foot" selected>feet</option>
-				<option value="inch">inches</option>
-				<option value="meter">meters</option>
-				<option value="centimeter">centimeters</option>
-			</select>
-
-			<div class="inputLabel" style="padding-top:6px;">Floor thickness</div>
-			<input type="text" name="floorthickness" value="6" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-			<select name="floorthicknessunit">
-				<option value="foot">feet</option>
-				<option value="inch" selected>inches</option>
-				<option value="meter">meters</option>
-				<option value="centimeter">centimeters</option>
-			</select>
-
-			<div class="inputLabel" style="padding-top:6px;">Headroom required</div>
-			<input type="text" name="headroom" value="8" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
-			<select name="headroomunit">
-				<option value="foot" selected>feet</option>
-				<option value="inch">inches</option>
-				<option value="meter">meters</option>
-				<option value="centimeter">centimeters</option>
-			</select>
-		</div>
-	</td>
-</tr>
-
-<tr><td colspan="2" height="8"></td></tr>
-<tr>
-	<td width="80" valign="top" style="padding-top:5px;">Mount</td>
-	<td>
-		<div><label for="mountsetting1" class="cbcontainer"><input type="radio" name="mountsetting" id="mountsetting1" value="s" checked /><span class="rbmark"></span>Standard stringer mount</label></div>
-		<div><label for="mountsetting2" class="cbcontainer"><input type="radio" name="mountsetting" id="mountsetting2" value="f"  /><span class="rbmark"></span>Flush stringer mount</label></div>
-	</td>
-</tr>
-</table>
-
-<table width="310">
-<tr>
-	<td align="center" style="padding-top: 8px;">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-	</td>
-</tr>
-</table>
-</div></td></tr></table></form>
-</div><div class="crighthalf">
-<div style="text-align:center;"><img src="/img/stair/stair-full.svg" width="320" height="362" alt="stair full"></div>
-</div><div id="clear"></div>
-
-
-<script>
-function popMenu(inval){
-	htmlVal = "";
-	if (inval == "total"){
-		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('one');\">Use One Run</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('total');\">Use Total Run</a></li>";
-		document.getElementById("ctype").value="total";
-		document.getElementById("onerunblock").style.display = 'none';
-		document.getElementById("totalrunblock").style.display = 'block';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}else if (inval == "one"){
-		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('one');\">Use One Run</a></li> <li><a href=\"#\" onclick=\"return popMenu('total');\">Use Total Run</a></li>";
-		document.getElementById("ctype").value="one";
-		document.getElementById("onerunblock").style.display = 'block';
-		document.getElementById("totalrunblock").style.display = 'none';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}
-	document.getElementById("topmenuout").innerHTML = '<div id="topmenu" class="topmenucenter">'+htmlVal+'</div>';
-	return false;
-}
-popMenu("one");
-function popMenu2(inval){
-	htmlVal = "";
-	if (inval == "total"){
-		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu2('one');\">Use One Run</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu2('total');\">Use Total Run</a></li>";
-		document.getElementById("ctype2").value="total";
-		document.getElementById("onerunblock2").style.display = 'none';
-		document.getElementById("totalrunblock2").style.display = 'block';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}else if (inval == "one"){
-		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu2('one');\">Use One Run</a></li> <li><a href=\"#\" onclick=\"return popMenu2('total');\">Use Total Run</a></li>";
-		document.getElementById("ctype2").value="one";
-		document.getElementById("onerunblock2").style.display = 'block';
-		document.getElementById("totalrunblock2").style.display = 'none';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}
-	document.getElementById("topmenuout2").innerHTML = '<div id="topmenu" class="topmenucenter">'+htmlVal+'</div>';
-	return false;
-}
-popMenu2("one");
-function shRise(inval){
-	if (inval == "r"){
-		document.getElementById("fixedstep").style.display = 'none';
-		document.getElementById("fixedrise").style.display = 'block';
-	}else{
-		document.getElementById("fixedrise").style.display = 'none';
-		document.getElementById("fixedstep").style.display = 'block';
-	}
-}
-shRise("r");
-function shTread(inval){
-	if (inval == "y"){
-		document.getElementById("treadthickness").style.display = 'block';
-	}else{
-		document.getElementById("treadthickness").style.display = 'none';
-	}
-}
-shTread("n");
-function shHeadroom(inval){
-	if (inval == "y"){
-		document.getElementById("headroomdiv").style.display = 'block';
-	}else{
-		document.getElementById("headroomdiv").style.display = 'none';
-	}
-}
-shHeadroom("n");
-</script>
-
-
-<br><br>
-<h3>Stair terminology and common building codes</h3>
-
-<p>Stairs come in many different forms, and while building a basic staircase may appear to be a simple task, there are actually a number of parameters, calculations, and building codes that must be considered. These range from the length, width, and height of specific parts of the stairs, to where doors are placed in relation to stairs; the arc of a door must be completely on the landing or floor and not be allowed to swing over steps. Below is a list of some of the most common terminology regarding stairs, as well as some commonly used building codes. Building codes or requirements can differ at a local level, and a person building a staircase should refer to the codes specific to their locations.</p>
-
-<p><b>Run/Tread:</b> The run or tread is the part of the stairway that a person steps on. Its length is measured from the outer edge of the step, which includes the nosing if it is present, to the vertical portion of the stair called the riser. Both nosing and riser are discussed below. When measuring the total run of a staircase, the length of the tread above the last riser is not included in the measurement. Also, when nosing is present, the total run is not simply the sum of tread length, since the overhang caused by the nosing must be subtracted from the total run.</p>
-<p>Building codes generally suggest that the thread has a minimum length of 10 inches (25.4 cm).</p>
-
-<p><b>Rise/Riser:</b> The rise, or height of a step is measured from the top of one tread to the top of the next tread. It is not the physical height of the riser because this excludes the thickness of the tread. The number of risers, not the number of treads, is used to determine the number of steps that comprise a staircase.</p>
-<p>Building codes generally suggest that the maximum height of a riser be 7.75 inches (19.7 cm)</p>
-
-<p><b>Nosing:</b> The nosing is the protrusion at the edge of a tread that hangs over the riser below. Not all steps have a nosing, but when present, the nosing is included in the length of the tread. The main purpose of nosing is to improve safety by providing extra space on which a person can place their feet.</p>
-<p>Common building codes generally suggest that the nosing has a minimum length of 0.75 inches (1.9 cm) and a maximum length of 1.25 inches (3.2 cm).</p>
-
-<p><b>Headroom:</b> Headroom is the height measured from the top of a tread to the ceiling above it. While building codes for headroom are primarily intended to ensure enough room for people to comfortably use the stairs, the codes typically require far more room than the average height of a person to allow for moving larger objects such as furniture.</p>
-<p>Building codes generally suggest at least 6 ft. 8 inches (203.2 cm) of stair headroom.</p>
-
-<p><b>Stair Width:</b> Stair width is measured from edge to edge of each side of the tread, perpendicular to tread length. While measurements of length are conventionally longer than those of width when considering rectangles, in the case of steps, the width is usually the longer side. Stair width does not include handrails.</p>
-<p>Building codes generally suggest that stairs be at least 36 inches (91.44 cm) wide.</p>
-
-<p><b>Handrails & Guards/Guardrails:</b> A handrail is a railing that runs up a stair incline for users to hold when ascending or descending a staircase. A guard is "a building component or a system of building components located near the open sides of elevated walking surfaces that minimizes the possibility of a fall from the walking surface to the lower level." Guards can include rails (guardrails), but can be any number of other constructions such as walls, half-walls, or even a bench.</p>
-<p>Building codes generally require guards for stairs that have a total rise of more than 30 inches above the floor, and require that these guards be at least 34 inches (86.36 cm) in height measured from the top of the treads. Similarly, handrails must be between 34 and 38 (96.52) inches high measured from the top of the treads, with a diameter between 1.25 inches (3.18 cm) and 2.675 inches (6.79 cm).</p>
-
-<p><b>Stringer:</b> A stair stringer is a structural member that supports the treads and risers of a staircase. Typically, there are three in a staircase: one on each side, and one in the middle. Stringers are not always visible, but can be seen on stairs with open sides. The stringers can either be cut to the shape of each step, or in some cases, are uncut and conceal the edges of the treads.</p>
-
-
-<h3>Fraction to Decimal Conversion</h3>
-<table class="cinfoT" width="300" align="center">
-<tr align="center"><td class="cinfoHdL">16<sup>th</sup></td><td class="cinfoHdL">8<sup>th</sup></td><td class="cinfoHdL">4<sup>th</sup></td><td class="cinfoHdL">2<sup>nd</sup></td><td class="cinfoHdL">Decimal</td></tr>
-<tr align="center"><td>1/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.0625</td></tr>
-<tr align="center"><td>2/16</td><td>1/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.125</td></tr>
-<tr align="center"><td>3/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.1875</td></tr>
-<tr align="center"><td>4/16</td><td>2/8</td><td>1/4</td><td>&nbsp;</td><td>0.25</td></tr>
-<tr align="center"><td>5/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.3125</td></tr>
-<tr align="center"><td>6/16</td><td>3/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.375</td></tr>
-<tr align="center"><td>7/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.4375</td></tr>
-<tr align="center"><td>8/16</td><td>4/8</td><td>2/4</td><td>1/2</td><td>0.5</td></tr>
-<tr align="center"><td>9/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.5625</td></tr>
-<tr align="center"><td>10/16</td><td>5/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.625</td></tr>
-<tr align="center"><td>11/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.6875</td></tr>
-<tr align="center"><td>12/16</td><td>6/8</td><td>3/4</td><td>&nbsp;</td><td>0.75</td></tr>
-<tr align="center"><td>13/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.8125</td></tr>
-<tr align="center"><td>14/16</td><td>7/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.875</td></tr>
-<tr align="center"><td>15/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.9375</td></tr>
-<tr align="center"><td>16/16</td><td>8/8</td><td>4/4</td><td>2/2</td><td>1</td></tr>
-</table>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Stair Calculator</title>
+
+	<meta name="description" content="This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements." />
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Stair Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html","description":"This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Stair Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Stair Calculator">
+<meta property="og:description" content="This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stair Calculator">
+<meta name="twitter:description" content="This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Stair Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html","description":"This stair calculator computes stair parameters such as rise, total run, angle, and stringer length based on the height, run, tread, and headroom requirements.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Stair Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/stair-calculator.html"}]}</script></head><body><header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/stair-calculator.html" itemprop="item"><span itemprop="name">stair calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Stair Calculator</h1>
+
+	<p>The Stair Calculator is an online tool for calculating various parameters involved in the construction of stairs. Refer to the figure adjacent to the calculator as a reference. A fraction to decimal conversion table for common fractions used in measurements is also provided at the bottom of the page.</p>
+
+
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>Basic Version</h2>
+
+<div class="clefthalf">
+
+<form name="calform" action="/stair-calculator.html">
+
+<table align="center"><tr><td>
+
+<div id="topmenuout"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('one');">Use One Run</a></li> <li><a href="#" onclick="popMenu('total');">Use Total Run</a></li></ul></div></div>
+
+<div class="panel2">
+
+<table id="onerunblock">
+
+<tr>
+
+	<td width="80">Run</td>
+
+	<td>
+
+		<input type="text" name="run" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="rununit">
+
+			<option value="foot">feet</option>
+
+			<option value="inch" selected>inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+</table>
+
+<table id="totalrunblock">
+
+<tr>
+
+	<td width="80">Total Run</td>
+
+	<td>
+
+		<input type="text" name="totalrun" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="totalrununit">
+
+			<option value="foot" selected>feet</option>
+
+			<option value="inch">inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+</table>
+
+<table id="calinputtable">
+
+<tr>
+
+	<td width="80">Total Rise</td>
+
+	<td>
+
+		<input type="hidden" name="ctype" id="ctype" value="one">
+
+		<input type="text" name="totalheight" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="totalheightunit">
+
+			<option value="foot" selected>feet</option>
+
+			<option value="inch">inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+</table>
+
+<table width="310">
+
+<tr>
+
+	<td align="center" style="padding-top: 8px;">
+
+		<input type="submit" name="x" value="Calculate">
+
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+
+	</td>
+
+</tr>
+
+</table></div>
+
+</td></tr></table>
+
+</form>
+
+</div><div class="crighthalf">
+
+<div style="text-align:center;"><img src="/img/stair/stair.svg" width="320" height="223" alt="stair"></div>
+
+</div><div id="clear"></div>
+
+
+
+
+
+<br><a name="comprehensive"></a>
+
+<h2>Comprehensive Version</h2>
+
+
+
+
+
+<div class="clefthalf"><form name="calform2" action="/stair-calculator.html#comprehensive">
+
+<table align="center"><tr><td>
+
+<div id="topmenuout2"><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu2('one');">Use One Run</a></li> <li><a href="#" onclick="popMenu2('total');">Use Total Run</a></li></ul></div></div>
+
+<div class="panel2">
+
+<table id="onerunblock2">
+
+<tr>
+
+	<td width="80">Run</td>
+
+	<td>
+
+		<input type="text" name="run2" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="rununit2">
+
+			<option value="foot">feet</option>
+
+			<option value="inch" selected>inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+</table>
+
+<table id="totalrunblock2">
+
+<tr>
+
+	<td width="80">Total Run</td>
+
+	<td>
+
+		<input type="text" name="totalrun2" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="totalrununit2">
+
+			<option value="foot" selected>feet</option>
+
+			<option value="inch">inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+</table>
+
+<table id="calinputtable2">
+
+<tr>
+
+	<td width="80">Total Rise</td>
+
+	<td>
+
+		<input type="hidden" name="ctype2" id="ctype2" value="one">
+
+		<input type="text" name="totalheight2" value="10" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		<select name="totalheightunit2">
+
+			<option value="foot" selected>feet</option>
+
+			<option value="inch">inches</option>
+
+			<option value="meter">meters</option>
+
+			<option value="centimeter">centimeters</option>
+
+		</select>
+
+	</td>
+
+</tr>
+
+<tr><td colspan="2" height="8"></td></tr>
+
+<tr>
+
+	<td width="80" valign="top" style="padding-top:5px;">Rise</td>
+
+	<td>
+
+		<div><label for="risesetting1" class="cbcontainer"><input type="radio" name="risesetting" id="risesetting1" value="r" checked onClick="shRise('r');" /><span class="rbmark"></span>Fixed rise (step height)</label></div>
+
+		<div><label for="risesetting2" class="cbcontainer"><input type="radio" name="risesetting" id="risesetting2" value="s"  onClick="shRise('s');" /><span class="rbmark"></span>Fixed number of steps</label></div>
+
+		<div id="fixedrise" style="display:none;padding-top:10px;">
+
+			<div class="inputLabel">Rise (step height)</div>
+
+			<input type="text" name="rise2" value="7" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+			<select name="riseunit2">
+
+				<option value="foot">feet</option>
+
+				<option value="inch" selected>inches</option>
+
+				<option value="meter">meters</option>
+
+				<option value="centimeter">centimeters</option>
+
+			</select>
+
+		</div>
+
+		<div id="fixedstep" style="display:none;padding-top:10px;">
+
+			<div class="inputLabel">Number of steps</div>
+
+			<input type="text" name="step2" value="15" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+		</div>
+
+	</td>
+
+</tr>
+
+
+
+<tr><td colspan="2" height="8"></td></tr>
+
+<tr>
+
+	<td width="80" valign="top" style="padding-top:5px;">Tread</td>
+
+	<td>
+
+		<div><label for="treadsetting2" class="cbcontainer"><input type="radio" name="treadsetting" id="treadsetting2" value="n" checked onClick="shTread('n');" /><span class="rbmark"></span>No tread</label> &nbsp;
+
+			<label for="treadsetting1" class="cbcontainer"><input type="radio" name="treadsetting" id="treadsetting1" value="y"  onClick="shTread('y');" /><span class="rbmark"></span>Has tread</label></div>
+
+
+
+		<div id="treadthickness" style="display:none;padding-top:10px;">
+
+			<div class="inputLabel">Tread thickness</div>
+
+			<input type="text" name="treadthickness2" value="1" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+			<select name="treadthicknessunit2">
+
+				<option value="foot">feet</option>
+
+				<option value="inch" selected>inches</option>
+
+				<option value="meter">meters</option>
+
+				<option value="centimeter">centimeters</option>
+
+			</select>
+
+		</div>
+
+	</td>
+
+</tr>
+
+
+
+<tr><td colspan="2" height="8"></td></tr>
+
+<tr>
+
+	<td width="80" valign="top" style="padding-top:5px;">Headroom</td>
+
+	<td>
+
+		<div><label for="headroomsetting2" class="cbcontainer"><input type="radio" name="headroomsetting" id="headroomsetting2" value="n" checked onClick="shHeadroom('n');" /><span class="rbmark"></span>No headroom restriction</label></div>
+
+		<div><label for="headroomsetting1" class="cbcontainer"><input type="radio" name="headroomsetting" id="headroomsetting1" value="y"  onClick="shHeadroom('y');" /><span class="rbmark"></span>Has headroom restriction</label></div>
+
+
+
+		<div id="headroomdiv" style="display:none;padding-top:10px;">
+
+			<div class="inputLabel">Floor opening</div>
+
+			<input type="text" name="flooropen" value="20" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+			<select name="flooropenunit">
+
+				<option value="foot" selected>feet</option>
+
+				<option value="inch">inches</option>
+
+				<option value="meter">meters</option>
+
+				<option value="centimeter">centimeters</option>
+
+			</select>
+
+
+
+			<div class="inputLabel" style="padding-top:6px;">Floor thickness</div>
+
+			<input type="text" name="floorthickness" value="6" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+			<select name="floorthicknessunit">
+
+				<option value="foot">feet</option>
+
+				<option value="inch" selected>inches</option>
+
+				<option value="meter">meters</option>
+
+				<option value="centimeter">centimeters</option>
+
+			</select>
+
+
+
+			<div class="inputLabel" style="padding-top:6px;">Headroom required</div>
+
+			<input type="text" name="headroom" value="8" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');">
+
+			<select name="headroomunit">
+
+				<option value="foot" selected>feet</option>
+
+				<option value="inch">inches</option>
+
+				<option value="meter">meters</option>
+
+				<option value="centimeter">centimeters</option>
+
+			</select>
+
+		</div>
+
+	</td>
+
+</tr>
+
+
+
+<tr><td colspan="2" height="8"></td></tr>
+
+<tr>
+
+	<td width="80" valign="top" style="padding-top:5px;">Mount</td>
+
+	<td>
+
+		<div><label for="mountsetting1" class="cbcontainer"><input type="radio" name="mountsetting" id="mountsetting1" value="s" checked /><span class="rbmark"></span>Standard stringer mount</label></div>
+
+		<div><label for="mountsetting2" class="cbcontainer"><input type="radio" name="mountsetting" id="mountsetting2" value="f"  /><span class="rbmark"></span>Flush stringer mount</label></div>
+
+	</td>
+
+</tr>
+
+</table>
+
+
+
+<table width="310">
+
+<tr>
+
+	<td align="center" style="padding-top: 8px;">
+
+		<input type="submit" name="x" value="Calculate">
+
+		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+
+	</td>
+
+</tr>
+
+</table>
+
+</div></td></tr></table></form>
+
+</div><div class="crighthalf">
+
+<div style="text-align:center;"><img src="/img/stair/stair-full.svg" width="320" height="362" alt="stair full"></div>
+
+</div><div id="clear"></div>
+
+
+
+
+
+<script>
+
+function popMenu(inval){
+
+	htmlVal = "";
+
+	if (inval == "total"){
+
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('one');\">Use One Run</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('total');\">Use Total Run</a></li>";
+
+		document.getElementById("ctype").value="total";
+
+		document.getElementById("onerunblock").style.display = 'none';
+
+		document.getElementById("totalrunblock").style.display = 'block';
+
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+
+	}else if (inval == "one"){
+
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('one');\">Use One Run</a></li> <li><a href=\"#\" onclick=\"return popMenu('total');\">Use Total Run</a></li>";
+
+		document.getElementById("ctype").value="one";
+
+		document.getElementById("onerunblock").style.display = 'block';
+
+		document.getElementById("totalrunblock").style.display = 'none';
+
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+
+	}
+
+	document.getElementById("topmenuout").innerHTML = '<div id="topmenu" class="topmenucenter">'+htmlVal+'</div>';
+
+	return false;
+
+}
+
+popMenu("one");
+
+function popMenu2(inval){
+
+	htmlVal = "";
+
+	if (inval == "total"){
+
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu2('one');\">Use One Run</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu2('total');\">Use Total Run</a></li>";
+
+		document.getElementById("ctype2").value="total";
+
+		document.getElementById("onerunblock2").style.display = 'none';
+
+		document.getElementById("totalrunblock2").style.display = 'block';
+
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+
+	}else if (inval == "one"){
+
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu2('one');\">Use One Run</a></li> <li><a href=\"#\" onclick=\"return popMenu2('total');\">Use Total Run</a></li>";
+
+		document.getElementById("ctype2").value="one";
+
+		document.getElementById("onerunblock2").style.display = 'block';
+
+		document.getElementById("totalrunblock2").style.display = 'none';
+
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+
+	}
+
+	document.getElementById("topmenuout2").innerHTML = '<div id="topmenu" class="topmenucenter">'+htmlVal+'</div>';
+
+	return false;
+
+}
+
+popMenu2("one");
+
+function shRise(inval){
+
+	if (inval == "r"){
+
+		document.getElementById("fixedstep").style.display = 'none';
+
+		document.getElementById("fixedrise").style.display = 'block';
+
+	}else{
+
+		document.getElementById("fixedrise").style.display = 'none';
+
+		document.getElementById("fixedstep").style.display = 'block';
+
+	}
+
+}
+
+shRise("r");
+
+function shTread(inval){
+
+	if (inval == "y"){
+
+		document.getElementById("treadthickness").style.display = 'block';
+
+	}else{
+
+		document.getElementById("treadthickness").style.display = 'none';
+
+	}
+
+}
+
+shTread("n");
+
+function shHeadroom(inval){
+
+	if (inval == "y"){
+
+		document.getElementById("headroomdiv").style.display = 'block';
+
+	}else{
+
+		document.getElementById("headroomdiv").style.display = 'none';
+
+	}
+
+}
+
+shHeadroom("n");
+
+</script>
+
+
+
+
+
+<br><br>
+
+<h3>Stair terminology and common building codes</h3>
+
+
+
+<p>Stairs come in many different forms, and while building a basic staircase may appear to be a simple task, there are actually a number of parameters, calculations, and building codes that must be considered. These range from the length, width, and height of specific parts of the stairs, to where doors are placed in relation to stairs; the arc of a door must be completely on the landing or floor and not be allowed to swing over steps. Below is a list of some of the most common terminology regarding stairs, as well as some commonly used building codes. Building codes or requirements can differ at a local level, and a person building a staircase should refer to the codes specific to their locations.</p>
+
+
+
+<p><b>Run/Tread:</b> The run or tread is the part of the stairway that a person steps on. Its length is measured from the outer edge of the step, which includes the nosing if it is present, to the vertical portion of the stair called the riser. Both nosing and riser are discussed below. When measuring the total run of a staircase, the length of the tread above the last riser is not included in the measurement. Also, when nosing is present, the total run is not simply the sum of tread length, since the overhang caused by the nosing must be subtracted from the total run.</p>
+
+<p>Building codes generally suggest that the thread has a minimum length of 10 inches (25.4 cm).</p>
+
+
+
+<p><b>Rise/Riser:</b> The rise, or height of a step is measured from the top of one tread to the top of the next tread. It is not the physical height of the riser because this excludes the thickness of the tread. The number of risers, not the number of treads, is used to determine the number of steps that comprise a staircase.</p>
+
+<p>Building codes generally suggest that the maximum height of a riser be 7.75 inches (19.7 cm)</p>
+
+
+
+<p><b>Nosing:</b> The nosing is the protrusion at the edge of a tread that hangs over the riser below. Not all steps have a nosing, but when present, the nosing is included in the length of the tread. The main purpose of nosing is to improve safety by providing extra space on which a person can place their feet.</p>
+
+<p>Common building codes generally suggest that the nosing has a minimum length of 0.75 inches (1.9 cm) and a maximum length of 1.25 inches (3.2 cm).</p>
+
+
+
+<p><b>Headroom:</b> Headroom is the height measured from the top of a tread to the ceiling above it. While building codes for headroom are primarily intended to ensure enough room for people to comfortably use the stairs, the codes typically require far more room than the average height of a person to allow for moving larger objects such as furniture.</p>
+
+<p>Building codes generally suggest at least 6 ft. 8 inches (203.2 cm) of stair headroom.</p>
+
+
+
+<p><b>Stair Width:</b> Stair width is measured from edge to edge of each side of the tread, perpendicular to tread length. While measurements of length are conventionally longer than those of width when considering rectangles, in the case of steps, the width is usually the longer side. Stair width does not include handrails.</p>
+
+<p>Building codes generally suggest that stairs be at least 36 inches (91.44 cm) wide.</p>
+
+
+
+<p><b>Handrails & Guards/Guardrails:</b> A handrail is a railing that runs up a stair incline for users to hold when ascending or descending a staircase. A guard is "a building component or a system of building components located near the open sides of elevated walking surfaces that minimizes the possibility of a fall from the walking surface to the lower level." Guards can include rails (guardrails), but can be any number of other constructions such as walls, half-walls, or even a bench.</p>
+
+<p>Building codes generally require guards for stairs that have a total rise of more than 30 inches above the floor, and require that these guards be at least 34 inches (86.36 cm) in height measured from the top of the treads. Similarly, handrails must be between 34 and 38 (96.52) inches high measured from the top of the treads, with a diameter between 1.25 inches (3.18 cm) and 2.675 inches (6.79 cm).</p>
+
+
+
+<p><b>Stringer:</b> A stair stringer is a structural member that supports the treads and risers of a staircase. Typically, there are three in a staircase: one on each side, and one in the middle. Stringers are not always visible, but can be seen on stairs with open sides. The stringers can either be cut to the shape of each step, or in some cases, are uncut and conceal the edges of the treads.</p>
+
+
+
+
+
+<h3>Fraction to Decimal Conversion</h3>
+
+<table class="cinfoT" width="300" align="center">
+
+<tr align="center"><td class="cinfoHdL">16<sup>th</sup></td><td class="cinfoHdL">8<sup>th</sup></td><td class="cinfoHdL">4<sup>th</sup></td><td class="cinfoHdL">2<sup>nd</sup></td><td class="cinfoHdL">Decimal</td></tr>
+
+<tr align="center"><td>1/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.0625</td></tr>
+
+<tr align="center"><td>2/16</td><td>1/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.125</td></tr>
+
+<tr align="center"><td>3/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.1875</td></tr>
+
+<tr align="center"><td>4/16</td><td>2/8</td><td>1/4</td><td>&nbsp;</td><td>0.25</td></tr>
+
+<tr align="center"><td>5/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.3125</td></tr>
+
+<tr align="center"><td>6/16</td><td>3/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.375</td></tr>
+
+<tr align="center"><td>7/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.4375</td></tr>
+
+<tr align="center"><td>8/16</td><td>4/8</td><td>2/4</td><td>1/2</td><td>0.5</td></tr>
+
+<tr align="center"><td>9/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.5625</td></tr>
+
+<tr align="center"><td>10/16</td><td>5/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.625</td></tr>
+
+<tr align="center"><td>11/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.6875</td></tr>
+
+<tr align="center"><td>12/16</td><td>6/8</td><td>3/4</td><td>&nbsp;</td><td>0.75</td></tr>
+
+<tr align="center"><td>13/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.8125</td></tr>
+
+<tr align="center"><td>14/16</td><td>7/8</td><td>&nbsp;</td><td>&nbsp;</td><td>0.875</td></tr>
+
+<tr align="center"><td>15/16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0.9375</td></tr>
+
+<tr align="center"><td>16/16</td><td>8/8</td><td>4/4</td><td>2/2</td><td>1</td></tr>
+
+</table>
+
+
+
+<h2>Stair Calculator FAQ</h2>
+
+<details>
+<summary>How do I calculate the number of steps in a staircase?</summary>
+<p>Divide the total rise (the full height from the lower floor to the upper floor) by your target riser height, then round to a whole number. For example, a total rise of 120 inches (10 feet) divided by a maximum riser of 7.75 inches gives 15.48, which rounds up to 16 risers. Divide the total rise by 16 to get an actual riser height of 7.5 inches.</p>
+</details>
+
+<details>
+<summary>How do I calculate the total run of a staircase?</summary>
+<p>Multiply the run (tread depth) by the number of treads. A staircase always has one more riser than treads, because the top floor acts as the last tread. For example, 16 risers means 15 treads, so with a 10 inch run the total run is 150 inches, or 12.5 feet.</p>
+</details>
+
+<details>
+<summary>How do I calculate the angle of a staircase?</summary>
+<p>The stair angle is the inverse tangent of the rise divided by the run. For a 7.5 inch rise and a 10 inch run, the angle is arctan(7.5 / 10), which is about 36.9 degrees.</p>
+</details>
+
+<details>
+<summary>How do I find the stringer length?</summary>
+<p>The stringer runs along the slope of the stairs, so its length is the diagonal of a right triangle formed by the total rise and the total run. Use the Pythagorean theorem: stringer length = √(total rise² + total run²). For a 120 inch total rise and a 150 inch total run, the length is about 192.1 inches, or roughly 16 feet. Lumber must be longer than this to allow for the cut-outs and end cuts.</p>
+</details>
+
+<details>
+<summary>What are the typical building code limits for stair riser and tread?</summary>
+<p>Building codes generally suggest a maximum riser height of 7.75 inches (19.7 cm) and a minimum tread length of 10 inches (25.4 cm). Stairs should also be at least 36 inches (91.44 cm) wide. Codes can differ at a local level, so check the requirements for your location before building.</p>
+</details>
+
+<details>
+<summary>How much headroom do stairs need?</summary>
+<p>Building codes generally suggest at least 6 feet 8 inches (203.2 cm) of headroom, measured from the top of a tread to the ceiling above it. If a floor opening limits the headroom, select the headroom restriction option in the Comprehensive Version to account for it.</p>
+</details>
+
+<details>
+<summary>What is the difference between using one run and using total run?</summary>
+<p>Use One Run when you know the depth of a single tread and want to find the total run it produces. Use Total Run when the horizontal space available for the stairs is fixed and you want to find the run of each tread that fits within it.</p>
+</details>
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

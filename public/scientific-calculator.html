@@ -1,65 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Scientific Calculator</title>
-	<meta name="description" content="This is an online scientific calculator with double-digit precision that supports both button click and keyboard type." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/css/sci.css" />	<script src="/js/scientific3.js" async></script>
-</head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/scientific-calculator.html" itemprop="item"><span itemprop="name">scientific calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Scientific Calculator</h1>
-
-<p>This is an online javascript scientific calculator. You can click the buttons or type to perform calculations as you would on a physical calculator. </p>
-<div>
-	<table align="center"><tr><td id="sciout">
-		<div>
-			<div id="sciInPut">&nbsp;</div>
-			<div id="sciOutPut">0</div>
-		</div>
-		<div style="padding-top:3px;width:100%">
-			<div><span onclick="r('sin')" class="scifunc">sin</span><span onclick="r('cos')" class="scifunc">cos</span><span onclick="r('tan')" class="scifunc">tan</span><span class="scird"><label for="scirdsettingd"><input id="scirdsettingd" type="radio" name="scirdsetting" value="deg" onClick="cnDegreeRadians='degree';" checked>Deg</label><label for="scirdsettingr"><input id="scirdsettingr" type="radio" name="scirdsetting" value="rad" onClick="cnDegreeRadians='radians';">Rad</label></span></div>
-			<div><span onclick="r('asin')" class="scifunc">sin<sup>-1</sup></span><span onclick="r('acos')" class="scifunc">cos<sup>-1</sup></span><span onclick="r('atan')" class="scifunc">tan<sup>-1</sup></span><span onclick="r('pi')" class="scifunc">&#960;</span><span onclick="r('e')" class="scifunc">e</span></div>
-			<div><span onclick="r('pow')" class="scifunc">x<sup>y</sup></span><span onclick="r('x3')" class="scifunc">x<sup>3</sup></span><span onclick="r('x2')" class="scifunc">x<sup>2</sup></span><span onclick="r('ex')" class="scifunc">e<sup>x</sup></span><span onclick="r('10x')" class="scifunc">10<sup>x</sup></span></div>
-			<div><span onclick="r('apow')" class="scifunc"><sup>y</sup>&#8730;x</span><span onclick="r('3x')" class="scifunc"><sup>3</sup>&#8730;x</span><span onclick="r('sqrt')" class="scifunc">&#8730;x</span><span onclick="r('ln')" class="scifunc">ln</span><span onclick="r('log')" class="scifunc">log</span></div>
-			<div><span onclick="r('(')" class="scifunc">(</span><span onclick="r(')')" class="scifunc">)</span><span onclick="r('1/x')" class="scifunc">1/x</span><span onclick="r('pc')" class="scifunc">%</span><span onclick="r('n!')" class="scifunc">n!</span></div>
-		</div>
-		<div style="padding-top:3px;">
-			<div><span onclick="r(7)" class="scinm">7</span><span onclick="r(8)" class="scinm">8</span><span onclick="r(9)" class="scinm">9</span><span onclick="r('+')" class="sciop">+</span><span onclick="r('bk')" class="sciop">Back</span></div>
-			<div><span onclick="r(4)" class="scinm">4</span><span onclick="r(5)" class="scinm">5</span><span onclick="r(6)" class="scinm">6</span><span onclick="r('-')" class="sciop">&ndash;</span><span onclick="r('ans')" class="sciop">Ans</span></div>
-			<div><span onclick="r(1)" class="scinm">1</span><span onclick="r(2)" class="scinm">2</span><span onclick="r(3)" class="scinm">3</span><span onclick="r('*')" class="sciop">&#215;</span><span onclick="r('M+')" class="sciop">M+</span></div>
-			<div><span onclick="r(0)" class="scinm">0</span><span onclick="r('.')" class="scinm">.</span><span onclick="r('EXP')" class="sciop">EXP</span><span onclick="r('/')" class="sciop">&#247;</span><span onclick="r('M-')" class="sciop">M-</span></div>
-			<div><span onclick="r('+/-')" class="sciop">&#177;</span><span onclick="r('RND')" class="sciop">RND</span><span onclick="r('C')" class="scieq">AC</span><span onclick="r('=')" class="scieq">=</span><span onclick="r('MR')" class="sciop" id="scimrc">MR</span></div>
-		</div>
-		<div id="scihistory"></div>
-	</td></tr>
-	</table>
-
-</div>
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" onFocus="document.onkeydown=null;"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers</title>
+	<meta name="description" content="Free online scientific calculator. Click the buttons or type on your keyboard to use sin, cos, tan, inverse trig, log, ln, powers, roots, factorials, memory and degrees or radians." />
+	<meta name="keywords" content="scientific calculator, online scientific calculator, free scientific calculator, sin cos tan calculator, log ln calculator, degrees radians calculator, factorial calculator, exponent calculator" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style" />
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="stylesheet" href="/css/sci.css" />
+	<script src="/js/scientific3.js" async></script>
+
+	<!-- Structured data: WebApplication -->
+	
+
+	<!-- Structured data: Breadcrumbs -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers","url":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html","description":"Free online scientific calculator. Click the buttons or type on your keyboard to use sin, cos, tan, inverse trig, log, ln, powers, roots, factorials, memory and degrees or radians.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers","item":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers">
+<meta property="og:description" content="Free online scientific calculator. Click the buttons or type on your keyboard to use sin, cos, tan, inverse trig, log, ln, powers, roots, factorials, memory and degrees or radians.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers">
+<meta name="twitter:description" content="Free online scientific calculator. Click the buttons or type on your keyboard to use sin, cos, tan, inverse trig, log, ln, powers, roots, factorials, memory and degrees or radians.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers","url":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html","description":"Free online scientific calculator. Click the buttons or type on your keyboard to use sin, cos, tan, inverse trig, log, ln, powers, roots, factorials, memory and degrees or radians.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Scientific Calculator Online: Free Calculator with sin, cos, tan, log, ln &amp; Powers","item":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-calculator.html"}]}</script></head>
+
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+
+<div id="contentout"><div id="content" role="main">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/scientific-calculator.html" itemprop="item"><span itemprop="name">scientific calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Scientific Calculator</h1>
+
+<p>This is an online javascript scientific calculator. You can click the buttons or type to perform calculations as you would on a physical calculator. </p>
+
+<noscript><p>This calculator requires JavaScript. Please enable JavaScript in your browser to use it.</p></noscript>
+
+<div>
+	<table align="center"><tr><td id="sciout">
+		<div>
+			<div id="sciInPut">&nbsp;</div>
+			<div id="sciOutPut" aria-live="polite">0</div>
+		</div>
+		<div style="padding-top:3px;width:100%">
+			<div><span onclick="r('sin')" class="scifunc" role="button" aria-label="sine">sin</span><span onclick="r('cos')" class="scifunc" role="button" aria-label="cosine">cos</span><span onclick="r('tan')" class="scifunc" role="button" aria-label="tangent">tan</span><span class="scird"><label for="scirdsettingd"><input id="scirdsettingd" type="radio" name="scirdsetting" value="deg" onClick="cnDegreeRadians='degree';" checked>Deg</label><label for="scirdsettingr"><input id="scirdsettingr" type="radio" name="scirdsetting" value="rad" onClick="cnDegreeRadians='radians';">Rad</label></span></div>
+			<div><span onclick="r('asin')" class="scifunc" role="button" aria-label="inverse sine">sin<sup>-1</sup></span><span onclick="r('acos')" class="scifunc" role="button" aria-label="inverse cosine">cos<sup>-1</sup></span><span onclick="r('atan')" class="scifunc" role="button" aria-label="inverse tangent">tan<sup>-1</sup></span><span onclick="r('pi')" class="scifunc" role="button" aria-label="pi">&#960;</span><span onclick="r('e')" class="scifunc" role="button" aria-label="Euler's number e">e</span></div>
+			<div><span onclick="r('pow')" class="scifunc" role="button" aria-label="x to the power of y">x<sup>y</sup></span><span onclick="r('x3')" class="scifunc" role="button" aria-label="x cubed">x<sup>3</sup></span><span onclick="r('x2')" class="scifunc" role="button" aria-label="x squared">x<sup>2</sup></span><span onclick="r('ex')" class="scifunc" role="button" aria-label="e to the power of x">e<sup>x</sup></span><span onclick="r('10x')" class="scifunc" role="button" aria-label="10 to the power of x">10<sup>x</sup></span></div>
+			<div><span onclick="r('apow')" class="scifunc" role="button" aria-label="y-th root of x"><sup>y</sup>&#8730;x</span><span onclick="r('3x')" class="scifunc" role="button" aria-label="cube root of x"><sup>3</sup>&#8730;x</span><span onclick="r('sqrt')" class="scifunc" role="button" aria-label="square root of x">&#8730;x</span><span onclick="r('ln')" class="scifunc" role="button" aria-label="natural logarithm">ln</span><span onclick="r('log')" class="scifunc" role="button" aria-label="base 10 logarithm">log</span></div>
+			<div><span onclick="r('(')" class="scifunc" role="button" aria-label="open parenthesis">(</span><span onclick="r(')')" class="scifunc" role="button" aria-label="close parenthesis">)</span><span onclick="r('1/x')" class="scifunc" role="button" aria-label="reciprocal">1/x</span><span onclick="r('pc')" class="scifunc" role="button" aria-label="percent">%</span><span onclick="r('n!')" class="scifunc" role="button" aria-label="factorial">n!</span></div>
+		</div>
+		<div style="padding-top:3px;">
+			<div><span onclick="r(7)" class="scinm" role="button">7</span><span onclick="r(8)" class="scinm" role="button">8</span><span onclick="r(9)" class="scinm" role="button">9</span><span onclick="r('+')" class="sciop" role="button" aria-label="plus">+</span><span onclick="r('bk')" class="sciop" role="button" aria-label="backspace">Back</span></div>
+			<div><span onclick="r(4)" class="scinm" role="button">4</span><span onclick="r(5)" class="scinm" role="button">5</span><span onclick="r(6)" class="scinm" role="button">6</span><span onclick="r('-')" class="sciop" role="button" aria-label="minus">&ndash;</span><span onclick="r('ans')" class="sciop" role="button" aria-label="previous answer">Ans</span></div>
+			<div><span onclick="r(1)" class="scinm" role="button">1</span><span onclick="r(2)" class="scinm" role="button">2</span><span onclick="r(3)" class="scinm" role="button">3</span><span onclick="r('*')" class="sciop" role="button" aria-label="multiply">&#215;</span><span onclick="r('M+')" class="sciop" role="button" aria-label="add to memory">M+</span></div>
+			<div><span onclick="r(0)" class="scinm" role="button">0</span><span onclick="r('.')" class="scinm" role="button" aria-label="decimal point">.</span><span onclick="r('EXP')" class="sciop" role="button" aria-label="exponent, times 10 to the power of">EXP</span><span onclick="r('/')" class="sciop" role="button" aria-label="divide">&#247;</span><span onclick="r('M-')" class="sciop" role="button" aria-label="subtract from memory">M-</span></div>
+			<div><span onclick="r('+/-')" class="sciop" role="button" aria-label="plus or minus sign">&#177;</span><span onclick="r('RND')" class="sciop" role="button">RND</span><span onclick="r('C')" class="scieq" role="button" aria-label="all clear">AC</span><span onclick="r('=')" class="scieq" role="button" aria-label="equals">=</span><span onclick="r('MR')" class="sciop" id="scimrc" role="button" aria-label="memory recall">MR</span></div>
+		</div>
+		<div id="scihistory"></div>
+	</td></tr>
+	</table>
+</div>
+
+<article>
+<h2>How to Use the Scientific Calculator</h2>
+<p>Click the buttons or type on your keyboard to enter a calculation. Your entry appears on the upper line of the display, and the result appears on the lower line. Press <b>=</b> to calculate, <b>Back</b> to delete the last entry, and <b>AC</b> to clear everything. Previous calculations are listed in the history area under the keypad.</p>
+<p>Before using trigonometric functions, choose <b>Deg</b> (degrees) or <b>Rad</b> (radians). The same input gives a different result in each mode. For example, sin(90) = 1 in degree mode, while sin(&#960;/2) = 1 in radian mode.</p>
+
+<h2>Scientific Calculator Functions</h2>
+<table align="center" class="cinfoT">
+	<caption style="display:none;">Scientific calculator buttons, what they do, and an example of each</caption>
+	<tr align="center"><th class="cinfoHd" scope="col">Button</th><th class="cinfoHdL" scope="col">Function</th><th class="cinfoHdL" scope="col">Example</th></tr>
+	<tr><td>sin, cos, tan</td><td>Sine, cosine, tangent</td><td>sin(30) = 0.5 (degrees)</td></tr>
+	<tr><td>sin<sup>-1</sup>, cos<sup>-1</sup>, tan<sup>-1</sup></td><td>Inverse trigonometric functions</td><td>sin<sup>-1</sup>(0.5) = 30 (degrees)</td></tr>
+	<tr><td>&#960;, e</td><td>Pi (&asymp; 3.14159) and Euler's number (&asymp; 2.71828)</td><td>e<sup>1</sup> = e</td></tr>
+	<tr><td>x<sup>2</sup>, x<sup>3</sup>, x<sup>y</sup></td><td>Square, cube, any power</td><td>7<sup>2</sup> = 49, 2<sup>10</sup> = 1,024</td></tr>
+	<tr><td>e<sup>x</sup>, 10<sup>x</sup></td><td>e or 10 raised to a power</td><td>10<sup>3</sup> = 1,000</td></tr>
+	<tr><td>&#8730;x, <sup>3</sup>&#8730;x, <sup>y</sup>&#8730;x</td><td>Square root, cube root, y-th root</td><td><sup>3</sup>&#8730;27 = 3</td></tr>
+	<tr><td>ln, log</td><td>Natural log (base e) and common log (base 10)</td><td>log(1000) = 3</td></tr>
+	<tr><td>1/x</td><td>Reciprocal</td><td>1/4 = 0.25</td></tr>
+	<tr><td>n!</td><td>Factorial</td><td>5! = 120</td></tr>
+	<tr><td>EXP</td><td>Enter a power of 10 (scientific notation)</td><td>3 EXP 8 = 3 &#215; 10<sup>8</sup></td></tr>
+	<tr><td>M+, M-, MR</td><td>Add to memory, subtract from memory, recall memory</td><td>&mdash;</td></tr>
+	<tr><td>Ans</td><td>Reuse the previous answer</td><td>&mdash;</td></tr>
+	<tr><td>( )</td><td>Group parts of an expression</td><td>(2 + 3) &#215; 4 = 20</td></tr>
+</table>
+
+<h2>Order of Operations</h2>
+<p>By mathematical convention, expressions are evaluated in this order: parentheses, exponents, multiplication and division (left to right), then addition and subtraction (left to right). Use the <b>(</b> and <b>)</b> buttons whenever you want to make the order explicit.</p>
+
+<h2>Common Uses of a Scientific Calculator</h2>
+<p>A scientific calculator goes beyond basic arithmetic. It is commonly used for algebra, geometry and trigonometry homework, physics and chemistry problems, engineering calculations, and any task that needs logarithms, exponents, roots or very large and small numbers. For numbers in scientific notation, see the <a href="/scientific-notation-calculator.html">Scientific Notation Calculator</a>.</p>
+</article>
+
+<!-- FAQ section: mirrors the FAQPage JSON-LD in the head -->
+<section id="faq" aria-labelledby="faq-title">
+	<h2 id="faq-title">Scientific Calculator FAQs</h2>
+
+	<h3>How do I use this online scientific calculator?</h3>
+	<p>Click the on-screen buttons or type on your keyboard, just as you would on a physical calculator. Your entry appears on the upper line of the display and the result on the lower line. Press = to get the answer and AC to clear everything.</p>
+
+	<h3>How do I switch between degrees and radians?</h3>
+	<p>Use the Deg and Rad options next to the sin, cos and tan buttons. In Deg mode, sin(90) = 1. In Rad mode, sin(&#960;/2) = 1. Check the mode before calculating trigonometric functions, because the same input gives different results in each mode.</p>
+
+	<h3>How do I calculate sin, cos, tan and their inverses?</h3>
+	<p>Press the function button (sin, cos or tan) and enter the angle. In degree mode, sin(30) = 0.5, cos(60) = 0.5 and tan(45) = 1. For inverse functions use sin<sup>-1</sup>, cos<sup>-1</sup> and tan<sup>-1</sup>: in degree mode, sin<sup>-1</sup>(0.5) = 30.</p>
+
+	<h3>How do I calculate powers and roots?</h3>
+	<p>Use x<sup>2</sup> to square, x<sup>3</sup> to cube, x<sup>y</sup> for any power, &#8730;x for the square root, <sup>3</sup>&#8730;x for the cube root and <sup>y</sup>&#8730;x for any root. For example, 2<sup>10</sup> = 1,024 and the cube root of 27 is 3. The e<sup>x</sup> and 10<sup>x</sup> buttons raise e or 10 to a power.</p>
+
+	<h3>What is the difference between ln and log?</h3>
+	<p>ln is the natural logarithm, with base e (about 2.71828). log is the common logarithm, with base 10. For example, ln(e) = 1 and log(1000) = 3.</p>
+
+	<h3>How do I calculate a factorial?</h3>
+	<p>Enter a whole number and press n!. The factorial multiplies all whole numbers from 1 up to that number, so 5! = 5 &#215; 4 &#215; 3 &#215; 2 &#215; 1 = 120.</p>
+
+	<h3>How do I enter numbers in scientific notation?</h3>
+	<p>Use the EXP button to enter a power of 10. For example, 3 EXP 8 means 3 &#215; 10<sup>8</sup>. To convert numbers to scientific notation or do arithmetic with it, use the <a href="/scientific-notation-calculator.html">Scientific Notation Calculator</a> on this site.</p>
+
+	<h3>How do the memory buttons (M+, M-, MR) and Ans work?</h3>
+	<p>M+ adds the current value to memory, M- subtracts it from memory, and MR recalls the stored value. Ans inserts the result of your previous calculation so you can use it in the next one.</p>
+
+	<h3>How do I control the order of operations?</h3>
+	<p>Use the ( and ) buttons to group parts of an expression. By mathematical convention, parentheses are evaluated first, then exponents, then multiplication and division, then addition and subtraction. When in doubt, add parentheses to make your intent explicit.</p>
+
+	<h3>What are &#960; and e on a scientific calculator?</h3>
+	<p>&#960; (pi) is the ratio of a circle's circumference to its diameter, about 3.14159. e is Euler's number, the base of natural logarithms, about 2.71828. Press the &#960; or e button to insert them into a calculation.</p>
+
+	<h3>How do I find the reciprocal or a percentage?</h3>
+	<p>Press 1/x to get the reciprocal of a number, so 1/x of 4 is 0.25. Use the % button for percentages. For more involved percentage problems, such as percentage change, use the <a href="/percent-calculator.html">Percentage Calculator</a> on this site.</p>
+
+	<h3>Can I use this calculator on my phone or tablet?</h3>
+	<p>Yes. It runs in any modern web browser on phones, tablets and computers. Tap the buttons on a touch screen, or type with a keyboard on a computer. No download or sign-up is needed.</p>
+</section>
+
+<fieldset><legend>Related</legend><a href="/scientific-notation-calculator.html">Scientific Notation Calculator</a> | <a href="/fraction-calculator.html">Fraction Calculator</a> | <a href="/percent-calculator.html">Percentage Calculator</a> | <a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset>
+
+</div>
+
+	<div id="right" role="complementary" aria-label="Other calculators">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;"></div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" onFocus="document.onkeydown=null;" aria-label="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+
+<div id="clear"></div>
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

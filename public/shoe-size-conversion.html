@@ -1,318 +1,428 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Shoe Size Conversion</title>
-	<meta name="description" content="This free tool converts between shoe sizes used in the U.S., Canada, UK, India, EU, Japan, Mexico, and China and can also convert between shoe sizes in these countries and foot length." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/shoe-size-conversion.html" itemprop="item"><span itemprop="name">shoe size conversion</span></a><meta itemprop="position" content="3" /></span></div>
-
-<h1>Shoe Size Conversion</h1>
-
-<p>Please provide a shoe or foot size below to convert to the shoe sizes of other countries.</p><br>
-<form name="calform">
-<table class="panel" >
-	<tr>
-		<td colspan="2">
-			<table><tr><td valign="top" style="padding-top:5px;">Convert for &nbsp;</td><td>
-			<label for="ac1" class="cbcontainer"><input type="radio" name="ac" id="ac1" value="a" onclick="sscac('a');" checked /><span class="rbmark"></span>Adults</label><br>
-			<label for="ac2" class="cbcontainer"><input type="radio" name="ac" id="ac2" value="k" onclick="sscac('k');"  /><span class="rbmark"></span>Kids (age 5-12)</label><br>
-			<label for="ac3" class="cbcontainer"><input type="radio" name="ac" id="ac3" value="i" onclick="sscac('i');"  /><span class="rbmark"></span>Infants/Toddlers (age 0-4)</label>
-			</td></tr></table>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="uswdesc">US/Canada women</span></td>
-		<td><span id="uswrange">
-			<input type="text" name="usw" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			(1-15)</span>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="usmdesc">US/Canada men</td>
-		<td>
-			<input type="text" name="usm" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<span id="usmrange">(1-14)</span>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="ukdesc">UK/India</span></td>
-		<td>
-			<input type="text" name="uk" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<span id="ukrange">(0-15)</span>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="eudesc">EU</span></td>
-		<td>
-			<input type="text" name="eu" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<span id="eurange">(15-50)</span>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="jpdesc">Japan/Mexico</span></td>
-		<td>
-			<input type="text" name="jp" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<span id="jprange">(8-32)</span>
-		</td>
-	</tr>
-	<tr>
-		<td><span id="cndesc">China</span></td>
-		<td>
-			<input type="text" name="cn" value="" class="inlong" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<span id="cnrange">(8-55)</span>
-		</td>
-	</tr>
-	<tr>
-		<td>Foot length</td>
-		<td>
-			<input type="text" name="fl" value="10" class="innormal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
-			<select name="flu">
-				<option value="cm">cm</option>
-				<option value="mm">mm</option>
-				<option value="in" selected>inches</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center" style="padding-top: 8px;">
-			<input type="submit" name="x" value="&nbsp;Convert&nbsp;">
-			<input type="button" value="Clear" onClick="clearForm(document.calform);">
-		</td>
-	</tr>
-</table></form>
-<script>
-function sscac(sin){
-	if (sin=='a'){
-		document.getElementById("uswdesc").style.display = 'block';
-		document.getElementById("uswrange").style.display = 'block';
-		document.getElementById("usmdesc").innerHTML = 'US/Canada men';
-		document.getElementById("usmrange").innerHTML = '(1-14)';
-		document.getElementById("ukrange").innerHTML = '(0-15)';
-	}else if (sin=='k'){
-		document.getElementById("uswdesc").style.display = 'none';
-		document.getElementById("uswrange").style.display = 'none';
-		document.getElementById("usmdesc").innerHTML = 'US/Canada kids';
-		document.getElementById("ukdesc").innerHTML = 'UK/India kids';
-		document.getElementById("usmrange").innerHTML = '(8-13.5,1-7)';
-		document.getElementById("ukrange").innerHTML = '(8-13.5,1-6)';
-	}else{
-		document.getElementById("uswdesc").style.display = 'none';
-		document.getElementById("uswrange").style.display = 'none';
-		document.getElementById("usmdesc").innerHTML = 'US/Canada babies';
-		document.getElementById("ukdesc").innerHTML = 'UK/India babies';
-		document.getElementById("usmrange").innerHTML = '(0-13.5)';
-		document.getElementById("ukrange").innerHTML = '(0-13.5)';
-	}
-}
-sscac("a");
-</script>
-
-<br>
-<br>
-<p>Shoe size is a complicated topic due to the lack of a global standard. Differences in the way shoe size is measured and determined in various countries, in the feet of men vs. women, in the way that different brands label and manufacture their shoes, and even the fact that individuals often have different sized feet, all contribute to the complication in finding a proper shoe size.</p>
-<p>Much of the reason for a lack of a standard is due to shoe making having existed long before mass production; shoe makers had to make shoes individually, and thus would cater to the individual, wherever they may have been. This led to the development of many different methods of measurement, fabrication, and so on, and there was not enough motivation for different countries or even regions to collaborate and develop a standard. As is evident with other cases such as units of measurement, once various methods and traditions have been developed and they become ingrained in a society, it is difficult to change them even if it is to develop a better system.</p>
-<p>Our calculator above estimates shoe size solely based on the foot length. While there are many other factors that impact overall shoe fit, which we will discuss below, our calculator seeks to provide a consistent reference through which a person can build a basis for identifying a shoe that is most likely to be a good fit. Consequently, the tables and formulas provided are our best interpretation of shoe size based on foot length, and may differ slightly from those provided by different websites, manufacturers, and brands.</p>
-<p>Below are said formulae and tables for your reference. For more information on shoe sizing, fitting, and measurement refer to the sections toward the bottom of the page, below the formulae and tables.</p>
-
-<h3>Shoe Size Calculation Formulas</h3>
-<p><b>U.S. and Canada</b></p>
-<p align="center">women's shoe size &asymp; 3L - 21</p>
-<p align="center">men's shoe size &asymp; 3L - 22</p>
-<p align="center">big kid's shoe size &asymp; 3L - 22&frac34;</p>
-<p align="center">little kid's shoe size &asymp; 3L - 9&frac34;</p>
-<p>where L is foot length in inches. In this system, shoe size increases in half-point increments.</p>
-<p><b>UK/India</b></p>
-<p align="center">adult shoe size &asymp; 3L - 23</p>
-<p align="center">big kid's shoe size &asymp; 3L - 23&frac34;</p>
-<p align="center">little kid's shoe size &asymp; 3L - 10&frac34;</p>
-<p>where L is foot length in inches. In this system, shoe size increases in half-point increments.</p>
-<p><b>EU</b></p>
-<p align="center">shoe size = <span class="frac"><span class="fracnum">3</span><span class="fracden">2</span></span>L + 2</p>
-<p>where L is foot length in centimeters. In this system, shoe size increases in whole-point increments.</p>
-<p><b>Japan/Mexico</b></p>
-<p align="center">shoe size = L</p>
-<p>where L is foot length in centimeters. In this system, shoe size increases in half-point increments.</p>
-<p><b>China</b></p>
-<p align="center">shoe size = 2L - 10</p>
-<p>where L is foot length in centimeters. In this system, shoe size increases in whole-point increments.</p>
-
-
-<h3>Shoe Size Chart</h3>
-<div class="clefthalf">
-<p><b>Women's shoes</b></p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
-	<tr align="center"><th>inches</th><th>cm</th></tr>
-	<tr align="center"><td>4</td><td>2</td><td>34</td><td>21</td><td>32</td><td>8.3</td><td>21.2</td></tr>
-	<tr align="center"><td>4.5</td><td>2.5</td><td>34</td><td>21.5</td><td>33</td><td>8.5</td><td>21.6</td></tr>
-	<tr align="center"><td>5</td><td>3</td><td>35</td><td>22</td><td>34</td><td>8.7</td><td>22</td></tr>
-	<tr align="center"><td>5.5</td><td>3.5</td><td>36</td><td>22.5</td><td>35</td><td>8.8</td><td>22.4</td></tr>
-	<tr align="center"><td>6</td><td>4</td><td>36</td><td>23</td><td>36</td><td>9</td><td>22.9</td></tr>
-	<tr align="center"><td>6.5</td><td>4.5</td><td>37</td><td>23.5</td><td>37</td><td>9.2</td><td>23.3</td></tr>
-	<tr align="center"><td>7</td><td>5</td><td>38</td><td>23.5</td><td>37</td><td>9.3</td><td>23.7</td></tr>
-	<tr align="center"><td>7.5</td><td>5.5</td><td>38</td><td>24</td><td>38</td><td>9.5</td><td>24.1</td></tr>
-	<tr align="center"><td>8</td><td>6</td><td>39</td><td>24.5</td><td>39</td><td>9.7</td><td>24.6</td></tr>
-	<tr align="center"><td>8.5</td><td>6.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>25</td></tr>
-	<tr align="center"><td>9</td><td>7</td><td>40</td><td>25.5</td><td>41</td><td>10</td><td>25.4</td></tr>
-	<tr align="center"><td>9.5</td><td>7.5</td><td>41</td><td>26</td><td>42</td><td>10.2</td><td>25.8</td></tr>
-	<tr align="center"><td>10</td><td>8</td><td>41</td><td>26</td><td>42</td><td>10.3</td><td>26.2</td></tr>
-	<tr align="center"><td>10.5</td><td>8.5</td><td>42</td><td>26.5</td><td>43</td><td>10.5</td><td>26.7</td></tr>
-	<tr align="center"><td>11</td><td>9</td><td>43</td><td>27</td><td>44</td><td>10.7</td><td>27.1</td></tr>
-	<tr align="center"><td>11.5</td><td>9.5</td><td>43</td><td>27.5</td><td>45</td><td>10.8</td><td>27.5</td></tr>
-	<tr align="center"><td>12</td><td>10</td><td>44</td><td>28</td><td>46</td><td>11</td><td>27.9</td></tr>
-</table>
-</div><div class="crighthalf">
-<p><b>Men's shoes</b></p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
-	<tr align="center"><th>inches</th><th>cm</th></tr>
-	<tr align="center"><td>6</td><td>5</td><td>38</td><td>23.5</td><td>37</td><td>9.3</td><td>23.7</td></tr>
-	<tr align="center"><td>6.5</td><td>5.5</td><td>38</td><td>24</td><td>38</td><td>9.5</td><td>24.1</td></tr>
-	<tr align="center"><td>7</td><td>6</td><td>39</td><td>24.5</td><td>39</td><td>9.7</td><td>24.6</td></tr>
-	<tr align="center"><td>7.5</td><td>6.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>25</td></tr>
-	<tr align="center"><td>8</td><td>7</td><td>40</td><td>25.5</td><td>41</td><td>10</td><td>25.4</td></tr>
-	<tr align="center"><td>8.5</td><td>7.5</td><td>41</td><td>26</td><td>42</td><td>10.2</td><td>25.8</td></tr>
-	<tr align="center"><td>9</td><td>8</td><td>41</td><td>26</td><td>42</td><td>10.3</td><td>26.2</td></tr>
-	<tr align="center"><td>9.5</td><td>8.5</td><td>42</td><td>26.5</td><td>43</td><td>10.5</td><td>26.7</td></tr>
-	<tr align="center"><td>10</td><td>9</td><td>43</td><td>27</td><td>44</td><td>10.7</td><td>27.1</td></tr>
-	<tr align="center"><td>10.5</td><td>9.5</td><td>43</td><td>27.5</td><td>45</td><td>10.8</td><td>27.5</td></tr>
-	<tr align="center"><td>11</td><td>10</td><td>44</td><td>28</td><td>46</td><td>11</td><td>27.9</td></tr>
-	<tr align="center"><td>11.5</td><td>10.5</td><td>45</td><td>28.5</td><td>47</td><td>11.2</td><td>28.4</td></tr>
-	<tr align="center"><td>12</td><td>11</td><td>45</td><td>29</td><td>48</td><td>11.3</td><td>28.8</td></tr>
-	<tr align="center"><td>12.5</td><td>11.5</td><td>46</td><td>29</td><td>48</td><td>11.5</td><td>29.2</td></tr>
-	<tr align="center"><td>13</td><td>12</td><td>46</td><td>29.5</td><td>49</td><td>11.7</td><td>29.6</td></tr>
-	<tr align="center"><td>13.5</td><td>12.5</td><td>47</td><td>30</td><td>50</td><td>11.8</td><td>30.1</td></tr>
-	<tr align="center"><td>14</td><td>13</td><td>48</td><td>30.5</td><td>51</td><td>12</td><td>30.5</td></tr>
-</table>
-</div><div id="clear"></div>
-
-<div class="clefthalf">
-<p><b>Infant and toddler shoes (age 0 - 4)</b></p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
-	<tr align="center"><th>inches</th><th>cm</th></tr>
-	<tr align="center"><td>2</td><td>1</td><td>17</td><td>10</td><td>10</td><td>3.9</td><td>9.9</td></tr>
-	<tr align="center"><td>2.5</td><td>1.5</td><td>18</td><td>10.5</td><td>11</td><td>4.1</td><td>10.4</td></tr>
-	<tr align="center"><td>3</td><td>2</td><td>18</td><td>11</td><td>12</td><td>4.3</td><td>10.8</td></tr>
-	<tr align="center"><td>3.5</td><td>2.5</td><td>19</td><td>11</td><td>12</td><td>4.4</td><td>11.2</td></tr>
-	<tr align="center"><td>4</td><td>3</td><td>19</td><td>11.5</td><td>13</td><td>4.6</td><td>11.6</td></tr>
-	<tr align="center"><td>4.5</td><td>3.5</td><td>20</td><td>12</td><td>14</td><td>4.8</td><td>12.1</td></tr>
-	<tr align="center"><td>5</td><td>4</td><td>21</td><td>12.5</td><td>15</td><td>4.9</td><td>12.5</td></tr>
-	<tr align="center"><td>5.5</td><td>4.5</td><td>21</td><td>13</td><td>16</td><td>5.1</td><td>12.9</td></tr>
-	<tr align="center"><td>6</td><td>5</td><td>22</td><td>13.5</td><td>17</td><td>5.3</td><td>13.3</td></tr>
-	<tr align="center"><td>6.5</td><td>5.5</td><td>23</td><td>14</td><td>18</td><td>5.4</td><td>13.8</td></tr>
-	<tr align="center"><td>7</td><td>6</td><td>23</td><td>14</td><td>18</td><td>5.6</td><td>14.2</td></tr>
-	<tr align="center"><td>7.5</td><td>6.5</td><td>24</td><td>14.5</td><td>19</td><td>5.8</td><td>14.6</td></tr>
-	<tr align="center"><td>8</td><td>7</td><td>25</td><td>15</td><td>20</td><td>5.9</td><td>15</td></tr>
-	<tr align="center"><td>8.5</td><td>7.5</td><td>25</td><td>15.5</td><td>21</td><td>6.1</td><td>15.5</td></tr>
-	<tr align="center"><td>9</td><td>8</td><td>26</td><td>16</td><td>22</td><td>6.3</td><td>15.9</td></tr>
-	<tr align="center"><td>9.5</td><td>8.5</td><td>26</td><td>16.5</td><td>23</td><td>6.4</td><td>16.3</td></tr>
-	<tr align="center"><td>10</td><td>9</td><td>27</td><td>16.5</td><td>23</td><td>6.6</td><td>16.7</td></tr>
-</table>
-</div><div class="crighthalf">
-<p><b>Kid's shoes (age 5 - 12)</b></p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
-	<tr align="center"><th>inches</th><th>cm</th></tr>
-	<tr align="center"><td>10.5</td><td>9.5</td><td>28</td><td>17</td><td>24</td><td>6.8</td><td>17.1</td></tr>
-	<tr align="center"><td>11</td><td>10</td><td>28</td><td>17.5</td><td>25</td><td>6.9</td><td>17.6</td></tr>
-	<tr align="center"><td>11.5</td><td>10.5</td><td>29</td><td>18</td><td>26</td><td>7.1</td><td>18</td></tr>
-	<tr align="center"><td>12</td><td>11</td><td>30</td><td>18.5</td><td>27</td><td>7.3</td><td>18.4</td></tr>
-	<tr align="center"><td>12.5</td><td>11.5</td><td>30</td><td>19</td><td>28</td><td>7.4</td><td>18.8</td></tr>
-	<tr align="center"><td>13</td><td>12</td><td>31</td><td>19.5</td><td>29</td><td>7.6</td><td>19.3</td></tr>
-	<tr align="center"><td>13.5</td><td>12.5</td><td>32</td><td>19.5</td><td>29</td><td>7.8</td><td>19.7</td></tr>
-	<tr align="center"><td>1</td><td>13</td><td>32</td><td>20</td><td>30</td><td>7.9</td><td>20.1</td></tr>
-	<tr align="center"><td>1.5</td><td>13.5</td><td>33</td><td>20.5</td><td>31</td><td>8.1</td><td>20.5</td></tr>
-	<tr align="center"><td>2</td><td>1</td><td>33</td><td>21</td><td>32</td><td>8.3</td><td>21</td></tr>
-	<tr align="center"><td>2.5</td><td>1.5</td><td>34</td><td>21.5</td><td>33</td><td>8.4</td><td>21.4</td></tr>
-	<tr align="center"><td>3</td><td>2</td><td>35</td><td>22</td><td>34</td><td>8.6</td><td>21.8</td></tr>
-	<tr align="center"><td>3.5</td><td>2.5</td><td>35</td><td>22</td><td>34</td><td>8.8</td><td>22.2</td></tr>
-	<tr align="center"><td>4</td><td>3</td><td>36</td><td>22.5</td><td>35</td><td>8.9</td><td>22.6</td></tr>
-	<tr align="center"><td>4.5</td><td>3.5</td><td>37</td><td>23</td><td>36</td><td>9.1</td><td>23.1</td></tr>
-	<tr align="center"><td>5</td><td>4</td><td>37</td><td>23.5</td><td>37</td><td>9.3</td><td>23.5</td></tr>
-	<tr align="center"><td>5.5</td><td>4.5</td><td>38</td><td>24</td><td>38</td><td>9.4</td><td>23.9</td></tr>
-	<tr align="center"><td>6</td><td>5</td><td>39</td><td>24.5</td><td>39</td><td>9.6</td><td>24.3</td></tr>
-	<tr align="center"><td>6.5</td><td>5.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>24.8</td></tr>
-	<tr align="center"><td>7</td><td>6</td><td>40</td><td>25</td><td>40</td><td>9.9</td><td>25.2</td></tr>
-</table>
-</div><div id="clear"></div>
-
-<h3>Foot measurement systems</h3>
-<p>Shoe size estimation is based on the measurement of foot size. A given shoe size is a function of the manufacturer, the shoe last (the physical form used to manufacture and repair shoes), a country's standards, and more. There are numerous foot measurement systems including the Brannock device, the RITZ stick, and the Mondopoint system.</p>
-<p><b>Brannock device</b></p>
-<p>The Brannock device is used to acquire three key measurements that impact proper fit:</p>
-<ul>
-	<li><b>Foot length:</b> the distance from a person's heel to their longest toe.</li>
-	<li><b>Foot width:</b> the width of a person's foot at the ball of their feet.</li>
-	<li><b>Arch length:</b> the distance between the heel and inside of the ball of a person's foot.</li>
-</ul>
-<p>Although this is the preferred foot measurement device used by many professionals, it still does not measure all of the factors that impact shoe size. Other factors include the circumference of the ball of the foot, heel width, and more.</p>
-<p>The Brannock device corresponds to the Brannock shoe size system, which provides primarily US shoe sizes, which may differ from other shoe sizes used for our calculator. In the Brannock system, shoe size is calculated using the formulas:</p>
-<p align="center">U.S.men's shoe size = (foot length in inches&#215;3) - 22</p>
-<p align="center">U.S.women's shoe size = (foot length in inches&#215;3) - 21</p>
-
-<p><b>RITZ stick</b></p>
-<p>The RITZ stick was the standard measuring device prior to the development of the Brannock device. It is a wooden slide ruler with men's and women's shoe sizes and a conversion chart on the opposite side for converting between width and length.</p>
-<p>Both the RITZ stick and Brannock device are varyingly effective at assessing shoe size. This is because many factors other than the measurements taken by both devices impact shoe fit. Thus, while they are useful for making quick measurements, the shoe size corresponding to these measurements is only one of many factors that need to be considered for proper fit.</p>
-
-<p><b>Mondopoint system</b></p>
-<p>The Mondopoint system is a system that is commonly used in the sports industry for athletic shoes like ski boots, skates, and ballet shoes. It is also used as the primary shoe sizing system in certain parts of the world such as Russia, East Germany, Taiwan, China, Japan, and South Korea.</p>
-<p>The Mondopoint system is based on the average foot width and length for which a given shoe is suitable, with measurements made in millimeters. The measurements used in this system are acquired as follows:</p>
-<ul>
-	<li><b>Foot length</b>&mdash;This is measured as the horizontal distance between the perpendicular formed at the most prominent part of the heel and the perpendicular formed at the longest toe.</li>
-	<li><b>Foot width</b>&mdash;This is measured as the horizontal distance between the first and fifth metatarsophalangeal joints (approximately between your toe bones and your foot bones).</li>
-	<li><b>Perimeter</b>&mdash;This is measured as the circumference of the foot around the first and fifth metatarsophalangeal joints using flexible tape.</li>
-</ul>
-<p>The Mondopoint system varies slightly by country, but the base concept is the same. Since it takes foot width and circumference into account, it generally allows for better fitting than most other systems which are primarily based on foot length. In the Mondopoint system, every foot that fits within the average measurements for a given shoe size will fit the shoe.</p>
-
-<p><b>How to find the right shoe</b></p>
-<p>Finding the right shoe can be difficult as there are many factors that determine how well a shoe fits.</p>
-<p>Factors impacting shoe fit:</p>
-<ul>
-	<li><b>Foot length</b>&mdash;Although foot length is an important estimator of shoe size, two people with the same foot length may find the same shoe to fit very differently. Even the same person will find that their size differs between different brands or even different shoe models within the same brand. Though it is not a perfect estimator, foot length is still a good point to start from in determining shoe size.</li>
-	<li><b>Foot width</b>&mdash;Not only does the width of a person's foot at the widest point impact the fit of a shoe, so does the width throughout the rest of the foot. Though not incorporated into this calculator, shoe sizes today increasingly include different sized shoes based on width. Unfortunately, there is no real standard for labeling or sizing shoes in terms of width either. Designations vary by manufacturer, country, brand, and so on.</li>
-	<li><b>Foot shape</b>&mdash;The overall shape of a person's foot outside of width and length, including aspects such as circumference and position of a person's arch, impact shoe size.</li>
-	<li><b>Sex</b>&mdash;Men and women have differently shaped feet. Men generally have longer and broader feet than women, but the differences extend to shape, and women's feet are not just scaled down versions. Key differences occur around the arch of the foot, the lateral side of the foot, the first toe, and the ball of the foot. Shoes made for men and women also have different shapes and size designations, so even if a man sizes up to fit a woman's shoe, the shoe may not fit well.</li>
-	<li><b>Age</b>&mdash;Children and adults, of course, have different sized feet. Also, as we age, changes in our ligaments and tendons can result in the shape of our feet changing. Even if you have worn a size 9 for all of your life, your feet may lengthen and widen such that you need a larger shoe size.</li>
-	<li><b>Manufacturer</b>&mdash;Different manufacturers and brands use different shoe lasts and manufacturing processes, so length, width, and the overall fit of a shoe will vary, even if they are labeled as the same shoe size.</li>
-</ul>
-<p>Ideally, one should always try on a shoe and spend some time in them. Shoe size is a good starting point, but proper fit is very difficult to gauge simply based on shoe size.
-
-<p><b>How to measure your foot:</b></p>
-<ul>
-	<li>Measure your feet later in the day. As the day progresses, our feet get larger due to swelling.</li>
-	<li>Use a Brannock device or other such measurement device where possible to provide a more accurate reading than a regular ruler.</li>
-	<li>In general, you want to fit a shoe to your largest foot. Many people have different sized feet, so fit your shoes to your largest foot. It is better to have a shoe that is slightly loose rather than slightly tight. This can vary based on what the shoe is being used for: For a shoe that you use regularly and for long periods of time (or very intensely), it is better to leave more room to accommodate your swelling feet; however, in other contexts such as sports like soccer or climbing, the added dexterity from having a smaller fitting shoe may be worth the discomfort.</li>
-</ul>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China</title>
+	<meta name="description" content="Free shoe size converter and chart for men, women, kids and toddlers. Convert US, Canada, UK, India, EU, Japan, Mexico and China sizes, or find your size from foot length in cm or inches." />
+	<meta name="keywords" content="shoe size conversion, shoe size converter, shoe size chart, US to UK shoe size, US to EU shoe size, foot length to shoe size, men's shoe size chart, women's shoe size chart, kids shoe size chart" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style" />
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: WebApplication -->
+	
+
+	<!-- Structured data: Breadcrumbs -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China","url":"https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html","description":"Free shoe size converter and chart for men, women, kids and toddlers. Convert US, Canada, UK, India, EU, Japan, Mexico and China sizes, or find your size from foot length in cm or inches.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China","item":"https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China">
+<meta property="og:description" content="Free shoe size converter and chart for men, women, kids and toddlers. Convert US, Canada, UK, India, EU, Japan, Mexico and China sizes, or find your size from foot length in cm or inches.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China">
+<meta name="twitter:description" content="Free shoe size converter and chart for men, women, kids and toddlers. Convert US, Canada, UK, India, EU, Japan, Mexico and China sizes, or find your size from foot length in cm or inches.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China","url":"https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html","description":"Free shoe size converter and chart for men, women, kids and toddlers. Convert US, Canada, UK, India, EU, Japan, Mexico and China sizes, or find your size from foot length in cm or inches.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Shoe Size Conversion Chart &amp; Calculator: US, UK, EU, India, Japan, China","item":"https://calculator.bhuvanesh-s3602.workers.dev/shoe-size-conversion.html"}]}</script></head>
+
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+
+<div id="contentout"><div id="content" role="main">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/shoe-size-conversion.html" itemprop="item"><span itemprop="name">shoe size conversion</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Shoe Size Conversion</h1>
+
+<p>Please provide a shoe or foot size below to convert to the shoe sizes of other countries.</p><br>
+<form name="calform" aria-label="Shoe size conversion form">
+<table class="panel" >
+	<tr>
+		<td colspan="2">
+			<table><tr><td valign="top" style="padding-top:5px;">Convert for &nbsp;</td><td>
+			<label for="ac1" class="cbcontainer"><input type="radio" name="ac" id="ac1" value="a" onclick="sscac('a');" checked /><span class="rbmark"></span>Adults</label><br>
+			<label for="ac2" class="cbcontainer"><input type="radio" name="ac" id="ac2" value="k" onclick="sscac('k');"  /><span class="rbmark"></span>Kids (age 5-12)</label><br>
+			<label for="ac3" class="cbcontainer"><input type="radio" name="ac" id="ac3" value="i" onclick="sscac('i');"  /><span class="rbmark"></span>Infants/Toddlers (age 0-4)</label>
+			</td></tr></table>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="usw"><span id="uswdesc">US/Canada women</span></label></td>
+		<td><span id="uswrange">
+			<input type="text" name="usw" id="usw" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			(1-15)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="usm"><span id="usmdesc">US/Canada men</span></label></td>
+		<td>
+			<input type="text" name="usm" id="usm" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<span id="usmrange">(1-14)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="uk"><span id="ukdesc">UK/India</span></label></td>
+		<td>
+			<input type="text" name="uk" id="uk" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<span id="ukrange">(0-15)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="eu"><span id="eudesc">EU</span></label></td>
+		<td>
+			<input type="text" name="eu" id="eu" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<span id="eurange">(15-50)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="jp"><span id="jpdesc">Japan/Mexico</span></label></td>
+		<td>
+			<input type="text" name="jp" id="jp" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<span id="jprange">(8-32)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="cn"><span id="cndesc">China</span></label></td>
+		<td>
+			<input type="text" name="cn" id="cn" value="" class="inlong" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<span id="cnrange">(8-55)</span>
+		</td>
+	</tr>
+	<tr>
+		<td><label for="fl">Foot length</label></td>
+		<td>
+			<input type="text" name="fl" id="fl" value="10" class="innormal" inputmode="decimal" onKeyUp="iptfieldCheck(this, '', 'pzn');">
+			<select name="flu" aria-label="Foot length unit">
+				<option value="cm">cm</option>
+				<option value="mm">mm</option>
+				<option value="in" selected>inches</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center" style="padding-top: 8px;">
+			<input type="submit" name="x" value="&nbsp;Convert&nbsp;">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+<script>
+function sscac(sin){
+	if (sin=='a'){
+		document.getElementById("uswdesc").style.display = 'block';
+		document.getElementById("uswrange").style.display = 'block';
+		document.getElementById("usmdesc").innerHTML = 'US/Canada men';
+		document.getElementById("usmrange").innerHTML = '(1-14)';
+		document.getElementById("ukrange").innerHTML = '(0-15)';
+	}else if (sin=='k'){
+		document.getElementById("uswdesc").style.display = 'none';
+		document.getElementById("uswrange").style.display = 'none';
+		document.getElementById("usmdesc").innerHTML = 'US/Canada kids';
+		document.getElementById("ukdesc").innerHTML = 'UK/India kids';
+		document.getElementById("usmrange").innerHTML = '(8-13.5,1-7)';
+		document.getElementById("ukrange").innerHTML = '(8-13.5,1-6)';
+	}else{
+		document.getElementById("uswdesc").style.display = 'none';
+		document.getElementById("uswrange").style.display = 'none';
+		document.getElementById("usmdesc").innerHTML = 'US/Canada babies';
+		document.getElementById("ukdesc").innerHTML = 'UK/India babies';
+		document.getElementById("usmrange").innerHTML = '(0-13.5)';
+		document.getElementById("ukrange").innerHTML = '(0-13.5)';
+	}
+}
+sscac("a");
+</script>
+
+<br>
+<br>
+<article>
+<h2>How Shoe Sizes Work</h2>
+<p>Shoe size is a complicated topic due to the lack of a global standard. Differences in the way shoe size is measured and determined in various countries, in the feet of men vs. women, in the way that different brands label and manufacture their shoes, and even the fact that individuals often have different sized feet, all contribute to the complication in finding a proper shoe size.</p>
+<p>Much of the reason for a lack of a standard is due to shoe making having existed long before mass production; shoe makers had to make shoes individually, and thus would cater to the individual, wherever they may have been. This led to the development of many different methods of measurement, fabrication, and so on, and there was not enough motivation for different countries or even regions to collaborate and develop a standard. As is evident with other cases such as units of measurement, once various methods and traditions have been developed and they become ingrained in a society, it is difficult to change them even if it is to develop a better system.</p>
+<p>Our calculator above estimates shoe size solely based on the foot length. While there are many other factors that impact overall shoe fit, which we will discuss below, our calculator seeks to provide a consistent reference through which a person can build a basis for identifying a shoe that is most likely to be a good fit. Consequently, the tables and formulas provided are our best interpretation of shoe size based on foot length, and may differ slightly from those provided by different websites, manufacturers, and brands.</p>
+<p>Below are said formulae and tables for your reference. For more information on shoe sizing, fitting, and measurement refer to the sections toward the bottom of the page, below the formulae and tables.</p>
+
+<h2>Shoe Size Calculation Formulas</h2>
+<h3>U.S. and Canada</h3>
+<p align="center">women's shoe size &asymp; 3L - 21</p>
+<p align="center">men's shoe size &asymp; 3L - 22</p>
+<p align="center">big kid's shoe size &asymp; 3L - 22&frac34;</p>
+<p align="center">little kid's shoe size &asymp; 3L - 9&frac34;</p>
+<p>where L is foot length in inches. In this system, shoe size increases in half-point increments.</p>
+
+<h3>UK/India</h3>
+<p align="center">adult shoe size &asymp; 3L - 23</p>
+<p align="center">big kid's shoe size &asymp; 3L - 23&frac34;</p>
+<p align="center">little kid's shoe size &asymp; 3L - 10&frac34;</p>
+<p>where L is foot length in inches. In this system, shoe size increases in half-point increments.</p>
+
+<h3>EU</h3>
+<p align="center">shoe size = <span class="frac"><span class="fracnum">3</span><span class="fracden">2</span></span>L + 2</p>
+<p>where L is foot length in centimeters. In this system, shoe size increases in whole-point increments.</p>
+
+<h3>Japan/Mexico</h3>
+<p align="center">shoe size = L</p>
+<p>where L is foot length in centimeters. In this system, shoe size increases in half-point increments.</p>
+
+<h3>China</h3>
+<p align="center">shoe size = 2L - 10</p>
+<p>where L is foot length in centimeters. In this system, shoe size increases in whole-point increments.</p>
+
+<h2>Shoe Size Chart</h2>
+<div class="clefthalf">
+<h3>Women's shoe size chart</h3>
+<table class="cinfoT" align="center">
+	<caption style="display:none;">Women's shoe size conversion chart: US/Canada, UK/India, EU, Japan/Mexico, China and foot length</caption>
+	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
+	<tr align="center"><th>inches</th><th>cm</th></tr>
+	<tr align="center"><td>4</td><td>2</td><td>34</td><td>21</td><td>32</td><td>8.3</td><td>21.2</td></tr>
+	<tr align="center"><td>4.5</td><td>2.5</td><td>34</td><td>21.5</td><td>33</td><td>8.5</td><td>21.6</td></tr>
+	<tr align="center"><td>5</td><td>3</td><td>35</td><td>22</td><td>34</td><td>8.7</td><td>22</td></tr>
+	<tr align="center"><td>5.5</td><td>3.5</td><td>36</td><td>22.5</td><td>35</td><td>8.8</td><td>22.4</td></tr>
+	<tr align="center"><td>6</td><td>4</td><td>36</td><td>23</td><td>36</td><td>9</td><td>22.9</td></tr>
+	<tr align="center"><td>6.5</td><td>4.5</td><td>37</td><td>23.5</td><td>37</td><td>9.2</td><td>23.3</td></tr>
+	<tr align="center"><td>7</td><td>5</td><td>38</td><td>23.5</td><td>37</td><td>9.3</td><td>23.7</td></tr>
+	<tr align="center"><td>7.5</td><td>5.5</td><td>38</td><td>24</td><td>38</td><td>9.5</td><td>24.1</td></tr>
+	<tr align="center"><td>8</td><td>6</td><td>39</td><td>24.5</td><td>39</td><td>9.7</td><td>24.6</td></tr>
+	<tr align="center"><td>8.5</td><td>6.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>25</td></tr>
+	<tr align="center"><td>9</td><td>7</td><td>40</td><td>25.5</td><td>41</td><td>10</td><td>25.4</td></tr>
+	<tr align="center"><td>9.5</td><td>7.5</td><td>41</td><td>26</td><td>42</td><td>10.2</td><td>25.8</td></tr>
+	<tr align="center"><td>10</td><td>8</td><td>41</td><td>26</td><td>42</td><td>10.3</td><td>26.2</td></tr>
+	<tr align="center"><td>10.5</td><td>8.5</td><td>42</td><td>26.5</td><td>43</td><td>10.5</td><td>26.7</td></tr>
+	<tr align="center"><td>11</td><td>9</td><td>43</td><td>27</td><td>44</td><td>10.7</td><td>27.1</td></tr>
+	<tr align="center"><td>11.5</td><td>9.5</td><td>43</td><td>27.5</td><td>45</td><td>10.8</td><td>27.5</td></tr>
+	<tr align="center"><td>12</td><td>10</td><td>44</td><td>28</td><td>46</td><td>11</td><td>27.9</td></tr>
+</table>
+</div><div class="crighthalf">
+<h3>Men's shoe size chart</h3>
+<table class="cinfoT" align="center">
+	<caption style="display:none;">Men's shoe size conversion chart: US/Canada, UK/India, EU, Japan/Mexico, China and foot length</caption>
+	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
+	<tr align="center"><th>inches</th><th>cm</th></tr>
+	<tr align="center"><td>6</td><td>5</td><td>38</td><td>23.5</td><td>37</td><td>9.3</td><td>23.7</td></tr>
+	<tr align="center"><td>6.5</td><td>5.5</td><td>38</td><td>24</td><td>38</td><td>9.5</td><td>24.1</td></tr>
+	<tr align="center"><td>7</td><td>6</td><td>39</td><td>24.5</td><td>39</td><td>9.7</td><td>24.6</td></tr>
+	<tr align="center"><td>7.5</td><td>6.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>25</td></tr>
+	<tr align="center"><td>8</td><td>7</td><td>40</td><td>25.5</td><td>41</td><td>10</td><td>25.4</td></tr>
+	<tr align="center"><td>8.5</td><td>7.5</td><td>41</td><td>26</td><td>42</td><td>10.2</td><td>25.8</td></tr>
+	<tr align="center"><td>9</td><td>8</td><td>41</td><td>26</td><td>42</td><td>10.3</td><td>26.2</td></tr>
+	<tr align="center"><td>9.5</td><td>8.5</td><td>42</td><td>26.5</td><td>43</td><td>10.5</td><td>26.7</td></tr>
+	<tr align="center"><td>10</td><td>9</td><td>43</td><td>27</td><td>44</td><td>10.7</td><td>27.1</td></tr>
+	<tr align="center"><td>10.5</td><td>9.5</td><td>43</td><td>27.5</td><td>45</td><td>10.8</td><td>27.5</td></tr>
+	<tr align="center"><td>11</td><td>10</td><td>44</td><td>28</td><td>46</td><td>11</td><td>27.9</td></tr>
+	<tr align="center"><td>11.5</td><td>10.5</td><td>45</td><td>28.5</td><td>47</td><td>11.2</td><td>28.4</td></tr>
+	<tr align="center"><td>12</td><td>11</td><td>45</td><td>29</td><td>48</td><td>11.3</td><td>28.8</td></tr>
+	<tr align="center"><td>12.5</td><td>11.5</td><td>46</td><td>29</td><td>48</td><td>11.5</td><td>29.2</td></tr>
+	<tr align="center"><td>13</td><td>12</td><td>46</td><td>29.5</td><td>49</td><td>11.7</td><td>29.6</td></tr>
+	<tr align="center"><td>13.5</td><td>12.5</td><td>47</td><td>30</td><td>50</td><td>11.8</td><td>30.1</td></tr>
+	<tr align="center"><td>14</td><td>13</td><td>48</td><td>30.5</td><td>51</td><td>12</td><td>30.5</td></tr>
+</table>
+</div><div id="clear"></div>
+
+<div class="clefthalf">
+<h3>Infant and toddler shoe size chart (age 0 - 4)</h3>
+<table class="cinfoT" align="center">
+	<caption style="display:none;">Infant and toddler shoe size conversion chart for ages 0 to 4</caption>
+	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
+	<tr align="center"><th>inches</th><th>cm</th></tr>
+	<tr align="center"><td>2</td><td>1</td><td>17</td><td>10</td><td>10</td><td>3.9</td><td>9.9</td></tr>
+	<tr align="center"><td>2.5</td><td>1.5</td><td>18</td><td>10.5</td><td>11</td><td>4.1</td><td>10.4</td></tr>
+	<tr align="center"><td>3</td><td>2</td><td>18</td><td>11</td><td>12</td><td>4.3</td><td>10.8</td></tr>
+	<tr align="center"><td>3.5</td><td>2.5</td><td>19</td><td>11</td><td>12</td><td>4.4</td><td>11.2</td></tr>
+	<tr align="center"><td>4</td><td>3</td><td>19</td><td>11.5</td><td>13</td><td>4.6</td><td>11.6</td></tr>
+	<tr align="center"><td>4.5</td><td>3.5</td><td>20</td><td>12</td><td>14</td><td>4.8</td><td>12.1</td></tr>
+	<tr align="center"><td>5</td><td>4</td><td>21</td><td>12.5</td><td>15</td><td>4.9</td><td>12.5</td></tr>
+	<tr align="center"><td>5.5</td><td>4.5</td><td>21</td><td>13</td><td>16</td><td>5.1</td><td>12.9</td></tr>
+	<tr align="center"><td>6</td><td>5</td><td>22</td><td>13.5</td><td>17</td><td>5.3</td><td>13.3</td></tr>
+	<tr align="center"><td>6.5</td><td>5.5</td><td>23</td><td>14</td><td>18</td><td>5.4</td><td>13.8</td></tr>
+	<tr align="center"><td>7</td><td>6</td><td>23</td><td>14</td><td>18</td><td>5.6</td><td>14.2</td></tr>
+	<tr align="center"><td>7.5</td><td>6.5</td><td>24</td><td>14.5</td><td>19</td><td>5.8</td><td>14.6</td></tr>
+	<tr align="center"><td>8</td><td>7</td><td>25</td><td>15</td><td>20</td><td>5.9</td><td>15</td></tr>
+	<tr align="center"><td>8.5</td><td>7.5</td><td>25</td><td>15.5</td><td>21</td><td>6.1</td><td>15.5</td></tr>
+	<tr align="center"><td>9</td><td>8</td><td>26</td><td>16</td><td>22</td><td>6.3</td><td>15.9</td></tr>
+	<tr align="center"><td>9.5</td><td>8.5</td><td>26</td><td>16.5</td><td>23</td><td>6.4</td><td>16.3</td></tr>
+	<tr align="center"><td>10</td><td>9</td><td>27</td><td>16.5</td><td>23</td><td>6.6</td><td>16.7</td></tr>
+</table>
+</div><div class="crighthalf">
+<h3>Kid's shoe size chart (age 5 - 12)</h3>
+<table class="cinfoT" align="center">
+	<caption style="display:none;">Kids' shoe size conversion chart for ages 5 to 12</caption>
+	<tr align="center"><th rowspan="2">US/CA</th><th rowspan="2">UK/IN</th><th rowspan="2">EU</th><th rowspan="2">JP/MX</th><th rowspan="2">CN</th><th colspan="2" style="border-bottom:1px solid #114477;">Foot Length</th></tr>
+	<tr align="center"><th>inches</th><th>cm</th></tr>
+	<tr align="center"><td>10.5</td><td>9.5</td><td>28</td><td>17</td><td>24</td><td>6.8</td><td>17.1</td></tr>
+	<tr align="center"><td>11</td><td>10</td><td>28</td><td>17.5</td><td>25</td><td>6.9</td><td>17.6</td></tr>
+	<tr align="center"><td>11.5</td><td>10.5</td><td>29</td><td>18</td><td>26</td><td>7.1</td><td>18</td></tr>
+	<tr align="center"><td>12</td><td>11</td><td>30</td><td>18.5</td><td>27</td><td>7.3</td><td>18.4</td></tr>
+	<tr align="center"><td>12.5</td><td>11.5</td><td>30</td><td>19</td><td>28</td><td>7.4</td><td>18.8</td></tr>
+	<tr align="center"><td>13</td><td>12</td><td>31</td><td>19.5</td><td>29</td><td>7.6</td><td>19.3</td></tr>
+	<tr align="center"><td>13.5</td><td>12.5</td><td>32</td><td>19.5</td><td>29</td><td>7.8</td><td>19.7</td></tr>
+	<tr align="center"><td>1</td><td>13</td><td>32</td><td>20</td><td>30</td><td>7.9</td><td>20.1</td></tr>
+	<tr align="center"><td>1.5</td><td>13.5</td><td>33</td><td>20.5</td><td>31</td><td>8.1</td><td>20.5</td></tr>
+	<tr align="center"><td>2</td><td>1</td><td>33</td><td>21</td><td>32</td><td>8.3</td><td>21</td></tr>
+	<tr align="center"><td>2.5</td><td>1.5</td><td>34</td><td>21.5</td><td>33</td><td>8.4</td><td>21.4</td></tr>
+	<tr align="center"><td>3</td><td>2</td><td>35</td><td>22</td><td>34</td><td>8.6</td><td>21.8</td></tr>
+	<tr align="center"><td>3.5</td><td>2.5</td><td>35</td><td>22</td><td>34</td><td>8.8</td><td>22.2</td></tr>
+	<tr align="center"><td>4</td><td>3</td><td>36</td><td>22.5</td><td>35</td><td>8.9</td><td>22.6</td></tr>
+	<tr align="center"><td>4.5</td><td>3.5</td><td>37</td><td>23</td><td>36</td><td>9.1</td><td>23.1</td></tr>
+	<tr align="center"><td>5</td><td>4</td><td>37</td><td>23.5</td><td>37</td><td>9.3</td><td>23.5</td></tr>
+	<tr align="center"><td>5.5</td><td>4.5</td><td>38</td><td>24</td><td>38</td><td>9.4</td><td>23.9</td></tr>
+	<tr align="center"><td>6</td><td>5</td><td>39</td><td>24.5</td><td>39</td><td>9.6</td><td>24.3</td></tr>
+	<tr align="center"><td>6.5</td><td>5.5</td><td>39</td><td>25</td><td>40</td><td>9.8</td><td>24.8</td></tr>
+	<tr align="center"><td>7</td><td>6</td><td>40</td><td>25</td><td>40</td><td>9.9</td><td>25.2</td></tr>
+</table>
+</div><div id="clear"></div>
+
+<h2>Foot Measurement Systems</h2>
+<p>Shoe size estimation is based on the measurement of foot size. A given shoe size is a function of the manufacturer, the shoe last (the physical form used to manufacture and repair shoes), a country's standards, and more. There are numerous foot measurement systems including the Brannock device, the RITZ stick, and the Mondopoint system.</p>
+
+<h3>Brannock device</h3>
+<p>The Brannock device is used to acquire three key measurements that impact proper fit:</p>
+<ul>
+	<li><b>Foot length:</b> the distance from a person's heel to their longest toe.</li>
+	<li><b>Foot width:</b> the width of a person's foot at the ball of their feet.</li>
+	<li><b>Arch length:</b> the distance between the heel and inside of the ball of a person's foot.</li>
+</ul>
+<p>Although this is the preferred foot measurement device used by many professionals, it still does not measure all of the factors that impact shoe size. Other factors include the circumference of the ball of the foot, heel width, and more.</p>
+<p>The Brannock device corresponds to the Brannock shoe size system, which provides primarily US shoe sizes, which may differ from other shoe sizes used for our calculator. In the Brannock system, shoe size is calculated using the formulas:</p>
+<p align="center">U.S.men's shoe size = (foot length in inches&#215;3) - 22</p>
+<p align="center">U.S.women's shoe size = (foot length in inches&#215;3) - 21</p>
+
+<h3>RITZ stick</h3>
+<p>The RITZ stick was the standard measuring device prior to the development of the Brannock device. It is a wooden slide ruler with men's and women's shoe sizes and a conversion chart on the opposite side for converting between width and length.</p>
+<p>Both the RITZ stick and Brannock device are varyingly effective at assessing shoe size. This is because many factors other than the measurements taken by both devices impact shoe fit. Thus, while they are useful for making quick measurements, the shoe size corresponding to these measurements is only one of many factors that need to be considered for proper fit.</p>
+
+<h3>Mondopoint system</h3>
+<p>The Mondopoint system is a system that is commonly used in the sports industry for athletic shoes like ski boots, skates, and ballet shoes. It is also used as the primary shoe sizing system in certain parts of the world such as Russia, East Germany, Taiwan, China, Japan, and South Korea.</p>
+<p>The Mondopoint system is based on the average foot width and length for which a given shoe is suitable, with measurements made in millimeters. The measurements used in this system are acquired as follows:</p>
+<ul>
+	<li><b>Foot length</b>&mdash;This is measured as the horizontal distance between the perpendicular formed at the most prominent part of the heel and the perpendicular formed at the longest toe.</li>
+	<li><b>Foot width</b>&mdash;This is measured as the horizontal distance between the first and fifth metatarsophalangeal joints (approximately between your toe bones and your foot bones).</li>
+	<li><b>Perimeter</b>&mdash;This is measured as the circumference of the foot around the first and fifth metatarsophalangeal joints using flexible tape.</li>
+</ul>
+<p>The Mondopoint system varies slightly by country, but the base concept is the same. Since it takes foot width and circumference into account, it generally allows for better fitting than most other systems which are primarily based on foot length. In the Mondopoint system, every foot that fits within the average measurements for a given shoe size will fit the shoe.</p>
+
+<h2>How to Find the Right Shoe</h2>
+<p>Finding the right shoe can be difficult as there are many factors that determine how well a shoe fits.</p>
+<p>Factors impacting shoe fit:</p>
+<ul>
+	<li><b>Foot length</b>&mdash;Although foot length is an important estimator of shoe size, two people with the same foot length may find the same shoe to fit very differently. Even the same person will find that their size differs between different brands or even different shoe models within the same brand. Though it is not a perfect estimator, foot length is still a good point to start from in determining shoe size.</li>
+	<li><b>Foot width</b>&mdash;Not only does the width of a person's foot at the widest point impact the fit of a shoe, so does the width throughout the rest of the foot. Though not incorporated into this calculator, shoe sizes today increasingly include different sized shoes based on width. Unfortunately, there is no real standard for labeling or sizing shoes in terms of width either. Designations vary by manufacturer, country, brand, and so on.</li>
+	<li><b>Foot shape</b>&mdash;The overall shape of a person's foot outside of width and length, including aspects such as circumference and position of a person's arch, impact shoe size.</li>
+	<li><b>Sex</b>&mdash;Men and women have differently shaped feet. Men generally have longer and broader feet than women, but the differences extend to shape, and women's feet are not just scaled down versions. Key differences occur around the arch of the foot, the lateral side of the foot, the first toe, and the ball of the foot. Shoes made for men and women also have different shapes and size designations, so even if a man sizes up to fit a woman's shoe, the shoe may not fit well.</li>
+	<li><b>Age</b>&mdash;Children and adults, of course, have different sized feet. Also, as we age, changes in our ligaments and tendons can result in the shape of our feet changing. Even if you have worn a size 9 for all of your life, your feet may lengthen and widen such that you need a larger shoe size.</li>
+	<li><b>Manufacturer</b>&mdash;Different manufacturers and brands use different shoe lasts and manufacturing processes, so length, width, and the overall fit of a shoe will vary, even if they are labeled as the same shoe size.</li>
+</ul>
+<p>Ideally, one should always try on a shoe and spend some time in them. Shoe size is a good starting point, but proper fit is very difficult to gauge simply based on shoe size.</p>
+
+<h3>How to measure your foot</h3>
+<ul>
+	<li>Measure your feet later in the day. As the day progresses, our feet get larger due to swelling.</li>
+	<li>Use a Brannock device or other such measurement device where possible to provide a more accurate reading than a regular ruler.</li>
+	<li>In general, you want to fit a shoe to your largest foot. Many people have different sized feet, so fit your shoes to your largest foot. It is better to have a shoe that is slightly loose rather than slightly tight. This can vary based on what the shoe is being used for: For a shoe that you use regularly and for long periods of time (or very intensely), it is better to leave more room to accommodate your swelling feet; however, in other contexts such as sports like soccer or climbing, the added dexterity from having a smaller fitting shoe may be worth the discomfort.</li>
+</ul>
+</article>
+
+<!-- FAQ section: mirrors the FAQPage JSON-LD in the head -->
+<section id="faq" aria-labelledby="faq-title">
+	<h2 id="faq-title">Shoe Size Conversion FAQs</h2>
+
+	<h3>How do I convert my shoe size between US, UK, EU, Japan and China?</h3>
+	<p>Enter your size in the matching field of the converter above and click Convert. The other fields fill in automatically. For example, a US men's size 9 is UK 8, EU 41, Japan/Mexico 26 and China 42.</p>
+
+	<h3>What is the difference between men's and women's shoe sizes?</h3>
+	<p>On this chart, a women's US size is one size larger than the men's size for the same foot. For example, women's 7 and men's 6 both fit a foot of about 9.3 inches (23.7 cm). Some brands use a different offset, so always check the brand's own chart.</p>
+
+	<h3>How do I measure my foot length for shoe size?</h3>
+	<p>Stand on a sheet of paper with your heel against a wall, mark the tip of your longest toe, then measure the distance from the wall to the mark. Measure both feet, preferably later in the day when feet are slightly swollen, and use the larger measurement.</p>
+
+	<h3>What is the formula to calculate shoe size from foot length?</h3>
+	<p>With foot length L in inches: US/Canada women's size &asymp; 3L &minus; 21, US/Canada men's size &asymp; 3L &minus; 22, and UK/India adult size &asymp; 3L &minus; 23. With L in centimeters: EU size = 1.5L + 2, Japan/Mexico size = L, and China size = 2L &minus; 10.</p>
+
+	<h3>Are UK and Indian shoe sizes the same?</h3>
+	<p>Yes. This converter treats UK and India as one sizing system. In the same way, the US and Canada share one system, and Japan and Mexico share one system based on foot length in centimeters.</p>
+
+	<h3>What is a US size 9 in EU sizes?</h3>
+	<p>A US men's size 9 is about EU 41 (UK 8). A US women's size 9 is about EU 40 (UK 7).</p>
+
+	<h3>How do I convert foot length in cm to shoe size?</h3>
+	<p>Type your foot length into the Foot length field, choose cm, mm or inches, and click Convert. For example, 25.4 cm (10 inches) is about US men's 8, US women's 9, UK 7 and EU 40.</p>
+
+	<h3>Why does my shoe size change between brands?</h3>
+	<p>There is no global shoe sizing standard. Brands use different lasts (the foot-shaped forms shoes are built on) and manufacturing methods, so the same labeled size can fit differently. Use a conversion as a starting point and try shoes on whenever possible.</p>
+
+	<h3>Which foot should I measure, and when?</h3>
+	<p>Measure both feet and fit shoes to the larger one, since many people have feet of different sizes. Measure later in the day because feet swell as the day goes on.</p>
+
+	<h3>Does foot width affect shoe size?</h3>
+	<p>Yes. Width, arch position, and overall foot shape all affect fit, but this calculator estimates size from foot length only. Width labels vary by manufacturer and country, so check the brand's width options.</p>
+
+	<h3>How do I convert kids' and toddlers' shoe sizes?</h3>
+	<p>Select Kids (age 5-12) or Infants/Toddlers (age 0-4) above the converter. US kids' sizes restart at 1 after size 13.5. For example, a US kids' size 13 is UK 12, EU 31 and about 19.3 cm (7.6 inches) long.</p>
+
+	<h3>What is the Mondopoint system?</h3>
+	<p>Mondopoint is a sizing system based on the average foot length and width a shoe fits, measured in millimeters. It is common for ski boots, skates and ballet shoes, and is the main system in parts of the world such as Russia, Taiwan, China, Japan and South Korea.</p>
+</section>
+
+<fieldset><legend>Related</legend><a href="/conversion-calculator.html">Conversion Calculator</a> | <a href="/height-calculator.html">Height Calculator</a> | <a href="/bra-size-calculator.html">Bra Size Calculator</a></fieldset>
+
+</div>
+
+	<div id="right" role="complementary" aria-label="Other calculators">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;"></div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

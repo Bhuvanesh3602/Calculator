@@ -1,125 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Weight Calculator</title>
-	<meta name="description" content="This free weight calculator converts between common units of weight and mass. Also, learn more about the origins of different units of weight." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/weight-calculator.html" itemprop="item"><span itemprop="name">weight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Weight Calculator</h1>
-<p>This calculator can convert values between the common weight and mass units.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
-<table align="center" border="0" cellspacing="0" cellpadding="4" class="panel">
-<tr><td align="center" valign="middle">
-	<table cellpadding="5">
-		<tr>
-			<td align="center"><input type="text" name="fromnumber" value="1" class="inlong"></td>
-			<td align="center">
-				<select name="unitFrom">
-					<option value="kilogram" >kilogram</option>
-					<option value="gram" >gram</option>
-					<option value="milligram" >milligram</option>
-					<option value="ton" >ton</option>
-					<option value="pound" selected>pound (lb)</option>
-					<option value="ounce" >ounce</option>
-					<option value="carat" >carat</option>
-					<option value="atomic mass unit" >atomic mass unit</option>
-					<option value="grain" >grain</option>
-					<option value="quarter [US]" >quarter [US]</option>
-					<option value="quarter [UK]" >quarter [UK]</option>
-					<option value="stone [US]" >stone [US]</option>
-					<option value="stone [UK]" >stone [UK]</option>
-				</select>
-			</td>
-			<td align="center" class="bigtext"><b>=</b></td>
-			<td align="center" class="bigtext"><font color="green"><b>?</b></font></td>
-			<td align="center">
-				<select name="unitTo">
-					<option value="kilogram" selected>kilogram</option>
-					<option value="gram" >gram</option>
-					<option value="milligram" >milligram</option>
-					<option value="ton" >ton</option>
-					<option value="pound" >pound (lb)</option>
-					<option value="ounce" >ounce</option>
-					<option value="carat" >carat</option>
-					<option value="atomic mass unit" >atomic mass unit</option>
-					<option value="grain" >grain</option>
-					<option value="quarter [US]" >quarter [US]</option>
-					<option value="quarter [UK]" >quarter [UK]</option>
-					<option value="stone [US]" >stone [US]</option>
-					<option value="stone [UK]" >stone [UK]</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="5" align="center" style="margin-top:10px;">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform);">
-			</td>
-		</tr>
-	</table>
-</td></tr></table></form>
-<h2>Common Weight</h2>
-<table class="cinfoT">
-
-	<tr><td>Milky Way Galaxy</td><td class="cinfoBodL">1.15357 x 10<sup>42</sup> kg &nbsp; or &nbsp; 5.8 x 10<sup>11</sup> solar mass</td></tr>
-	<tr><td>Sun</td><td class="cinfoBodL">1.9891x10<sup>30</sup> kg</td></tr>
-	<tr><td>Earth</td><td class="cinfoBodL">5.9736 x 10<sup>24</sup> kg</td></tr>
-	<tr><td>Moon</td><td class="cinfoBodL">7.3477 x 10<sup>22</sup> kg</td></tr>
-	<tr><td>Atomic Mass Unit (u)</td><td class="cinfoBodL">1.660?538?782(83) x 10<sup>-27</sup> kg</td></tr>
-	<tr><td>Neutron</td><td class="cinfoBodL">1.67492729(28) x 10<sup>-27</sup> kg &nbsp; or &nbsp; 1.0086649156(6) u</td></tr>
-	<tr><td>Proton</td><td class="cinfoBodL">1.672621637(83) x 10<sup>-27</sup> kg &nbsp; or &nbsp; 1.00727646677(10) u</td></tr>
-	<tr><td>Electron</td><td class="cinfoBodL">9.10938215(45) x 10<sup>-31</sup> kg &nbsp; or &nbsp; 5.4857990943(23)x10<sup>-4</sup> u</td></tr>
-</table>
-<br>
-<h3>Why We Have Different Ways to Measure Weight?</h3>
-<p>Early Babylonian and Egyptian records, as well as the Bible, indicate that weight was originally measured by the capacities of containers such as gourds or clay or metal vessels. These were filled with plant seeds that were then counted to measure the volumes. With the development of scales as a means of weighing, seeds and stones served as standards. For instance, the "carat," still used as a mass unit for gems, is derived from the carob seed.</p>
-<p>The Babylonians invented the talent, as the basic unit of weight, and, based on their sexagesimal (60-based), divided into equal parts in terms of that number.</p>
-<p>It was equal to the amount of water that filled an amphora (a kind of vase).</p>
-<p>The Greeks used the same weight measurement as the Babylonians, but the Romans changed it. Their basic unit of weight was the 'uncia,' from which the English word 'ounce' is originally derived. The uncia is a twelfth part of the 'pes,' which is the Roman 'foot &mdash;' our word inch is also derived from 'uncia.' The Romans used the same word for ounce, which they measured using a technique taken from the Arabs.</p>
-<p>For the Arabs, a silver Dirhem was determined by 45 full grown barley grains. Ten Dirhems made a Wukryeh of 450 grains, which we call an ounce from the Latin "uncia" or twelfth, which name is used genetically for such a class of weight or volume.</p>
-<p>Translated into English as the 'ounce,' King Offa, who lived at the end of the 8th century, accepted the silver ounce but then ran short of silver. The Dirhem was halved to 222 grains for the penny, twenty of which made the ounce as before, and twelve ounces the pound in silver.</p>
-<p>This measure has come down to us as part of the British Imperial System of Weights and Measures, which is also used in the U.S. This system of units was first defined in the British Weights and Measures Act of 1824, which was later refined and reduced. The system came into official use across the British Empire.</p>
-<p>In 1855, a fire destroyed the Houses of Parliament in London, where the standards for these weights were kept. A standards bureau was set up with prototypes for the imperial system at that time.</p>
-<p>Metric weights have a very different history. Metric weights, the gram, the kilogram, were developed by scientists in 18th century France. In 1791, the French parliament imposed the use of the metric system on the country, and it is now used in Continental Europe and many other parts of the world.</p>
-<p>The metric system was not particularly popular in revolutionary France, and Emperor Napoleon, who came just after the Revolution, abolished it. But, when Napoleon lost power, the system was reinstated.</p>
-<p>The kilogram is the weight of one liter of water. One thousandth of a kilogram is a gram. All multiples and submultiples of the base units are in powers of ten. Fractional units are not halves, but tenths, unlike the customary practice for fractions of inches, and derived units are related to the base units by multiples of powers of ten, unlike what is the case with twelve inches making a foot. Basing all units on multiples of ten makes conversion from one unit to another particularly easy.</p>
-<p>Here are some typical metric conversions:</p>
-<ul>
-<li>1 milliliter is the same volume as 1 cubic centimeter.</li>
-<li>The mass of 1 milliliter of water is approximately 1 gram.</li>
-<li>The mass of 1 liter of water is therefore approximately 1 kilogram.</li>
-<li>There are 1000 liters in a cubic meter, so the mass of 1 cubic meter of water is approximately 1000 kilograms or 1 metric ton.</li>
-<li>A US nickel weighs 5 grams, and a penny weighs 2.5 grams.</li>
-<li>Although there's no precise standard for doorknob heights, they're often about 1 meter above the floor.</li>
-<li>A CD or DVD is 12 centimeters (120 millimeters) across. The diameter of the center hole is 15 millimeters.</li>
-<li>1 hectare is 10,000 square meters, equivalent to the area of a square 100 meters on a side. A football field is about 100 meters long, so imagine a square the length of a football field on each side, and that's 1 hectare.</li>
-</ul>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)</title>
+	<meta name="description" content="Free online weight calculator. Instantly convert kilograms to pounds, pounds to kilograms, ounces, grams, stone, carats and more. Includes formulas, conversion charts and FAQs." />
+	<meta name="keywords" content="weight calculator, weight converter, kg to lbs, lbs to kg, mass converter, grams to ounces, stone to kg, unit converter" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html","description":"Free online weight calculator. Instantly convert kilograms to pounds, pounds to kilograms, ounces, grams, stone, carats and more. Includes formulas, conversion charts and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)">
+<meta property="og:description" content="Free online weight calculator. Instantly convert kilograms to pounds, pounds to kilograms, ounces, grams, stone, carats and more. Includes formulas, conversion charts and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)">
+<meta name="twitter:description" content="Free online weight calculator. Instantly convert kilograms to pounds, pounds to kilograms, ounces, grams, stone, carats and more. Includes formulas, conversion charts and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html","description":"Free online weight calculator. Instantly convert kilograms to pounds, pounds to kilograms, ounces, grams, stone, carats and more. Includes formulas, conversion charts and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Weight Calculator – Convert kg, lb, oz, g, Stone &amp; More (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/weight-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/weight-calculator.html" itemprop="item"><span itemprop="name">weight calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Weight Calculator</h1>
+<p>This free weight calculator converts values between the most common weight and mass units, including kilograms (kg), pounds (lb), ounces (oz), grams (g), milligrams (mg), tons, carats, grains, quarters and stone. Enter a value, choose the units, and click Calculate to get an instant result.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<table align="center" border="0" cellspacing="0" cellpadding="4" class="panel">
+<tr><td align="center" valign="middle">
+	<table cellpadding="5">
+		<tr>
+			<td align="center"><input type="text" name="fromnumber" value="1" class="inlong" aria-label="Value to convert"></td>
+			<td align="center">
+				<select name="unitFrom" aria-label="Convert from unit">
+					<option value="kilogram" >kilogram</option>
+					<option value="gram" >gram</option>
+					<option value="milligram" >milligram</option>
+					<option value="ton" >ton</option>
+					<option value="pound" selected>pound (lb)</option>
+					<option value="ounce" >ounce</option>
+					<option value="carat" >carat</option>
+					<option value="atomic mass unit" >atomic mass unit</option>
+					<option value="grain" >grain</option>
+					<option value="quarter [US]" >quarter [US]</option>
+					<option value="quarter [UK]" >quarter [UK]</option>
+					<option value="stone [US]" >stone [US]</option>
+					<option value="stone [UK]" >stone [UK]</option>
+				</select>
+			</td>
+			<td align="center" class="bigtext"><b>=</b></td>
+			<td align="center" class="bigtext"><font color="green"><b>?</b></font></td>
+			<td align="center">
+				<select name="unitTo" aria-label="Convert to unit">
+					<option value="kilogram" selected>kilogram</option>
+					<option value="gram" >gram</option>
+					<option value="milligram" >milligram</option>
+					<option value="ton" >ton</option>
+					<option value="pound" >pound (lb)</option>
+					<option value="ounce" >ounce</option>
+					<option value="carat" >carat</option>
+					<option value="atomic mass unit" >atomic mass unit</option>
+					<option value="grain" >grain</option>
+					<option value="quarter [US]" >quarter [US]</option>
+					<option value="quarter [UK]" >quarter [UK]</option>
+					<option value="stone [US]" >stone [US]</option>
+					<option value="stone [UK]" >stone [UK]</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center" style="margin-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+</td></tr></table></form>
+
+<h2>How to Use the Weight Calculator</h2>
+<p>Type the number you want to convert into the first box, select the unit you are converting from, then select the unit you want the answer in. Click <b>Calculate</b> to see the result. Use <b>Clear</b> to start over. The calculator works for everyday needs such as body weight, cooking and shipping, and for scientific or jewelry work with carats and atomic mass units.</p>
+
+<h2>Weight Conversion Formulas</h2>
+<table class="cinfoT">
+	<tr><td>Kilograms to pounds</td><td class="cinfoBodL">lb = kg &times; 2.20462</td></tr>
+	<tr><td>Pounds to kilograms</td><td class="cinfoBodL">kg = lb &times; 0.45359237</td></tr>
+	<tr><td>Pounds to ounces</td><td class="cinfoBodL">oz = lb &times; 16</td></tr>
+	<tr><td>Ounces to grams</td><td class="cinfoBodL">g = oz &times; 28.3495</td></tr>
+	<tr><td>Grams to ounces</td><td class="cinfoBodL">oz = g &times; 0.035274</td></tr>
+	<tr><td>Stone to pounds</td><td class="cinfoBodL">lb = st &times; 14</td></tr>
+	<tr><td>Stone to kilograms</td><td class="cinfoBodL">kg = st &times; 6.35029</td></tr>
+	<tr><td>Carats to grams</td><td class="cinfoBodL">g = ct &times; 0.2</td></tr>
+	<tr><td>Kilograms to grams</td><td class="cinfoBodL">g = kg &times; 1,000</td></tr>
+	<tr><td>Grams to milligrams</td><td class="cinfoBodL">mg = g &times; 1,000</td></tr>
+</table>
+
+<h2>Kilograms to Pounds Conversion Chart</h2>
+<table class="cinfoT">
+	<tr><td><b>Kilograms (kg)</b></td><td class="cinfoBodL"><b>Pounds (lb)</b></td></tr>
+	<tr><td>1 kg</td><td class="cinfoBodL">2.2046 lb</td></tr>
+	<tr><td>5 kg</td><td class="cinfoBodL">11.0231 lb</td></tr>
+	<tr><td>10 kg</td><td class="cinfoBodL">22.0462 lb</td></tr>
+	<tr><td>25 kg</td><td class="cinfoBodL">55.1156 lb</td></tr>
+	<tr><td>50 kg</td><td class="cinfoBodL">110.2311 lb</td></tr>
+	<tr><td>75 kg</td><td class="cinfoBodL">165.3467 lb</td></tr>
+	<tr><td>100 kg</td><td class="cinfoBodL">220.4623 lb</td></tr>
+</table>
+
+<h2>Pounds to Kilograms Conversion Chart</h2>
+<table class="cinfoT">
+	<tr><td><b>Pounds (lb)</b></td><td class="cinfoBodL"><b>Kilograms (kg)</b></td></tr>
+	<tr><td>1 lb</td><td class="cinfoBodL">0.4536 kg</td></tr>
+	<tr><td>5 lb</td><td class="cinfoBodL">2.2680 kg</td></tr>
+	<tr><td>10 lb</td><td class="cinfoBodL">4.5359 kg</td></tr>
+	<tr><td>25 lb</td><td class="cinfoBodL">11.3398 kg</td></tr>
+	<tr><td>50 lb</td><td class="cinfoBodL">22.6796 kg</td></tr>
+	<tr><td>100 lb</td><td class="cinfoBodL">45.3592 kg</td></tr>
+	<tr><td>150 lb</td><td class="cinfoBodL">68.0389 kg</td></tr>
+	<tr><td>200 lb</td><td class="cinfoBodL">90.7185 kg</td></tr>
+</table>
+
+<h2>Common Weight</h2>
+<table class="cinfoT">
+
+	<tr><td>Milky Way Galaxy</td><td class="cinfoBodL">1.15357 x 10<sup>42</sup> kg &nbsp; or &nbsp; 5.8 x 10<sup>11</sup> solar mass</td></tr>
+	<tr><td>Sun</td><td class="cinfoBodL">1.9891x10<sup>30</sup> kg</td></tr>
+	<tr><td>Earth</td><td class="cinfoBodL">5.9736 x 10<sup>24</sup> kg</td></tr>
+	<tr><td>Moon</td><td class="cinfoBodL">7.3477 x 10<sup>22</sup> kg</td></tr>
+	<tr><td>Atomic Mass Unit (u)</td><td class="cinfoBodL">1.660538782(83) x 10<sup>-27</sup> kg</td></tr>
+	<tr><td>Neutron</td><td class="cinfoBodL">1.67492729(28) x 10<sup>-27</sup> kg &nbsp; or &nbsp; 1.0086649156(6) u</td></tr>
+	<tr><td>Proton</td><td class="cinfoBodL">1.672621637(83) x 10<sup>-27</sup> kg &nbsp; or &nbsp; 1.00727646677(10) u</td></tr>
+	<tr><td>Electron</td><td class="cinfoBodL">9.10938215(45) x 10<sup>-31</sup> kg &nbsp; or &nbsp; 5.4857990943(23)x10<sup>-4</sup> u</td></tr>
+</table>
+<br>
+
+<h2>Weight Units Explained</h2>
+<h3>Kilogram (kg)</h3>
+<p>The kilogram is the base unit of mass in the International System of Units (SI) and is used in most countries. One kilogram equals 1,000 grams or about 2.20462 pounds.</p>
+<h3>Gram (g) and Milligram (mg)</h3>
+<p>A gram is one thousandth of a kilogram, and a milligram is one thousandth of a gram. They are used for food labels, medicine doses and small objects.</p>
+<h3>Pound (lb)</h3>
+<p>The pound is the main unit of weight in the United States customary system and is also common in the United Kingdom. One pound is defined as exactly 0.45359237 kilograms and contains 16 ounces.</p>
+<h3>Ounce (oz)</h3>
+<p>An ounce is one sixteenth of a pound, or about 28.35 grams. It is widely used in cooking, postage and retail packaging.</p>
+<h3>Stone (st)</h3>
+<p>The stone is a traditional British unit mainly used for body weight in the UK and Ireland. One stone equals 14 pounds, or about 6.35 kilograms.</p>
+<h3>Ton</h3>
+<p>The metric ton (tonne) equals 1,000 kilograms, or about 2,204.62 pounds. The US short ton equals 2,000 pounds, or about 907.18 kilograms.</p>
+<h3>Carat (ct)</h3>
+<p>The carat is the unit of mass for gemstones. One carat equals 200 milligrams, or 0.2 grams.</p>
+<h3>Grain (gr)</h3>
+<p>A grain is a very small unit equal to about 64.8 milligrams. It is still used for ammunition, archery arrows and precious metals.</p>
+<h3>Quarter</h3>
+<p>The US quarter is 25 pounds (about 11.34 kg) and the UK quarter is 28 pounds (about 12.70 kg). Both are older commercial units that rarely appear in daily use today.</p>
+
+<h3>Why We Have Different Ways to Measure Weight?</h3>
+<p>Early Babylonian and Egyptian records, as well as the Bible, indicate that weight was originally measured by the capacities of containers such as gourds or clay or metal vessels. These were filled with plant seeds that were then counted to measure the volumes. With the development of scales as a means of weighing, seeds and stones served as standards. For instance, the "carat," still used as a mass unit for gems, is derived from the carob seed.</p>
+<p>The Babylonians invented the talent, as the basic unit of weight, and, based on their sexagesimal (60-based), divided into equal parts in terms of that number.</p>
+<p>It was equal to the amount of water that filled an amphora (a kind of vase).</p>
+<p>The Greeks used the same weight measurement as the Babylonians, but the Romans changed it. Their basic unit of weight was the 'uncia,' from which the English word 'ounce' is originally derived. The uncia is a twelfth part of the 'pes,' which is the Roman 'foot &mdash;' our word inch is also derived from 'uncia.' The Romans used the same word for ounce, which they measured using a technique taken from the Arabs.</p>
+<p>For the Arabs, a silver Dirhem was determined by 45 full grown barley grains. Ten Dirhems made a Wukryeh of 450 grains, which we call an ounce from the Latin "uncia" or twelfth, which name is used genetically for such a class of weight or volume.</p>
+<p>Translated into English as the 'ounce,' King Offa, who lived at the end of the 8th century, accepted the silver ounce but then ran short of silver. The Dirhem was halved to 222 grains for the penny, twenty of which made the ounce as before, and twelve ounces the pound in silver.</p>
+<p>This measure has come down to us as part of the British Imperial System of Weights and Measures, which is also used in the U.S. This system of units was first defined in the British Weights and Measures Act of 1824, which was later refined and reduced. The system came into official use across the British Empire.</p>
+<p>In 1855, a fire destroyed the Houses of Parliament in London, where the standards for these weights were kept. A standards bureau was set up with prototypes for the imperial system at that time.</p>
+<p>Metric weights have a very different history. Metric weights, the gram, the kilogram, were developed by scientists in 18th century France. In 1791, the French parliament imposed the use of the metric system on the country, and it is now used in Continental Europe and many other parts of the world.</p>
+<p>The metric system was not particularly popular in revolutionary France, and Emperor Napoleon, who came just after the Revolution, abolished it. But, when Napoleon lost power, the system was reinstated.</p>
+<p>The kilogram is the weight of one liter of water. One thousandth of a kilogram is a gram. All multiples and submultiples of the base units are in powers of ten. Fractional units are not halves, but tenths, unlike the customary practice for fractions of inches, and derived units are related to the base units by multiples of powers of ten, unlike what is the case with twelve inches making a foot. Basing all units on multiples of ten makes conversion from one unit to another particularly easy.</p>
+<p>Here are some typical metric conversions:</p>
+<ul>
+<li>1 milliliter is the same volume as 1 cubic centimeter.</li>
+<li>The mass of 1 milliliter of water is approximately 1 gram.</li>
+<li>The mass of 1 liter of water is therefore approximately 1 kilogram.</li>
+<li>There are 1000 liters in a cubic meter, so the mass of 1 cubic meter of water is approximately 1000 kilograms or 1 metric ton.</li>
+<li>A US nickel weighs 5 grams, and a penny weighs 2.5 grams.</li>
+<li>Although there's no precise standard for doorknob heights, they're often about 1 meter above the floor.</li>
+<li>A CD or DVD is 12 centimeters (120 millimeters) across. The diameter of the center hole is 15 millimeters.</li>
+<li>1 hectare is 10,000 square meters, equivalent to the area of a square 100 meters on a side. A football field is about 100 meters long, so imagine a square the length of a football field on each side, and that's 1 hectare.</li>
+</ul>
+
+<h2>Weight vs. Mass</h2>
+<p>In science, <b>mass</b> is the amount of matter in an object and does not change with location, while <b>weight</b> is the force gravity exerts on that mass. An astronaut has the same mass on Earth and the Moon but weighs about one sixth as much on the Moon. In everyday life, people use kilograms and pounds to describe weight, and this calculator converts those units directly.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>How many pounds are in a kilogram?</h3>
+<p>1 kilogram equals approximately 2.20462 pounds. Multiply kilograms by 2.20462 to get pounds.</p>
+<h3>How many kilograms are in a pound?</h3>
+<p>1 pound equals exactly 0.45359237 kilograms. Multiply pounds by 0.45359237 to get kilograms.</p>
+<h3>How many ounces are in a pound?</h3>
+<p>There are 16 ounces in 1 avoirdupois pound.</p>
+<h3>How many pounds are in a stone?</h3>
+<p>1 stone equals 14 pounds, which is about 6.35 kilograms.</p>
+<h3>What is the difference between weight and mass?</h3>
+<p>Mass is the amount of matter in an object and is constant everywhere. Weight is the force of gravity on that mass, so it varies with gravity. In daily use, kilograms and pounds are both used to describe weight.</p>
+<h3>How many milligrams are in a gram?</h3>
+<p>There are 1,000 milligrams in 1 gram, and 1,000 grams in 1 kilogram.</p>
+
+<p>Looking for more tools? Try our <a href="/height-calculator.html">height calculator</a> or the <a href="/conversion-calculator.html">conversion calculator</a>.</p>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

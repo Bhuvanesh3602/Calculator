@@ -1,146 +1,190 @@
-#calinfoout{background-color:#EEEEEE;width:258px;}
-.calinfoinner{padding:5px;border-top:1px solid #262626;border-left:1px solid #262626;border-right:2px outset #262626;border-bottom:2px outset #262626;}
-#calinfoout input{width:45px;height:30px;margin:2px;background-color:#FFF;font-family:arial,helvetica,sans-serif;font-size: 17px;border:1px solid #262626;}
-#calinfoout #calInfoOutPut{width:242px;font-size:22px;padding:3px;cursor:text;text-align: right;background-color:#B8C6A3;color:#000000;}
-#calinfoout .calinfonm{color:#FFF;font-weight:bold;background-color:#262626;}
-#calinfoout .calinfoop{color:#262626;font-weight:bold;background-color:#cccccc;}
-#calinfoout .calinfoeq{color:#FF0000;font-weight:bold;background-color:#DCADB0;}
-#calinfoout .calinfofunc{color:#185290;font-weight:bold;background-color:#C8D8E8;height:23px;padding-bottom:1px;}
+/* ==========================================================================
+   adxcal.com - Calculator Widgets (basic + scientific)
+   Add after style.css. Uses its design tokens; same selectors as before.
+   ========================================================================== */
 
-
-#sciout{
-	padding:5px;
-	border-top:1px solid #262626;
-	border-left:1px solid #262626;
-	border-right:2px outset #262626;
-	border-bottom:2px outset #262626;
-	background: #fff;
-}
-#sciOutPut{
-	font-size:20px;
-	padding:3px;
-	margin:2px;
-	cursor:text;
-	text-align:right;
-	background-color:#336699;
-	border:1px solid #336699;
-	border-radius: 0px;
-	color:#fff;
-}
-.scifunc{
-	display: inline-block;
-	display: table-cell;
-	vertical-align: middle;
-	text-align:center;
-	width:50px;
-	height:30px;
-	margin:1px;
-	border:1px solid #a2bbd4;
-	border-radius: 3px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:16px;
-	font-weight:bold;
-	color:#000;
-	background-color:#e5ecf3;
-}
-.scifunc:active {
-	background-color:#000;
-	color:#ffffff;
-}
-.scinm{
-	display: inline-block;
-	display: table-cell;
-	vertical-align: middle;
-	padding: 0px;
-	text-align:center;
-	width:50px;
-	height:30px;
-	margin:1px;
-	border:1px solid #336699;
-	border-radius: 3px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:16px;
-	font-weight:bold;
-	color:#000;
-	background-color:#aec0d3;
-}
-.scinm:active {
-	background-color:#aaaaaa;
-	color:#000000;
-}
-.sciop{
-	display: inline-block;
-	display: table-cell;
-	vertical-align: middle;
-	padding: 0px;
-	text-align:center;
-	width:50px;
-	height:30px;
-	margin:1px;
-	border:1px solid #a2bbd4;
-	border-radius: 3px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:16px;
-	font-weight:bold;
-	color:#000;
-	background-color:#e5ecf3;
-}
-.sciop:active {
-	background-color:#000000;
-	color:#ffffff;
-}
-.scird{
-	display: inline-block;
-	display: table-cell;
-	vertical-align: middle;
-	text-align:center;
-	height:30px;
-	margin:1px;
-	border:1px solid #eeeeee;
-	border-radius: 3px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:13px;
-	color:#262626;
-}
-.scieq{
-	display: inline-block;
-	display: table-cell;
-	vertical-align: middle;
-	padding: 0px;
-	text-align:center;
-	width:50px;
-	height:30px;
-	margin:1px;
-	border:1px solid #336699;
-	border-radius: 3px;
-	font-family:arial,helvetica,sans-serif;
-	font-size:16px;
-	font-weight:bold;
-	color:#000;
-	background-color:#aec0d3;
-}
-.scieq:active {
-	background-color:#ff0000;
-	color:#ffffff;
+:root {
+	--calc-body: #fbfaf7;
+	--calc-border: #e8dcc4;
+	--calc-screen: #ffffff;
+	--calc-screen-text: #09251C;
+	--calc-key-num: #ffffff;
+	--calc-key-num-text: #09251C;
+	--calc-key-op: #f3d2af;
+	--calc-key-op-text: #09251C;
+	--calc-key-func: #f8eadc;
+	--calc-key-func-text: #09251C;
+	--calc-key-eq: #a55704;
+	--calc-shadow: 0 2px 0 rgba(9, 37, 28, .10), 0 1px 3px rgba(9, 37, 28, .12);
 }
 
-#scihistory, #scihistory div{
-	font-size:13px;
-	color:#888;
-	text-align:right;
+/* ==========================================================================
+   Basic calculator
+   ========================================================================== */
+#calinfoout {
+	width: 100%;
+	max-width: 280px;
+	margin: 0 auto;
+	background: var(--calc-body);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+}
+
+.calinfoinner {
+	padding: 14px;
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-lg);
+	background: linear-gradient(180deg, rgba(255, 255, 255, .35), transparent);
+}
+
+#calinfoout input {
+	width: 48px;
+	height: 40px;
+	margin: 3px;
+	padding: 0;
+	background: var(--calc-key-num);
+	color: var(--calc-key-num-text);
+	font-family: var(--font-sans);
+	font-size: 17px;
+	font-weight: 600;
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--calc-shadow);
+	cursor: pointer;
+	transition: transform .1s var(--ease), box-shadow .1s var(--ease), filter .15s var(--ease);
+}
+#calinfoout input:hover { filter: brightness(.96); }
+#calinfoout input:active { transform: translateY(2px); box-shadow: none; }
+
+#calinfoout #calInfoOutPut {
+	width: 100%;
+	height: 52px;
+	margin: 0 0 8px;
+	padding: 6px 12px;
+	background: var(--calc-screen);
+	color: var(--calc-screen-text);
+	font-family: var(--font-mono);
+	font-size: 24px;
+	font-weight: 500;
+	text-align: right;
+	cursor: text;
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-sm);
+	box-shadow: inset 0 1px 3px rgba(9, 37, 28, .12);
+}
+
+#calinfoout .calinfonm { background: var(--calc-key-num); color: var(--calc-key-num-text); }
+#calinfoout .calinfoop { background: var(--calc-key-op); color: var(--calc-key-op-text); font-weight: 700; }
+#calinfoout .calinfoeq { background: var(--calc-key-eq); color: #fff; font-weight: 700; border-color: #047857; }
+#calinfoout .calinfofunc { height: 32px; background: var(--calc-key-func); color: var(--calc-key-func-text); font-size: 14px; font-weight: 700; }
+
+/* ==========================================================================
+   Scientific calculator
+   ========================================================================== */
+#sciout {
+	max-width: 100%;
+	padding: 14px;
+	background: var(--calc-body);
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+}
+
+#sciOutPut {
+	margin: 4px 0 8px;
+	padding: 8px 12px;
+	background: var(--calc-screen);
+	color: var(--calc-screen-text);
+	font-family: var(--font-mono);
+	font-size: 22px;
+	text-align: right;
+	cursor: text;
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-sm);
+	box-shadow: inset 0 1px 3px rgba(9, 37, 28, .12);
+}
+
+/* Shared key styling */
+.scifunc, .scinm, .sciop, .scieq {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 36px;
+	margin: 2px;
+	padding: 0;
+	font-family: var(--font-sans);
+	font-size: 15px;
+	font-weight: 700;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	border: 1px solid var(--calc-border);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--calc-shadow);
+	transition: transform .1s var(--ease), box-shadow .1s var(--ease), background-color .15s var(--ease), color .15s var(--ease);
+}
+.scifunc:hover, .scinm:hover, .sciop:hover, .scieq:hover { filter: brightness(.95); }
+.scifunc:active, .scinm:active, .sciop:active, .scieq:active { transform: translateY(2px); box-shadow: none; }
+
+.scifunc { background: var(--calc-key-func); color: var(--calc-key-func-text); border-color: rgba(59, 130, 246, .35); }
+.scifunc:active { background: #1e3a8a; color: #fff; }
+
+.scinm { background: var(--calc-key-num); color: var(--calc-key-num-text); }
+.scinm:active { background: var(--bg-hover); color: var(--text-heading); }
+
+.sciop { background: var(--calc-key-op); color: var(--calc-key-op-text); }
+.sciop:active { background: var(--primary); color: #fff; }
+
+.scieq { background: var(--calc-key-eq); color: #fff; border-color: #047857; }
+.scieq:active { background: #dc2626; color: #fff; border-color: #b91c1c; }
+
+/* Radio row (deg / rad) */
+.scird {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	height: 30px;
+	margin: 2px;
+	padding: 0 6px;
+	font-size: 13px;
+	color: var(--text-body);
+	border: 1px solid transparent;
+	border-radius: var(--radius-sm);
+}
+
+/* History and live input */
+#scihistory, #scihistory div {
+	width: 100%;
+	max-width: 100%;
 	overflow: hidden;
-	width:268px;
+	color: var(--text-muted);
+	font-size: 13px;
+	text-align: right;
+	text-overflow: ellipsis;
 }
-#sciInPut{
-	font-size:18px;
-	color:#000;
-	text-align:right;
+
+#sciInPut {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: -2px;
 	overflow: hidden;
-	width:268px;
-	word-wrap: break-word;
-	margin-bottom:-2px;
+	color: var(--text-heading);
+	font-family: var(--font-mono);
+	font-size: 18px;
+	text-align: right;
+	overflow-wrap: anywhere;
 }
-#sciInPut b{
-	color:#ccc;
-	font-weight:bold;
+#sciInPut b { color: var(--text-light, #94a3b8); font-weight: 700; }
+
+/* Small screens: let keys flex so the keypad never overflows */
+@media (max-width: 420px) {
+	.scifunc, .scinm, .sciop, .scieq { width: calc((100% - 48px) / 6); min-width: 40px; height: 40px; }
+	#calinfoout input { width: 22%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#calinfoout input, .scifunc, .scinm, .sciop, .scieq { transition: none; }
 }

@@ -1,151 +1,359 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Slope Calculator</title>
-	<meta name="description" content="This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/slope-calculator.html" itemprop="item"><span itemprop="name">slope calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Slope Calculator</h1><table width="100%">
-	<tr>
-		<td valign="top">
-			<p>By definition, the slope or gradient of a line describes its steepness, incline, or grade.</p>
-			<table align="center">
-				<tr><td>m = </td><td><table cellpadding="0"><tr><td>y<sub>2</sub> - y<sub>1</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>x<sub>2</sub> - x<sub>1</sub></td></tr></table></td><td>= tan(&theta;)</td></tr>
-			</table>
-			<div>Where</div>
-			<div style="padding-left:20px;">m &mdash; slope<br>&#952; &mdash; angle of incline</div>
-		</td>
-		<td valign="top"><img src="/img/slope/slope.svg" width="158" height="169" alt="slope of a line"></td>
-	</tr>
-</table>
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>If the 2 Points are Known</h2><table class="panel"><tr><td align="center" valign="middle"><form action="/slope-calculator.html" name="calform">
-	<table>
-		<tr class="bigtext">
-			<td align="center">X<sub>1</sub></td>
-			<td align="center">Y<sub>1</sub></td>
-			<td>&nbsp;</td>
-			<td align="center">X<sub>2</sub></td>
-			<td align="center">Y<sub>2</sub></td>
-		</tr>
-		<tr>
-			<td align="center"><input type="text" name="x11" value="1" class="innormal" style="text-align:left;"></td>
-			<td align="center"><input type="text" name="y11" value="1" class="innormal" style="text-align:left;"></td>
-			<td>&nbsp;</td>
-			<td align="center"><input type="text" name="x12" value="2" class="innormal" style="text-align:left;"></td>
-			<td align="center"><input type="text" name="y12" value="2" class="innormal" style="text-align:left;"></td>
-		</tr>
-		<tr>
-			<td colspan="5" align="center" style="padding-top:10px;">
-				<input type="hidden" name="type" value="1">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform);">
-			</td>
-		</tr>
-	</table>
-</form></td></tr></table>
-<a name="onepoint"></a>
-<br><h2>If 1 Point and the Slope are Known</h2>
-<form action="/slope-calculator.html#onepoint" name="calform2">
-<table class="panel" >
-	<tr>
-		<td class="bigtext">X<sub>1</sub> = </td>
-		<td><input type="text" name="x21" value="1" class="inlonger"></td>
-	</tr>
-	<tr>
-		<td class="bigtext">Y<sub>1</sub> = </td>
-		<td><input type="text" name="y21" value="1" class="inlonger"></td>
-	</tr>
-	<tr>
-		<td class="bigtext">distance (d) = </td>
-		<td><input type="text" name="d2" value="5" class="inlonger"></td>
-	</tr>
-		<tr>
-		<td class="bigtext" valign="top">slope (m) = </td>
-		<td class="bigtext">
-			<input type="text" name="m2" value="0.75" class="innormal" style="text-align:left;">
-			&nbsp; <b>OR</b> &nbsp;angle of incline (&#952;) =
-			<input type="text" name="th2" value="" class="innormal inui1c" style="text-align:left;"><span class="inui1cspan">&#176;</span> &nbsp; &nbsp;
-		</td>
-	</tr>
-		<tr>
-		<td colspan="2" align="center" style="padding-top:10px;">
-			<input type="hidden" name="type" value="2">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-		</td>
-	</tr>
-</table></form>
-<br><br>
-<p>Slope, sometimes referred to as gradient in mathematics, is a number that measures the steepness and direction of a line, or a section of a line connecting two points, and is usually denoted by <b>m</b>. Generally, a line's steepness is measured by the absolute value of its slope, <b>m</b>. The larger the value is, the steeper the line. Given <b>m</b>, it is possible to determine the direction of the line that <b>m</b> describes based on its sign and value:</p>
-<ul>
-<li>A line is increasing, and goes upwards from left to right when m &gt; 0</li>
-<li>A line is decreasing, and goes downwards from left to right when m &lt; 0</li>
-<li>A line has a constant slope, and is horizontal when m = 0</li>
-<li>A vertical line has an undefined slope, since it would result in a fraction with 0 as the denominator. Refer to the equation provided below. </li>
-</ul>
-<p>Slope is essentially the change in height over the change in horizontal distance, and is often referred to as "rise over run." It has applications in gradients in geography as well as civil engineering, such as the building of roads. In the case of a road, the "rise" is the change in altitude, while the "run" is the difference in distance between two fixed points, as long as the distance for the measurement is not large enough that the earth's curvature should be considered as a factor. The slope is represented mathematically as:</p>
-
-<table align="center"><tr>
-<td>m =&nbsp;</td>
-<td><table cellpadding="0" cellspacing="0"><tr><td align="center">y<sub>2</sub> - y<sub>1</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">x<sub>2</sub> - x<sub>1</sub></td></tr></table></td>
-</tr></table>
-
-<p>In the equation above, <b>y<sub>2</sub> - y<sub>1</sub> = &Delta;y</b>, or vertical change, while <b>x<sub>2</sub> - x<sub>1</sub> = &Delta;x</b>, or horizontal change, as shown in the graph provided. It can also be seen that <b>&Delta;x</b> and <b>&Delta;y</b> are line segments that form a right triangle with hypotenuse <b>d</b>, with <b>d</b> being the distance between the points <b>(x<sub>1</sub>, y<sub>1</sub>)</b> and <b>(x<sub>2</sub>, y<sub>2</sub>)</b>. Since <b>&Delta;x</b> and <b>&Delta;y</b> form a right triangle, it is possible to calculate <b>d</b> using the Pythagorean theorem. Refer to the <a href="/triangle-calculator.html">Triangle Calculator</a> for more detail on the Pythagorean theorem as well as how to calculate the angle of incline <b>&theta;</b> provided in the calculator above. Briefly:</p>
-
-	<p align="center">d = &radic;<span style="padding-top:3px; border-top: 1px solid;">(x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup></span></p>
-
-<p>The above equation is the Pythagorean theorem at its root, where the hypotenuse <b>d</b> has already been solved for, and the other two sides of the triangle are determined by subtracting the two <b>x</b> and <b>y</b> values given by two points. Given two points, it is possible to find <b>&theta;</b> using the following equation:</p>
-
-	<p align="center">m = tan(&theta;)</p>
-
-<p>Given the points (3,4) and (6,8) find the slope of the line, the distance between the two points, and the angle of incline: </p>
-
-<table align="center"><tr>
-<td>m =&nbsp;</td>
-<td><table cellpadding="0" cellspacing="0"><tr><td align="center">8 - 4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">6 - 3</td></tr></table></td>
-<td>&nbsp;=&nbsp;</td>
-<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
-</tr></table>
-<p align="center">d = &radic;<span style="padding-top:3px; border-top: 1px solid;">(6 - 3)<sup>2</sup> + (8 - 4)<sup>2</sup></span> = 5</p>
-<table align="center"><tr>
-<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
-<td>&nbsp;= tan(&theta;)</td>
-</tr></table>
-<table align="center"><tr><td>&theta; = tan<sup>-1</sup>(</td>
-<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
-<td>) = 53.13&deg;</td>
-</tr></table>
-
-<p>While this is beyond the scope of this calculator, aside from its basic linear use, the concept of a slope is important in differential calculus. For non-linear functions, the rate of change of a curve varies, and the derivative of a function at a given point is the rate of change of the function, represented by the slope of the line tangent to the curve at that point.</p>
-
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Slope Calculator</title>
+
+	<meta name="description" content="This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope." />
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Slope Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html","description":"This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Slope Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Slope Calculator">
+<meta property="og:description" content="This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slope Calculator">
+<meta name="twitter:description" content="This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Slope Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html","description":"This slope calculator solves for parameters involving slope and the equation of a line. It takes inputs of two known points, or one known point and the slope.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Slope Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/slope-calculator.html"}]}</script></head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/slope-calculator.html" itemprop="item"><span itemprop="name">slope calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Slope Calculator</h1><table width="100%">
+
+	<tr>
+
+		<td valign="top">
+
+			<p>By definition, the slope or gradient of a line describes its steepness, incline, or grade.</p>
+
+			<table align="center">
+
+				<tr><td>m = </td><td><table cellpadding="0"><tr><td>y<sub>2</sub> - y<sub>1</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>x<sub>2</sub> - x<sub>1</sub></td></tr></table></td><td>= tan(&theta;)</td></tr>
+
+			</table>
+
+			<div>Where</div>
+
+			<div style="padding-left:20px;">m &mdash; slope<br>&#952; &mdash; angle of incline</div>
+
+		</td>
+
+		<td valign="top"><img src="/img/slope/slope.svg" width="158" height="169" alt="slope of a line"></td>
+
+	</tr>
+
+</table>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><h2>If the 2 Points are Known</h2><table class="panel"><tr><td align="center" valign="middle"><form action="/slope-calculator.html" name="calform">
+
+	<table>
+
+		<tr class="bigtext">
+
+			<td align="center">X<sub>1</sub></td>
+
+			<td align="center">Y<sub>1</sub></td>
+
+			<td>&nbsp;</td>
+
+			<td align="center">X<sub>2</sub></td>
+
+			<td align="center">Y<sub>2</sub></td>
+
+		</tr>
+
+		<tr>
+
+			<td align="center"><input type="text" name="x11" value="1" class="innormal" style="text-align:left;"></td>
+
+			<td align="center"><input type="text" name="y11" value="1" class="innormal" style="text-align:left;"></td>
+
+			<td>&nbsp;</td>
+
+			<td align="center"><input type="text" name="x12" value="2" class="innormal" style="text-align:left;"></td>
+
+			<td align="center"><input type="text" name="y12" value="2" class="innormal" style="text-align:left;"></td>
+
+		</tr>
+
+		<tr>
+
+			<td colspan="5" align="center" style="padding-top:10px;">
+
+				<input type="hidden" name="type" value="1">
+
+				<input type="submit" name="x" value="Calculate">
+
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+
+			</td>
+
+		</tr>
+
+	</table>
+
+</form></td></tr></table>
+
+<a name="onepoint"></a>
+
+<br><h2>If 1 Point and the Slope are Known</h2>
+
+<form action="/slope-calculator.html#onepoint" name="calform2">
+
+<table class="panel" >
+
+	<tr>
+
+		<td class="bigtext">X<sub>1</sub> = </td>
+
+		<td><input type="text" name="x21" value="1" class="inlonger"></td>
+
+	</tr>
+
+	<tr>
+
+		<td class="bigtext">Y<sub>1</sub> = </td>
+
+		<td><input type="text" name="y21" value="1" class="inlonger"></td>
+
+	</tr>
+
+	<tr>
+
+		<td class="bigtext">distance (d) = </td>
+
+		<td><input type="text" name="d2" value="5" class="inlonger"></td>
+
+	</tr>
+
+		<tr>
+
+		<td class="bigtext" valign="top">slope (m) = </td>
+
+		<td class="bigtext">
+
+			<input type="text" name="m2" value="0.75" class="innormal" style="text-align:left;">
+
+			&nbsp; <b>OR</b> &nbsp;angle of incline (&#952;) =
+
+			<input type="text" name="th2" value="" class="innormal inui1c" style="text-align:left;"><span class="inui1cspan">&#176;</span> &nbsp; &nbsp;
+
+		</td>
+
+	</tr>
+
+		<tr>
+
+		<td colspan="2" align="center" style="padding-top:10px;">
+
+			<input type="hidden" name="type" value="2">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+<br><br>
+
+<p>Slope, sometimes referred to as gradient in mathematics, is a number that measures the steepness and direction of a line, or a section of a line connecting two points, and is usually denoted by <b>m</b>. Generally, a line's steepness is measured by the absolute value of its slope, <b>m</b>. The larger the value is, the steeper the line. Given <b>m</b>, it is possible to determine the direction of the line that <b>m</b> describes based on its sign and value:</p>
+
+<ul>
+
+<li>A line is increasing, and goes upwards from left to right when m &gt; 0</li>
+
+<li>A line is decreasing, and goes downwards from left to right when m &lt; 0</li>
+
+<li>A line has a constant slope, and is horizontal when m = 0</li>
+
+<li>A vertical line has an undefined slope, since it would result in a fraction with 0 as the denominator. Refer to the equation provided below. </li>
+
+</ul>
+
+<p>Slope is essentially the change in height over the change in horizontal distance, and is often referred to as "rise over run." It has applications in gradients in geography as well as civil engineering, such as the building of roads. In the case of a road, the "rise" is the change in altitude, while the "run" is the difference in distance between two fixed points, as long as the distance for the measurement is not large enough that the earth's curvature should be considered as a factor. The slope is represented mathematically as:</p>
+
+
+
+<table align="center"><tr>
+
+<td>m =&nbsp;</td>
+
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">y<sub>2</sub> - y<sub>1</sub></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">x<sub>2</sub> - x<sub>1</sub></td></tr></table></td>
+
+</tr></table>
+
+
+
+<p>In the equation above, <b>y<sub>2</sub> - y<sub>1</sub> = &Delta;y</b>, or vertical change, while <b>x<sub>2</sub> - x<sub>1</sub> = &Delta;x</b>, or horizontal change, as shown in the graph provided. It can also be seen that <b>&Delta;x</b> and <b>&Delta;y</b> are line segments that form a right triangle with hypotenuse <b>d</b>, with <b>d</b> being the distance between the points <b>(x<sub>1</sub>, y<sub>1</sub>)</b> and <b>(x<sub>2</sub>, y<sub>2</sub>)</b>. Since <b>&Delta;x</b> and <b>&Delta;y</b> form a right triangle, it is possible to calculate <b>d</b> using the Pythagorean theorem. Refer to the <a href="/triangle-calculator.html">Triangle Calculator</a> for more detail on the Pythagorean theorem as well as how to calculate the angle of incline <b>&theta;</b> provided in the calculator above. Briefly:</p>
+
+
+
+	<p align="center">d = &radic;<span style="padding-top:3px; border-top: 1px solid;">(x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup></span></p>
+
+
+
+<p>The above equation is the Pythagorean theorem at its root, where the hypotenuse <b>d</b> has already been solved for, and the other two sides of the triangle are determined by subtracting the two <b>x</b> and <b>y</b> values given by two points. Given two points, it is possible to find <b>&theta;</b> using the following equation:</p>
+
+
+
+	<p align="center">m = tan(&theta;)</p>
+
+
+
+<p>Given the points (3,4) and (6,8) find the slope of the line, the distance between the two points, and the angle of incline: </p>
+
+
+
+<table align="center"><tr>
+
+<td>m =&nbsp;</td>
+
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">8 - 4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">6 - 3</td></tr></table></td>
+
+<td>&nbsp;=&nbsp;</td>
+
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+
+</tr></table>
+
+<p align="center">d = &radic;<span style="padding-top:3px; border-top: 1px solid;">(6 - 3)<sup>2</sup> + (8 - 4)<sup>2</sup></span> = 5</p>
+
+<table align="center"><tr>
+
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+
+<td>&nbsp;= tan(&theta;)</td>
+
+</tr></table>
+
+<table align="center"><tr><td>&theta; = tan<sup>-1</sup>(</td>
+
+<td><table cellpadding="0" cellspacing="0"><tr><td align="center">4</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">3</td></tr></table></td>
+
+<td>) = 53.13&deg;</td>
+
+</tr></table>
+
+
+
+<p>While this is beyond the scope of this calculator, aside from its basic linear use, the concept of a slope is important in differential calculus. For non-linear functions, the rate of change of a curve varies, and the derivative of a function at a given point is the rate of change of the function, represented by the slope of the line tangent to the curve at that point.</p>
+
+
+
+<h2>Slope Calculator FAQ</h2>
+
+<details>
+<summary>How do I calculate the slope of a line from two points?</summary>
+<p>Subtract the y-values and divide by the difference of the x-values: m = (y2 − y1) ÷ (x2 − x1). For the points (3, 4) and (6, 8), the slope is (8 − 4) ÷ (6 − 3) = 4/3, or about 1.333.</p>
+</details>
+
+<details>
+<summary>What does a positive, negative, zero, or undefined slope mean?</summary>
+<p>A positive slope (m &gt; 0) means the line goes upward from left to right. A negative slope (m &lt; 0) means the line goes downward from left to right. A slope of zero means the line is horizontal. A vertical line has an undefined slope. The larger the absolute value of the slope, the steeper the line.</p>
+</details>
+
+<details>
+<summary>Why is the slope of a vertical line undefined?</summary>
+<p>On a vertical line every point has the same x-value, so x2 − x1 equals 0. The slope formula would then divide by zero, which has no defined value.</p>
+</details>
+
+<details>
+<summary>How do I find the angle of incline from the slope?</summary>
+<p>The slope equals the tangent of the angle of incline, m = tan(θ), so θ = tan⁻¹(m). For a slope of 4/3, θ = tan⁻¹(4/3) = 53.13°. A slope of 1 gives an angle of 45°.</p>
+</details>
+
+<details>
+<summary>How do I find the distance between two points?</summary>
+<p>Use the Pythagorean theorem: d = √((x2 − x1)² + (y2 − y1)²). The horizontal change and vertical change form the two legs of a right triangle, and the distance is the hypotenuse. For the points (3, 4) and (6, 8), d = √(3² + 4²) = 5.</p>
+</details>
+
+<details>
+<summary>How do I convert slope to a percent grade?</summary>
+<p>Multiply the slope by 100. Slope is rise over run, so a slope of 0.75 is a 75% grade, which means the line rises 0.75 units for every 1 unit of horizontal distance. Percent grade is not the same as the angle in degrees.</p>
+</details>
+
+<details>
+<summary>How do I find a second point when I know one point, the slope, and the distance?</summary>
+<p>Use the second calculator on this page. Enter the known point (x1, y1), the distance d, and either the slope m or the angle of incline θ. For example, from the point (1, 1) with a slope of 0.75 and a distance of 5, the horizontal change is 5 ÷ √(1 + 0.75²) = 4 and the vertical change is 3, so the second point is (5, 4). Moving in the opposite direction along the same line gives (−3, −2).</p>
+</details>
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

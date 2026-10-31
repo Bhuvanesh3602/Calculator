@@ -1,208 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>RMD Calculator</title>
-	<meta name="description" content="This calculator computes the Required Minimum Distribution (RMD) of your retirement accounts. It also predicts future distributions which can be used to plan ahead." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/rmd-calculator.html" itemprop="item"><span itemprop="name">rmd calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>RMD Calculator</h1>
-
-<p>Once a person reaches the age of 73, the IRS requires retirement account holders to withdraw a minimum amount of money each year &ndash; this amount is referred to as the Required Minimum Distribution (RMD). This calculator calculates the RMD depending on your age and account balance. The calculations are based on the IRS Publication 590-B, so the calculator is intended for residents of the United States only.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput"><form name="calform" action="/rmd-calculator.html#calresult"><table id="calinputtable" class="panel" cellpadding="2" align="center">
-<tr>
-	<td>Your year of birth</td>
-	<td align="right"><input type="number" name="birthdate" value="1951" class="inhalf"></td>
-</tr>
-<tr>
-	<td>Year of RMD <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The year the Required Minimum Distribution (RMD) to be made.', '');" onmouseout="tooltip.hide();"></td>
-	<td align="right"><select name="rmdyear" class="inhalf" onChange="updateBalanceYear(this.value);">
-		<option value="2027">2027</option><option value="2026" selected>2026</option><option value="2025">2025</option><option value="2024">2024</option>	</select></td>
-</tr>
-<tr>
-	<td colspan="2">
-		<div style="padding-top:16px;" id="accountbalancetime">Account balance as of 12/31 last year</div>
-		<div style="text-align:right;"><input type="text" name="abalance" id="abalance" value="300000" class="inhalf indollar"  step="0.01"></div>
-		<div style="padding-top:16px;">Is your spouse the primary beneficiary?</div>
-		<div style="text-align:right;">
-			<label for="spb1" class="cbcontainer"><input type="radio" name="spb" id="spb1" value="y" checked onClick="shSpouseDob('y');"/><span class="rbmark"></span>Yes</label> &nbsp;
-			<label for="spb2" class="cbcontainer"><input type="radio" name="spb" id="spb2" value="n"  onClick="shSpouseDob('n');"/><span class="rbmark"></span>No</label>
-		</div>
-		<div id="spousedob">
-			<div style="padding-top:16px;">Your spouse's date of birth</div>
-			<div style="text-align:right;"><input type="number" name="spousedob" value="1953" class="inhalf"></div>
-		</div>
-		<div style="padding-top:16px;">Estimated rate of return (Optional) <img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('The average annual return of your retirement account. If provided, it will be used to predict your future Required Minimum Distribution amount.', '');" onmouseout="tooltip.hide();"></div>
-		<div style="text-align:right;"><input type="text" name="returnrate" value="5" class="inhalf inpct" step="0.01"></div>
-	</td>
-</tr>
-<tr>
-	<td colspan="2" align="center" style="padding-top:10px;">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table>
-</form>
-</div><div class="rightresult"><a name="calresult"></a><div class="espaceforM">&nbsp;</div><h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Uk1EIENhbGN1bGF0b3I=', 0, 'Uk1EIENhbGN1bGF0b3I=', '', '');"></h2><p style="padding:10px 0px;" class="bigtext">Your RMD for 2026 is <b>$12,195.12</b>.</p><p>The distribution period for your case is: 24.6.</p><table align="center"><tr><td>RMD =</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">$300000</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">24.6</td></tr></table></td><td>= $12,195.12</td></tr></table><p style="padding-top:10px;">If you only withdraw the RMD at the end of each year and your return rate is 5% per year, your future account balance and RMDs will look like the following.</p><g onclick="ttline2HideTT();"><svg viewBox="0 0 380 160"><style>.mcvsbgrid{stroke:#999;stroke-width:0.5;} .mcvsblegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcvsbtitle{fill: #000; font-family:arial,helvetica,sans-serif; font-size: 15px; dominant-baseline:middle;text-anchor:middle;} .mcvsblabely{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:middle; text-anchor:end;} .mcvsblabelx{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:hanging; text-anchor:middle;} .mcvsbdot:hover {stroke-width:10;} .mcvsbdot {stroke-width:0;}</style><text x="205" y="152" class="mcvsbtitle">Your age</text><line x1="48" y1="125" x2="372" y2="125" class="mcvsbgrid" /><text x="43" y="125" class="mcvsblabely">$0</text><line x1="48" y1="107.853" x2="372" y2="107.853" class="mcvsbgrid" /><text x="43" y="107.853" class="mcvsblabely">$50K</text><line x1="48" y1="90.707" x2="372" y2="90.707" class="mcvsbgrid" /><text x="43" y="90.707" class="mcvsblabely">$100K</text><line x1="48" y1="73.56" x2="372" y2="73.56" class="mcvsbgrid" /><text x="43" y="73.56" class="mcvsblabely">$150K</text><line x1="48" y1="56.413" x2="372" y2="56.413" class="mcvsbgrid" /><text x="43" y="56.413" class="mcvsblabely">$200K</text><line x1="48" y1="39.266" x2="372" y2="39.266" class="mcvsbgrid" /><text x="43" y="39.266" class="mcvsblabely">$250K</text><line x1="48" y1="22.12" x2="372" y2="22.12" class="mcvsbgrid" /><text x="43" y="22.12" class="mcvsblabely">$300K</text><line x1="55.043" y1="125" x2="55.043" y2="129" class="mcvsbgrid" /><text x="51.5215" y="130" class="mcvsblabelx">75</text><line x1="62.087" y1="125" x2="62.087" y2="129" class="mcvsbgrid" /><line x1="69.13" y1="125" x2="69.13" y2="129" class="mcvsbgrid" /><line x1="76.174" y1="125" x2="76.174" y2="129" class="mcvsbgrid" /><line x1="83.217" y1="125" x2="83.217" y2="129" class="mcvsbgrid" /><line x1="90.261" y1="125" x2="90.261" y2="129" class="mcvsbgrid" /><text x="86.7395" y="130" class="mcvsblabelx">80</text><line x1="97.304" y1="125" x2="97.304" y2="129" class="mcvsbgrid" /><line x1="104.348" y1="125" x2="104.348" y2="129" class="mcvsbgrid" /><line x1="111.391" y1="125" x2="111.391" y2="129" class="mcvsbgrid" /><line x1="118.435" y1="125" x2="118.435" y2="129" class="mcvsbgrid" /><line x1="125.478" y1="125" x2="125.478" y2="129" class="mcvsbgrid" /><text x="121.9565" y="130" class="mcvsblabelx">85</text><line x1="132.522" y1="125" x2="132.522" y2="129" class="mcvsbgrid" /><line x1="139.565" y1="125" x2="139.565" y2="129" class="mcvsbgrid" /><line x1="146.609" y1="125" x2="146.609" y2="129" class="mcvsbgrid" /><line x1="153.652" y1="125" x2="153.652" y2="129" class="mcvsbgrid" /><line x1="160.696" y1="125" x2="160.696" y2="129" class="mcvsbgrid" /><text x="157.1745" y="130" class="mcvsblabelx">90</text><line x1="167.739" y1="125" x2="167.739" y2="129" class="mcvsbgrid" /><line x1="174.783" y1="125" x2="174.783" y2="129" class="mcvsbgrid" /><line x1="181.826" y1="125" x2="181.826" y2="129" class="mcvsbgrid" /><line x1="188.87" y1="125" x2="188.87" y2="129" class="mcvsbgrid" /><line x1="195.913" y1="125" x2="195.913" y2="129" class="mcvsbgrid" /><text x="192.3915" y="130" class="mcvsblabelx">95</text><line x1="202.957" y1="125" x2="202.957" y2="129" class="mcvsbgrid" /><line x1="210" y1="125" x2="210" y2="129" class="mcvsbgrid" /><line x1="217.043" y1="125" x2="217.043" y2="129" class="mcvsbgrid" /><line x1="224.087" y1="125" x2="224.087" y2="129" class="mcvsbgrid" /><line x1="231.13" y1="125" x2="231.13" y2="129" class="mcvsbgrid" /><text x="227.6085" y="130" class="mcvsblabelx">100</text><line x1="238.174" y1="125" x2="238.174" y2="129" class="mcvsbgrid" /><line x1="245.217" y1="125" x2="245.217" y2="129" class="mcvsbgrid" /><line x1="252.261" y1="125" x2="252.261" y2="129" class="mcvsbgrid" /><line x1="259.304" y1="125" x2="259.304" y2="129" class="mcvsbgrid" /><line x1="266.348" y1="125" x2="266.348" y2="129" class="mcvsbgrid" /><text x="262.8265" y="130" class="mcvsblabelx">105</text><line x1="273.391" y1="125" x2="273.391" y2="129" class="mcvsbgrid" /><line x1="280.435" y1="125" x2="280.435" y2="129" class="mcvsbgrid" /><line x1="287.478" y1="125" x2="287.478" y2="129" class="mcvsbgrid" /><line x1="294.522" y1="125" x2="294.522" y2="129" class="mcvsbgrid" /><line x1="301.565" y1="125" x2="301.565" y2="129" class="mcvsbgrid" /><text x="298.0435" y="130" class="mcvsblabelx">110</text><line x1="308.609" y1="125" x2="308.609" y2="129" class="mcvsbgrid" /><line x1="315.652" y1="125" x2="315.652" y2="129" class="mcvsbgrid" /><line x1="322.696" y1="125" x2="322.696" y2="129" class="mcvsbgrid" /><line x1="329.739" y1="125" x2="329.739" y2="129" class="mcvsbgrid" /><line x1="336.783" y1="125" x2="336.783" y2="129" class="mcvsbgrid" /><text x="333.2615" y="130" class="mcvsblabelx">115</text><line x1="343.826" y1="125" x2="343.826" y2="129" class="mcvsbgrid" /><line x1="350.87" y1="125" x2="350.87" y2="129" class="mcvsbgrid" /><line x1="357.913" y1="125" x2="357.913" y2="129" class="mcvsbgrid" /><line x1="364.957" y1="125" x2="364.957" y2="129" class="mcvsbgrid" /><line x1="372" y1="125" x2="372" y2="129" class="mcvsbgrid" /><text x="368.4785" y="130" class="mcvsblabelx">120</text><g onmousemove="ttvsbarShowTT(evt, '#888', '75<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $12,195.12 (4%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $302,804.88 (96%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="49.760739130435" y="21.158" width="3.522" height="103.842" fill="#2b7ddb" stroke-width="0" /><rect x="49.760739130435" y="16.976" width="3.522" height="4.182" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '76<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $12,776.58 (4%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $305,168.54 (96%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="56.804217391304" y="20.347" width="3.522" height="104.653" fill="#2b7ddb" stroke-width="0" /><rect x="56.804217391304" y="15.965" width="3.522" height="4.382" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '77<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $13,326.14 (4%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $307,100.83 (96%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="63.847695652174" y="19.685" width="3.522" height="105.315" fill="#2b7ddb" stroke-width="0" /><rect x="63.847695652174" y="15.115" width="3.522" height="4.57" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '78<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $13,959.13 (4%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $308,496.75 (96%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="70.891173913043" y="19.206" width="3.522" height="105.794" fill="#2b7ddb" stroke-width="0" /><rect x="70.891173913043" y="14.419" width="3.522" height="4.787" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '79<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $14,620.70 (5%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $309,300.89 (95%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="77.934652173913" y="18.93" width="3.522" height="106.07" fill="#2b7ddb" stroke-width="0" /><rect x="77.934652173913" y="13.916" width="3.522" height="5.014" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '80<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $15,311.93 (5%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $309,454.01 (95%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="84.978130434783" y="18.878" width="3.522" height="106.122" fill="#2b7ddb" stroke-width="0" /><rect x="84.978130434783" y="13.627" width="3.522" height="5.251" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '81<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $15,951.24 (5%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $308,975.47 (95%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="92.021608695652" y="19.042" width="3.522" height="105.958" fill="#2b7ddb" stroke-width="0" /><rect x="92.021608695652" y="13.572" width="3.522" height="5.47" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '82<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $16,701.38 (5%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $307,722.86 (95%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="99.065086956522" y="19.471" width="3.522" height="105.529" fill="#2b7ddb" stroke-width="0" /><rect x="99.065086956522" y="13.744" width="3.522" height="5.727" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '83<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $17,385.47 (5%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $305,723.54 (95%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="106.10856521739" y="20.157" width="3.522" height="104.843" fill="#2b7ddb" stroke-width="0" /><rect x="106.10856521739" y="14.195" width="3.522" height="5.962" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '84<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $18,197.83 (6%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $302,811.88 (94%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="113.15204347826" y="21.155" width="3.522" height="103.845" fill="#2b7ddb" stroke-width="0" /><rect x="113.15204347826" y="14.914" width="3.522" height="6.241" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '85<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $18,925.74 (6%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $299,026.73 (94%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="120.19552173913" y="22.453" width="3.522" height="102.547" fill="#2b7ddb" stroke-width="0" /><rect x="120.19552173913" y="15.963" width="3.522" height="6.49" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '86<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $19,672.81 (6%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $294,305.26 (94%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="127.239" y="24.073" width="3.522" height="100.927" fill="#2b7ddb" stroke-width="0" /><rect x="127.239" y="17.327" width="3.522" height="6.746" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '87<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $20,437.87 (7%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $288,582.66 (93%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="134.28247826087" y="26.035" width="3.522" height="98.965" fill="#2b7ddb" stroke-width="0" /><rect x="134.28247826087" y="19.026" width="3.522" height="7.009" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '88<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $21,064.43 (7%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $281,947.36 (93%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="141.32595652174" y="28.311" width="3.522" height="96.689" fill="#2b7ddb" stroke-width="0" /><rect x="141.32595652174" y="21.087" width="3.522" height="7.224" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '89<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $21,856.38 (7%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $274,188.35 (93%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="148.36943478261" y="30.971" width="3.522" height="94.029" fill="#2b7ddb" stroke-width="0" /><rect x="148.36943478261" y="23.476" width="3.522" height="7.495" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '90<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $22,474.45 (8%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $265,423.31 (92%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="155.41291304348" y="33.977" width="3.522" height="91.023" fill="#2b7ddb" stroke-width="0" /><rect x="155.41291304348" y="26.27" width="3.522" height="7.707" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '91<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $23,080.29 (8%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $255,614.19 (92%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="162.45639130435" y="37.341" width="3.522" height="87.659" fill="#2b7ddb" stroke-width="0" /><rect x="162.45639130435" y="29.426" width="3.522" height="7.915" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '92<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $23,667.98 (9%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $244,726.92 (91%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="169.49986956522" y="41.075" width="3.522" height="83.925" fill="#2b7ddb" stroke-width="0" /><rect x="169.49986956522" y="32.958" width="3.522" height="8.117" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '93<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,230.39 (9%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $232,732.87 (91%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="176.54334782609" y="45.188" width="3.522" height="79.812" fill="#2b7ddb" stroke-width="0" /><rect x="176.54334782609" y="36.879" width="3.522" height="8.309" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '94<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,498.20 (10%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $219,871.32 (90%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="183.58682608696" y="49.599" width="3.522" height="75.401" fill="#2b7ddb" stroke-width="0" /><rect x="183.58682608696" y="41.198" width="3.522" height="8.401" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '95<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,704.64 (11%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $206,160.24 (89%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="190.63030434783" y="54.301" width="3.522" height="70.699" fill="#2b7ddb" stroke-width="0" /><rect x="190.63030434783" y="45.829" width="3.522" height="8.472" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '96<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,542.89 (11%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $191,925.37 (89%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="197.6737826087" y="59.182" width="3.522" height="65.818" fill="#2b7ddb" stroke-width="0" /><rect x="197.6737826087" y="50.765" width="3.522" height="8.417" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '97<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,605.82 (12%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $176,915.82 (88%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="204.71726086957" y="64.329" width="3.522" height="60.671" fill="#2b7ddb" stroke-width="0" /><rect x="204.71726086957" y="55.891" width="3.522" height="8.438" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '98<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $24,235.04 (13%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $161,526.57 (87%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="211.76073913043" y="69.607" width="3.522" height="55.393" fill="#2b7ddb" stroke-width="0" /><rect x="211.76073913043" y="61.296" width="3.522" height="8.311" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '99<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $23,753.91 (14%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $145,848.99 (86%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="218.8042173913" y="74.983" width="3.522" height="50.017" fill="#2b7ddb" stroke-width="0" /><rect x="218.8042173913" y="66.837" width="3.522" height="8.146" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '100<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $22,788.90 (15%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $130,352.53 (85%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="225.84769565217" y="80.298" width="3.522" height="44.702" fill="#2b7ddb" stroke-width="0" /><rect x="225.84769565217" y="72.483" width="3.522" height="7.815" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '101<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $21,725.42 (16%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $115,144.74 (84%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="232.89117391304" y="85.513" width="3.522" height="39.487" fill="#2b7ddb" stroke-width="0" /><rect x="232.89117391304" y="78.063" width="3.522" height="7.45" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '102<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $20,561.56 (17%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $100,340.42 (83%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="239.93465217391" y="90.59" width="3.522" height="34.41" fill="#2b7ddb" stroke-width="0" /><rect x="239.93465217391" y="83.539" width="3.522" height="7.051" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '103<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $19,296.23 (18%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $86,061.20 (82%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="246.97813043478" y="95.487" width="3.522" height="29.513" fill="#2b7ddb" stroke-width="0" /><rect x="246.97813043478" y="88.87" width="3.522" height="6.617" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '104<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $17,563.51 (19%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $72,800.75 (81%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="254.02160869565" y="100.034" width="3.522" height="24.966" fill="#2b7ddb" stroke-width="0" /><rect x="254.02160869565" y="94.011" width="3.522" height="6.023" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '105<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $15,826.25 (21%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $60,614.54 (79%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="261.06508695652" y="104.213" width="3.522" height="20.787" fill="#2b7ddb" stroke-width="0" /><rect x="261.06508695652" y="98.786" width="3.522" height="5.427" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '106<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $14,096.40 (22%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $49,548.86 (78%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="268.10856521739" y="108.008" width="3.522" height="16.992" fill="#2b7ddb" stroke-width="0" /><rect x="268.10856521739" y="103.174" width="3.522" height="4.834" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '107<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $12,085.09 (23%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $39,941.22 (77%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="275.15204347826" y="111.303" width="3.522" height="13.697" fill="#2b7ddb" stroke-width="0" /><rect x="275.15204347826" y="107.159" width="3.522" height="4.144" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '108<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $10,241.34 (24%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $31,696.94 (76%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="282.19552173913" y="114.13" width="3.522" height="10.87" fill="#2b7ddb" stroke-width="0" /><rect x="282.19552173913" y="110.618" width="3.522" height="3.512" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '109<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $8,566.74 (26%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $24,715.05 (74%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="289.239" y="116.524" width="3.522" height="8.476" fill="#2b7ddb" stroke-width="0" /><rect x="289.239" y="113.586" width="3.522" height="2.938" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '110<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $7,061.44 (27%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $18,889.36 (73%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="296.28247826087" y="118.522" width="3.522" height="6.478" fill="#2b7ddb" stroke-width="0" /><rect x="296.28247826087" y="116.1" width="3.522" height="2.422" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '111<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $5,555.69 (28%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $14,278.13 (72%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="303.32595652174" y="120.104" width="3.522" height="4.896" fill="#2b7ddb" stroke-width="0" /><rect x="303.32595652174" y="118.199" width="3.522" height="1.905" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '112<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $4,326.71 (29%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $10,665.33 (71%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="310.36943478261" y="121.342" width="3.522" height="3.658" fill="#2b7ddb" stroke-width="0" /><rect x="310.36943478261" y="119.858" width="3.522" height="1.484" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '113<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $3,440.43 (31%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $7,758.17 (69%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="317.41291304348" y="122.339" width="3.522" height="2.661" fill="#2b7ddb" stroke-width="0" /><rect x="317.41291304348" y="121.159" width="3.522" height="1.18" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '114<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $2,586.06 (32%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $5,560.02 (68%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="324.45639130435" y="123.093" width="3.522" height="1.907" fill="#2b7ddb" stroke-width="0" /><rect x="324.45639130435" y="122.206" width="3.522" height="0.887" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '115<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $1,917.25 (33%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $3,920.77 (67%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="331.49986956522" y="123.655" width="3.522" height="1.345" fill="#2b7ddb" stroke-width="0" /><rect x="331.49986956522" y="122.998" width="3.522" height="0.657" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '116<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $1,400.28 (34%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $2,716.54 (66%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="338.54334782609" y="124.068" width="3.522" height="0.932" fill="#2b7ddb" stroke-width="0" /><rect x="338.54334782609" y="123.588" width="3.522" height="0.48" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '117<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $1,006.12 (35%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $1,846.24 (65%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="345.58682608696" y="124.367" width="3.522" height="0.633" fill="#2b7ddb" stroke-width="0" /><rect x="345.58682608696" y="124.022" width="3.522" height="0.345" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '118<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $738.50 (38%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $1,200.05 (62%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="352.63030434783" y="124.588" width="3.522" height="0.412" fill="#2b7ddb" stroke-width="0" /><rect x="352.63030434783" y="124.335" width="3.522" height="0.253" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '119<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $521.76 (41%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $738.29 (59%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="359.6737826087" y="124.747" width="3.522" height="0.253" fill="#2b7ddb" stroke-width="0" /><rect x="359.6737826087" y="124.568" width="3.522" height="0.179" fill="#8bbc21" stroke-width="0" /></g><g onmousemove="ttvsbarShowTT(evt, '#888', '120<div style=\'margin: 2px 0px; border-left: 10px solid #8bbc21;\'> &nbsp;RMD: $369.15 (48%)</div><div style=\'margin: 2px 0px; border-left: 10px solid #2b7ddb;\'> &nbsp;Balance: $406.06 (52%)</div>');" onmouseout="ttvsbarHideTT();"><rect x="366.71726086957" y="124.861" width="3.522" height="0.139" fill="#2b7ddb" stroke-width="0" /><rect x="366.71726086957" y="124.734" width="3.522" height="0.127" fill="#8bbc21" stroke-width="0" /></g><line x1="48" y1="125" x2="372" y2="125" style="stroke:#666;stroke-width:0.5;" /><rect x="285" y="17" width="20" height="6" style="fill:#2b7ddb;" /><text x="310" y="24" class="mcvsblegend">Balance</text><rect x="285" y="35" width="20" height="6" style="fill:#8bbc21;" /><text x="310" y="42" class="mcvsblegend">RMD</text></svg><script> function ttvsbarShowTT(evt, color, text) { let tooltip = document.getElementById("ttvsbartt"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttvsbarHideTT() { var tooltip = document.getElementById("ttvsbartt"); tooltip.style.display = "none"; }</script><style>#ttvsbartt {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttvsbartt div{font-size:13px;color:#fff;}</style><div id="ttvsbartt" style="position: absolute; display: none;text-align:left;"></div></g></div><div id="clear"></div><table class="cinfoT" align="center"><tr align="center"><td class="cinfoHd">Year</td><td class="cinfoHdL">Your Age</td><td class="cinfoHdL">Distribution period</td><td class="cinfoHdL">RMD</td><td class="cinfoHdL">End of Year Balance</td></tr><tr><td>2026</td><td align="center">75</td><td align="center">24.6</td><td align="right">$12,195.12</td><td align="right">$302,804.88</td></tr><tr><td>2027</td><td align="center">76</td><td align="center">23.7</td><td align="right">$12,776.58</td><td align="right">$305,168.54</td></tr><tr><td>2028</td><td align="center">77</td><td align="center">22.9</td><td align="right">$13,326.14</td><td align="right">$307,100.83</td></tr><tr><td>2029</td><td align="center">78</td><td align="center">22</td><td align="right">$13,959.13</td><td align="right">$308,496.75</td></tr><tr><td>2030</td><td align="center">79</td><td align="center">21.1</td><td align="right">$14,620.70</td><td align="right">$309,300.89</td></tr><tr><td>2031</td><td align="center">80</td><td align="center">20.2</td><td align="right">$15,311.93</td><td align="right">$309,454.01</td></tr><tr><td>2032</td><td align="center">81</td><td align="center">19.4</td><td align="right">$15,951.24</td><td align="right">$308,975.47</td></tr><tr><td>2033</td><td align="center">82</td><td align="center">18.5</td><td align="right">$16,701.38</td><td align="right">$307,722.86</td></tr><tr><td>2034</td><td align="center">83</td><td align="center">17.7</td><td align="right">$17,385.47</td><td align="right">$305,723.54</td></tr><tr><td>2035</td><td align="center">84</td><td align="center">16.8</td><td align="right">$18,197.83</td><td align="right">$302,811.88</td></tr><tr><td>2036</td><td align="center">85</td><td align="center">16</td><td align="right">$18,925.74</td><td align="right">$299,026.73</td></tr><tr><td>2037</td><td align="center">86</td><td align="center">15.2</td><td align="right">$19,672.81</td><td align="right">$294,305.26</td></tr><tr><td>2038</td><td align="center">87</td><td align="center">14.4</td><td align="right">$20,437.87</td><td align="right">$288,582.66</td></tr><tr><td>2039</td><td align="center">88</td><td align="center">13.7</td><td align="right">$21,064.43</td><td align="right">$281,947.36</td></tr><tr><td>2040</td><td align="center">89</td><td align="center">12.9</td><td align="right">$21,856.38</td><td align="right">$274,188.35</td></tr><tr><td>2041</td><td align="center">90</td><td align="center">12.2</td><td align="right">$22,474.45</td><td align="right">$265,423.31</td></tr><tr><td>2042</td><td align="center">91</td><td align="center">11.5</td><td align="right">$23,080.29</td><td align="right">$255,614.19</td></tr><tr><td>2043</td><td align="center">92</td><td align="center">10.8</td><td align="right">$23,667.98</td><td align="right">$244,726.92</td></tr><tr><td>2044</td><td align="center">93</td><td align="center">10.1</td><td align="right">$24,230.39</td><td align="right">$232,732.87</td></tr><tr><td>2045</td><td align="center">94</td><td align="center">9.5</td><td align="right">$24,498.20</td><td align="right">$219,871.32</td></tr><tr><td>2046</td><td align="center">95</td><td align="center">8.9</td><td align="right">$24,704.64</td><td align="right">$206,160.24</td></tr><tr><td>2047</td><td align="center">96</td><td align="center">8.4</td><td align="right">$24,542.89</td><td align="right">$191,925.37</td></tr><tr><td>2048</td><td align="center">97</td><td align="center">7.8</td><td align="right">$24,605.82</td><td align="right">$176,915.82</td></tr><tr><td>2049</td><td align="center">98</td><td align="center">7.3</td><td align="right">$24,235.04</td><td align="right">$161,526.57</td></tr><tr><td>2050</td><td align="center">99</td><td align="center">6.8</td><td align="right">$23,753.91</td><td align="right">$145,848.99</td></tr><tr><td>2051</td><td align="center">100</td><td align="center">6.4</td><td align="right">$22,788.90</td><td align="right">$130,352.53</td></tr><tr><td>2052</td><td align="center">101</td><td align="center">6</td><td align="right">$21,725.42</td><td align="right">$115,144.74</td></tr><tr><td>2053</td><td align="center">102</td><td align="center">5.6</td><td align="right">$20,561.56</td><td align="right">$100,340.42</td></tr><tr><td>2054</td><td align="center">103</td><td align="center">5.2</td><td align="right">$19,296.23</td><td align="right">$86,061.20</td></tr><tr><td>2055</td><td align="center">104</td><td align="center">4.9</td><td align="right">$17,563.51</td><td align="right">$72,800.75</td></tr><tr><td>2056</td><td align="center">105</td><td align="center">4.6</td><td align="right">$15,826.25</td><td align="right">$60,614.54</td></tr><tr><td>2057</td><td align="center">106</td><td align="center">4.3</td><td align="right">$14,096.40</td><td align="right">$49,548.86</td></tr><tr><td>2058</td><td align="center">107</td><td align="center">4.1</td><td align="right">$12,085.09</td><td align="right">$39,941.22</td></tr><tr><td>2059</td><td align="center">108</td><td align="center">3.9</td><td align="right">$10,241.34</td><td align="right">$31,696.94</td></tr><tr><td>2060</td><td align="center">109</td><td align="center">3.7</td><td align="right">$8,566.74</td><td align="right">$24,715.05</td></tr><tr><td>2061</td><td align="center">110</td><td align="center">3.5</td><td align="right">$7,061.44</td><td align="right">$18,889.36</td></tr><tr><td>2062</td><td align="center">111</td><td align="center">3.4</td><td align="right">$5,555.69</td><td align="right">$14,278.13</td></tr><tr><td>2063</td><td align="center">112</td><td align="center">3.3</td><td align="right">$4,326.71</td><td align="right">$10,665.33</td></tr><tr><td>2064</td><td align="center">113</td><td align="center">3.1</td><td align="right">$3,440.43</td><td align="right">$7,758.17</td></tr><tr><td>2065</td><td align="center">114</td><td align="center">3</td><td align="right">$2,586.06</td><td align="right">$5,560.02</td></tr><tr><td>2066</td><td align="center">115</td><td align="center">2.9</td><td align="right">$1,917.25</td><td align="right">$3,920.77</td></tr><tr><td>2067</td><td align="center">116</td><td align="center">2.8</td><td align="right">$1,400.28</td><td align="right">$2,716.54</td></tr><tr><td>2068</td><td align="center">117</td><td align="center">2.7</td><td align="right">$1,006.12</td><td align="right">$1,846.24</td></tr><tr><td>2069</td><td align="center">118</td><td align="center">2.5</td><td align="right">$738.50</td><td align="right">$1,200.05</td></tr><tr><td>2070</td><td align="center">119</td><td align="center">2.3</td><td align="right">$521.76</td><td align="right">$738.29</td></tr><tr><td>2071</td><td align="center">120</td><td align="center">2</td><td align="right">$369.15</td><td align="right">$406.06</td></tr></table><p><fieldset><legend>Related</legend><a href="/retirement-calculator.html">Retirement Calculator</a> | <a href="/401k-calculator.html">401K Calculator</a> | <a href="/ira-calculator.html">IRA Calculator</a></fieldset></p>
-<script>
-function updateBalanceYear(yearVal){
-	let tempY = (parseInt(yearVal+"")-1);
-	if (isNaN(tempY)||tempY<2000||tempY>2100){
-		document.getElementById('accountbalancetime').innerHTML  = 'Account balance as of 12/31 last year';
-	}else{
-		document.getElementById('accountbalancetime').innerHTML  = 'Account balance as of 12/31/'+tempY;
-	}
-}
-updateBalanceYear("2026");
-function shSpouseDob(shsdVal){
-	if (shsdVal=="y"){
-		document.getElementById("spousedob").style.display = 'block';
-	}else{
-		document.getElementById("spousedob").style.display = 'none';
-	}
-}
-shSpouseDob("y");
-
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("abalance");
-</script>
-<br>
-<h3>RMDs: Required Minimum Distributions</h3>
-<p>A required minimum distribution (RMD) is the minimum amount the IRS mandates you to withdraw from certain tax-deferred retirement accounts. The specific amount varies based on your account balance and life expectancy as determined by the IRS. As you withdraw your RMD, you will also pay taxes. (Note that RMDs are just that: required minimum distributions. So, if you need to pull more money from your accounts after reaching retirement age, you can.)</p>
-
-<h3>Important Dates for Taking RMDs</h3>
-<p>You're required to take your first RMD by April 1<sup>st</sup> in the calendar year after you turn 73. This age was increased from 72 due to the passage of the SECURE Act 2.0 in December 2022. It is scheduled to increase again to 75 in 2033. Prior to 2019, the RMD age was 70.5. It was then increased to 72 due to the passage of the SECURE Act in 2019.</p>
-<p>Technically RMDs are due every December 31, but the IRS allows you to delay the first withdrawal. If you take this route, you'll have to take a second RMD before December 31. Taking two RMDs in one year creates two taxable events &ndash; and might even push you into a higher tax bracket.</p>
-<p>For every calendar year after you take a distribution, you have to withdraw your entire RMD by December 31. This deadline offers flexibility in determining when and how much you withdraw (as long as you meet your RMD amount by the end of the year).</p>
-<p>Example:</p>
-<p>After turning 73 in 2026, you can take your first RMD in 2026 or delay it until April 1<sup>st</sup> of 2027. You still need to take your second RMD by December 31, 2027, and withdraw RMDs every calendar year after that by December 31.</p>
-
-<h4>How to Delay RMD Deadlines</h4>
-<p>The IRS gives retirees a break after they turn 73 by allowing you to delay your first withdrawal until April 1 of the next year. Another way to delay your RMD is by continuing employment at the company that sponsors your retirement account after your 73<sup>rd</sup> birthday. Assuming you own less than 5% of the company in question, you can delay your first RMD until retirement.</p>
-<p>That said, you'll still have to take RMDs from any other retirement accounts you have, such as IRA account. And once you leave the company, the RMD mandate kicks in for that account, too.</p>
-
-<h3>How RMDs are Calculated</h3>
-<p>Calculating your RMD follows these steps based on IRS guidelines</p>
-<ol>
-	<li>Determine the individual retirement account balance as of December 31 of the prior year</li>
-	<li>Find the distribution period (or "life expectancy") that corresponds to your age on the appropriate IRS table</li>
-	<li>Divide #1 by #2 to determine your RMD amount</li>
-</ol>
-<p>However, the exact IRS table you'll need depends on your marital or inheritance situation. (You can find these life expectancy tables in the IRS's Publication 590-B; we've also included them below.)</p>
-<p>If you're...</p>
-<ul>
-	<li>Married to a spouse less than ten years younger than you: You'll use the IRS Uniform Lifetime Table.</li>
-	<li>Married to a spouse over ten years younger and they're your sole beneficiary: You'll use the IRS Joint Life and Last Survivor Expectancy Table instead.</li>
-</ul>
-<p>While this method makes it possible to calculate your RMD by hand, our RMD calculator simplifies the process even more. Just input the required information and we'll do the hard work for you!</p>
-
-<h3>What Retirement Accounts do RMDs Apply to?</h3>
-<p>Most tax-advantaged and defined contribution retirement accounts impose RMD requirements. These include:</p>
-<ul>
-	<li>Traditional IRAs</li>
-	<li>SEP IRAs</li>
-	<li>SIMPLE IRAs</li>
-	<li>Rollover IRAs</li>
-	<li>Traditional 401(k) plans</li>
-	<li>Most 403(b) and 457(b) plans</li>
-	<li>Variable annuities held in an IRA ("qualified annuities")</li>
-	<li>Profit-sharing plans</li>
-	<li>Small business retirement accounts</li>
-</ul>
-<p>A notable exception is for Roth IRAs, which don't require RMDs typically until the owner dies, as these are funded with after-tax dollars. (We'll explore potential exceptions below, including inherited IRAs. But generally, any accounts inherited from a spouse follow the same rules. Accounts inherited from someone other than a spouse follow different guidelines.)</p>
-
-<h3>Do I Have to Calculate My RMD for Every Account?</h3>
-<p>Yes. If you have several retirement accounts, like multiple traditional IRAs and 403(b)s from different employers, you'll need to calculate your RMDs for each account individually.</p>
-<p>However, you may be able to combine your total RMD from the same type of account and withdraw a consolidated distribution from one or more accounts (again of the same type). Depending on your plan, you have the following options:</p>
-<ul>
-	<li>Traditional IRAs require you to calculate your RMDs separately, but you can withdraw the total amount from one or several traditional IRA accounts.</li>
-	<li>401(k)s require you to calculate and withdraw your RMDs separately for each account.</li>
-	<li>403(b)s require you to calculate your RMDs separately, but you can withdraw the total amount from one or several 403(b) accounts.</li>
-	<li>Inherited retirement accounts inherited from different people cannot be combined, though you can combine multiple from the same person.</li>
-</ul>
-<p>Unfortunately, taking withdrawals from a Roth IRA never satisfies RMD requirements, because those withdrawals aren't taxed. Additionally, pulling out more than your required minimum distribution doesn't reduce your RMD load for future years.</p>
-
-<h3>What Happens If You Don't Take RMDs?</h3>
-<p>As the "R" in RMD stands for "required," it's no surprise that there are penalties for failing to take your distributions.</p>
-<p>To encourage retirees to take their distributions, the IRS charges a 25% excise tax on the undistributed amount. If the mistake is corrected during a two-year "correction window", the penalty can be further reduced to 10%. So, if you fall short of your annual RMD by $1,000, $250 of the shortfall will incur a tax, payable to the IRS, as a penalty.</p>
-<p>But remember that you don't have to take your RMD on a specific schedule. The IRS only demands that you meet your annual withdrawal requirement by December 31 of each year. That offers flexibility in taking monthly or lump-sum withdrawals, as long as they add up to the annual minimum.</p>
-
-<h3>RMDs and Taxes</h3>
-<p>The IRS enforces RMDs to ensure that taxpayers don't skip out on their obligations. Since the money in these accounts has been tax-deferred for decades, Uncle Sam hasn't taken his cut. By taking RMDs, you create a "taxable event." (Withdrawals from Roth accounts generally aren't taxed, because you paid taxes on contributed dollars instead.)</p>
-<p>Generally, RMDs are taxed as ordinary income at the state and federal levels. In other words, withdrawals count toward your total taxable income for the year in question. But be careful: if you're working or withdrawing from other accounts, RMDs may push you into a higher tax bracket.</p>
-
-<h3>Brokerage Reporting Requirements for RMDs</h3>
-<p>The IRS requires that brokerage firms, custodians, and trustees offer to calculate RMDs for accountholders. That requirement extends to administrators of employer-sponsored plans like 401(k)s.</p>
-<p>However, the IRS also stipulates that RMD calculations and withdrawals are ultimately the taxpayer's responsibility.</p>
-<p>That means if your brokerage or custodian makes a mistake, you can still be held liable for any penalties. And though it's possible to get penalties waived if the shortfall occurs due to "reasonable errors," there's no guarantee.</p>
-<p>That's why we recommend calculating your own RMDs for each account, each year &ndash; just to be on the safe side.</p>
-
-<h3>Inherited RMDs</h3>
-<p>When you inherit a retirement account that has RMDs like an IRA, the rules vary based on your relationship with the original owner or the type of account.</p>
-
-<h4>Ten Year Distribution Rule</h4>
-<p>Post-2019, non-spouse beneficiaries must distribute the full amount of the IRA within ten years after the original accountholder's death. The SECURE Act of 2019 mostly eliminated the option for non-spouse IRA inheritors to stretch IRA withdrawals based on their own life expectancy.</p>
-<p>However, exceptions exist for eligible designated beneficiaries:</p>
-<ul>
-	<li>Surviving spouses (covered above)</li>
-	<li>Minor children</li>
-	<li>Disabled or chronically ill persons</li>
-	<li>Persons less than ten years younger than the original account owner</li>
-</ul>
-<p>Generally, these individuals may delay or stretch RMDs, though the length of time varies.</p>
-
-<h4>Inheriting IRAs as a Spouse</h4>
-<p>Spouses who inherit a deceased partner's IRA may roll the funds into their own IRA to keep saving.</p>
-<p>Alternatively, spouses can roll the funds into an Inherited IRA, which comes with its own distribution rules. As a spouse using an Inherited IRA, you can:</p>
-<ul>
-	<li>Delay RMDs until December 31 of the year after your spouse's death if they were over 72</li>
-	<li>Delay RMDs until your spouse would have turned 72 if they were under 72</li>
-</ul>
-
-<h4>Inheriting Roth IRAs as a Spouse</h4>
-<p>Roth IRAs come with several tax-advantaged perks &ndash; one of which is that you don't have to take RMDs upon retirement. However, that benefit changes when you die and someone else inherits your assets.</p>
-<p>Spouses can assume inherited Roth IRAs as their own without minimum distribution requirements. For most spouses, that means rolling over the inherited account to themselves quickly is the best course forward.</p>
-
-<h4>Inheriting Roth IRAs as a Non-Spouse</h4>
-<p>Unfortunately, non-spouse Roth IRA inheritors aren't as lucky. If you inherit a Roth IRA from a non-spouse, you're required to follow the SECURE Act's ten-year rule.</p>
-
-<h4>Inherited 401(k) RMD Rules</h4>
-<p>The rules are also different for inheriting a deceased person's 401(k). Because these get complicated fast, it's often wise to hire a financial advisor or an attorney specializing in inheritance laws to navigate these situations.</p>
-<p>By law, 401(k) beneficiaries are required to be spouses unless the employee is single or the spouse signs a waiver. If you inherit a 401(k), you may be able to leave funds within the plan, be required to remove the funds immediately, or take distributions over five years, depending on the plan's policies.</p>
-<p>Another option is to roll 401(k) assets into an Inherited IRA, in which case the above RMD rules apply.</p>
-<p>However, these are just generalizations. State laws and company policies can all affect 401(k) inheritance rules. For larger estates, certain tax laws also impact inheritances and distributions.</p>
-
-<h3>Minimizing Taxes on RMDs</h3>
-<p>If you want to avoid getting taxed on required distributions, you might consider Roth IRAs and Roth 401(k)s accounts. Both tax contributed funds upfront, meaning there are rarely back-end taxes to worry about. While Roth 401(k)s technically require RMDs, you can rollover that 401(k) to a Roth IRA, which eliminates RMDs altogether.</p>
-<p>Another way to minimize the tax impact of RMDs is a qualified charitable distribution (QCD), which means donating your entire RMD to charity. QCDs satisfy your RMD and lower your tax bill while benefiting charity.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance</title>
+	<meta name="description" content="Free RMD calculator for 2026. Enter your birth year and account balance to find your Required Minimum Distribution, see future RMDs, and get answers to common IRS RMD questions.">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preconnect" href="https://www.adxcal.com">
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<script src="/js/common.js" async></script>
+
+	<!-- Structured data: Calculator app -->
+	
+
+	<!-- Structured data: Breadcrumbs -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance","url":"https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html","description":"Free RMD calculator for 2026. Enter your birth year and account balance to find your Required Minimum Distribution, see future RMDs, and get answers to common IRS RMD questions.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance","item":"https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html"}]}</script>
+
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance">
+<meta property="og:description" content="Free RMD calculator for 2026. Enter your birth year and account balance to find your Required Minimum Distribution, see future RMDs, and get answers to common IRS RMD questions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance">
+<meta name="twitter:description" content="Free RMD calculator for 2026. Enter your birth year and account balance to find your Required Minimum Distribution, see future RMDs, and get answers to common IRS RMD questions.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance","url":"https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html","description":"Free RMD calculator for 2026. Enter your birth year and account balance to find your Required Minimum Distribution, see future RMDs, and get answers to common IRS RMD questions.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"RMD Calculator 2026: Required Minimum Distribution by Age &amp; Balance","item":"https://calculator.bhuvanesh-s3602.workers.dev/rmd-calculator.html"}]}</script></head>
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+<div id="clear"></div>
+
+<div id="contentout">
+<div id="content">
+
+	<nav id="breadcrumbs" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/financial-calculator.html">financial</a> / <a href="/rmd-calculator.html" aria-current="page">rmd calculator</a></nav>
+
+	<main>
+	<h1>RMD Calculator</h1>
+
+	<p>Once a person reaches the age of 73, the IRS requires retirement account holders to withdraw a minimum amount of money each year &ndash; this amount is referred to as the Required Minimum Distribution (RMD). This calculator calculates the RMD depending on your age and account balance. The calculations are based on the IRS Publication 590-B, so the calculator is intended for residents of the United States only.</p>
+
+	<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+	<div class="leftinput">
+	<form name="calform" action="/rmd-calculator.html#calresult" method="get">
+	<table id="calinputtable" class="panel" cellpadding="2" align="center">
+		<tr>
+			<td><label for="birthdate">Your year of birth</label></td>
+			<td align="right"><input type="number" name="birthdate" id="birthdate" value="1951" min="1900" max="2100" class="inhalf"></td>
+		</tr>
+		<tr>
+			<td><label for="rmdyear">Year of RMD</label> <img class="ttimg" width="16" height="16" alt="Help" src="/img/svg/help.svg" onmouseover="tooltip.show('The year the Required Minimum Distribution (RMD) to be made.', '');" onmouseout="tooltip.hide();"></td>
+			<td align="right"><select name="rmdyear" id="rmdyear" class="inhalf" onChange="updateBalanceYear(this.value);">
+				<option value="2027">2027</option><option value="2026" selected>2026</option><option value="2025">2025</option><option value="2024">2024</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div style="padding-top:16px;"><label for="abalance" id="accountbalancetime">Account balance as of 12/31 last year</label></div>
+				<div style="text-align:right;"><input type="text" name="abalance" id="abalance" value="300000" class="inhalf indollar" step="0.01" inputmode="decimal"></div>
+
+				<div style="padding-top:16px;" id="spblabel">Is your spouse the primary beneficiary?</div>
+				<div style="text-align:right;" role="radiogroup" aria-labelledby="spblabel">
+					<label for="spb1" class="cbcontainer"><input type="radio" name="spb" id="spb1" value="y" checked onClick="shSpouseDob('y');"/><span class="rbmark"></span>Yes</label> &nbsp;
+					<label for="spb2" class="cbcontainer"><input type="radio" name="spb" id="spb2" value="n" onClick="shSpouseDob('n');"/><span class="rbmark"></span>No</label>
+				</div>
+
+				<div id="spousedob">
+					<div style="padding-top:16px;"><label for="spousedobin">Your spouse's year of birth</label></div>
+					<div style="text-align:right;"><input type="number" name="spousedob" id="spousedobin" value="1953" min="1900" max="2100" class="inhalf"></div>
+				</div>
+
+				<div style="padding-top:16px;"><label for="returnrate">Estimated rate of return (Optional)</label> <img class="ttimg" width="16" height="16" alt="Help" src="/img/svg/help.svg" onmouseover="tooltip.show('The average annual return of your retirement account. If provided, it will be used to predict your future Required Minimum Distribution amount.', '');" onmouseout="tooltip.hide();"></div>
+				<div style="text-align:right;"><input type="text" name="returnrate" id="returnrate" value="5" class="inhalf inpct" step="0.01" inputmode="decimal"></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" style="padding-top:10px;">
+				<input type="submit" name="x" value="Calculate">
+				<input type="button" value="Clear" onClick="clearForm(document.calform);">
+			</td>
+		</tr>
+	</table>
+	</form>
+	</div>
+
+	<section class="rightresult" aria-live="polite">
+		<a name="calresult" id="calresult"></a>
+		<div class="espaceforM">&nbsp;</div>
+		<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" alt="Save this calculation" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('Uk1EIENhbGN1bGF0b3I=', 0, 'Uk1EIENhbGN1bGF0b3I=', '', '');"></h2>
+
+		<!--
+			SERVER-RENDERED RESULT BLOCK: keep your existing dynamic output here, unchanged
+			(RMD amount, distribution period, formula table, SVG chart, yearly table).
+			Only recommended tweak: add <caption>RMD and balance projection by year</caption>
+			as the first child of the yearly <table class="cinfoT"> and scope="col" on its header cells.
+		-->
+	</section>
+
+	<div id="clear"></div>
+
+	<nav aria-label="Related calculators">
+		<fieldset><legend>Related</legend><a href="/retirement-calculator.html">Retirement Calculator</a> | <a href="/401k-calculator.html">401K Calculator</a> | <a href="/ira-calculator.html">IRA Calculator</a></fieldset>
+	</nav>
+
+	<script>
+	function updateBalanceYear(yearVal){
+		let tempY = (parseInt(yearVal+"")-1);
+		if (isNaN(tempY)||tempY<2000||tempY>2100){
+			document.getElementById('accountbalancetime').innerHTML  = 'Account balance as of 12/31 last year';
+		}else{
+			document.getElementById('accountbalancetime').innerHTML  = 'Account balance as of 12/31/'+tempY;
+		}
+	}
+	updateBalanceYear("2026");
+	function shSpouseDob(shsdVal){
+		if (shsdVal=="y"){
+			document.getElementById("spousedob").style.display = 'block';
+		}else{
+			document.getElementById("spousedob").style.display = 'none';
+		}
+	}
+	shSpouseDob("y");
+
+	function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+	function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+	proComma2("abalance");
+	</script>
+
+	<article>
+	<h3>RMDs: Required Minimum Distributions</h3>
+	<p>A required minimum distribution (RMD) is the minimum amount the IRS mandates you to withdraw from certain tax-deferred retirement accounts. The specific amount varies based on your account balance and life expectancy as determined by the IRS. As you withdraw your RMD, you will also pay taxes. (Note that RMDs are just that: required minimum distributions. So, if you need to pull more money from your accounts after reaching retirement age, you can.)</p>
+
+	<h3>Important Dates for Taking RMDs</h3>
+	<p>You're required to take your first RMD by April 1<sup>st</sup> in the calendar year after you turn 73. This age was increased from 72 due to the passage of the SECURE Act 2.0 in December 2022. It is scheduled to increase again to 75 in 2033. Prior to 2019, the RMD age was 70.5. It was then increased to 72 due to the passage of the SECURE Act in 2019.</p>
+	<p>Technically RMDs are due every December 31, but the IRS allows you to delay the first withdrawal. If you take this route, you'll have to take a second RMD before December 31. Taking two RMDs in one year creates two taxable events &ndash; and might even push you into a higher tax bracket.</p>
+	<p>For every calendar year after you take a distribution, you have to withdraw your entire RMD by December 31. This deadline offers flexibility in determining when and how much you withdraw (as long as you meet your RMD amount by the end of the year).</p>
+	<p>Example:</p>
+	<p>After turning 73 in 2026, you can take your first RMD in 2026 or delay it until April 1<sup>st</sup> of 2027. You still need to take your second RMD by December 31, 2027, and withdraw RMDs every calendar year after that by December 31.</p>
+
+	<h4>How to Delay RMD Deadlines</h4>
+	<p>The IRS gives retirees a break after they turn 73 by allowing you to delay your first withdrawal until April 1 of the next year. Another way to delay your RMD is by continuing employment at the company that sponsors your retirement account after your 73<sup>rd</sup> birthday. Assuming you own less than 5% of the company in question, you can delay your first RMD until retirement.</p>
+	<p>That said, you'll still have to take RMDs from any other retirement accounts you have, such as IRA account. And once you leave the company, the RMD mandate kicks in for that account, too.</p>
+
+	<h3>How RMDs are Calculated</h3>
+	<p>Calculating your RMD follows these steps based on IRS guidelines</p>
+	<ol>
+		<li>Determine the individual retirement account balance as of December 31 of the prior year</li>
+		<li>Find the distribution period (or "life expectancy") that corresponds to your age on the appropriate IRS table</li>
+		<li>Divide #1 by #2 to determine your RMD amount</li>
+	</ol>
+	<p>However, the exact IRS table you'll need depends on your marital or inheritance situation. (You can find these life expectancy tables in the IRS's Publication 590-B; we've also included them below.)</p>
+	<p>If you're...</p>
+	<ul>
+		<li>Married to a spouse less than ten years younger than you: You'll use the IRS Uniform Lifetime Table.</li>
+		<li>Married to a spouse over ten years younger and they're your sole beneficiary: You'll use the IRS Joint Life and Last Survivor Expectancy Table instead.</li>
+	</ul>
+	<p>While this method makes it possible to calculate your RMD by hand, our RMD calculator simplifies the process even more. Just input the required information and we'll do the hard work for you!</p>
+
+	<h3>What Retirement Accounts do RMDs Apply to?</h3>
+	<p>Most tax-advantaged and defined contribution retirement accounts impose RMD requirements. These include:</p>
+	<ul>
+		<li>Traditional IRAs</li>
+		<li>SEP IRAs</li>
+		<li>SIMPLE IRAs</li>
+		<li>Rollover IRAs</li>
+		<li>Traditional 401(k) plans</li>
+		<li>Most 403(b) and 457(b) plans</li>
+		<li>Variable annuities held in an IRA ("qualified annuities")</li>
+		<li>Profit-sharing plans</li>
+		<li>Small business retirement accounts</li>
+	</ul>
+	<p>A notable exception is for Roth IRAs, which don't require RMDs typically until the owner dies, as these are funded with after-tax dollars. (We'll explore potential exceptions below, including inherited IRAs. But generally, any accounts inherited from a spouse follow the same rules. Accounts inherited from someone other than a spouse follow different guidelines.)</p>
+
+	<h3>Do I Have to Calculate My RMD for Every Account?</h3>
+	<p>Yes. If you have several retirement accounts, like multiple traditional IRAs and 403(b)s from different employers, you'll need to calculate your RMDs for each account individually.</p>
+	<p>However, you may be able to combine your total RMD from the same type of account and withdraw a consolidated distribution from one or more accounts (again of the same type). Depending on your plan, you have the following options:</p>
+	<ul>
+		<li>Traditional IRAs require you to calculate your RMDs separately, but you can withdraw the total amount from one or several traditional IRA accounts.</li>
+		<li>401(k)s require you to calculate and withdraw your RMDs separately for each account.</li>
+		<li>403(b)s require you to calculate your RMDs separately, but you can withdraw the total amount from one or several 403(b) accounts.</li>
+		<li>Inherited retirement accounts inherited from different people cannot be combined, though you can combine multiple from the same person.</li>
+	</ul>
+	<p>Unfortunately, taking withdrawals from a Roth IRA never satisfies RMD requirements, because those withdrawals aren't taxed. Additionally, pulling out more than your required minimum distribution doesn't reduce your RMD load for future years.</p>
+
+	<h3>What Happens If You Don't Take RMDs?</h3>
+	<p>As the "R" in RMD stands for "required," it's no surprise that there are penalties for failing to take your distributions.</p>
+	<p>To encourage retirees to take their distributions, the IRS charges a 25% excise tax on the undistributed amount. If the mistake is corrected during a two-year "correction window", the penalty can be further reduced to 10%. So, if you fall short of your annual RMD by $1,000, $250 of the shortfall will incur a tax, payable to the IRS, as a penalty.</p>
+	<p>But remember that you don't have to take your RMD on a specific schedule. The IRS only demands that you meet your annual withdrawal requirement by December 31 of each year. That offers flexibility in taking monthly or lump-sum withdrawals, as long as they add up to the annual minimum.</p>
+
+	<h3>RMDs and Taxes</h3>
+	<p>The IRS enforces RMDs to ensure that taxpayers don't skip out on their obligations. Since the money in these accounts has been tax-deferred for decades, Uncle Sam hasn't taken his cut. By taking RMDs, you create a "taxable event." (Withdrawals from Roth accounts generally aren't taxed, because you paid taxes on contributed dollars instead.)</p>
+	<p>Generally, RMDs are taxed as ordinary income at the state and federal levels. In other words, withdrawals count toward your total taxable income for the year in question. But be careful: if you're working or withdrawing from other accounts, RMDs may push you into a higher tax bracket.</p>
+
+	<h3>Brokerage Reporting Requirements for RMDs</h3>
+	<p>The IRS requires that brokerage firms, custodians, and trustees offer to calculate RMDs for accountholders. That requirement extends to administrators of employer-sponsored plans like 401(k)s.</p>
+	<p>However, the IRS also stipulates that RMD calculations and withdrawals are ultimately the taxpayer's responsibility.</p>
+	<p>That means if your brokerage or custodian makes a mistake, you can still be held liable for any penalties. And though it's possible to get penalties waived if the shortfall occurs due to "reasonable errors," there's no guarantee.</p>
+	<p>That's why we recommend calculating your own RMDs for each account, each year &ndash; just to be on the safe side.</p>
+
+	<h3>Inherited RMDs</h3>
+	<p>When you inherit a retirement account that has RMDs like an IRA, the rules vary based on your relationship with the original owner or the type of account.</p>
+
+	<h4>Ten Year Distribution Rule</h4>
+	<p>Post-2019, non-spouse beneficiaries must distribute the full amount of the IRA within ten years after the original accountholder's death. The SECURE Act of 2019 mostly eliminated the option for non-spouse IRA inheritors to stretch IRA withdrawals based on their own life expectancy.</p>
+	<p>However, exceptions exist for eligible designated beneficiaries:</p>
+	<ul>
+		<li>Surviving spouses (covered above)</li>
+		<li>Minor children</li>
+		<li>Disabled or chronically ill persons</li>
+		<li>Persons less than ten years younger than the original account owner</li>
+	</ul>
+	<p>Generally, these individuals may delay or stretch RMDs, though the length of time varies.</p>
+
+	<h4>Inheriting IRAs as a Spouse</h4>
+	<p>Spouses who inherit a deceased partner's IRA may roll the funds into their own IRA to keep saving.</p>
+	<p>Alternatively, spouses can roll the funds into an Inherited IRA, which comes with its own distribution rules. As a spouse using an Inherited IRA, you can:</p>
+	<ul>
+		<li>Delay RMDs until December 31 of the year after your spouse's death if they were over 72</li>
+		<li>Delay RMDs until your spouse would have turned 72 if they were under 72</li>
+	</ul>
+
+	<h4>Inheriting Roth IRAs as a Spouse</h4>
+	<p>Roth IRAs come with several tax-advantaged perks &ndash; one of which is that you don't have to take RMDs upon retirement. However, that benefit changes when you die and someone else inherits your assets.</p>
+	<p>Spouses can assume inherited Roth IRAs as their own without minimum distribution requirements. For most spouses, that means rolling over the inherited account to themselves quickly is the best course forward.</p>
+
+	<h4>Inheriting Roth IRAs as a Non-Spouse</h4>
+	<p>Unfortunately, non-spouse Roth IRA inheritors aren't as lucky. If you inherit a Roth IRA from a non-spouse, you're required to follow the SECURE Act's ten-year rule.</p>
+
+	<h4>Inherited 401(k) RMD Rules</h4>
+	<p>The rules are also different for inheriting a deceased person's 401(k). Because these get complicated fast, it's often wise to hire a financial advisor or an attorney specializing in inheritance laws to navigate these situations.</p>
+	<p>By law, 401(k) beneficiaries are required to be spouses unless the employee is single or the spouse signs a waiver. If you inherit a 401(k), you may be able to leave funds within the plan, be required to remove the funds immediately, or take distributions over five years, depending on the plan's policies.</p>
+	<p>Another option is to roll 401(k) assets into an Inherited IRA, in which case the above RMD rules apply.</p>
+	<p>However, these are just generalizations. State laws and company policies can all affect 401(k) inheritance rules. For larger estates, certain tax laws also impact inheritances and distributions.</p>
+
+	<h3>Minimizing Taxes on RMDs</h3>
+	<p>If you want to avoid getting taxed on required distributions, you might consider Roth IRAs and Roth 401(k)s accounts. Both tax contributed funds upfront, meaning there are rarely back-end taxes to worry about. While Roth 401(k)s technically require RMDs, you can rollover that 401(k) to a Roth IRA, which eliminates RMDs altogether.</p>
+	<p>Another way to minimize the tax impact of RMDs is a qualified charitable distribution (QCD), which means donating your entire RMD to charity. QCDs satisfy your RMD and lower your tax bill while benefiting charity.</p>
+	</article>
+
+	<section id="faq" aria-labelledby="faq-title">
+		<h2 id="faq-title">Frequently Asked Questions About RMDs</h2>
+
+		<h3>What is a Required Minimum Distribution (RMD)?</h3>
+		<p>An RMD is the minimum amount the IRS requires you to withdraw each year from most tax-deferred retirement accounts, such as traditional IRAs and 401(k)s, once you reach the required age. It is calculated by dividing your prior year-end account balance by an IRS life expectancy factor.</p>
+
+		<h3>At what age do I have to start taking RMDs?</h3>
+		<p>Under the SECURE Act 2.0, RMDs begin at age 73. The age is scheduled to increase to 75 in 2033. You can delay your first RMD until April 1 of the year after you turn 73, but you must then take a second RMD by December 31 of that same year.</p>
+
+		<h3>How do I calculate my RMD?</h3>
+		<p>Take your account balance as of December 31 of the prior year and divide it by the distribution period for your age from the applicable IRS table. For example, a $300,000 balance with a distribution period of 24.6 gives an RMD of about $12,195.</p>
+
+		<h3>Which IRS table should I use?</h3>
+		<p>Most account owners use the Uniform Lifetime Table. If your spouse is your sole beneficiary and is more than ten years younger than you, you use the Joint Life and Last Survivor Expectancy Table, which gives a longer distribution period and a smaller RMD.</p>
+
+		<h3>What is the penalty for missing an RMD?</h3>
+		<p>The IRS charges a 25% excise tax on the amount you failed to withdraw. If you correct the mistake within the two-year correction window, the penalty can be reduced to 10%. You may also request a waiver for reasonable errors.</p>
+
+		<h3>Do Roth IRAs have RMDs?</h3>
+		<p>Roth IRAs do not require RMDs during the original owner's lifetime. Roth 401(k)s do require RMDs, but you can roll a Roth 401(k) into a Roth IRA to avoid them. Beneficiaries who inherit a Roth IRA must generally follow the 10-year rule.</p>
+
+		<h3>Can I take my RMD from one account instead of all of them?</h3>
+		<p>It depends on the account type. You can total the RMDs for all traditional IRAs and withdraw the amount from any one or more of them, and the same applies to 403(b) accounts. 401(k) RMDs must be taken separately from each plan, and Roth IRA withdrawals never satisfy an RMD.</p>
+
+		<h3>Are RMDs taxable?</h3>
+		<p>Yes. RMDs from traditional accounts are generally taxed as ordinary income at the federal level and in most states. A large RMD can push you into a higher tax bracket.</p>
+
+		<h3>How can I reduce taxes on my RMD?</h3>
+		<p>Common strategies include a Qualified Charitable Distribution (QCD), which sends your RMD directly to charity and is excluded from taxable income, and converting funds to a Roth IRA before RMDs begin.</p>
+
+		<h3>Can I withdraw more than my RMD?</h3>
+		<p>Yes. The RMD is only a minimum. However, withdrawing extra in one year does not reduce the RMD required in future years.</p>
+
+		<h3>Do I need to take an RMD if I am still working?</h3>
+		<p>If you are still working for the employer that sponsors your 401(k) and own less than 5% of the company, you can usually delay RMDs from that plan until you retire. RMDs from IRAs and other employers' plans are still required.</p>
+
+		<h3>What are the RMD rules for inherited IRAs?</h3>
+		<p>Most non-spouse beneficiaries must empty an inherited IRA within ten years of the owner's death under the SECURE Act. Eligible designated beneficiaries, such as surviving spouses, minor children, disabled or chronically ill persons, and those less than ten years younger than the owner, may have longer options.</p>
+	</section>
+
+	<p><small>Sources: IRS Publication 590-B, SECURE Act and SECURE Act 2.0. This calculator is for informational purposes only and is not tax or financial advice; consult a qualified tax professional. Last updated October 28, 2026.</small></p>
+	</main>
+
+</div>
+
+	<aside id="right" aria-label="Calculator search and other calculators">
+		<div style="padding-top:10px; min-height:280px; text-align:center;"></div>
+
+		<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search">
+		<table align="center" id="searchbox"><tr>
+			<td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td>
+			<td><span id="bluebtn" onClick="return calcSearch();">Search</span></td>
+		</tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table>
+		</form>
+
+		<div id="othercalc">
+			<div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div>
+			<div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div>
+			<div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div>
+		</div>
+	</aside>
+</div>
+<div id="clear"></div>
+
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp; &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></footer>
+
+<nav class="topNavAbs" aria-label="Calculator categories">
+	<a href="/financial-calculator.html" class="topNavOn">Financial</a>
+	<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+	<a href="/math-calculator.html">Math</a>
+	<a href="/other-calculator.html">Other</a>
+</nav>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

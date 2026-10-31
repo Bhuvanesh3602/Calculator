@@ -1,29 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Random Number Generator</title>
-	<meta name="description" content="Two free random number generators that work in user-defined min and max range. Both random integers and decimal numbers can be generated with high precision." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/random-number-generator.html" itemprop="item"><span itemprop="name">random number generator</span></a><meta itemprop="position" content="3" /></span></div><h1>Random Number Generator</h1>
-<p>This version of the generator creates a random integer. It can deal with very large integers up to a few thousand digits.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Random Number Generator – Generate Random Integers &amp; Decimals Online</title>
+	<meta name="description" content="Free online random number generator. Pick random integers or decimals between any minimum and maximum, generate many numbers at once, remove duplicates, sort results, and set up to 999 digits of precision." />
+	<meta name="keywords" content="random number generator, random integer generator, random decimal generator, number picker, random number between 1 and 100, pick a random number, rng online" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="author" content="adxcal.com" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
 
-<form action="/random-number-generator.html" name="calform">
+	<!-- Open Graph / Social -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: tool -->
+	
+
+	<!-- Structured data: FAQ (matches the visible FAQ on this page) -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Random Number Generator – Generate Random Integers &amp; Decimals Online","url":"https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html","description":"Free online random number generator. Pick random integers or decimals between any minimum and maximum, generate many numbers at once, remove duplicates, sort results, and set up to 999 digits of precision.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Random Number Generator – Generate Random Integers &amp; Decimals Online","item":"https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Random Number Generator – Generate Random Integers &amp; Decimals Online">
+<meta property="og:description" content="Free online random number generator. Pick random integers or decimals between any minimum and maximum, generate many numbers at once, remove duplicates, sort results, and set up to 999 digits of precision.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Random Number Generator – Generate Random Integers &amp; Decimals Online">
+<meta name="twitter:description" content="Free online random number generator. Pick random integers or decimals between any minimum and maximum, generate many numbers at once, remove duplicates, sort results, and set up to 999 digits of precision.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Random Number Generator – Generate Random Integers &amp; Decimals Online","url":"https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html","description":"Free online random number generator. Pick random integers or decimals between any minimum and maximum, generate many numbers at once, remove duplicates, sort results, and set up to 999 digits of precision.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Random Number Generator – Generate Random Integers &amp; Decimals Online","item":"https://calculator.bhuvanesh-s3602.workers.dev/random-number-generator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+<div id="clear"></div><div id="contentout"><main id="content"><nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/random-number-generator.html" itemprop="item"><span itemprop="name">random number generator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Random Number Generator</h1>
+<p>Use this free random number generator to pick a random integer between any lower and upper limit. This version can deal with very large integers up to a few thousand digits. Need several numbers, decimals, or sorted results? Jump to the <a href="#comprehensive">comprehensive version</a>.</p>
+
+<form action="/random-number-generator.html" name="calform" aria-label="Random integer generator">
 <table  class="panel"><tr><td style="padding:5px;"><table>
 <tr>
-	<td>Lower Limit</td>
-	<td><input type="number" name="slower" value="1" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
+	<td><label for="slower">Lower Limit</label></td>
+	<td><input type="number" id="slower" name="slower" value="1" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
 </tr>
 <tr>
-	<td>Upper Limit</td>
-	<td><input type="number" name="supper" value="100" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
+	<td><label for="supper">Upper Limit</label></td>
+	<td><input type="number" id="supper" name="supper" value="100" class="inlonger" style="text-align:left;" onKeyUp="iptfieldCheck(this, 'r', 'i');"></td>
 </tr>
 <tr><td colspan="2" align="center" style="padding-top:10px;"><input name="ctype" value="1" type="hidden">
 	<input type="hidden" name="s" value="1471">
@@ -33,21 +95,21 @@
 </table></td></tr></table>
 </form>
 
-<a name="comprehensive"></a><h2>Comprehensive Version</h2>
-<p>This version of the generator can create one or many random integers or decimals. It can deal with very large numbers with up to 999 digits of precision.</p>
-<form action="/random-number-generator.html#comprehensive" name="calform2">
+<a name="comprehensive"></a><h2 id="comprehensive-version">Comprehensive Version</h2>
+<p>This version of the generator can create one or many random integers or decimals. It can deal with very large numbers with up to 999 digits of precision, and lets you control duplicates and sorting.</p>
+<form action="/random-number-generator.html#comprehensive" name="calform2" aria-label="Comprehensive random number generator">
 <table  class="panel"><tr><td style="padding:5px;"><table>
 <tr>
-	<td>Lower Limit</td>
-	<td><input type="text" name="clower" value="0.2" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	<td><label for="clower">Lower Limit</label></td>
+	<td><input type="text" id="clower" name="clower" value="0.2" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
 </tr>
 <tr>
-	<td>Upper Limit</td>
-	<td><input type="text" name="cupper" value="112.5" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
+	<td><label for="cupper">Upper Limit</label></td>
+	<td><input type="text" id="cupper" name="cupper" value="112.5" class="inlonger" onKeyUp="iptfieldCheck(this, 'r', 'n');"></td>
 </tr>
 <tr>
-	<td>Generate</td>
-	<td><input type="text" name="cnums" value="1" class="innormal" maxlength="3" onKeyUp="shDupSort(this.value);iptfieldCheck(this, 'r', 'pi');"> numbers</td>
+	<td><label for="cnums">Generate</label></td>
+	<td><input type="text" id="cnums" name="cnums" value="1" class="innormal" maxlength="3" onKeyUp="shDupSort(this.value);iptfieldCheck(this, 'r', 'pi');"> numbers</td>
 </tr>
 <tr>
 	<td colspan="2">
@@ -69,8 +131,8 @@
 			<label for="cnumt1" class="cbcontainer"><input type="radio" name="cnumt" id="cnumt1" value="i"  onClick="return shPres();" /><span class="rbmark"></span>Integer</label> &nbsp;
 			<label for="cnumt2" class="cbcontainer"><input type="radio" name="cnumt" id="cnumt2" value="d" checked onClick="return shPres();" /><span class="rbmark"></span>Decimal</label>
 		</td></tr><tr><td>
-			<div id="precision" style="display:none;">Precision:
-				<input type="text" name="cprec" value="50" maxlength="3"  class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pi');"> digits
+			<div id="precision" style="display:none;"><label for="cprec">Precision:</label>
+				<input type="text" id="cprec" name="cprec" value="50" maxlength="3"  class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pi');"> digits
 			</div>
 		</td></tr></table>
 	</td>
@@ -102,30 +164,79 @@ shDupSort("1");function shPres(){
 shPres();
 </script>
 
-
 <br>
+<section id="about-random-numbers">
+<h2>What Is a Random Number?</h2>
 <p>A random number is a number chosen from a pool of limited or unlimited numbers that has no discernible pattern for prediction. The pool of numbers is almost always independent from each other. However, the pool of numbers may follow a specific distribution. For example, the height of the students in a school tends to follow a normal distribution around the median height. If the height of a student is picked at random, the picked number has a higher chance to be closer to the median height than being classified as very tall or very short. The random number generators above assume that the numbers generated are independent of each other, and will be evenly spread across the whole range of possible values.</p>
-<p>A random number generator, like the ones above, is a device that can generate one or many random numbers within a defined scope. Random number generators can be hardware based or pseudo-random number generators. Hardware based random-number generators can involve the use of a dice, a coin for flipping, or many other devices.</p>
-<p>A pseudo-random number generator is an algorithm for generating a sequence of numbers whose properties approximate the properties of sequences of random numbers. Computer based random number generators are almost always pseudo-random number generators. Yet, the numbers generated by pseudo-random number generators are not truly random. Likewise, our generators above are also pseudo-random number generators. The random numbers generated are sufficient for most applications yet they should not be used for cryptographic purposes. True random numbers are based on physical phenomena such as atmospheric noise, thermal noise, and other quantum phenomena. Methods that generate true random numbers also involve compensating for potential biases caused by the measurement process.</p>
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<h2>What Is a Random Number Generator?</h2>
+<p>A random number generator, like the ones above, is a device that can generate one or many random numbers within a defined scope. Random number generators can be hardware based or pseudo-random number generators. Hardware based random-number generators can involve the use of a dice, a coin for flipping, or many other devices.</p>
+
+<h2>Pseudo-Random vs. True Random Numbers</h2>
+<p>A pseudo-random number generator is an algorithm for generating a sequence of numbers whose properties approximate the properties of sequences of random numbers. Computer based random number generators are almost always pseudo-random number generators. Yet, the numbers generated by pseudo-random number generators are not truly random. Likewise, our generators above are also pseudo-random number generators. The random numbers generated are sufficient for most applications yet they should not be used for cryptographic purposes. True random numbers are based on physical phenomena such as atmospheric noise, thermal noise, and other quantum phenomena. Methods that generate true random numbers also involve compensating for potential biases caused by the measurement process.</p>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<h3>What is a random number generator?</h3>
+<p>A random number generator (RNG) is a tool that produces one or more numbers from a defined range in a way that has no predictable pattern. You set a lower limit and an upper limit, and the generator picks values from that range.</p>
+
+<h3>How do I generate a random number between 1 and 100?</h3>
+<p>Enter 1 as the lower limit and 100 as the upper limit in the first generator, then click Generate. The tool returns a random integer from 1 to 100. The same steps work for any other range, such as 1 to 10 or 1 to 1000.</p>
+
+<h3>Can this tool generate random decimal numbers?</h3>
+<p>Yes. Use the <a href="#comprehensive">Comprehensive Version</a>, set the result type to Decimal, and choose the precision you need. Precision can be set up to 999 digits.</p>
+
+<h3>Can I generate several random numbers at once?</h3>
+<p>Yes. In the Comprehensive Version, enter how many numbers you want (up to 999) in the Generate field. You can then choose whether duplicates are allowed and whether the results should be sorted in ascending or descending order.</p>
+
+<h3>How do I generate random numbers without repeats?</h3>
+<p>Set the quantity to more than one in the Comprehensive Version, then choose No under "Allow duplication in results?". Every number in the output will then be unique. The range must contain at least as many possible values as the amount you request.</p>
+
+<h3>Are the numbers truly random?</h3>
+<p>No. Like almost all computer-based generators, this tool is a pseudo-random number generator. It uses an algorithm to produce numbers that behave statistically like random numbers. This is sufficient for most everyday uses, but true randomness comes from physical sources such as atmospheric or thermal noise.</p>
+
+<h3>Can I use these random numbers for passwords or cryptography?</h3>
+<p>No. Pseudo-random numbers from this tool should not be used for passwords, encryption keys, or other security purposes. Use a cryptographically secure random number generator for those cases.</p>
+
+<h3>How large can the numbers be?</h3>
+<p>The integer generator handles very large integers of up to a few thousand digits, and the Comprehensive Version supports numbers with up to 999 digits of precision.</p>
+
+<h3>Can I use this tool to pick a raffle or giveaway winner?</h3>
+<p>Yes. Number your entries from 1 to the total count, set that as the range, and generate one number. For several winners, generate multiple numbers with duplicates turned off so nobody wins twice.</p>
+
+<h3>Is every number in the range equally likely?</h3>
+<p>Yes. The generators assume each number is independent of the others and spread results evenly across the whole range, so every value has the same chance of being picked. This is called a uniform distribution.</p>
+
+<h3>What is the difference between a random number and a random number following a distribution?</h3>
+<p>A uniform random number is equally likely to be anywhere in the range. Some real-world data, such as student heights, follows a normal distribution where values near the average are more likely. The generators on this page produce uniform results, not normally distributed ones.</p>
+</section>
+
+<p>Looking for more tools? Browse our <a href="/math-calculator.html">math calculators</a>, including the <a href="/standard-deviation-calculator.html">standard deviation calculator</a> and <a href="/percent-calculator.html">percentage calculator</a>.</p>
+
+</main>
+
+	<aside id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+		</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>
+	</aside>
+</div>
+
+<div id="clear"></div>
+
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></footer>
+
+<nav class="topNavAbs" aria-label="Calculator categories">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</nav>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

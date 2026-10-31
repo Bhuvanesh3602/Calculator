@@ -1,126 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Ohms Law Calculator</title>
-	<meta name="description" content="This free Ohm's Law calculator solves for any of the variables in the Ohm's Law equation using various units of measurement and gives out the solving steps." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/ohms-law-calculator.html" itemprop="item"><span itemprop="name">ohms law calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Ohms Law Calculator</h1>
-<p>Please provide any 2 values and click "Calculate" to get the other values in the ohm's law equations V = I &#215; R and P = V &#215; I.</p>
-
-<table cellpadding="0" cellspacing="0"><tr><td><form name="calform">
-	<table class="panel">
-		<tr>
-			<td align="right">Voltage (V):</td><td>				<input type="text" name="v" value="110" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
-				<select name="vunit" >
-					<option value="kilovolt">kilovolts [kV]</option>
-					<option value="volt" selected>volts [V]</option>
-					<option value="millivolt">millivolts [mV]</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">Current (I):</td><td>				<input type="text" name="c" value="0.2" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
-				<select name="cunit" >
-					<option value="ampere" selected>amperes [A]</option>
-					<option value="milliampere">milliamperes [mA]</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">Resistance (R):</td><td>				<input type="text" name="r" value="" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
-				<select name="runit" >
-					<option value="ohm" selected>ohms [&#937;]</option>
-					<option value="kilohm">kilohms [k&#937;]</option>
-					<option value="megohm">megohms [M&#937;]</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">Power (P):</td><td>				<input type="text" name="p" value="" class="inhalf" onKeyUp="iptfieldCheck(this, '', 'pn');">
-				<select name="punit" >
-					<option value="watt" selected>watts [W]</option>
-					<option value="kilowatt">kilowatts [kW]</option>
-					<option value="megawatt">megawatts [MW]</option>
-					<option value="horsepower">horsepowers</option>
-					<option value="btu">BTU/h</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td  colspan="2" align="center" style="padding-top:10px;">
-				<input type="submit" name="x" value="Calculate">
-				<input type="button" value="Clear" onClick="clearForm(document.calform);">
-			</td>
-		</tr>
-	</table>
-</form>
-</td><td>&nbsp; &nbsp; &nbsp;</td><td><img src="/img/ohms-law/ohms.svg" width="148" height="100" alt="Ohms law circuit"><br><br></td></tr></table>
-
-
-<p><br><fieldset><legend>Related:</legend><a href="/resistor-calculator.html">resistor calculator</a></fieldset></p>
-
-<br><h3>Ohm's Law</h3>
-<p>Ohm's Law states that the current through a conductor between two points is directly proportional to the voltage. This is true for many materials, over a wide range of voltages and currents, and the resistance and conductance of electronic components made from these materials remain constant. Ohm's Law is true for circuits that contain only resistive elements (no capacitors or inductors), regardless of whether the driving voltage or current is constant (DC) or time-varying (AC). It can be expressed using a number of equations, usually all three together, as shown below.</p>
-
-<table style="padding-left: 20px;">
-<tr><td colspan="2">V = I &#215; R</td></tr>
-<tr><td>R =</td><td><table cellpadding="0"><tr><td align="center">V</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">I</td></tr></table></td></tr>
-<tr><td>I =</td><td><table cellpadding="0"><tr><td align="center">V</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">R</td></tr></table></td></tr>
-</table>
-<p>Where:
-<div style="padding-left: 20px;">V is voltage in Volts <br>
-R is resistance in Ohms <br>
-I is current in Amperes
-</div>
-</p>
-
-
-<h3>Electrical Power</h3>
-<p>Power is the rate at which electrical energy is transferred by an electric circuit per unit time typically expressed in the SI (International System of Units) unit of Watts. Power is typically produced by electric generators and supplied to businesses and homes through the electric power industry, but can also be supplied by electric batteries or other sources. </p>
-<p>In resistive circuits, Joule's Law can be combined with Ohm's Law to produce alternative expressions for the amount of power dissipated, as shown below. </p>
-
-
-<table style="padding-left: 20px;">
-<tr><td colspan="2">P = V &#215; I</td></tr>
-<tr><td>P =</td><td><table cellpadding="0"><tr><td align="center">V<sup>2</sup></td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">R</td></tr></table></td></tr>
-<tr><td colspan="2">P = I<sup>2</sup> &#215; R</td></tr>
-</table>
-<p>Where:
-<div style="padding-left: 20px;">P is power in Watts</div>
-</p>
-
-<h3>Ohm's Law Formula Wheel</h3>
-<p>Below is a formula wheel for Ohm's Law relationships between P, I, V, and R. This is essentially what the calculator does, and is just a representation of the algebraic manipulation of the equations above. To use the wheel, choose the variable to solve for in the middle of the wheel, then use the relationship for the two known variables within the cross section of the circle.</p>
-<p style="text-align:center;"><img src="/img/ohms-law/ohms-law-formula-wheel.svg" width="320" height="320" alt="Ohm's Law Formula Wheel"></p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power</title>
+	<meta name="description" content="Free Ohm's Law calculator. Enter any 2 values to solve for voltage (V), current (I), resistance (R) and power (P) using V = I × R and P = V × I. Supports kV, mA, kΩ, MΩ, kW and more." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power","url":"https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html","description":"Free Ohm","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power","item":"https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power">
+<meta property="og:description" content="Free Ohm">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power">
+<meta name="twitter:description" content="Free Ohm">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power","url":"https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html","description":"Free Ohm","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Ohm's Law Calculator – Find Voltage, Current, Resistance &amp; Power","item":"https://calculator.bhuvanesh-s3602.workers.dev/ohms-law-calculator.html"}]}</script></head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+	</aside>
+</div>
+
+<div id="clear"></div>
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></footer>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

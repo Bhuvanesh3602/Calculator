@@ -1,6 +1,464 @@
-body,p,td,div,span,input,th,li,textarea{font-family:arial,helvetica,sans-serif;font-size:16px;color:#000;}
-body{background:#fff;margin:0px;padding:0px;border:0;text-align: center;}
+/* ==========================================================================
+   ADXCAL — Avada-Inspired Premium Design System
+   ========================================================================== */
 
+/* ---- Design Tokens ---- */
+:root {
+  /* Brand (existing) */
+  --brand: #8A2A78;
+  --brand-dark: #6b1e5d;
+  --brand-light: #e9d7ea;
+
+  /* Avada palette */
+  --c-bg: #ffffff;
+  --c-bg-soft: #f7f7f7;
+  --c-text: #292929;
+  --c-text-muted: #666666;
+  --c-border: #e7e7e7;
+  --c-btn: #292929;
+  --c-btn-text: #ffffff;
+  --c-accent: #69bd8b;
+  --c-accent-text: #ffffff;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 48px;
+  --space-12: 64px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --line-height: 1.6;
+  --transition: 0.2s ease;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ---- Base / Reset ---- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--line-height);
+  color: var(--c-text);
+  background: var(--c-bg);
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+body.homepage { font-family: var(--font-sans); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 var(--space-4) 0;
+  color: var(--c-text);
+  letter-spacing: -0.02em;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p { margin: 0 0 var(--space-4) 0; }
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; border: 0; }
+
+/* ---- Layout Container ---- */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  width: 100%;
+}
+
+/* ==========================================================================
+   GLOBAL HEADER — Avada Style
+   ========================================================================== */
+.global-header {
+  background: #fff;
+  border-bottom: 1px solid var(--c-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.global-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.global-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: var(--space-6);
+}
+
+/* Brand */
+.global-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--c-text);
+  font-family: var(--font-serif);
+}
+.global-header .brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--brand);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-serif);
+}
+.global-header .brand-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--c-text);
+}
+.global-header .brand-dot { color: var(--brand); }
+
+/* Main Navigation */
+.global-header .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.global-header .header-nav a {
+  color: var(--c-text);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+.global-header .header-nav a:hover {
+  color: var(--brand);
+  background: var(--c-bg-soft);
+  text-decoration: none;
+}
+.global-header .header-nav a.nav-active {
+  color: var(--brand);
+  background: var(--brand-light);
+}
+.global-header .header-nav a.has-sub::after {
+  content: "▾";
+  font-size: 0.6rem;
+  margin-left: 4px;
+  opacity: 0.6;
+}
+
+/* CTA / Sign-in */
+.global-header .signin {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  background: var(--c-btn);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  font-family: var(--font-sans);
+}
+.global-header .signin:hover { background: #000; }
+.global-header .signin:active { transform: scale(0.97); }
+
+/* ---- Mobile Menu Toggle ---- */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  cursor: pointer;
+  color: var(--c-text);
+}
+.menu-toggle svg { width: 20px; height: 20px; fill: none; stroke: var(--c-text); stroke-width: 2; }
+.menu-toggle:hover { border-color: var(--brand); }
+.menu-toggle:hover svg { stroke: var(--brand); }
+
+/* Mobile drawer */
+.mobile-drawer {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  display: none;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 999;
+}
+.mobile-drawer.open { display: flex; }
+.mobile-drawer a {
+  color: var(--c-text);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+}
+.mobile-drawer a:hover { background: var(--c-bg-soft); color: var(--brand); text-decoration: none; }
+.mobile-drawer .mobile-signin {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--c-border);
+}
+
+/* ---- Skip Link ---- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-sans);
+  text-decoration: none;
+}
+.btn:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--c-btn);
+  color: var(--c-btn-text);
+}
+.btn-primary:hover { background: #000; color: #fff; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+}
+.btn-outline:hover { background: var(--c-bg-soft); border-color: var(--c-text); }
+
+.btn-accent {
+  background: var(--brand);
+  color: #fff;
+}
+.btn-accent:hover { background: var(--brand-dark); }
+
+.btn-sm { padding: 8px 16px; font-size: 0.875rem; }
+.btn-lg { padding: 16px 32px; font-size: 1rem; }
+
+.btn-arrow::after {
+  content: "→";
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   FORMS & INPUTS
+   ========================================================================== */
+input, select, textarea {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--c-text);
+}
+input[type=text], input[type=url], input[type=tel], input[type=number],
+input[type=color], input[type=date], input[type=email], input[type=password],
+select, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-sizing: border-box;
+}
+input[type=text]:focus, input[type=url]:focus, input[type=tel]:focus,
+input[type=number]:focus, input[type=color]:focus, input[type=date]:focus,
+input[type=email]:focus, input[type=password]:focus,
+select:focus, textarea:focus {
+  border-color: var(--brand);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(138, 42, 120, 0.1);
+}
+input[type=submit], input[type=button], input[type=reset] {
+  font-family: var(--font-sans);
+}
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin-bottom: var(--space-2);
+}
+
+/* Preserve existing input width classes */
+.innormal{width: 90px;}
+.in4char{width: 58px;}
+.in3char{width: 46px;}
+.in2char{width: 35px;}
+.inlong{width: 120px;}
+.inlonger{width: 170px;}
+.inlongest{width: 230px;}
+.inlongesthalf{width: 112px;}
+.infull{width: 226px;}
+.inhalf{width: 110px;}
+.infulltxarea{width: 600px; padding:8px;}
+.inshortfull{width: 170px;}
+.inshorthalf{width: 82px;}
+.inuiyear{padding-right:50px;}
+.inuiyearspan{margin-left:-45px;color:#888;}
+.inuipound{padding-right:62px;}
+.inuipoundspan{margin-left:-58px;color:#888;}
+.inuifoot{padding-right:38px;}
+.inuifootspan{margin-left:-34px;color:#888;}
+.inuiinch{padding-right:57px;}
+.inuiinchspan{margin-left:-53px;color:#888;}
+.inuick{padding-right:32px;}
+.inuickspan{margin-left:-27px;color:#888;}
+.inui1c{padding-right:16px;}
+.inui1cspan{margin-left:-11px;color:#888;}
+
+.inputErrMsg{position: absolute;padding:4px 8px;color: #d00;background-color: #fdecea;border: 1px solid #f5c6c6;white-space: nowrap;display:inline-block;border-radius: 4px;font-size: 0.85rem;margin-top: 4px;}
+
+/* ==========================================================================
+   CARDS & CONTENT
+   ========================================================================== */
+.card {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-6);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--brand); }
+.card:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+.calculator-card { border: 1px solid var(--c-border); border-radius: var(--radius); padding: var(--space-6); background: #fff; }
+
+/* Section wrappers */
+.section { padding: var(--space-12) 0; }
+.section-bg { background: var(--c-bg-soft); }
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ==========================================================================
+   FOOTER — Avada Style
+   ========================================================================== */
+.site-footer {
+  background: #f7f7f7;
+  border-top: 1px solid var(--c-border);
+  padding: var(--space-12) 0 var(--space-8);
+  color: var(--c-text);
+}
+.site-footer .container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .site-footer .container { grid-template-columns: 1fr; gap: var(--space-6); }
+}
+.site-footer .brand {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-text);
+  margin-bottom: var(--space-4);
+  display: inline-block;
+  text-decoration: none;
+}
+.site-footer .brand-dot { color: var(--brand); }
+.site-footer p { color: var(--c-text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: var(--space-6); }
+.site-footer .nav-links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6); }
+.site-footer .nav-links a { color: var(--c-text-muted); font-size: 0.9rem; padding: 4px 8px; }
+.site-footer .nav-links a:hover { color: var(--brand); text-decoration: underline; }
+.site-footer .copy {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--c-border);
+  font-size: 0.8rem;
+  color: var(--c-text-muted);
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+.text-center { text-align: center; }
+.text-muted { color: var(--c-text-muted); }
+.font-serif { font-family: var(--font-serif); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.block { display: block; }
+.hidden { display: none; }
+
+/* ==========================================================================
+   PRESERVED: Legacy / Calculator Functional Classes
+   (kept so existing calculators continue to work)
+   ========================================================================== */
+body,p,td,div,span,input,th,li,textarea{font-family:arial,helvetica,sans-serif;font-size:16px;color:#000;}
 p{margin:5px 0 8px 0;}
 img{border:0px;}
 h1{color:#003366;font-size:26px;font-weight:bold;padding:0;margin:12px 0;}
@@ -52,7 +510,7 @@ input[type=image],input[type=image]:hover{
 	margin:0px;
 }
 .clearbtn{cursor: pointer;}
-.inputErrMsg{position: absolute;padding:4px 8px;color: #000;background-color: #ffcccc;border: 1px solid #ffaaaa;white-space: nowrap;display:inline-block;}
+
 .cbcontainer {
 	display: inline-block;
 	position: relative;
@@ -92,20 +550,14 @@ input[type=image],input[type=image]:hover{
 	border: 2px solid #336699;
 	border-radius: 50%;
 }
-.cbcontainer:hover input ~ .cbmark, .cbcontainer:hover input ~ .rbmark {
-	background-color: #ccc;
-}
-.cbcontainer input:checked ~ .cbmark, .cbcontainer input:checked ~ .rbmark {
-	background-color: #336699;
-}
+.cbcontainer:hover input ~ .cbmark, .cbcontainer:hover input ~ .rbmark { background-color: #ccc; }
+.cbcontainer input:checked ~ .cbmark, .cbcontainer input:checked ~ .rbmark { background-color: #336699; }
 .cbmark:after, .rbmark:after {
 	content: "";
 	position: absolute;
 	display: none;
 }
-.cbcontainer input:checked ~ .cbmark:after, .cbcontainer input:checked ~ .rbmark:after {
-	display: block;
-}
+.cbcontainer input:checked ~ .cbmark:after, .cbcontainer input:checked ~ .rbmark:after { display: block; }
 .cbcontainer .cbmark:after {
 	left: 4px;
 	top: 0px;
@@ -125,6 +577,7 @@ input[type=image],input[type=image]:hover{
 	border-radius: 50%;
 	background: white;
 }
+
 .indollar{
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="20px"><text x="2" y="15" style="font: normal 16px arial;">$</text></svg>');
 	background-position: left center;
@@ -137,32 +590,6 @@ input[type=image],input[type=image]:hover{
 	background-repeat: no-repeat no-repeat;
 	padding-right: 18px !important;
 }
-.innormal{width: 90px;}
-.in4char{width: 58px;}
-.in3char{width: 46px;}
-.in2char{width: 35px;}
-.inlong{width: 120px;}
-.inlonger{width: 170px;}
-.inlongest{width: 230px;}
-.inlongesthalf{width: 112px;}
-.infull{width: 226px;}
-.inhalf{width: 110px;}
-.infulltxarea{width: 600px; padding:8px;}
-.inshortfull{width: 170px;}
-.inshorthalf{width: 82px;}
-
-.inuiyear{padding-right:50px;}
-.inuiyearspan{margin-left:-45px;color:#888;}
-.inuipound{padding-right:62px;}
-.inuipoundspan{margin-left:-58px;color:#888;}
-.inuifoot{padding-right:38px;}
-.inuifootspan{margin-left:-34px;color:#888;}
-.inuiinch{padding-right:57px;}
-.inuiinchspan{margin-left:-53px;color:#888;}
-.inuick{padding-right:32px;}
-.inuickspan{margin-left:-27px;color:#888;}
-.inui1c{padding-right:16px;}
-.inui1cspan{margin-left:-11px;color:#888;}
 
 .scaleimg{max-width: 100%;height: auto;}
 #tt {position:absolute;display:block;background-color: #474747;color: #fff;padding: 8px;border: 1px solid #000;text-align:left;}
@@ -218,9 +645,7 @@ input[type=image],input[type=image]:hover{
 	color: #fff;
 	text-decoration: none;
 }
-#octitle a:hover {
-	text-decoration: underline;
-}
+#octitle a:hover { text-decoration: underline; }
 #occontent{
 	padding: 3px 6px;
 	font-size: 14px;
@@ -262,6 +687,7 @@ input[type=image],input[type=image]:hover{
 .verybigtext{font-size:23px;}
 .morelinespace{line-height:125%}
 .inlinetable{display: inline;}
+
 table.cinfoT{border-collapse:collapse;border-spacing:0;margin-top:0;}
 table.cinfoT th, table.cinfoT td.cinfoHd, table.cinfoT td.cinfoHdL{border-top:1px solid #114477;border-left:1px solid #114477;border-right:1px solid #114477;border-bottom:1px solid #336699;background-color:#336699;font-weight:bold;color:#fff;padding: 5px 3px;}
 table.cinfoT td{border:1px solid #ccc;color:#000;padding:3px;}
@@ -270,6 +696,7 @@ table.cinfoT tr:nth-child(even) {background-color: #fff;}
 table.cinfoTS td.cinfoHd{font-size:13px;}
 table.cinfoTS td.cinfoHdL{font-size:13px;}
 table.cinfoTS td{font-size:13px;padding:3px 1px;}
+
 .frac {display: inline-block;text-align: center;vertical-align: middle;}
 .fracnum {display: block;}
 .fracden {display: block;border-top: 1px solid #000;padding: 0px 3px;}
@@ -308,10 +735,7 @@ fieldset a{
 	margin-bottom:5px;
 	text-decoration: none;
 }
-fieldset a:hover{
-	background:#417516;
-	color: #fff;
-}
+fieldset a:hover{background:#417516;color: #fff;}
 fieldset div{
 	display: inline-block;
 	white-space: nowrap;
@@ -323,10 +747,8 @@ fieldset div{
 	border-radius: 3px;
 	text-decoration: none;
 }
-fieldset div:hover{
-	background:#c47751;
-	color: #fff;
-}
+fieldset div:hover{background:#c47751;color: #fff;}
+
 .arrow_box {position: relative;background: #eee;border: 1px solid #aaa;padding:3px 8px;text-align:center;}
 .arrow_box:after, .arrow_box:before {left: 100%;top: 50%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none;}
 .arrow_box:after {border-color: rgba(221, 221, 221, 0);border-left-color: #eee;border-width: 12px;margin-top: -12px;}
@@ -394,7 +816,6 @@ fieldset div:hover{
 	#homelistwrap {grid-template-columns: auto;}
 }
 
-
 @media print {
 	#headerout, #right, #footer, .topNavAbs, #searchbox, #printit, #insmdc, #topmenu, #breadcrumbs, .toc, #login, form input[type="submit"], form input[type="button"], form input[type="reset"] {
 		display: none !important;
@@ -453,3 +874,143 @@ fieldset div:hover{
 		color: #000 !important;
 	}
 }
+
+/* ---- Focus visible (guideline) ---- */
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible {
+	outline: 3px solid #0066cc;
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+button:focus, input:focus, select:focus { outline: none; }
+
+/* ---- Per-page calc result box ---- */
+.calc-result { margin:18px 0;padding:16px;background:#eef6ff;border:1px solid #4c7b25;border-radius:6px;font-size:18px;color:#003366; }
+.calc-result strong { color:#003366; }
+
+/* ---- Search dropdown ---- */
+#calcSearchOut { position:relative; z-index:50; }
+#calcSearchOut .search-results { max-height:340px; overflow-y:auto; border:1px solid #cbd5e1; background:#fff; border-radius:6px; box-shadow:0 10px 25px -5px rgba(0,0,0,0.1); margin-top:6px; }
+#calcSearchOut .search-result { padding:10px 12px; border-bottom:1px solid #e2e8f0; cursor:pointer; display:flex; align-items:flex-start; gap:8px; }
+#calcSearchOut .search-result:last-child { border-bottom:none; }
+#calcSearchOut .search-result.search-hover { background:#eff6ff; }
+#calcSearchOut .search-result a { font-weight:700; color:#0f172a; text-decoration:none; }
+#calcSearchOut .search-result a:hover { text-decoration:underline; }
+#calcSearchOut .search-cat { font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:#475569; background:#e2e8f0; padding:1px 6px; border-radius:4px; flex-shrink:0; }
+#calcSearchOut .search-desc { font-size:12px; color:#64748b; margin-top:2px; }
+#calcSearchOut .search-more { padding:6px 12px; font-size:12px; color:#64748b; text-align:center; border-top:1px solid #e2e8f0; }
+#calcSearchOut .search-noresult { padding:12px; color:#64748b; text-align:center; }
+
+/* ==========================================================================
+   CALCULATOR COMPONENTS — Premium styling for calculator pages
+   ========================================================================== */
+.calculator-wrap {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-8);
+}
+.calculator-display {
+  background: var(--c-bg-soft);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-variant-numeric: tabular-nums;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--c-text);
+  text-align: right;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: var(--space-6);
+  overflow-x: auto;
+}
+.calc-keypad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.calc-keypad button {
+  background: #f7f7f7;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--c-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.calc-keypad button:hover { background: #eef2f2; border-color: var(--brand); color: var(--brand); }
+.calc-keypad button:active { transform: scale(0.96); }
+.calc-keypad button:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
+.calc-keypad button.op { color: var(--brand); font-weight: 800; }
+.calc-keypad button.op:hover { background: var(--brand-light); color: var(--brand-dark); }
+.calc-keypad button.eq {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.calc-keypad button.eq:hover { background: var(--brand-dark); }
+.calc-keypad button.col2 { grid-column: span 2; }
+
+.calc-keypad button.scinm,
+.calc-keypad button.sciop,
+.calc-keypad button.scieq {
+  background: #f7f7f7;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--c-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.calc-keypad button.scinm:hover { background: #eef2f2; border-color: var(--brand); color: var(--brand); }
+.calc-keypad button.sciop { color: var(--brand); font-weight: 800; }
+.calc-keypad button.sciop:hover { background: var(--brand-light); color: var(--brand-dark); }
+.calc-keypad button.scieq { background: var(--brand); color: #fff; border-color: var(--brand); }
+.calc-keypad button.scieq:hover { background: var(--brand-dark); }
+
+/* Legacy sci button classes preserved for existing calculator markup */
+button.scinm, button.sciop, button.scieq {
+  touch-action: manipulation;
+}
+
+/* Result output area */
+#sciOutPut, #heroDisplay, .chip-display {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Breadcrumb polish */
+#breadcrumbs { font-size: 0.85rem; color: var(--c-text-muted); margin-bottom: var(--space-6); }
+#breadcrumbs a { color: var(--brand); text-decoration: none; }
+#breadcrumbs a:hover { text-decoration: underline; }
+
+/* Section heading polish for category pages */
+sectionlists h3.h3head, .sectionlists h3 {
+  font-size: 1.1rem;
+  color: var(--brand);
+  margin: var(--space-6) 0 var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sectionlists div a {
+  display: block;
+  padding: 6px 0;
+  color: var(--c-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--c-border);
+}
+.sectionlists div a:hover { color: var(--brand); text-decoration: underline; padding-left: 4px; transition: padding-left var(--transition); }
+
+/* Sticky header scroll class is toggled by JS on pages that include it */
+.global-header.scrolled { box-shadow: var(--shadow-md); }
+

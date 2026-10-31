@@ -1,26 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Scientific Notation Calculator</title>
-	<meta name="description" content="Online tool to convert between number formats including scientific notation, E-notation, engineering notation, and real numbers." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation</title>
+	<meta name="description" content="Free scientific notation calculator and converter. Convert numbers to scientific notation, E-notation, engineering notation and real numbers, and add, subtract, multiply, divide, square or take powers and roots." />
+	<meta name="keywords" content="scientific notation calculator, scientific notation converter, e notation, engineering notation, convert to scientific notation, standard form calculator, add subtract multiply divide scientific notation" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style" />
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: WebApplication -->
+	
+
+	<!-- Structured data: Breadcrumbs -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation","url":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html","description":"Free scientific notation calculator and converter. Convert numbers to scientific notation, E-notation, engineering notation and real numbers, and add, subtract, multiply, divide, square or take powers and roots.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation","item":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation">
+<meta property="og:description" content="Free scientific notation calculator and converter. Convert numbers to scientific notation, E-notation, engineering notation and real numbers, and add, subtract, multiply, divide, square or take powers and roots.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation">
+<meta name="twitter:description" content="Free scientific notation calculator and converter. Convert numbers to scientific notation, E-notation, engineering notation and real numbers, and add, subtract, multiply, divide, square or take powers and roots.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation","url":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html","description":"Free scientific notation calculator and converter. Convert numbers to scientific notation, E-notation, engineering notation and real numbers, and add, subtract, multiply, divide, square or take powers and roots.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Scientific Notation Calculator &amp; Converter: E-Notation, Engineering Notation","item":"https://calculator.bhuvanesh-s3602.workers.dev/scientific-notation-calculator.html"}]}</script></head>
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/scientific-notation-calculator.html" itemprop="item"><span itemprop="name">scientific notation calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Scientific Notation Calculator</h1>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div>
+<div id="contentout"><div id="content" role="main">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/scientific-notation-calculator.html" itemprop="item"><span itemprop="name">scientific notation calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Scientific Notation Calculator</h1>
 
 <h2>Scientific Notation Converter</h2>
 <p>Provide a number below to get its scientific notation, E-notation, engineering notation, and real number format. It accepts numbers in the following formats 3672.2, 2.3e11, or 3.5x10^-12.</p>
-<form action="/scientific-notation-calculator.html" name="calform">
+<form action="/scientific-notation-calculator.html" name="calform" aria-label="Scientific notation converter">
 <table  class="panel">
 <tr>
-	<td><input type="text" name="cvtnum" value="1568938" class="infull" style="text-align:left;"></td>
+	<td><input type="text" name="cvtnum" id="cvtnum" value="1568938" class="infull" style="text-align:left;" aria-label="Number to convert"></td>
 </tr>
 <tr><td align="center" style="padding-top:10px;"><input name="ctype" value="1" type="hidden">
 	<input type="submit" name="submit1" value=" Convert ">
@@ -29,44 +95,43 @@
 </table>
 </form>
 
-
 <a name="calculator"></a>
-<h2>Scientific Notation Calculator</h2>
+<h2 id="calculator-title">Scientific Notation Calculator</h2>
 <p>Use the calculator below to perform calculations using scientific notation.</p>
-<form action="/scientific-notation-calculator.html#calculator" name="calform2">
+<form action="/scientific-notation-calculator.html#calculator" name="calform2" aria-labelledby="calculator-title">
 <table  class="panel">
 <tr><td>
 <table>
 <tr>
-	<td style="padding-top:16px;">X=</td>
-	<td style="padding-top:16px;"><input type="text" name="x" value="1.23" class="inlonger"></td>
+	<td style="padding-top:16px;"><label for="x">X=</label></td>
+	<td style="padding-top:16px;"><input type="text" name="x" id="x" value="1.23" class="inlonger"></td>
 	<td style="padding-top:16px;">&#215;10</td>
-	<td valign="top"><input type="text" name="xpow" value="7" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, '', 'i');"></sup></td>
+	<td valign="top"><input type="text" name="xpow" id="xpow" value="7" class="innormal" style="text-align:left;" aria-label="Power of 10 for X" onKeyUp="iptfieldCheck(this, '', 'i');"></td>
 </tr>
 <tr>
-	<td style="padding-top:16px;">Y=</td>
-	<td style="padding-top:16px;"><input type="text" name="y" value="3.45" class="inlonger"></td>
+	<td style="padding-top:16px;"><label for="y">Y=</label></td>
+	<td style="padding-top:16px;"><input type="text" name="y" id="y" value="3.45" class="inlonger"></td>
 	<td style="padding-top:16px;">&#215;10</td>
-	<td valign="top"><input type="text" name="ypow" value="2" class="innormal" style="text-align:left;" onKeyUp="iptfieldCheck(this, '', 'i');"></sup></td>
+	<td valign="top"><input type="text" name="ypow" id="ypow" value="2" class="innormal" style="text-align:left;" aria-label="Power of 10 for Y" onKeyUp="iptfieldCheck(this, '', 'i');"></td>
 </tr>
 </table>
 </td></tr>
 <tr valign="top">
 	<td style="padding-top:5px;">
-		<table><tr><td>Precision:</td><td><input type="text" name="cp" value="20" class="in4char" maxlength="4"></td><td>digits
+		<table><tr><td><label for="cp">Precision:</label></td><td><input type="text" name="cp" id="cp" value="20" class="in4char" maxlength="4"></td><td>digits
 			after the decimal place in the result		</td></tr></table>
 	</td>
 </tr>
 <tr><td align="center" style="padding-top:10px;" id="submitbtn">
 	<input name="ctype" value="2" type="hidden">
 	<div style="text-align:center;">Click the buttons below to calculate</div>
-	<button type="submit" name="co" value="plus">X + Y</button>
-	<button type="submit" name="co" value="minus">X &ndash; Y</button>
-	<button type="submit" name="co" value="multiple">X &#215; Y</button>
-		<button type="submit" name="co" value="divide">X / Y</button>
-	<button type="submit" name="co" value="pow">X^Y</button>
-	<button type="submit" name="co" value="sqrt">&radic;X</button>
-	<button type="submit" name="co" value="square">X<sup>2</sup></button>
+	<button type="submit" name="co" value="plus" aria-label="X plus Y">X + Y</button>
+	<button type="submit" name="co" value="minus" aria-label="X minus Y">X &ndash; Y</button>
+	<button type="submit" name="co" value="multiple" aria-label="X times Y">X &#215; Y</button>
+		<button type="submit" name="co" value="divide" aria-label="X divided by Y">X / Y</button>
+	<button type="submit" name="co" value="pow" aria-label="X to the power of Y">X^Y</button>
+	<button type="submit" name="co" value="sqrt" aria-label="Square root of X">&radic;X</button>
+	<button type="submit" name="co" value="square" aria-label="X squared">X<sup>2</sup></button>
 	<input type="button" value="Clear" onClick="clearForm(document.calform2);">
 </td></tr>
 </table>
@@ -87,12 +152,14 @@
 }
 </style>
 <br>
-<h3>Scientific notation</h3>
+<article>
+<h2>What Is Scientific Notation?</h2>
 <p>Scientific notation is a way to express numbers in a form that makes numbers that are too small or too large more convenient to write and perform calculations with. It is commonly used in mathematics, engineering, and science, as it can help simplify arithmetic operations. In scientific notation, numbers are written as a base, <b>b</b>, referred to as the significand, multiplied by 10 raised to an integer exponent, <b>n</b>, which is referred to as the order of magnitude:</p>
-<p style="text-align:center;">b &#215; 10<sup>n</sup></p>
+<p style="text-align:center;"><strong>b &#215; 10<sup>n</sup></strong></p>
 <p>Below are some examples of numbers written in decimal notation compared to scientific notation:</p>
 <table align="center" class="cinfoT">
-<tr><td class="cinfoHd">Decimal notation</td><td class="cinfoHdL">Scientific notation</td></tr>
+<caption style="display:none;">Decimal notation compared to scientific notation</caption>
+<tr><th class="cinfoHd" scope="col">Decimal notation</th><th class="cinfoHdL" scope="col">Scientific notation</th></tr>
 <tr><td>5</td><td>5 &#215; 10<sup>0</sup></td></tr>
 <tr><td>700</td><td>7 &#215; 10<sup>2</sup></td></tr>
 <tr><td>1,000,000</td><td>1 &#215; 10<sup>6</sup></td></tr>
@@ -100,10 +167,10 @@
 <tr><td>-5,000,000,000</td><td>-5 &#215; 10<sup>9</sup></td></tr>
 </table>
 
-<h3>Calculations with scientific notation</h3>
+<h2>Calculations with Scientific Notation</h2>
 <p>Scientific notation can simplify the process of computing basic arithmetic operations by hand.</p>
 
-<p><b>Addition and subtraction:</b></p>
+<h3>Addition and subtraction</h3>
 <p>To add and subtract in scientific notation, ensure that each number is converted to a number with the same power of 10. For example, 100 can be written as 1&#215;10<sup>2</sup>, 0.01&#215;10<sup>4</sup>, 0.0001&#215;10<sup>6</sup>, and so on. Once the numbers are all written to the same power of 10, add each respective digit. Consider the problem 1.432&#215;10<sup>2</sup> + 800&#215;10<sup>-1</sup> &ndash; 0.001&#215;10<sup>5</sup>:</p>
 <table align="center">
 	<tr><td>&nbsp;</td><td>1.432&#215;10<sup>2</sup> + 800&#215;10<sup>-1</sup> &ndash; 0.001&#215;10<sup>5</sup></td></tr>
@@ -112,14 +179,14 @@
 	<tr><td>=</td><td>1.232&#215;10<sup>2</sup></td></tr>
 </table>
 
-<p><b>Multiplication:</b></p>
+<h3>Multiplication</h3>
 <p>To multiply numbers in scientific notation, separate the powers of 10 and digits. The digits are multiplied normally, and the exponents of the powers of 10 are added to determine the new power of 10 applied to the product of the digits. Consider 1.432&#215;10<sup>2</sup> &#215; 800&#215;10<sup>-1</sup> &#215; 0.001&#215;10<sup>5</sup>:</p>
 <p style="text-align:center;">1.432 &#215; 800 &#215; 0.001 = 1.1456</p>
 <p style="text-align:center;">10<sup>2</sup> &#215; 10<sup>-1</sup> &#215; 10<sup>5</sup> = 10<sup>2+(-1)+5</sup> = 10<sup>6</sup></p>
 <p>Thus:</p>
 <p style="text-align:center;">1.432&#215;10<sup>2</sup> &#215; 800&#215;10<sup>-1</sup> &#215; 0.001&#215;10<sup>5</sup> = 1.1456&#215;10<sup>6</sup></p>
 
-<p><b>Division:</b></p>
+<h3>Division</h3>
 <p>To divide numbers in scientific notation, separate the powers of 10 and digits. Divide the digits normally and subtract the exponents of the powers of 10. By convention, the quotient is written such that there is only one non-zero digit to the left of the decimal. Consider (1.432&#215;10<sup>2</sup>) &div; (800&#215;10<sup>-1</sup>) &div; (0.001&#215;10<sup>5</sup>):</p>
 <p style="text-align:center;">1.432 &div; 800 &div; 0.001 = 1.79</p>
 <p style="text-align:center;">10<sup>2</sup> &div; 10<sup>-1</sup> &div; 10<sup>5</sup> = 10<sup>(2-(-1)-5)</sup> = 10<sup>-2</sup></p>
@@ -128,18 +195,19 @@
 <p>If, for example, the solution had instead been 0.179&#215;10<sup>-2</sup>, by convention, we would shift the decimal to the left such that the first digit left of the decimal point wouldn't be 1, then change the exponent accordingly:</p>
 <p style="text-align:center;">0.179&#215;10<sup>-2</sup> = 1.79&#215;10<sup>-3</sup></p>
 
-<h3>Engineering notation</h3>
+<h2>Engineering Notation</h2>
 <p>Engineering notation is similar to scientific notation except that the exponent, <b>n</b>, is restricted to multiples of 3 such as: 0, 3, 6, 9, 12, -3, -6, etc. This is so that the numbers align with SI prefixes and can be read as such. For example, 10<sup>3</sup> would have the kilo prefix, 10<sup>6</sup> would have the mega prefix, and 10<sup>9</sup> would have the giga prefix. Note that the decimal place of the number can be moved to convert scientific notation into engineering notation. For example:</p>
 <p style="text-align:center;">1.234 &#215; 10<sup>8</sup> (scientific notation)</p>
 <p>can be converted to:</p>
 <p style="text-align:center;">123.4 &#215; 10<sup>6</sup> (engineering notation)</p>
 
-<h3>E-notation</h3>
+<h2>E-Notation</h2>
 <p>E-notation is almost the same as scientific notation except that the "&#215; 10" in scientific notation is replaced with just "E." It is used in cases where the exponent cannot be conveniently displayed. It is written as:</p>
-<p style="text-align:center;">bEn</p>
+<p style="text-align:center;"><strong>bEn</strong></p>
 <p>where <b>b</b> is the base, <b>E</b> indicates "x 10" and the <b>n</b> is written after the <b>E</b>. Below is a comparison of scientific notation and E-notation:</p>
 <table align="center" class="cinfoT">
-<tr><td class="cinfoHd">Scientific notation</td><td class="cinfoHdL">E-notation</td></tr>
+<caption style="display:none;">Scientific notation compared to E-notation</caption>
+<tr><th class="cinfoHd" scope="col">Scientific notation</th><th class="cinfoHdL" scope="col">E-notation</th></tr>
 <tr><td>5 &#215; 10<sup>0</sup></td><td>5E0</td></tr>
 <tr><td>7 &#215; 10<sup>2</sup></td><td>7E2</td></tr>
 <tr><td>1 &#215; 10<sup>6</sup></td><td>1E6</td></tr>
@@ -147,28 +215,60 @@
 <tr><td>-5 &#215; 10<sup>9</sup></td><td>-5E9</td></tr>
 </table>
 <p>The "E" can also be written as "e" which is what is used by this calculator. It can also be written in other ways depending on the context, such as being represented differently in different programming languages.</p>
+</article>
 
+<!-- FAQ section: mirrors the FAQPage JSON-LD in the head -->
+<section id="faq" aria-labelledby="faq-title">
+	<h2 id="faq-title">Scientific Notation FAQs</h2>
 
+	<h3>What is scientific notation?</h3>
+	<p>Scientific notation writes a number as b &#215; 10<sup>n</sup>, where b (the significand) is a number with one non-zero digit to the left of the decimal point and n (the order of magnitude) is an integer. For example, 700 is 7 &#215; 10<sup>2</sup> and 0.0004212 is 4.212 &#215; 10<sup>-4</sup>.</p>
 
+	<h3>How do you convert a number to scientific notation?</h3>
+	<p>Move the decimal point until only one non-zero digit is to its left. The number of places you moved it is the exponent: positive if you moved left, negative if you moved right. For example, 1,568,938 becomes 1.568938 &#215; 10<sup>6</sup> and 0.0004212 becomes 4.212 &#215; 10<sup>-4</sup>.</p>
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+	<h3>How do you convert scientific notation back to a regular number?</h3>
+	<p>Move the decimal point the number of places shown by the exponent: to the right if the exponent is positive, to the left if it is negative. For example, 2.3 &#215; 10<sup>5</sup> is 230,000 and 4.212 &#215; 10<sup>-4</sup> is 0.0004212.</p>
+
+	<h3>What is E-notation?</h3>
+	<p>E-notation replaces "&#215; 10" with the letter E (or e), so b &#215; 10<sup>n</sup> is written bEn. For example, 4.212 &#215; 10<sup>-4</sup> is 4.212E-4 and 1.5e3 is 1,500. Calculators and programming languages commonly use it because the exponent cannot be displayed as a superscript.</p>
+
+	<h3>What is the difference between scientific notation and engineering notation?</h3>
+	<p>Engineering notation restricts the exponent to multiples of 3 (such as 0, 3, 6, 9 and -3) so numbers line up with SI prefixes like kilo, mega and giga. For example, 1.234 &#215; 10<sup>8</sup> in scientific notation is 123.4 &#215; 10<sup>6</sup> in engineering notation.</p>
+
+	<h3>How do you add and subtract numbers in scientific notation?</h3>
+	<p>Rewrite every number with the same power of 10, then add or subtract the digits. For example, 1.432 &#215; 10<sup>2</sup> + 800 &#215; 10<sup>-1</sup> &minus; 0.001 &#215; 10<sup>5</sup> = 1.432 &#215; 10<sup>2</sup> + 0.8 &#215; 10<sup>2</sup> &minus; 1 &#215; 10<sup>2</sup> = 1.232 &#215; 10<sup>2</sup>.</p>
+
+	<h3>How do you multiply numbers in scientific notation?</h3>
+	<p>Multiply the digits and add the exponents. For example, (2 &#215; 10<sup>3</sup>) &#215; (3 &#215; 10<sup>4</sup>) = 6 &#215; 10<sup>7</sup>. If the result's digit part is 10 or more, shift the decimal point and adjust the exponent.</p>
+
+	<h3>How do you divide numbers in scientific notation?</h3>
+	<p>Divide the digits and subtract the exponents. For example, (6 &#215; 10<sup>7</sup>) &div; (3 &#215; 10<sup>4</sup>) = 2 &#215; 10<sup>3</sup>. By convention, write the result with one non-zero digit left of the decimal, so 0.179 &#215; 10<sup>-2</sup> becomes 1.79 &#215; 10<sup>-3</sup>.</p>
+
+	<h3>How do you square or take the square root of a number in scientific notation?</h3>
+	<p>For a power, raise the digits to that power and multiply the exponent by it: (3 &#215; 10<sup>4</sup>)<sup>2</sup> = 9 &#215; 10<sup>8</sup>. For a square root, take the root of the digits and halve the exponent: &radic;(4 &#215; 10<sup>6</sup>) = 2 &#215; 10<sup>3</sup>. If the exponent is odd, adjust it first so it is even.</p>
+
+	<h3>What number formats can I enter in this calculator?</h3>
+	<p>The converter accepts regular numbers such as 3672.2, E-notation such as 2.3e11, and scientific notation typed as 3.5x10^-12. In the calculator below it, enter the digits and the power of 10 for X and Y separately.</p>
+
+	<h3>Why is scientific notation used?</h3>
+	<p>It makes very large and very small numbers shorter to write, easier to compare by order of magnitude, and simpler to multiply and divide by hand. It is widely used in mathematics, science and engineering, for example for the speed of light, about 3 &#215; 10<sup>8</sup> meters per second.</p>
+</section>
+
+<fieldset><legend>Related</legend><a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/fraction-calculator.html">Fraction Calculator</a> | <a href="/percent-calculator.html">Percentage Calculator</a> | <a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset>
+
+</div>
+
+	<div id="right" role="complementary" aria-label="Other calculators">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;"></div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+
+<div id="clear"></div>
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

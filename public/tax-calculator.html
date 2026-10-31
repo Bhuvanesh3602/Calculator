@@ -1,480 +1,612 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Income Tax Calculator</title>
-	<meta name="description" content="Free online income tax calculator to estimate U.S federal tax refund or owed amount for both salary earners and independent contractors." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tax-calculator.html" itemprop="item"><span itemprop="name">income tax calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Income Tax Calculator</h1>
-
-<p>The Income Tax Calculator estimates the refund or potential owed amount on a federal tax return. It is mainly intended for residents of the U.S. and is based on the tax brackets of 2025 and 2026 (One Big Beautiful Bill). The 2026 tax values can be used for 1040-ES estimation, planning ahead, or comparison.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
-<div class="panel">
-<table>
-<tr>
-	<td>File Status</td>
-	<td>
-		<select name="cfilestatus" onChange="tcShowHideFilingStatus(this.value);">
-			<option value="Single" selected>Single</option>
-			<option value="MarriedJoint" >Married Filing Jointly</option>
-			<option value="MarriedSeparately" >Married Filing Separately</option>
-			<option value="HeadofHousehold" >Head of Household</option>
-			<option value="Widow" >Qualified Widow</option>
-		</select>
-	</td>
-</tr>
-<tr>
-	<td>No. of Young Dependents</td>
-	<td><input type="text" name="callowance" id="callowance" value="0" class="inlong"> Age 0-16</td>
-</tr>
-<tr>
-	<td>No. of Other Dependents</td>
-	<td><input type="text" name="callowanceold" id="callowanceold" value="0" class="inlong"> Age 17 or older</td>
-</tr>
-<tr>
-	<td valign="top">Tax Year</td>
-	<td>
-		<div><label for="ctaxyeara" class="cbcontainer"><input name="ctaxyear" id="ctaxyeara" value="2026" type="radio" ><span class="rbmark"></span>2026 (return filed in 2027)</label></div>
-		<div><label for="ctaxyearb" class="cbcontainer"><input name="ctaxyear" id="ctaxyearb" value="2025" type="radio" checked><span class="rbmark"></span>2025 (return filed in 2026)</label></div>
-	</td>
-</tr>
-</table>
-
-<br><div id="sectitle">Income</div>
-<div id="person1label" style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;margin-top:5px;">Person 1 (Husband) Earned Income</div>
-<table>
-<tr>
-	<td>Age</td>
-	<td align="right"><input type="text" name="cage" id="cage" value="30" class="inlong"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Wages, Tips, Other Compensation</td>
-	<td align="right"><input type="text" name="csalaryincome" id="csalaryincome" value="80000" class="inlong indollar"></td>
-	<td>(W-2 box 1)</td>
-</tr>
-<tr>
-	<td>Federal Income Tax Withheld</td>
-	<td align="right"><input type="text" name="cwithheld" id="cwithheld" value="9000" class="inlong indollar"></td>
-	<td>(W-2 box 2)</td>
-</tr>
-<tr>
-	<td>State Income Tax Withheld</td>
-	<td align="right"><input type="text" name="csalarystate" id="csalarystate" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 17)</td>
-</tr>
-<tr>
-	<td>Local Income Tax Withheld</td>
-	<td align="right"><input type="text" name="csalarylocal" id="csalarylocal" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 19)</td>
-</tr>
-</table>
-<div style="padding:3px;">
-Has Business or Self Employment Income?
-<label for="chasbusinessa" class="cbcontainer"><input name="chasbusiness" id="chasbusinessa" value="yes" type="radio"  onClick="tcShowHideBusinesIncome('yes', 'person1business');"><span class="rbmark"></span>yes</label> &nbsp;
-<label for="chasbusinessb" class="cbcontainer"><input name="chasbusiness" id="chasbusinessb" value="no" type="radio" checked onClick="tcShowHideBusinesIncome('no', 'person1business');"><span class="rbmark"></span>no</label>
-</div>
-<table id="person1business" style="padding-left:20px;">
-<tr>
-	<td>Business Income</td>
-	<td align="right"><input type="text" name="cbusinessincome" id="cbusinessincome" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Estimated Tax Paid</td>
-	<td align="right"><input type="text" name="cestimatedtax" id="cestimatedtax" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Medicare Wages</td>
-	<td align="right"><input type="text" name="cmedicarewage" id="cmedicarewage" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 5, use 0 if no W-2)</td>
-</tr>
-</table>
-
-<div id="person2">
-<br><div style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;">Person 2 (Wife) Earned Income</div>
-<table>
-<tr>
-	<td>Age</td>
-	<td align="right"><input type="text" name="cage2" id="cage2" value="30" class="inlong"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Wages, Tips, Other Compensation</td>
-	<td align="right"><input type="text" name="csalaryincome2" id="csalaryincome2" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 1)</td>
-</tr>
-<tr>
-	<td>Federal Income Tax Withheld</td>
-	<td align="right"><input type="text" name="cwithheld2" id="cwithheld2" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 2)</td>
-</tr>
-<tr>
-	<td>State Income Tax Withheld</td>
-	<td align="right"><input type="text" name="csalarystate2" id="csalarystate2" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 17)</td>
-</tr>
-<tr>
-	<td>Local Income Tax Withheld</td>
-	<td align="right"><input type="text" name="csalarylocal2" id="csalarylocal2" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 19)</td>
-</tr>
-</table>
-
-<div style="padding:3px;">Has Business or Self Employment Income?
-<label for="chasbusiness2a" class="cbcontainer"><input name="chasbusiness2" id="chasbusiness2a" value="yes" type="radio"  onClick="tcShowHideBusinesIncome('yes', 'person2business');"><span class="rbmark"></span>yes</label> &nbsp;
-<label for="chasbusiness2b" class="cbcontainer"><input name="chasbusiness2" id="chasbusiness2b" value="no" type="radio" checked onClick="tcShowHideBusinesIncome('no', 'person2business');"><span class="rbmark"></span>no</label>
-</div>
-
-<table id="person2business" style="padding-left:20px;">
-<tr>
-	<td>Business Income</td>
-	<td align="right"><input type="text" name="cbusinessincome2" id="cbusinessincome2" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Estimated Tax Paid</td>
-	<td align="right"><input type="text" name="cestimatedtax2" id="cestimatedtax2" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Medicare Wages</td>
-	<td align="right"><input type="text" name="cmedicarewage2" id="cmedicarewage2" value="0" class="inlong indollar"></td>
-	<td>(W-2 box 5, use 0 if no W-2)</td>
-</tr>
-</table>
-</div>
-<br>
-<div id="familylabel" style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;">Other Family Incomes</div>
-<table>
-<tr>
-	<td>Social Security Income</td>
-	<td align="right"><input type="text" name="cssincome" id="cssincome" value="0" class="inlong indollar"></td>
-	<td>SSA-1099, RRB-1099</td>
-</tr>
-<tr>
-	<td>Interest Income</td>
-	<td align="right"><input type="text" name="cinterestincome" id="cinterestincome" value="0" class="inlong indollar"></td>
-	<td>1099-INT</td>
-</tr>
-<tr>
-	<td>Ordinary Dividends</td>
-	<td align="right"><input type="text" name="cordinarydividends" id="cordinarydividends" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Qualified Dividends</td>
-	<td align="right"><input type="text" name="cqualifieddividends" id="cqualifieddividends" value="0" class="inlong indollar"></td>
-	<td>1099-DIV</td>
-</tr>
-<tr>
-	<td>Passive Incomes</td>
-	<td align="right"><input type="text" name="crentalincome" id="crentalincome" value="0" class="inlong indollar"></td>
-	<td>e.g. rentals and real estate, royalties</td>
-</tr>
-<tr>
-	<td>Short-term Capital Gains</td>
-	<td align="right"><input type="text" name="cshortcapitalgain" id="cshortcapitalgain" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Long-term Capital Gains</td>
-	<td align="right"><input type="text" name="clongcapitalgain" id="clongcapitalgain" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Other Income</td>
-	<td align="right"><input type="text" name="cotherincome" id="cotherincome" value="0" class="inlong indollar"></td>
-	<td>e.g. unemployment pay(1099-G), retirement pay (1099-R)</td>
-</tr>
-<tr>
-	<td>State+Local Tax Rate</td>
-	<td align="right"><input type="text" name="cstatetaxrate" id="cstatetaxrate" value="0" class="inlong inpct"></td>
-	<td>&nbsp;</td>
-</tr>
-</table>
-
-<br><div id="sectitle">Deductions &amp; Credits</div>
-<table>
-<tr>
-	<td>Tips Income</td>
-	<td align="right"><input type="text" name="ctips" id="ctips" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Overtime Income</td>
-	<td align="right"><input type="text" name="covertime" id="covertime" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Car Loan Interest</td>
-	<td align="right"><input type="text" name="ccar" id="ccar" value="0" class="inlong indollar"></td>
-	<td>Max $10,000 for qualified vehicle purchase</td>
-</tr>
-<tr>
-	<td>IRA Contributions</td>
-	<td align="right"><input type="text" name="cira" id="cira" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Real Estate Tax</td>
-	<td align="right"><input type="text" name="csalestax" id="csalestax" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Mortgage Interest</td>
-	<td align="right"><input type="text" name="cmortgage" id="cmortgage" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Charitable Donations</td>
-	<td align="right"><input type="text" name="cdonations" id="cdonations" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-<tr>
-	<td>Student Loan Interest</td>
-	<td align="right"><input type="text" name="cstudentloan" id="cstudentloan" value="0" class="inlong indollar"></td>
-	<td>Max $2,500/Person</td>
-</tr>
-<tr>
-	<td>Child &amp; Dependent Care Expense</td>
-	<td align="right"><input type="text" name="cchildcare" id="cchildcare" value="0" class="inlong indollar"></td>
-	<td>Max $3,000/Person, $6,000 total, up to age 13</td>
-</tr>
-<tr valign="top">
-	<td>College Education Expense</td>
-	<td align="right"><input type="text" name="ctuition" id="ctuition" value="0" class="inlong indollar"></td>
-	<td>Student 1</td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td align="right"><input type="text" name="ctuition2" id="ctuition2" value="0" class="inlong indollar"></td>
-	<td>Student 2</td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td align="right"><input type="text" name="ctuition3" id="ctuition3" value="0" class="inlong indollar"></td>
-	<td>Student 3</td>
-</tr>
-<tr valign="top">
-	<td>&nbsp;</td>
-	<td align="right"><input type="text" name="ctuition4" id="ctuition4" value="0" class="inlong indollar"></td>
-	<td>Student 4</td>
-</tr>
-
-<tr>
-	<td>Other Deductibles</td>
-	<td align="right"><input type="text" name="cotherdeductable" id="cotherdeductable" value="0" class="inlong indollar"></td>
-	<td>&nbsp;</td>
-</tr>
-
-<tr><td colspan="3" align="center">
-	<br><input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td></tr>
-</table>
-</div>
-</form>
-<script>
-function tcShowHideFilingStatus(filingStatus){
-	if (filingStatus=='MarriedJoint'){
-		document.getElementById('person1label').style.display = 'block';
-		document.getElementById('person2').style.display = 'block';
-		document.getElementById('familylabel').style.display = 'block';
-	}else{
-		document.getElementById('person1label').style.display = 'none';
-		document.getElementById('person2').style.display = 'none';
-		document.getElementById('familylabel').style.display = 'none';
-	}
-}
-
-function tcShowHideBusinesIncome(tcbValue, tcbID){
-	if (tcbValue=='yes'){
-		document.getElementById(tcbID).style.display = 'block';
-	}else{
-		document.getElementById(tcbID).style.display = 'none';
-	}
-}
-
-tcShowHideFilingStatus('Single');tcShowHideBusinesIncome('no','person1business' );tcShowHideBusinesIncome('no','person2business' );
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("callowance");
-proComma2("callowanceold");
-proComma2("csalaryincome");
-proComma2("cwithheld");
-proComma2("csalarystate");
-proComma2("csalarylocal");
-proComma2("cbusinessincome");
-proComma2("cestimatedtax");
-proComma2("cmedicarewage");
-proComma2("csalaryincome2");
-proComma2("cwithheld2");
-proComma2("csalarystate2");
-proComma2("csalarylocal2");
-proComma2("cbusinessincome2");
-proComma2("cestimatedtax2");
-proComma2("cmedicarewage2");
-proComma2("cssincome");
-proComma2("cinterestincome");
-proComma2("cordinarydividends");
-proComma2("cqualifieddividends");
-proComma2("crentalincome");
-proComma2("cshortcapitalgain");
-proComma2("clongcapitalgain");
-proComma2("cotherincome");
-proComma2("cstatetaxrate");
-proComma2("cira");
-proComma2("csalestax");
-proComma2("cmortgage");
-proComma2("cdonations");
-proComma2("cstudentloan");
-proComma2("cchildcare");
-proComma2("ctuition");
-proComma2("ctuition2");
-proComma2("ctuition3");
-proComma2("ctuition4");
-proComma2("cotherdeductable");
-proComma2("ctips");
-proComma2("covertime");
-proComma2("ccar");
-</script>
-
-<br>
-<h2>Taxable Income</h2>
-<p>In order to find an estimated tax refund or due, it is first necessary to determine a proper taxable income. It is possible to use W-2 forms as a reference for filling out the input fields. Relevant W-2 boxes are displayed to the side if they can be taken from the form. Taking gross income, subtract deductions and exemptions such as contributions to a 401(k) or pension plan. The resulting figure should be the taxable income amount.</p>
-
-<h2>Other Taxable Income</h2>
-<p><b>Interest Income</b>&ndash;Most interest will be taxed as ordinary income, including interest earned on checking and savings accounts, CDs, and income tax refunds. However, there are certain exceptions, such as municipal bond interest and private-activity bonds.</p>
-<p><b>Short-term Capital Gains/Losses</b>&ndash;profit or loss from the sale of assets held for less than one year. It is taxed as a normal income.</p>
-<p><b>Long-term Capital Gains/Losses</b>&ndash;profit or loss from the sale of assets held for one year or longer. Taxation rules applied are determined by ordinary income marginal tax rate.</p>
-<p><b>Ordinary Dividends</b>&ndash;All dividends should be considered ordinary unless specifically classified as qualified. Ordinary dividends are taxed as normal income.</p>
-<p><b>Qualified Dividends</b>&ndash;These are taxed at the same rate as long-term capital gains, lower than that of ordinary dividends. There are many stringent measures in place for dividends to be legally defined as qualified.</p>
-<p><b>Passive Incomes</b>&ndash;Making the distinction between passive and active income is important because taxpayers can claim passive losses. Passive income generally comes from two places, rental properties or businesses that don't require material participation. Any excessive passive income loss can be accrued until used or deducted in the year the taxpayer disposes of the passive activity in a taxable transaction.</p>
-
-<h2>Exemptions</h2>
-<p>Broadly speaking, tax exemptions are monetary exemptions with the aim of reducing or even entirely eliminating taxable income. They do not only apply to personal income tax; for instance, charities and religious organizations are generally exempt from taxation. In some international airports, tax-exempt shopping in the form of duty-free shops is available. Other examples include state and local governments not being subject to federal income taxes.</p>
-
-<h2>Tax Deductions</h2>
-<p>Tax deductions arise from expenses. They help lower tax bills by reducing the percentage of adjusted gross income that is subject to taxes. There are two types of deductions, above-the-line (ATL) and below-the-line (BTL) itemized deductions, which reduce tax based on the marginal tax rate. The "line" in question is the adjusted gross income (AGI) of the taxpayer and is the bottom number on the front of Form 1040.</p>
-<p><b>Modified Adjusted Gross Income (MAGI)</b></p>
-<p>MAGI is mainly used to determine whether a taxpayer is qualified for certain tax deductions. It is simply AGI with some deductions added back in. These deductions are:</p>
-<ul>
-	<li>Student loan interest</li>
-	<li>One-half of self-employment tax</li>
-	<li>Qualified tuition expenses</li>
-	<li>Tuition and fees deduction</li>
-	<li>Passive loss or passive income</li>
-	<li>IRA contributions, taxable Social Security payments</li>
-	<li>The exclusion for income from U.S. savings bonds</li>
-	<li>The exclusion under 137 for adoption expenses</li>
-	<li>Rental losses</li>
-	<li>Any overall loss from a publicly traded company</li>
-	<li>Tips and overtime compensation</li>
-	<li>Car loan interest</li>
-	<li>Seniors</li>
-</ul>
-
-<p><b>Above-the-line Deductions</b></p>
-<p>ATL deductions lower AGI, which means less income to pay taxes on. They include expenses that are claimed on Schedules C, D, E, and F, and "Adjustments to Income." One advantage of ATL deductions is that they are allowed under the alternative minimum tax. ATL deductions have no effect on the BTL decision of whether to take the standard deduction or to itemize instead. Please consult the official IRS website for more detailed information regarding precise calculations of tax deductions. Below are some common examples of ATL deductions.</p>
-<ul>
-	<li><b>Traditional IRA contributions</b>&ndash;Most people are eligible to make contributions to a traditional IRA, but these contributions aren't necessarily tax-deductible. If Modified Adjusted Gross Income exceeds annual limits, the taxpayer may need to reduce or eliminate their IRA deduction.</li>
-	<li><b>Student loan interest</b>&ndash;The amount of interest accrued from federal student loans. It should be in box 1 of Form 1090-E, which should be sent by lenders after the first year. Those who are married but file separate returns cannot claim this deduction. This deduction also cannot be claimed if Modified Adjusted Gross Income exceeds the annual limits. In 2025, the claim limit for single, head-of-household, or qualifying widower is $100,000; for joint filers, the cap is $200,000.</li>
-	<li><b>Qualified tuition and fees</b>&ndash;Must be qualified education expenses based on IRS definitions. This deduction cannot be claimed by those who are married but filing separate returns. This deduction cannot be claimed in conjunction with an educational tax credit.</li>
-	<li><b>Moving expenses</b>&ndash;The costs of transporting household items from one residence to another for work or business purposes are usually fully deductible, as long as they are not reimbursed by the taxpayer's employer. The taxpayer's new place of employment must be at least 50 miles away from the previous residence.</li>
-	<li><b>Tips</b>&ndash;For tax years 2025 through 2028, qualified tips of up to $25,000 per year may be deducted. The deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
-	<li><b>Overtime compensation</b>&ndash;For tax years 2025 through 2028, qualified overtime compensation of up to $12,500 per year for single filers and $25,000 per year for joint filers may be deducted. The deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
-	<li><b>Car loan interest</b>&ndash;For tax years 2025 through 2028, individuals may deduct up to $10,000 per year in interest paid on a loan used to purchase a qualified vehicle. The deduction phases out for taxpayers with a modified adjusted gross income over $100,000 ($200,000 for joint filers).</li>
-	<li><b>Deduction for seniors</b>&ndash;For tax years 2025 through 2028, individuals aged 65 and older may claim an additional deduction of $6,000 per year for single filers, or a total of $12,000 per year for married couples in which both spouses qualify. The deduction phases out for taxpayers with a modified adjusted gross income over $75,000 ($150,000 for joint filers).</li>
-</ul>
-
-<p><b>Below-the-line Deductions</b></p>
-<p>BTL deductions refer to the Standard Deduction or Itemized Deductions from Schedule A. A BTL deduction is always limited to the amount of the actual deduction. For example, a $1,000 deduction can only reduce net taxable income by $1,000. Please consult the official IRS website for more detailed information regarding precise calculations of tax deductions. Examples of common BTL deductions are listed below, along with basic information.</p>
-<ul>
-	<li><b>Mortgage interest</b>&ndash;This can apply to a regular mortgage up to a certain limit; $750,000 in 2025 and 2026, for a main residency, a second mortgage, a line of credit, or a home equity loan. Loans that aren't secured debt on a home are considered personal loans, which are not deductible. The IRS defines a "home" as anything from a house to a condo, co-op, mobile home, boat, or RV.</li>
-	<li><b>Charitable donations</b>&ndash;Only donations to qualified charities can qualify as tax deductions. Handouts to the homeless or payments to local organizations that aren't classified as non-profit by the IRS cannot be deducted.</li>
-	<li><b>Medical expenses</b>&ndash;Any expense paid for the prevention, diagnosis, or medical treatment of physical or mental illness or any amounts paid to treat or modify parts or functions of the body for health can be deducted. Medical expenses for cosmetic purposes do not qualify. If premiums are paid with after-tax dollars, deductions are limited only to the expenses that exceed 10% of adjusted gross income, and 7.5% for anyone 65 and older. Note that health savings account contributions are ATL deductions.</li>
-	<li><b>Sales and local tax</b>&ndash;Sometimes referred to as SALT (state and local tax), this federal deduction can be either income tax or sales tax, but not both. Taxpayers who live in states that don't have an income tax are probably better off using their sales tax for the deduction. In 2025 and 2026, this deduction cannot exceed $40,000 and $40,400. The SALT cap begins to phase down to $10,000 once the Modified Adjusted Gross Income exceeds $500,000 for 2025 and $505,000 for 2026.</li>
-</ul>
-<p>Most BTL deductions are the run-of-the-mill variety above, including several others like investment interest or tax preparation fees. However, the IRS allows the deduction of certain costs that can reduce tax bills. Examples are given below, though they are not the entire package. For further information, visit the official IRS website.</p>
-<ul>
-	<li><b>Out-of-pocket charitable contributions</b>&ndash;Not only are donations to charitable organizations deductible, out-of-pocket expenses for charitable work can also be deducted, for example, buying paint to paint the walls of a cathedral or buying ingredients to cook for a homeless shelter.</li>
-	<li><b>Tax savings for teachers</b>&ndash;This deduction allows K-12 educators to deduct up to $250 a year for school materials. </li>
-	<li><b>Paying babysitters</b>&ndash;Believe it or not, if a person performs volunteer work at a non-profit while a babysitter takes care of their kids at home, any payment to the babysitter for childcare can be deducted!</li>
-	<li><b>Job searching</b>&ndash;By itemizing expenses of costs associated with searching for a new job, if the expenses accrued when searching for a new job exceed two percent of adjusted gross income, the qualifying expenses over the threshold can be deducted. Examples of such out-of-pocket expenses can include the mileage of driving to interviews, printing resumes or business cards.</li>
-	<li><b>Smoking cessation</b>&ndash;Participating in a smoking cessation program can be considered a medical tax deduction. The deduction can also apply to prescription drugs used to ease nicotine withdrawal.</li>
-	<li><b>Disaster recovery</b>&ndash;If a taxpayer's home is affected by a natural disaster and the taxpayer requires federal aid, uninsured costs of recovery can be deducted.</li>
-</ul>
-
-<p><b>Business expenses</b></p>
-<p>Any cost that is associated with carrying on a business or trade can usually be deducted if the business operates to make a profit. However, it must be both ordinary and necessary. Try to make the distinction between business expenses from other capital or personal expenses and expenses used to determine the cost of goods sold. Any business expense incurred under the operation of a sole proprietorship is considered ATL because they are deducted on Schedule C then subtracted to calculate AGI. Business-related expenses involve many different rules and are complex. Some can be considered ATL deductions, while many will be BTL. As such, it may be a good idea to consult official IRS rules relating to the deduction of business expenses.</p>
-
-<h3>Standard vs. Itemized Deductions</h3>
-<p>To visualize the difference between standard and itemized deductions, take the example of a restaurant with two options for a meal. The first is the a la carte, which is similar to an itemized deduction, and allows the consolidation of a number of items, culminating in a final price. The second option is the standard fixed-price dinner, which is similar to the standard deduction in that most items are already preselected for convenience. Although it isn't as simple as it is portrayed here, this is a general comparison of itemized and standard deductions.</p>
-<p>Most people that choose to itemize do so because the total of their itemized deductions is greater than the standard deduction; the higher the deduction, the lower the taxes paid. However, this is generally more tedious and requires saving a lot of receipts. Instead of painstakingly itemizing many of the possible deductions listed above, there is an option for all taxpayers to choose the standard deduction - which the majority of the population opts to do. Some people go for the standard deduction mainly because it is the least complicated and saves time. The annual standard deduction is a static amount determined by Congress. In 2025, it is $15,000 for single taxpayers and $30,000 for married taxpayers filing jointly, slightly increased from 2024 ($14,600 and $29,200).</p>
-<p>The calculator automatically determines whether the standard or itemized deduction (based on inputs) will result in the largest tax savings and uses the larger of the two values in the estimated calculation of tax due or owed.</p>
-
-<h2>Tax Credits</h2>
-<p>Congress formulates and hands out tax credits to taxpayers they deem to be beneficial to society, such as those who adopt environmentally-friendly practices, or those who are saving for retirement, adopting a child, or going to school. For taxpayers, they help to lower tax bills by directly reducing the amount of tax owed. For instance, a $1,000 tax credit will reduce a tax liability of $12,000 to $11,000. This is unlike deductions, which only reduce taxable income. As a result, a tax credit is generally more effective at reducing the overall tax bill when compared to a dollar-equivalent deduction.</p>
-<p>It is important to make the distinction between non-refundable and refundable tax credits. Non-refundable credits can reduce the total tax liability to $0, but not beyond $0. Any unused non-refundable tax credits will expire and cannot be carried over to the next year. On the other hand, refundable tax credit amounts give taxpayers entitlement to the full amount, whether their tax liability drops below $0 or not. If below $0, the difference will be given as a tax refund. Refundable tax credits are less common than non-refundable tax credits.</p>
-<p>Due to the complexity of income tax calculations, our Income Tax Calculator only includes input fields for certain tax credits for the sake of simplicity. However, it is possible to enter these manually in the "Other" field. Just be sure to arrive at correct figures for each tax credit using IRS rules. Also, the following descriptions are basic summaries. Please consult the official IRS website for more detailed information regarding precise calculations of tax credits.</p>
-<p>Examples of some common tax credits are separated into the four categories below.</p>
-
-<h3>Income</h3>
-<p><b>Earned Income Tax Credit</b>&ndash;This is one of the most prominent refundable tax credits and is generally only available to low or moderate-income households making up to a little over $70,000, and is further dependent on other specifics. The credit is equal to a fixed percentage of earnings from the first dollar of earnings until the credit reaches its maximum. The maximum credit is paid until earnings reach a specified level, after which it declines with each additional dollar of income until no credit is available. Families with children receive a much larger credit than those without qualifying children. For the most part, this credit is refundable.</p>
-<p><b>Foreign Tax Credit</b>&ndash;This is a non-refundable credit that reduces the double tax burden for taxpayers earning income outside the U.S.</p>
-
-<h3>Children</h3>
-<p><b>Child Tax Credit</b>&ndash;It is possible to claim up to $2,200 per child, $1,700 of which is refundable. The child tax credit starts to phase out once the income reaches $200,000 ($400,000 for joint filers).</p>
-<p><b>Child and Dependent Care</b>&ndash;About 20% to 50% of eligible care expenses&mdash;up to $3,000 for one person or $6,000 for two or more&mdash;incurred for a child under 13, a disabled spouse or parent, or another dependent can also be claimed as a tax credit. Like many other tax credits, this one is also based on income level.</p>
-<p><b>Adoption Credit</b>&ndash;This is a non-refundable tax credit for qualified expenses up to a certain level for each child adopted, whether via public foster care, domestic private adoption, or international adoption.</p>
-
-<h3>Education & Retirement</h3>
-<p><b>Saver's Credit</b>&ndash;Non-refundable credit incentivizes low and moderate-income taxpayers to make retirement contributions to qualified retirement accounts. 50%, 30%, or 10% of retirement account contributions up to $2,000 ($4,000 if married filing jointly) can be credited, depending on adjusted gross income. Must be at least 18, not a full-time student, and cannot be claimed as a dependent on another person's return.</p>
-<p><b>American Opportunity Credit</b>&ndash;Generally for qualified education expenses paid for an eligible student in their first four years of higher education. There is a maximum annual credit of $2,500 per student. If the credit brings tax liability down to $0, 40% of the remainder (up to $1,000) can be refunded.</p>
-<p><b>Lifetime Learning Credit</b>&ndash;Unlike the education tax credit right above it, this one can be used for graduate school, undergraduate expenses, and professional or vocational courses. It can be up to $2,000 for eligible students but is entirely non-refundable.</p>
-<p>It is possible to claim either the American Opportunity Credit or Lifetime Learning Credit in any one year, but not both.</p>
-
-<h3>Environmental</h3>
-<p><b>Residential Energy Credit</b>&ndash;Residential properties powered by solar, wind, geothermal, or fuel-cell technology may qualify. However, generated electricity from these sources must be used inside the home.</p>
-<p><b>Non-business Energy Property Credit</b>&ndash;Equipment and material that meet technical efficiency standards set by the Department of Energy can qualify. The first type is defined as any qualified energy efficiency improvements, and examples include home insulation, exterior doors, exterior windows and skylights, and certain roofing materials. The second type is defined as residential energy property costs, and examples of these include electric heat pumps, air conditioning systems, stoves with biomass fuels, and natural gas furnaces or hot water boilers.</p>
-
-<h2>Alternative Minimum Tax (AMT)</h2>
-<p>The AMT is a mandatory alternative to the standard income tax. The AMT amount is calculated without the standard deduction. It also doesn't allow most itemized deductions, such as state and local income tax, business expense, mortgage interest, property taxes. If taxpayers make more than the AMT exemption amount, they are required to pay the higher amount of either the AMT or their standard income tax. The AMT affects many in higher tax brackets since it eliminates many of the deductions. However, there are ways to try to avoid paying the AMT:</p>
-<ul>
-	<li>Lower adjusted gross income by maxing out contributions to retirement accounts such as 401(k), IRA, or a health savings account.</li>
-	<li>Reduce itemized deductions</li>
-	<li>Increase charitable contributions</li>
-</ul>
-<p>Generally, only taxpayers with adjusted gross incomes that exceed the exemption should worry about the AMT. The IRS provides an online AMT Assistant to help figure out whether a taxpayer may be affected by the AMT.</p>
-
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)</title>
+	<meta name="description" content="Free federal income tax calculator for 2025 and 2026. Estimate your refund or tax owed with deductions, credits and self-employment income. Brackets, examples and FAQs." />
+	<meta name="keywords" content="income tax calculator, federal income tax calculator, tax refund calculator, 2026 tax brackets, 2025 tax brackets, standard deduction 2026, 1040-es estimator, self employment tax estimate, tax owed calculator" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html","description":"Free federal income tax calculator for 2025 and 2026. Estimate your refund or tax owed with deductions, credits and self-employment income. Brackets, examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Financial"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Financial","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)">
+<meta property="og:description" content="Free federal income tax calculator for 2025 and 2026. Estimate your refund or tax owed with deductions, credits and self-employment income. Brackets, examples and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)">
+<meta name="twitter:description" content="Free federal income tax calculator for 2025 and 2026. Estimate your refund or tax owed with deductions, credits and self-employment income. Brackets, examples and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html","description":"Free federal income tax calculator for 2025 and 2026. Estimate your refund or tax owed with deductions, credits and self-employment income. Brackets, examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Financial"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Financial","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Income Tax Calculator – Estimate Federal Tax Refund or Amount Owed (2025 &amp; 2026)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tax-calculator.html"}]}</script></head>
+<body><header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tax-calculator.html" itemprop="item"><span itemprop="name">income tax calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Income Tax Calculator</h1>
+
+<p>The Income Tax Calculator estimates the refund or potential owed amount on a federal tax return. It is mainly intended for residents of the U.S. and is based on the tax brackets of 2025 and 2026 (One Big Beautiful Bill). The 2026 tax values can be used for 1040-ES estimation, planning ahead, or comparison. Results are estimates, not tax advice.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform">
+<div class="panel">
+<table>
+<tr>
+	<td>File Status</td>
+	<td>
+		<select name="cfilestatus" onChange="tcShowHideFilingStatus(this.value);">
+			<option value="Single" selected>Single</option>
+			<option value="MarriedJoint" >Married Filing Jointly</option>
+			<option value="MarriedSeparately" >Married Filing Separately</option>
+			<option value="HeadofHousehold" >Head of Household</option>
+			<option value="Widow" >Qualified Widow</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>No. of Young Dependents</td>
+	<td><input type="text" name="callowance" id="callowance" value="0" class="inlong"> Age 0-16</td>
+</tr>
+<tr>
+	<td>No. of Other Dependents</td>
+	<td><input type="text" name="callowanceold" id="callowanceold" value="0" class="inlong"> Age 17 or older</td>
+</tr>
+<tr>
+	<td valign="top">Tax Year</td>
+	<td>
+		<div><label for="ctaxyeara" class="cbcontainer"><input name="ctaxyear" id="ctaxyeara" value="2026" type="radio" ><span class="rbmark"></span>2026 (return filed in 2027)</label></div>
+		<div><label for="ctaxyearb" class="cbcontainer"><input name="ctaxyear" id="ctaxyearb" value="2025" type="radio" checked><span class="rbmark"></span>2025 (return filed in 2026)</label></div>
+	</td>
+</tr>
+</table>
+
+<br><div id="sectitle">Income</div>
+<div id="person1label" style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;margin-top:5px;">Person 1 (Husband) Earned Income</div>
+<table>
+<tr>
+	<td>Age</td>
+	<td align="right"><input type="text" name="cage" id="cage" value="30" class="inlong"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Wages, Tips, Other Compensation</td>
+	<td align="right"><input type="text" name="csalaryincome" id="csalaryincome" value="80000" class="inlong indollar"></td>
+	<td>(W-2 box 1)</td>
+</tr>
+<tr>
+	<td>Federal Income Tax Withheld</td>
+	<td align="right"><input type="text" name="cwithheld" id="cwithheld" value="9000" class="inlong indollar"></td>
+	<td>(W-2 box 2)</td>
+</tr>
+<tr>
+	<td>State Income Tax Withheld</td>
+	<td align="right"><input type="text" name="csalarystate" id="csalarystate" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 17)</td>
+</tr>
+<tr>
+	<td>Local Income Tax Withheld</td>
+	<td align="right"><input type="text" name="csalarylocal" id="csalarylocal" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 19)</td>
+</tr>
+</table>
+<div style="padding:3px;">
+Has Business or Self Employment Income?
+<label for="chasbusinessa" class="cbcontainer"><input name="chasbusiness" id="chasbusinessa" value="yes" type="radio"  onClick="tcShowHideBusinesIncome('yes', 'person1business');"><span class="rbmark"></span>yes</label> &nbsp;
+<label for="chasbusinessb" class="cbcontainer"><input name="chasbusiness" id="chasbusinessb" value="no" type="radio" checked onClick="tcShowHideBusinesIncome('no', 'person1business');"><span class="rbmark"></span>no</label>
+</div>
+<table id="person1business" style="padding-left:20px;">
+<tr>
+	<td>Business Income</td>
+	<td align="right"><input type="text" name="cbusinessincome" id="cbusinessincome" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Estimated Tax Paid</td>
+	<td align="right"><input type="text" name="cestimatedtax" id="cestimatedtax" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Medicare Wages</td>
+	<td align="right"><input type="text" name="cmedicarewage" id="cmedicarewage" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 5, use 0 if no W-2)</td>
+</tr>
+</table>
+
+<div id="person2">
+<br><div style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;">Person 2 (Wife) Earned Income</div>
+<table>
+<tr>
+	<td>Age</td>
+	<td align="right"><input type="text" name="cage2" id="cage2" value="30" class="inlong"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Wages, Tips, Other Compensation</td>
+	<td align="right"><input type="text" name="csalaryincome2" id="csalaryincome2" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 1)</td>
+</tr>
+<tr>
+	<td>Federal Income Tax Withheld</td>
+	<td align="right"><input type="text" name="cwithheld2" id="cwithheld2" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 2)</td>
+</tr>
+<tr>
+	<td>State Income Tax Withheld</td>
+	<td align="right"><input type="text" name="csalarystate2" id="csalarystate2" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 17)</td>
+</tr>
+<tr>
+	<td>Local Income Tax Withheld</td>
+	<td align="right"><input type="text" name="csalarylocal2" id="csalarylocal2" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 19)</td>
+</tr>
+</table>
+
+<div style="padding:3px;">Has Business or Self Employment Income?
+<label for="chasbusiness2a" class="cbcontainer"><input name="chasbusiness2" id="chasbusiness2a" value="yes" type="radio"  onClick="tcShowHideBusinesIncome('yes', 'person2business');"><span class="rbmark"></span>yes</label> &nbsp;
+<label for="chasbusiness2b" class="cbcontainer"><input name="chasbusiness2" id="chasbusiness2b" value="no" type="radio" checked onClick="tcShowHideBusinesIncome('no', 'person2business');"><span class="rbmark"></span>no</label>
+</div>
+
+<table id="person2business" style="padding-left:20px;">
+<tr>
+	<td>Business Income</td>
+	<td align="right"><input type="text" name="cbusinessincome2" id="cbusinessincome2" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Estimated Tax Paid</td>
+	<td align="right"><input type="text" name="cestimatedtax2" id="cestimatedtax2" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Medicare Wages</td>
+	<td align="right"><input type="text" name="cmedicarewage2" id="cmedicarewage2" value="0" class="inlong indollar"></td>
+	<td>(W-2 box 5, use 0 if no W-2)</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="familylabel" style="font-weight:bold;padding:4px;font-size:14px;background:#ccc;">Other Family Incomes</div>
+<table>
+<tr>
+	<td>Social Security Income</td>
+	<td align="right"><input type="text" name="cssincome" id="cssincome" value="0" class="inlong indollar"></td>
+	<td>SSA-1099, RRB-1099</td>
+</tr>
+<tr>
+	<td>Interest Income</td>
+	<td align="right"><input type="text" name="cinterestincome" id="cinterestincome" value="0" class="inlong indollar"></td>
+	<td>1099-INT</td>
+</tr>
+<tr>
+	<td>Ordinary Dividends</td>
+	<td align="right"><input type="text" name="cordinarydividends" id="cordinarydividends" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Qualified Dividends</td>
+	<td align="right"><input type="text" name="cqualifieddividends" id="cqualifieddividends" value="0" class="inlong indollar"></td>
+	<td>1099-DIV</td>
+</tr>
+<tr>
+	<td>Passive Incomes</td>
+	<td align="right"><input type="text" name="crentalincome" id="crentalincome" value="0" class="inlong indollar"></td>
+	<td>e.g. rentals and real estate, royalties</td>
+</tr>
+<tr>
+	<td>Short-term Capital Gains</td>
+	<td align="right"><input type="text" name="cshortcapitalgain" id="cshortcapitalgain" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Long-term Capital Gains</td>
+	<td align="right"><input type="text" name="clongcapitalgain" id="clongcapitalgain" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Other Income</td>
+	<td align="right"><input type="text" name="cotherincome" id="cotherincome" value="0" class="inlong indollar"></td>
+	<td>e.g. unemployment pay(1099-G), retirement pay (1099-R)</td>
+</tr>
+<tr>
+	<td>State+Local Tax Rate</td>
+	<td align="right"><input type="text" name="cstatetaxrate" id="cstatetaxrate" value="0" class="inlong inpct"></td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+
+<br><div id="sectitle">Deductions &amp; Credits</div>
+<table>
+<tr>
+	<td>Tips Income</td>
+	<td align="right"><input type="text" name="ctips" id="ctips" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Overtime Income</td>
+	<td align="right"><input type="text" name="covertime" id="covertime" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Car Loan Interest</td>
+	<td align="right"><input type="text" name="ccar" id="ccar" value="0" class="inlong indollar"></td>
+	<td>Max $10,000 for qualified vehicle purchase</td>
+</tr>
+<tr>
+	<td>IRA Contributions</td>
+	<td align="right"><input type="text" name="cira" id="cira" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Real Estate Tax</td>
+	<td align="right"><input type="text" name="csalestax" id="csalestax" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Mortgage Interest</td>
+	<td align="right"><input type="text" name="cmortgage" id="cmortgage" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Charitable Donations</td>
+	<td align="right"><input type="text" name="cdonations" id="cdonations" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>Student Loan Interest</td>
+	<td align="right"><input type="text" name="cstudentloan" id="cstudentloan" value="0" class="inlong indollar"></td>
+	<td>Max $2,500/Person</td>
+</tr>
+<tr>
+	<td>Child &amp; Dependent Care Expense</td>
+	<td align="right"><input type="text" name="cchildcare" id="cchildcare" value="0" class="inlong indollar"></td>
+	<td>Max $3,000/Person, $6,000 total, up to age 13</td>
+</tr>
+<tr valign="top">
+	<td>College Education Expense</td>
+	<td align="right"><input type="text" name="ctuition" id="ctuition" value="0" class="inlong indollar"></td>
+	<td>Student 1</td>
+</tr>
+<tr valign="top">
+	<td>&nbsp;</td>
+	<td align="right"><input type="text" name="ctuition2" id="ctuition2" value="0" class="inlong indollar"></td>
+	<td>Student 2</td>
+</tr>
+<tr valign="top">
+	<td>&nbsp;</td>
+	<td align="right"><input type="text" name="ctuition3" id="ctuition3" value="0" class="inlong indollar"></td>
+	<td>Student 3</td>
+</tr>
+<tr valign="top">
+	<td>&nbsp;</td>
+	<td align="right"><input type="text" name="ctuition4" id="ctuition4" value="0" class="inlong indollar"></td>
+	<td>Student 4</td>
+</tr>
+
+<tr>
+	<td>Other Deductibles</td>
+	<td align="right"><input type="text" name="cotherdeductable" id="cotherdeductable" value="0" class="inlong indollar"></td>
+	<td>&nbsp;</td>
+</tr>
+
+<tr><td colspan="3" align="center">
+	<br><input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</div>
+</form>
+<script>
+function tcShowHideFilingStatus(filingStatus){
+	if (filingStatus=='MarriedJoint'){
+		document.getElementById('person1label').style.display = 'block';
+		document.getElementById('person2').style.display = 'block';
+		document.getElementById('familylabel').style.display = 'block';
+	}else{
+		document.getElementById('person1label').style.display = 'none';
+		document.getElementById('person2').style.display = 'none';
+		document.getElementById('familylabel').style.display = 'none';
+	}
+}
+
+function tcShowHideBusinesIncome(tcbValue, tcbID){
+	if (tcbValue=='yes'){
+		document.getElementById(tcbID).style.display = 'block';
+	}else{
+		document.getElementById(tcbID).style.display = 'none';
+	}
+}
+
+tcShowHideFilingStatus('Single');tcShowHideBusinesIncome('no','person1business' );tcShowHideBusinesIncome('no','person2business' );
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("callowance");
+proComma2("callowanceold");
+proComma2("csalaryincome");
+proComma2("cwithheld");
+proComma2("csalarystate");
+proComma2("csalarylocal");
+proComma2("cbusinessincome");
+proComma2("cestimatedtax");
+proComma2("cmedicarewage");
+proComma2("csalaryincome2");
+proComma2("cwithheld2");
+proComma2("csalarystate2");
+proComma2("csalarylocal2");
+proComma2("cbusinessincome2");
+proComma2("cestimatedtax2");
+proComma2("cmedicarewage2");
+proComma2("cssincome");
+proComma2("cinterestincome");
+proComma2("cordinarydividends");
+proComma2("cqualifieddividends");
+proComma2("crentalincome");
+proComma2("cshortcapitalgain");
+proComma2("clongcapitalgain");
+proComma2("cotherincome");
+proComma2("cstatetaxrate");
+proComma2("cira");
+proComma2("csalestax");
+proComma2("cmortgage");
+proComma2("cdonations");
+proComma2("cstudentloan");
+proComma2("cchildcare");
+proComma2("ctuition");
+proComma2("ctuition2");
+proComma2("ctuition3");
+proComma2("ctuition4");
+proComma2("cotherdeductable");
+proComma2("ctips");
+proComma2("covertime");
+proComma2("ccar");
+</script>
+
+<br>
+<h2>How to Use the Income Tax Calculator</h2>
+<p>Choose your filing status, number of dependents and tax year. Enter your wages and the federal tax withheld from your W-2, add any business income, other income, deductions and credits, then click <b>Calculate</b> to see an estimated refund or amount owed. For married couples filing jointly, enter the second person's income as well. Tax rules and thresholds change, so confirm current figures with the IRS before you file.</p>
+
+<h3>Federal Tax Formulas</h3>
+<table class="cinfoT">
+	<tr><td>Taxable income</td><td class="cinfoBodL">total income &minus; adjustments &minus; standard or itemized deduction</td></tr>
+	<tr><td>Tax before credits</td><td class="cinfoBodL">sum of each bracket rate &times; the income that falls in that bracket</td></tr>
+	<tr><td>Tax owed or refund</td><td class="cinfoBodL">tax before credits &minus; tax credits &minus; tax withheld and estimated tax paid</td></tr>
+	<tr><td>Effective tax rate</td><td class="cinfoBodL">total tax &divide; total income</td></tr>
+</table>
+
+<h3>Standard Deduction by Filing Status</h3>
+<table class="cinfoT">
+	<tr><td><b>Filing status</b></td><td class="cinfoBodL"><b>2025</b></td><td class="cinfoBodL"><b>2026</b></td></tr>
+	<tr><td>Single or married filing separately</td><td class="cinfoBodL">$15,750</td><td class="cinfoBodL">$16,100</td></tr>
+	<tr><td>Married filing jointly</td><td class="cinfoBodL">$31,500</td><td class="cinfoBodL">$32,200</td></tr>
+	<tr><td>Head of household</td><td class="cinfoBodL">$23,625</td><td class="cinfoBodL">$24,150</td></tr>
+</table>
+
+<h3>2026 Federal Tax Brackets</h3>
+<p>Each rate applies only to the income within its bracket. Figures are taxable income thresholds for tax year 2026.</p>
+<table class="cinfoT">
+	<tr><td><b>Rate</b></td><td class="cinfoBodL"><b>Single</b></td><td class="cinfoBodL"><b>Married filing jointly</b></td></tr>
+	<tr><td>10%</td><td class="cinfoBodL">up to $12,400</td><td class="cinfoBodL">up to $24,800</td></tr>
+	<tr><td>12%</td><td class="cinfoBodL">$12,400 to $50,400</td><td class="cinfoBodL">$24,800 to $100,800</td></tr>
+	<tr><td>22%</td><td class="cinfoBodL">$50,400 to $105,700</td><td class="cinfoBodL">$100,800 to $211,400</td></tr>
+	<tr><td>24%</td><td class="cinfoBodL">$105,700 to $201,775</td><td class="cinfoBodL">$211,400 to $403,550</td></tr>
+	<tr><td>32%</td><td class="cinfoBodL">$201,775 to $256,225</td><td class="cinfoBodL">$403,550 to $512,450</td></tr>
+	<tr><td>35%</td><td class="cinfoBodL">$256,225 to $640,600</td><td class="cinfoBodL">$512,450 to $768,700</td></tr>
+	<tr><td>37%</td><td class="cinfoBodL">over $640,600</td><td class="cinfoBodL">over $768,700</td></tr>
+</table>
+
+<h3>Example 1: Single filer, 2026</h3>
+<p>A single filer earns $80,000 in wages, takes the $16,100 standard deduction, and has $9,000 of federal tax withheld. Credits are ignored to keep it simple.</p>
+<p align="center">taxable income = $80,000 &minus; $16,100 = $63,900<br>10% &times; $12,400 = $1,240<br>12% &times; ($50,400 &minus; $12,400) = 12% &times; $38,000 = $4,560<br>22% &times; ($63,900 &minus; $50,400) = 22% &times; $13,500 = $2,970<br>tax = $1,240 + $4,560 + $2,970 = $8,770<br>refund = $9,000 &minus; $8,770 = $230</p>
+
+<h3>Example 2: Married filing jointly, 2026</h3>
+<p>A married couple filing jointly has $150,000 of combined wages and takes the $32,200 standard deduction.</p>
+<p align="center">taxable income = $150,000 &minus; $32,200 = $117,800<br>10% &times; $24,800 = $2,480<br>12% &times; ($100,800 &minus; $24,800) = 12% &times; $76,000 = $9,120<br>22% &times; ($117,800 &minus; $100,800) = 22% &times; $17,000 = $3,740<br>tax = $2,480 + $9,120 + $3,740 = $15,340</p>
+
+<h2>Taxable Income</h2>
+<p>In order to find an estimated tax refund or due, it is first necessary to determine a proper taxable income. It is possible to use W-2 forms as a reference for filling out the input fields. Relevant W-2 boxes are displayed to the side if they can be taken from the form. Taking gross income, subtract deductions and exemptions such as contributions to a 401(k) or pension plan. The resulting figure should be the taxable income amount.</p>
+
+<h2>Other Taxable Income</h2>
+<p><b>Interest Income</b>&ndash;Most interest will be taxed as ordinary income, including interest earned on checking and savings accounts, CDs, and income tax refunds. However, there are certain exceptions, such as municipal bond interest and private-activity bonds.</p>
+<p><b>Short-term Capital Gains/Losses</b>&ndash;profit or loss from the sale of assets held for less than one year. It is taxed as a normal income.</p>
+<p><b>Long-term Capital Gains/Losses</b>&ndash;profit or loss from the sale of assets held for one year or longer. Taxation rules applied are determined by ordinary income marginal tax rate.</p>
+<p><b>Ordinary Dividends</b>&ndash;All dividends should be considered ordinary unless specifically classified as qualified. Ordinary dividends are taxed as normal income.</p>
+<p><b>Qualified Dividends</b>&ndash;These are taxed at the same rate as long-term capital gains, lower than that of ordinary dividends. There are many stringent measures in place for dividends to be legally defined as qualified.</p>
+<p><b>Passive Incomes</b>&ndash;Making the distinction between passive and active income is important because taxpayers can claim passive losses. Passive income generally comes from two places, rental properties or businesses that don't require material participation. Any excessive passive income loss can be accrued until used or deducted in the year the taxpayer disposes of the passive activity in a taxable transaction.</p>
+
+<h2>Exemptions</h2>
+<p>Broadly speaking, tax exemptions are monetary exemptions with the aim of reducing or even entirely eliminating taxable income. They do not only apply to personal income tax; for instance, charities and religious organizations are generally exempt from taxation. In some international airports, tax-exempt shopping in the form of duty-free shops is available. Other examples include state and local governments not being subject to federal income taxes.</p>
+
+<h2>Tax Deductions</h2>
+<p>Tax deductions arise from expenses. They help lower tax bills by reducing the percentage of adjusted gross income that is subject to taxes. There are two types of deductions, above-the-line (ATL) and below-the-line (BTL) itemized deductions, which reduce tax based on the marginal tax rate. The "line" in question is the adjusted gross income (AGI) of the taxpayer and is the bottom number on the front of Form 1040.</p>
+
+<p><b>Modified Adjusted Gross Income (MAGI)</b></p>
+<p>MAGI is mainly used to determine whether a taxpayer is qualified for certain tax deductions. It is simply AGI with some deductions added back in. These deductions are:</p>
+<ul>
+	<li>Student loan interest</li>
+	<li>One-half of self-employment tax</li>
+	<li>Qualified tuition expenses</li>
+	<li>Tuition and fees deduction</li>
+	<li>Passive loss or passive income</li>
+	<li>IRA contributions, taxable Social Security payments</li>
+	<li>The exclusion for income from U.S. savings bonds</li>
+	<li>The exclusion under 137 for adoption expenses</li>
+	<li>Rental losses</li>
+	<li>Any overall loss from a publicly traded company</li>
+	<li>Tips and overtime compensation</li>
+	<li>Car loan interest</li>
+	<li>Seniors</li>
+</ul>
+
+<p><b>Above-the-line Deductions</b></p>
+<p>ATL deductions lower AGI, which means less income to pay taxes on. They include expenses that are claimed on Schedules C, D, E, and F, and "Adjustments to Income." One advantage of ATL deductions is that they are allowed under the alternative minimum tax. ATL deductions have no effect on the BTL decision of whether to take the standard deduction or to itemize instead. Please consult the official IRS website for more detailed information regarding precise calculations of tax deductions. Below are some common examples of ATL deductions.</p>
+<ul>
+	<li><b>Traditional IRA contributions</b>&ndash;Most people are eligible to make contributions to a traditional IRA, but these contributions aren't necessarily tax-deductible. If Modified Adjusted Gross Income exceeds annual limits, the taxpayer may need to reduce or eliminate their IRA deduction.</li>
+	<li><b>Student loan interest</b>&ndash;The amount of interest accrued from federal student loans. It should be in box 1 of Form 1098-E, which should be sent by lenders after the first year. Those who are married but file separate returns cannot claim this deduction. This deduction also cannot be claimed if Modified Adjusted Gross Income exceeds the annual limits. In 2025, the claim limit for single, head-of-household, or qualifying widower is $100,000; for joint filers, the cap is $200,000.</li>
+	<li><b>Qualified tuition and fees</b>&ndash;Must be qualified education expenses based on IRS definitions. This deduction cannot be claimed by those who are married but filing separate returns. This deduction cannot be claimed in conjunction with an educational tax credit.</li>
+	<li><b>Moving expenses</b>&ndash;The costs of transporting household items from one residence to another for work or business purposes are usually fully deductible, as long as they are not reimbursed by the taxpayer's employer. The taxpayer's new place of employment must be at least 50 miles away from the previous residence.</li>
+	<li><b>Tips</b>&ndash;For tax years 2025 through 2028, qualified tips of up to $25,000 per year may be deducted. The deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
+	<li><b>Overtime compensation</b>&ndash;For tax years 2025 through 2028, qualified overtime compensation of up to $12,500 per year for single filers and $25,000 per year for joint filers may be deducted. The deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
+	<li><b>Car loan interest</b>&ndash;For tax years 2025 through 2028, individuals may deduct up to $10,000 per year in interest paid on a loan used to purchase a qualified vehicle. The deduction phases out for taxpayers with a modified adjusted gross income over $100,000 ($200,000 for joint filers).</li>
+	<li><b>Deduction for seniors</b>&ndash;For tax years 2025 through 2028, individuals aged 65 and older may claim an additional deduction of $6,000 per year for single filers, or a total of $12,000 per year for married couples in which both spouses qualify. The deduction phases out for taxpayers with a modified adjusted gross income over $75,000 ($150,000 for joint filers).</li>
+</ul>
+
+<p><b>Below-the-line Deductions</b></p>
+<p>BTL deductions refer to the Standard Deduction or Itemized Deductions from Schedule A. A BTL deduction is always limited to the amount of the actual deduction. For example, a $1,000 deduction can only reduce net taxable income by $1,000. Please consult the official IRS website for more detailed information regarding precise calculations of tax deductions. Examples of common BTL deductions are listed below, along with basic information.</p>
+<ul>
+	<li><b>Mortgage interest</b>&ndash;This can apply to a regular mortgage up to a certain limit; $750,000 in 2025 and 2026, for a main residency, a second mortgage, a line of credit, or a home equity loan. Loans that aren't secured debt on a home are considered personal loans, which are not deductible. The IRS defines a "home" as anything from a house to a condo, co-op, mobile home, boat, or RV.</li>
+	<li><b>Charitable donations</b>&ndash;Only donations to qualified charities can qualify as tax deductions. Handouts to the homeless or payments to local organizations that aren't classified as non-profit by the IRS cannot be deducted.</li>
+	<li><b>Medical expenses</b>&ndash;Any expense paid for the prevention, diagnosis, or medical treatment of physical or mental illness or any amounts paid to treat or modify parts or functions of the body for health can be deducted. Medical expenses for cosmetic purposes do not qualify. If premiums are paid with after-tax dollars, deductions are limited only to the expenses that exceed 10% of adjusted gross income, and 7.5% for anyone 65 and older. Note that health savings account contributions are ATL deductions.</li>
+	<li><b>Sales and local tax</b>&ndash;Sometimes referred to as SALT (state and local tax), this federal deduction can be either income tax or sales tax, but not both. Taxpayers who live in states that don't have an income tax are probably better off using their sales tax for the deduction. In 2025 and 2026, this deduction cannot exceed $40,000 and $40,400. The SALT cap begins to phase down to $10,000 once the Modified Adjusted Gross Income exceeds $500,000 for 2025 and $505,000 for 2026.</li>
+</ul>
+<p>Most BTL deductions are the run-of-the-mill variety above, including several others like investment interest or tax preparation fees. However, the IRS allows the deduction of certain costs that can reduce tax bills. Examples are given below, though they are not the entire package. For further information, visit the official IRS website.</p>
+<ul>
+	<li><b>Out-of-pocket charitable contributions</b>&ndash;Not only are donations to charitable organizations deductible, out-of-pocket expenses for charitable work can also be deducted, for example, buying paint to paint the walls of a cathedral or buying ingredients to cook for a homeless shelter.</li>
+	<li><b>Tax savings for teachers</b>&ndash;This deduction allows K-12 educators to deduct up to $250 a year for school materials. </li>
+	<li><b>Paying babysitters</b>&ndash;Believe it or not, if a person performs volunteer work at a non-profit while a babysitter takes care of their kids at home, any payment to the babysitter for childcare can be deducted!</li>
+	<li><b>Job searching</b>&ndash;By itemizing expenses of costs associated with searching for a new job, if the expenses accrued when searching for a new job exceed two percent of adjusted gross income, the qualifying expenses over the threshold can be deducted. Examples of such out-of-pocket expenses can include the mileage of driving to interviews, printing resumes or business cards.</li>
+	<li><b>Smoking cessation</b>&ndash;Participating in a smoking cessation program can be considered a medical tax deduction. The deduction can also apply to prescription drugs used to ease nicotine withdrawal.</li>
+	<li><b>Disaster recovery</b>&ndash;If a taxpayer's home is affected by a natural disaster and the taxpayer requires federal aid, uninsured costs of recovery can be deducted.</li>
+</ul>
+
+<p><b>Business expenses</b></p>
+<p>Any cost that is associated with carrying on a business or trade can usually be deducted if the business operates to make a profit. However, it must be both ordinary and necessary. Try to make the distinction between business expenses from other capital or personal expenses and expenses used to determine the cost of goods sold. Any business expense incurred under the operation of a sole proprietorship is considered ATL because they are deducted on Schedule C then subtracted to calculate AGI. Business-related expenses involve many different rules and are complex. Some can be considered ATL deductions, while many will be BTL. As such, it may be a good idea to consult official IRS rules relating to the deduction of business expenses.</p>
+
+<h3>Standard vs. Itemized Deductions</h3>
+<p>To visualize the difference between standard and itemized deductions, take the example of a restaurant with two options for a meal. The first is the a la carte, which is similar to an itemized deduction, and allows the consolidation of a number of items, culminating in a final price. The second option is the standard fixed-price dinner, which is similar to the standard deduction in that most items are already preselected for convenience. Although it isn't as simple as it is portrayed here, this is a general comparison of itemized and standard deductions.</p>
+<p>Most people that choose to itemize do so because the total of their itemized deductions is greater than the standard deduction; the higher the deduction, the lower the taxes paid. However, this is generally more tedious and requires saving a lot of receipts. Instead of painstakingly itemizing many of the possible deductions listed above, there is an option for all taxpayers to choose the standard deduction - which the majority of the population opts to do. Some people go for the standard deduction mainly because it is the least complicated and saves time. The annual standard deduction is a static amount determined by Congress. For tax year 2025 it is $15,750 for single taxpayers and $31,500 for married taxpayers filing jointly, and for tax year 2026 it is $16,100 and $32,200 (2024: $14,600 and $29,200).</p>
+<p>The calculator automatically determines whether the standard or itemized deduction (based on inputs) will result in the largest tax savings and uses the larger of the two values in the estimated calculation of tax due or owed.</p>
+
+<h2>Tax Credits</h2>
+<p>Congress formulates and hands out tax credits to taxpayers they deem to be beneficial to society, such as those who adopt environmentally-friendly practices, or those who are saving for retirement, adopting a child, or going to school. For taxpayers, they help to lower tax bills by directly reducing the amount of tax owed. For instance, a $1,000 tax credit will reduce a tax liability of $12,000 to $11,000. This is unlike deductions, which only reduce taxable income. As a result, a tax credit is generally more effective at reducing the overall tax bill when compared to a dollar-equivalent deduction.</p>
+<p>It is important to make the distinction between non-refundable and refundable tax credits. Non-refundable credits can reduce the total tax liability to $0, but not beyond $0. Any unused non-refundable tax credits will expire and cannot be carried over to the next year. On the other hand, refundable tax credit amounts give taxpayers entitlement to the full amount, whether their tax liability drops below $0 or not. If below $0, the difference will be given as a tax refund. Refundable tax credits are less common than non-refundable tax credits.</p>
+<p>Due to the complexity of income tax calculations, our Income Tax Calculator only includes input fields for certain tax credits for the sake of simplicity. However, it is possible to enter these manually in the "Other" field. Just be sure to arrive at correct figures for each tax credit using IRS rules. Also, the following descriptions are basic summaries. Please consult the official IRS website for more detailed information regarding precise calculations of tax credits.</p>
+<p>Examples of some common tax credits are separated into the four categories below.</p>
+
+<h3>Income</h3>
+<p><b>Earned Income Tax Credit</b>&ndash;This is one of the most prominent refundable tax credits and is generally only available to low or moderate-income households making up to a little over $70,000, and is further dependent on other specifics. The credit is equal to a fixed percentage of earnings from the first dollar of earnings until the credit reaches its maximum. The maximum credit is paid until earnings reach a specified level, after which it declines with each additional dollar of income until no credit is available. Families with children receive a much larger credit than those without qualifying children. For the most part, this credit is refundable.</p>
+<p><b>Foreign Tax Credit</b>&ndash;This is a non-refundable credit that reduces the double tax burden for taxpayers earning income outside the U.S.</p>
+
+<h3>Children</h3>
+<p><b>Child Tax Credit</b>&ndash;It is possible to claim up to $2,200 per child, $1,700 of which is refundable. The child tax credit starts to phase out once the income reaches $200,000 ($400,000 for joint filers).</p>
+<p><b>Child and Dependent Care</b>&ndash;About 20% to 50% of eligible care expenses&mdash;up to $3,000 for one person or $6,000 for two or more&mdash;incurred for a child under 13, a disabled spouse or parent, or another dependent can also be claimed as a tax credit. Like many other tax credits, this one is also based on income level.</p>
+<p><b>Adoption Credit</b>&ndash;This is a non-refundable tax credit for qualified expenses up to a certain level for each child adopted, whether via public foster care, domestic private adoption, or international adoption.</p>
+
+<h3>Education & Retirement</h3>
+<p><b>Saver's Credit</b>&ndash;Non-refundable credit incentivizes low and moderate-income taxpayers to make retirement contributions to qualified retirement accounts. 50%, 30%, or 10% of retirement account contributions up to $2,000 ($4,000 if married filing jointly) can be credited, depending on adjusted gross income. Must be at least 18, not a full-time student, and cannot be claimed as a dependent on another person's return.</p>
+<p><b>American Opportunity Credit</b>&ndash;Generally for qualified education expenses paid for an eligible student in their first four years of higher education. There is a maximum annual credit of $2,500 per student. If the credit brings tax liability down to $0, 40% of the remainder (up to $1,000) can be refunded.</p>
+<p><b>Lifetime Learning Credit</b>&ndash;Unlike the education tax credit right above it, this one can be used for graduate school, undergraduate expenses, and professional or vocational courses. It can be up to $2,000 for eligible students but is entirely non-refundable.</p>
+<p>It is possible to claim either the American Opportunity Credit or Lifetime Learning Credit in any one year, but not both.</p>
+
+<h3>Environmental</h3>
+<p><b>Residential Energy Credit</b>&ndash;Residential properties powered by solar, wind, geothermal, or fuel-cell technology may qualify. However, generated electricity from these sources must be used inside the home.</p>
+<p><b>Non-business Energy Property Credit</b>&ndash;Equipment and material that meet technical efficiency standards set by the Department of Energy can qualify. The first type is defined as any qualified energy efficiency improvements, and examples include home insulation, exterior doors, exterior windows and skylights, and certain roofing materials. The second type is defined as residential energy property costs, and examples of these include electric heat pumps, air conditioning systems, stoves with biomass fuels, and natural gas furnaces or hot water boilers.</p>
+
+<h2>Alternative Minimum Tax (AMT)</h2>
+<p>The AMT is a mandatory alternative to the standard income tax. The AMT amount is calculated without the standard deduction. It also doesn't allow most itemized deductions, such as state and local income tax, business expense, mortgage interest, property taxes. If taxpayers make more than the AMT exemption amount, they are required to pay the higher amount of either the AMT or their standard income tax. The AMT affects many in higher tax brackets since it eliminates many of the deductions. However, there are ways to try to avoid paying the AMT:</p>
+<ul>
+	<li>Lower adjusted gross income by maxing out contributions to retirement accounts such as 401(k), IRA, or a health savings account.</li>
+	<li>Reduce itemized deductions</li>
+	<li>Increase charitable contributions</li>
+</ul>
+<p>Generally, only taxpayers with adjusted gross incomes that exceed the exemption should worry about the AMT. The IRS provides an online AMT Assistant to help figure out whether a taxpayer may be affected by the AMT.</p>
+
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details>
+<summary><b>How do I calculate federal income tax?</b></summary>
+<p>Subtract your deductions from your income to get taxable income, apply each tax bracket rate only to the part of income that falls in that bracket, then subtract tax credits and the tax already withheld or paid. For example, a single filer with $80,000 of wages in 2026 and the $16,100 standard deduction has $63,900 of taxable income and owes about $8,770 before credits.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the standard deduction for 2025 and 2026?</b></summary>
+<p>For tax year 2025 it is $15,750 for single filers and married individuals filing separately, $31,500 for married couples filing jointly and $23,625 for heads of household. For tax year 2026 it is $16,100, $32,200 and $24,150. Taxpayers who are 65 or older or blind can add an extra amount.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the difference between marginal and effective tax rate?</b></summary>
+<p>Your marginal rate is the rate on your last dollar of taxable income, and your effective rate is your total tax divided by your income. In the 2026 example, $80,000 of wages reaches the 22% bracket, but the $8,770 of tax is only about 11% of the $80,000.</p>
+</details>
+<br>
+<details>
+<summary><b>Should I take the standard deduction or itemize?</b></summary>
+<p>Most taxpayers take the standard deduction because it is simpler, but itemizing can save more if mortgage interest, charitable donations, state and local taxes and similar expenses add up to more. The calculator compares the two based on your inputs and uses the larger deduction.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the difference between a tax deduction and a tax credit?</b></summary>
+<p>A deduction reduces your taxable income, while a credit directly reduces the tax you owe. For example, a $1,000 credit reduces a $12,000 tax bill to $11,000, so a credit is generally worth more than a deduction of the same amount.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the difference between refundable and non-refundable tax credits?</b></summary>
+<p>Non-refundable credits can reduce your tax to $0 but not below, and unused amounts cannot be carried to the next year. Refundable credits can produce a refund even when no tax is owed. The Earned Income Tax Credit is mostly refundable, and up to $1,700 per child of the Child Tax Credit is refundable.</p>
+</details>
+<br>
+<details>
+<summary><b>Which new deductions for tips, overtime, car loan interest and seniors does the calculator include?</b></summary>
+<p>For tax years 2025 through 2028 the calculator includes deductions for qualified tips (up to $25,000), qualified overtime (up to $12,500, or $25,000 for joint filers), car loan interest (up to $10,000) and a $6,000 deduction per qualifying person aged 65 or older. Each phases out at higher incomes and has eligibility rules, so check IRS.gov for details.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I enter business or self-employment income?</b></summary>
+<p>Select yes under Has Business or Self Employment Income, then enter your business income and any estimated tax payments you made. Enter your Medicare wages (W-2 box 5) if you also have a W-2, or 0 if you do not.</p>
+</details>
+<br>
+<details>
+<summary><b>Can this calculator replace a tax professional or tax software?</b></summary>
+<p>No. The calculator gives an estimate for planning and does not replace tax software, the IRS instructions or a tax professional. Tax rules and thresholds change, so confirm current figures at IRS.gov before you file.</p>
+</details>
+<br>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

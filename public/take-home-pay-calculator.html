@@ -1,410 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Take-Home-Paycheck Calculator</title>
-	<meta name="description" content="Free calculator to find the actual paycheck amount taken home after taxes and deductions from salary, or to learn more about income tax in the U.S." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/take-home-pay-calculator.html" itemprop="item"><span itemprop="name">take-home-paycheck calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Take-Home-Paycheck Calculator</h1>
-
-<p>Use this calculator to estimate the actual paycheck amount that is brought home after taxes and deductions from salary. It can also be used to help fill steps 3 and 4 of a W-4 form. This calculator is intended for use by U.S. residents. The calculation is based on the <a href="#taxbrackets">2026 tax brackets</a> and the new W-4, which reflect the changes introduced by the One Big Beautiful Bill.</p>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form name="calform" action="take-home-pay-calculator.html">
-<table id="calinputtable" class="panel">
-<tr><td>Your job income (salary)</td><td><input type="text" name="cannualincome" id="cannualincome" value="80000" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td>&nbsp;</td></tr>
-<tr><td>Pay frequency</td><td colspan="2"><select name="cpayfrequency" class="inlonger"><option value="Daily" >Daily</option><option value="Weekly" >Weekly</option><option value="Bi-weekly" selected>Bi-weekly</option><option value="Semi-monthly" >Semi-monthly</option><option value="Monthly" >Monthly</option><option value="Quarterly" >Quarterly</option><option value="Semi-Annually" >Semi-Annually</option><option value="Annual" >Annually</option></select></td></tr>
-<tr><td>File status</td><td colspan="2"><select name="cfilestatus" onChange="thpShSpouse(this.value);"><option value="Single" selected>Single</option><option value="MarriedJoint" >Filing Jointly or Qualified Widow</option><option value="MarriedSeparately" >Married Filing Separately</option><option value="HeadofHousehold" >Head of Household</option></select></td></tr>
-<tr><td nowrap>Number of children under age 17</td><td><input type="text" name="cchildren" value="0" class="inlonger"></td><td>&nbsp;</td></tr>
-<tr><td>Number of other dependents</td><td><input type="text" name="cotherdep" value="0" class="inlonger"></td><td>&nbsp;</td></tr>
-<tr><td>Other income (not from jobs)</td><td><input type="text" name="cnonjobincome" id="cnonjobincome" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">interest, dividends, retirement income, etc.</td></tr>
-<tr><td>Pretax deductions withheld<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Deductions to be withheld from salary by the employer before being paid out, including those for a 401k, health savings account (HSA), the employee\'s share of the health insurance premium, child support payments, union and uniform dues, etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="chelddeduction" id="chelddeduction" value="6000" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">401k, health insurance, HSA, etc.</td></tr>
-<tr><td nowrap>Deductions not withheld<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Deductions that will not be withheld by the employer but can be subtracted from taxable income, including IRA contributions, student loan interest, qualified tuition and education-related fees up to $4,000, etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="cnothelddeduction" id="cnothelddeduction" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext"> IRA, student loan interest, etc.</td></tr>
-<tr><td>Itemized deductions<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Expenditure on eligible products, services, or contributions that may be subtracted from taxable income, including qualified mortgage interest, state and local income plus either property or sales taxes up to a certain amount, charitable donations, medical and dental expenses (over 10% of adjusted gross income), etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="citemdeduction" id="citemdeduction" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">mortgage interest, charitable donations, state/local/sales/property taxes, etc.</td></tr>
-<tr><td colspan="3">
-	Has 2<sup>nd</sup>, 3<sup>rd</sup> job <span id="spousetextid">income or spouse has</span> income? &nbsp;
-	<label for="chasotherjobincome1" class="cbcontainer"><input name="chasotherjobincome" id="chasotherjobincome1" value="yes" type="radio"  onClick="shSecThirdInput('yes');"><span class="rbmark"></span>Yes</label> &nbsp;
-	<label for="chasotherjobincome2" class="cbcontainer"><input name="chasotherjobincome" id="chasotherjobincome2" value="no" type="radio" checked onClick="shSecThirdInput('no');"><span class="rbmark"></span>No</label>
-	<div id="otherincomeinput"><table align="center">
-		<tr><td colspan="2">Please list these income(s):</td></tr>
-		<tr><td>Income #2</td><td><input type="text" name="cjobincome2" id="cjobincome2" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td></tr>
-		<tr><td>Income #3</td><td><input type="text" name="cjobincome3" id="cjobincome3" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td></tr>
-	</table></div>
-</td></tr>
-<tr><td>State income tax rate</td><td><input type="text" name="cstatetax" id="cstatetax" value="0" class="inlonger inpct"></td><td><a href="https://en.wikipedia.org/wiki/State_income_tax"  target="_blank" rel="nofollow">click here</a> to find out</td></tr>
-<tr><td>City income tax rate</td><td><input type="text" name="ccitytax" id="ccitytax" value="0" class="inlonger inpct"></td></td>&nbsp;<td></tr>
-<tr><td colspan="3">
-	<div>
-		Are you age 65 or older? &nbsp;
-		<label for="cage651" class="cbcontainer"><input name="cage65" id="cage651" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
-		<label for="cage652" class="cbcontainer"><input name="cage65" id="cage652" value="no" type="radio" checked><span class="rbmark"></span>No</label>
-	</div>
-	<div id="spouseageid">
-		Is your spouse age 65 or older? &nbsp;
-		<label for="cspouse651" class="cbcontainer"><input name="cspouse65" id="cspouse651" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
-		<label for="cspouse652" class="cbcontainer"><input name="cspouse65" id="cspouse652" value="no" type="radio" checked><span class="rbmark"></span>No</label>
-	</div>
-</td></tr>
-<tr><td>Qualified tips income</td><td><input type="text" name="ctips" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
-<tr><td>Qualified overtime compensation</td><td><input type="text" name="covertime" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
-<tr><td>Qualified passenger vehicle loan interest</td><td><input type="text" name="cloaninterest" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
-<tr><td>Cash gifts to charities</td><td><input type="text" name="cgifts" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
-<tr><td colspan="3">Are you self-employed or an independent contractor? &nbsp;
-	<label for="cselfemployed1" class="cbcontainer"><input name="cselfemployed" id="cselfemployed1" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
-	<label for="cselfemployed2" class="cbcontainer"><input name="cselfemployed" id="cselfemployed2" value="no" type="radio" checked><span class="rbmark"></span>No</label>
-</td></tr>
-<tr><td colspan="3" align="center" style="padding-top:8px;"><input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td></tr>
-</table>
-</form>
-<script>
-	function thpShSpouse(tssVal){
-		if ("MarriedJoint"==tssVal){
-			document.getElementById('spousetextid').style.display='inline-block';
-			document.getElementById('spouseageid').style.display='block';
-		}else{
-			document.getElementById('spousetextid').style.display='none';
-			document.getElementById('spouseageid').style.display='none';
-		}
-		return false;
-	}
-	function shSecThirdInput(sstiVal){
-		if ("yes"==sstiVal){
-			document.getElementById('otherincomeinput').style.display='block';
-		}else{
-			document.getElementById('otherincomeinput').style.display='none';
-		}
-		return false;
-	}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Take-Home Pay Calculator 2026: Paycheck After Taxes</title>
+	<meta name="description" content="Free 2026 take-home pay calculator. Enter salary, pay frequency, filing status and deductions to see your paycheck after federal, state, Social Security and Medicare tax." />
+	
+	
+	
+	
+	
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html">
+
+<meta property="og:title" content="Take-Home Pay Calculator 2026: Paycheck After Taxes">
+<meta property="og:description" content="Free 2026 take-home pay calculator. Enter salary, pay frequency, filing status and deductions to see your paycheck after federal, state, Social Security and Medicare tax.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Take-Home Pay Calculator 2026: Paycheck After Taxes">
+<meta name="twitter:description" content="Free 2026 take-home pay calculator. Enter salary, pay frequency, filing status and deductions to see your paycheck after federal, state, Social Security and Medicare tax.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Take-Home Pay Calculator 2026: Paycheck After Taxes","url":"https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html","description":"Free 2026 take-home pay calculator. Enter salary, pay frequency, filing status and deductions to see your paycheck after federal, state, Social Security and Medicare tax.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Take-Home Pay Calculator 2026: Paycheck After Taxes","item":"https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/take-home-pay-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/take-home-pay-calculator.html" itemprop="item"><span itemprop="name">take-home-paycheck calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Take-Home Pay Calculator (2026 Paycheck After Taxes)</h1>
+
+<p>Wondering how much of your salary actually lands in your bank account? This free paycheck calculator turns your gross salary into an estimated net paycheck by subtracting federal income tax, Social Security, Medicare, state tax, city tax and your payroll deductions. It uses the <a href="#taxbrackets">2026 tax brackets</a> and the rules introduced by the One Big Beautiful Bill, and the results can help you complete steps 3 and 4 of the W-4. It is designed for U.S. residents.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Change the values, then click Calculate to see your take-home pay"></div><form name="calform" action="take-home-pay-calculator.html">
+<table id="calinputtable" class="panel">
+<tr><td>Your job income (salary)</td><td><input type="text" name="cannualincome" id="cannualincome" value="80000" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td>&nbsp;</td></tr>
+<tr><td>Pay frequency</td><td colspan="2"><select name="cpayfrequency" class="inlonger"><option value="Daily" >Daily</option><option value="Weekly" >Weekly</option><option value="Bi-weekly" selected>Bi-weekly</option><option value="Semi-monthly" >Semi-monthly</option><option value="Monthly" >Monthly</option><option value="Quarterly" >Quarterly</option><option value="Semi-Annually" >Semi-Annually</option><option value="Annual" >Annually</option></select></td></tr>
+<tr><td>File status</td><td colspan="2"><select name="cfilestatus" onChange="thpShSpouse(this.value);"><option value="Single" selected>Single</option><option value="MarriedJoint" >Filing Jointly or Qualified Widow</option><option value="MarriedSeparately" >Married Filing Separately</option><option value="HeadofHousehold" >Head of Household</option></select></td></tr>
+<tr><td nowrap>Number of children under age 17</td><td><input type="text" name="cchildren" value="0" class="inlonger"></td><td>&nbsp;</td></tr>
+<tr><td>Number of other dependents</td><td><input type="text" name="cotherdep" value="0" class="inlonger"></td><td>&nbsp;</td></tr>
+<tr><td>Other income (not from jobs)</td><td><input type="text" name="cnonjobincome" id="cnonjobincome" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">interest, dividends, retirement income, etc.</td></tr>
+<tr><td>Pretax deductions withheld<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Deductions to be withheld from salary by the employer before being paid out, including those for a 401k, health savings account (HSA), the employee\'s share of the health insurance premium, child support payments, union and uniform dues, etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="chelddeduction" id="chelddeduction" value="6000" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">401k, health insurance, HSA, etc.</td></tr>
+<tr><td nowrap>Deductions not withheld<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Deductions that will not be withheld by the employer but can be subtracted from taxable income, including IRA contributions, student loan interest, qualified tuition and education-related fees up to $4,000, etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="cnothelddeduction" id="cnothelddeduction" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext"> IRA, student loan interest, etc.</td></tr>
+<tr><td>Itemized deductions<img class="ttimg" width="16" height="16" alt="?" src="/img/svg/help.svg" onmouseover="tooltip.show('Expenditure on eligible products, services, or contributions that may be subtracted from taxable income, including qualified mortgage interest, state and local income plus either property or sales taxes up to a certain amount, charitable donations, medical and dental expenses (over 10% of adjusted gross income), etc.', '');" onmouseout="tooltip.hide();"></td><td><input type="text" name="citemdeduction" id="citemdeduction" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">mortgage interest, charitable donations, state/local/sales/property taxes, etc.</td></tr>
+<tr><td colspan="3">
+	Has 2<sup>nd</sup>, 3<sup>rd</sup> job <span id="spousetextid">income or spouse has</span> income? &nbsp;
+	<label for="chasotherjobincome1" class="cbcontainer"><input name="chasotherjobincome" id="chasotherjobincome1" value="yes" type="radio"  onClick="shSecThirdInput('yes');"><span class="rbmark"></span>Yes</label> &nbsp;
+	<label for="chasotherjobincome2" class="cbcontainer"><input name="chasotherjobincome" id="chasotherjobincome2" value="no" type="radio" checked onClick="shSecThirdInput('no');"><span class="rbmark"></span>No</label>
+	<div id="otherincomeinput"><table align="center">
+		<tr><td colspan="2">Please list these income(s):</td></tr>
+		<tr><td>Income #2</td><td><input type="text" name="cjobincome2" id="cjobincome2" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td></tr>
+		<tr><td>Income #3</td><td><input type="text" name="cjobincome3" id="cjobincome3" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td></tr>
+	</table></div>
+</td></tr>
+<tr><td>State income tax rate</td><td><input type="text" name="cstatetax" id="cstatetax" value="0" class="inlonger inpct"></td><td><a href="https://en.wikipedia.org/wiki/State_income_tax"  target="_blank" rel="nofollow">click here</a> to find out</td></tr>
+<tr><td>City income tax rate</td><td><input type="text" name="ccitytax" id="ccitytax" value="0" class="inlonger inpct"></td><td>&nbsp;</td></tr>
+<tr><td colspan="3">
+	<div>
+		Are you age 65 or older? &nbsp;
+		<label for="cage651" class="cbcontainer"><input name="cage65" id="cage651" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
+		<label for="cage652" class="cbcontainer"><input name="cage65" id="cage652" value="no" type="radio" checked><span class="rbmark"></span>No</label>
+	</div>
+	<div id="spouseageid">
+		Is your spouse age 65 or older? &nbsp;
+		<label for="cspouse651" class="cbcontainer"><input name="cspouse65" id="cspouse651" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
+		<label for="cspouse652" class="cbcontainer"><input name="cspouse65" id="cspouse652" value="no" type="radio" checked><span class="rbmark"></span>No</label>
+	</div>
+</td></tr>
+<tr><td>Qualified tips income</td><td><input type="text" name="ctips" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
+<tr><td>Qualified overtime compensation</td><td><input type="text" name="covertime" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
+<tr><td>Qualified passenger vehicle loan interest</td><td><input type="text" name="cloaninterest" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
+<tr><td>Cash gifts to charities</td><td><input type="text" name="cgifts" value="0" class="inlonger indollar inuiyear"><span class="inuiyearspan">/year</span></td><td class="smalltext">&nbsp;</td></tr>
+<tr><td colspan="3">Are you self-employed or an independent contractor? &nbsp;
+	<label for="cselfemployed1" class="cbcontainer"><input name="cselfemployed" id="cselfemployed1" value="yes" type="radio" ><span class="rbmark"></span>Yes</label> &nbsp;
+	<label for="cselfemployed2" class="cbcontainer"><input name="cselfemployed" id="cselfemployed2" value="no" type="radio" checked><span class="rbmark"></span>No</label>
+</td></tr>
+<tr><td colspan="3" align="center" style="padding-top:8px;"><input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</form>
+<script>
+	function thpShSpouse(tssVal){
+		if ("MarriedJoint"==tssVal){
+			document.getElementById('spousetextid').style.display='inline-block';
+			document.getElementById('spouseageid').style.display='block';
+		}else{
+			document.getElementById('spousetextid').style.display='none';
+			document.getElementById('spouseageid').style.display='none';
+		}
+		return false;
+	}
+	function shSecThirdInput(sstiVal){
+		if ("yes"==sstiVal){
+			document.getElementById('otherincomeinput').style.display='block';
+		}else{
+			document.getElementById('otherincomeinput').style.display='none';
+		}
+		return false;
+	}
 	thpShSpouse('Single');
-shSecThirdInput('no');
-	function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-	function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-	proComma2("cannualincome");
-	proComma2("cnonjobincome");
-	proComma2("chelddeduction");
-	proComma2("cnothelddeduction");
-	proComma2("citemdeduction");
-	proComma2("cjobincome2");
-	proComma2("cjobincome3");
-</script>
-<p><br><fieldset><legend>Related</legend><a href="/tax-calculator.html">Income Tax Calculator</a> | <a href="/budget-calculator.html">Budget Calculator</a></fieldset></p>
-<br>
-<p><b>Before-Tax vs. After-Tax Income</b></p>
-<p>In the U.S., the concept of personal income or salary usually references the before-tax amount, called gross pay. For instance, it is the form of income required on mortgage applications, is used to determine tax brackets, and is used when comparing salaries. This is because it is the raw income figure before other factors are applied, such as federal income tax, allowances, or health insurance deductions, all of which vary from person to person. However, in the context of personal finance, the more practical figure is after-tax income (sometimes referred to as disposable income or net income) because it is the figure that is actually disbursed. For instance, a person who lives paycheck-to-paycheck can calculate how much they will have available to pay next month's rent and expenses by using their take-home-paycheck amount.</p>
-<p>Figures entered into "Your Annual Income (Salary)" should be the before-tax amount, and the result shown in "Final Paycheck"  is the after-tax amount (including deductions).</p>
-
-<p><b>Pay Frequency</b></p>
-<table class="cinfoT" align="center">
-	<tr><td class="cinfoHd">Pay Frequency</td><td class="cinfoHdL">Description</td></tr>
-	<tr><td valign="top" nowrap>Daily</td><td>Pay every working day. Uncommon for salaried jobs.</td></tr>
-	<tr><td valign="top" nowrap>Weekly</td><td>Pay each week, generally on the same day each pay period.</td></tr>
-	<tr><td valign="top" nowrap>Bi-weekly</td><td>Pay every other week, generally on the same day each pay period.</td></tr>
-	<tr><td valign="top" nowrap>Semi-monthly</td><td>Pay on specified dates twice a month, usually on the fifteenth and thirtieth.</td></tr>
-	<tr><td valign="top" nowrap>Monthly</td><td>Pay on a specified day once a month.</td></tr>
-	<tr><td valign="top" nowrap>Quarterly</td><td>Pay 4 times a year. Uncommon.</td></tr>
-	<tr><td valign="top" nowrap>Semi-annually</td><td>Pay 2 times a year. Uncommon.</td></tr>
-	<tr><td valign="top" nowrap>Annually</td><td>Pay once a year. Uncommon.</td></tr>
-</table>
-
-<p>It is important to make the distinction between bi-weekly and semi-monthly, even though they may seem similar at first glance. For the purposes of this calculator, bi-weekly payments occur every other week (though, in some cases, it can be used to mean twice a week). Also, a bi-weekly payment frequency generates two more paychecks a year (26 compared to 24 for semi-monthly). While a person on a bi-weekly payment schedule will receive two paychecks for ten months out of the year, they will receive three paychecks for the remaining two months.</p>
-<p>In general, employees like to be paid more frequently due to psychological factors, and employers like to pay less frequently due to the costs associated with increased payment frequency. Certain states have specific pay frequency requirements, but federal laws only dictate that the payment schedule be predictable. An employer cannot pay an employee bi-weekly one month, then monthly the next. As a side note, pay periods have no effect on tax liability.</p>
-
-<p><b>File Status</b></p>
-<p>The following are the IRS definitions of each filing status:</p>
-
-<table class="cinfoT" align="center">
-	<tr><td class="cinfoHd">File Status</td><td class="cinfoHdL">Definition</td></tr>
-	<tr><td valign="top" nowrap>Single</td><td>Not married, divorced, or legally separated according to state law.</td></tr>
-	<tr><td valign="top" nowrap>Married Filing <br>Jointly</td><td>A married couple filing a return together.</td></tr>
-	<tr><td valign="top" nowrap>Married Filing <br>Separately</td><td>If a married couple decides to file returns separately, each of their filing statuses should generally be Married Filing Separately.</td></tr>
-	<tr><td valign="top" nowrap>Head of <br>Household</td><td>Only applies to anyone not married who has paid more than half the cost of maintaining a home for themselves and a qualifying person.</td></tr>
-	<tr><td valign="top" nowrap>Qualified Widow</td><td>This filing status requires a dependent child and allows for the retention of the benefits associated with the "Married Filing Jointly" status for two years after the year of the spouse's death.</td></tr>
-</table>
-
-<p>The most commonly chosen options will be "Single," "Married Filing Jointly," and "Head of Household." It is possible for a single person to claim another filing status. For instance, someone who is "Single" can also file as "Head of Household" or "Qualifying Widow" if the conditions are met. Given these options, it is possible for a taxpayer to evaluate their options and choose the filing status that results in the least taxation.</p>
-
-<p><b>Deductions</b></p>
-<p>Deductions can lower a person's tax liability by lowering the total taxable income. The deductions are categorized into three inputs above.</p>
-<p><i>1. Pretax deductions withheld:</i></p>
-<p>These are the deductions to be withheld from the employee's salary by their employer before the salary can be paid out, including 401k, the employee's share of the health insurance premium, health savings account (HSA) deductions, child support payments, union and uniform dues, etc.</p>
-<p><i>2. Deductions not withheld:</i></p>
-<p>These are the deductions that will not be withheld by the employer but can be subtracted from taxable income, including IRA contributions, student loan interest, qualified tuition, and education-related fees up to $4,000, etc.</p>
-<p><i>3. Itemized deductions:</i></p>
-<p>These are expenditures on eligible products, services, or contributions that may be subtracted from taxable income, including qualified mortgage interest, state and local income tax plus either property or sales taxes up to a certain amount, charitable donations, medical and dental expenses (over 10% of adjusted gross income), etc. For those who do not use itemized deductions, a standard deduction can be used. The standard deduction dollar amount is $16,100 for single households and $32,200 for married couples filing jointly for the tax year 2026. Taxpayers can choose either itemized deductions or the standard deduction, but usually choose whichever results in a higher deduction, and therefore lower tax payable.</p>
-
-<p>In addition, the One Big Beautiful Bill passed in 2025 introduced several additional deductions. These deductions do not affect the choice between taking the standard deduction and itemizing. However, they apply only to tax years 2025 through 2028 and will expire after 2028 unless further legislation extends them.</p>
-<ul>
-	<li>Tips&mdash;Qualified tips of up to $25,000 per year may be deducted. This deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
-	<li>Overtime compensation&mdash;Qualified overtime compensation of up to $12,500 per year for single filers and $25,000 per year for joint filers may be deducted. This deduction phases out for taxpayers with a modified adjusted gross income over $150,000 ($300,000 for joint filers).</li>
-	<li>Car loan interest&mdash;Individuals may deduct up to $10,000 per year in interest paid on a loan used to purchase a qualified vehicle. This deduction phases out for taxpayers with a modified adjusted gross income over $100,000 ($200,000 for joint filers).</li>
-	<li>Deduction for seniors&mdash;Individuals aged 65 and older may claim an additional deduction of $6,000 per year for single filers, or a total of $12,000 per year for married couples in which both spouses qualify. This deduction phases out for taxpayers with a modified adjusted gross income over $75,000 ($150,000 for joint filers).</li>
-</ul>
-
-<h3>Income Tax</h3>
-<p>To find an estimated amount on a tax return instead, please use our <a href="/tax-calculator.html">Income Tax Calculator</a>. Almost all employers automatically withhold taxes from their employees' paychecks (independent contractors and self-employed individuals need to submit quarterly or yearly tax payments independently), as it is mandatory by law. Evasion of tax can result in serious repercussions such as a felony and imprisonment for up to five years.</p>
-<p><b>Federal Income Tax</b></p>
-<p>The federal income tax is a progressive tax, meaning it increases in accordance with the taxable amount. The more someone makes, the more their income will be taxed as a percentage. In 2026, the federal income tax rate tops out at 37%. Only the highest earners are subject to this percentage.</p>
-<p>Federal income tax is usually the largest tax deduction from gross pay on a paycheck. It is levied by the Internal Service Revenue (IRS) in order to raise revenue for the U.S. federal government. While individual income is only one source of revenue for the IRS out of a handful, such as income tax on corporations, payroll tax, and estate tax, it is the largest.</p>
-<p><b>State Income Tax</b></p>
-<p>Similar to how federal income taxes generate revenue for the federal government, state income taxes are imposed in order to generate revenue for state governments. While almost everyone is subject to federal income tax, not all states have an income tax. 33 states as well as the District of Columbia have a progressive system. The state with the highest maximum state income tax rate is California at 13.30%. Eight states have flat rates: Colorado, Illinois, Indiana, Massachusetts, Michigan, North Carolina, Pennsylvania, and Utah. Seven states, Alaska, Florida, Nevada, South Dakota, Texas, Washington, and Wyoming, impose no income tax. Tennessee and New Hampshire fall into a gray area; while they don't impose a tax on income, there is a state tax on interest and dividends.</p>
-<p>As an aside, unlike the federal government, states often tax municipal bond interest from securities issued outside a certain state, and many allow a full or partial exemption for pension income.</p>
-<p><b>Locality/City/Municipal Income Tax</b></p>
-<p>Most U.S. cities and counties do not impose this tax, but some do, affecting approximately 10% of the total U.S. population. In general, the highest city tax rates in the U.S. are centered around large cities such as New York City.</p>
-
-<h3>FICA Tax</h3>
-<p>Also known as payroll tax, FICA refers to Social Security tax and Medicare tax. Whether a person is an employee or an independent contractor, a certain percentage of gross income will go towards FICA. In the case of employees, they pay half of it, and their employer pays the other half. Independent contractors or self-employed individuals pay the full amount because they are both employees and employers. This is one of the reasons why independent contractors tend to be paid more hourly than regular employees for the same job.</p>
-<p><b>Social Security</b></p>
-<p>Social Security is a federal government system in the U.S. that provides monetary benefits to retired, unemployed, or disabled people, paid for largely by society. The Social Security tax rate is 6.20% (total including employer contribution: 12.40%) up to an annual maximum of $184,500 for 2026 ($176,100 for 2025). For more information about or to do calculations involving Social Security, please visit the <a href="/social-security-calculator.html">Social Security Calculator</a>.</p>
-<p><b>Medicare</b></p>
-<p>Medicare is a single-payer national social insurance program administered in the U.S. by the federal government. Its main purpose is to provide health insurance to those aged 65 and older. Tax rates are dependent on income brackets. Medicare tax rate is 1.45% (total including employer contribution: 2.90%) for incomes below the threshold amounts shown in the table. Incomes above the threshold amounts will result in an additional 0.45% (total including employer contribution: 0.9%) on top of the regular Medicare tax rate.</p>
-<table class="cinfoT" align="center">
-	<tr><td>Filing Status</td><td>Threshold Amount</td></tr>
-	<tr><td>Married filing jointly</td><td>$250,000</td></tr>
-	<tr><td>Married filing separately</td><td>$125,000</td></tr>
-	<tr><td>Single</td><td>$200,000</td></tr>
-	<tr><td>Head of household</td><td>$200,000</td></tr>
-	<tr><td>Qualifying widow(er) with dependent child</td><td>$200,000</td></tr>
-</table>
-
-<h3>Take Home Pay</h3>
-<p>Only after all of these factors are accounted for can a true, finalized take-home-paycheck be calculated. Figuring out this final figure can be helpful. For instance, people often overestimate how much they are able to spend based on an inflated pre-tax income figure. Knowing the after-tax amount of a paycheck and using it to budget can help rectify this issue. For more comprehensive and detailed calculations regarding budgeting, try our <a href="/budget-calculator.html">Budget Calculator</a>; just note that it also utilizes a before-tax input for income.</p>
-
-
-<h3>How to Increase a Take Home Paycheck</h3>
-<p><b>Salary Increase</b></p>
-<p>The easiest way to achieve a salary increase may be to simply ask for a raise, promotion, or bonus. However, this is assuming that a salary increase is deserved. For instance, an employee is in a legitimate position to ask for a raise or bonus if their performance exceeded original expectations, or if the company's performance has noticeably improved, due in part to the employee's input. If internal salary increases are not possible, which is common, try searching for another job. In the current job climate, the highest pay increases during a career generally happen while transitioning from one company to another. For more information about or to do calculations involving salary, please visit the <a href="/salary-calculator.html">Salary Calculator</a>.</p>
-<p><b>Reevaluate Payroll Deductions</b></p>
-<p>Sometimes, it is possible to find avenues to lower the costs of certain expenses such as life, medical, dental, or long-term disability insurance. For instance, someone who is healthy with no major diseases or injuries can reconsider whether the most expensive top-of-the-line health insurance is necessary. In addition, each spouse's company may have health insurance coverage for the entire family; it would be wise to compare the offerings of each health insurance plan and choose the preferred plan.</p>
-<p><b>Open a Flexible Spending Account</b></p>
-<p>A flexible spending account (FSA) is a tax-advantaged account that is usually offered by employers to their employees so they have the ability to set aside some of their earnings. Because contributions into an FSA are deducted from paychecks during payroll before income taxes, less income will be subject to taxation. While it won't show up as an immediate increase in a take-home-paycheck, theoretically, any employee who is going to pay for qualified expenses in the future anyway can have more of their "paycheck" taken home using an FSA instead of as disposable income. The most common FSAs used are health savings accounts or health reimbursement accounts, but other types of FSAs exist for qualified expenses related to dependent care or adoption.</p>
-<p><b>Work Overtime</b></p>
-<p>According to the Fair Labor Standards Act (FLSA), non-exempt employees that are covered must receive overtime pay for hours worked over 40 in a workweek at a rate not less than one and a half times their regular rate of pay. Due to this, if allowed, non-exempt employees have the opportunity for a bigger paycheck by working over 40 hours per week. While most companies tend to set their overtime rates at the minimum, which is time and one-half, companies that provide an overtime rate of two times the regular rate are not out of the ordinary. Exempt employees, otherwise known as salaried employees, generally do not receive overtime pay, even if they work over 40 hours. For more information about overtime, non-exempt or exempt employment, or to do calculations involving working hours, please visit the <a href="/time-card-calculator.html">Time Card Calculator</a>.</p>
-<p><b>Cash Out PTO</b></p>
-<p>Traditionally, most employers would offer employees vacation days, paid time off, or paid leave. Nowadays, employers tend to roll everything into one concept called paid time off (PTO). In some cases, unused PTO at the end of the year can be "exchanged" for their equivalent financial value. If a company does allow the conversion of unused PTO, accumulated hours and/or days can then be exchanged for a larger paycheck.</p>
-<p><b>Temporarily Pause 401(k) Contributions</b></p>
-<p>In general, it is wise to stop contributing towards retirement when facing immediate financial difficulty. However, depending on the severity of the financial situation, a case could be made for at least contributing as much as possible towards what an employer will match for a 401(k).</p>
-
-
-
-<a name="taxbrackets"></a>
-<h2>2026 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $12,400</td><td>$0 to $24,800</td><td>$0 to $17,700</td><td>10%</td></tr>
-<tr><td>$12,400 to $50,400</td><td>$24,800 to $100,800</td><td>$17,700 to $67,450</td><td>12%</td></tr>
-<tr><td>$50,400 to $105,700</td><td>$100,800 to $211,400</td><td>$67,450 to $105,700</td><td>22%</td></tr>
-<tr><td>$105,700 to $201,775</td><td>$211,400 to $403,550</td><td>$105,700 to $201,775</td><td>24%</td></tr>
-<tr><td>$201,775 to $256,225</td><td>$403,550 to $512,450</td><td>$201,775 to $256,200</td><td>32%</td></tr>
-<tr><td>$256,225 to $640,600</td><td>$512,450 to $768,700</td><td>$256,200 to $640,600</td><td>35%</td></tr>
-<tr><td>$640,600+</td><td>$768,700+</td><td>$640,600+</td><td>37%</td></tr>
-</table>
-<br><p><b>2026 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$16,100</td>		<td>$32,200</td>		<td>$24,150</td></tr>
-</table>
-
-<h2>2025 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $11,925</td><td>$0 to $23,850</td><td>$0 to $17,000</td><td>10%</td></tr>
-<tr><td>$11,925 to $48,475</td><td>$23,850 to $96,950</td><td>$17,000 to $64,850</td><td>12%</td></tr>
-<tr><td>$48,475 to $103,350</td><td>$96,950 to $206,700</td><td>$64,850 to $103,350</td><td>22%</td></tr>
-<tr><td>$103,350 to $197,300</td><td>$206,700 to $394,600</td><td>$103,350 to $197,300</td><td>24%</td></tr>
-<tr><td>$197,300 to $250,525</td><td>$394,600 to $501,050</td><td>$197,300 to $250,500</td><td>32%</td></tr>
-<tr><td>$250,525 to $626,350</td><td>$501,050 to $751,600</td><td>$250,500 to $626,350</td><td>35%</td></tr>
-<tr><td>$626,350+</td><td>$751,600+</td><td>$626,350+</td><td>37%</td></tr>
-</table>
-<br><p><b>2025 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$15,750</td>		<td>$31,500</td>		<td>$23,625</td></tr>
-</table>
-
-<h2>2024 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $11,600</td><td>$0 to $23,200</td><td>$0 to $16,550</td><td>10%</td></tr>
-<tr><td>$11,600 to $47,150</td><td>$23,200 to $94,300</td><td>$16,550 to $63,100</td><td>12%</td></tr>
-<tr><td>$47,150 to $100,525</td><td>$94,300 to $201,050</td><td>$63,100 to $100,500</td><td>22%</td></tr>
-<tr><td>$100,525 to $191,950</td><td>$201,050 to $383,900</td><td>$100,500 to $191,950</td><td>24%</td></tr>
-<tr><td>$191,950 to $243,725</td><td>$383,900 to $487,450</td><td>$191,950 to $243,700</td><td>32%</td></tr>
-<tr><td>$243,725 to $609,350</td><td>$487,450 to $731,200</td><td>$243,700 to $609,350</td><td>35%</td></tr>
-<tr><td>$609,350+</td><td>$731,200+</td><td>$609,350+</td><td>37%</td></tr>
-</table>
-<br><p><b>2024 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$14,600</td>		<td>$29,200</td>		<td>$21,900</td></tr>
-</table>
-
-<h2>2023 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $11,000</td><td>$0 to $22,000</td><td>$0 to $15,700</td><td>10%</td></tr>
-<tr><td>$11,001 to $44,725</td><td>$22,001 to $89,450</td><td>$15,701 to $59,850</td><td>12%</td></tr>
-<tr><td>$44,726 to $95,375</td><td>$89,451 to $190,750</td><td>$59,851 to $95,350</td><td>22%</td></tr>
-<tr><td>$95,376 to $182,100</td><td>$190,751 to $364,200</td><td>$95,351 to $182,100</td><td>24%</td></tr>
-<tr><td>$182,101 to $231,250</td><td>$364,201 to $462,500</td><td>$182,101 to $231,250</td><td>32%</td></tr>
-<tr><td>$231,251 to $578,125</td><td>$462,501 to $693,750</td><td>$231,251 to $578,100</td><td>35%</td></tr>
-<tr><td>$578,125+</td><td>$693,750+</td><td>$578,100+</td><td>37%</td></tr>
-</table>
-<br><p><b>2023 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$13,850</td>		<td>$27,700</td>		<td>$20,800</td></tr>
-</table>
-
-<h2>2022 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $10,275</td><td>$0 to $20,550</td><td>$0 to $14,650</td><td>10%</td></tr>
-<tr><td>$10,276 to $41,775</td><td>$20,551 to $83,550</td><td>$14,651 to $55,900</td><td>12%</td></tr>
-<tr><td>$41,776 to $89,075</td><td>$83,551 to $178,150</td><td>$55,901 to $89,050</td><td>22%</td></tr>
-<tr><td>$89,076 to $170,050</td><td>$178,151 to $340,100</td><td>$89,051 to $170,050</td><td>24%</td></tr>
-<tr><td>$170,051 to $215,950</td><td>$340,101 to $431,900</td><td>$170,051 to $215,950</td><td>32%</td></tr>
-<tr><td>$215,951 to $539,900</td><td>$431,901 to $647,850</td><td>$215,951 to $539,900</td><td>35%</td></tr>
-<tr><td>$539,900+</td><td>$647,850+</td><td>$539,900+</td><td>37%</td></tr>
-</table>
-<br><p><b>2022 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$12,950</td>		<td>$25,900</td>		<td>$19,400</td></tr>
-</table>
-
-
-<h2>2021 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr><td>$0 to $9,950</td><td>$0 to $19,900</td><td>$0 to $14,200</td><td>10%</td></tr>
-<tr><td>$9,951 to $40,525</td><td>$19,901 to $81,050</td><td>$14,201 to $54,200</td><td>12%</td></tr>
-<tr><td>$40,526 to $86,375</td><td>$81,051 to $172,750</td><td>$54,201 to $86,350</td><td>22%</td></tr>
-<tr><td>$86,376 to $164,925</td><td>$172,751 to $329,850</td><td>$86,351 to $164,900</td><td>24%</td></tr>
-<tr><td>$164,926 to $209,425</td><td>$329,851 to $418,850</td><td>$164,901 to $209,400</td><td>32%</td></tr>
-<tr><td>$209,426 to $523,600</td><td>$418,851 to $628,300</td><td>$209,401 to $523,600</td><td>35%</td></tr>
-<tr><td>$523,600+</td><td>$628,300+</td><td>$523,600+</td><td>37%</td></tr>
-</table>
-<br><p><b>2021 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$12,550</td>		<td>$25,100</td>		<td>$18,800</td></tr>
-</table>
-
-<h2>2020 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr bgcolor="#eeeeee"><td>$0 to $9,875</td><td>$0 to $19,750</td><td>$0 to $14,100</td><td>10%</td></tr>
-<tr bgcolor="#eeeeee"><td>$9,876 to $40,125</td><td>$19,751 to $80,250</td><td>$14,101 to $53,700</td><td>12%</td></tr>
-<tr bgcolor="#eeeeee"><td>$40,126 to $85, 525</td><td>$80,251 to $171,050</td><td>$53,701 to $85,500</td><td>22%</td></tr>
-<tr bgcolor="#eeeeee"><td>$85,526 to $163,300</td><td>$171,051 to $326,600</td><td>$85,501 to $163,300</td><td>24%</td></tr>
-<tr bgcolor="#eeeeee"><td>$163,301 to $207,350</td><td>$326,601 to $414,700</td><td>$163,301 to $207,350</td><td>32%</td></tr>
-<tr bgcolor="#eeeeee"><td>$207,351 to $518,400</td><td>$414,701 to $622,050</td><td>$207,351 to $518,400</td><td>35%</td></tr>
-<tr bgcolor="#eeeeee"><td>$518,401+</td><td>$622,051+</td><td>$518,401+</td><td>37%</td></tr>
-</table>
-<br><p><b>2020 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$12,400</td>		<td>$24,800</td>		<td>$18,650</td></tr>
-</table>
-
-<h2>2019 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>			<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr bgcolor="#eeeeee"><td>$0 to $9,700</td>			<td>$0 to $19,400</td>			<td>$0 to $13,850</td><td>10%</td></tr>
-<tr bgcolor="#eeeeee"><td>$9,700 to $39,475</td>	<td>$19,400 to $78,950</td>		<td>$13,850 to $52,850</td><td>12%</td></tr>
-<tr bgcolor="#eeeeee"><td>$39,475 to $84,200</td>	<td>$78,950 to $168,400</td>	<td>$52,850 to $84,200</td><td>22%</td></tr>
-<tr bgcolor="#eeeeee"><td>$84,200 to $160,725</td>	<td>$168,400 to $321,450</td>	<td>$84,200 to $160,700</td><td>24%</td></tr>
-<tr bgcolor="#eeeeee"><td>$160,725 to $204,100</td>	<td>$321,450 to $408,200</td>	<td>$160,700 to $204,100</td><td>32%</td></tr>
-<tr bgcolor="#eeeeee"><td>$204,100 to $510,300</td>	<td>$408,200 to $612,350</td>	<td>$204,100 to $510,300</td><td>35%</td></tr>
-<tr bgcolor="#eeeeee"><td>$510,300+</td>			<td>$612,350+</td>				<td>$510,300+</td><td>37%</td></tr>
-</table>
-<br><p><b>2019 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>									<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>						<td>$12,200</td>				<td>$24,400</td>			<td>$18,350</td></tr>
-<tr bgcolor="#eeeeee"><td>Personal Exemptions (PEP)</td>				<td colspan="3" align="center">$0 per person (not available anymore)</td></tr>
-</table>
-
-
-<h2>2018 Tax Brackets</h2>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>			<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr bgcolor="#eeeeee"><td>$0 to $9,525</td>			<td>$0 to $19,050</td>			<td>$0 to $13,600</td><td>10%</td></tr>
-<tr bgcolor="#eeeeee"><td>$9,525 to $38,700</td>	<td>$19,050 to $77,400</td>		<td>$13,600 to $51,800</td><td>12%</td></tr>
-<tr bgcolor="#eeeeee"><td> $38,700 to $82,500</td>	<td>$77,400 to $165,000</td>	<td>$51,800 to $82,500</td><td>22%</td></tr>
-<tr bgcolor="#eeeeee"><td>$82,500 to $157,500</td>	<td>$165,000 to $315,000</td>	<td>$82,500 to $157,500</td><td>24%</td></tr>
-<tr bgcolor="#eeeeee"><td>$157,500 to $200,000</td>	<td>$315,000 to $400,000</td>	<td>$157,500 to $200,000</td><td>32%</td></tr>
-<tr bgcolor="#eeeeee"><td>$200,000 to $500,000</td>	<td>$400,000 to $600,000</td>	<td>$200,000 to $500,000</td><td>35%</td></tr>
-<tr bgcolor="#eeeeee"><td>$500,000+</td>			<td>$600,000+</td>				<td>$500,000+</td><td>37%</td></tr>
-</table>
-<br><p><b>2018 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>									<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>						<td>$12,000</td>				<td>$24,000</td>			<td>$18,000</td></tr>
-<tr bgcolor="#eeeeee"><td>Personal Exemptions (PEP)</td>				<td colspan="3" align="center">$0 per person (not available anymore)</td></tr>
-</table>
-
-
-<h2>2017 Tax Brackets</h2>
-<table border="0" cellpadding="3" >
-<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
-<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>			<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
-<tr bgcolor="#eeeeee"><td>$0 to $9,325</td>			<td>$0 to $18,650</td>			<td>$0 to $13,350</td><td>10%</td></tr>
-<tr bgcolor="#eeeeee"><td>$9,325 to $37,950</td>	<td>$18,650 to $75,900</td>		<td>$13,350 to $50,800</td><td>15%</td></tr>
-<tr bgcolor="#eeeeee"><td>$37,950 to $91,900</td>	<td>$75,900 to $153,100</td>	<td>$50,800 to $131,200</td><td>25%</td></tr>
-<tr bgcolor="#eeeeee"><td>$91,900 to $191,650</td>	<td>$153,100 to $233,350</td>	<td>$131,200 to $212,500</td><td>28%</td></tr>
-<tr bgcolor="#eeeeee"><td>$191,650 to $416,700</td>	<td>$233,350 to $416,700</td>	<td>$212,500 to $416,700</td><td>33%</td></tr>
-<tr bgcolor="#eeeeee"><td>$416,700 to $418,400</td>	<td>$416,700 to $470,700</td>	<td>$416,700 to $444,550</td><td>35%</td></tr>
-<tr bgcolor="#eeeeee"><td>$418,400+</td>			<td>$470,700+</td>				<td>$444,550+</td><td>39.6%</td></tr>
-</table>
-<br><p><b>2017 Deductions and Exemptions</b></p>
-<table border="0" cellpadding="3">
-<tr bgcolor="#dddddd"><td>&nbsp;</td>									<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
-<tr bgcolor="#eeeeee"><td>Standard Deductions</td>						<td>$6,350</td>				<td>$12,700</td>			<td>$9,350</td></tr>
-<tr bgcolor="#eeeeee"><td>Itemized Deduction Eliminated</td>			<td>$261,500</td>			<td>$313,800</td>			<td>$287,650</td></tr>
-<tr bgcolor="#eeeeee"><td>Personal Exemptions (PEP)</td>				<td colspan="3" align="center">$4,050 per person</td></tr>
-<tr bgcolor="#eeeeee"><td>Personal Exemptions Phase-out Begin</td>		<td>$261,500</td>			<td>$313,800</td>			<td>$287,650</td></tr>
-<tr bgcolor="#eeeeee"><td>Personal Exemptions Phase-out Completely</td>	<td>$384,000</td>			<td>$436,300</td>			<td>$410,150</td></tr>
-</table>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+shSecThirdInput('no');
+	function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+	function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+	proComma2("cannualincome");
+	proComma2("cnonjobincome");
+	proComma2("chelddeduction");
+	proComma2("cnothelddeduction");
+	proComma2("citemdeduction");
+	proComma2("cjobincome2");
+	proComma2("cjobincome3");
+</script>
+
+<p><br><fieldset><legend>Related</legend><a href="/tax-calculator.html">Income Tax Calculator</a> | <a href="/budget-calculator.html">Budget Calculator</a> | <a href="/salary-calculator.html">Salary Calculator</a> | <a href="/401k-calculator.html">401(k) Calculator</a></fieldset></p>
+
+<p><b>On this page:</b> <a href="#gross-vs-net">Gross vs. net pay</a> | <a href="#example">Example</a> | <a href="#frequency">Pay frequency</a> | <a href="#filing">Filing status</a> | <a href="#deductions">Deductions</a> | <a href="#taxes">Taxes withheld</a> | <a href="#increase">Increase your paycheck</a> | <a href="#faq">FAQ</a> | <a href="#taxbrackets">2026 brackets</a></p>
+
+<h2 id="gross-vs-net">Gross Pay vs. Net Pay: What Is Take-Home Pay?</h2>
+<p>Gross pay is what you earn before anything is withheld. It is the number on a job offer, a mortgage application and most salary comparisons. Net pay, also called take-home pay or disposable income, is the amount deposited after taxes and payroll deductions. Budgeting from net pay is more realistic, because rent, groceries and savings are paid with the money you actually receive.</p>
+<p>Enter your <strong>gross annual salary</strong> in the first field. The final paycheck figure shows your <strong>net pay per pay period</strong>.</p>
+
+<h2 id="example">Example: Take-Home Pay on an $80,000 Salary</h2>
+<p>A single filer earning $80,000 with $6,000 in pre-tax deductions and no state tax has about $57,900 of federal taxable income after the 2026 standard deduction. That produces roughly $7,450 in federal income tax, plus about $4,960 in Social Security and $1,160 in Medicare. The remaining yearly amount is near $60,400, or roughly $2,320 per bi-weekly paycheck. This is an illustration only; use the calculator above for your own numbers.</p>
+
+<h2 id="frequency">Pay Frequency Explained</h2>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Pay Frequency</td><td class="cinfoHdL">Description</td></tr>
+	<tr><td valign="top" nowrap>Daily</td><td>Paid each working day. Uncommon for salaried jobs.</td></tr>
+	<tr><td valign="top" nowrap>Weekly</td><td>52 paychecks a year, usually on the same weekday.</td></tr>
+	<tr><td valign="top" nowrap>Bi-weekly</td><td>26 paychecks a year, one every other week.</td></tr>
+	<tr><td valign="top" nowrap>Semi-monthly</td><td>24 paychecks a year, on set dates such as the 15th and the last day of the month.</td></tr>
+	<tr><td valign="top" nowrap>Monthly</td><td>12 paychecks a year, on one set day each month.</td></tr>
+	<tr><td valign="top" nowrap>Quarterly</td><td>4 paychecks a year. Uncommon.</td></tr>
+	<tr><td valign="top" nowrap>Semi-annually</td><td>2 paychecks a year. Uncommon.</td></tr>
+	<tr><td valign="top" nowrap>Annually</td><td>1 payment a year. Uncommon.</td></tr>
+</table>
+<p><strong>Bi-weekly vs. semi-monthly:</strong> bi-weekly pay produces 26 checks, so each one is smaller than a semi-monthly check (24 per year) even though the annual total is identical. Twice a year, bi-weekly employees receive a third paycheck in a single month. Pay frequency does not change how much tax you owe for the year. Federal law only requires that your pay schedule be regular and predictable, while some states set their own minimum pay frequencies.</p>
+
+<h2 id="filing">Filing Status</h2>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Filing Status</td><td class="cinfoHdL">Who it is for</td></tr>
+	<tr><td valign="top" nowrap>Single</td><td>Unmarried, divorced or legally separated under state law.</td></tr>
+	<tr><td valign="top" nowrap>Married Filing <br>Jointly</td><td>Married couples who file one combined return.</td></tr>
+	<tr><td valign="top" nowrap>Married Filing <br>Separately</td><td>Married couples who each file their own return.</td></tr>
+	<tr><td valign="top" nowrap>Head of <br>Household</td><td>Unmarried taxpayers who pay more than half the cost of keeping up a home for a qualifying person.</td></tr>
+	<tr><td valign="top" nowrap>Qualified Widow</td><td>Allows joint-filer rates for two years after a spouse’s death if you have a dependent child.</td></tr>
+</table>
+<p>Single, Married Filing Jointly and Head of Household are the most common. If you qualify for more than one status, compare them, because the right choice can lower your tax bill.</p>
+
+<h2 id="deductions">Deductions That Reduce Your Taxable Income</h2>
+<h3>1. Pre-tax deductions withheld by your employer</h3>
+<p>Taken from your pay before income tax is applied: traditional 401(k) contributions, your share of health insurance premiums, HSA contributions, child support payments, and union or uniform dues.</p>
+<h3>2. Deductions not withheld</h3>
+<p>Claimed on your tax return rather than through payroll: IRA contributions, student loan interest and qualified education expenses of up to $4,000.</p>
+<h3>3. Itemized deductions or the standard deduction</h3>
+<p>Itemized deductions include mortgage interest, charitable gifts, medical costs above 10% of adjusted gross income, and state and local taxes up to the legal limit. Most people take the standard deduction instead: <strong>$16,100 for single filers, $32,200 for joint filers and $24,150 for heads of household in 2026</strong>. Choose whichever is larger.</p>
+<h3>New deductions for 2025–2028</h3>
+<p>The One Big Beautiful Bill added temporary deductions that you can claim whether you itemize or not. They are scheduled to expire after 2028 unless Congress extends them.</p>
+<ul>
+	<li><strong>Tips:</strong> up to $25,000 per year; phases out above $150,000 of modified adjusted gross income ($300,000 joint).</li>
+	<li><strong>Overtime:</strong> up to $12,500 per year ($25,000 joint); same phase-out thresholds as tips.</li>
+	<li><strong>Car loan interest:</strong> up to $10,000 per year on a qualified vehicle; phases out above $100,000 ($200,000 joint).</li>
+	<li><strong>Seniors (65+):</strong> an extra $6,000 per person; phases out above $75,000 ($150,000 joint).</li>
+</ul>
+
+<h2 id="taxes">Taxes Withheld From Your Paycheck</h2>
+<p>Employers must withhold income and payroll taxes. Self-employed workers and independent contractors pay these themselves through quarterly or annual payments. To estimate a full tax return instead, use our <a href="/tax-calculator.html">Income Tax Calculator</a>.</p>
+<h3>Federal Income Tax</h3>
+<p>Federal income tax is progressive: each slice of taxable income is taxed at its own rate, from 10% up to a top rate of 37%. Only income above the bracket threshold is taxed at the higher rate. It is typically the largest deduction on a paycheck and is collected by the Internal Revenue Service (IRS).</p>
+<h3>State Income Tax</h3>
+<p>Seven states have no wage income tax: Alaska, Florida, Nevada, South Dakota, Texas, Washington and Wyoming. New Hampshire and Tennessee do not tax wages but have historically taxed some investment income. Eight states use a flat rate: Colorado, Illinois, Indiana, Massachusetts, Michigan, North Carolina, Pennsylvania and Utah. Others use progressive brackets, and California has the highest top rate at 13.30%. Enter your effective rate in the state field above.</p>
+<h3>City and Local Income Tax</h3>
+<p>Most U.S. cities and counties do not levy an income tax, but some do, affecting roughly 10% of Americans. The highest local rates are concentrated in large cities such as New York City.</p>
+<h3>FICA: Social Security and Medicare</h3>
+<p>FICA is the payroll tax. Employees and employers each pay half; self-employed people pay both halves. <strong>Social Security</strong> is 6.2% of wages (12.4% combined) up to <strong>$184,500 in 2026</strong> ($176,100 in 2025). See the <a href="/social-security-calculator.html">Social Security Calculator</a> for benefit estimates. <strong>Medicare</strong> is 1.45% of all wages (2.9% combined). Employees owe an additional 0.9% on wages above these thresholds:</p>
+<table class="cinfoT" align="center">
+	<tr><td>Filing Status</td><td>Additional Medicare tax threshold</td></tr>
+	<tr><td>Married filing jointly</td><td>$250,000</td></tr>
+	<tr><td>Married filing separately</td><td>$125,000</td></tr>
+	<tr><td>Single</td><td>$200,000</td></tr>
+	<tr><td>Head of household</td><td>$200,000</td></tr>
+	<tr><td>Qualifying widow(er) with dependent child</td><td>$200,000</td></tr>
+</table>
+
+<h2 id="increase">How to Increase Your Take-Home Pay</h2>
+<ul>
+	<li><strong>Ask for a raise or change jobs.</strong> Use the <a href="/salary-calculator.html">Salary Calculator</a> to compare offers. Switching employers is often where the largest pay jumps happen.</li>
+	<li><strong>Review payroll deductions.</strong> Compare health, dental, life and disability options, and check whether a spouse’s plan covers the family more cheaply.</li>
+	<li><strong>Use an FSA or HSA.</strong> Contributions come out before income tax, which lowers your tax bill for spending you were going to do anyway.</li>
+	<li><strong>Work overtime.</strong> Under the Fair Labor Standards Act, non-exempt employees earn at least 1.5 times their regular rate beyond 40 hours a week. Track hours with the <a href="/time-card-calculator.html">Time Card Calculator</a>.</li>
+	<li><strong>Cash out unused PTO</strong> if your employer allows it.</li>
+	<li><strong>Pause 401(k) contributions only in a real cash crunch.</strong> If you pause, try to keep contributing enough to earn your full employer match.</li>
+</ul>
+<p>Once you know your net pay, plug it into the <a href="/budget-calculator.html">Budget Calculator</a> (which asks for pre-tax income, so enter your gross figure there).</p>
+
+<h2 id="faq">Take-Home Pay FAQ</h2>
+<details><summary>How do I calculate my take-home pay?</summary><p>Subtract pre-tax deductions from gross pay, then subtract federal income tax, Social Security, Medicare, and any state or city tax. Divide what remains by your number of pay periods.</p></details>
+<details><summary>Why is my paycheck smaller than my salary divided by pay periods?</summary><p>Taxes and benefit costs are withheld before you are paid. Salary is gross; your deposit is net.</p></details>
+<details><summary>What is the 2026 standard deduction?</summary><p>$16,100 for single filers, $32,200 for married filing jointly and $24,150 for head of household.</p></details>
+<details><summary>What is the difference between bi-weekly and semi-monthly pay?</summary><p>Bi-weekly is 26 paychecks a year; semi-monthly is 24. Annual pay is the same, but bi-weekly checks are smaller.</p></details>
+<details><summary>Does the additional Medicare tax apply to me?</summary><p>Only if your wages exceed $200,000 (single), $250,000 (married filing jointly) or $125,000 (married filing separately). The extra rate is 0.9%.</p></details>
+<p class="smalltext">This calculator provides estimates for planning purposes and is not tax advice. Actual withholding depends on your W-4 and employer payroll settings.</p>
+
+<a name="taxbrackets"></a>
+<h2>2026 Federal Tax Brackets</h2>
+<table border="0" cellpadding="3">
+<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
+<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
+<tr><td>$0 to $12,400</td><td>$0 to $24,800</td><td>$0 to $17,700</td><td>10%</td></tr>
+<tr><td>$12,400 to $50,400</td><td>$24,800 to $100,800</td><td>$17,700 to $67,450</td><td>12%</td></tr>
+<tr><td>$50,400 to $105,700</td><td>$100,800 to $211,400</td><td>$67,450 to $105,700</td><td>22%</td></tr>
+<tr><td>$105,700 to $201,775</td><td>$211,400 to $403,550</td><td>$105,700 to $201,775</td><td>24%</td></tr>
+<tr><td>$201,775 to $256,225</td><td>$403,550 to $512,450</td><td>$201,775 to $256,200</td><td>32%</td></tr>
+<tr><td>$256,225 to $640,600</td><td>$512,450 to $768,700</td><td>$256,200 to $640,600</td><td>35%</td></tr>
+<tr><td>$640,600+</td><td>$768,700+</td><td>$640,600+</td><td>37%</td></tr>
+</table>
+<br><p><b>2026 Standard Deductions</b></p>
+<table border="0" cellpadding="3">
+<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
+<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$16,100</td>		<td>$32,200</td>		<td>$24,150</td></tr>
+</table>
+
+<h2>2025 Federal Tax Brackets</h2>
+<table border="0" cellpadding="3">
+<tr bgcolor="#dddddd"><td colspan="3" align="center"><b>Taxable Income</b></td><td>&nbsp;</td></tr>
+<tr bgcolor="#dddddd"><td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td><td><b>Tax Rate</b></td></tr>
+<tr><td>$0 to $11,925</td><td>$0 to $23,850</td><td>$0 to $17,000</td><td>10%</td></tr>
+<tr><td>$11,925 to $48,475</td><td>$23,850 to $96,950</td><td>$17,000 to $64,850</td><td>12%</td></tr>
+<tr><td>$48,475 to $103,350</td><td>$96,950 to $206,700</td><td>$64,850 to $103,350</td><td>22%</td></tr>
+<tr><td>$103,350 to $197,300</td><td>$206,700 to $394,600</td><td>$103,350 to $197,300</td><td>24%</td></tr>
+<tr><td>$197,300 to $250,525</td><td>$394,600 to $501,050</td><td>$197,300 to $250,500</td><td>32%</td></tr>
+<tr><td>$250,525 to $626,350</td><td>$501,050 to $751,600</td><td>$250,500 to $626,350</td><td>35%</td></tr>
+<tr><td>$626,350+</td><td>$751,600+</td><td>$626,350+</td><td>37%</td></tr>
+</table>
+<br><p><b>2025 Standard Deductions</b></p>
+<table border="0" cellpadding="3">
+<tr bgcolor="#dddddd"><td>&nbsp;</td>				<td><b>Single</b></td>		<td><b>Joint</b></td>		<td><b>Head of Household</b></td></tr>
+<tr bgcolor="#eeeeee"><td>Standard Deductions</td>		<td>$15,750</td>		<td>$31,500</td>		<td>$23,625</td></tr>
+</table>
+
+<!-- Paste the 2024 to 2017 bracket tables from your original page here unchanged if you want to keep them. -->
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

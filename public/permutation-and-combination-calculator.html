@@ -1,118 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Permutation and Combination Calculator</title>
-	<meta name="description" content="This free calculator can compute the number of possible permutations and combinations when selecting r elements from a set of n elements." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/permutation-and-combination-calculator.html" itemprop="item"><span itemprop="name">permutation and combination calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Permutation and Combination Calculator</h1>
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<div class="leftinput">
-<form name="calform">
-<table border="0" cellspacing="5" cellpadding="0" class="panel" >
-<tr>
-	<td>Total Amount in a Set (n)</td>
-	<td><input type="text" name="cnv" value="6" class="innormal" maxlength="6"></td>
-</tr>
-<tr>
-	<td>Amount in each Sub-Set (r)</td>
-	<td><input type="text" name="crv" value="2" class="innormal" maxlength="6"></td>
-</tr>
-<tr>
-	<td align="center" colspan="2" style="padding:10px;">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table></form>
-</div>
-<div class="rightresult">
-<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGVybXV0YXRpb24gYW5kIENvbWJpbmF0aW9uIENhbGN1bGF0b3I=', 0, 'UGVybXV0YXRpb24gYW5kIENvbWJpbmF0aW9uIENhbGN1bGF0b3I=', '', '');"></h2><table cellpadding="0" cellspacing="0" style="padding: 10px 0px;"><tr><td class="bigtext"><b>Permutations</b>, <sub>n</sub>P<sub>r</sub> =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">6!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(6 - 2)!</td></tr></table></td><td class="bigtext">&nbsp;=&nbsp;</td><td class="bigtext" style="color:green;font-weight:bold;">30</td></tr></table><table cellpadding="0" cellspacing="0" style="padding: 10px 0px;"><tr><td class="bigtext"><b>Combinations</b>, <sub>n</sub>C<sub>r</sub> =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">6!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; (6 - 2)!</td></tr></table></td><td class="bigtext">&nbsp;=&nbsp;</td><td class="bigtext" style="color:green;font-weight:bold;">15</td></tr></table></div>
-<div id="clear"></div>
-<br>
-<p><fieldset><legend>Related</legend><a href="/probability-calculator.html">Probability Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a></fieldset></p>
-
-<br>
-
-
-<p>Permutations and combinations are part of a branch of mathematics called combinatorics, which involves studying finite, discrete structures. Permutations are specific selections of elements within a set where the order in which the elements are arranged is important, while combinations involve the selection of elements without regard for order. A typical combination lock for example, should technically be called a permutation lock by mathematical standards, since the order of the numbers entered is important; 1-2-9 is not the same as 2-9-1, whereas for a combination, any order of those three numbers would suffice. There are different types of permutations and combinations, but the calculator above only considers the case without replacement, also referred to as without repetition. This means that for the example of the combination lock above, this calculator does not compute the case where the combination lock can have repeated values, for example, 3-3-3. </p>
-
-<h3>Permutations</h3>
-<p>The calculator provided computes one of the most typical concepts of permutations where arrangements of a fixed number of elements <b>r</b>, are taken from a given set <b>n</b>. Essentially this can be referred to as <b>r-permutations of n or partial permutations</b>, denoted as <b><sub>n</sub>P<sub>r</sub></b>, <b><sup>n</sup>P<sub>r</sub></b>, <b>P<sub>(n,r)</sub></b>, or <b>P(n,r)</b> among others. In the case of permutations without replacement, all possible ways that elements in a set can be listed in a particular order are considered, but the number of choices reduces each time an element is chosen, rather than a case such as the "combination" lock, where a value can occur multiple times, such as 3-3-3. For example, in trying to determine the number of ways that a team captain and goalkeeper of a soccer team can be picked from a team consisting of 11 members, the team captain and the goalkeeper cannot be the same person, and once chosen, must be removed from the set. The letters <b>A</b> through <b>K</b> will represent the 11 different members of the team:</p>
-
-<p align="center">A B C D E F G H I J K &nbsp; 11 members; A is chosen as captain</p>
-<p align="center">B C D E F G H I J K  &nbsp; 10 members; B is chosen as keeper</p>
-
-<p>As can be seen, the first choice was for <b>A</b> to be captain out of the 11 initial members, but since <b>A</b> cannot be the team captain as well as the goalkeeper, <b>A</b> was removed from the set before the second choice of the goalkeeper <b>B</b> could be made. The total possibilities if every single member of the team's position were specified would be 11 &#215; 10 &#215; 9 &#215; 8 &#215; 7 &#215; ... &#215; 2 &#215; 1, or 11 factorial, written as 11!. However, since only the team captain and goalkeeper being chosen was important in this case, only the first two choices, 11 &#215; 10 = 110 are relevant. As such, the equation for calculating permutations removes the rest of the elements, 9 &#215; 8 &#215; 7 &#215; ... &#215; 2 &#215; 1, or 9!. Thus, the generalized equation for a permutation can be written as: </p>
-
-<table align="center"><tr>
-<td> <sub>n</sub>P<sub>r</sub> =&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">n!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(n - r)!</td></tr></table></td>
-</tr></table>
-<p align="center">Or in this case specifically:</p>
-<table align="center"><tr>
-<td> <sub>11</sub>P<sub>2</sub> =&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(11 - 2)!</td></tr></table></td>
-<td>&nbsp;=&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>9!</td></tr></table></td>
-<td>&nbsp;= 11 &#215; 10 = 110</td>
-</tr></table>
-
-<p>Again, the calculator provided does not calculate permutations with replacement, but for the curious, the equation is provided below:</p>
-
-<p align="center"><sub>n</sub>P<sub>r</sub> = n<sup>r</sup></p>
-
-
-<h3>Combinations</h3>
-<p>Combinations are related to permutations in that they are essentially permutations where all the redundancies are removed (as will be described below), since order in a combination is not important. Combinations, like permutations, are denoted in various ways, including <b><sub>n</sub>C<sub>r</sub></b>, <b><sup>n</sup>C<sub>r</sub></b>, <b>C<sub>(n,r)</sub></b>, or <b>C(n,r)</b>, or most commonly as simply <table class="inlinetable"><tr><td rowspan="2"><b>(</b></td><td><b>n</b></td><td rowspan="2"><b>)</b></td></tr><tr><td><b>r</b></td></tr></table>. As with permutations, the calculator provided only considers the case of combinations without replacement, and the case of combinations with replacement will not be discussed. Using the example of a soccer team again, find the number of ways to choose 2 strikers from a team of 11. Unlike the case given in the permutation example, where the captain was chosen first, then the goalkeeper, the order in which the strikers are chosen does not matter, since they will both be strikers. Referring again to the soccer team as the letters <b>A</b> through <b>K</b>, it does not matter whether <b>A</b> and then <b>B</b> or <b>B</b> and then <b>A</b> are chosen to be strikers in those respective orders, only that they are chosen. The possible number of arrangements for all <b>n</b> people, is simply <b>n!</b>, as described in the permutations section. To determine the number of combinations, it is necessary to remove the redundancies from the total number of permutations (110 from the previous example in the permutations section) by dividing the redundancies, which in this case is 2!. Again, this is because order no longer matters, so the permutation equation needs to be reduced by the number of ways the players can be chosen, <b>A</b> then <b>B</b> or <b>B</b> then <b>A</b>, 2, or 2!. This yields the generalized equation for a combination as that for a permutation divided by the number of redundancies, and is typically known as the binomial coefficient:</p>
-
-<table align="center"><tr>
-<td> <sub>n</sub>C<sub>r</sub> =&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">n!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>r! &#215; (n - r)!</td></tr></table></td>
-</tr></table>
-<p align="center">Or in this case specifically:</p>
-<table align="center"><tr>
-<td> <sub>11</sub>C<sub>2</sub> =&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; (11 - 2)!</td></tr></table></td>
-<td>&nbsp;=&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; 9!</td></tr></table></td>
-<td>&nbsp;= 55</td>
-</tr></table>
-
-<p>It makes sense that there are fewer choices for a combination than a permutation, since the redundancies are being removed. Again for the curious, the equation for combinations with replacement is provided below: </p>
-<table align="center"><tr>
-<td> <sub>n</sub>C<sub>r</sub> =&nbsp;</td>
-<td><table cellpadding="0"><tr><td align="center">(r + n -1)!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>r! &#215; (n - 1)!</td></tr></table></td>
-</tr></table>
-
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Permutation and Combination Calculator (nPr &amp; nCr) with Formulas | adxcal.com</title>
+
+	<meta name="description" content="Free permutation and combination calculator. Enter n and r to get nPr and nCr instantly, with the formulas, worked examples and the difference between permutations and combinations." />
+	
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html">
+
+<meta property="og:title" content="Permutation and Combination Calculator (nPr &amp; nCr) with Formulas | adxcal.com">
+<meta property="og:description" content="Free permutation and combination calculator. Enter n and r to get nPr and nCr instantly, with the formulas, worked examples and the difference between permutations and combinations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Permutation and Combination Calculator (nPr &amp; nCr) with Formulas | adxcal.com">
+<meta name="twitter:description" content="Free permutation and combination calculator. Enter n and r to get nPr and nCr instantly, with the formulas, worked examples and the difference between permutations and combinations.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Permutation and Combination Calculator (nPr &amp; nCr) with Formulas | adxcal.com","url":"https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html","description":"Free permutation and combination calculator. Enter n and r to get nPr and nCr instantly, with the formulas, worked examples and the difference between permutations and combinations.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Permutation and Combination Calculator (nPr &amp; nCr) with Formulas | adxcal.com","item":"https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/permutation-and-combination-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/permutation-and-combination-calculator.html" itemprop="item"><span itemprop="name">permutation and combination calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Permutation and Combination Calculator</h1>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+<div class="leftinput">
+
+<form name="calform">
+
+<table border="0" cellspacing="5" cellpadding="0" class="panel" >
+
+<tr>
+
+	<td>Total Amount in a Set (n)</td>
+
+	<td><input type="text" name="cnv" value="6" class="innormal" maxlength="6"></td>
+
+</tr>
+
+<tr>
+
+	<td>Amount in each Sub-Set (r)</td>
+
+	<td><input type="text" name="crv" value="2" class="innormal" maxlength="6"></td>
+
+</tr>
+
+<tr>
+
+	<td align="center" colspan="2" style="padding:10px;">
+
+		<input type="submit" name="x" value="Calculate">
+
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+
+	</td>
+
+</tr>
+
+</table></form>
+
+</div>
+
+<div class="rightresult">
+
+<h2 class="h2result">Result<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGVybXV0YXRpb24gYW5kIENvbWJpbmF0aW9uIENhbGN1bGF0b3I=', 0, 'UGVybXV0YXRpb24gYW5kIENvbWJpbmF0aW9uIENhbGN1bGF0b3I=', '', '');"></h2><table cellpadding="0" cellspacing="0" style="padding: 10px 0px;"><tr><td class="bigtext"><b>Permutations</b>, <sub>n</sub>P<sub>r</sub> =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">6!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(6 - 2)!</td></tr></table></td><td class="bigtext">&nbsp;=&nbsp;</td><td class="bigtext" style="color:green;font-weight:bold;">30</td></tr></table><table cellpadding="0" cellspacing="0" style="padding: 10px 0px;"><tr><td class="bigtext"><b>Combinations</b>, <sub>n</sub>C<sub>r</sub> =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">6!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; (6 - 2)!</td></tr></table></td><td class="bigtext">&nbsp;=&nbsp;</td><td class="bigtext" style="color:green;font-weight:bold;">15</td></tr></table></div>
+
+<div id="clear"></div>
+
+<br>
+
+<p><fieldset><legend>Related</legend><a href="/probability-calculator.html">Probability Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a></fieldset></p>
+
+
+
+<br>
+
+
+
+
+
+<p>Permutations and combinations are part of a branch of mathematics called combinatorics, which involves studying finite, discrete structures. Permutations are specific selections of elements within a set where the order in which the elements are arranged is important, while combinations involve the selection of elements without regard for order. A typical combination lock for example, should technically be called a permutation lock by mathematical standards, since the order of the numbers entered is important; 1-2-9 is not the same as 2-9-1, whereas for a combination, any order of those three numbers would suffice. There are different types of permutations and combinations, but the calculator above only considers the case without replacement, also referred to as without repetition. This means that for the example of the combination lock above, this calculator does not compute the case where the combination lock can have repeated values, for example, 3-3-3. </p>
+
+
+
+<h3>Permutations</h3>
+
+<p>The calculator provided computes one of the most typical concepts of permutations where arrangements of a fixed number of elements <b>r</b>, are taken from a given set <b>n</b>. Essentially this can be referred to as <b>r-permutations of n or partial permutations</b>, denoted as <b><sub>n</sub>P<sub>r</sub></b>, <b><sup>n</sup>P<sub>r</sub></b>, <b>P<sub>(n,r)</sub></b>, or <b>P(n,r)</b> among others. In the case of permutations without replacement, all possible ways that elements in a set can be listed in a particular order are considered, but the number of choices reduces each time an element is chosen, rather than a case such as the "combination" lock, where a value can occur multiple times, such as 3-3-3. For example, in trying to determine the number of ways that a team captain and goalkeeper of a soccer team can be picked from a team consisting of 11 members, the team captain and the goalkeeper cannot be the same person, and once chosen, must be removed from the set. The letters <b>A</b> through <b>K</b> will represent the 11 different members of the team:</p>
+
+
+
+<p align="center">A B C D E F G H I J K &nbsp; 11 members; A is chosen as captain</p>
+
+<p align="center">B C D E F G H I J K  &nbsp; 10 members; B is chosen as keeper</p>
+
+
+
+<p>As can be seen, the first choice was for <b>A</b> to be captain out of the 11 initial members, but since <b>A</b> cannot be the team captain as well as the goalkeeper, <b>A</b> was removed from the set before the second choice of the goalkeeper <b>B</b> could be made. The total possibilities if every single member of the team's position were specified would be 11 &#215; 10 &#215; 9 &#215; 8 &#215; 7 &#215; ... &#215; 2 &#215; 1, or 11 factorial, written as 11!. However, since only the team captain and goalkeeper being chosen was important in this case, only the first two choices, 11 &#215; 10 = 110 are relevant. As such, the equation for calculating permutations removes the rest of the elements, 9 &#215; 8 &#215; 7 &#215; ... &#215; 2 &#215; 1, or 9!. Thus, the generalized equation for a permutation can be written as: </p>
+
+
+
+<table align="center"><tr>
+
+<td> <sub>n</sub>P<sub>r</sub> =&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">n!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(n - r)!</td></tr></table></td>
+
+</tr></table>
+
+<p align="center">Or in this case specifically:</p>
+
+<table align="center"><tr>
+
+<td> <sub>11</sub>P<sub>2</sub> =&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>(11 - 2)!</td></tr></table></td>
+
+<td>&nbsp;=&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>9!</td></tr></table></td>
+
+<td>&nbsp;= 11 &#215; 10 = 110</td>
+
+</tr></table>
+
+
+
+<p>Again, the calculator provided does not calculate permutations with replacement, but for the curious, the equation is provided below:</p>
+
+
+
+<p align="center"><sub>n</sub>P<sub>r</sub> = n<sup>r</sup></p>
+
+
+
+
+
+<h3>Combinations</h3>
+
+<p>Combinations are related to permutations in that they are essentially permutations where all the redundancies are removed (as will be described below), since order in a combination is not important. Combinations, like permutations, are denoted in various ways, including <b><sub>n</sub>C<sub>r</sub></b>, <b><sup>n</sup>C<sub>r</sub></b>, <b>C<sub>(n,r)</sub></b>, or <b>C(n,r)</b>, or most commonly as simply <table class="inlinetable"><tr><td rowspan="2"><b>(</b></td><td><b>n</b></td><td rowspan="2"><b>)</b></td></tr><tr><td><b>r</b></td></tr></table>. As with permutations, the calculator provided only considers the case of combinations without replacement, and the case of combinations with replacement will not be discussed. Using the example of a soccer team again, find the number of ways to choose 2 strikers from a team of 11. Unlike the case given in the permutation example, where the captain was chosen first, then the goalkeeper, the order in which the strikers are chosen does not matter, since they will both be strikers. Referring again to the soccer team as the letters <b>A</b> through <b>K</b>, it does not matter whether <b>A</b> and then <b>B</b> or <b>B</b> and then <b>A</b> are chosen to be strikers in those respective orders, only that they are chosen. The possible number of arrangements for all <b>n</b> people, is simply <b>n!</b>, as described in the permutations section. To determine the number of combinations, it is necessary to remove the redundancies from the total number of permutations (110 from the previous example in the permutations section) by dividing the redundancies, which in this case is 2!. Again, this is because order no longer matters, so the permutation equation needs to be reduced by the number of ways the players can be chosen, <b>A</b> then <b>B</b> or <b>B</b> then <b>A</b>, 2, or 2!. This yields the generalized equation for a combination as that for a permutation divided by the number of redundancies, and is typically known as the binomial coefficient:</p>
+
+
+
+<table align="center"><tr>
+
+<td> <sub>n</sub>C<sub>r</sub> =&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">n!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>r! &#215; (n - r)!</td></tr></table></td>
+
+</tr></table>
+
+<p align="center">Or in this case specifically:</p>
+
+<table align="center"><tr>
+
+<td> <sub>11</sub>C<sub>2</sub> =&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; (11 - 2)!</td></tr></table></td>
+
+<td>&nbsp;=&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">11!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>2! &#215; 9!</td></tr></table></td>
+
+<td>&nbsp;= 55</td>
+
+</tr></table>
+
+
+
+<p>It makes sense that there are fewer choices for a combination than a permutation, since the redundancies are being removed. Again for the curious, the equation for combinations with replacement is provided below: </p>
+
+<table align="center"><tr>
+
+<td> <sub>n</sub>C<sub>r</sub> =&nbsp;</td>
+
+<td><table cellpadding="0"><tr><td align="center">(r + n -1)!</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td>r! &#215; (n - 1)!</td></tr></table></td>
+
+</tr></table>
+
+
+
+<!-- ===== ADDED SEO CONTENT (uses your existing h3 / p styles) ===== -->
+
+<h3>Permutation vs. Combination: Quick Comparison</h3>
+
+<p><b>Permutation (nPr):</b> order matters. Use it for rankings, passwords, lock codes, and assigning different roles such as captain and goalkeeper. Formula: n! / (n - r)!</p>
+
+<p><b>Combination (nCr):</b> order does not matter. Use it for choosing a committee, a lottery ticket, a hand of cards, or a group of players for the same role. Formula: n! / (r! &#215; (n - r)!)</p>
+
+<p>The two are linked by one rule: nCr = nPr / r!</p>
+
+<h3>How to Use the Calculator: Worked Example</h3>
+
+<p>Enter the total number of items in the set as <b>n</b> and the number you are choosing as <b>r</b>. With n = 6 and r = 2:</p>
+
+<p><b>Permutations:</b> 6P2 = 6! / (6 - 2)! = 720 / 24 = 30</p>
+
+<p><b>Combinations:</b> 6C2 = 6! / (2! &#215; 4!) = 720 / 48 = 15</p>
+
+<p>There are 30 ordered pairs but only 15 unordered pairs, because each pair can be arranged in 2! = 2 ways.</p>
+
+<h3>Frequently Asked Questions</h3>
+
+<p><b>What is the difference between a permutation and a combination?</b><br>In a permutation the order of the selected elements matters, so A-B and B-A count as different results. In a combination the order does not matter, so A-B and B-A count as one result.</p>
+
+<p><b>What is the formula for permutations (nPr)?</b><br>nPr = n! / (n - r)!, where n is the total number of elements and r is the number chosen. For example, 6P2 = 6! / 4! = 30.</p>
+
+<p><b>What is the formula for combinations (nCr)?</b><br>nCr = n! / (r! x (n - r)!). This is also called the binomial coefficient. For example, 6C2 = 6! / (2! x 4!) = 15.</p>
+
+<p><b>Why are there fewer combinations than permutations?</b><br>Combinations ignore order, so each group of r elements is counted once instead of r! times. That is why nCr equals nPr divided by r!.</p>
+
+<p><b>Is a combination lock a permutation or a combination?</b><br>By the mathematical definition it is a permutation, because the order of the numbers matters: 1-2-9 is not the same as 2-9-1.</p>
+
+<p><b>What are the formulas with replacement (repetition)?</b><br>Permutations with replacement equal n^r. Combinations with replacement equal (r + n - 1)! / (r! x (n - 1)!). This calculator only covers the case without replacement.</p>
+
+<p><b>What does without replacement mean?</b><br>Without replacement means an element cannot be chosen more than once, so the number of choices shrinks after each pick. For example, a team captain and goalkeeper cannot be the same person.</p>
+
+<!-- ===== END ADDED SEO CONTENT ===== -->
+
+
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

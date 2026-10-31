@@ -1,29 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Rounding Calculator</title>
-	<meta name="description" content="Free tool to round numbers to thousands, hundreds, tens, tenths, hundredths, fractions, or many other levels of precision using the popular rounding methods." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/rounding-calculator.html" itemprop="item"><span itemprop="name">rounding calculator</span></a><meta itemprop="position" content="3" /></span></div><h1>Rounding Calculator</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rounding Calculator – Round Numbers to Any Decimal Place</title>
+<meta name="description" content="Free rounding calculator: round numbers to tenths, hundredths, tens, hundreds, thousands or fractions using half up, half down, half to even, ceiling, floor and more. Includes FAQ." />
+<meta name="keywords" content="rounding calculator, round to nearest tenth, round to nearest hundredth, round to nearest whole number, round half up, round half to even, bankers rounding, ceiling and floor, round to nearest 10 100 1000">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- Open Graph / Twitter -->
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/common.js" async></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- Structured data: calculator app -->
+
+
+<!-- Structured data: FAQ (matches the visible FAQ section below) -->
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rounding Calculator – Round Numbers to Any Decimal Place","url":"https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html","description":"Free rounding calculator: round numbers to tenths, hundredths, tens, hundreds, thousands or fractions using half up, half down, half to even, ceiling, floor and more. Includes FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Rounding Calculator – Round Numbers to Any Decimal Place","item":"https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Rounding Calculator – Round Numbers to Any Decimal Place">
+<meta property="og:description" content="Free rounding calculator: round numbers to tenths, hundredths, tens, hundreds, thousands or fractions using half up, half down, half to even, ceiling, floor and more. Includes FAQ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rounding Calculator – Round Numbers to Any Decimal Place">
+<meta name="twitter:description" content="Free rounding calculator: round numbers to tenths, hundredths, tens, hundreds, thousands or fractions using half up, half down, half to even, ceiling, floor and more. Includes FAQ.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rounding Calculator – Round Numbers to Any Decimal Place","url":"https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html","description":"Free rounding calculator: round numbers to tenths, hundredths, tens, hundreds, thousands or fractions using half up, half down, half to even, ceiling, floor and more. Includes FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Rounding Calculator – Round Numbers to Any Decimal Place","item":"https://calculator.bhuvanesh-s3602.workers.dev/rounding-calculator.html"}]}</script></head>
+
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+<div id="contentout"><div id="content">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/rounding-calculator.html" itemprop="item"><span itemprop="name">rounding calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+
+<h1>Rounding Calculator</h1>
+<p>Use this free <strong>rounding calculator</strong> to round any number to the nearest tenth, hundredth, whole number, ten, hundred, thousand or fraction, with your choice of rounding method. Jump to: <a href="#methods">rounding methods</a> | <a href="#quick-reference">examples</a> | <a href="#faq">FAQ</a></p>
+
 <form name="calform">
 <div class="panel">
 <table align="center">
   <tr>
-  	<td>Number</td>
-    <td><input type="text" name="cnum" value="" class="inlongest"></td>
+  	<td><label for="cnum">Number</label></td>
+    <td><input type="text" name="cnum" id="cnum" value="" class="inlongest" inputmode="decimal"></td>
   </tr>
   <tr>
   	<td valign="top" style="padding-top:8px;">Precision</td>
     <td><div id="cpre">
-    	<select name="cpre" class="inlongest">
+    	<select name="cpre" class="inlongest" aria-label="Precision">
 				<optgroup label="Decimal">
 					<option value="1" >Tenths (1)</option>
 					<option value="2" >Hundredths (2)</option>
@@ -48,7 +116,7 @@
 					<option value="164" >1/64</option>
 				</optgroup>
     	</select></div>
-    	<div id="cpren" style="display:none;"><input type="number" name="cpren" min="-1000" max="1000" value="2" class="inlongest">
+    	<div id="cpren" style="display:none;"><input type="number" name="cpren" min="-1000" max="1000" value="2" class="inlongest" aria-label="Custom precision">
     		<div>Precision of -1000 to 1000 digits</div>
     	</div>
     </td>
@@ -58,13 +126,13 @@
 <div id="settings1" style="padding-top:8px;display:none;"><table align="center" bgcolor="#ffffff">
 	<tr>
 		<td class="bigtext"><b>Settings</b></td>
-		<td align="right"><img src="/img/close.png" width="18" height="18" align="right" onClick="document.getElementById('settings1').style.display='none';return false;"></td>
+		<td align="right"><img src="/img/close.png" width="18" height="18" align="right" alt="Close settings" onClick="document.getElementById('settings1').style.display='none';return false;"></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<div style="padding-top:10px;">Rounding Mode:</div>
+			<div style="padding-top:10px;"><label for="cmode">Rounding Mode:</label></div>
 			<div style="padding-left:20px;">
-	    	<select name="cmode">
+	    	<select name="cmode" id="cmode">
 	    		<option value="nearest" selected>Round to the nearest (default)</option>
 	    		<option value="up" >Round half up</option>
 	    		<option value="down" >Round half down</option>
@@ -109,15 +177,30 @@ function shPrec(){
 shPrec();
 </script>
 
-
 <br>
+<fieldset><legend>Related</legend><a href="/fraction-calculator.html">Fraction Calculator</a> | <a href="/percent-calculator.html">Percentage Calculator</a> | <a href="/scientific-calculator.html">Scientific Calculator</a></fieldset>
+<br>
+
+<article>
+<h2>What Is Rounding?</h2>
 <p>Rounding a number involves replacing the number with an approximation of the number that results in a shorter, simpler, or more explicit representation of said number based on specific rounding definitions. For example, if rounding the number 2.7 to the nearest integer, 2.7 would be rounded to 3.</p>
 
-<h3>Rounding Methods</h3>
+<h3 id="quick-reference">Rounding Examples at a Glance</h3>
+<table class="cinfoT" align="center">
+	<caption><b>Rounding the same number to different places</b></caption>
+	<tr><th class="cinfoHd" scope="col">Number</th><th class="cinfoHdL" scope="col">Round to</th><th class="cinfoHdL" scope="col">Result</th></tr>
+	<tr align="right"><td>3.14159</td><td>Tenths</td><td>3.1</td></tr>
+	<tr align="right"><td>3.14159</td><td>Hundredths</td><td>3.14</td></tr>
+	<tr align="right"><td>3.14159</td><td>Thousandths</td><td>3.142</td></tr>
+	<tr align="right"><td>1,234</td><td>Tens</td><td>1,230</td></tr>
+	<tr align="right"><td>1,234</td><td>Hundreds</td><td>1,200</td></tr>
+	<tr align="right"><td>1,234</td><td>Thousands</td><td>1,000</td></tr>
+</table>
 
+<h2 id="methods">Rounding Methods</h2>
 <p>There are various rounding definitions that can be used to round a number. The calculator defaults to rounding to the nearest integer, but settings can be changed to use other rounding modes and levels of precision. All the rounding modes the calculator is capable of are described below.</p>
 
-<p><b>Round half up:</b></p>
+<h3>Round half up</h3>
 <p>This rounding method is one of the more common rounding methods used. It means rounding values that are halfway between the chosen rounding precision up. For example, when rounding to the ones place:</p>
 <table align="center">
 <tr><td>5.50</td><td>&rArr;</td><td>6</td></tr>
@@ -131,14 +214,13 @@ shPrec();
 <tr><td>-5.49</td><td>&rArr;</td><td>-5</td></tr>
 </table>
 
-<p><b>Round half down:</b></p>
+<h3>Round half down</h3>
 <p>Rounding half down is similar to rounding half up, except that it means rounding values that are halfway between the chosen rounding precision down, rather than up. For example, when rounding to the ones place:</p>
 <table align="center">
 <tr><td>5.50</td><td>&rArr;</td><td>5</td></tr>
 <tr><td>5.51</td><td>&rArr;</td><td>6</td></tr>
 <tr><td>5.49</td><td>&rArr;</td><td>5</td></tr>
 </table>
-
 <p>In the case of negative numbers, same as rounding half up, the definition is ambiguous. We agree here rounding half down can be thought of as rounding values that are halfway towards the smaller or more negative value. For example, when rounding to the ones place:</p>
 <table align="center">
 <tr><td>-5.50</td><td>&rArr;</td><td>-6</td></tr>
@@ -146,7 +228,7 @@ shPrec();
 <tr><td>-5.49</td><td>&rArr;</td><td>-5</td></tr>
 </table>
 
-<p><b>Round up (ceiling):</b></p>
+<h3>Round up (ceiling)</h3>
 <p>Rounding up, sometimes referred to as "taking the ceiling" of a number means rounding up towards the nearest integer. For example, when rounding to the ones place, any non-integer value will be rounded up to the next highest integer, as shown below:</p>
 <table align="center">
 <tr><td>5.01</td><td>&rArr;</td><td>6</td></tr>
@@ -158,7 +240,7 @@ shPrec();
 <tr><td>-5.99</td><td>&rArr;</td><td>-5</td></tr>
 </table>
 
-<p><b>Round down (floor):</b></p>
+<h3>Round down (floor)</h3>
 <p>Rounding down, sometimes referred to as "taking the floor" of a number means rounding down towards the nearest integer. For example, when rounding to the ones place, any non-integer value will be rounded down to the next lowest integer, as shown below:</p>
 <table align="center">
 <tr><td>5.99</td><td>&rArr;</td><td>5</td></tr>
@@ -170,16 +252,16 @@ shPrec();
 <tr><td>-5.99</td><td>&rArr;</td><td>-6</td></tr>
 </table>
 
-<p><b>Round half to even:</b></p>
-<p>Rounding half to even can be used as a tie-breaking rule since it does not have any biases based on positive or negative numbers or rounding towards or away from zero, as some of the other rounding methods do. For this method, half values are rounded to the nearest even integer. For example:</p>
+<h3>Round half to even</h3>
+<p>Rounding half to even, also known as banker's rounding, can be used as a tie-breaking rule since it does not have any biases based on positive or negative numbers or rounding towards or away from zero, as some of the other rounding methods do. For this method, half values are rounded to the nearest even integer. For example:</p>
 <table align="center">
 <tr><td>5.5</td><td>&rArr;</td><td>6</td></tr>
 <tr><td>6.5</td><td>&rArr;</td><td>6</td></tr>
 <tr><td>-7.5</td><td>&rArr;</td><td>-8</td></tr>
-<tr><td>-8.5</td><td>&rArr;</td><td>8</td></tr>
+<tr><td>-8.5</td><td>&rArr;</td><td>-8</td></tr>
 </table>
 
-<p><b>Round half to odd:</b></p>
+<h3>Round half to odd</h3>
 <p>Rounding half to odd is similar to rounding half to even (above), and can be used as a tie-breaking rule. For this method, half values are rounded to the nearest odd integer. For example:</p>
 <table align="center">
 <tr><td>5.5</td><td>&rArr;</td><td>5</td></tr>
@@ -188,22 +270,21 @@ shPrec();
 <tr><td>-8.5</td><td>&rArr;</td><td>-9</td></tr>
 </table>
 
-<p><b>Round half away from zero:</b></p>
+<h3>Round half away from zero</h3>
 <p>Rounding half away from zero can be used as a tie-breaking rule, and means exactly as the phrase describes: rounding half values away from zero. It has no biases towards positive or negative numbers, but does have a bias away from zero. Another way to think about this rounding method is to round a half value towards the next integer closer to positive or negative infinity based on whether the value is positive or negative, respectively. For example:</p>
 <table align="center">
 <tr><td>5.5</td><td>&rArr;</td><td>6</td></tr>
 <tr><td>-5.5</td><td>&rArr;</td><td>-6</td></tr>
 </table>
 
-<p><b>Round half towards zero:</b></p>
+<h3>Round half towards zero</h3>
 <p>Rounding half towards zero is similar to rounding half away from zero, except that it rounds in the opposite direction. It has no biases towards positive or negative numbers, but does have a bias towards zero. The method means that half values will be rounded towards the next integer that is closer to zero than it is to positive or negative infinity. For example:</p>
 <table align="center">
 <tr><td>5.5</td><td>&rArr;</td><td>5</td></tr>
 <tr><td>-5.5</td><td>&rArr;</td><td>-5</td></tr>
 </table>
 
-
-<h3>Rounding to fractions</h3>
+<h2>Rounding to Fractions</h2>
 <p>Rounding to fractions involves rounding a given value to the nearest multiple of the chosen fraction. For example, rounding to the nearest 1/8:</p>
 <table align="center">
 <tr><td>15.65</td><td>&rArr;</td><td>15</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">5</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">8</td></tr></table></td><td>=15.625</td></tr>
@@ -211,27 +292,53 @@ shPrec();
 <tr><td>15.80</td><td>&rArr;</td><td>15</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">6</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">8</td></tr></table></td><td>=15.75</td></tr>
 </table>
 <p>This can be particularly useful in the context of engineering, where fractions are widely used to describe the size of components such as pipes and bolts.</p>
+</article>
 
+<section id="faq">
+<h2>Rounding Calculator FAQ: Frequently Asked Questions</h2>
 
+<h3>How do you round a number?</h3>
+<p>Pick the place you want to round to, then look at the digit to its right. If that digit is 5 or more, round up; if it is 4 or less, round down. For example, 2.7 rounded to the nearest whole number is 3.</p>
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<h3>What is the rule for rounding 5?</h3>
+<p>The most common rule, <b>round half up</b>, rounds a value exactly halfway between two choices up, so 5.5 becomes 6. Other rules, such as <a href="#methods">round half to even</a>, break ties differently.</p>
+
+<h3>How do I round to the nearest tenth or hundredth?</h3>
+<p>To round to the nearest tenth, keep one digit after the decimal point and use the second digit to decide: 3.14159 becomes 3.1. To round to the nearest hundredth, keep two digits and use the third: 3.14159 becomes 3.14.</p>
+
+<h3>How do I round to the nearest 10, 100 or 1,000?</h3>
+<p>Look at the digit one place to the right of the place you are rounding to. For example, 1,234 rounds to 1,230 (nearest ten), 1,200 (nearest hundred) and 1,000 (nearest thousand). Choose Tens, Hundreds or Thousands in the calculator's precision list.</p>
+
+<h3>What is round half to even (banker's rounding)?</h3>
+<p>Round half to even sends a value exactly halfway between two numbers to the nearest even number, so 5.5 becomes 6 and 6.5 becomes 6. Because ties go up about as often as down, it avoids the upward bias of round half up in large sets of numbers.</p>
+
+<h3>What is the difference between round half up and round half away from zero?</h3>
+<p>They match for positive numbers but differ for negative ones. Round half up moves toward the more positive value (&minus;5.5 becomes &minus;5), while round half away from zero moves away from zero (&minus;5.5 becomes &minus;6).</p>
+
+<h3>How do you round negative numbers?</h3>
+<p>Values that are not exact halves round to the nearest number as usual (&minus;5.51 becomes &minus;6 and &minus;5.49 becomes &minus;5). For exact halves, the result depends on the rounding mode: half up, half down, half away from zero or half toward zero.</p>
+
+<h3>What is the difference between ceiling and floor?</h3>
+<p>Ceiling always rounds up toward the next higher value and floor always rounds down toward the next lower value. For 5.01, ceiling gives 6 and floor gives 5. For &minus;5.01, ceiling gives &minus;5 and floor gives &minus;6.</p>
+
+<h3>How do you round to the nearest fraction like 1/8 or 1/16?</h3>
+<p>Round the value to the nearest multiple of the fraction. For example, 15.65 rounded to the nearest 1/8 is 15 5/8 (15.625), and 15.70 rounds to 15 6/8 (15.75). Pick a fraction from the calculator's precision list.</p>
+
+<h3>Why do we round numbers?</h3>
+<p>Rounding replaces a number with a shorter, simpler approximation that is easier to read, estimate with or report, for example in money, measurements and engineering tolerances.</p>
+</section>
+
+</div>
+
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+		</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

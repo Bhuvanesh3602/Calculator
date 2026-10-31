@@ -1,127 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Z-score Calculator</title>
-	<meta name="description" content="Calculator to find out the z-score of a normal distribution, convert between z-score and probability, and find the probability between 2 z-scores." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-score Calculator – Z-Table, Probability &amp; Converter</title>
+<meta name="description" content="Free z-score calculator: find the z-score from x, mean and standard deviation, convert z-score to probability (z-table), and get the area between two z-scores.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+
+<!-- Open Graph / Twitter -->
+
+
+
+
+
+<meta property="og:image" content="https://www.adxcal.com/img/z-score/normal-distribution.svg">
+
+<meta name="theme-color" content="#1e3a8a">
+
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<script src="/js/common.js" async></script>
+
+<!-- Structured data -->
+
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html">
+
+<meta property="og:title" content="Z-score Calculator – Z-Table, Probability &amp; Converter">
+<meta property="og:description" content="Free z-score calculator: find the z-score from x, mean and standard deviation, convert z-score to probability (z-table), and get the area between two z-scores.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Z-score Calculator – Z-Table, Probability &amp; Converter">
+<meta name="twitter:description" content="Free z-score calculator: find the z-score from x, mean and standard deviation, convert z-score to probability (z-table), and get the area between two z-scores.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Z-score Calculator – Z-Table, Probability &amp; Converter","url":"https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html","description":"Free z-score calculator: find the z-score from x, mean and standard deviation, convert z-score to probability (z-table), and get the area between two z-scores.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Z-score Calculator – Z-Table, Probability &amp; Converter","item":"https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/z-score-calculator.html"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/z-score-calculator.html" itemprop="item"><span itemprop="name">z-score calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+<div id="contentout">
+<main id="content">
+
+<nav id="breadcrumbs" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/math-calculator.html">math</a> / <span aria-current="page">z-score calculator</span></nav>
 
 <h1>Z-score Calculator</h1>
-<p>Use this calculator to compute the z-score of a normal distribution.</p>
-<form action="/z-score-calculator.html" name="calform">
-<table class="panel" >
-	<tr>
-		<td>Raw Score, <b>x</b></td>
-		<td><input type="text" name="c1raw" value="5" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Population Mean, <b>&mu;</b></td>
-		<td><input type="text" name="c1mean" value="3" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Standard Deviation, <b>&sigma;</b></td>
-		<td><input type="text" name="c1sd" value="2" class="innormal"></td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2" style="padding-top:10px;">
-			<input type="hidden" name="calctype" value="zscore">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform);">
-		</td>
-	</tr>
+<p>Use this free calculator to find the <strong>z-score</strong> of a normal distribution, convert between z-score and probability (like a z-table), and find the probability between two z-scores.</p>
+
+<!-- Calculator 1 -->
+<form action="/z-score-calculator.html" name="calform" method="get">
+<table class="panel">
+  <caption class="smalltext" style="text-align:left;padding-bottom:6px">Calculate z-score from a raw score</caption>
+  <tr>
+    <td><label for="c1raw">Raw Score, <b>x</b></label></td>
+    <td><input type="text" inputmode="decimal" id="c1raw" name="c1raw" value="5" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c1mean">Population Mean, <b>&mu;</b></label></td>
+    <td><input type="text" inputmode="decimal" id="c1mean" name="c1mean" value="3" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c1sd">Standard Deviation, <b>&sigma;</b></label></td>
+    <td><input type="text" inputmode="decimal" id="c1sd" name="c1sd" value="2" class="innormal"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2" style="padding-top:10px;">
+      <input type="hidden" name="calctype" value="zscore">
+      <input type="submit" name="x" value="Calculate">
+      <input type="button" value="Clear" onclick="clearForm(document.calform);">
+    </td>
+  </tr>
 </table>
 </form>
 
-<a name="converter"></a>
-<br>
-<h2>Z-score and Probability Converter</h2>
-<p>Please provide any one value to convert between z-score and probability. This is the equivalent of referencing a z-table.</p>
-<form action="/z-score-calculator.html#converter" name="calform2">
-<table class="panel" >
-	<tr>
-		<td>Z-score, <b>Z</b></td>
-		<td><input type="text" name="c2z" value="2" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Probability, <b>P</b>(x&lt;Z)</td>
-		<td><input type="text" name="c2p" value="" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Probability, <b>P</b>(x&gt;Z)</td>
-		<td><input type="text" name="c2pg" value="" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Probability, <b>P</b>(0 to Z or Z to 0)</td>
-		<td><input type="text" name="c2p0" value="" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Probability, <b>P</b>(-Z&lt;x&lt;Z)</td>
-		<td><input type="text" name="c2pin" value="" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Probability, <b>P</b>(x&lt;-Z or x&gt;Z)</td>
-		<td><input type="text" name="c2pout" value="" class="innormal"></td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2" style="padding-top:10px;">
-			<input type="hidden" name="calctype" value="converter">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-		</td>
-	</tr>
+<!-- Converter -->
+<h2 id="converter">Z-score and Probability Converter</h2>
+<p>Enter any one value to convert between z-score and probability. This is the equivalent of looking up a z-table.</p>
+<form action="/z-score-calculator.html#converter" name="calform2" method="get">
+<table class="panel">
+  <tr>
+    <td><label for="c2z">Z-score, <b>Z</b></label></td>
+    <td><input type="text" inputmode="decimal" id="c2z" name="c2z" value="2" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c2p">Probability, <b>P</b>(x&lt;Z)</label></td>
+    <td><input type="text" inputmode="decimal" id="c2p" name="c2p" value="" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c2pg">Probability, <b>P</b>(x&gt;Z)</label></td>
+    <td><input type="text" inputmode="decimal" id="c2pg" name="c2pg" value="" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c2p0">Probability, <b>P</b>(0 to Z or Z to 0)</label></td>
+    <td><input type="text" inputmode="decimal" id="c2p0" name="c2p0" value="" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c2pin">Probability, <b>P</b>(-Z&lt;x&lt;Z)</label></td>
+    <td><input type="text" inputmode="decimal" id="c2pin" name="c2pin" value="" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c2pout">Probability, <b>P</b>(x&lt;-Z or x&gt;Z)</label></td>
+    <td><input type="text" inputmode="decimal" id="c2pout" name="c2pout" value="" class="innormal"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2" style="padding-top:10px;">
+      <input type="hidden" name="calctype" value="converter">
+      <input type="submit" name="x" value="Calculate">
+      <input type="button" value="Clear" onclick="clearForm(document.calform2);">
+    </td>
+  </tr>
 </table>
 </form>
 
-
-<br><a name="range"></a>
-<br><h2>Probability between Two Z-scores</h2>
-<img src="/img/z-score/normal-distribution.svg" width="212" height="143" alt="z-score" align="right"><p>Use this calculator to find the probability (area P in the diagram) between two z-scores.</p><form action="/z-score-calculator.html#range" name="calform3">
-<table class="panel" >
-	<tr>
-		<td>Left Bound, <b>Z<sub>1</sub></b></td>
-		<td><input type="text" name="c3z1" value="-1" class="innormal"></td>
-	</tr>
-	<tr>
-		<td>Right Bound, <b>Z<sub>2</sub></b></td>
-		<td><input type="text" name="c3z2" value="0" class="innormal"></td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2" style="padding-top:10px;">
-			<input type="hidden" name="calctype" value="range">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
-		</td>
-	</tr>
+<!-- Range -->
+<h2 id="range">Probability between Two Z-scores</h2>
+<img src="/img/z-score/normal-distribution.svg" width="212" height="143" alt="Normal distribution curve showing the area P between two z-scores" style="float:right;margin:0 0 8px 12px" loading="lazy">
+<p>Use this calculator to find the probability (area P in the diagram) between two z-scores.</p>
+<form action="/z-score-calculator.html#range" name="calform3" method="get">
+<table class="panel">
+  <tr>
+    <td><label for="c3z1">Left Bound, <b>Z<sub>1</sub></b></label></td>
+    <td><input type="text" inputmode="decimal" id="c3z1" name="c3z1" value="-1" class="innormal"></td>
+  </tr>
+  <tr>
+    <td><label for="c3z2">Right Bound, <b>Z<sub>2</sub></b></label></td>
+    <td><input type="text" inputmode="decimal" id="c3z2" name="c3z2" value="0" class="innormal"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2" style="padding-top:10px;">
+      <input type="hidden" name="calctype" value="range">
+      <input type="submit" name="x" value="Calculate">
+      <input type="button" value="Clear" onclick="clearForm(document.calform3);">
+    </td>
+  </tr>
 </table>
 </form>
+<div id="clear"></div>
 
+<fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset>
 
-<br><p><fieldset><legend>Related</legend><a href="/standard-deviation-calculator.html">Standard Deviation Calculator</a></fieldset></p>
+<!-- Content -->
+<h2 id="what-is-z-score">What is a z-score?</h2>
+<p>The z-score, also called the standard score, z-value or normal score, is a dimensionless number that shows how many standard deviations a data point is above or below the mean. Values above the mean have positive z-scores, and values below the mean have negative z-scores.</p>
+<p>To find it, subtract the population mean from the raw score (a test score, height, age and so on), then divide the difference by the population standard deviation:</p>
+<div class="formula">z = (x &minus; &mu;) / &sigma;</div>
+<p>Here <i>x</i> is the raw score, <i>&mu;</i> is the population mean and <i>&sigma;</i> is the population standard deviation. For a sample, the formula is the same except that the sample mean and sample standard deviation are used.</p>
+<p>Z-scores are used in z-tests, prediction intervals, process control, and for comparing scores measured on different scales.</p>
 
-<br>
-<h3>What is z-score?</h3>
-<p>The z-score, also referred to as standard score, z-value, and normal score, among other things, is a dimensionless quantity that is used to indicate the signed, fractional, number of standard deviations by which an event is above the mean value being measured. Values above the mean have positive z-scores, while values below the mean have negative z-scores.</p>
-<p>The z-score can be calculated by subtracting the population mean from the raw score, or data point in question (a test score, height, age, etc.), then dividing the difference by the population standard deviation:</p>
-<table align="center"><tr><td>z =</td><td><table cellspacing="0" cellpadding="0"><tr><td align="center">x - &mu;</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">&sigma;</td></tr></table></td></tr></table>
-<p>where x is the raw score, &mu; is the population mean, and &sigma; is the population standard deviation. For a sample, the formula is similar, except that the sample mean and population standard deviation are used instead of the population mean and population standard deviation.</p>
-<p>The z-score has numerous applications and can be used to perform a z-test, calculate prediction intervals, process control applications, comparison of scores on different scales, and more.</p>
+<h2 id="example">Z-score example</h2>
+<p>A test has a mean of 3 and a standard deviation of 2. A student scores 5.</p>
+<div class="formula">z = (5 &minus; 3) / 2 = 1</div>
+<p>The score is exactly 1 standard deviation above the mean. In the converter, P(x&lt;1) &asymp; 0.8413, so the student scored higher than about 84% of test takers.</p>
 
-<h3>Z-table</h3>
-<p>A z-table, also known as a standard normal table or unit normal table, is a table that consists of standardized values that are used to determine the probability that a given statistic is below, above, or between the standard normal distribution. A z-score of 0 indicates that the given point is identical to the mean. On the graph of the standard normal distribution, z = 0 is therefore the center of the curve. A positive z-value indicates that the point lies to the right of the mean, and a negative z-value indicates that the point lies left of the mean. There are a few different types of z-tables.</p>
-<p>The values in the table below represent the area between z = 0 and the given z-score.</p>
+<h2 id="empirical-rule">Common z-scores and the 68-95-99.7 rule</h2>
+<table class="cinfoT">
+  <caption class="smalltext" style="text-align:left">Area under the standard normal curve</caption>
+  <tr><th scope="col" class="cinfoHdL">Range</th><th scope="col" class="cinfoHdL">Probability</th></tr>
+  <tr><td>&minus;1 &lt; z &lt; 1</td><td>0.6827 (about 68%)</td></tr>
+  <tr><td>&minus;2 &lt; z &lt; 2</td><td>0.9545 (about 95%)</td></tr>
+  <tr><td>&minus;3 &lt; z &lt; 3</td><td>0.9973 (about 99.7%)</td></tr>
+</table>
 
-<div><div><b>Z Table from Mean (0 to Z)</b></div>
-<table class="cinfoT" >
-<tr><td class="cinfoHd">z</td><td class="cinfoHdL">0</td><td class="cinfoHdL">0.01</td><td class="cinfoHdL">0.02</td><td class="cinfoHdL">0.03</td><td class="cinfoHdL">0.04</td><td class="cinfoHdL">0.05</td><td class="cinfoHdL">0.06</td><td class="cinfoHdL">0.07</td><td class="cinfoHdL">0.08</td><td class="cinfoHdL">0.09</td></tr>
+<h3>Critical z-values for confidence intervals</h3>
+<table class="cinfoT">
+  <tr><th scope="col" class="cinfoHdL">Confidence level</th><th scope="col" class="cinfoHdL">Critical z-value (two-sided)</th></tr>
+  <tr><td>90%</td><td>1.645</td></tr>
+  <tr><td>95%</td><td>1.960</td></tr>
+  <tr><td>99%</td><td>2.576</td></tr>
+</table>
+
+<h2 id="z-table">Z-table (standard normal table)</h2>
+<p>A z-table, also known as a standard normal table or unit normal table, gives the probability that a standard normal value falls below, above or between given z-scores. A z-score of 0 is the mean, the center of the curve. A positive z lies to the right of the mean and a negative z to the left.</p>
+<p>The values below are the area between z = 0 and the given z-score.</p>
+
+<div style="overflow-x:auto">
+<table class="cinfoT cinfoTS">
+<caption class="h3head" style="text-align:left">Z Table from Mean (0 to Z)</caption>
+<tr><th scope="col" class="cinfoHd">z</th><th scope="col" class="cinfoHdL">0</th><th scope="col" class="cinfoHdL">0.01</th><th scope="col" class="cinfoHdL">0.02</th><th scope="col" class="cinfoHdL">0.03</th><th scope="col" class="cinfoHdL">0.04</th><th scope="col" class="cinfoHdL">0.05</th><th scope="col" class="cinfoHdL">0.06</th><th scope="col" class="cinfoHdL">0.07</th><th scope="col" class="cinfoHdL">0.08</th><th scope="col" class="cinfoHdL">0.09</th></tr>
 <tr><td><b>0</b></td><td>0</td><td>0.00399</td><td>0.00798</td><td>0.01197</td><td>0.01595</td><td>0.01994</td><td>0.02392</td><td>0.0279</td><td>0.03188</td><td>0.03586</td></tr>
 <tr><td><b>0.1</b></td><td>0.03983</td><td>0.0438</td><td>0.04776</td><td>0.05172</td><td>0.05567</td><td>0.05962</td><td>0.06356</td><td>0.06749</td><td>0.07142</td><td>0.07535</td></tr>
 <tr><td><b>0.2</b></td><td>0.07926</td><td>0.08317</td><td>0.08706</td><td>0.09095</td><td>0.09483</td><td>0.09871</td><td>0.10257</td><td>0.10642</td><td>0.11026</td><td>0.11409</td></tr>
@@ -135,7 +216,7 @@
 <tr><td><b>1</b></td><td>0.34134</td><td>0.34375</td><td>0.34614</td><td>0.34849</td><td>0.35083</td><td>0.35314</td><td>0.35543</td><td>0.35769</td><td>0.35993</td><td>0.36214</td></tr>
 <tr><td><b>1.1</b></td><td>0.36433</td><td>0.3665</td><td>0.36864</td><td>0.37076</td><td>0.37286</td><td>0.37493</td><td>0.37698</td><td>0.379</td><td>0.381</td><td>0.38298</td></tr>
 <tr><td><b>1.2</b></td><td>0.38493</td><td>0.38686</td><td>0.38877</td><td>0.39065</td><td>0.39251</td><td>0.39435</td><td>0.39617</td><td>0.39796</td><td>0.39973</td><td>0.40147</td></tr>
-<tr><td><b>1.3</b></td><td>0.4032</td><td>0.4049</td><td>0.40658</td><td>0.40824</td><td>0.40988</td><td>0.41149</td><td>0.41308</td><td>0.41466</td><td>0.41621</td><td>0.41774</td></tr>
+<tr><td><b>1.3</b></td><td>0.4032</td><td>0.4049</td><td>0.40658</td><td>0.40824</td><td>0.40988</td><td>0.41149</td><td>0.41309</td><td>0.41466</td><td>0.41621</td><td>0.41774</td></tr>
 <tr><td><b>1.4</b></td><td>0.41924</td><td>0.42073</td><td>0.4222</td><td>0.42364</td><td>0.42507</td><td>0.42647</td><td>0.42785</td><td>0.42922</td><td>0.43056</td><td>0.43189</td></tr>
 <tr><td><b>1.5</b></td><td>0.43319</td><td>0.43448</td><td>0.43574</td><td>0.43699</td><td>0.43822</td><td>0.43943</td><td>0.44062</td><td>0.44179</td><td>0.44295</td><td>0.44408</td></tr>
 <tr><td><b>1.6</b></td><td>0.4452</td><td>0.4463</td><td>0.44738</td><td>0.44845</td><td>0.4495</td><td>0.45053</td><td>0.45154</td><td>0.45254</td><td>0.45352</td><td>0.45449</td></tr>
@@ -166,35 +247,71 @@
 </table>
 </div>
 
-<br><p><b>How to read the z-table</b></p>
-<p>In the table above,</p>
+<h3>How to read the z-table</h3>
 <ul>
-	<li>the column headings define the z-score to the hundredth's place.</li>
-	<li>the row headings define the z-score to the tenth's place.</li>
-	<li>each value in the table is the area between z = 0 and the z-score of the given value, which represents the probability that a data point will lie within the referenced region in the standard normal distribution.</li>
+  <li>The row headings give the z-score to the tenths place.</li>
+  <li>The column headings give the hundredths place.</li>
+  <li>Each value is the area between z = 0 and that z-score, which is the probability that a data point lies in that region of the standard normal distribution.</li>
 </ul>
-<p>For example, referencing the right-tail z-table above, a data point with a z-score of 1.12 corresponds to an area of 0.36864 (row 13, column 4). This means that for a normally distributed population, there is a 36.864% chance, a data point will have a z-score between 0 and 1.12.</p>
-<p>Because there are various z-tables, it is important to pay attention to the given z-table to know what area is being referenced.</p>
+<p>For example, a z-score of 1.12 corresponds to an area of 0.36864 (row 1.1, column 0.02). So for a normally distributed population there is a 36.864% chance that a data point has a z-score between 0 and 1.12.</p>
+<p>Because there are several kinds of z-tables, always check which area the table is showing.</p>
 
+<h2 id="faq">Frequently asked questions</h2>
+<details>
+  <summary><h3>How do you calculate a z-score?</h3></summary>
+  <p>Subtract the population mean (&mu;) from the raw score (x), then divide by the population standard deviation (&sigma;): z = (x &minus; &mu;) / &sigma;.</p>
+</details>
+<details>
+  <summary><h3>What does a z-score of 0 mean?</h3></summary>
+  <p>The value is exactly equal to the mean, at the center of the standard normal distribution.</p>
+</details>
+<details>
+  <summary><h3>How do you convert a z-score to a probability?</h3></summary>
+  <p>Look the z-score up in a z-table or use the converter above. The result is an area under the standard normal curve, for example P(Z &lt; 1.96) &asymp; 0.975.</p>
+</details>
+<details>
+  <summary><h3>Can a z-score be negative?</h3></summary>
+  <p>Yes. A negative z-score means the value is below the mean, and a positive one means it is above the mean.</p>
+</details>
+<details>
+  <summary><h3>What z-score is used for a 95% confidence interval?</h3></summary>
+  <p>A 95% two-sided confidence interval uses a critical z-value of about 1.96.</p>
+</details>
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</main>
+
+<aside id="right" aria-label="More calculators">
+  <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search">
+    <table align="center" id="searchbox">
+      <tr>
+        <td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" placeholder="Search calculators" aria-label="Search calculators" onkeyup="return calcSearch();"></td>
+        <td><span id="bluebtn" role="button" tabindex="0" onclick="return calcSearch();">Search</span></td>
+      </tr>
+      <tr><td colspan="2"><div id="calcSearchOut"></div></td></tr>
+    </table>
+  </form>
+
+  <div id="othercalc">
+    <div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div>
+    <div id="occontent">
+      <a href="/scientific-calculator.html">Scientific</a>
+      <a href="/fraction-calculator.html">Fraction</a>
+      <a href="/percent-calculator.html">Percentage</a>
+      <a href="/triangle-calculator.html">Triangle</a>
+      <a href="/volume-calculator.html">Volume</a>
+      <a href="/standard-deviation-calculator.html">Standard Deviation</a>
+      <a href="/random-number-generator.html">Random Number Generator</a>
+      <a href="/math-calculator.html">More Math Calculators</a>
+    </div>
+    <div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div>
+  </div>
+</aside>
+<div id="clear"></div>
+</div>
+
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp; &copy; 2008 - 2026 <a href="https://www.adxcal.com/">adxcal.com</a></div></div></footer>
+
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

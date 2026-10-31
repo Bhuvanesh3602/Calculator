@@ -1,232 +1,359 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Target Heart Rate Calculator</title>
-	<meta name="description" content="This free calculator calculates the target heart rate range for maximizing exercise benefit based on age and resting heart rate." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/target-heart-rate-calculator.html" itemprop="item"><span itemprop="name">target heart rate calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Target Heart Rate Calculator</h1>
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<div>
-<form action="/target-heart-rate-calculator.html" name="calform">
-<table  class="panel">
-<tr>
-	<td valign="top" style="padding-top:13px;">Max Heart Rate<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The maximum heart rate (MHR) is the highest theoretical number of beats per minute (bpm) the heart can reach through intense exercise. It can be measured through a cardiac stress test or estimated based on age.', '');" onmouseout="tooltip.hide();"></td>
-	<td style="padding-bottom:8px;">
-		<div style="padding: 8px 0px;"><label for="mm1" class="cbcontainer"><input type="radio" name="mm" id="mm1" value="a" checked onClick="shMHR('a');" /><span class="rbmark"></span>Estimate from age</label> &nbsp; <label for="mm2" class="cbcontainer"><input type="radio" name="mm" id="mm2" value="t"  onClick="shMHR('t');" /><span class="rbmark"></span>Test result</label></div>
-		<table id="mhrage">
-			<tr><td>Age</td><td><input type="text" name="age" value="30" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td></tr>
-		</table>
-		<table id="mhrtest" style="display:none;">
-			<tr><td>Tested Max Heart Rate</td><td><input type="text" name="mhr" value="" class="innormal inuifoot" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuifootspan">bpm</span></td></tr>
-		</table>
-	</td>
-</tr>
-<tr>
-	<td nowrap>Resting Heart Rate<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The resting heart rate (RHR) is the number of times your heart beats per minute (bpm) while you are at rest. It is typically measured when you are calm, relaxed, and not engaging in any physical activity.', '');" onmouseout="tooltip.hide();"></td>
-	<td><input type="text" name="rhr" value="70" class="innormal inuifoot" onKeyUp="iptfieldCheck(this, '', 'n');"><span class="inuifootspan">bpm</span> (optional)</td>
-</tr>
-<tr>
-	<td colspan="2">
-		<div id="ccsettingtitle" style="margin: 10px 0px;text-align:center;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
-		<div id="ccsettingcontent" style="display: none;">
-			<input type="hidden" name="cmop" id="cmoreoption" value="0">
-			<div style="padding-top:10px;"><b>Max heart rate estimation formula:</b> <a href="#emethods"><img class="ttimg" src="/img/svg/help.svg"></a></div>
-			<div style="padding-left:12px;padding-bottom:10px;">
-				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="h" checked /><span class="rbmark"></span> Haskell &amp; Fox (1971)</label></div>
-				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="t"  /><span class="rbmark"></span> Tanaka, Monahan, &amp; Seals (2001)</label></div>
-				<div><label for="cformula3" class="cbcontainer"><input type="radio" name="cformula" id="cformula3" value="n"  /><span class="rbmark"></span> Nes, Janszky, Wisloff, Stoylen, Karlsen (2013)</label></div>
-			</div>
-
-			<div style="padding-top:10px;"><b>Activity intensity scale:</b> <a href="#mintensity"><img class="ttimg" src="/img/svg/help.svg"></a></div>
-			<div style="padding-left:12px;padding-bottom:10px;">
-				<div><label for="cintensity1" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity1" value="k" checked /><span class="rbmark"></span> The Karvonen Formula</label></div>
-				<div><label for="cintensity2" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity2" value="b"  /><span class="rbmark"></span> Rating of perceived exertion with Borg scale</label></div>
-				<div><label for="cintensity3" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity3" value="m"  /><span class="rbmark"></span> Rating of perceived exertion with modified Borg CR10 scale</label></div>
-			</div>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td colspan="2" align="center">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table>
-</form>
-</div>
-<script>
-function shMHR(optVar){
-	if (optVar=='a'){
-		document.getElementById("mhrage").style.display = 'block';
-		document.getElementById("mhrtest").style.display = 'none';
-	}else{
-		document.getElementById("mhrage").style.display = 'none';
-		document.getElementById("mhrtest").style.display = 'block';
-	}
-	return false;
-}
-shMHR('a');
-
-function cshmoreoption(optVar){
-	if (optVar==1){
-		document.getElementById("ccsettingcontent").style.display = 'block';
-		document.getElementById("cmoreoption").value = "1";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
-	}else{
-		document.getElementById("ccsettingcontent").style.display = 'none';
-		document.getElementById("cmoreoption").value = "0";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
-	}
-	return false;
-}
-cshmoreoption(0);
-</script>
-
-<br><br>
-<h3>What is heart rate</h3>
-<p>Heart rate is a measure of the number of contractions the heart makes per minute. It is measured in beats per minute (bpm). To effectively use this target heart rate calculator, it is important to understand the concepts of resting heart rate, maximum heart rate, and heart rate reserve.</p>
-
-<h4>Maximum heart rate</h4>
-<p>Maximum heart rate is a measure of the highest number of beats per minute the heart reaches during intense exercise. It is most accurately measured through a cardiac stress test, which typically involves exercising on a treadmill while being monitored by an electrocardiogram (ECG). As the subject walks/runs on the treadmill, the intensity is periodically increased until certain changes in heart function indicating maximum heart rate are detected. The theoretical maximum human heart rate is 300 bpm.</p>
-<p>More commonly, maximum heart rate is estimated using various formulas. It is worth noting that maximum heart rate formulas have been criticized as inaccurate as they output generalized population averages and estimates can vary significantly from an individual's maximum heart rate. Maximum heart rate is largely correlated with age, and most formulas are primarily based on this. Thus, while they are generally useful for estimating the average maximum heart rate for a given age group, the heart rate of an individual within the age group can differ significantly. One interesting observation made by Dr. Fritz Hagerman was that the maximum heart rates of a group of men in their 20s who were on Olympic rowing teams varied between 160 and 220 beats per minute, so even at the elite level, there is significant variability.</p>
-<a name="emethods"></a>
-<p>The following are some formulas used to estimate maximum heart rate.</p>
-<p>Haskell &amp; Fox Formula (1971):</p>
-<p align="center">maximum heart rate = 220 - age</p>
-<p>Tanaka, Monahan, & Seals Formula (2001):</p>
-<p align="center">maximum heart rate = 208 - 0.7 &#215; age</p>
-<p>Nes, Janszky, Wisloff, Stoylen, Karlsen Formula (2013):</p>
-<p align="center">maximum heart rate = 211 - 0.64 &#215; age</p>
-
-<h3>Resting heart rate</h3>
-<p>Resting heart rate is a measure of a person's heart rate at rest, where rest is defined as when a person is awake in a neutral environment that is neither too hot nor cold, and the person is not subject to stress or surprise. It can be measured using a variety of devices or just by counting your pulse over a minute (or extrapolating it based on a shorter period, though this is less accurate).</p>
-<p>A typical resting heart rate (RHR) for an adult ranges between 50-90 bpm. Some sources state this range as 60-100 bpm, but this range is slightly dated. A resting heart rate above the upper range is referred to as tachycardia while one below the lower range is referred to as bradycardia. A RHR in the 50-60 range in some cases may be considered bradycardia, but very fit athletes often have RHRs in this range, and sometimes even below.</p>
-
-<h3>Heart rate reserve</h3>
-<p>A person's heart rate reserve (HR<sub>reserve</sub>) is the difference between their maximum heart rate (MHR) and their resting heart rate (RHR):</p>
-<p align="center">HR<sub>reserve</sub> = MHR - RHR</p>
-<p>For example, given a person has a maximum heart rate of 180 bpm and a resting heart rate of 68, their heart rate reserves is:</p>
-<p align="center">HR<sub>reserve</sub> = 180 - 68 = 112</p>
-
-
-<h3>Target heart rate zones</h3>
-<p>There are various methods used to measure intensity of exercise in relation to heart rate. Generally, the more intense the exercise, the higher the heart rate. Most methods of measuring intensity relate heart rate to various degrees of physical exertion. Maintaining a heart rate within a certain range, referred to as the target heart rate (or training heart rate range), has been found to be beneficial for exercise. If a person exercises too high above their target heart rate zone, they may expend excess energy without much benefit and risk injury and a longer recovery time. On the other hand, exercising too far below their target heart rate zone may provide little to no benefit.</p>
-<p>A person's target heart rate zone is typically broken up into five zones which impart different benefits. The figure below depicts some guidelines for the range within which to maintain target heart rate for various exercise benefits:</p>
-<p style="text-align:center;"><img src="/img/target-heart-rate/exercise_zones.svg" width="400" height="242" class="scaleimg" alt="exercise zones" /></p>
-<p>Zone 1 refers to the lowest target heart rate zone (50-60%) while zone 5 refers to the 90-100% range. Generally:</p>
-<p><b>Zone 1</b>: This zone generally involves light to moderate activity and your heart rate may stay within this range during warm up, cooldown, a rest day, or an easy training day.</p>
-<p><b>Zone 2</b>: This zone is helpful for fat burning and training endurance. It is a zone that requires some effort but can still be maintained for extended periods of time.</p>
-<p><b>Zone 3</b>: This zone requires more effort to maintain and can help with building speed and strength.</p>
-<p><b>Zone 4</b>: This zone is close to your maximum effort and can help with training how long you can maintain your maximum output.</p>
-<p><b>Zone 5</b>: This zone represents your maximum effort. It is a zone that can be sustained for only a short duration. Training in this zone can help with improving muscle efficacy and improving overall cardiovascular fitness, but it should be balanced with sufficient recovery time. A person should not only train within this zone.</p>
-<p>Each zone has its training benefits, so it is important to design your workout around these zones to best balance improvement and recovery.</p>
-
-<a name="mintensity"></a>
-<h3>Methods for measuring intensity</h3>
-<p>Because there is no consensus on how to measure intensity and there are many methods for determining target heart rate zones, our calculators allow you to select from various heart rate estimation methods as well as intensity scales.</p>
-
-<h4>Haskell & Fox Exercise Zone</h4>
-<p>This method for calculating target heart rate zones is one of the most straightforward and widely used methods and is based only on maximum heart rate computed using age. This is the method used by the calculator when only an age and no resting heart rate is entered. Although it is one of the most popular methods for calculating heart rate and measuring intensity due to its simplicity, it is also often inaccurate, as described in the "Maximum heart rate" section above. The formula used for determining maximum heart rate with this method is:</p>
-<p align="center">MHR = 220 - age</p>
-<p>The target heart rate zone is then found by multiplying MHR by the desired percentages. For example, given that a person is 36 years old, their MHR can be calculated as:</p>
-<p align="center">MHR = 220 - 36 = 184</p>
-<p>Then, if they wanted to find a target heart rate zone for moderate exercise, they would multiply this MHR by 0.70 and 0.80 to find their target heart rate in the 70-80% range:</p>
-<p align="center">184 &#215; 0.70 = 129</p>
-<p align="center">184 &#215; 0.80 = 147</p>
-<p>Thus, to maintain a moderate level of exercise, they would have a target heart rate zone of 129 - 147 bpm. We can use this method to calculate any target heart rate zone. When discussing target heart rate zones, often a range of 50%-85% range is calculated.</p>
-<p>The calculator also provides two additional formulas that estimate maximum heart rate using only age: the Tanaka, Monahan, & Seals formula and the Nes, Janszky, Wisloff, Stoylen, and Karlsen formula. These are listed in the "Maximum heart rate formulas" section above, and the method for determining target heart rate zones after finding maximum heart rate is the same.</p>
-
-<h4>Karvonen method</h4>
-<p>The Karvonen method calculates target heart rate zone using heart rate reserve (HR<sub>reserve</sub>), which factors in resting heart rate (RHR) on top of maximum heart rate (MHR) rather than just MHR. This is the default method used by the calculator when a resting heart rate and age are plugged in. The estimation formula and intensity scale can be adjusted with the settings at the bottom of the calculator. HR<sub>reserve</sub> can be calculated using the following formula:</p>
-<p align="center">HR<sub>reserve</sub> = MHR - RHR</p>
-<p>Once HR<sub>reserve</sub> is calculated, the method for finding target heart rate zones is similar to the method described in the section above except that we multiply the selected percentage range by HR<sub>reserve</sub> rather than MHR, then add RHR to each end of the range. For example, given that we want to find the 70%-80% target heart rate zone for a 36-year-old with a resting heart rate of 70 bpm:</p>
-<p align="center">HR<sub>reserve</sub> = 184 - 70 = 114</p>
-<p align="center">HR<sub>70%</sub> = 0.70 &#215; 114 + 70 = 150</p>
-<p align="center">HR<sub>80%</sub> = 0.80 &#215; 114 + 70 = 161</p>
-<p>Thus, their 70-80% target heart rate zone is 150-161 bpm.</p>
-
-<h4>Rating of perceived exertion</h4>
-<p>Rating of perceived exertion (RPE) is an indicator of exercise intensity that allows a person to subjectively rate their level of exertion while exercising. This is beneficial because it doesn't require measurement of physiological parameters such as heart rate, lactate levels, etc. Studies have shown that individuals are able to accurately estimate subjective terms like "moderate" and "intense" and exercise at the designated level.</p>
-<p>There are two commonly used RPE scales: the Borg scale and the Borg category ratio 10 scale (Borg CR10 scale).</p>
-
-<p><b>Borg scale:</b></p>
-<p>The Borg scale is the original RPE scale and is a scale ranging from 6-20, where 6 indicates no exertion and 20 indicates maximum exertion. Also, the scale is designed such that it corresponds closely to heart rate. Each value in the scale, multiplied by 10, approximates heart rate at that given exertion level. For example, a 6 on the scale corresponds to a heart rate of 60, while a 20 corresponds to a heart rate of 200. The table below depicts the Borg scale:</p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th>RPE scale</th><th>Intensity</th></tr>
-	<tr align="center"><td>6</td><td>No exertion at all</td></tr>
-	<tr align="center"><td>7</td><td>Extremely light</td></tr>
-	<tr align="center"><td>9</td><td>Very light</td></tr>
-	<tr align="center"><td>11</td><td>Light</td></tr>
-	<tr align="center"><td>12</td><td>Moderate</td></tr>
-	<tr align="center"><td>13</td><td>Somewhat hard</td></tr>
-	<tr align="center"><td>15</td><td>Hard</td></tr>
-	<tr align="center"><td>17</td><td>Very hard</td></tr>
-	<tr align="center"><td>19</td><td>Extremely hard</td></tr>
-	<tr align="center"><td>20</td><td>Maximal exertion</td></tr>
-</table>
-
-<p>Using this scale, target heart rate is calculated using the formula,</p>
-<p align="center">THR = RHR + (MHR - RHR) &#215; <span class="frac"><span class="fracnum">B - 6</span><span class="fracden">14</span></span></p>
-<p>where:</p>
-<ul>THR = target heart rate<br>
-RHR = resting heart rate<br>
-MHR = maximum heart rate<br>
-B = RPE scale value</ul>
-<p>For example, given a "somewhat hard" exertion which has an RPE scale value of 13, a person who has a maximum heart rate of 190 and a resting heart rate of 60 would have a target heart rate of:</p>
-<p align="center">THR = 60 + (190 - 60) &#215; <span class="frac"><span class="fracnum">13 - 6</span><span class="fracden">14</span></span> = 125 bpm</p>
-
-<p><b>Borg CR10 scale:</b></p>
-<p>The Borg CR10 scale is the modified version of the Borg scale on a scale of 0-10. 0 represents no exertion at all while 10 represents the strongest exertion an individual has experienced. The Borg CR10 scale is as follows:</p>
-<table class="cinfoT" align="center">
-	<tr align="center"><th>RPE scale</th><th>Intensity</th></tr>
-	<tr align="center"><td>0</td><td>No exertion</td></tr>
-	<tr align="center"><td>0.5</td><td>Noticeable</td></tr>
-	<tr align="center"><td>1</td><td>Very light</td></tr>
-	<tr align="center"><td>2</td><td>Light</td></tr>
-	<tr align="center"><td>3</td><td>Moderate</td></tr>
-	<tr align="center"><td>4</td><td>Somewhat difficult</td></tr>
-	<tr align="center"><td>5</td><td>Difficult</td></tr>
-	<tr align="center"><td>7</td><td>Very difficult</td></tr>
-	<tr align="center"><td>9</td><td>Almost maximal</td></tr>
-	<tr align="center"><td>10</td><td>Maximal</td></tr>
-</table>
-
-<p>Using this scale, the target heart rate can be calculated using the formula,</p>
-<p align="center">THR = RHR + (MHR - RHR) &#215; <span class="frac"><span class="fracnum">B</span><span class="fracden">10</span></span></p>
-<p>where:</p>
-<ul>THR = target heart rate<br>
-RHR = resting heart rate<br>
-MHR = maximum heart rate<br>
-B = RPE scale value</ul>
-<p>For example, given a "somewhat difficult" exertion which has an RPE scale value of 4, a person who has a maximum heart rate of 190 and a resting heart rate of 60 would have a target heart rate of:</p>
-<p align="center">THR = 60 + (190 - 60) &#215; <span class="frac"><span class="fracnum">4</span><span class="fracden">10</span></span> = 112 bpm</p>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)</title>
+	<meta name="description" content="Free target heart rate calculator. Enter your age and resting heart rate to find your max heart rate and target heart rate zones using Karvonen, Haskell &amp; Fox or Borg RPE. Formulas, examples and FAQs." />
+	<meta name="keywords" content="target heart rate calculator, heart rate zone calculator, max heart rate calculator, karvonen formula calculator, heart rate reserve calculator, training heart rate, fat burning heart rate, resting heart rate" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html","description":"Free target heart rate calculator. Enter your age and resting heart rate to find your max heart rate and target heart rate zones using Karvonen, Haskell &amp; Fox or Borg RPE. Formulas, examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)">
+<meta property="og:description" content="Free target heart rate calculator. Enter your age and resting heart rate to find your max heart rate and target heart rate zones using Karvonen, Haskell &amp; Fox or Borg RPE. Formulas, examples and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)">
+<meta name="twitter:description" content="Free target heart rate calculator. Enter your age and resting heart rate to find your max heart rate and target heart rate zones using Karvonen, Haskell &amp; Fox or Borg RPE. Formulas, examples and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html","description":"Free target heart rate calculator. Enter your age and resting heart rate to find your max heart rate and target heart rate zones using Karvonen, Haskell &amp; Fox or Borg RPE. Formulas, examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"Target Heart Rate Calculator – Heart Rate Zones by Age (Karvonen, Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/target-heart-rate-calculator.html"}]}</script></head>
+<body><header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/target-heart-rate-calculator.html" itemprop="item"><span itemprop="name">target heart rate calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Target Heart Rate Calculator</h1>
+<p>This free calculator finds your maximum heart rate and target heart rate zones for exercise, based on your age and, optionally, your resting heart rate.</p>
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<div>
+<form action="/target-heart-rate-calculator.html" name="calform">
+<table  class="panel">
+<tr>
+	<td valign="top" style="padding-top:13px;">Max Heart Rate<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The maximum heart rate (MHR) is the highest theoretical number of beats per minute (bpm) the heart can reach through intense exercise. It can be measured through a cardiac stress test or estimated based on age.', '');" onmouseout="tooltip.hide();"></td>
+	<td style="padding-bottom:8px;">
+		<div style="padding: 8px 0px;"><label for="mm1" class="cbcontainer"><input type="radio" name="mm" id="mm1" value="a" checked onClick="shMHR('a');" /><span class="rbmark"></span>Estimate from age</label> &nbsp; <label for="mm2" class="cbcontainer"><input type="radio" name="mm" id="mm2" value="t"  onClick="shMHR('t');" /><span class="rbmark"></span>Test result</label></div>
+		<table id="mhrage">
+			<tr><td>Age</td><td><input type="text" name="age" value="30" class="innormal" onKeyUp="iptfieldCheck(this, 'r', 'pn');"></td></tr>
+		</table>
+		<table id="mhrtest" style="display:none;">
+			<tr><td>Tested Max Heart Rate</td><td><input type="text" name="mhr" value="" class="innormal inuifoot" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuifootspan">bpm</span></td></tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td nowrap>Resting Heart Rate<img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('The resting heart rate (RHR) is the number of times your heart beats per minute (bpm) while you are at rest. It is typically measured when you are calm, relaxed, and not engaging in any physical activity.', '');" onmouseout="tooltip.hide();"></td>
+	<td><input type="text" name="rhr" value="70" class="innormal inuifoot" onKeyUp="iptfieldCheck(this, '', 'n');"><span class="inuifootspan">bpm</span> (optional)</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<div id="ccsettingtitle" style="margin: 10px 0px;text-align:center;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
+		<div id="ccsettingcontent" style="display: none;">
+			<input type="hidden" name="cmop" id="cmoreoption" value="0">
+			<div style="padding-top:10px;"><b>Max heart rate estimation formula:</b> <a href="#emethods"><img class="ttimg" src="/img/svg/help.svg"></a></div>
+			<div style="padding-left:12px;padding-bottom:10px;">
+				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="h" checked /><span class="rbmark"></span> Haskell &amp; Fox (1971)</label></div>
+				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="t"  /><span class="rbmark"></span> Tanaka, Monahan, &amp; Seals (2001)</label></div>
+				<div><label for="cformula3" class="cbcontainer"><input type="radio" name="cformula" id="cformula3" value="n"  /><span class="rbmark"></span> Nes, Janszky, Wisloff, Stoylen, Karlsen (2013)</label></div>
+			</div>
+
+			<div style="padding-top:10px;"><b>Activity intensity scale:</b> <a href="#mintensity"><img class="ttimg" src="/img/svg/help.svg"></a></div>
+			<div style="padding-left:12px;padding-bottom:10px;">
+				<div><label for="cintensity1" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity1" value="k" checked /><span class="rbmark"></span> The Karvonen Formula</label></div>
+				<div><label for="cintensity2" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity2" value="b"  /><span class="rbmark"></span> Rating of perceived exertion with Borg scale</label></div>
+				<div><label for="cintensity3" class="cbcontainer"><input type="radio" name="cintensity" id="cintensity3" value="m"  /><span class="rbmark"></span> Rating of perceived exertion with modified Borg CR10 scale</label></div>
+			</div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<input type="submit" name="x" value="Calculate">
+		<input type="button" value="Clear" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+<script>
+function shMHR(optVar){
+	if (optVar=='a'){
+		document.getElementById("mhrage").style.display = 'block';
+		document.getElementById("mhrtest").style.display = 'none';
+	}else{
+		document.getElementById("mhrage").style.display = 'none';
+		document.getElementById("mhrtest").style.display = 'block';
+	}
+	return false;
+}
+shMHR('a');
+
+function cshmoreoption(optVar){
+	if (optVar==1){
+		document.getElementById("ccsettingcontent").style.display = 'block';
+		document.getElementById("cmoreoption").value = "1";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
+	}else{
+		document.getElementById("ccsettingcontent").style.display = 'none';
+		document.getElementById("cmoreoption").value = "0";
+		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
+	}
+	return false;
+}
+cshmoreoption(0);
+</script>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/pace-calculator.html">Pace Calculator</a> | <a href="/bmr-calculator.html">BMR Calculator</a> | <a href="/calorie-calculator.html">Calorie Calculator</a></fieldset></p>
+
+<h2>How to Use the Target Heart Rate Calculator</h2>
+<p>Enter your age to estimate your maximum heart rate, or choose <b>Test result</b> if you know your tested maximum. Add your resting heart rate to use the Karvonen method, which uses your heart rate reserve. Open <b>Settings</b> to pick a different maximum heart rate formula or an intensity scale such as the Borg RPE scale, then click <b>Calculate</b>. The results are estimates for general information and are not medical advice.</p>
+
+<h3>Target Heart Rate Formulas</h3>
+<table class="cinfoT">
+	<tr><td>Max heart rate (Haskell &amp; Fox)</td><td class="cinfoBodL">220 &minus; age</td></tr>
+	<tr><td>Max heart rate (Tanaka)</td><td class="cinfoBodL">208 &minus; 0.7 &times; age</td></tr>
+	<tr><td>Max heart rate (Nes)</td><td class="cinfoBodL">211 &minus; 0.64 &times; age</td></tr>
+	<tr><td>Target heart rate (max heart rate method)</td><td class="cinfoBodL">max heart rate &times; intensity %</td></tr>
+	<tr><td>Heart rate reserve</td><td class="cinfoBodL">max heart rate &minus; resting heart rate</td></tr>
+	<tr><td>Target heart rate (Karvonen)</td><td class="cinfoBodL">heart rate reserve &times; intensity % + resting heart rate</td></tr>
+</table>
+
+<h3>Heart Rate Zones</h3>
+<table class="cinfoT">
+	<tr><td><b>Zone</b></td><td class="cinfoBodL"><b>Intensity</b></td><td class="cinfoBodL"><b>Typical use</b></td></tr>
+	<tr><td>Zone 1</td><td class="cinfoBodL">50-60%</td><td class="cinfoBodL">warm up, cooldown, easy days</td></tr>
+	<tr><td>Zone 2</td><td class="cinfoBodL">60-70%</td><td class="cinfoBodL">endurance and fat burning</td></tr>
+	<tr><td>Zone 3</td><td class="cinfoBodL">70-80%</td><td class="cinfoBodL">building speed and strength</td></tr>
+	<tr><td>Zone 4</td><td class="cinfoBodL">80-90%</td><td class="cinfoBodL">near maximum effort</td></tr>
+	<tr><td>Zone 5</td><td class="cinfoBodL">90-100%</td><td class="cinfoBodL">maximum effort, short bursts</td></tr>
+</table>
+
+<h3>Example 1: Using age only</h3>
+<p>A 30 year old finds the 70% to 80% zone using the Haskell &amp; Fox formula.</p>
+<p align="center">max heart rate = 220 &minus; 30 = 190 bpm<br>190 &times; 0.70 = 133 bpm<br>190 &times; 0.80 = 152 bpm<br>target zone = 133 to 152 bpm</p>
+
+<h3>Example 2: Using the Karvonen method</h3>
+<p>The same person has a resting heart rate of 70 bpm.</p>
+<p align="center">heart rate reserve = 190 &minus; 70 = 120 bpm<br>70%: 0.70 &times; 120 + 70 = 154 bpm<br>80%: 0.80 &times; 120 + 70 = 166 bpm<br>target zone = 154 to 166 bpm</p>
+
+<br>
+<h3>What is heart rate</h3>
+<p>Heart rate is a measure of the number of contractions the heart makes per minute. It is measured in beats per minute (bpm). To effectively use this target heart rate calculator, it is important to understand the concepts of resting heart rate, maximum heart rate, and heart rate reserve.</p>
+
+<h4>Maximum heart rate</h4>
+<p>Maximum heart rate is a measure of the highest number of beats per minute the heart reaches during intense exercise. It is most accurately measured through a cardiac stress test, which typically involves exercising on a treadmill while being monitored by an electrocardiogram (ECG). As the subject walks/runs on the treadmill, the intensity is periodically increased until certain changes in heart function indicating maximum heart rate are detected. The theoretical maximum human heart rate is 300 bpm.</p>
+<p>More commonly, maximum heart rate is estimated using various formulas. It is worth noting that maximum heart rate formulas have been criticized as inaccurate as they output generalized population averages and estimates can vary significantly from an individual's maximum heart rate. Maximum heart rate is largely correlated with age, and most formulas are primarily based on this. Thus, while they are generally useful for estimating the average maximum heart rate for a given age group, the heart rate of an individual within the age group can differ significantly. One interesting observation made by Dr. Fritz Hagerman was that the maximum heart rates of a group of men in their 20s who were on Olympic rowing teams varied between 160 and 220 beats per minute, so even at the elite level, there is significant variability.</p>
+<a name="emethods"></a>
+<p>The following are some formulas used to estimate maximum heart rate.</p>
+<p>Haskell &amp; Fox Formula (1971):</p>
+<p align="center">maximum heart rate = 220 - age</p>
+<p>Tanaka, Monahan, & Seals Formula (2001):</p>
+<p align="center">maximum heart rate = 208 - 0.7 &#215; age</p>
+<p>Nes, Janszky, Wisloff, Stoylen, Karlsen Formula (2013):</p>
+<p align="center">maximum heart rate = 211 - 0.64 &#215; age</p>
+
+<h3>Resting heart rate</h3>
+<p>Resting heart rate is a measure of a person's heart rate at rest, where rest is defined as when a person is awake in a neutral environment that is neither too hot nor cold, and the person is not subject to stress or surprise. It can be measured using a variety of devices or just by counting your pulse over a minute (or extrapolating it based on a shorter period, though this is less accurate).</p>
+<p>A typical resting heart rate (RHR) for an adult ranges between 50-90 bpm. Some sources state this range as 60-100 bpm, but this range is slightly dated. A resting heart rate above the upper range is referred to as tachycardia while one below the lower range is referred to as bradycardia. A RHR in the 50-60 range in some cases may be considered bradycardia, but very fit athletes often have RHRs in this range, and sometimes even below.</p>
+
+<h3>Heart rate reserve</h3>
+<p>A person's heart rate reserve (HR<sub>reserve</sub>) is the difference between their maximum heart rate (MHR) and their resting heart rate (RHR):</p>
+<p align="center">HR<sub>reserve</sub> = MHR - RHR</p>
+<p>For example, given a person has a maximum heart rate of 180 bpm and a resting heart rate of 68, their heart rate reserves is:</p>
+<p align="center">HR<sub>reserve</sub> = 180 - 68 = 112</p>
+
+<h3>Target heart rate zones</h3>
+<p>There are various methods used to measure intensity of exercise in relation to heart rate. Generally, the more intense the exercise, the higher the heart rate. Most methods of measuring intensity relate heart rate to various degrees of physical exertion. Maintaining a heart rate within a certain range, referred to as the target heart rate (or training heart rate range), has been found to be beneficial for exercise. If a person exercises too high above their target heart rate zone, they may expend excess energy without much benefit and risk injury and a longer recovery time. On the other hand, exercising too far below their target heart rate zone may provide little to no benefit.</p>
+<p>A person's target heart rate zone is typically broken up into five zones which impart different benefits. The figure below depicts some guidelines for the range within which to maintain target heart rate for various exercise benefits:</p>
+<p style="text-align:center;"><img src="/img/target-heart-rate/exercise_zones.svg" width="400" height="242" class="scaleimg" alt="exercise zones" /></p>
+<p>Zone 1 refers to the lowest target heart rate zone (50-60%) while zone 5 refers to the 90-100% range. Generally:</p>
+<p><b>Zone 1</b>: This zone generally involves light to moderate activity and your heart rate may stay within this range during warm up, cooldown, a rest day, or an easy training day.</p>
+<p><b>Zone 2</b>: This zone is helpful for fat burning and training endurance. It is a zone that requires some effort but can still be maintained for extended periods of time.</p>
+<p><b>Zone 3</b>: This zone requires more effort to maintain and can help with building speed and strength.</p>
+<p><b>Zone 4</b>: This zone is close to your maximum effort and can help with training how long you can maintain your maximum output.</p>
+<p><b>Zone 5</b>: This zone represents your maximum effort. It is a zone that can be sustained for only a short duration. Training in this zone can help with improving muscle efficacy and improving overall cardiovascular fitness, but it should be balanced with sufficient recovery time. A person should not only train within this zone.</p>
+<p>Each zone has its training benefits, so it is important to design your workout around these zones to best balance improvement and recovery.</p>
+
+<a name="mintensity"></a>
+<h3>Methods for measuring intensity</h3>
+<p>Because there is no consensus on how to measure intensity and there are many methods for determining target heart rate zones, our calculators allow you to select from various heart rate estimation methods as well as intensity scales.</p>
+
+<h4>Haskell & Fox Exercise Zone</h4>
+<p>This method for calculating target heart rate zones is one of the most straightforward and widely used methods and is based only on maximum heart rate computed using age. This is the method used by the calculator when only an age and no resting heart rate is entered. Although it is one of the most popular methods for calculating heart rate and measuring intensity due to its simplicity, it is also often inaccurate, as described in the "Maximum heart rate" section above. The formula used for determining maximum heart rate with this method is:</p>
+<p align="center">MHR = 220 - age</p>
+<p>The target heart rate zone is then found by multiplying MHR by the desired percentages. For example, given that a person is 36 years old, their MHR can be calculated as:</p>
+<p align="center">MHR = 220 - 36 = 184</p>
+<p>Then, if they wanted to find a target heart rate zone for moderate exercise, they would multiply this MHR by 0.70 and 0.80 to find their target heart rate in the 70-80% range:</p>
+<p align="center">184 &#215; 0.70 = 129</p>
+<p align="center">184 &#215; 0.80 = 147</p>
+<p>Thus, to maintain a moderate level of exercise, they would have a target heart rate zone of 129 - 147 bpm. We can use this method to calculate any target heart rate zone. When discussing target heart rate zones, often a range of 50%-85% range is calculated.</p>
+<p>The calculator also provides two additional formulas that estimate maximum heart rate using only age: the Tanaka, Monahan, & Seals formula and the Nes, Janszky, Wisloff, Stoylen, and Karlsen formula. These are listed in the "Maximum heart rate formulas" section above, and the method for determining target heart rate zones after finding maximum heart rate is the same.</p>
+
+<h4>Karvonen method</h4>
+<p>The Karvonen method calculates target heart rate zone using heart rate reserve (HR<sub>reserve</sub>), which factors in resting heart rate (RHR) on top of maximum heart rate (MHR) rather than just MHR. This is the default method used by the calculator when a resting heart rate and age are plugged in. The estimation formula and intensity scale can be adjusted with the settings at the bottom of the calculator. HR<sub>reserve</sub> can be calculated using the following formula:</p>
+<p align="center">HR<sub>reserve</sub> = MHR - RHR</p>
+<p>Once HR<sub>reserve</sub> is calculated, the method for finding target heart rate zones is similar to the method described in the section above except that we multiply the selected percentage range by HR<sub>reserve</sub> rather than MHR, then add RHR to each end of the range. For example, given that we want to find the 70%-80% target heart rate zone for a 36-year-old with a resting heart rate of 70 bpm:</p>
+<p align="center">HR<sub>reserve</sub> = 184 - 70 = 114</p>
+<p align="center">HR<sub>70%</sub> = 0.70 &#215; 114 + 70 = 150</p>
+<p align="center">HR<sub>80%</sub> = 0.80 &#215; 114 + 70 = 161</p>
+<p>Thus, their 70-80% target heart rate zone is 150-161 bpm.</p>
+
+<h4>Rating of perceived exertion</h4>
+<p>Rating of perceived exertion (RPE) is an indicator of exercise intensity that allows a person to subjectively rate their level of exertion while exercising. This is beneficial because it doesn't require measurement of physiological parameters such as heart rate, lactate levels, etc. Studies have shown that individuals are able to accurately estimate subjective terms like "moderate" and "intense" and exercise at the designated level.</p>
+<p>There are two commonly used RPE scales: the Borg scale and the Borg category ratio 10 scale (Borg CR10 scale).</p>
+
+<p><b>Borg scale:</b></p>
+<p>The Borg scale is the original RPE scale and is a scale ranging from 6-20, where 6 indicates no exertion and 20 indicates maximum exertion. Also, the scale is designed such that it corresponds closely to heart rate. Each value in the scale, multiplied by 10, approximates heart rate at that given exertion level. For example, a 6 on the scale corresponds to a heart rate of 60, while a 20 corresponds to a heart rate of 200. The table below depicts the Borg scale:</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><th>RPE scale</th><th>Intensity</th></tr>
+	<tr align="center"><td>6</td><td>No exertion at all</td></tr>
+	<tr align="center"><td>7</td><td>Extremely light</td></tr>
+	<tr align="center"><td>9</td><td>Very light</td></tr>
+	<tr align="center"><td>11</td><td>Light</td></tr>
+	<tr align="center"><td>12</td><td>Moderate</td></tr>
+	<tr align="center"><td>13</td><td>Somewhat hard</td></tr>
+	<tr align="center"><td>15</td><td>Hard</td></tr>
+	<tr align="center"><td>17</td><td>Very hard</td></tr>
+	<tr align="center"><td>19</td><td>Extremely hard</td></tr>
+	<tr align="center"><td>20</td><td>Maximal exertion</td></tr>
+</table>
+
+<p>Using this scale, target heart rate is calculated using the formula,</p>
+<p align="center">THR = RHR + (MHR - RHR) &#215; <span class="frac"><span class="fracnum">B - 6</span><span class="fracden">14</span></span></p>
+<p>where:</p>
+<ul>THR = target heart rate<br>
+RHR = resting heart rate<br>
+MHR = maximum heart rate<br>
+B = RPE scale value</ul>
+<p>For example, given a "somewhat hard" exertion which has an RPE scale value of 13, a person who has a maximum heart rate of 190 and a resting heart rate of 60 would have a target heart rate of:</p>
+<p align="center">THR = 60 + (190 - 60) &#215; <span class="frac"><span class="fracnum">13 - 6</span><span class="fracden">14</span></span> = 125 bpm</p>
+
+<p><b>Borg CR10 scale:</b></p>
+<p>The Borg CR10 scale is the modified version of the Borg scale on a scale of 0-10. 0 represents no exertion at all while 10 represents the strongest exertion an individual has experienced. The Borg CR10 scale is as follows:</p>
+<table class="cinfoT" align="center">
+	<tr align="center"><th>RPE scale</th><th>Intensity</th></tr>
+	<tr align="center"><td>0</td><td>No exertion</td></tr>
+	<tr align="center"><td>0.5</td><td>Noticeable</td></tr>
+	<tr align="center"><td>1</td><td>Very light</td></tr>
+	<tr align="center"><td>2</td><td>Light</td></tr>
+	<tr align="center"><td>3</td><td>Moderate</td></tr>
+	<tr align="center"><td>4</td><td>Somewhat difficult</td></tr>
+	<tr align="center"><td>5</td><td>Difficult</td></tr>
+	<tr align="center"><td>7</td><td>Very difficult</td></tr>
+	<tr align="center"><td>9</td><td>Almost maximal</td></tr>
+	<tr align="center"><td>10</td><td>Maximal</td></tr>
+</table>
+
+<p>Using this scale, the target heart rate can be calculated using the formula,</p>
+<p align="center">THR = RHR + (MHR - RHR) &#215; <span class="frac"><span class="fracnum">B</span><span class="fracden">10</span></span></p>
+<p>where:</p>
+<ul>THR = target heart rate<br>
+RHR = resting heart rate<br>
+MHR = maximum heart rate<br>
+B = RPE scale value</ul>
+<p>For example, given a "somewhat difficult" exertion which has an RPE scale value of 4, a person who has a maximum heart rate of 190 and a resting heart rate of 60 would have a target heart rate of:</p>
+<p align="center">THR = 60 + (190 - 60) &#215; <span class="frac"><span class="fracnum">4</span><span class="fracden">10</span></span> = 112 bpm</p>
+
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details>
+<summary><b>How do I calculate my target heart rate?</b></summary>
+<p>First find your maximum heart rate, then multiply it by the percentage range you want to train in. For example, a 30 year old has a maximum heart rate of 220 &minus; 30 = 190 bpm, so the 70% to 80% zone is 190 &times; 0.70 = 133 to 190 &times; 0.80 = 152 bpm.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I calculate maximum heart rate?</b></summary>
+<p>The calculator offers three formulas based on age. Haskell and Fox is 220 &minus; age, Tanaka is 208 &minus; 0.7 &times; age, and Nes is 211 &minus; 0.64 &times; age. For a 30 year old these give about 190, 187 and 192 bpm. A cardiac stress test is the most accurate way to measure it.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the Karvonen formula?</b></summary>
+<p>The Karvonen method uses heart rate reserve, which is maximum heart rate minus resting heart rate. Target heart rate = (heart rate reserve &times; intensity %) + resting heart rate. For a 30 year old with a resting heart rate of 70 bpm, the reserve is 190 &minus; 70 = 120, so 70% to 80% is 154 to 166 bpm.</p>
+</details>
+<br>
+<details>
+<summary><b>What are the target heart rate zones?</b></summary>
+<p>Training is usually split into five zones of 10% each, from zone 1 at 50% to 60% to zone 5 at 90% to 100%. Lower zones suit warm-ups, recovery and endurance, and higher zones build speed and strength but can only be sustained for short periods.</p>
+</details>
+<br>
+<details>
+<summary><b>What is heart rate reserve?</b></summary>
+<p>Heart rate reserve is the difference between your maximum heart rate and your resting heart rate. For example, a maximum of 180 bpm and a resting rate of 68 bpm gives a heart rate reserve of 180 &minus; 68 = 112 bpm.</p>
+</details>
+<br>
+<details>
+<summary><b>What is a normal resting heart rate?</b></summary>
+<p>A typical resting heart rate for an adult is about 50 to 90 beats per minute, although some sources use 60 to 100. Very fit athletes often have lower resting rates. If you are concerned about your resting heart rate, talk to a healthcare professional.</p>
+</details>
+<br>
+<details>
+<summary><b>How accurate are maximum heart rate formulas?</b></summary>
+<p>They give population averages based mainly on age, so your real maximum can differ significantly from the estimate. A cardiac stress test measures it directly. If you know your tested maximum, choose Test result in the calculator.</p>
+</details>
+<br>
+<details>
+<summary><b>What is rating of perceived exertion (RPE)?</b></summary>
+<p>RPE lets you rate how hard you feel you are working. The Borg scale runs from 6 to 20, and the Borg CR10 scale runs from 0 to 10. For example, with a maximum of 190 bpm and a resting rate of 60 bpm, a Borg rating of 13 (somewhat hard) gives 60 + 130 &times; 7 &divide; 14 = 125 bpm.</p>
+</details>
+<br>
+<details>
+<summary><b>Should I talk to a doctor before using target heart rate zones?</b></summary>
+<p>The calculator gives estimates for general information, not medical advice. If you have a heart condition, take medication that affects heart rate, or are new to exercise, talk to a healthcare professional before starting or changing a training plan.</p>
+</details>
+<br>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>
+<meta charset="utf-8">
 	<title>Basic Calculator</title>
 	<meta name="description" content="This free online calculator can be used for basic computations such as addition, subtraction, multiplication, division, and square roots." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
 	<link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/css/sci.css" />	<script src="/js/scientific3.js"></script>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html">
+
+<meta property="og:title" content="Basic Calculator">
+<meta property="og:description" content="This free online calculator can be used for basic computations such as addition, subtraction, multiplication, division, and square roots.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic Calculator">
+<meta name="twitter:description" content="This free online calculator can be used for basic computations such as addition, subtraction, multiplication, division, and square roots.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Basic Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html","description":"This free online calculator can be used for basic computations such as addition, subtraction, multiplication, division, and square roots.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Basic Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/basic-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <div class="header-right">
+      <a href="/my-account/sign-in.php" class="btn btn-accent btn-sm" rel="nofollow">Sign in</a>
+      <button class="menu-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="/financial-calculator.html">Financial</a>
+    <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+    <a href="/math-calculator.html">Math</a>
+    <a href="/other-calculator.html">Other</a>
+    <a href="/my-account/sign-in.php" class="mobile-signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
 <div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/basic-calculator.html" itemprop="item"><span itemprop="name">basic calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Basic Calculator</h1>
 <table align="center">
 	<tr><td id="sciout">
@@ -22,11 +67,11 @@
 			<div id="sciOutPut">0</div>
 		</div>
 		<div style="padding-top:3px;">
-			<div><span onclick="r(7)" class="scinm">7</span><span onclick="r(8)" class="scinm">8</span><span onclick="r(9)" class="scinm">9</span><span onclick="r('+')" class="sciop">+</span><span onclick="r('bk')" class="sciop">Back</span></div>
-			<div><span onclick="r(4)" class="scinm">4</span><span onclick="r(5)" class="scinm">5</span><span onclick="r(6)" class="scinm">6</span><span onclick="r('-')" class="sciop">&ndash;</span><span onclick="r('ans')" class="sciop">Ans</span></div>
-			<div><span onclick="r(1)" class="scinm">1</span><span onclick="r(2)" class="scinm">2</span><span onclick="r(3)" class="scinm">3</span><span onclick="r('*')" class="sciop">&#215;</span><span onclick="r('M+')" class="sciop">M+</span></div>
-			<div><span onclick="r(0)" class="scinm">0</span><span onclick="r('.')" class="scinm">.</span><span onclick="r('EXP')" class="sciop">EXP</span><span onclick="r('/')" class="sciop">&#247;</span><span onclick="r('M-')" class="sciop">M-</span></div>
-			<div><span onclick="r('+/-')" class="sciop">&#177;</span><span onclick="r('RND')" class="sciop">RND</span><span onclick="r('C')" class="scieq">AC</span><span onclick="r('=')" class="scieq">=</span><span onclick="r('MR')" class="sciop" id="scimrc">MR</span></div>
+			<div><button type="button" onclick="r(7)" class="scinm" aria-label="7">7</button><button type="button" onclick="r(8)" class="scinm" aria-label="8">8</button><button type="button" onclick="r(9)" class="scinm" aria-label="9">9</button><button type="button" onclick="r('+')" class="sciop" aria-label="plus">+</button><button type="button" onclick="r('bk')" class="sciop" aria-label="backspace">Back</button></div>
+			<div><button type="button" onclick="r(4)" class="scinm" aria-label="4">4</button><button type="button" onclick="r(5)" class="scinm" aria-label="5">5</button><button type="button" onclick="r(6)" class="scinm" aria-label="6">6</button><button type="button" onclick="r('-')" class="sciop" aria-label="minus">&ndash;</button><button type="button" onclick="r('ans')" class="sciop" aria-label="previous answer">Ans</button></div>
+			<div><button type="button" onclick="r(1)" class="scinm" aria-label="1">1</button><button type="button" onclick="r(2)" class="scinm" aria-label="2">2</button><button type="button" onclick="r(3)" class="scinm" aria-label="3">3</button><button type="button" onclick="r('*')" class="sciop" aria-label="multiply">&#215;</button><button type="button" onclick="r('M+')" class="sciop" aria-label="add to memory">M+</button></div>
+			<div><button type="button" onclick="r(0)" class="scinm" aria-label="0">0</button><button type="button" onclick="r('.')" class="scinm" aria-label="decimal point">.</button><button type="button" onclick="r('EXP')" class="sciop" aria-label="exponent times 10 to the power of">EXP</button><button type="button" onclick="r('/')" class="sciop" aria-label="divide">&#247;</button><button type="button" onclick="r('M-')" class="sciop" aria-label="subtract from memory">M-</button></div>
+			<div><button type="button" onclick="r('+/-')" class="sciop" aria-label="plus or minus sign">&#177;</button><button type="button" onclick="r('RND')" class="sciop" aria-label="random">RND</button><button type="button" onclick="r('C')" class="scieq" aria-label="all clear">AC</button><button type="button" onclick="r('=')" class="scieq" aria-label="equals">=</button><button type="button" onclick="r('MR')" class="sciop" id="scimrc" aria-label="memory recall">MR</button></div>
 		</div>
 		<div id="scihistory"></div>
 	</td></tr></table>
@@ -43,13 +88,71 @@
 <form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
 </div>
 <div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-brand">
+      <a href="/" class="brand" aria-label="adxcal.com home">
+        <span class="brand-icon">A</span>
+        <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+      </a>
+      <p>Free online calculators for math, finance, fitness, health and more. 200+ tools, no registration required.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="/financial-calculator.html">Financial</a>
+        <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+        <a href="/math-calculator.html">Math</a>
+        <a href="/other-calculator.html">Other</a>
+        <a href="/sitemap.html">All Calculators</a>
+      </div>
+      <div class="footer-col">
+        <h4>Popular</h4>
+        <a href="/mortgage-calculator.html">Mortgage</a>
+        <a href="/bmi-calculator.html">BMI</a>
+        <a href="/loan-calculator.html">Loan</a>
+        <a href="/calorie-calculator.html">Calorie</a>
+        <a href="/scientific-calculator.html">Scientific</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/about-us.html">About us</a>
+        <a href="/sitemap.html">Sitemap</a>
+        <a href="/about-us.html#terms">Terms of use</a>
+        <a href="/about-us.html#privacy">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">&copy; 2008 – 2026 adxcal.com. All tools free to use.</p>
+      <div class="footer-bottom-links">
+        <a href="/about-us.html#terms">Terms</a>
+        <a href="/about-us.html#privacy">Privacy</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<script>
+/* ── Mobile nav toggle ── */
+(function(){
+  var btn = document.getElementById('nav-toggle');
+  var drawer = document.getElementById('mobile-drawer');
+  if(!btn||!drawer) return;
+  btn.addEventListener('click', function(){
+    var open = drawer.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      drawer.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+</body>
+</html>

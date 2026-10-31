@@ -1,204 +1,273 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>TDEE Calculator</title>
-	<meta name="description" content="This calculator estimates the Total Daily Energy Expenditure (TDEE) of a person based on their age, physical characteristics, and activity level." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head><body><div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tdee-calculator.html" itemprop="item"><span itemprop="name">tdee calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>TDEE Calculator</h1>
-<p>This calculator can be used to estimate your Total Daily Energy Expenditure (TDEE).</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<span id="ucframe"></span>
-<div id="topmenu" ><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li> <li><a href="#" onclick="popMenu('other');">other units</a></li></ul></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TDEE Calculator – Total Daily Energy Expenditure &amp; Maintenance Calories (Free)</title>
+<meta name="description" content="Free TDEE calculator. Estimate your total daily energy expenditure and maintenance calories from age, sex, height, weight and activity level using Mifflin St Jeor or Katch-McArdle. Formulas, examples and FAQs." />
+<meta name="keywords" content="tdee calculator, total daily energy expenditure calculator, maintenance calories calculator, bmr calculator, mifflin st jeor calculator, katch mcardle calculator, daily calorie needs, activity factor" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/common.js" async></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html">
+<meta property="og:title" content="TDEE Calculator – Total Daily Energy Expenditure &amp; Maintenance Calories (Free)">
+<meta property="og:description" content="Free TDEE calculator. Estimate your total daily energy expenditure and maintenance calories from age, sex, height, weight and activity level using Mifflin St Jeor or Katch-McArdle.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TDEE Calculator – Total Daily Energy Expenditure &amp; Maintenance Calories (Free)">
+<meta name="twitter:description" content="Free TDEE calculator. Estimate your total daily energy expenditure and maintenance calories from age, sex, height, weight and activity level using Mifflin St Jeor or Katch-McArdle.">
 
-<div class="panel2" style="padding:10px;">
-<form action="tdee-calculator.html" name="calform"><table id="calinputtable" width="420">
-<tr>
-	<td width="50">Age</td>
-	<td width="370"><input type="text" name="cage" id="cage" value="25" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pn');"> ages 18 - 80</td>
-</tr>
-<tr>
-	<td>Gender</td>
-	<td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked /><span class="rbmark"></span> male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"  /><span class="rbmark"></span> female</label></td>
-</tr>
-</table>
-<table width="420" id="standardheightweight">
-<tr>
-	<td width="50">Height</td>
-	<td width="370">
-		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
-			<input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
-		</td><td>&nbsp;</td><td>
-			<input type="text" name="cheightinch" id="cheightinch" value="10" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
-		</td></tr></table>
-	</td>
-</tr>
-<tr>
-	<td>Weight</td>
-	<td><input type="text" name="cpound" id="cpound" value="165" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
-</tr>
-</table>
-<table width="420" id="metricheightweight">
-<tr>
-	<td width="50">Height</td>
-	<td width="370"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
-</tr>
-<tr id="metricweight">
-	<td>Weight</td>
-	<td><input type="text" name="ckg" id="ckg" value="65" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
-</tr>
-</table>
-<table width="500">
-<tr>
-	<td width="50">Activity</td>
-	<td width="450">
-		<select id="cactivity" name="cactivity">
-			<option value="1" >Basal Metabolic Rate (BMR)</option>
-			<option value="1.2" >Sedentary: little or no exercise</option>
-			<option value="1.375" >Light: exercise 1-3 times/week</option>
-			<option value="1.465" selected>Moderate: exercise 4-5 times/week</option>
-			<option value="1.55" >Active: daily exercise or intense exercise 3-4 times/week</option>
-			<option value="1.725" >Very Active: intense exercise 6-7 times/week</option>
-			<option value="1.9" >Extra Active: very intense exercise daily, or physical job</option>
-		</select>
-	</td>
-</tr>
-<tr>
-	<td width="50">&nbsp;</td>
-	<td width="450">
-		<div id="ccsettingtitle" style="margin: 10px 0px;"><b><a href="#" onclick="cshmoreoption(1);return false;">+ Settings</a></b></div>
-		<div id="ccsettingcontent" style="display: none;">
-			<input type="hidden" name="cmop" id="cmoreoption" value="0">
-			<div><b>Results unit:</b></div>
-			<div>
-				<label for="coutunit1" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit1" value="c" checked /><span class="rbmark"></span> Calories</label> &nbsp;
-				<label for="coutunit2" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit2" value="j"  /><span class="rbmark"></span> Kilojoules</label>
+
+<style>
+.tdee-wrap{max-width:760px;margin:0 auto;padding:0 16px;}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{position:static;width:auto;height:auto;padding:8px;background:#0f172a;color:#fff;z-index:100;}
+.tdee-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 4px 16px -2px rgba(15,23,42,0.06);overflow:hidden;}
+.tdee-card .card-head{background:#f8fafc;padding:16px 20px;border-bottom:1px solid #e2e8f0;}
+.tdee-card .card-head h1{margin:0;font-size:20px;color:#0f172a;letter-spacing:-0.2px;}
+.tdee-card .card-head p{margin:4px 0 0;color:#64748b;font-size:13px;}
+.tdee-card .card-body{padding:20px;}
+.tdee-unit-tabs{display:flex;gap:6px;margin-bottom:16px;border-bottom:1px solid #e2e8f0;padding-bottom:12px;}
+.tdee-unit-tabs button{background:transparent;border:1px solid #cbd5e1;border-radius:8px;padding:8px 14px;font-size:14px;color:#475569;cursor:pointer;transition:all .2s;}
+.tdee-unit-tabs button.active{background:#0f172a;color:#fff;border-color:#0f172a;}
+.tdee-unit-tabs button:hover{border-color:#475569;}
+.tdee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.tdee-field{display:flex;flex-direction:column;gap:6px;}
+.tdee-field label{font-size:13px;font-weight:600;color:#334155;}
+.tdee-field input,.tdee-field select{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;background:#fff;color:#0f172a;box-sizing:border-box;}
+.tdee-field input:focus,.tdee-field select:focus{border-color:#0066cc;outline:3px solid #0066cc;outline-offset:2px;}
+.tdee-field span.note{font-size:11px;color:#64748b;}
+.tdee-gender{display:flex;gap:8px;border:1px solid #cbd5e1;border-radius:8px;padding:4px;background:#fff;}
+.tdee-gender label{display:flex;align-items:center;gap:8px;cursor:pointer;margin:0;padding:8px 14px;border-radius:6px;font-size:14px;color:#475569;transition:background .2s;border:1px solid transparent;}
+.tdee-gender label:hover{background:#f1f5f9;}
+.tdee-gender input{appearance:none;width:18px;height:18px;border:2px solid #cbd5e1;border-radius:50%;margin:0;}
+.tdee-gender input:checked{border-color:#0066cc;background:#0066cc;}
+.tdee-gender input:checked + span{color:#0066cc;font-weight:600;}
+.tdee-cta{margin-top:6px;display:flex;gap:10px;}
+button.calc-btn{flex:1;background:#10b981;color:#fff;border:none;border-radius:10px;padding:12px 18px;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s;}
+button.calc-btn:hover{background:#059669;}
+button.calc-btn:focus-visible{outline:3px solid #10b981;outline-offset:2px;}
+button.clear-btn{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1;border-radius:10px;padding:12px 18px;font-size:15px;cursor:pointer;}
+button.clear-btn:hover{background:#e2e8f0;}
+.tdee-result{margin-top:20px;background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:18px;display:none;}
+.tdee-result.show{display:block;}
+.tdee-result h2{margin:0 0 14px;font-size:17px;color:#166534;}
+.tdee-result .big{font-size:30px;font-weight:800;color:#15803d;line-height:1.1;}
+.tdee-result .big sup{font-size:14px;font-weight:600;}
+.tdee-result .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px solid #bbf7d0;}
+.tdee-result .row:last-child{border-bottom:none;}
+.tdee-result .row .lbl{color:#475569;}
+.tdee-result .row .val{font-weight:700;color:#166534;}
+.tdee-settings{margin-top:16px;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;}
+.tdee-settings .settings-head{background:#f8fafc;padding:10px 16px;border-bottom:1px solid #e2e8f0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.tdee-settings .settings-head b{color:#0f172a;font-size:14px;}
+.tdee-settings .settings-head .chevron{font-size:18px;color:#64748b;}
+.tdee-settings .settings-body{padding:14px 16px;display:none;}
+.tdee-settings .settings-body.open{display:block;}
+.tdee-settings .settings-body label{font-size:13px;font-weight:600;color:#334155;margin-right:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.tdee-info{margin-top:18px;color:#475569;font-size:14px;line-height:1.6;}
+.tdee-info li{margin:6px 0;}
+form[name="calform"] input[type="submit"]{display:none;}
+#topmenu,.panel2{display:none;}
+</style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"TDEE Calculator – Total Daily Energy Expenditure &amp; Maintenance Calories (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html","description":"Free TDEE calculator. Estimate your total daily energy expenditure and maintenance calories from age, sex, height, weight and activity level using Mifflin St Jeor or Katch-McArdle. Formulas, examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"TDEE Calculator – Total Daily Energy Expenditure &amp; Maintenance Calories (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/tdee-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+<div id="contentout"><div id="content">
+<div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tdee-calculator.html" itemprop="item"><span itemprop="name">tdee calculator</span></a><meta itemprop="position" content="3" /></span></div>
+		<div class="tdee-wrap">
+			<a href="#tdee-app" class="skip-link">Skip to calculator</a>
+			<main id="tdee-app" role="main" aria-label="TDEE calculator">
+		<div class="tdee-card">
+			<div class="card-head">
+				<h1>TDEE Calculator</h1>
+				<p>Estimate your Total Daily Energy Expenditure (maintenance calories) from age, sex, height, weight and activity level.</p>
 			</div>
+			<div class="card-body">
+				<form action="tdee-calculator.html" name="calform" id="calform" novalidate>
+					<div class="tdee-unit-tabs">
+						<button type="button" class="active" id="tdee-unit-us">US units</button>
+						<button type="button" id="tdee-unit-metric">Metric units</button>
+					</div>
 
-			<div style="padding-top:15px;"><b>BMR estimation formula:</b> <img class="ttimg" src="/img/svg/help.svg" onmouseover="tooltip.show('The Katch-McArdle Formula can be more accurate if you are lean and know your body fat percentage.', '');" onmouseout="tooltip.hide();"></div>
-			<div>
-				<div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="m" checked /><span class="rbmark"></span> Mifflin St Jeor</label></div>
-				<div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="k"  /><span class="rbmark"></span> Katch-McArdle</label> &nbsp; <a href="/body-fat-calculator.html">Body Fat:</a> <input type="text" name="cfatpct" value="20" class="in4char inpct" onKeyUp="iptfieldCheck(this, '', 'pn');"></div>
+					<div class="tdee-grid">
+						<div class="tdee-field">
+							<label for="cage">Age <span class="note">(18 – 80)</span></label>
+							<input type="number" id="cage" name="cage" value="25" min="1" max="120" autocomplete="off">
+						</div>
+						<div class="tdee-field tdee-gender" role="radiogroup" aria-label="Gender">
+							<label><input type="radio" name="csex" value="m" checked> <span>Male</span></label>
+							<label><input type="radio" name="csex" value="f"> <span>Female</span></label>
+						</div>
+						<div class="tdee-field tdee-height-us" id="tdee-height-us">
+							<label>Height <span class="note">(feet · inches)</span></label>
+							<div style="display:flex;gap:8px;">
+								<input type="number" id="cheightfeet" name="cheightfeet" value="5" min="0" max="10" autocomplete="off" style="flex:1;">
+								<input type="number" id="cheightinch" name="cheightinch" value="10" min="0" max="11" autocomplete="off" style="flex:1;">
+							</div>
+						</div>
+						<div class="tdee-field tdee-height-metric" id="tdee-height-metric" style="display:none;">
+							<label>Height <span class="note">(cm)</span></label>
+							<input type="number" id="cheightmeter" name="cheightmeter" value="180" min="50" max="300" autocomplete="off">
+						</div>
+						<div class="tdee-field tdee-weight-us" id="tdee-weight-us">
+							<label>Weight <span class="note">(pounds)</span></label>
+							<input type="number" id="cpound" name="cpound" value="165" min="1" max="1000" autocomplete="off">
+						</div>
+						<div class="tdee-field tdee-weight-metric" id="tdee-weight-metric" style="display:none;">
+							<label>Weight <span class="note">(kg)</span></label>
+							<input type="number" id="ckg" name="ckg" value="65" min="1" max="500" autocomplete="off">
+						</div>
+					</div>
+
+					<div class="tdee-field" style="margin-top:14px;">
+						<label for="cactivity">Activity level</label>
+						<select id="cactivity" name="cactivity">
+							<option value="1">Basal Metabolic Rate (BMR)</option>
+							<option value="1.2">Sedentary: little or no exercise</option>
+							<option value="1.375">Light: exercise 1–3 times/week</option>
+							<option value="1.465" selected>Moderate: exercise 4–5 times/week</option>
+							<option value="1.55">Active: daily exercise or intense exercise 3–4 times/week</option>
+							<option value="1.725">Very Active: intense exercise 6–7 times/week</option>
+							<option value="1.9">Extra Active: very intense daily exercise, or physical job</option>
+						</select>
+					</div>
+
+					<div class="tdee-settings">
+						<div class="settings-head" id="tdee-settings-head" role="button" aria-label="Toggle settings" aria-expanded="false" tabindex="0" onclick="tdeeToggleSettings()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();tdeeToggleSettings();}">
+							<b>Settings</b>
+							<span class="chevron" id="tdee-settings-chevron" aria-hidden="true">▾</span>
+						</div>
+						<div class="settings-body" id="tdee-settings-body">
+							<div style="margin-bottom:10px;"><b>Results unit:</b></div>
+							<label><input type="radio" name="coutunit" value="c" checked> <span>Calories</span></label>&nbsp;
+							<label><input type="radio" name="coutunit" value="j"> <span>Kilojoules</span></label>
+							<div style="margin-top:12px;"><b>BMR formula:</b></div>
+							<label><input type="radio" name="cformula" value="m" checked> <span>Mifflin St Jeor</span></label>&nbsp;
+							<label><input type="radio" name="cformula" value="k"> <span>Katch-McArdle</span></label>
+							<label style="margin-top:8px;">Body fat % <input type="number" name="cfatpct" value="20" min="0" max="60" style="width:70px;margin-left:6px;"></label>
+						</div>
+					</div>
+
+					<input type="hidden" name="cmop" id="cmoreoption" value="0">
+					<input type="hidden" name="ctype" id="ctype" value="standard">
+					<input type="hidden" name="printit" value="0">
+					<div class="tdee-cta">
+						<button type="submit" name="x" value="Calculate" class="calc-btn">Calculate</button>
+						<button type="button" value="Clear" class="clear-btn" onclick="document.getElementById('calform').reset();document.getElementById('tdee-result').classList.remove('show');">Clear</button>
+					</div>
+				</form>
+				<div id="tdee-result" aria-live="polite"></div>
 			</div>
 		</div>
-	</td>
-</tr>
-<tr>
-	<td width="50">&nbsp;</td>
-	<td width="450">
-		<input name="printit" value="0" type="hidden">
-		<input type="hidden" name="ctype" id="ctype" value="standard">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table></form>
+	</main>
 </div>
-<ul style="margin-top:0px;margin-left:-20px;">
-	<li class="smalltext"><b>Exercise:</b> 15-30 minutes of elevated heart rate activity.</li>
-	<li class="smalltext"><b>Intense exercise:</b> 45-120 minutes of elevated heart rate activity.</li>
-	<li class="smalltext"><b>Very intense exercise:</b> 2+ hours of elevated heart rate activity.</li>
-</ul>
-<script>
-function cshweightgaininfo(optVar){
-	if (optVar==1){
-		document.getElementById("weightgaininfo").style.display = 'block';
-		document.getElementById("weightgaininfolink").innerHTML = "<a href='#' onClick='return cshweightgaininfo(0);'>Hide info for weight gain</a>";
-	}else{
-		document.getElementById("weightgaininfo").style.display = 'none';
-		document.getElementById("weightgaininfolink").innerHTML = "<a href='#' onClick='return cshweightgaininfo(1);'>Show info for weight gain</a>";
-	}
-	return false;
-}
-function cshmoreoption(optVar){
-	if (optVar==1){
-		document.getElementById("ccsettingcontent").style.display = 'block';
-		document.getElementById("cmoreoption").value = "1";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(0);\">- Settings</a></b>";
-	}else{
-		document.getElementById("ccsettingcontent").style.display = 'none';
-		document.getElementById("cmoreoption").value = "0";
-		document.getElementById("ccsettingtitle").innerHTML = "<b><a href=\"#\" onclick=\"return cshmoreoption(1);\">+ Settings</a></b>";
-	}
-	return false;
-}
-cshmoreoption(0);
-function popMenu(inval, insubmit){
-	htmlVal = "";
-	if (inval == "metric"){
-		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
-		document.getElementById("ctype").value="metric";
-		document.getElementById("standardheightweight").style.display = 'none';
-		document.getElementById("metricheightweight").style.display = 'block';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-		document.getElementById("ucframe").innerHTML ="";
-		if (insubmit==1) document.calform.submit();
-	}else if (inval == "standard"){
-		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard',1);\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric',1);\">Metric Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('other');\">Other Units</a></li>";
-		document.getElementById("ctype").value="standard";
-		document.getElementById("standardheightweight").style.display = 'block';
-		document.getElementById("metricheightweight").style.display = 'none';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-		document.getElementById("ucframe").innerHTML ="";
-		if (insubmit==1) document.calform.submit();
-	}else{
-		htmlVal = document.getElementById("topmenu").innerHTML ;
-		document.getElementById("ucframe").innerHTML = "<iframe src=\"/converter/converter.php?type=\" style=\"overflow:hidden;width:100%\" width=\"100%\" height=\"238\" frameborder=\"NO\" scrolling=\"NO\" allowTransparency=\"true\" ></IFRAME>";
-	}
-	document.getElementById("topmenu").innerHTML = htmlVal;
-	return false;
-}
-popMenu("standard",0);
-</script>
 
+<h2>How to Use the TDEE Calculator</h2>
+<p>Enter your age, sex, height and weight, choose US or metric units, and select the activity level that best matches a typical week. Open <b>Settings</b> to show results in calories or kilojoules, or to switch from the Mifflin St Jeor formula to Katch-McArdle if you know your body fat percentage. Click <b>Calculate</b> to see your estimated TDEE. The result is an estimate for general information and is not medical advice.</p>
 
+<h3>TDEE Formulas</h3>
+<table class="cinfoT">
+	<tr><td>TDEE</td><td class="cinfoBodL">BMR × activity factor</td></tr>
+	<tr><td>Mifflin St Jeor (men)</td><td class="cinfoBodL">10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5</td></tr>
+	<tr><td>Mifflin St Jeor (women)</td><td class="cinfoBodL">10 × weight (kg) + 6.25 × height (cm) − 5 × age − 161</td></tr>
+	<tr><td>Katch-McArdle</td><td class="cinfoBodL">370 + 21.6 × lean body mass (kg)</td></tr>
+	<tr><td>Lean body mass</td><td class="cinfoBodL">weight × (1 − body fat %)</td></tr>
+	<tr><td>Calories to kilojoules</td><td class="cinfoBodL">kcal × 4.184</td></tr>
+</table>
 
+<h3>Activity Factors Used by the Calculator</h3>
+<table class="cinfoT">
+	<tr><td><b>Activity level</b></td><td class="cinfoBodL"><b>Factor</b></td></tr>
+	<tr><td>Sedentary: little or no exercise</td><td class="cinfoBodL">1.2</td></tr>
+	<tr><td>Light: exercise 1–3 times/week</td><td class="cinfoBodL">1.375</td></tr>
+	<tr><td>Moderate: exercise 4–5 times/week</td><td class="cinfoBodL">1.465</td></tr>
+	<tr><td>Active: daily exercise or intense exercise 3–4 times/week</td><td class="cinfoBodL">1.55</td></tr>
+	<tr><td>Very Active: intense exercise 6–7 times/week</td><td class="cinfoBodL">1.725</td></tr>
+	<tr><td>Extra Active: very intense exercise daily, or physical job</td><td class="cinfoBodL">1.9</td></tr>
+</table>
 
-<br><p><fieldset><legend>Related:</legend><a href="/bmi-calculator.html">BMI Calculator</a> | <a href="/calorie-calculator.html">Calorie Calculator</a> | <a href="/macro-calculator.html">Macro Calculator</a></fieldset></p>
+<h3>Example 1: Mifflin St Jeor</h3>
+<p>A 25 year old man who is 180 cm tall and weighs 65 kg exercises 4–5 times per week (factor 1.465).</p>
+<p align="center">BMR = 10 × 65 + 6.25 × 180 − 5 × 25 + 5 = 650 + 1,125 − 125 + 5 = 1,655 calories<br>TDEE = 1,655 × 1.465 ≈ 2,425 calories per day<br>2,425 × 4.184 ≈ 10,146 kJ</p>
 
-<br><h3>What is TDEE?</h3>
-<p>TDEE stands for total daily energy expenditure. It is the total energy that a person uses in a day. TDEE is hard to measure accurately and varies day by day. More often, it is estimated using factors such as a person's basal metabolic rate (BMR), activity level, and the thermic effect of food.</p>
+<h3>Example 2: Katch-McArdle</h3>
+<p>The same person at 65 kg and 20% body fat with the same activity level.</p>
+<p align="center">lean body mass = 65 × (1 − 0.20) = 52 kg<br>BMR = 370 + 21.6 × 52 ≈ 1,493 calories<br>TDEE = 1,493 × 1.465 ≈ 2,188 calories per day</p>
 
-<p><b>Basal metabolic rate:</b></p>
-<p>BMR is a person's energy usage rate while at rest in a temperate environment when the digestive system is inactive. In other words, it is the minimum energy needed to maintain a person's vital organs only.</p>
-
-<p><b>Activity level:</b></p>
-<p>Activity level is a factor that is based on the amount of activity a person undergoes. This includes deliberate exercise as well as other activities that a person may undergo as part of their job or typical daily activities. These factors are more specifically referred to as the thermic effect of activity, and non-exercise activity thermogenesis (energy expended for non-sleeping, eating, or sports-like exercise).</p>
-
-<p><b>Thermic effect of food:</b></p>
-<p>The thermic effect of food, also referred to as specific dynamic action, is the amount of energy required by the body to process and use food. It is sometimes estimated as 10% of food energy intake, but this can vary significantly depending on the type of food consumed. Protein, for example, has a far larger thermic effect than dietary fat, since it is more difficult to process.</p>
-
-<h3>How is TDEE calculated?</h3>
-<p>TDEE is calculated based on the factors described above. The calculation usually begins with an estimation of basal metabolic rate (BMR), which is based on the use of equations that have been developed for this specific purpose. This includes physical characteristics such as age, gender, height, and weight.</p>
-<p>Some of the more commonly used equations for estimating BMR include the Mifflin St-Jeor Equation, Harris-Benedict equation, and Katch-McArdle Formula. They are generally pretty similar, but the Katch-McArdle Formula, for example, which takes metabolic activity (resulting from differences between lean body mass and body fat) into account, can be more accurate for lean persons.</p>
-<p>Once BMR is calculated, it is typically multiplied by an activity level factor, which is based on factors such as exercise and whether a person has a sedentary or very active job.</p>
-<p>Other factors that can be considered in the calculation include the thermic effect of food, though this is not always factored into the calculation, and has a relatively smaller impact than BMR and activity level.</p>
-
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details><summary><b>What is TDEE?</b></summary><p>TDEE stands for total daily energy expenditure. It is the total energy a person uses in a day, made up of basal metabolic rate (BMR), physical activity and the thermic effect of food. It is usually estimated rather than measured.</p></details>
+<details><summary><b>How is TDEE calculated?</b></summary><p>First estimate your BMR from age, sex, height and weight, then multiply it by an activity factor. The formula is TDEE = BMR × activity factor. For example, a BMR of 1,655 calories and a moderate activity factor of 1.465 gives about 2,425 calories per day.</p></details>
+<details><summary><b>What is the Mifflin St Jeor formula?</b></summary><p>Mifflin St Jeor estimates BMR as 10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5 for men, and the same with − 161 instead of + 5 for women. For example, a 25 year old man who is 180 cm and 65 kg has a BMR of 650 + 1,125 − 125 + 5 = 1,655 calories.</p></details>
+<details><summary><b>When is the Katch-McArdle formula more accurate?</b></summary><p>Katch-McArdle uses lean body mass, so it can be more accurate if you are lean and know your body fat percentage. The formula is BMR = 370 + 21.6 × lean body mass (kg). For example, 65 kg at 20% body fat has 52 kg of lean mass, so BMR = 370 + 21.6 × 52 = about 1,493 calories.</p></details>
+<details><summary><b>Which activity level should I choose?</b></summary><p>Choose the level that matches your typical week. The factors are 1.2 for sedentary, 1.375 for light exercise 1–3 times per week, 1.465 for moderate exercise 4–5 times per week, 1.55 for daily or intense exercise 3–4 times per week, 1.725 for intense exercise 6–7 times per week, and 1.9 for very intense daily exercise or a physical job. If you are unsure, pick the lower level.</p></details>
+<details><summary><b>What is the difference between BMR and TDEE?</b></summary><p>BMR is the minimum energy your body needs at rest to maintain vital functions. TDEE is your BMR plus the energy used for daily activity, exercise and digesting food, so TDEE is always higher than BMR.</p></details>
+<details><summary><b>How accurate is a TDEE calculator?</b></summary><p>A TDEE calculator gives an estimate, not an exact figure, because energy use varies from person to person and from day to day. Use the result as a starting point, and adjust it based on how your weight changes over several weeks. It is not medical advice, so talk to a healthcare professional about your individual needs.</p></details>
+<details><summary><b>How do I convert calories to kilojoules?</b></summary><p>Multiply calories (kcal) by 4.184 to get kilojoules (kJ). For example, 2,425 calories is about 10,146 kJ. In the calculator Settings you can choose Calories or Kilojoules for the results.</p></details>
+</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<script>
+(function(){
+  var usBtn=document.getElementById('tdee-unit-us'), metricBtn=document.getElementById('tdee-unit-metric');
+  function showUS(){usBtn.classList.add('active');metricBtn.classList.remove('active');
+    document.getElementById('tdee-height-us').style.display='block';
+    document.getElementById('tdee-weight-us').style.display='block';
+    document.getElementById('tdee-height-metric').style.display='none';
+    document.getElementById('tdee-weight-metric').style.display='none';
+    document.getElementById('ctype').value='standard';
+  }
+  function showMetric(){metricBtn.classList.add('active');usBtn.classList.remove('active');
+    document.getElementById('tdee-height-metric').style.display='block';
+    document.getElementById('tdee-weight-metric').style.display='block';
+    document.getElementById('tdee-height-us').style.display='none';
+    document.getElementById('tdee-weight-us').style.display='none';
+    document.getElementById('ctype').value='metric';
+  }
+  usBtn.addEventListener('click',showUS);
+  metricBtn.addEventListener('click',showMetric);
+  function tdeeToggleSettings(){
+    var head=document.getElementById('tdee-settings-head'),body=document.getElementById('tdee-settings-body'),chev=document.getElementById('tdee-settings-chevron');
+    var open=body.classList.toggle('open');
+    head.setAttribute('aria-expanded',open?'true':'false');
+    chev.textContent=open? '▴' : '▾';
+  }
+  window.tdeeToggleSettings=tdeeToggleSettings;
+})();
+</script>
+</body>
+</html>

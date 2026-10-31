@@ -1,80 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Quadratic Formula Calculator</title>
-	<meta name="description" content="This free quadratic formula calculator solves the quadratic formula given values for a, b, and c. Also, learn more about its derivation." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/quadratic-formula-calculator.html" itemprop="item"><span itemprop="name">quadratic formula calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Quadratic Formula Calculator</h1>
-<p>The calculator below solves the quadratic equation of <div class="verybigtext" align="center">ax<sup>2</sup> + bx + c = 0</div>.</p>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel">
-<form name="calform"><table align="center">
-	<tr>
-		<td class="bigtext"><b>a =</b> <input type="text" name="av" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
-		<td class="bigtext"><b>b =</b> <input type="text" name="bv" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
-		<td class="bigtext"><b>c =</b> <input type="text" name="cv" value="1/4" class="inlong" style="text-align:left;"></td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding-top:8px;">
-			Fractional values such as 3/4 can be used.<br><br>
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</tr>
-</table></form>
-</div>
-<br>
-<p>In algebra, a quadratic equation is any polynomial equation of the second degree with the following form:</p>
-<p class="bigtext" align="center">ax<sup>2</sup> + bx + c = 0</p>
-<p>where <b>x</b> is an unknown, <b>a</b> is referred to as the quadratic coefficient, <b>b</b> the linear coefficient, and <b>c</b> the constant. The numerals <b>a</b>, <b>b</b>, and <b>c</b> are coefficients of the equation, and they represent known numbers. For example, <b>a</b> cannot be 0, or the equation would be linear rather than quadratic. A quadratic equation can be solved in multiple ways, including factoring, using the quadratic formula, completing the square, or graphing. Only the use of the quadratic formula, as well as the basics of completing the square, will be discussed here (since the derivation of the formula involves completing the square). Below is the quadratic formula, as well as its derivation. </p>
-<p align="center"><img src="/img/quadratic-equation/quadratic-equation-1.svg" width="158" height="49" alt="quadratic formula solution"></p>
-
-<h3>Derivation of the Quadratic Formula</h3>
-<table align="center">
-	<tr><td>ax<sup>2</sup> + bx + c = 0</td><td style="padding-left: 38px;"><table cellpadding="0" cellspacing="0"><tr><td>Multiply by &nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">1</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
-	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;= 0</td></tr></table></td></tr>
-	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
-</table>
-
-<p>From this point, it is possible to complete the square using the relationship that:</p>
-<p align="center">x<sup>2</sup> + bx + c = (x - h)<sup>2</sup> + k</p>
-<p>Continuing the derivation using this relationship:</p>
-<table align="center">
-	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x + (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup>&nbsp;= &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;+ (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup></td></tr></table></td><td align="right">Simplify</td></tr>
-	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>(x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup> = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;+&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;=&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup> - 4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td></tr></table></td><td align="right">&nbsp; Square root<br>both sides</td></tr>
-	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>&nbsp;= &plusmn;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">&radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td><td align="right">Solve for x</td></tr>
-	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">-b &plusmn; &radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td></tr>
-</table>
-
-<p>Recall that the &plusmn; exists as a function of computing a square root, making both positive and negative roots solutions of the quadratic equation. The <b>x</b> values found through the quadratic formula are roots of the quadratic equation that represent the <b>x</b> values where any parabola crosses the x-axis. Furthermore, the quadratic formula also provides the axis of symmetry of the parabola. This is demonstrated by the graph provided below. Note that the quadratic formula actually has many real-world applications, such as calculating areas, projectile trajectories, and speed, among others.</p>
-<p align="center"><img src="/img/quadratic-equation/quadratic-equation-4.png" width="320" height="372" alt="quadratic formula graph"></p>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps</title>
+	<meta name="description" content="Free quadratic formula calculator. Enter a, b and c (fractions allowed) to solve ax² + bx + c = 0 instantly. Learn the quadratic formula, its derivation, the discriminant, and get answers to common questions." />
+	<meta name="keywords" content="quadratic formula calculator, quadratic equation solver, solve quadratic equation, quadratic formula, discriminant, roots of quadratic equation, completing the square, ax2+bx+c=0" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="author" content="adxcal.com" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+
+	<!-- Open Graph / Social -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: tool -->
+	
+
+	<!-- Structured data: FAQ (matches the visible FAQ on this page) -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps","url":"https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html","description":"Free quadratic formula calculator. Enter a, b and c (fractions allowed) to solve ax² + bx + c = 0 instantly. Learn the quadratic formula, its derivation, the discriminant, and get answers to common questions.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps","item":"https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps">
+<meta property="og:description" content="Free quadratic formula calculator. Enter a, b and c (fractions allowed) to solve ax² + bx + c = 0 instantly. Learn the quadratic formula, its derivation, the discriminant, and get answers to common questions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps">
+<meta name="twitter:description" content="Free quadratic formula calculator. Enter a, b and c (fractions allowed) to solve ax² + bx + c = 0 instantly. Learn the quadratic formula, its derivation, the discriminant, and get answers to common questions.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps","url":"https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html","description":"Free quadratic formula calculator. Enter a, b and c (fractions allowed) to solve ax² + bx + c = 0 instantly. Learn the quadratic formula, its derivation, the discriminant, and get answers to common questions.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Quadratic Formula Calculator – Solve ax² + bx + c = 0 with Steps","item":"https://calculator.bhuvanesh-s3602.workers.dev/quadratic-formula-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+<div id="clear"></div><div id="contentout"><main id="content"><nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/quadratic-formula-calculator.html" itemprop="item"><span itemprop="name">quadratic formula calculator</span></a><meta itemprop="position" content="3" /></span></nav>
+<h1>Quadratic Formula Calculator</h1>
+
+<p>The free quadratic formula calculator below solves the quadratic equation of</p>
+<div class="verybigtext" align="center">ax<sup>2</sup> + bx + c = 0</div>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="panel">
+<form name="calform" aria-label="Quadratic formula calculator"><table align="center">
+	<tr>
+		<td class="bigtext"><label for="av"><b>a =</b></label> <input type="text" id="av" name="av" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
+		<td class="bigtext"><label for="bv"><b>b =</b></label> <input type="text" id="bv" name="bv" value="1" class="inlong" style="text-align:left;"> &nbsp; &nbsp; &nbsp; </td>
+		<td class="bigtext"><label for="cv"><b>c =</b></label> <input type="text" id="cv" name="cv" value="1/4" class="inlong" style="text-align:left;"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" style="padding-top:8px;">
+			Fractional values such as 3/4 can be used.<br><br>
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calform);">
+		</td>
+	</tr>
+</table></form>
+</div>
+
+<br>
+
+<section id="quadratic-equation">
+<h2>What Is a Quadratic Equation?</h2>
+<p>In algebra, a quadratic equation is any polynomial equation of the second degree with the following form:</p>
+
+<p class="bigtext" align="center">ax<sup>2</sup> + bx + c = 0</p>
+
+<p>where <b>x</b> is an unknown, <b>a</b> is referred to as the quadratic coefficient, <b>b</b> the linear coefficient, and <b>c</b> the constant. The numerals <b>a</b>, <b>b</b>, and <b>c</b> are coefficients of the equation, and they represent known numbers. For example, <b>a</b> cannot be 0, or the equation would be linear rather than quadratic. A quadratic equation can be solved in multiple ways, including factoring, using the quadratic formula, completing the square, or graphing. Only the use of the quadratic formula, as well as the basics of completing the square, will be discussed here (since the derivation of the formula involves completing the square). Below is the quadratic formula, as well as its derivation. </p>
+
+<p align="center"><img src="/img/quadratic-equation/quadratic-equation-1.svg" width="158" height="49" alt="Quadratic formula: x equals negative b plus or minus the square root of b squared minus 4ac, all divided by 2a"></p>
+</section>
+
+<section id="derivation">
+<h3>Derivation of the Quadratic Formula</h3>
+<table align="center">
+	<tr><td>ax<sup>2</sup> + bx + c = 0</td><td style="padding-left: 38px;"><table cellpadding="0" cellspacing="0"><tr><td>Multiply by &nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">1</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;= 0</td></tr></table></td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td></tr></table></td></tr>
+</table>
+
+<p>From this point, it is possible to complete the square using the relationship that:</p>
+<p align="center">x<sup>2</sup> + bx + c = (x - h)<sup>2</sup> + k</p>
+<p>Continuing the derivation using this relationship:</p>
+
+<table align="center">
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x<sup>2</sup> +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>x + (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup>&nbsp;= &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">c</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">a</td></tr></table></td><td>&nbsp;+ (</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup></td></tr></table></td><td align="right">Simplify</td></tr>
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>(x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>)<sup>2</sup> = &ndash;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;+&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td><td>&nbsp;=&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b<sup>2</sup> - 4ac</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">4a<sup>2</sup></td></tr></table></td></tr></table></td><td align="right">&nbsp; Square root<br>both sides</td></tr>
+	<tr><td><table cellpadding="0" cellspacing="0"><tr><td>x +&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">b</td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td><td>&nbsp;= &plusmn;&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">&radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td><td align="right">Solve for x</td></tr>
+	<tr><td colspan="2"><table cellpadding="0" cellspacing="0"><tr><td>x =&nbsp;</td><td><table cellpadding="0" cellspacing="0"><tr><td align="center">-b &plusmn; &radic;<span style="text-decoration:overline;">b<sup>2</sup> - 4ac</span></td></tr><tr><td height="1" bgcolor="#000000"></td></tr><tr><td align="center">2a</td></tr></table></td></tr></table></td></tr>
+</table>
+
+<p>Recall that the &plusmn; exists as a function of computing a square root, making both positive and negative roots solutions of the quadratic equation. The <b>x</b> values found through the quadratic formula are roots of the quadratic equation that represent the <b>x</b> values where any parabola crosses the x-axis. Furthermore, the quadratic formula also provides the axis of symmetry of the parabola. This is demonstrated by the graph provided below. Note that the quadratic formula actually has many real-world applications, such as calculating areas, projectile trajectories, and speed, among others.</p>
+
+<p align="center"><img src="/img/quadratic-equation/quadratic-equation-4.png" width="320" height="372" alt="Graph of a parabola showing its roots on the x-axis and its axis of symmetry" loading="lazy"></p>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<h3>What is the quadratic formula?</h3>
+<p>The quadratic formula is x = (&ndash;b &plusmn; &radic;(b<sup>2</sup> &ndash; 4ac)) / 2a. It gives the solutions (roots) of any quadratic equation written in the standard form ax<sup>2</sup> + bx + c = 0, where a is not zero.</p>
+
+<h3>How do I use this quadratic formula calculator?</h3>
+<p>Write your equation in the form ax<sup>2</sup> + bx + c = 0, type the values of a, b and c into the three boxes at the top of the page, and click Calculate. Fractional values such as 3/4 can be entered directly.</p>
+
+<h3>What is the discriminant?</h3>
+<p>The discriminant is the expression b<sup>2</sup> &ndash; 4ac found under the square root in the quadratic formula. It tells you what kind of solutions to expect without fully solving the equation.</p>
+
+<h3>How many solutions can a quadratic equation have?</h3>
+<p>If the discriminant is positive, there are two distinct real solutions. If it is zero, there is exactly one real solution (a repeated root). If it is negative, there are no real solutions, but there are two complex solutions that are conjugates of each other. For example, the default values in the calculator (a = 1, b = 1, c = 1/4) give a discriminant of 0, so the only solution is x = &ndash;1/2.</p>
+
+<h3>Why can't a be zero in a quadratic equation?</h3>
+<p>If a is 0, the x<sup>2</sup> term disappears and the equation becomes bx + c = 0, which is a linear equation, not a quadratic one. The quadratic formula also divides by 2a, so a = 0 would require dividing by zero.</p>
+
+<h3>Can b or c be zero?</h3>
+<p>Yes. Only a must be non-zero. If b = 0 the equation is ax<sup>2</sup> + c = 0, and if c = 0 it is ax<sup>2</sup> + bx = 0. The quadratic formula still works in both cases.</p>
+
+<h3>What are the roots of a quadratic equation?</h3>
+<p>The roots (also called solutions or zeros) are the values of x that make the equation true. Graphically, real roots are the x-values where the parabola crosses the x-axis.</p>
+
+<h3>What other methods can solve a quadratic equation?</h3>
+<p>Besides the quadratic formula, a quadratic equation can be solved by factoring, by completing the square, or by graphing. The quadratic formula works for every quadratic equation, while factoring only works easily when the roots are simple numbers.</p>
+
+<h3>How is the quadratic formula derived?</h3>
+<p>It comes from completing the square on ax<sup>2</sup> + bx + c = 0. Divide by a, move the constant to the right side, add (b/2a)<sup>2</sup> to both sides, write the left side as a perfect square, take the square root of both sides, and solve for x. The full step-by-step derivation is shown <a href="#derivation">above</a>.</p>
+
+<h3>How do I find the axis of symmetry and vertex of a parabola?</h3>
+<p>The axis of symmetry of y = ax<sup>2</sup> + bx + c is the vertical line x = &ndash;b / 2a. The vertex lies on this line, and its y-value is found by substituting x = &ndash;b / 2a back into the equation.</p>
+
+<h3>Can you show an example of solving a quadratic equation?</h3>
+<p>For x<sup>2</sup> &ndash; 5x + 6 = 0, a = 1, b = &ndash;5 and c = 6. The discriminant is (&ndash;5)<sup>2</sup> &ndash; 4(1)(6) = 1, so x = (5 &plusmn; 1) / 2, which gives x = 3 and x = 2.</p>
+
+<h3>Where is the quadratic formula used in real life?</h3>
+<p>It is used to calculate areas, projectile trajectories, speed, and other situations in physics, engineering, finance and design where a quantity changes according to a squared term.</p>
+</section>
+
+<p>Looking for more tools? Browse our <a href="/math-calculator.html">math calculators</a>, including the <a href="/fraction-calculator.html">fraction calculator</a> and <a href="/scientific-calculator.html">scientific calculator</a>.</p>
+
+</main>
+
+	<aside id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+		</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>
+	</aside>
+</div>
+
+<div id="clear"></div>
+
+<footer id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></footer>
+
+<nav class="topNavAbs" aria-label="Calculator categories">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</nav>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

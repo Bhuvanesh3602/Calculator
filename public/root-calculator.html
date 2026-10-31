@@ -1,161 +1,551 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Root Calculator</title>
-	<meta name="description" content="This free root calculator determines the roots of numbers, including common roots such as a square root or a cubed root." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/root-calculator.html" itemprop="item"><span itemprop="name">root calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Root Calculator</h1>
-<h2>Square Root Calculator</h2>
-<form name="calform" action="/root-calculator.html"><div class="panel">
-<table cellpadding="0" cellspacing="0" >
-  <tr>
-    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
-    <td height="1" bgcolor="#000"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="padding:3px;"><input type="text" name="cvar1" value="" class="inlonger"></td>
-    <td class="verybigtext"> &nbsp; = ?</td>
-  </tr>
-  <tr>
-	<td align="center" colspan="3" style="padding-top: 10px;">
-		<input name="ctype" value="1" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-    </td>
-  </tr>
-</table>
-</div></form>
-
-
-<a name="cubic"></a>
-<h2>Cube Root Calculator</h2>
-<form name="calform2" action="/root-calculator.html#cubic"><div class="panel">
-<table cellpadding="0" cellspacing="0" >
-  <tr>
-    <td valign="top" style="font-size: 36px;" rowspan="3">&#8731;</td>
-    <td height="1" bgcolor="#000"></td>
-  </tr>
-  <tr>
-    <td colspan="2" height="1"></td>
-  </tr>
-  <tr>
-    <td><input type="text" name="cvar2" value="" class="inlonger"></td>
-    <td class="verybigtext"> &nbsp; = ?</td>
-  </tr>
-  <tr>
-	<td align="center" colspan="3" style="padding-top: 10px;">
-		<input name="ctype" value="2" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-    </td>
-  </tr>
-</table>
-</div></form>
-
-<a name="general"></a>
-<h2>General Root Calculator</h2>
-<form name="calform3" action="/root-calculator.html#general"><div class="panel">
-<table cellpadding="0" cellspacing="0" >
-  <tr>
-    <td valign="top" rowspan="3"><input type="text" name="cvar3" value="" class="innormal" style="text-align: right;"></td>
-    <td height="15" colspan="3"></td>
-  </tr>
-  <tr>
-    <td align="center" valign="middle" style="font-size: 30px;" rowspan="2">&radic;</td>
-    <td height="1" bgcolor="#000"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="padding:3px;"><input type="text" name="cvar4" value="" class="inlonger"></td>
-    <td class="verybigtext"> &nbsp; = ?</td>
-  </tr>
-  <tr>
-	<td align="center" colspan="3" style="padding-top: 10px;">
-		<input name="ctype" value="3" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform3);">
-    </td>
-  </tr>
-</table>
-</div></form>
-<br><p><fieldset><legend>Related</legend><a href="/exponent-calculator.html">Exponent Calculator</a> | <a href="/scientific-calculator.html">Scientific Calculator</a> | <a href="/log-calculator.html">Log Calculator</a></fieldset></p>
-
-
-<br><br>
-<p>In mathematics, the general root, or the <b>n</b><sup>th</sup> root of a number <b>a</b> is another number <b>b</b> that when multiplied by itself <b>n</b> times, equals <b>a</b>. In equation format:</p>
-<p class="bigtext" align="center">
-	<sup>n</sup>&radic;<span style="text-decoration:overline;">a</span> = b<br>
-	b<sup>n</sup> = a<br>
-</p>
-
-<h3>Estimating a Root</h3>
-<p>Some common roots include the square root, where <b>n</b> = 2, and the cubed root, where <b>n</b> = 3. Calculating square roots and <b>n</b><sup>th</sup> roots is fairly intensive. It requires estimation and trial and error. There exist more precise and efficient ways to calculate square roots, but below is a method that does not require a significant understanding of more complicated math concepts. To calculate &radic;<span style="text-decoration:overline;">a</span>:</p>
-<ol>
-<li>Estimate a number <b>b</b></li>
-<li>Divide <b>a</b> by <b>b</b>. If the number <b>c</b> returned is precise to the desired decimal place, stop.</li>
-<li>Average <b>b</b> and <b>c</b> and use the result as a new guess</li>
-<li>Repeat step two</li>
-</ol>
-
-<table align="center"><tr>
-<td>EX: &nbsp;</td><td>Find &radic;<span style="text-decoration:overline;">27</span> to 3 decimal places</td></tr>
-<tr><td>&nbsp;</td><td>
-Guess: 5.125<br>
-27 &#247; 5.125 = 5.268<br>
-(5.125 + 5.268)/2 = 5.197<br>
-27 &#247; 5.197 = 5.195<br>
-(5.195 + 5.197)/2 = 5.196<br>
-27 &#247; 5.196 = 5.196
-</td></tr></table>
-
-<h3>Estimating an n<sup>th</sup> Root</h3>
-<p>Calculating <b>n</b><sup>th</sup> roots can be done using a similar method, with modifications to deal with <b>n</b>. While computing square roots entirely by hand is tedious. Estimating higher <b>n</b><sup>th</sup> roots, even if using a calculator for intermediary steps, is significantly more tedious. For those with an understanding of series, refer <a href="https://en.wikipedia.org/wiki/Nth_root">here</a> for a more mathematical algorithm for calculating <b>n</b><sup>th</sup> roots. For a simpler, but less efficient method, continue to the following steps and example. To calculate <sup>n</sup>&radic;<span style="text-decoration:overline;">a</span>:</p>
-<ol>
-<li>Estimate a number <b>b</b></li>
-<li>Divide <b>a</b> by <b>b</b><sup>n-1</sup>. If the number <b>c</b> returned is precise to the desired decimal place, stop.</li>
-<li>Average: <b>[b &#215; (n-1) + c] / n </b></li>
-<li>Repeat step two </li>
-</ol>
-<table align="center"><tr>
-<td>EX: &nbsp;</td><td>Find <sup>8</sup>&radic;<span style="text-decoration:overline;">15</span> to 3 decimal places</td></tr>
-<tr><td>&nbsp;</td><td>
-Guess: 1.432<br>
-15 &#247; 1.432<sup>7</sup> = 1.405<br>
-(1.432 &#215; 7 + 1.405)/8 = 1.388<br>
-15 &#247; 1.388<sup>7</sup> = 1.403<br>
-(1.403 &#215; 7 + 1.388)/8 = 1.402
-</td></tr></table>
-<p>It should then be clear that computing any further will result in a number that would round to 1.403, making 1.403 the final estimate to 3 decimal places.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Root Calculator - Square Root, Cube Root & nth Root</title>
+
+    <meta name="description" content="Free online root calculator to calculate square roots, cube roots and nth roots with accurate results.">
+    <meta name="keywords" content="root calculator, square root calculator, cube root calculator, nth root calculator">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #202938;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #202938;
+            margin-top: 30px;
+        }
+
+        .panel {
+            background: #f8fafc;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0 30px;
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            max-width: 250px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 22px;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculate {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate:hover {
+            background: #1d4ed8;
+        }
+
+        .clear {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .clear:hover {
+            background: #d1d5db;
+        }
+
+        .result {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            background: #ecfdf3;
+            color: #087a36;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+            display: none;
+        }
+
+        .result.error {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        article {
+            margin-top: 40px;
+        }
+
+        article h3 {
+            margin-top: 25px;
+        }
+
+        footer {
+            background: #202938;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media(max-width: 600px) {
+            main {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .calculator-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            input {
+                max-width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html">
+
+<meta property="og:title" content="Root Calculator - Square Root, Cube Root & nth Root">
+<meta property="og:description" content="Free online root calculator to calculate square roots, cube roots and nth roots with accurate results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Root Calculator - Square Root, Cube Root & nth Root">
+<meta name="twitter:description" content="Free online root calculator to calculate square roots, cube roots and nth roots with accurate results.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Root Calculator - Square Root, Cube Root & nth Root","url":"https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html","description":"Free online root calculator to calculate square roots, cube roots and nth roots with accurate results.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Root Calculator - Square Root, Cube Root & nth Root","item":"https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html"}]}</script>
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/root-calculator.html"><meta name="theme-color" content="#1a5fb4">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+<header>
+    <h1>Root Calculator</h1>
+<nav id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1" />
+  </span> / 
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <a href="/math-calculator.html" itemprop="item"><span itemprop="name">Math</span></a><meta itemprop="position" content="2" />
+  </span> / 
+  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <span itemprop="name">Root Calculator - Square Root, Cube Root &amp; nth Root</span><meta itemprop="position" content="3" />
+  </span>
+</nav>
+
+    <p>Calculate Square Roots, Cube Roots and nth Roots Online</p>
+</header>
+
+<main>
+
+    <p>
+        Use this free root calculator to find the square root,
+        cube root or any nth root of a number. Enter your values
+        and click Calculate to get the result instantly.
+    </p>
+
+    <!-- Square Root Calculator -->
+
+    <h2>Square Root Calculator</h2>
+
+    <div class="panel">
+
+        <form id="squareForm" class="calculator-form">
+
+            <label for="squareNumber">√ Number:</label>
+
+            <input
+                type="number"
+                id="squareNumber"
+                step="any"
+                placeholder="Enter a number"
+                required
+            >
+
+            <button type="submit" class="calculate">
+                Calculate
+            </button>
+
+            <button type="reset" class="clear">
+                Clear
+            </button>
+
+            <div id="squareResult" class="result"
+                 aria-live="polite"></div>
+
+        </form>
+
+    </div>
+
+
+    <!-- Cube Root Calculator -->
+
+    <h2 id="cubic">Cube Root Calculator</h2>
+
+    <div class="panel">
+
+        <form id="cubeForm" class="calculator-form">
+
+            <label for="cubeNumber">∛ Number:</label>
+
+            <input
+                type="number"
+                id="cubeNumber"
+                step="any"
+                placeholder="Enter a number"
+                required
+            >
+
+            <button type="submit" class="calculate">
+                Calculate
+            </button>
+
+            <button type="reset" class="clear">
+                Clear
+            </button>
+
+            <div id="cubeResult" class="result"
+                 aria-live="polite"></div>
+
+        </form>
+
+    </div>
+
+
+    <!-- General nth Root Calculator -->
+
+    <h2 id="general">General Root (nth Root) Calculator</h2>
+
+    <div class="panel">
+
+        <form id="nthForm" class="calculator-form">
+
+            <label for="rootDegree">Root Degree (n):</label>
+
+            <input
+                type="number"
+                id="rootDegree"
+                min="1"
+                step="1"
+                placeholder="Enter root degree"
+                required
+            >
+
+            <label for="nthNumber">Number:</label>
+
+            <input
+                type="number"
+                id="nthNumber"
+                step="any"
+                placeholder="Enter a number"
+                required
+            >
+
+            <button type="submit" class="calculate">
+                Calculate
+            </button>
+
+            <button type="reset" class="clear">
+                Clear
+            </button>
+
+            <div id="nthResult" class="result"
+                 aria-live="polite"></div>
+
+        </form>
+
+    </div>
+
+
+    <!-- Educational Content -->
+
+    <article>
+
+        <h2>What Is a Root in Mathematics?</h2>
+
+        <p>
+            In mathematics, the nth root of a number is a value
+            that, when raised to the power n, produces the
+            original number.
+        </p>
+
+        <p>
+            For example, the square root of 25 is 5 because
+            5 × 5 = 25.
+        </p>
+
+        <h3>Common Perfect Squares</h3>
+
+        <p>
+            1, 4, 9, 16, 25, 36, 49, 64, 81, 100,
+            121, 144, 169, 196, 225.
+        </p>
+
+        <h3>Common Perfect Cubes</h3>
+
+        <p>
+            1, 8, 27, 64, 125, 216, 343, 512, 729, 1000.
+        </p>
+
+        <h3>How to Calculate a Square Root</h3>
+
+        <p>
+            A square root is a number that multiplied by itself
+            gives the original number.
+        </p>
+
+        <p>
+            Example: √144 = 12 because 12 × 12 = 144.
+        </p>
+
+        <h3>How to Calculate an nth Root</h3>
+
+        <p>
+            The nth root of a number a can be calculated using
+            the formula:
+        </p>
+
+        <p>
+            nth root of a = a<sup>1/n</sup>
+        </p>
+
+        <p>
+            Example: The fourth root of 81 is 3 because
+            3 × 3 × 3 × 3 = 81.
+        </p>
+
+    </article>
+
+
+    <!-- FAQ Section -->
+
+    <section id="faq">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>1. What is a square root?</h3>
+        <p>
+            A square root is a number that multiplied by itself
+            equals the original number.
+        </p>
+
+        <h3>2. What is a cube root?</h3>
+        <p>
+            A cube root is a number that multiplied by itself
+            three times equals the original number.
+        </p>
+
+        <h3>3. Can you calculate the square root of a negative number?</h3>
+        <p>
+            Negative numbers do not have real square roots.
+            They have complex roots.
+        </p>
+
+        <h3>4. What is the square root of 2?</h3>
+        <p>
+            The square root of 2 is approximately 1.41421356.
+        </p>
+
+        <h3>5. What is the fourth root of 81?</h3>
+        <p>
+            The fourth root of 81 is 3.
+        </p>
+
+        <h3>6. Can cube roots handle negative numbers?</h3>
+        <p>
+            Yes. The cube root of -8 is -2.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>&copy; 2026 Root Calculator. All Rights Reserved.</p>
+</footer>
+
+
+<!-- Calculator JavaScript -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    function showResult(element, message, isError = false) {
+        element.textContent = message;
+        element.style.display = "block";
+        element.classList.toggle("error", isError);
+    }
+
+    function formatResult(value) {
+        if (!Number.isFinite(value)) {
+            return "Result is too large to display.";
+        }
+
+        if (Object.is(value, -0)) value = 0;
+
+        return Number(value.toPrecision(12)).toString();
+    }
+
+    // SQUARE ROOT
+    document.getElementById("squareForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const input = document.getElementById("squareNumber");
+        const output = document.getElementById("squareResult");
+
+        if (input.value.trim() === "") {
+            showResult(output, "Please enter a number.", true);
+            return;
+        }
+
+        const number = Number(input.value);
+
+        if (number < 0) {
+            showResult(output, "Square root of a negative number is not a real number.", true);
+            return;
+        }
+
+        showResult(output, "√" + number + " = " + formatResult(Math.sqrt(number)));
+    });
+
+    // CUBE ROOT
+    document.getElementById("cubeForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const input = document.getElementById("cubeNumber");
+        const output = document.getElementById("cubeResult");
+
+        if (input.value.trim() === "") {
+            showResult(output, "Please enter a number.", true);
+            return;
+        }
+
+        const number = Number(input.value);
+
+        showResult(output, "∛" + number + " = " + formatResult(Math.cbrt(number)));
+    });
+
+    // GENERAL NTH ROOT
+    document.getElementById("nthForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const degreeInput = document.getElementById("rootDegree");
+        const numberInput = document.getElementById("nthNumber");
+        const output = document.getElementById("nthResult");
+
+        if (!degreeInput.value.trim() || !numberInput.value.trim()) {
+            showResult(output, "Please enter both values.", true);
+            return;
+        }
+
+        const degree = Number(degreeInput.value);
+        const number = Number(numberInput.value);
+
+        if (!Number.isSafeInteger(degree) || degree < 1) {
+            showResult(output, "Root degree must be a positive integer.", true);
+            return;
+        }
+
+        if (number < 0 && degree % 2 === 0) {
+            showResult(output, "Even roots of negative numbers are not real numbers.", true);
+            return;
+        }
+
+        let result;
+
+        if (number < 0) {
+            result = -Math.pow(-number, 1 / degree);
+        } else {
+            result = Math.pow(number, 1 / degree);
+        }
+
+        showResult(
+            output,
+            degree + "th root of " + number + " = " + formatResult(result)
+        );
+    });
+
+    // CLEAR BUTTONS
+    ["squareForm", "cubeForm", "nthForm"].forEach(function (id) {
+        const form = document.getElementById(id);
+
+        form.addEventListener("reset", function () {
+            const output = form.querySelector(".result");
+
+            output.textContent = "";
+            output.style.display = "none";
+            output.classList.remove("error");
+        });
+    });
+
+});
+</script>
+<script src="/js/calc-core.js"></script>
+</body>
+</html>
+
+
+<script src="/js/calc-core.js"></script>
+</body>
+</html>

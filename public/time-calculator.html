@@ -1,212 +1,317 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Time Calculator</title>
-	<meta name="description" content="This free time calculator can add or subtract time values in terms of number of days, hours, minutes, or seconds. Also, learn the different concepts of time." />
-	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"><script type="text/javascript" src="/js/calendardateinput.js"></script>
-</head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/time-calculator.html" itemprop="item"><span itemprop="name">time calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Time Calculator</h1>
-<p>This calculator can be used to "add" or "subtract" two time values. Input fields can be left blank, which will be taken as 0 by default.
-</p>
-
-<div class="panel" style="padding:10px 0px;">
-<form name="calc" action="/time-calculator.html">
-<table border="0" cellspacing="1" cellpadding="3" align="center">
-	<tr>
-		<td align="center"><b>Day</b></td>
-		<td align="center"><b>Hour</b></td>
-		<td align="center"><b>Minute</b></td>
-		<td align="center"><b>Second</b></td>
-	</tr>
-	<tr>
-		<td><input type="text" name="tcday1" id="tcday1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tchour1" id="tchour1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tcminute1" id="tcminute1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tcsecond1" id="tcsecond1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-	</tr>
-	<tr>
-		<td colspan="4" align="center" style="padding:5px;">
-			<label for="cop0" class="cbcontainer"><input type="radio" name="Op" id="cop0" value="+" checked /><span class="rbmark"></span>Add+</label> &nbsp;
-			<label for="cop1" class="cbcontainer"><input type="radio" name="Op" id="cop1" value="-"  /><span class="rbmark"></span>Subtract&ndash;</label>
-		</td>
-	</tr>
-	<tr>
-		<td><input type="text" name="tcday2" id="tcday2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tchour2" id="tchour2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tcminute2" id="tcminute2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		<td><input type="text" name="tcsecond2" id="tcsecond2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-	</tr>
-	<tr>
-		<td colspan="4" align="center" class="verybigtext" style="padding:5px;"><b> = </b></td>
-	</tr>
-	<tr>
-		<td><input type="text" name="tcday3" id="tcday3" value="" class="innormal" style="background-color:#eee;" readonly></td>
-		<td><input type="text" name="tchour3" id="tchour3" value="" class="innormal" style="background-color:#eee;" readonly></td>
-		<td><input type="text" name="tcminute3" id="tcminute3" value="" class="innormal" style="background-color:#eee;" readonly></td>
-		<td><input type="text" name="tcsecond3" id="tcsecond3" value="" class="innormal" style="background-color:#eee;" readonly></td>
-	</tr>
-	<tr>
-		<td colspan="4" align="center" style="padding-top:12px;">
-			<input type="hidden" name="ctype" value="1">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calc);">
-		</td>
-	</tr>
-</table></form>
-</div>
-
-<a name="addsubtractdate"></a><br>
-<h2>Add or Subtract Time from a Date</h2>
-<p>Use this calculator to add or subtract time (days, hours, minutes, seconds) from a starting time and date. The result will be the new time and date based on the subtracted or added period of time. To calculate the amount of time (days, hours, minutes, seconds) between times on two different dates, use the <a href="/time-duration-calculator.html">Time Duration Calculator</a>.</p>
-
-<div class="panel"><form name="calcf2" action="/time-calculator.html#addsubtractdate"><table align="center"><tr>
-		<td align="right" valign="top" style="padding-top:10px;">Start Time</td><td valign="middle"><script>DateInput('today2', true)</script><table cellpadding="0" cellspacing="0" style="padding-top:5px;"><tr align="center"><td>Hour</td><td></td><td>Minute</td><td></td><td>Second</td>  	<td>&nbsp;</td></tr><tr align="center">
-  	<td style="padding-left: 3px;"><input type="text" name="today2hour" value="8" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td><td style="padding-left: 3px;">:</td>
-  	<td style="padding-left: 3px;"><input type="text" name="today2min" value="30" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td><td style="padding-left: 3px;">:</td>
-  	<td style="padding-left: 3px;"><input type="text" name="today2sec" value="0" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td>
-		<td style="padding-left: 3px;"><select name="today2unit">
-			<option value="a" selected>AM</option>
-			<option value="p" >PM</option>
-			<option value="n" >24-hour</option>
-		</select></td><td>&nbsp;<a href="#" onClick="return popTime();">Now</a></td></tr></table>
-		</td></tr><tr><td align="center" colspan="2" style="padding:15px;">			<label for="c2op0" class="cbcontainer"><input type="radio" name="c2op" id="c2op0" value="+" checked /><span class="rbmark"></span>Add+</label> &nbsp;
-			<label for="c2op1" class="cbcontainer"><input type="radio" name="c2op" id="c2op1" value="-"  /><span class="rbmark"></span>Subtract&ndash;</label>
-		</td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2"><table align="center"><tr align="center"><td>Day</td><td>Hour</td><td>Minute</td><td>Second</td>  	</tr><tr>
-			<td><input type="text" name="c2day" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-			<td><input type="text" name="c2hour" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-			<td><input type="text" name="c2min" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-			<td><input type="text" name="c2sec" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
-		</tr></table>
-		</td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2" style="padding-top:10px;">			<input type="hidden" name="ctype" value="2">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
-		</td>
-	</tr>
-</table></form>
-</div>
-<script>
-function popTime(){
-	var ptDate = new Date();
-	var ptHour = ptDate.getHours();
-	var ptMinute = ptDate.getMinutes();
-	var ptSecond = ptDate.getSeconds();
-	var strHour = ""+ptHour;
-	if (ptHour>12) strHour = ""+(ptHour-12);
-
-	document.calcf2.today2hour.value = strHour;
-	document.calcf2.today2min.value = ptMinute;
-	document.calcf2.today2sec.value = ptSecond;
-	if (ptHour<12){
-		document.calcf2.today2unit.getElementsByTagName('option')[0].selected = 'selected';
-	}else{
-		document.calcf2.today2unit.getElementsByTagName('option')[1].selected = 'selected';
-	}
-	return false;
-}
-popTime();</script>
-
-
-<br><a name="expression"></a>
-<h2>Time Calculator in Expression</h2>
-<p>Use this calculator to add or subtract two or more time values in the form of an expression. An acceptable input has d, h, m, and s following each value, where d means days, h means hours, m means minutes, and s means seconds. The only acceptable operators are + and -. "1d 2h 3m 4s + 4h 5s - 2030s" is an example of a valid expression.</p>
-<form name="calcf3" action="/time-calculator.html#expression">
-<div class="panel">
-<table align="center"><tr><td align="center">
-<textarea name="tcexpression" class="infulltxarea" rows="3">1d 2h 3m 4s + 4h 5s - 2030s + 28h</textarea>
-<br><br><input type="hidden" name="ctype" value="3">
-<input type="submit" name="x" value="Calculate">
-<input type="button" value="Clear" onClick="clearForm(document.calcf3);">
-</td></tr></table>
-</div>
-</form>
-
-<br>
-<p><fieldset><legend>Related</legend><a href="/date-calculator.html">Date Calculator</a> | <a href="/age-calculator.html">Age Calculator</a></fieldset></p>
-
-<br>
-<p>Like other numbers, time can be added or subtracted. However, due to how time is defined, there exist differences in how calculations must be computed when compared to decimal numbers. The following table shows some common units of time.</p>
-<table class="cinfoT" align="center">
-	<tr><td class="cinfoHd">Unit</td><td class="cinfoHdL">Definition</td></tr>
-	<tr><td>millennium</td><td class="cinfoBodL">1,000 years</td></tr>
-	<tr><td>century</td><td class="cinfoBodL">100 years</td></tr>
-	<tr><td>decade</td><td class="cinfoBodL">10 years</td></tr>
-	<tr><td>year (average)</td><td class="cinfoBodL">365.242 days or 12 months</td></tr>
-	<tr><td>common year</td><td class="cinfoBodL">365 days or 12 months</td></tr>
-	<tr><td>leap year</td><td class="cinfoBodL">366 days or 12 months</td></tr>
-	<tr><td>quarter</td><td class="cinfoBodL">3 months</td></tr>
-	<tr><td valign="top">month</td><td class="cinfoBodL">28-31 days<br>Jan., Mar., May, Jul., Aug. Oct., Dec.&mdash;31 days<br>Apr., Jun., Sep., Nov.&mdash;30 days.<br>Feb.&mdash;28 days for a common year and 29 days for a leap year</td></tr>
-	<tr><td>week</td><td class="cinfoBodL">7 days</td></tr>
-	<tr><td>day</td><td class="cinfoBodL">24 hours or 1,440 minutes or 86,400 seconds</td></tr>
-	<tr><td>hour</td><td class="cinfoBodL">60 minutes or 3,600 seconds</td></tr>
-	<tr><td>minute</td><td class="cinfoBodL">60 seconds</td></tr>
-	<tr><td>second</td><td class="cinfoBodL">base unit</td></tr>
-	<tr><td>millisecond</td><td class="cinfoBodL">10<sup>-3</sup> second</td></tr>
-	<tr><td>microsecond</td><td class="cinfoBodL">10<sup>-6</sup> second</td></tr>
-	<tr><td>nanosecond</td><td class="cinfoBodL">10<sup>-9</sup> second</td></tr>
-	<tr><td>picosecond</td><td class="cinfoBodL">10<sup>-12</sup> second</td></tr>
-</table>
-
-<h3>Concepts of Time:</h3>
-
-<p><b>Ancient Greece</b></p>
-<p>There exist various concepts of time that have been postulated by different philosophers and scientists over an extensive period of human history. One of the earlier views was presented by the ancient Greek philosopher Aristotle (384-322 BC), who defined time as "a number of movement in respect of the before and after." Essentially, Aristotle's view of time defined it as a measurement of change requiring the existence of some kind of motion or change. He also believed that time was infinite and continuous, and that the universe always did, and always will exist. Interestingly, he was also one of the first people, if not the first person, to frame the idea that time existing of two different kinds of non-existence makes time existing at all, questionable. Aristotle's view is solely one amongst many in the discussion of time, the most controversial of which began with Sir Isaac Newton, and Gottfried Leibniz.   </p>
-
-<p><b>Newton &amp; Leibniz</b></p>
-<p>In Newton's Philosophi&aelig; Naturalis Principia Mathematica, Newton tackled the concepts of space and time as absolutes. He argued that absolute time exists and flows without any regard to external factors, and called this "duration." According to Newton, absolute time can only be understood mathematically, since it is imperceptible. Relative time on the other hand, is what humans actually perceive and is a measurement of "duration" through the motion of objects, such as the sun and the moon. Newton's realist view is sometimes referred to as Newtonian time. </p>
-<p>Contrary to Newton's assertions, Leibniz believed that time only makes sense in the presence of objects with which it can interact. According to Leibniz, time is nothing more than a concept similar to space and numbers that allows humans to compare and sequence events. Within this argument, known as relational time, time itself cannot be measured. It is simply the way in which humans subjectively perceive and sequence the objects, events, and experiences accumulated throughout their lifetimes. </p>
-<p>One of the prominent arguments that arose from the correspondence between Newton's spokesman Samuel Clarke and Leibniz is referred to as the bucket argument, or Newton's bucket. In this argument, water in a bucket hanging stationary from a rope begins with a flat surface, which becomes concave as the water and bucket are made to spin. If the bucket's rotation is then stopped, the water remains concave during the period it continues to spin. Since this example showed that the concavity of the water was not based on an interaction between the bucket and the water, Newton claimed that the water was rotating in relation to a third entity, absolute space. He argued that absolute space was necessary in order to account for cases where a relationalist perspective could not fully explain an object's rotation and acceleration. Despite Leibniz's efforts, this Newtonian concept of physics remained prevalent for nearly two centuries.</p>
-
-<p><b>Einstein</b></p>
-<p>While many scientists, including Ernst Mach, Albert A. Michelson, Hendrik Lorentz, and Henri Poincare among others, contributed to what would ultimately transform theoretical physics and astronomy, the scientist credited with compiling and describing the theory of relativity and the Lorenz Transformation was Albert Einstein. Unlike Newton, who believed that time moved identically for all observers regardless of the frame of reference, Einstein, building on Leibniz's view that time is relative, introduced the idea of spacetime as connected, rather than separate concepts of space and time. Einstein posited that the speed of light, c, in vacuum, is the same for all observers, independent of the motion of the light source, and relates distances measured in space with distances measured in time. Essentially, for observers within different inertial frames of reference (different relative velocities), both the shape of space as well as the measurement of time simultaneously change due to the invariance of the speed of light &ndash; a view vastly different from Newton's. A common example depicting this involves a spaceship moving near the speed of light. To an observer on another spaceship moving at a different speed, time would move slower on the spaceship traveling at near the speed of light, and would theoretically stop if the spaceship could actually reach the speed of light. </p>
-<p>To put it simply, if an object moves faster through space, it will move slower through time, and if an object moves slower through space, it will move faster through time. This has to occur in order for the speed of light to remain constant. </p>
-<p>It is worth noting that Einstein's theory of general relativity, after nearly two centuries, finally gave answer to Newton's bucket argument. Within general relativity, an inertial frame of reference is one that follows a geodesic of spacetime, where a geodesic generalizes the idea of a straight line to that of curved spacetime. General relativity states: an object moving against a geodesic experiences a force; an object in free fall does not experience a force because it is following a geodesic; and an object on earth does experience a force because the surface of the planet applies a force against the geodesic to hold the object in place. As such, rather than rotating with respect to "absolute space" or with respect to distant stars (as postulated by Ernst Mach), the water in the bucket is concave because it is rotating with respect to a geodesic. </p>
-<p>The various concepts of time that have prevailed throughout different periods of history make it evident that even the most well-conceived theories can be overturned. Despite all of the advances made in quantum physics and other areas of science, time is still not fully understood. It may only be a matter of time before Einstein's absolute constant of light is revoked, and humanity succeeds in traveling to the past!</p>
-
-<h3>How we measure time:</h3>
-<p>There are two distinct forms of measurement typically used today to determine time: the calendar and the clock. These measurements of time are based on the sexagesimal numeral system, which uses 60 as its base. This system originated from ancient Sumer within the 3rd millennium BC, and was adopted by the Babylonians. It is now used in a modified form for measuring time, as well as angles and geographic coordinates. Base 60 is used due to the number 60's status as a superior highly composite number having 12 factors. A superior highly composite number is a natural number, that relative to any other number scaled to some power of itself, has more divisors. The number 60, having as many factors as it does, simplifies many fractions involving sexagesimal numbers, and its mathematical advantage is one of the contributing factors to its continued use today. For example, 1 hour, or 60 minutes, can be evenly divided into 30, 20, 15, 12, 10, 6, 5, 4, 3, 2, and 1 minute, illustrating some of the reasoning behind the sexagesimal system's use in measuring time. </p>
-
-<h3>Development of the second, minute, and concept of a 24-hour day:</h3>
-<p>The Egyptian civilization is often credited as being the first civilization that divided the day into smaller parts, due to documented evidence of their use of sundials. The earliest sundials divided the period between sunrise and sunset into 12 parts. Since sundials could not be used after sunset, measuring the passage of night was more difficult. Egyptian astronomers noticed patterns in a set of stars however, and used 12 of those stars to create 12 divisions of night. Having these two 12 part divisions of day and night is one theory behind where the concept of a 24-hour day originated. The divisions created by the Egyptians however, varied based on the time of the year, with summer hours being much longer than those of winter. It was not until later, around 147 to 127 BC that a Greek astronomer Hipparchus proposed dividing the day into 12 hours of daylight and 12 hours of darkness based on the days of the equinox. This constituted the 24 hours that would later be known as equinoctial hours and would result in days with hours of equal length. Despite this, fixed-length hours only became commonplace during the 14<sup>th</sup> century along with the advent of mechanical clocks. </p>
-<p>Hipparchus also developed a system of longitude lines encompassing 360 degrees, which was later subdivided into 360 degrees of latitude and longitude by Claudius Ptolemy. Each degree was divided into 60 parts, each of which was again divided into 60 smaller parts that became known as the minute and second respectively. </p>
-<p>While many different calendar systems were developed by various civilizations over long periods of time, the calendar most commonly used worldwide is the Gregorian calendar. It was introduced by Pope Gregory XIII in 1582 and is largely based on the Julian calendar, a Roman solar calendar proposed by Julius Caesar in 45 BC. The Julian calendar was inaccurate and allowed the astronomical equinoxes and solstices to advance against it by approximately 11 minutes per year. The Gregorian calendar significantly improved upon this discrepancy. Refer to the <a href="/date-calculator.html">date calculator</a> for further details on the history of the Gregorian calendar.</p>
-
-<h3>Early timekeeping devices:</h3>
-<p>Early devices for measuring time were highly varied based on culture and location, and generally were intended to divide the day or night into different periods meant to regulate work or religious practices. Some of these include oil lamps and candle clocks which were used to mark the passage of time from one event to another, rather than actually tell the time of the day. The water clock, also known as a clepsydra, is arguably the most accurate clock of the ancient world. Clepsydras function based on the regulated flow of water from, or into a container where the water is then measured to determine the passage of time. In the 14<sup>th</sup> century, hourglasses, also known as sandglasses, first appeared and were originally similar in purpose to oil lamps and candle clocks. Eventually, as clocks became more accurate, they were used to calibrate hourglasses to measure specific periods of time. </p>
-<p>The first pendulum mechanical clock was created by Christiaan Huygens in 1656; it was the first clock regulated by a mechanism with a "natural" period of oscillation. Huygens managed to refine his pendulum clock to have errors of fewer than 10 seconds a day. Today however, atomic clocks are the most accurate devices for time measurement. Atomic clocks use an electronic oscillator to keep track of passing time based on cesium atomic resonance. While other types of atomic clocks exist, cesium atomic clocks are the most common and accurate. The second, the SI unit of time, is also calibrated based on measuring periods of the radiation of a cesium atom. </p>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)</title>
+	<meta name="description" content="Free time calculator to add or subtract days, hours, minutes and seconds, add time to a date and clock time, or solve time expressions like 1d 2h 3m 4s + 4h 5s. Examples and FAQs." />
+	<meta name="keywords" content="time calculator, add time calculator, subtract time calculator, hours and minutes calculator, add hours to time, time addition, time subtraction, time expression calculator" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json"><script type="text/javascript" src="/js/calendardateinput.js"></script>
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html","description":"Free time calculator to add or subtract days, hours, minutes and seconds, add time to a date and clock time, or solve time expressions like 1d 2h 3m 4s + 4h 5s. Examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)">
+<meta property="og:description" content="Free time calculator to add or subtract days, hours, minutes and seconds, add time to a date and clock time, or solve time expressions like 1d 2h 3m 4s + 4h 5s. Examples and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)">
+<meta name="twitter:description" content="Free time calculator to add or subtract days, hours, minutes and seconds, add time to a date and clock time, or solve time expressions like 1d 2h 3m 4s + 4h 5s. Examples and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html","description":"Free time calculator to add or subtract days, hours, minutes and seconds, add time to a date and clock time, or solve time expressions like 1d 2h 3m 4s + 4h 5s. Examples and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Time Calculator – Add or Subtract Days, Hours, Minutes &amp; Seconds (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/time-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/time-calculator.html" itemprop="item"><span itemprop="name">time calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Time Calculator</h1>
+<p>This free time calculator can be used to "add" or "subtract" two time values in days, hours, minutes and seconds. It can also add time to a date and clock time, or solve a time expression. Input fields can be left blank, which will be taken as 0 by default.</p>
+
+<div class="panel" style="padding:10px 0px;">
+<form name="calc" action="/time-calculator.html">
+<table border="0" cellspacing="1" cellpadding="3" align="center">
+	<tr>
+		<td align="center"><b>Day</b></td>
+		<td align="center"><b>Hour</b></td>
+		<td align="center"><b>Minute</b></td>
+		<td align="center"><b>Second</b></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="tcday1" id="tcday1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tchour1" id="tchour1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tcminute1" id="tcminute1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tcsecond1" id="tcsecond1" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center" style="padding:5px;">
+			<label for="cop0" class="cbcontainer"><input type="radio" name="Op" id="cop0" value="+" checked /><span class="rbmark"></span>Add+</label> &nbsp;
+			<label for="cop1" class="cbcontainer"><input type="radio" name="Op" id="cop1" value="-"  /><span class="rbmark"></span>Subtract&ndash;</label>
+		</td>
+	</tr>
+	<tr>
+		<td><input type="text" name="tcday2" id="tcday2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tchour2" id="tchour2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tcminute2" id="tcminute2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		<td><input type="text" name="tcsecond2" id="tcsecond2" value="" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center" class="verybigtext" style="padding:5px;"><b> = </b></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="tcday3" id="tcday3" value="" class="innormal" style="background-color:#eee;" readonly></td>
+		<td><input type="text" name="tchour3" id="tchour3" value="" class="innormal" style="background-color:#eee;" readonly></td>
+		<td><input type="text" name="tcminute3" id="tcminute3" value="" class="innormal" style="background-color:#eee;" readonly></td>
+		<td><input type="text" name="tcsecond3" id="tcsecond3" value="" class="innormal" style="background-color:#eee;" readonly></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center" style="padding-top:12px;">
+			<input type="hidden" name="ctype" value="1">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calc);">
+		</td>
+	</tr>
+</table></form>
+</div>
+
+<a name="addsubtractdate"></a><br>
+<h2>Add or Subtract Time from a Date</h2>
+<p>Use this calculator to add or subtract time (days, hours, minutes, seconds) from a starting time and date. The result will be the new time and date based on the subtracted or added period of time. To calculate the amount of time (days, hours, minutes, seconds) between times on two different dates, use the <a href="/time-duration-calculator.html">Time Duration Calculator</a>.</p>
+
+<div class="panel"><form name="calcf2" action="/time-calculator.html#addsubtractdate"><table align="center"><tr>
+		<td align="right" valign="top" style="padding-top:10px;">Start Time</td><td valign="middle"><script>DateInput('today2', true)</script><table cellpadding="0" cellspacing="0" style="padding-top:5px;"><tr align="center"><td>Hour</td><td></td><td>Minute</td><td></td><td>Second</td>  	<td>&nbsp;</td></tr><tr align="center">
+  	<td style="padding-left: 3px;"><input type="text" name="today2hour" value="8" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td><td style="padding-left: 3px;">:</td>
+  	<td style="padding-left: 3px;"><input type="text" name="today2min" value="30" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td><td style="padding-left: 3px;">:</td>
+  	<td style="padding-left: 3px;"><input type="text" name="today2sec" value="0" class="in4char" onKeyUp="iptfieldCheck(this, 'r', 'pzn');"></td>
+		<td style="padding-left: 3px;"><select name="today2unit">
+			<option value="a" selected>AM</option>
+			<option value="p" >PM</option>
+			<option value="n" >24-hour</option>
+		</select></td><td>&nbsp;<a href="#" onClick="return popTime();">Now</a></td></tr></table>
+		</td></tr><tr><td align="center" colspan="2" style="padding:15px;">			<label for="c2op0" class="cbcontainer"><input type="radio" name="c2op" id="c2op0" value="+" checked /><span class="rbmark"></span>Add+</label> &nbsp;
+			<label for="c2op1" class="cbcontainer"><input type="radio" name="c2op" id="c2op1" value="-"  /><span class="rbmark"></span>Subtract&ndash;</label>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><table align="center"><tr align="center"><td>Day</td><td>Hour</td><td>Minute</td><td>Second</td>  	</tr><tr>
+			<td><input type="text" name="c2day" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+			<td><input type="text" name="c2hour" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+			<td><input type="text" name="c2min" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+			<td><input type="text" name="c2sec" value="0" class="innormal" onKeyUp="iptfieldCheck(this, '', 'n');"></td>
+		</tr></table>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="padding-top:10px;">			<input type="hidden" name="ctype" value="2">
+			<input type="submit" name="x" value="Calculate">
+			<input type="button" value="Clear" onClick="clearForm(document.calcf2);">
+		</td>
+	</tr>
+</table></form>
+</div>
+<script>
+function popTime(){
+	var ptDate = new Date();
+	var ptHour = ptDate.getHours();
+	var ptMinute = ptDate.getMinutes();
+	var ptSecond = ptDate.getSeconds();
+	var strHour = ""+ptHour;
+	if (ptHour>12) strHour = ""+(ptHour-12);
+
+	document.calcf2.today2hour.value = strHour;
+	document.calcf2.today2min.value = ptMinute;
+	document.calcf2.today2sec.value = ptSecond;
+	if (ptHour<12){
+		document.calcf2.today2unit.getElementsByTagName('option')[0].selected = 'selected';
+	}else{
+		document.calcf2.today2unit.getElementsByTagName('option')[1].selected = 'selected';
+	}
+	return false;
+}
+popTime();</script>
+
+<br><a name="expression"></a>
+<h2>Time Calculator in Expression</h2>
+<p>Use this calculator to add or subtract two or more time values in the form of an expression. An acceptable input has d, h, m, and s following each value, where d means days, h means hours, m means minutes, and s means seconds. The only acceptable operators are + and -. "1d 2h 3m 4s + 4h 5s - 2030s" is an example of a valid expression.</p>
+<form name="calcf3" action="/time-calculator.html#expression">
+<div class="panel">
+<table align="center"><tr><td align="center">
+<textarea name="tcexpression" class="infulltxarea" rows="3">1d 2h 3m 4s + 4h 5s - 2030s + 28h</textarea>
+<br><br><input type="hidden" name="ctype" value="3">
+<input type="submit" name="x" value="Calculate">
+<input type="button" value="Clear" onClick="clearForm(document.calcf3);">
+</td></tr></table>
+</div>
+</form>
+
+<br>
+<p><fieldset><legend>Related</legend><a href="/date-calculator.html">Date Calculator</a> | <a href="/age-calculator.html">Age Calculator</a> | <a href="/time-duration-calculator.html">Time Duration Calculator</a> | <a href="/hours-calculator.html">Hours Calculator</a></fieldset></p>
+
+<h2>How to Use the Time Calculator</h2>
+<p>For a simple sum, enter the first time value in the top row, choose <b>Add</b> or <b>Subtract</b>, enter the second value, and click <b>Calculate</b>. To move a clock time and date forward or backward, use the <b>Add or Subtract Time from a Date</b> calculator. To mix several values at once, type an expression such as 2h 30m + 45m - 10m in the <b>Time Calculator in Expression</b>.</p>
+
+<h3>Time Calculation Formulas</h3>
+<table class="cinfoT">
+	<tr><td>Add time</td><td class="cinfoBodL">add each unit, then carry 60 seconds to 1 minute, 60 minutes to 1 hour and 24 hours to 1 day</td></tr>
+	<tr><td>Subtract time</td><td class="cinfoBodL">subtract each unit, borrowing 60 from the next larger unit when needed</td></tr>
+	<tr><td>Total seconds</td><td class="cinfoBodL">days &times; 86,400 + hours &times; 3,600 + minutes &times; 60 + seconds</td></tr>
+	<tr><td>Decimal hours</td><td class="cinfoBodL">hours + minutes &divide; 60</td></tr>
+</table>
+
+<h3>Example 1: Adding time</h3>
+<p align="center">3 h 45 m 50 s + 2 h 20 m 30 s<br>seconds: 50 + 30 = 80 = 1 m 20 s<br>minutes: 45 + 20 + 1 = 66 = 1 h 6 m<br>hours: 3 + 2 + 1 = 6<br>result = 6 h 6 m 20 s</p>
+
+<h3>Example 2: Subtracting time</h3>
+<p align="center">5 h 10 m &minus; 2 h 40 m = 310 minutes &minus; 160 minutes = 150 minutes = 2 h 30 m</p>
+
+<h3>Example 3: Adding time to a clock time</h3>
+<p align="center">8:30 PM + 10 h 30 m = 31:00 on a 24-hour clock = 7:00 AM the next day</p>
+
+<h3>Example 4: Time expression</h3>
+<p align="center">1d 2h 3m 4s + 4h 5s &minus; 2030s + 28h<br>= 86,400 + 7,200 + 180 + 4 + 14,400 + 5 &minus; 2,030 + 100,800 = 206,959 seconds<br>= 2 days 9 hours 29 minutes 19 seconds</p>
+
+<p>Like other numbers, time can be added or subtracted. However, due to how time is defined, there exist differences in how calculations must be computed when compared to decimal numbers. The following table shows some common units of time.</p>
+<table class="cinfoT" align="center">
+	<tr><td class="cinfoHd">Unit</td><td class="cinfoHdL">Definition</td></tr>
+	<tr><td>millennium</td><td class="cinfoBodL">1,000 years</td></tr>
+	<tr><td>century</td><td class="cinfoBodL">100 years</td></tr>
+	<tr><td>decade</td><td class="cinfoBodL">10 years</td></tr>
+	<tr><td>year (average)</td><td class="cinfoBodL">365.242 days or 12 months</td></tr>
+	<tr><td>common year</td><td class="cinfoBodL">365 days or 12 months</td></tr>
+	<tr><td>leap year</td><td class="cinfoBodL">366 days or 12 months</td></tr>
+	<tr><td>quarter</td><td class="cinfoBodL">3 months</td></tr>
+	<tr><td valign="top">month</td><td class="cinfoBodL">28-31 days<br>Jan., Mar., May, Jul., Aug. Oct., Dec.&mdash;31 days<br>Apr., Jun., Sep., Nov.&mdash;30 days.<br>Feb.&mdash;28 days for a common year and 29 days for a leap year</td></tr>
+	<tr><td>week</td><td class="cinfoBodL">7 days</td></tr>
+	<tr><td>day</td><td class="cinfoBodL">24 hours or 1,440 minutes or 86,400 seconds</td></tr>
+	<tr><td>hour</td><td class="cinfoBodL">60 minutes or 3,600 seconds</td></tr>
+	<tr><td>minute</td><td class="cinfoBodL">60 seconds</td></tr>
+	<tr><td>second</td><td class="cinfoBodL">base unit</td></tr>
+	<tr><td>millisecond</td><td class="cinfoBodL">10<sup>-3</sup> second</td></tr>
+	<tr><td>microsecond</td><td class="cinfoBodL">10<sup>-6</sup> second</td></tr>
+	<tr><td>nanosecond</td><td class="cinfoBodL">10<sup>-9</sup> second</td></tr>
+	<tr><td>picosecond</td><td class="cinfoBodL">10<sup>-12</sup> second</td></tr>
+</table>
+
+<h3>Concepts of Time:</h3>
+
+<p><b>Ancient Greece</b></p>
+<p>There exist various concepts of time that have been postulated by different philosophers and scientists over an extensive period of human history. One of the earlier views was presented by the ancient Greek philosopher Aristotle (384-322 BC), who defined time as "a number of movement in respect of the before and after." Essentially, Aristotle's view of time defined it as a measurement of change requiring the existence of some kind of motion or change. He also believed that time was infinite and continuous, and that the universe always did, and always will exist. Interestingly, he was also one of the first people, if not the first person, to frame the idea that time existing of two different kinds of non-existence makes time existing at all, questionable. Aristotle's view is solely one amongst many in the discussion of time, the most controversial of which began with Sir Isaac Newton, and Gottfried Leibniz.   </p>
+
+<p><b>Newton &amp; Leibniz</b></p>
+<p>In Newton's Philosophi&aelig; Naturalis Principia Mathematica, Newton tackled the concepts of space and time as absolutes. He argued that absolute time exists and flows without any regard to external factors, and called this "duration." According to Newton, absolute time can only be understood mathematically, since it is imperceptible. Relative time on the other hand, is what humans actually perceive and is a measurement of "duration" through the motion of objects, such as the sun and the moon. Newton's realist view is sometimes referred to as Newtonian time. </p>
+<p>Contrary to Newton's assertions, Leibniz believed that time only makes sense in the presence of objects with which it can interact. According to Leibniz, time is nothing more than a concept similar to space and numbers that allows humans to compare and sequence events. Within this argument, known as relational time, time itself cannot be measured. It is simply the way in which humans subjectively perceive and sequence the objects, events, and experiences accumulated throughout their lifetimes. </p>
+<p>One of the prominent arguments that arose from the correspondence between Newton's spokesman Samuel Clarke and Leibniz is referred to as the bucket argument, or Newton's bucket. In this argument, water in a bucket hanging stationary from a rope begins with a flat surface, which becomes concave as the water and bucket are made to spin. If the bucket's rotation is then stopped, the water remains concave during the period it continues to spin. Since this example showed that the concavity of the water was not based on an interaction between the bucket and the water, Newton claimed that the water was rotating in relation to a third entity, absolute space. He argued that absolute space was necessary in order to account for cases where a relationalist perspective could not fully explain an object's rotation and acceleration. Despite Leibniz's efforts, this Newtonian concept of physics remained prevalent for nearly two centuries.</p>
+
+<p><b>Einstein</b></p>
+<p>While many scientists, including Ernst Mach, Albert A. Michelson, Hendrik Lorentz, and Henri Poincare among others, contributed to what would ultimately transform theoretical physics and astronomy, the scientist credited with compiling and describing the theory of relativity and the Lorenz Transformation was Albert Einstein. Unlike Newton, who believed that time moved identically for all observers regardless of the frame of reference, Einstein, building on Leibniz's view that time is relative, introduced the idea of spacetime as connected, rather than separate concepts of space and time. Einstein posited that the speed of light, c, in vacuum, is the same for all observers, independent of the motion of the light source, and relates distances measured in space with distances measured in time. Essentially, for observers within different inertial frames of reference (different relative velocities), both the shape of space as well as the measurement of time simultaneously change due to the invariance of the speed of light &ndash; a view vastly different from Newton's. A common example depicting this involves a spaceship moving near the speed of light. To an observer on another spaceship moving at a different speed, time would move slower on the spaceship traveling at near the speed of light, and would theoretically stop if the spaceship could actually reach the speed of light. </p>
+<p>To put it simply, if an object moves faster through space, it will move slower through time, and if an object moves slower through space, it will move faster through time. This has to occur in order for the speed of light to remain constant. </p>
+<p>It is worth noting that Einstein's theory of general relativity, after nearly two centuries, finally gave answer to Newton's bucket argument. Within general relativity, an inertial frame of reference is one that follows a geodesic of spacetime, where a geodesic generalizes the idea of a straight line to that of curved spacetime. General relativity states: an object moving against a geodesic experiences a force; an object in free fall does not experience a force because it is following a geodesic; and an object on earth does experience a force because the surface of the planet applies a force against the geodesic to hold the object in place. As such, rather than rotating with respect to "absolute space" or with respect to distant stars (as postulated by Ernst Mach), the water in the bucket is concave because it is rotating with respect to a geodesic. </p>
+<p>The various concepts of time that have prevailed throughout different periods of history make it evident that even the most well-conceived theories can be overturned. Despite all of the advances made in quantum physics and other areas of science, time is still not fully understood. It may only be a matter of time before Einstein's absolute constant of light is revoked, and humanity succeeds in traveling to the past!</p>
+
+<h3>How we measure time:</h3>
+<p>There are two distinct forms of measurement typically used today to determine time: the calendar and the clock. These measurements of time are based on the sexagesimal numeral system, which uses 60 as its base. This system originated from ancient Sumer within the 3rd millennium BC, and was adopted by the Babylonians. It is now used in a modified form for measuring time, as well as angles and geographic coordinates. Base 60 is used due to the number 60's status as a superior highly composite number having 12 factors. A superior highly composite number is a natural number, that relative to any other number scaled to some power of itself, has more divisors. The number 60, having as many factors as it does, simplifies many fractions involving sexagesimal numbers, and its mathematical advantage is one of the contributing factors to its continued use today. For example, 1 hour, or 60 minutes, can be evenly divided into 30, 20, 15, 12, 10, 6, 5, 4, 3, 2, and 1 minute, illustrating some of the reasoning behind the sexagesimal system's use in measuring time. </p>
+
+<h3>Development of the second, minute, and concept of a 24-hour day:</h3>
+<p>The Egyptian civilization is often credited as being the first civilization that divided the day into smaller parts, due to documented evidence of their use of sundials. The earliest sundials divided the period between sunrise and sunset into 12 parts. Since sundials could not be used after sunset, measuring the passage of night was more difficult. Egyptian astronomers noticed patterns in a set of stars however, and used 12 of those stars to create 12 divisions of night. Having these two 12 part divisions of day and night is one theory behind where the concept of a 24-hour day originated. The divisions created by the Egyptians however, varied based on the time of the year, with summer hours being much longer than those of winter. It was not until later, around 147 to 127 BC that a Greek astronomer Hipparchus proposed dividing the day into 12 hours of daylight and 12 hours of darkness based on the days of the equinox. This constituted the 24 hours that would later be known as equinoctial hours and would result in days with hours of equal length. Despite this, fixed-length hours only became commonplace during the 14<sup>th</sup> century along with the advent of mechanical clocks. </p>
+<p>Hipparchus also developed a system of longitude lines encompassing 360 degrees, which was later subdivided into 360 degrees of latitude and longitude by Claudius Ptolemy. Each degree was divided into 60 parts, each of which was again divided into 60 smaller parts that became known as the minute and second respectively. </p>
+<p>While many different calendar systems were developed by various civilizations over long periods of time, the calendar most commonly used worldwide is the Gregorian calendar. It was introduced by Pope Gregory XIII in 1582 and is largely based on the Julian calendar, a Roman solar calendar proposed by Julius Caesar in 45 BC. The Julian calendar was inaccurate and allowed the astronomical equinoxes and solstices to advance against it by approximately 11 minutes per year. The Gregorian calendar significantly improved upon this discrepancy. Refer to the <a href="/date-calculator.html">date calculator</a> for further details on the history of the Gregorian calendar.</p>
+
+<h3>Early timekeeping devices:</h3>
+<p>Early devices for measuring time were highly varied based on culture and location, and generally were intended to divide the day or night into different periods meant to regulate work or religious practices. Some of these include oil lamps and candle clocks which were used to mark the passage of time from one event to another, rather than actually tell the time of the day. The water clock, also known as a clepsydra, is arguably the most accurate clock of the ancient world. Clepsydras function based on the regulated flow of water from, or into a container where the water is then measured to determine the passage of time. In the 14<sup>th</sup> century, hourglasses, also known as sandglasses, first appeared and were originally similar in purpose to oil lamps and candle clocks. Eventually, as clocks became more accurate, they were used to calibrate hourglasses to measure specific periods of time. </p>
+<p>The first pendulum mechanical clock was created by Christiaan Huygens in 1656; it was the first clock regulated by a mechanism with a "natural" period of oscillation. Huygens managed to refine his pendulum clock to have errors of fewer than 10 seconds a day. Today however, atomic clocks are the most accurate devices for time measurement. Atomic clocks use an electronic oscillator to keep track of passing time based on cesium atomic resonance. While other types of atomic clocks exist, cesium atomic clocks are the most common and accurate. The second, the SI unit of time, is also calibrated based on measuring periods of the radiation of a cesium atom. </p>
+
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details>
+<summary><b>How do you add time?</b></summary>
+<p>Add the seconds, then the minutes, then the hours, then the days. Every 60 seconds carries 1 minute, every 60 minutes carries 1 hour, and every 24 hours carries 1 day. For example, 3 h 45 m 50 s + 2 h 20 m 30 s = 6 h 6 m 20 s.</p>
+</details>
+<br>
+<details>
+<summary><b>How do you subtract time?</b></summary>
+<p>Subtract each unit, borrowing when needed: 1 hour becomes 60 minutes and 1 minute becomes 60 seconds. An easy way is to convert both values to minutes or seconds first. For example, 5 h 10 m &minus; 2 h 40 m = 310 &minus; 160 = 150 minutes, which is 2 h 30 m.</p>
+</details>
+<br>
+<details>
+<summary><b>How many seconds are in a minute, an hour and a day?</b></summary>
+<p>A minute has 60 seconds, an hour has 60 minutes or 3,600 seconds, and a day has 24 hours, 1,440 minutes or 86,400 seconds.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I use the time expression calculator?</b></summary>
+<p>Type each value followed by d, h, m or s for days, hours, minutes or seconds, and join the values with + or -. For example, 1d 2h 3m 4s + 4h 5s - 2030s + 28h is a valid expression. Only the + and - operators are accepted.</p>
+</details>
+<br>
+<details>
+<summary><b>What happens if I leave an input field blank?</b></summary>
+<p>Blank fields are taken as 0 by default, so you can enter only the units you need, such as hours and minutes.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I add hours and minutes to a clock time?</b></summary>
+<p>Use the Add or Subtract Time from a Date calculator. Enter the start time and date, choose Add or Subtract, and enter the days, hours, minutes and seconds. For example, adding 10 hours 30 minutes to 8:30 PM gives 7:00 AM on the next day.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I convert hours and minutes to decimal hours?</b></summary>
+<p>Divide the minutes by 60 and add the result to the hours. For example, 2 hours 15 minutes is 2 + 15 &divide; 60 = 2.25 hours, and 7 hours 45 minutes is 7.75 hours.</p>
+</details>
+<br>
+<details>
+<summary><b>How do I find the time between two times or dates?</b></summary>
+<p>Use the <a href="/time-duration-calculator.html">Time Duration Calculator</a>, which finds the days, hours, minutes and seconds between two times on the same or different dates. This calculator is for adding or subtracting a known amount of time.</p>
+</details>
+<br>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

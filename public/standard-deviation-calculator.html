@@ -1,99 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Standard Deviation Calculator</title>
-	<meta name="description" content="This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/standard-deviation-calculator.html" itemprop="item"><span itemprop="name">standard deviation calculator</span></a><meta itemprop="position" content="3" /></span></div>
-<h1>Standard Deviation Calculator</h1>
-
-<p>Please provide numbers separated by commas to calculate the standard deviation, variance, mean, sum, and margin of error.</p><form name="calform">
-<table class="panel" align="center"><tr><td align="center">
-<textarea name="numberinputs" class="infulltxarea" rows="3">10, 12, 23, 23, 16, 23, 21, 16</textarea>
-<div>It is a
-<label for="ctype1" class="cbcontainer"><input type="radio" name="ctype" id="ctype1" value="p" checked /><span class="rbmark"></span>Population</label> <label for="ctype2" class="cbcontainer"><input type="radio" name="ctype" id="ctype2" value="s"  /><span class="rbmark"></span>Sample</label> <img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('Select <b>Population</b> if the data contains all measurable values, or all of the values you are interested in.<br>Select <b>Sample</b> if the data is a sample of a large or unlimited population and you wish to make a statement about the entire population.', '');" onmouseout="tooltip.hide();">
-</div>
-<div style="margin-top:20px;">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</div>
-</td></tr></table></form>
-
-<br><p><fieldset><legend>Related</legend><a href="/probability-calculator.html">Probability Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a> | <a href="/statistics-calculator.html">Statistics Calculator</a></fieldset></p>
-
-
-<br><p>Standard deviation in statistics, typically denoted by <b>&#963;</b>, is a measure of variation or dispersion (refers to a distribution's extent of stretching or squeezing) between values in a set of data. The lower the standard deviation, the closer the data points tend to be to the mean (or expected value), <b>&mu;</b>. Conversely, a higher standard deviation indicates a wider range of values. Similar to other mathematical and statistical concepts, there are many different situations in which standard deviation can be used, and thus many different equations. In addition to expressing population variability, the standard deviation is also often used to measure statistical results such as the margin of error. When used in this manner, standard deviation is often called the standard error of the mean, or standard error of the estimate with regard to a mean. The calculator above computes population standard deviation and sample standard deviation, as well as <a href="/sample-size-calculator.html">confidence interval</a> approximations. </p>
-
-<h3>Population Standard Deviation</h3>
-
-<p>The population standard deviation, the standard definition of <b>&#963;</b>, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population: </p>
-<p align="center"><img src="/img/standard-dev/standard-dev.svg" width="163" height="60" alt="population standard deviation equation"></p>
-<table align="center"><tr><td>Where
-<div style="padding-left: 15px;">
-<b>x<sub>i</sub></b> is an individual value<br>
-<b>&mu;</b> is the mean/expected value<br>
-<b>N</b> is the total number of values
-</div></td></tr></table>
-
-<br><p>For those unfamiliar with summation notation, the equation above may seem daunting, but when addressed through its individual components, this summation is not particularly complicated. The <b>i=1</b> in the summation indicates the starting index, i.e. for the data set 1, 3, 4, 7, 8, <b>i=1</b> would be 1, <b>i=2</b> would be 3, and so on. Hence the summation notation simply means to perform the operation of <b>(x<sub>i</sub> - &mu;)<sup>2</sup></b> on each value through <b>N</b>, which in this case is 5 since there are 5 values in this data set. </p>
-<p align="center" class="bigtext">
-EX: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &mu; = (1+3+4+7+8) / 5 = 4.6 &nbsp; &nbsp; &nbsp; &nbsp; <br>
-&#963; = &radic;<span style="text-decoration:overline;">[(1 - 4.6)<sup>2</sup> + (3 - 4.6)<sup>2</sup> + ... + (8 - 4.6)<sup>2</sup>)]/5</span> <br>
-&#963; = &radic;<span style="text-decoration:overline;">(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5</span> = 2.577
-</p>
-
-<h3>Sample Standard Deviation</h3>
-<p>In many cases, it is not possible to sample every member within a population, requiring that the above equation be modified so that the standard deviation can be measured through a random sample of the population being studied. A common estimator for <b>&#963;</b> is the sample standard deviation, typically denoted by <b>s</b>. It is worth noting that there exist many different equations for calculating sample standard deviation since, unlike sample mean, sample standard deviation does not have any single estimator that is unbiased, efficient, and has a maximum likelihood. The equation provided below is the "corrected sample standard deviation." It is a corrected version of the equation obtained from modifying the population standard deviation equation by using the <a href="/sample-size-calculator.html">sample size</a> as the size of the population, which removes some of the bias in the equation. Unbiased estimation of standard deviation, however, is highly involved and varies depending on the distribution. As such, the "corrected sample standard deviation" is the most commonly used estimator for population standard deviation, and is generally referred to as simply the "sample standard deviation." It is a much better estimate than its uncorrected version, but still has a significant bias for small sample sizes (N<10).  </p>
-<p align="center"><img src="/img/standard-dev/sample-standard-dev.svg" width="189" height="60" alt="sample standard deviation equation"></p>
-
-<table align="center"><tr><td>Where
-<div style="padding-left: 15px;">
-<b>x<sub>i</sub></b> is one sample value<br>
-<b>x&#772;</b> is the sample mean<br>
-<b>N</b> is the sample size
-</div></td></tr></table>
-
-<p>Refer to the "Population Standard Deviation" section for an example of how to work with summations. The equation is essentially the same excepting the N-1 term in the corrected sample deviation equation, and the use of sample values. </p>
-
-
-<h3>Applications of Standard Deviation</h3>
-
-<p>Standard deviation is widely used in experimental and industrial settings to test models against real-world data. An example of this in industrial applications is quality control for some products. Standard deviation can be used to calculate a minimum and maximum value within which some aspect of the product should fall some high percentage of the time. In cases where values fall outside the calculated range, it may be necessary to make changes to the production process to ensure quality control. </p>
-
-<p>Standard deviation is also used in weather to determine differences in regional climate. Imagine two cities, one on the coast and one deep inland, that have the same mean temperature of 75&deg;F. While this may prompt the belief that the temperatures of these two cities are virtually the same, the reality could be masked if only the mean is addressed and the standard deviation ignored. Coastal cities tend to have far more stable temperatures due to regulation by large bodies of water, since water has a higher heat capacity than land; essentially, this makes water far less susceptible to changes in temperature, and coastal areas remain warmer in winter, and cooler in summer due to the amount of energy required to change the temperature of the water. Hence, while the coastal city may have temperature ranges between 60&deg;F and 85&deg;F over a given period of time to result in a mean of 75&deg;F, an inland city could have temperatures ranging from 30&deg;F to 110&deg;F to result in the same mean. </p>
-
-<p>Another area in which standard deviation is largely used is finance, where it is often used to measure the associated risk in price fluctuations of some asset or portfolio of assets. The use of standard deviation in these cases provides an estimate of the uncertainty of future returns on a given investment. For example, in comparing stock A that has an average return of 7% with a standard deviation of 10% against stock B, that has the same average return but a standard deviation of 50%, the first stock would clearly be the safer option, since the standard deviation of stock B is significantly larger, for the exact same return. That is not to say that stock A is definitively a better investment option in this scenario, since standard deviation can skew the mean in either direction. While Stock A has a higher probability of an average return closer to 7%, Stock B can potentially provide a significantly larger return (or loss). </p>
-
-<p>These are only a few examples of how one might use standard deviation, but many more exist. Generally, calculating standard deviation is valuable any time it is desired to know how far from the mean a typical value from a distribution can be.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Standard Deviation Calculator</title>
+
+	<meta name="description" content="This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set." />
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Standard Deviation Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html","description":"This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Standard Deviation Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Standard Deviation Calculator">
+<meta property="og:description" content="This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Standard Deviation Calculator">
+<meta name="twitter:description" content="This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Standard Deviation Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html","description":"This free standard deviation calculator computes the standard deviation, variance, mean, sum, and error margin of a given data set.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"Standard Deviation Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/standard-deviation-calculator.html"}]}</script></head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/standard-deviation-calculator.html" itemprop="item"><span itemprop="name">standard deviation calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<h1>Standard Deviation Calculator</h1>
+
+
+
+<p>Please provide numbers separated by commas to calculate the standard deviation, variance, mean, sum, and margin of error.</p><form name="calform">
+
+<table class="panel" align="center"><tr><td align="center">
+
+<textarea name="numberinputs" class="infulltxarea" rows="3">10, 12, 23, 23, 16, 23, 21, 16</textarea>
+
+<div>It is a
+
+<label for="ctype1" class="cbcontainer"><input type="radio" name="ctype" id="ctype1" value="p" checked /><span class="rbmark"></span>Population</label> <label for="ctype2" class="cbcontainer"><input type="radio" name="ctype" id="ctype2" value="s"  /><span class="rbmark"></span>Sample</label> <img class="ttimg" src="/img/svg/help.svg" width="16" height="16" alt="?" onmouseover="tooltip.show('Select <b>Population</b> if the data contains all measurable values, or all of the values you are interested in.<br>Select <b>Sample</b> if the data is a sample of a large or unlimited population and you wish to make a statement about the entire population.', '');" onmouseout="tooltip.hide();">
+
+</div>
+
+<div style="margin-top:20px;">
+
+	<input type="submit" name="x" value="Calculate">
+
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+
+</div>
+
+</td></tr></table></form>
+
+
+
+<br><p><fieldset><legend>Related</legend><a href="/probability-calculator.html">Probability Calculator</a> | <a href="/sample-size-calculator.html">Sample Size Calculator</a> | <a href="/statistics-calculator.html">Statistics Calculator</a></fieldset></p>
+
+
+
+
+
+<br><p>Standard deviation in statistics, typically denoted by <b>&#963;</b>, is a measure of variation or dispersion (refers to a distribution's extent of stretching or squeezing) between values in a set of data. The lower the standard deviation, the closer the data points tend to be to the mean (or expected value), <b>&mu;</b>. Conversely, a higher standard deviation indicates a wider range of values. Similar to other mathematical and statistical concepts, there are many different situations in which standard deviation can be used, and thus many different equations. In addition to expressing population variability, the standard deviation is also often used to measure statistical results such as the margin of error. When used in this manner, standard deviation is often called the standard error of the mean, or standard error of the estimate with regard to a mean. The calculator above computes population standard deviation and sample standard deviation, as well as <a href="/sample-size-calculator.html">confidence interval</a> approximations. </p>
+
+
+
+<h3>Population Standard Deviation</h3>
+
+
+
+<p>The population standard deviation, the standard definition of <b>&#963;</b>, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population: </p>
+
+<p align="center"><img src="/img/standard-dev/standard-dev.svg" width="163" height="60" alt="population standard deviation equation"></p>
+
+<table align="center"><tr><td>Where
+
+<div style="padding-left: 15px;">
+
+<b>x<sub>i</sub></b> is an individual value<br>
+
+<b>&mu;</b> is the mean/expected value<br>
+
+<b>N</b> is the total number of values
+
+</div></td></tr></table>
+
+
+
+<br><p>For those unfamiliar with summation notation, the equation above may seem daunting, but when addressed through its individual components, this summation is not particularly complicated. The <b>i=1</b> in the summation indicates the starting index, i.e. for the data set 1, 3, 4, 7, 8, <b>i=1</b> would be 1, <b>i=2</b> would be 3, and so on. Hence the summation notation simply means to perform the operation of <b>(x<sub>i</sub> - &mu;)<sup>2</sup></b> on each value through <b>N</b>, which in this case is 5 since there are 5 values in this data set. </p>
+
+<p align="center" class="bigtext">
+
+EX: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &mu; = (1+3+4+7+8) / 5 = 4.6 &nbsp; &nbsp; &nbsp; &nbsp; <br>
+
+&#963; = &radic;<span style="text-decoration:overline;">[(1 - 4.6)<sup>2</sup> + (3 - 4.6)<sup>2</sup> + ... + (8 - 4.6)<sup>2</sup>)]/5</span> <br>
+
+&#963; = &radic;<span style="text-decoration:overline;">(12.96 + 2.56 + 0.36 + 5.76 + 11.56)/5</span> = 2.577
+
+</p>
+
+
+
+<h3>Sample Standard Deviation</h3>
+
+<p>In many cases, it is not possible to sample every member within a population, requiring that the above equation be modified so that the standard deviation can be measured through a random sample of the population being studied. A common estimator for <b>&#963;</b> is the sample standard deviation, typically denoted by <b>s</b>. It is worth noting that there exist many different equations for calculating sample standard deviation since, unlike sample mean, sample standard deviation does not have any single estimator that is unbiased, efficient, and has a maximum likelihood. The equation provided below is the "corrected sample standard deviation." It is a corrected version of the equation obtained from modifying the population standard deviation equation by using the <a href="/sample-size-calculator.html">sample size</a> as the size of the population, which removes some of the bias in the equation. Unbiased estimation of standard deviation, however, is highly involved and varies depending on the distribution. As such, the "corrected sample standard deviation" is the most commonly used estimator for population standard deviation, and is generally referred to as simply the "sample standard deviation." It is a much better estimate than its uncorrected version, but still has a significant bias for small sample sizes (N<10).  </p>
+
+<p align="center"><img src="/img/standard-dev/sample-standard-dev.svg" width="189" height="60" alt="sample standard deviation equation"></p>
+
+
+
+<table align="center"><tr><td>Where
+
+<div style="padding-left: 15px;">
+
+<b>x<sub>i</sub></b> is one sample value<br>
+
+<b>x&#772;</b> is the sample mean<br>
+
+<b>N</b> is the sample size
+
+</div></td></tr></table>
+
+
+
+<p>Refer to the "Population Standard Deviation" section for an example of how to work with summations. The equation is essentially the same excepting the N-1 term in the corrected sample deviation equation, and the use of sample values. </p>
+
+
+
+
+
+<h3>Applications of Standard Deviation</h3>
+
+
+
+<p>Standard deviation is widely used in experimental and industrial settings to test models against real-world data. An example of this in industrial applications is quality control for some products. Standard deviation can be used to calculate a minimum and maximum value within which some aspect of the product should fall some high percentage of the time. In cases where values fall outside the calculated range, it may be necessary to make changes to the production process to ensure quality control. </p>
+
+
+
+<p>Standard deviation is also used in weather to determine differences in regional climate. Imagine two cities, one on the coast and one deep inland, that have the same mean temperature of 75&deg;F. While this may prompt the belief that the temperatures of these two cities are virtually the same, the reality could be masked if only the mean is addressed and the standard deviation ignored. Coastal cities tend to have far more stable temperatures due to regulation by large bodies of water, since water has a higher heat capacity than land; essentially, this makes water far less susceptible to changes in temperature, and coastal areas remain warmer in winter, and cooler in summer due to the amount of energy required to change the temperature of the water. Hence, while the coastal city may have temperature ranges between 60&deg;F and 85&deg;F over a given period of time to result in a mean of 75&deg;F, an inland city could have temperatures ranging from 30&deg;F to 110&deg;F to result in the same mean. </p>
+
+
+
+<p>Another area in which standard deviation is largely used is finance, where it is often used to measure the associated risk in price fluctuations of some asset or portfolio of assets. The use of standard deviation in these cases provides an estimate of the uncertainty of future returns on a given investment. For example, in comparing stock A that has an average return of 7% with a standard deviation of 10% against stock B, that has the same average return but a standard deviation of 50%, the first stock would clearly be the safer option, since the standard deviation of stock B is significantly larger, for the exact same return. That is not to say that stock A is definitively a better investment option in this scenario, since standard deviation can skew the mean in either direction. While Stock A has a higher probability of an average return closer to 7%, Stock B can potentially provide a significantly larger return (or loss). </p>
+
+
+
+<p>These are only a few examples of how one might use standard deviation, but many more exist. Generally, calculating standard deviation is valuable any time it is desired to know how far from the mean a typical value from a distribution can be.</p>
+
+
+
+<h2>Standard Deviation Calculator FAQ</h2>
+
+<details>
+<summary>Should I choose population or sample standard deviation?</summary>
+<p>Choose Population if your data contains every value you are interested in, such as the test scores of every student in one class. Choose Sample if your data is only a part of a larger group and you want to make a statement about the whole group, such as surveying 100 people to describe a whole city.</p>
+</details>
+
+<details>
+<summary>How do I calculate standard deviation by hand?</summary>
+<p>First find the mean of the values. Then subtract the mean from each value and square each result. Add the squared differences together and divide by N for a population, or by N − 1 for a sample. This gives the variance. Finally, take the square root of the variance. For the data set 1, 3, 4, 7, 8 the mean is 4.6 and the population standard deviation is about 2.577.</p>
+</details>
+
+<details>
+<summary>Why does the sample standard deviation divide by N − 1?</summary>
+<p>A sample tends to underestimate the spread of the full population because its values are measured from the sample mean rather than the true mean. Dividing by N − 1 instead of N corrects for most of this bias. The effect is largest for small samples and becomes minor as the sample size grows.</p>
+</details>
+
+<details>
+<summary>What does a high or low standard deviation mean?</summary>
+<p>A low standard deviation means the values tend to be close to the mean. A high standard deviation means the values are more spread out over a wider range. Two data sets can have the same mean but very different standard deviations, so both numbers are needed to describe the data.</p>
+</details>
+
+<details>
+<summary>How do I find the variance from the standard deviation?</summary>
+<p>Variance is the standard deviation squared. If the standard deviation is 2.577, the variance is about 6.64. Standard deviation is the square root of the variance, so each can be found from the other.</p>
+</details>
+
+<details>
+<summary>Can standard deviation be negative or zero?</summary>
+<p>Standard deviation cannot be negative because it is a square root of an average of squared values. It equals zero only when every value in the data set is identical, meaning there is no spread at all.</p>
+</details>
+
+<details>
+<summary>What is the standard error of the mean?</summary>
+<p>The standard error of the mean measures how much a sample mean is likely to vary from the true population mean. It is calculated as the standard deviation divided by the square root of the sample size. It is commonly used to estimate the margin of error and confidence intervals.</p>
+</details>
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

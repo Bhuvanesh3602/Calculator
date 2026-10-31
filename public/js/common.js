@@ -78,7 +78,104 @@ function iptfieldCheck(ifcInput, ifcRequired, ifcType){
 	iptErrmsg(ifcInput, ifcErrMsg);
 }
 function insertComma(e,l){let t=document.getElementById(e),d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function calcSearch(){var a="financial-calculator|Financial Calculators|mortgage-calculator|Mortgage Calculator|loan-calculator|Loan Calculator|auto-loan-calculator|Auto Loan Calculator|interest-calculator|Interest Calculator|payment-calculator|Payment Calculator|retirement-calculator|Retirement Calculator|amortization-calculator|Amortization Calculator|investment-calculator|Investment Calculator|currency-calculator|Currency Calculator|inflation-calculator|Inflation Calculator|finance-calculator|Finance Calculator|mortgage-payoff-calculator|Mortgage Payoff Calculator|tax-calculator|Income Tax Calculator|compound-interest-calculator|Compound Interest Calculator|salary-calculator|Salary Calculator|401k-calculator|401K Calculator|interest-rate-calculator|Interest Rate Calculator|sales-tax-calculator|Sales Tax Calculator|fitness-and-health-calculator|Fitness and Health Calculators|bmi-calculator|Body Mass Index (BMI) Calculator|calorie-calculator|Calorie Calculator|body-fat-calculator|Body Fat Calculator|bmr-calculator|Basal Metabolic Rate (BMR) Calculator|macro-calculator|Macro Calculator|ideal-weight-calculator|Ideal Weight Calculator|pregnancy-calculator|Pregnancy Calculator|pregnancy-weight-gain-calculator|Pregnancy Weight Gain Calculator|pregnancy-conception-calculator|Pregnancy Conception Calculator|due-date-calculator|Due Date Calculator|pace-calculator|Pace Calculator|math-calculator|Math Calculators|scientific-calculator|Scientific Calculator|fraction-calculator|Fraction Calculator|percent-calculator|Percentage Calculator|triangle-calculator|Triangle Calculator|volume-calculator|Volume Calculator|standard-deviation-calculator|Standard Deviation Calculator|random-number-generator|Random Number Generator|other-calculator|Other Calculators|age-calculator|Age Calculator|date-calculator|Date Calculator|time-calculator|Time Calculator|hours-calculator|Hours Calculator|gpa-calculator|GPA Calculator|grade-calculator|Grade Calculator|height-calculator|Height Calculator|concrete-calculator|Concrete Calculator|ip-subnet-calculator|IP Subnet Calculator|bra-size-calculator|Bra Size Calculator|password-generator|Password Generator|dice-roller|Dice Roller|conversion-calculator|Conversion Calculator|house-affordability-calculator|House Affordability Calculator|savings-calculator|Savings Calculator|rent-calculator|Rent Calculator|marriage-calculator|Marriage Tax Calculator|estate-tax-calculator|Estate Tax Calculator|pension-calculator|Pension Calculator|social-security-calculator|Social Security Calculator|annuity-calculator|Annuity Calculator|annuity-payout-calculator|Annuity Payout Calculator|credit-card-calculator|Credit Card Calculator|credit-card-payoff-calculator|Credit Cards Payoff Calculator|debt-payoff-calculator|Debt Payoff Calculator|debt-consolidation-calculator|Debt Consolidation Calculator|repayment-calculator|Repayment Calculator|student-loan-calculator|Student Loan Calculator|college-cost-calculator|College Cost Calculator|cd-calculator|CD Calculator|roth-ira-calculator|Roth IRA Calculator|ira-calculator|IRA Calculator|vat-calculator|VAT Calculator|cash-back-or-low-interest-calculator|Cash Back or Low Interest Calculator|auto-lease-calculator|Auto Lease Calculator|depreciation-calculator|Depreciation Calculator|average-return-calculator|Average Return Calculator|margin-calculator|Margin Calculator|discount-calculator|Discount Calculator|business-loan-calculator|Business Loan Calculator|debt-ratio-calculator|Debt-to-Income Ratio Calculator|real-estate-calculator|Real Estate Calculator|take-home-pay-calculator|Take-Home-Paycheck Calculator|personal-loan-calculator|Personal Loan Calculator|lease-calculator|Lease Calculator|refinance-calculator|Refinance Calculator|budget-calculator|Budget Calculator|rental-property-calculator|Rental Property Calculator|roi-calculator|Return on Investment (ROI) Calculator|apr-calculator|APR Calculator|fha-loan-calculator|FHA Loan Calculator|va-mortgage-calculator|VA Mortgage Calculator|down-payment-calculator|Down Payment Calculator|rent-vs-buy-calculator|Rent vs. Buy Calculator|payback-period-calculator|Payback Period Calculator|present-value-calculator|Present Value Calculator|future-value-calculator|Future Value Calculator|army-body-fat-calculator|Army Body Fat Calculator|weight-watchers-points-calculator|Weight Watcher Points Calculator|carbohydrate-calculator|Carbohydrate Calculator|lean-body-mass-calculator|Lean Body Mass Calculator|healthy-weight-calculator|Healthy Weight Calculator|calories-burned-calculator|Calories Burned Calculator|protein-calculator|Protein Calculator|fat-intake-calculator|Fat Intake Calculator|tdee-calculator|Total Daily Energy Expenditure (TDEE) Calculator|ovulation-calculator|Ovulation Calculator|conception-calculator|Conception Calculator|period-calculator|Period Calculator|gfr-calculator|Glomerular Filtration Rate (GFR) Calculator|body-type-calculator|Body Type Calculator|body-surface-area-calculator|Body Surface Area Calculator|bac-calculator|Blood Alcohol Content (BAC) Calculator|number-sequence-calculator|Number Sequence Calculator|percent-error-calculator|Percent Error Calculator|exponent-calculator|Exponent Calculator|binary-calculator|Binary Calculator|hex-calculator|Hex Calculator|half-life-calculator|Half-Life Calculator|quadratic-formula-calculator|Quadratic Formula Calculator|slope-calculator|Slope Calculator|log-calculator|Log Calculator|area-calculator|Area Calculator|sample-size-calculator|Sample Size Calculator|probability-calculator|Probability Calculator|statistics-calculator|Statistics Calculator|mean-median-mode-range-calculator|Mean, Median, Mode, Range Calculator|permutation-and-combination-calculator|Permutation and Combination Calculator|z-score-calculator|Z-score Calculator|confidence-interval-calculator|Confidence Interval Calculator|ratio-calculator|Ratio Calculator|distance-calculator|Distance Calculator|circle-calculator|Circle Calculator|surface-area-calculator|Surface Area Calculator|pythagorean-theorem-calculator|Pythagorean Theorem Calculator|right-triangle-calculator|Right Triangle Calculator|root-calculator|Root Calculator|lcm-calculator|Least Common Multiple (LCM) Calculator|gcf-calculator|Greatest Common Factor (GCF) Calculator|factor-calculator|Factor Calculator|rounding-calculator|Rounding Calculator|matrix-calculator|Matrix Calculator|scientific-notation-calculator|Scientific Notation Calculator|big-number-calculator|Big Number Calculator|fuel-cost-calculator|Fuel Cost Calculator|voltage-drop-calculator|Voltage Drop Calculator|btu-calculator|BTU Calculator|square-footage-calculator|Square Footage Calculator|time-card-calculator|Time Card Calculator|time-zone-calculator|Time Zone Calculator|love-calculator|Love Calculator|gdp-calculator|Gross Domestic Product (GDP) Calculator|gas-mileage-calculator|Gas Mileage Calculator|horsepower-calculator|Horsepower Calculator|engine-horsepower-calculator|Engine Horsepower Calculator|stair-calculator|Stair Calculator|resistor-calculator|Resistor Calculator|ohms-law-calculator|Ohms Law Calculator|electricity-calculator|Electricity Calculator|tip-calculator|Tip Calculator|mileage-calculator|Mileage Calculator|density-calculator|Density Calculator|mass-calculator|Mass Calculator|weight-calculator|Weight Calculator|golf-handicap-calculator|Golf Handicap Calculator|sleep-calculator|Sleep Calculator|tire-size-calculator|Tire Size Calculator|roofing-calculator|Roofing Calculator|tile-calculator|Tile Calculator|mulch-calculator|Mulch Calculator|gravel-calculator|Gravel Calculator|wind-chill-calculator|Wind Chill Calculator|heat-index-calculator|Heat Index Calculator|dew-point-calculator|Dew Point Calculator|bandwidth-calculator|Bandwidth Calculator|time-duration-calculator|Time Duration Calculator|day-counter|Day Counter|day-of-the-week-calculator|Day of the Week Calculator|mortgage-calculator-uk|Mortgage Calculator UK|canadian-mortgage-calculator|Canadian Mortgage Calculator|mortgage-amortization-calculator|Mortgage Amortization Calculator|percent-off-calculator|Percent Off Calculator|anorexic-bmi-calculator|Anorexic BMI Calculator|overweight-calculator|Overweight Calculator|prime-factorization-calculator|Prime Factorization Calculator|common-factor-calculator|Common Factor Calculator|basic-calculator|Basic Calculator|average-calculator|Average Calculator|p-value-calculator|P-value Calculator|commission-calculator|Commission Calculator|long-division-calculator|Long Division Calculator|simple-interest-calculator|Simple Interest Calculator|rmd-calculator|RMD Calculator|bond-calculator|Bond Calculator|speed-calculator|Speed Calculator|molarity-calculator|Molarity Calculator|molecular-weight-calculator|Molecular Weight Calculator|one-rep-max-calculator|One Rep Max Calculator|irr-calculator|Internal Rate of Return (IRR) Calculator|roman-numeral-converter|Roman Numeral Converter|boat-loan-calculator|Boat Loan Calculator|home-equity-loan-calculator|Home Equity Loan Calculator|heloc-calculator|Home Equity Line of Credit (HELOC) Calculator|target-heart-rate-calculator|Target Heart Rate Calculator|shoe-size-conversion|Shoe Size Conversion".split("|"),l=trimAll(gObj("calcSearchTerm").value+"").replace("-"," ").replace("  "," ").replace("  "," ").toLowerCase(),c="",t=[],r=[],o=[];if(0<l.length){var u=a.length/2;for(i=0;i<u;i++){var e="  "+a[2*i+1].replace("-"," ").toLowerCase();0<e.indexOf(" "+l)&&e.indexOf(" "+l)<2?t.push('<div><a href="/'+a[2*i]+'.html">'+a[2*i+1]+"</a></div>"):0<e.indexOf(" "+l)?r.push('<div><a href="/'+a[2*i]+'.html">'+a[2*i+1]+"</a></div>"):0<e.indexOf(l)&&o.push('<div><a href="/'+a[2*i]+'.html">'+a[2*i+1]+"</a></div>")}var n=t.concat(r).concat(o),C=n.length;if(0<C)if(6<C){for(i=0;i<6;i++)c+=n[i];c+="<div>...</div>"}else for(i=0;i<C;i++)c+=n[i];else c='No calculator matches "'+gObj("calcSearchTerm").value+'".'}return gObj("calcSearchOut").innerHTML=c,!1}
+function calcSearch(){
+  var input=gObj('calcSearchTerm'),out=gObj('calcSearchOut');
+  if(!input||!out)return false;
+  var term=trimAll(input.value+'').toLowerCase();
+  out.innerHTML='';out.style.display='none';
+  if(term.length<1)return false;
+  if(!window.CALC_INDEX||window.CALC_INDEX.length===0){
+    loadSearchIndex(function(){renderSearch(term, input);});
+    return false;
+  }
+  renderSearch(term, input);
+  return false;
+}
+function loadSearchIndex(cb){
+  if(window.CALC_INDEX&&window.CALC_INDEX.length){cb(window.CALC_INDEX);return;}
+  var s=document.createElement('script');s.src='/js/search-index.js';
+  s.onload=function(){cb(window.CALC_INDEX||[]);};
+  s.onerror=function(){cb([]);};
+  document.head.appendChild(s);
+}
+function renderSearch(term, input){
+  var out=gObj('calcSearchOut'),results=fuzzySearch(term,window.CALC_INDEX||[]);
+  out.innerHTML='';out.style.display='block';
+  injectSearchStyles();
+  if(results.length===0){out.innerHTML='<div class="search-noresult">No calculators match "<b>'+escapeHtml(term)+'</b>". Try another term.</div>';return;}
+  var html='<div class="search-results">';
+  results.slice(0,10).forEach(function(it){
+    html+='<div class="search-result" data-url="'+escapeAttr(it.url)+'"><span class="search-cat">'+escapeHtml(it.category)+'</span> <a href="'+escapeAttr(it.url)+'">'+escapeHtml(it.title)+'</a><div class="search-desc">'+escapeHtml(it.description)+'</div></div>';
+  });
+  html+='</div>';
+  if(results.length>10)html+='<div class="search-more">'+(results.length-10)+' more results</div>';
+  out.innerHTML=html;
+  bindSearchKeys(input, results);
+}
+function fuzzySearch(term,list){
+  var t=term.replace(/[^a-z0-9]/gi,'');
+  return list.map(function(it){
+    var title=it.title.toLowerCase(),slug=it.slug.toLowerCase(),desc=it.description.toLowerCase();
+    var score=0;
+    if(title===t)score=100;
+    else if(title.indexOf(t)===0)score=90;
+    else if(title.indexOf(t)>=0)score=80;
+    else if(slug.indexOf(t)>=0)score=70;
+    else if(fuzzyMatch(t,title))score=60;
+    else if(fuzzyMatch(t,slug))score=50;
+    else if(it.category.toLowerCase().indexOf(t)>=0)score=40;
+    else if(desc.indexOf(t)>=0)score=30;
+    if(score<=0)return null;
+    return {item:it,score:score};
+  }).filter(function(x){return x!=null;}).sort(function(a,b){return b.score-a.score||a.item.title.localeCompare(b.item.title);}).map(function(x){return x.item;});
+}
+function fuzzyMatch(pat,text){
+  var j=0;for(var i=0;i<text.length&&j<pat.length;i++)if(text[i]===pat[j])j++;return j===pat.length;
+}
+var _searchBound=false;
+function bindSearchKeys(input, results){
+  var out=gObj('calcSearchOut');
+  var items=out.querySelectorAll('.search-result');
+  var idx=-1;
+  function set(i){
+    idx=i;
+    items.forEach(function(el,k){el.classList.toggle('search-hover',k===i);});
+    if(idx>=0&&items[idx]){
+      var a=items[idx].querySelector('a');
+      if(a)try{a.focus();}catch(e){}
+    }
+  }
+  if(!_searchBound){
+    input.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'){e.preventDefault();set((idx+1)%items.length);}
+      else if(e.key==='ArrowUp'){e.preventDefault();set((idx-1+items.length)%items.length);}
+      else if(e.key==='Enter'){e.preventDefault();if(idx>=0&&items[idx]){var a=items[idx].querySelector('a');if(a)location.href=a.getAttribute('href');}}
+      else if(e.key==='Escape'){out.innerHTML='';out.style.display='none';idx=-1;}
+    });
+    out.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(a)location.href=a.getAttribute('href');});
+    _searchBound=true;
+  }
+}
+function injectSearchStyles(){
+  if(document.getElementById('calc-search-styles'))return;
+  var css='\
+#calcSearchOut{position:relative;z-index:50;}\
+#calcSearchOut .search-results{position:absolute;left:0;right:0;top:calc(100% + 8px);max-height:340px;overflow-y:auto;border:1px solid #cbd5e1;background:#fff;border-radius:8px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.15);z-index:60;}\
+#calcSearchOut .search-result{padding:10px 12px;border-bottom:1px solid #e2e8f0;cursor:pointer;display:flex;align-items:flex-start;gap:8px;}\
+#calcSearchOut .search-result:last-child{border-bottom:none;}\
+#calcSearchOut .search-result.search-hover{background:#eff6ff;}\
+#calcSearchOut .search-result a{font-weight:700;color:#0f172a;text-decoration:none;}\
+#calcSearchOut .search-result a:hover{text-decoration:underline;}\
+#calcSearchOut .search-cat{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#475569;background:#e2e8f0;padding:1px 6px;border-radius:4px;flex-shrink:0;}\
+#calcSearchOut .search-desc{font-size:12px;color:#64748b;margin-top:2px;}\
+#calcSearchOut .search-more{padding:6px 12px;font-size:12px;color:#64748b;text-align:center;border-top:1px solid #e2e8f0;}\
+#calcSearchOut .search-noresult{padding:12px;color:#64748b;text-align:center;}\
+';
+  var s=document.createElement('style');s.id='calc-search-styles';s.textContent=css;document.head.appendChild(s);
+}
+function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function escapeAttr(s){return String(s).replace(/"/g,'&quot;');}
+
 
 function saveCalResult(scrName, scrNum, scrSubName, scrRName, scrRVal){
 	let scrUrl = window.location.pathname + "";
@@ -140,7 +237,26 @@ function initGlobalPrint() {
 }
 
 if (document.readyState === "loading") {
-	document.addEventListener("DOMContentLoaded", initGlobalPrint);
+	document.addEventListener("DOMContentLoaded", function(){
+		initGlobalPrint();
+		initStickyHeader();
+	});
 } else {
 	initGlobalPrint();
+	initStickyHeader();
+}
+
+function initStickyHeader(){
+	var header = document.querySelector('.global-header');
+	if(!header) return;
+	var last = 0;
+	window.addEventListener('scroll', function(){
+		var y = window.pageYOffset;
+		if (y > 40) {
+			header.classList.add('scrolled');
+		} else {
+			header.classList.remove('scrolled');
+		}
+		last = y;
+	}, { passive: true });
 }

@@ -1,776 +1,1611 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Square Footage Calculator</title>
-	<meta name="description" content="This free calculator estimates the square footage of a property and can account for various common lot shapes." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/square-footage-calculator.html" itemprop="item"><span itemprop="name">square footage calculator</span></a><meta itemprop="position" content="3" /></span></div>
-		<h1>Square Footage Calculator</h1>
-<p>The Square Footage Calculator estimates the square footage of a lot, house, or other surfaces in several common shapes. If the surface is complex in shape, it may be possible to section the surface into simple shapes and add their square footages together.</p>
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-
-<a name="rectangle"></a><h2>Rectangle</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#rectangle" name="calform1">
-<table class="panel">
-	<tr>
-		<td align="right">Length</td>
-		<td align="right">
-			<input type="text" name="reclength" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="reclengthunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Width</td>
-		<td align="right">
-			<input type="text" name="recheight" value="20" class="inlong">
-		</td>
-		<td>
-			<select name="recheightunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="recquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="recprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="recpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding-top:10px;">
-			<input type="hidden" name="calctype" value="rectangle">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform1);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/rectangle.svg" width="81" height="43" alt="rectangle"></td>
-	</tr>
-</table>
-
-<a name="rectangleborder"></a><br><h2>Rectangle Border</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#rectangleborder" name="calform12">
-<table class="panel">
-	<tr>
-		<td align="right">Length</td>
-		<td align="right">
-			<input type="text" name="recblength" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="recblengthunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Width</td>
-		<td align="right">
-			<input type="text" name="recbheight" value="20" class="inlong">
-		</td>
-		<td>
-			<select name="recbheightunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Border Width</td>
-		<td align="right">
-			<input type="text" name="recborder" value="2" class="inlong">
-		</td>
-		<td>
-			<select name="recborderunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="recbquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="recbprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="recbpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding-top:10px;">
-			<input type="hidden" name="calctype" value="rectangleborder">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform12);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/rectangle-border.svg" width="267" height="97" alt="rectangle border"></td>
-	</tr>
-</table>
-
-<a name="circle"></a><br><h2>Circle</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#circle" name="calform4">
-<table class="panel">
-	<tr>
-		<td align="right">Diameter</td>
-		<td align="right">
-			<input type="text" name="circleradius" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="circleradiusunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="circlequantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="circleprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="circlepriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="circle">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform4);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/circle.svg" width="54" height="54" alt="circle"></td>
-	</tr>
-</table>
-
-<a name="ring"></a><br><h2>Ring</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#ring" name="calform22">
-<table class="panel">
-	<tr>
-		<td align="right">Outer Diameter</td>
-		<td align="right">
-			<input type="text" name="ringradius" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="ringradiusunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Border Width</td>
-		<td align="right">
-			<input type="text" name="ringborder" value="2" class="inlong">
-		</td>
-		<td>
-			<select name="ringborderunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="ringquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="ringprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="ringpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="ring">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform22);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/ring.svg" width="210" height="118" alt="ring"></td>
-	</tr>
-</table>
-
-<a name="triangle"></a><br><h2>Triangle with Edge Lengths</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#triangle" name="calform2">
-<table class="panel">
-	<tr>
-		<td align="right">Edge 1 (a)</td>
-		<td>
-			<input type="text" name="triedge1" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="triedge1unit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Edge 2 (b)</td>
-		<td>
-			<input type="text" name="triedge2" value="45" class="inlong">
-		</td>
-		<td>
-			<select name="triedge2unit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Edge 3 (c)</td>
-		<td>
-			<input type="text" name="triedge3" value="50" class="inlong">
-		</td>
-		<td>
-			<select name="triedge3unit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="trianglequantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="triangleprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="trianglepriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="triangle">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center">
-			<img src="/img/square-footage/triangle.svg" width="89" height="80" alt="triangle">
-		</td>
-	</tr>
-</table>
-
-
-<a name="triangle2"></a><br><h2>Triangle with Base &amp; Height</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#triangle2" name="calform25">
-<table class="panel">
-	<tr>
-		<td align="right">Base</td>
-		<td align="right">
-			<input type="text" name="tribhrbase" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="tribhrbaseunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Height</td>
-		<td align="right">
-			<input type="text" name="tribhrheight" value="20" class="inlong">
-		</td>
-		<td>
-			<select name="tribhrheightunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="tribhquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="tribhprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="tribhpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="triangle2">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform25);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/triangle-base.svg" width="100" height="82" alt="triangle base"></td>
-	</tr>
-</table>
-
-<a name="trapezoid"></a><br><h2>Trapezoid</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#trapezoid" name="calform3">
-<table class="panel">
-	<tr>
-		<td align="right">Base 1</td>
-		<td align="right">
-			<input type="text" name="tratop" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="tratopunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Base 2</td>
-		<td align="right">
-			<input type="text" name="trabottom" value="45" class="inlong">
-		</td>
-		<td>
-			<select name="trabottomunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Height</td>
-		<td align="right">
-			<input type="text" name="traheight" value="20" class="inlong">
-		</td>
-		<td>
-			<select name="traheightunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="trapezoidquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="trapezoidprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="trapezoidpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="trapezoid">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/trapezoid.svg" width="98" height="41" alt="trapezoid"></td>
-	</tr>
-</table>
-
-<a name="sector"></a><br><h2>Sector</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#sector" name="calform5">
-<table class="panel">
-	<tr>
-		<td align="right">Radius</td>
-		<td align="right">
-			<input type="text" name="sectorradius" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="sectorradiusunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Angle</td>
-		<td align="right">
-			<input type="text" name="sectorangle" value="90" class="inlong">
-		</td>
-		<td>
-			<select name="sectorangleunit">
-				<option value="d" selected>degree &#176;</option>
-				<option value="r" >radian</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="sectorquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="sectorprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="sectorpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="sector">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform5);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/sector.svg" width="70" height="52" alt="sector"></td>
-	</tr>
-</table>
-
-<a name="parallelogram"></a><br><h2>Parallelogram</h2>
-<table >
-	<tr>
-		<td valign="top">
-<form action="/square-footage-calculator.html#parallelogram" name="calform7">
-<table class="panel">
-	<tr>
-		<td align="right">Base</td>
-		<td align="right">
-			<input type="text" name="parbase" value="30" class="inlong">
-		</td>
-		<td>
-			<select name="parbaseunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Height</td>
-		<td align="right">
-			<input type="text" name="parheight" value="20" class="inlong">
-		</td>
-		<td>
-			<select name="parheightunit">
-				<option value="feet" selected>feet</option>
-				<option value="yards">yards</option>
-				<option value="inches">inches</option>
-				<option value="miles">miles</option>
-				<option value="meters">meters</option>
-				<option value="kilometers">kilometers</option>
-				<option value="centimeters">centimeters</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Quantity</td>
-		<td align="right">
-			<input type="text" name="parquantity" value="1" class="inlong">
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="parprice" value="" class="inlong indollar">
-			</td>
-			<td>
-				<select name="parpriceunit">
-					<option value="feet" selected>per square feet</option>
-					<option value="yards">per square yards</option>
-					<option value="inches">per square inches</option>
-					<option value="meters">per square meters</option>
-					<option value="centimeters">per square cm</option>
-				</select>
-				</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" style="padding:10px;">
-			<input type="hidden" name="calctype" value="parallelogram">
-			<input type="submit" name="x" value="Calculate">
-			<input type="button" value="Clear" onClick="clearForm(document.calform7);">
-		</td>
-	</tr>
-</table></form>
-		</td>
-				<td align="center"><img src="/img/square-footage/parallelogram.svg" width="131" height="43" alt="parallelogram"></td>
-	</tr>
-</table>
-
-<br><h2>Reference:</h2>
-<p>
-1 acre = 43,560 square foot<br>
-1 square yard = 9 square foot<br>
-1 square meter = 10.76 square foot<br>
-1 square inch = 0.00064516 square foot
-</p>
-
-<h2>Calculating Cost Per Square Foot</h2>
-<p>When painting a house, installing flooring, or building a home, the square footage of the property is often used to determine the cost or materials to be used.</p>
-
-<h3>Painting a house:</h3>
-<p>Professional house painters often base price quotations on the square footage of a property. Alternatively, even if a person plans to paint their house themselves, measuring square footage can yield accurate estimates of the amount of paint required.</p>
-<p>Total cost encompasses more factors than the just amount of paint required, including the cost of materials such as brushes, turpentine, and any materials necessary for preparing, mixing, applying, and cleaning up paint. These considerations are typically included in a quote from a professional painter, in addition to labor costs. Accordingly, the larger the size of a property or area, the higher the cost required to paint it.</p>
-<p>Depending on the surface being painted, whether wood, metal, plastic, or something else, paint primer, which helps the paint adhere more effectively to a given surface, can be used. While the amount of coverage provided by primer or paint depends heavily on the method of application, type, and brand of paint, primer generally covers less area than paint, and estimated coverage amounts can range from anywhere between 200-400 square feet per gallon.</p>
-
-<h3>Flooring installation:</h3>
-<p>There are a number of materials commonly used for flooring, including wood, laminate, and tile. Flooring costs can vary significantly depending on the quality and choice of materials.</p>
-
-<p><b>Wood Flooring</b></p>
-<p>Wood flooring includes woods such as hardwood, engineered wood (also known as composite or man-made wood), and bamboo, though bamboo is actually classified as grass.</p>
-<p>Hardwood flooring is highly durable, easy to clean, and can be found in a variety of different appearances. As such, it is fairly versatile in terms of interior design, but does require some maintenance such as sanding and refinishing over time.</p>
-<p>Engineered wood flooring is made from several layers of wood, with a thin outermost layer of the desired hardwood, and inner layers such as plywood and high-density fiberboard. Engineered hardwood has a higher heat and moisture resistance than solid hardwoods, is easy to maintain, and is generally cheaper to purchase and install than hardwood flooring.</p>
-<p>Bamboo flooring is easy to maintain, moisture resistant, easy to install, and is available in many different styles. It is often cheaper than traditional hardwood options, but does have the disadvantage of scratching easily as a result of furniture, high heels, claws, or even debris.</p>
-
-<p><b>Laminate Flooring</b></p>
-<p>Laminate flooring is typically made with plywood or fiberboard with a plastic laminate top layer, and can have a similar look like hardwood. It is less costly than traditional wood flooring, is highly durable, difficult to scratch, stain, or dent, and requires little maintenance. Laminate flooring can even be installed over existing flooring, which can save time as well as the cost of removing old flooring. However, laminate flooring often feels too hard on the feet, cannot be finished or stained &ndash; meaning that the owner is stuck with what they choose and will have to entirely replace the floor if they change their mind &ndash; and also results in a lower resale value for a home than traditional hardwoods.</p>
-
-<p><b>Tile flooring</b></p>
-<p>Tile flooring includes concrete or cement, ceramic tiles, glass tiles, and natural stone products among many others. Due to the numerous varieties of tile, there is an incredibly large price range, from 60 cents per square foot, to hundreds of dollars, or even $100,000 per square foot. The many options of tile allow a person to choose a cost and style that best fits their needs. Tile is also easy to maintain, clean, and is suitable for all locations. However, without heating, tile can be cold in the winter. It also does not dampen sound, can be slippery when wet, can break if heavy objects are dropped on them, and cannot easily be repaired. Tile installation is also difficult, and installation costs can be more expensive than the cost of the materials.</p>
-
-<h3>Building a home:</h3>
-<p>When building a home, using building plans and visiting different homes as a reference can help a person to gain a better understanding of what square footages work for their preferences.</p>
-<p>The cost of building a home varies largely based on a number of factors, including materials, the type of foundation, the pitch of the roof, and many other characteristics that are not necessarily directly related to the size of the house. Unlike the cost per square foot of installing flooring, which can be estimated based on material, quality, and installation costs, the multitude of factors involved in building a house makes it more difficult to estimate cost per square foot. As such, cost per square foot is often estimated based on averages, and depending on a person's specific project, it may not be an accurate estimate of the cost. Instead, it may be more helpful to get an estimate from a builder based on some given specifications, and divide that estimate by the number of square feet the house will occupy.</p>
-<p>Obtaining an estimate of the cost per square foot for a person's specific project can allow comparison to a different house of similar size as a reference. As previously mentioned, houses of the same size do vary significantly in building cost. Thus, having a reference can help a prospective owner decide whether or not to include an elegant master bath, marble tiles, curved staircases, or any other more extravagant features. There are also a number of costs outside of building the house that should be considered, such as fees to local authorities, labor, special requirements from building codes, and insurance.</p>
-
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+	<title>Square Footage Calculator</title>
+
+	<meta name="description" content="This free calculator estimates the square footage of a property and can account for various common lot shapes." />
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+
+	<link rel="manifest" href="/manifest.json">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Square Footage Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html","description":"This free calculator estimates the square footage of a property and can account for various common lot shapes.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Square Footage Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Square Footage Calculator">
+<meta property="og:description" content="This free calculator estimates the square footage of a property and can account for various common lot shapes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Square Footage Calculator">
+<meta name="twitter:description" content="This free calculator estimates the square footage of a property and can account for various common lot shapes.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Square Footage Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html","description":"This free calculator estimates the square footage of a property and can account for various common lot shapes.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Square Footage Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/square-footage-calculator.html"}]}</script></head>
+
+<body>
+
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/square-footage-calculator.html" itemprop="item"><span itemprop="name">square footage calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+		<h1>Square Footage Calculator</h1>
+
+<p>The Square Footage Calculator estimates the square footage of a lot, house, or other surfaces in several common shapes. If the surface is complex in shape, it may be possible to section the surface into simple shapes and add their square footages together.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+
+
+
+<a name="rectangle"></a><h2>Rectangle</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#rectangle" name="calform1">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Length</td>
+
+		<td align="right">
+
+			<input type="text" name="reclength" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="reclengthunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Width</td>
+
+		<td align="right">
+
+			<input type="text" name="recheight" value="20" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="recheightunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="recquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="recprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="recpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding-top:10px;">
+
+			<input type="hidden" name="calctype" value="rectangle">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform1);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/rectangle.svg" width="81" height="43" alt="rectangle"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="rectangleborder"></a><br><h2>Rectangle Border</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#rectangleborder" name="calform12">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Length</td>
+
+		<td align="right">
+
+			<input type="text" name="recblength" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="recblengthunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Width</td>
+
+		<td align="right">
+
+			<input type="text" name="recbheight" value="20" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="recbheightunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Border Width</td>
+
+		<td align="right">
+
+			<input type="text" name="recborder" value="2" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="recborderunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="recbquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="recbprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="recbpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding-top:10px;">
+
+			<input type="hidden" name="calctype" value="rectangleborder">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform12);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/rectangle-border.svg" width="267" height="97" alt="rectangle border"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="circle"></a><br><h2>Circle</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#circle" name="calform4">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Diameter</td>
+
+		<td align="right">
+
+			<input type="text" name="circleradius" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="circleradiusunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="circlequantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="circleprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="circlepriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="circle">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform4);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/circle.svg" width="54" height="54" alt="circle"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="ring"></a><br><h2>Ring</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#ring" name="calform22">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Outer Diameter</td>
+
+		<td align="right">
+
+			<input type="text" name="ringradius" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="ringradiusunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Border Width</td>
+
+		<td align="right">
+
+			<input type="text" name="ringborder" value="2" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="ringborderunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="ringquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="ringprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="ringpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="ring">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform22);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/ring.svg" width="210" height="118" alt="ring"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="triangle"></a><br><h2>Triangle with Edge Lengths</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#triangle" name="calform2">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Edge 1 (a)</td>
+
+		<td>
+
+			<input type="text" name="triedge1" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="triedge1unit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Edge 2 (b)</td>
+
+		<td>
+
+			<input type="text" name="triedge2" value="45" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="triedge2unit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Edge 3 (c)</td>
+
+		<td>
+
+			<input type="text" name="triedge3" value="50" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="triedge3unit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="trianglequantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="triangleprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="trianglepriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="triangle">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform2);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center">
+
+			<img src="/img/square-footage/triangle.svg" width="89" height="80" alt="triangle">
+
+		</td>
+
+	</tr>
+
+</table>
+
+
+
+
+
+<a name="triangle2"></a><br><h2>Triangle with Base &amp; Height</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#triangle2" name="calform25">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Base</td>
+
+		<td align="right">
+
+			<input type="text" name="tribhrbase" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="tribhrbaseunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Height</td>
+
+		<td align="right">
+
+			<input type="text" name="tribhrheight" value="20" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="tribhrheightunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="tribhquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="tribhprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="tribhpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="triangle2">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform25);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/triangle-base.svg" width="100" height="82" alt="triangle base"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="trapezoid"></a><br><h2>Trapezoid</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#trapezoid" name="calform3">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Base 1</td>
+
+		<td align="right">
+
+			<input type="text" name="tratop" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="tratopunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Base 2</td>
+
+		<td align="right">
+
+			<input type="text" name="trabottom" value="45" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="trabottomunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Height</td>
+
+		<td align="right">
+
+			<input type="text" name="traheight" value="20" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="traheightunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="trapezoidquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="trapezoidprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="trapezoidpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="trapezoid">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform3);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/trapezoid.svg" width="98" height="41" alt="trapezoid"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="sector"></a><br><h2>Sector</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#sector" name="calform5">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Radius</td>
+
+		<td align="right">
+
+			<input type="text" name="sectorradius" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="sectorradiusunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Angle</td>
+
+		<td align="right">
+
+			<input type="text" name="sectorangle" value="90" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="sectorangleunit">
+
+				<option value="d" selected>degree &#176;</option>
+
+				<option value="r" >radian</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="sectorquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="sectorprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="sectorpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="sector">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform5);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/sector.svg" width="70" height="52" alt="sector"></td>
+
+	</tr>
+
+</table>
+
+
+
+<a name="parallelogram"></a><br><h2>Parallelogram</h2>
+
+<table >
+
+	<tr>
+
+		<td valign="top">
+
+<form action="/square-footage-calculator.html#parallelogram" name="calform7">
+
+<table class="panel">
+
+	<tr>
+
+		<td align="right">Base</td>
+
+		<td align="right">
+
+			<input type="text" name="parbase" value="30" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="parbaseunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Height</td>
+
+		<td align="right">
+
+			<input type="text" name="parheight" value="20" class="inlong">
+
+		</td>
+
+		<td>
+
+			<select name="parheightunit">
+
+				<option value="feet" selected>feet</option>
+
+				<option value="yards">yards</option>
+
+				<option value="inches">inches</option>
+
+				<option value="miles">miles</option>
+
+				<option value="meters">meters</option>
+
+				<option value="kilometers">kilometers</option>
+
+				<option value="centimeters">centimeters</option>
+
+			</select>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Quantity</td>
+
+		<td align="right">
+
+			<input type="text" name="parquantity" value="1" class="inlong">
+
+		</td>
+
+		<td>
+
+		</td>
+
+	</tr>
+
+	<tr>
+
+		<td align="right">Price (optional)</td><td align="right">				<input type="text" name="parprice" value="" class="inlong indollar">
+
+			</td>
+
+			<td>
+
+				<select name="parpriceunit">
+
+					<option value="feet" selected>per square feet</option>
+
+					<option value="yards">per square yards</option>
+
+					<option value="inches">per square inches</option>
+
+					<option value="meters">per square meters</option>
+
+					<option value="centimeters">per square cm</option>
+
+				</select>
+
+				</td>
+
+	</tr>
+
+	<tr>
+
+		<td colspan="3" align="center" style="padding:10px;">
+
+			<input type="hidden" name="calctype" value="parallelogram">
+
+			<input type="submit" name="x" value="Calculate">
+
+			<input type="button" value="Clear" onClick="clearForm(document.calform7);">
+
+		</td>
+
+	</tr>
+
+</table></form>
+
+		</td>
+
+				<td align="center"><img src="/img/square-footage/parallelogram.svg" width="131" height="43" alt="parallelogram"></td>
+
+	</tr>
+
+</table>
+
+
+
+<br><h2>Reference:</h2>
+
+<p>
+
+1 acre = 43,560 square foot<br>
+
+1 square yard = 9 square foot<br>
+
+1 square meter = 10.76 square foot<br>
+
+1 square inch = 0.00064516 square foot
+
+</p>
+
+
+
+<h2>Calculating Cost Per Square Foot</h2>
+
+<p>When painting a house, installing flooring, or building a home, the square footage of the property is often used to determine the cost or materials to be used.</p>
+
+
+
+<h3>Painting a house:</h3>
+
+<p>Professional house painters often base price quotations on the square footage of a property. Alternatively, even if a person plans to paint their house themselves, measuring square footage can yield accurate estimates of the amount of paint required.</p>
+
+<p>Total cost encompasses more factors than the just amount of paint required, including the cost of materials such as brushes, turpentine, and any materials necessary for preparing, mixing, applying, and cleaning up paint. These considerations are typically included in a quote from a professional painter, in addition to labor costs. Accordingly, the larger the size of a property or area, the higher the cost required to paint it.</p>
+
+<p>Depending on the surface being painted, whether wood, metal, plastic, or something else, paint primer, which helps the paint adhere more effectively to a given surface, can be used. While the amount of coverage provided by primer or paint depends heavily on the method of application, type, and brand of paint, primer generally covers less area than paint, and estimated coverage amounts can range from anywhere between 200-400 square feet per gallon.</p>
+
+
+
+<h3>Flooring installation:</h3>
+
+<p>There are a number of materials commonly used for flooring, including wood, laminate, and tile. Flooring costs can vary significantly depending on the quality and choice of materials.</p>
+
+
+
+<p><b>Wood Flooring</b></p>
+
+<p>Wood flooring includes woods such as hardwood, engineered wood (also known as composite or man-made wood), and bamboo, though bamboo is actually classified as grass.</p>
+
+<p>Hardwood flooring is highly durable, easy to clean, and can be found in a variety of different appearances. As such, it is fairly versatile in terms of interior design, but does require some maintenance such as sanding and refinishing over time.</p>
+
+<p>Engineered wood flooring is made from several layers of wood, with a thin outermost layer of the desired hardwood, and inner layers such as plywood and high-density fiberboard. Engineered hardwood has a higher heat and moisture resistance than solid hardwoods, is easy to maintain, and is generally cheaper to purchase and install than hardwood flooring.</p>
+
+<p>Bamboo flooring is easy to maintain, moisture resistant, easy to install, and is available in many different styles. It is often cheaper than traditional hardwood options, but does have the disadvantage of scratching easily as a result of furniture, high heels, claws, or even debris.</p>
+
+
+
+<p><b>Laminate Flooring</b></p>
+
+<p>Laminate flooring is typically made with plywood or fiberboard with a plastic laminate top layer, and can have a similar look like hardwood. It is less costly than traditional wood flooring, is highly durable, difficult to scratch, stain, or dent, and requires little maintenance. Laminate flooring can even be installed over existing flooring, which can save time as well as the cost of removing old flooring. However, laminate flooring often feels too hard on the feet, cannot be finished or stained &ndash; meaning that the owner is stuck with what they choose and will have to entirely replace the floor if they change their mind &ndash; and also results in a lower resale value for a home than traditional hardwoods.</p>
+
+
+
+<p><b>Tile flooring</b></p>
+
+<p>Tile flooring includes concrete or cement, ceramic tiles, glass tiles, and natural stone products among many others. Due to the numerous varieties of tile, there is an incredibly large price range, from 60 cents per square foot, to hundreds of dollars, or even $100,000 per square foot. The many options of tile allow a person to choose a cost and style that best fits their needs. Tile is also easy to maintain, clean, and is suitable for all locations. However, without heating, tile can be cold in the winter. It also does not dampen sound, can be slippery when wet, can break if heavy objects are dropped on them, and cannot easily be repaired. Tile installation is also difficult, and installation costs can be more expensive than the cost of the materials.</p>
+
+
+
+<h3>Building a home:</h3>
+
+<p>When building a home, using building plans and visiting different homes as a reference can help a person to gain a better understanding of what square footages work for their preferences.</p>
+
+<p>The cost of building a home varies largely based on a number of factors, including materials, the type of foundation, the pitch of the roof, and many other characteristics that are not necessarily directly related to the size of the house. Unlike the cost per square foot of installing flooring, which can be estimated based on material, quality, and installation costs, the multitude of factors involved in building a house makes it more difficult to estimate cost per square foot. As such, cost per square foot is often estimated based on averages, and depending on a person's specific project, it may not be an accurate estimate of the cost. Instead, it may be more helpful to get an estimate from a builder based on some given specifications, and divide that estimate by the number of square feet the house will occupy.</p>
+
+<p>Obtaining an estimate of the cost per square foot for a person's specific project can allow comparison to a different house of similar size as a reference. As previously mentioned, houses of the same size do vary significantly in building cost. Thus, having a reference can help a prospective owner decide whether or not to include an elegant master bath, marble tiles, curved staircases, or any other more extravagant features. There are also a number of costs outside of building the house that should be considered, such as fees to local authorities, labor, special requirements from building codes, and insurance.</p>
+
+
+
+<h2>Square Footage Calculator FAQ</h2>
+
+<details>
+<summary>How do I calculate the square footage of a rectangle?</summary>
+<p>Multiply the length by the width, with both measured in feet. For example, a room that is 30 feet long and 20 feet wide has an area of 30 × 20 = 600 square feet. If your measurements are in other units, select the unit next to each field and the calculator converts them for you.</p>
+</details>
+
+<details>
+<summary>How do I find the square footage of an irregularly shaped area?</summary>
+<p>Divide the area into simple shapes such as rectangles, triangles, and circles. Calculate the square footage of each shape separately, then add the results together. If part of the area is cut out, such as a pond in a lawn, calculate it separately and subtract it.</p>
+</details>
+
+<details>
+<summary>How do I convert square meters, square yards, or acres to square feet?</summary>
+<p>Use these conversions: 1 square meter is about 10.76 square feet, 1 square yard is 9 square feet, and 1 acre is 43,560 square feet. For example, half an acre is 21,780 square feet, and a 50 square meter room is about 538 square feet.</p>
+</details>
+
+<details>
+<summary>How do I calculate the square footage of a circle?</summary>
+<p>The area of a circle is π × radius², where the radius is half the diameter. For a circle with a 30 foot diameter, the radius is 15 feet, so the area is about 3.1416 × 15 × 15 = 706.9 square feet. The circle calculator above takes the diameter directly.</p>
+</details>
+
+<details>
+<summary>How do I calculate the square footage of a triangle?</summary>
+<p>If you know the base and height, the area is ½ × base × height. A triangle with a 30 foot base and a 20 foot height has an area of 300 square feet. If you only know the three edge lengths, use the Triangle with Edge Lengths calculator, which finds the area from the three sides.</p>
+</details>
+
+<details>
+<summary>How do I calculate the cost of flooring or paint per square foot?</summary>
+<p>Multiply the square footage by the price per square foot. For example, 600 square feet at $3 per square foot costs $1,800. Enter the optional price in any calculator above and it computes the total for you. Remember that materials like paint, primer, and installation labor are usually separate costs, and it is common to order slightly more material than the exact area to allow for waste.</p>
+</details>
+
+<details>
+<summary>How much area does a gallon of paint or primer cover?</summary>
+<p>Coverage depends on the brand, type of product, and method of application. Estimated coverage generally ranges from about 200 to 400 square feet per gallon, and primer generally covers less area than paint. Check the label of the product you plan to use for its stated coverage.</p>
+</details>
+
+
+
+</div>
+
+	<div id="right">
+
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+
+</div>
+
+<div id="clear"></div>
+
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+
+</html>

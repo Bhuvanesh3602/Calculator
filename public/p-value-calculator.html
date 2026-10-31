@@ -1,54 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>P-value Calculator</title>
-	<meta name="description" content="Calculator to compute p-value from Z-score or Z-score from p-value for a normal distribution. It also provides a diagram illustrating the area of the p-values." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>P-value Calculator: Z-score to P-value &amp; P-value to Z-score</title>
+	<meta name="description" content="Free p-value calculator: convert a Z-score to a p-value (left tail, right tail, two-tailed, between, from center) or find the Z-score from a p-value for a normal distribution, with diagrams and FAQ." />
+	<meta name="keywords" content="p-value calculator, z-score to p-value, p-value from z-score, z-score calculator, two-tailed p-value, one-tailed p-value, normal distribution calculator, z table, hypothesis testing" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="author" content="adxcal.com" />
+	
+	
+
+	<!-- Open Graph / Twitter -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preconnect" href="https://www.adxcal.com" />
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- Structured data: WebApplication -->
+	
+
+	<!-- Structured data: Breadcrumbs -->
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"P-value Calculator: Z-score to P-value &amp; P-value to Z-score","url":"https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html","description":"Free p-value calculator: convert a Z-score to a p-value (left tail, right tail, two-tailed, between, from center) or find the Z-score from a p-value for a normal distribution, with diagrams and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"P-value Calculator: Z-score to P-value &amp; P-value to Z-score","item":"https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html"}]}</script>
+
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="P-value Calculator: Z-score to P-value &amp; P-value to Z-score">
+<meta property="og:description" content="Free p-value calculator: convert a Z-score to a p-value (left tail, right tail, two-tailed, between, from center) or find the Z-score from a p-value for a normal distribution, with diagrams and FAQ.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="P-value Calculator: Z-score to P-value &amp; P-value to Z-score">
+<meta name="twitter:description" content="Free p-value calculator: convert a Z-score to a p-value (left tail, right tail, two-tailed, between, from center) or find the Z-score from a p-value for a normal distribution, with diagrams and FAQ.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"P-value Calculator: Z-score to P-value &amp; P-value to Z-score","url":"https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html","description":"Free p-value calculator: convert a Z-score to a p-value (left tail, right tail, two-tailed, between, from center) or find the Z-score from a p-value for a normal distribution, with diagrams and FAQ.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Math"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Math","item":"https://calculator.bhuvanesh-s3602.workers.dev/math-calculator.html"},{"@type":"ListItem","position":3,"name":"P-value Calculator: Z-score to P-value &amp; P-value to Z-score","item":"https://calculator.bhuvanesh-s3602.workers.dev/p-value-calculator.html"}]}</script></head>
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/math-calculator.html" itemprop="item"><span itemprop="name">math</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/p-value-calculator.html" itemprop="item"><span itemprop="name">p-value calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content" role="main"><div id="breadcrumbs" role="navigation" aria-label="Breadcrumb"><a href="/">home</a> / <a href="/math-calculator.html">math</a> / <a href="/p-value-calculator.html" aria-current="page">p-value calculator</a></div>
 
 <h1>P-value Calculator</h1>
 
-<p>Please provide any one value below to compute p-value from z-score or vice versa for a normal distribution.</p>
-<form name="calform">
+<p>Please provide any one value below to compute <strong>p-value from z-score</strong> or vice versa for a <strong>normal distribution</strong>. The calculator returns the left-tail, right-tail, two-tailed, center and between p-values at the same time.</p>
+
+<p><strong>On this page:</strong>
+<a href="#calculator">P-value calculator</a> |
+<a href="#how-to-use">How to use</a> |
+<a href="#what-is-p-value">What is a p-value?</a> |
+<a href="#z-table">Common Z-scores</a> |
+<a href="#faq">FAQ</a></p>
+
+<form name="calform" id="calculator" method="get">
 <table class="panel" >
 	<tr>
-		<td>Z-score</td>
-		<td><input type="text" name="z" value="2" class="inlong"></td>
+		<td><label for="f-z">Z-score</label></td>
+		<td><input type="text" name="z" id="f-z" value="2" class="inlong" inputmode="decimal"></td>
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
-		<td>P-value (x&lt;Z, left tail)</td>
-		<td><input type="text" name="pl" value="" class="inlong"></td>
-		<td><img src="/img/p-value/left.svg" width="40" height="26" alt="P-value left tail"></td>
+		<td><label for="f-pl">P-value (x&lt;Z, left tail)</label></td>
+		<td><input type="text" name="pl" id="f-pl" value="" class="inlong" inputmode="decimal"></td>
+		<td><img src="/img/p-value/left.svg" width="40" height="26" alt="Normal curve with the left tail shaded (x less than Z)" title="Left tail p-value" loading="lazy"></td>
 	</tr>
 	<tr>
-		<td>P-value (x&gt;Z, right tail)</td>
-		<td><input type="text" name="pr" value="" class="inlong"></td>
-		<td><img src="/img/p-value/right.svg" width="40" height="26" alt="P-value right tail"></td>
+		<td><label for="f-pr">P-value (x&gt;Z, right tail)</label></td>
+		<td><input type="text" name="pr" id="f-pr" value="" class="inlong" inputmode="decimal"></td>
+		<td><img src="/img/p-value/right.svg" width="40" height="26" alt="Normal curve with the right tail shaded (x greater than Z)" title="Right tail p-value" loading="lazy"></td>
 	</tr>
 	<tr>
-		<td>P-value (0 to Z or Z to 0, from center)</td>
-		<td><input type="text" name="pc" value="" class="inlong"></td>
-		<td><img src="/img/p-value/center.svg" width="40" height="26" alt="P-value from center"></td>
+		<td><label for="f-pc">P-value (0 to Z or Z to 0, from center)</label></td>
+		<td><input type="text" name="pc" id="f-pc" value="" class="inlong" inputmode="decimal"></td>
+		<td><img src="/img/p-value/center.svg" width="40" height="26" alt="Normal curve with the area between 0 and Z shaded" title="P-value from center" loading="lazy"></td>
 	</tr>
 	<tr>
-		<td>P-value (-Z&lt;x&lt;Z, between)</td>
-		<td><input type="text" name="pin" value="" class="inlong"></td>
-		<td><img src="/img/p-value/in.svg" width="40" height="26" alt="P-value between"></td>
+		<td><label for="f-pin">P-value (-Z&lt;x&lt;Z, between)</label></td>
+		<td><input type="text" name="pin" id="f-pin" value="" class="inlong" inputmode="decimal"></td>
+		<td><img src="/img/p-value/in.svg" width="40" height="26" alt="Normal curve with the area between negative Z and Z shaded" title="P-value between -Z and Z" loading="lazy"></td>
 	</tr>
 	<tr>
-		<td>P-value (x&lt;-Z or x&gt;Z, two tails)</td>
-		<td><input type="text" name="pout" value="" class="inlong"></td>
-		<td><img src="/img/p-value/out.svg" width="40" height="26" alt="P-value two tail"></td>
+		<td><label for="f-pout">P-value (x&lt;-Z or x&gt;Z, two tails)</label></td>
+		<td><input type="text" name="pout" id="f-pout" value="" class="inlong" inputmode="decimal"></td>
+		<td><img src="/img/p-value/out.svg" width="40" height="26" alt="Normal curve with both tails shaded (two-tailed p-value)" title="Two-tailed p-value" loading="lazy"></td>
 	</tr>
 	<tr>
 		<td align="center" colspan="3" style="padding-top:10px;">
@@ -59,28 +127,92 @@
 </table>
 </form>
 <br>
+
+<h2 id="how-to-use">How to Use the P-value Calculator</h2>
+<ol>
+	<li><strong>Enter one value</strong> &ndash; type a Z-score, or any one of the p-value fields (left tail, right tail, from center, between, or two tails).</li>
+	<li><strong>Click Calculate</strong> &ndash; the calculator fills in the Z-score and every p-value for the standard normal distribution.</li>
+	<li><strong>Pick the right p-value</strong> &ndash; use the left- or right-tail value for a one-tailed test and the two-tails value for a two-tailed test, then compare it with your significance level (commonly 0.05).</li>
+</ol>
+<p>For example, entering a Z-score of 2 gives a left-tail p-value of about 0.9772, a right-tail p-value of about 0.0228, a from-center value of about 0.4772, a between value of about 0.9545 and a two-tailed p-value of about 0.0455.</p>
+
+<h2 id="what-is-p-value">What Is a P-value?</h2>
 <p>A p-value (probability value) is a value used in statistical hypothesis testing that is intended to determine whether the obtained results are significant. In statistical hypothesis testing, the null hypothesis is a type of hypothesis that states a default position, such as there is no association among groups or relationship between two observations. Assuming that the given null hypothesis is correct, a p-value is the probability of obtaining test results in an experiment that are at least as extreme as the observed results. In other words, determining a p-value helps you determine how likely it is that the observed results actually differ from the null hypothesis.</p>
 <p>The smaller the p-value, the higher the significance, and the more evidence there is that the null hypothesis should be rejected for an alternative hypothesis. Typically, a p-value of &le; 0.05 is accepted as significant and the null hypothesis is rejected, while a p-value &gt; 0.05 indicates that there is not enough evidence against the null hypothesis to reject it.</p>
 <p>Given that the data being studied follows a normal distribution, a Z-score table can be used to determine p-values, as in this calculator.</p>
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html" class="topNavOn">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<h3>Z-score Formula</h3>
+<p class="bigtext" align="center">z = (x &ndash; &mu;) / &sigma;</p>
+<p>Here <em>x</em> is the observed value, <em>&mu;</em> is the mean and <em>&sigma;</em> is the standard deviation. When testing a sample mean against a known population mean, use z = (x&#772; &ndash; &mu;) / (&sigma; / &radic;n), where <em>n</em> is the sample size.</p>
+
+<h2 id="z-table">Common Z-scores and Their P-values</h2>
+<p>The table below lists the Z-scores most often used as critical values in hypothesis testing, with the matching one-tailed (right tail) and two-tailed p-values.</p>
+<table class="cinfoT">
+	<tr><td class="cinfoHd">Z-score</td><td class="cinfoHdL">One-tailed p-value (x&gt;Z)</td><td class="cinfoHdL">Two-tailed p-value</td><td class="cinfoHdL">Typical use</td></tr>
+	<tr><td>1.000</td><td class="cinfoBodL">0.1587</td><td class="cinfoBodL">0.3173</td><td class="cinfoBodL">1 standard deviation</td></tr>
+	<tr><td>1.282</td><td class="cinfoBodL">0.1000</td><td class="cinfoBodL">0.2000</td><td class="cinfoBodL">80% two-sided confidence</td></tr>
+	<tr><td>1.645</td><td class="cinfoBodL">0.0500</td><td class="cinfoBodL">0.1000</td><td class="cinfoBodL">90% two-sided confidence / 0.05 one-tailed</td></tr>
+	<tr><td>1.960</td><td class="cinfoBodL">0.0250</td><td class="cinfoBodL">0.0500</td><td class="cinfoBodL">95% two-sided confidence / 0.05 two-tailed</td></tr>
+	<tr><td>2.326</td><td class="cinfoBodL">0.0100</td><td class="cinfoBodL">0.0200</td><td class="cinfoBodL">0.01 one-tailed</td></tr>
+	<tr><td>2.576</td><td class="cinfoBodL">0.0050</td><td class="cinfoBodL">0.0100</td><td class="cinfoBodL">99% two-sided confidence / 0.01 two-tailed</td></tr>
+	<tr><td>3.291</td><td class="cinfoBodL">0.0005</td><td class="cinfoBodL">0.0010</td><td class="cinfoBodL">99.9% two-sided confidence / 0.001 two-tailed</td></tr>
+</table>
+
+<br><h2 id="faq">P-value Calculator FAQ: Frequently Asked Questions</h2>
+<section id="faq-list">
+<h3>What is a p-value?</h3>
+<p>A p-value is the probability of obtaining results at least as extreme as the observed results, assuming the null hypothesis is true. A small p-value means the data would be unlikely if the null hypothesis were correct, which counts as evidence against it.</p>
+
+<h3>How do I find the p-value from a Z-score?</h3>
+<p>Enter the Z-score in the calculator and click Calculate. The p-value is the area under the standard normal curve in the tail you care about. For example, Z = 2 gives a right-tail p-value of about 0.0228 and a two-tailed p-value of about 0.0455.</p>
+
+<h3>How do I calculate a Z-score?</h3>
+<p>A Z-score is z = (x &minus; mean) / standard deviation. When testing a sample mean against a known population mean, use z = (sample mean &minus; population mean) / (standard deviation / &radic;n).</p>
+
+<h3>Should I use the left-tail, right-tail or two-tailed p-value?</h3>
+<p>Use the left-tail p-value when your alternative hypothesis says the true value is less than the null value, the right-tail p-value when it says greater than, and the two-tailed p-value when it says different from (either direction).</p>
+
+<h3>What is the difference between a one-tailed and a two-tailed p-value?</h3>
+<p>A one-tailed p-value looks at extreme results in only one direction, while a two-tailed p-value counts extreme results in both directions. For a symmetric distribution such as the normal distribution, the two-tailed p-value is twice the one-tailed p-value.</p>
+
+<h3>What Z-score corresponds to a p-value of 0.05?</h3>
+<p>For a two-tailed test at 0.05, the critical Z-scores are about &plusmn;1.96. For a one-tailed test at 0.05, the critical Z-score is about 1.645 (right tail) or &minus;1.645 (left tail).</p>
+
+<h3>Is a p-value less than 0.05 significant?</h3>
+<p>By the most common convention, a p-value of 0.05 or less is called statistically significant and the null hypothesis is rejected. The 0.05 cutoff is a convention, not a law, and some fields use stricter levels such as 0.01 or 0.001.</p>
+
+<h3>Does the p-value tell me the probability that the null hypothesis is true?</h3>
+<p>No. The p-value is calculated assuming the null hypothesis is true. It does not give the probability that the null hypothesis is true, and it does not measure the size or importance of an effect.</p>
+
+<h3>Can a p-value be 0?</h3>
+<p>In theory the p-value for a normal distribution is never exactly 0, because the tails of the curve extend infinitely. Software may display 0 or a very small number when the Z-score is so large that the result is below the displayed precision.</p>
+
+<h3>Can I use this calculator for a t-test or chi-square test?</h3>
+<p>This calculator is for the normal (Z) distribution only. A t-test uses the t-distribution, which depends on degrees of freedom, and a chi-square test uses the chi-square distribution. With a large sample size the t-distribution is close to the normal distribution, so the Z result is a reasonable approximation.</p>
+
+<h3>What is the difference between the "from center" and "between" p-values?</h3>
+<p>The "from center" value is the area between 0 and Z (one half of the middle region), while the "between" value is the area between &minus;Z and Z. The "between" value is twice the "from center" value.</p>
+</section>
+
+</div>
+
+	<div id="right" role="complementary" aria-label="Search and related calculators">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/math-calculator.html">Math Calculators</a></div><div id="occontent"><a href="/scientific-calculator.html">Scientific</a><a href="/fraction-calculator.html">Fraction</a><a href="/percent-calculator.html">Percentage</a><a href="/triangle-calculator.html">Triangle</a><a href="/volume-calculator.html">Volume</a><a href="/standard-deviation-calculator.html">Standard Deviation</a><a href="/random-number-generator.html">Random Number Generator</a><a href="/math-calculator.html">More Math Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<div class="topNavAbs" role="navigation" aria-label="Calculator categories">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+<a href="/math-calculator.html" class="topNavOn">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>

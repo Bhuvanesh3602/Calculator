@@ -1,129 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Payment Calculator</title>
-	<meta name="description" content="Free payment calculator to find monthly payment amount or time period to pay off a loan using a fixed term or a fixed payment." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/payment-calculator.html" itemprop="item"><span itemprop="name">payment calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Payment Calculator</h1>
-<p>The Payment Calculator can determine the monthly payment amount or loan term for a fixed interest loan. Use the "Fixed Term" tab to calculate the monthly payment of a fixed-term loan. Use the "Fixed Payments" tab to calculate the time to pay off a loan with a fixed monthly payment. For more information about or to do calculations specifically for car payments, please use the <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>. To find net payment of salary after taxes and deductions, use the <a href="/take-home-pay-calculator.html">Take-Home-Pay Calculator</a>.</p><div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><div class="leftinput">
-<form name="calform" action="/payment-calculator.html#result">
-<div id="topmenu"><ul><li id='menuon'><a href="#" onclick="popNMenu('fixterm',1);">Fixed Term</a></li> <li ><a href="#" onclick="popNMenu('fixpay',1);">Fixed Payments</a></li></ul></div>
-<div class="panel2"><table align="center"><tr><td>
-<table width="310" cellpadding="6">
-<input type="hidden" name="ctype" id="ctype" value="fixterm">
-<tr><td width="145">Loan Amount</td><td width="165"><input type="text" name="cloanamount" id="cloanamount" value="200000" class="inhalf indollar"></td></tr>
-</table>
-<table id="fixtermtable" width="310" cellpadding="6">
-<tr><td width="145">Loan Term</td><td width="165"><input type="text" name="cloanterm" id="cloanterm" value="15" class="inhalf inuiyear"><span class="inuiyearspan">years</span></td></tr>
-</table>
-<table id="fixpaytable" width="310" cellpadding="6" style="display:none;">
-<tr><td width="145">Monthly Pay</td><td width="165"><input type="text" name="cmonthlypay" id="cmonthlypay" value="2000" class="inhalf indollar"></td></tr>
-</table>
-<table width="310" cellpadding="6">
-<tr><td width="145">Interest Rate</td><td width="165"><input type="text" name="cinterestrate" id="cinterestrate" value="6" class="inhalf inpct"></td></tr>
-<tr><td colspan="2" align="center" style="padding-top: 8px;">
-	<input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td></tr>
-</table>
-</td></tr></table></div>
-</form>
-</div><div class="rightresult"><a name="result"></a><div class="espaceforM">&nbsp;</div>
-<h2 class="h2result">Monthly Payment: &nbsp; $1,687.71<img src="/img/save.svg" width="19" height="20" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGF5bWVudCBDYWxjdWxhdG9y', 0, 'UGF5bWVudCBDYWxjdWxhdG9y', 'TW9udGhseSBQYXltZW50', 'JDEsNjg3Ljcx');"></h2><div style="padding: 3px">You will need to pay $1,687.71 every month for 15 years to payoff the debt.</div><table width="100%" class="cinfoT"><tr><td>Total of 180 Payments</td><td align='right'>$303,788.46</td></tr><tr><td>Total Interest</td><td align='right'>$103,788.46</td></tr></table><div style="text-align:center; padding-top:8px;"><g onclick="ttline2HideTT();"><svg width="220" height="105"><style>.mcpline{stroke:white;stroke-width:1;} .mcplegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcplabel{fill: #fff; stroke-width:2; font-family:arial,helvetica,sans-serif; font-size: 12px;paint-order:stroke;dominant-baseline:middle;text-anchor:middle;}</style><path d="M 53.5 8 A 44.5 44.5 0 1 1 16.176 76.732 L 53.5 52.5 Z" fill="#2b7ddb"  onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$200,000.00 (66%)');" onmouseout="ttpieHideTT();" /><line x1="53.5" y1="52.5" x2="53.5" y2="8" class="mcpline" /><path d="M 16.176 76.732 A 44.5 44.5 0 0 1 53.5 8 L 53.5 52.5 Z" fill="#8bbc21"  onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$103,788.46 (34%)');" onmouseout="ttpieHideTT();" /><line x1="53.5" y1="52.5" x2="16.176" y2="76.732" class="mcpline" /><line x1="53.5" y1="52.5" x2="53.5" y2="8" class="mcpline" /><circle cx="53.5" cy="52.5" r="17.8" fill="white" /><text x="79.424" y="66.578" class="mcplabel" stroke="#2b7ddb" onmousemove="ttpieShowTT(evt, '#2b7ddb', 'Principal <br>$200,000.00 (66%)');" onmouseout="ttpieHideTT();">66%</text><text x="27.576" y="38.422" class="mcplabel" stroke="#8bbc21" onmousemove="ttpieShowTT(evt, '#8bbc21', 'Interest <br>$103,788.46 (34%)');" onmouseout="ttpieHideTT();">34%</text><rect x="107" y="8" rx="3" ry="3" width="20" height="14" style="fill:#2b7ddb;" /><text x="132" y="19" class="mcplegend">Principal</text><rect x="107" y="26" rx="3" ry="3" width="20" height="14" style="fill:#8bbc21;" /><text x="132" y="37" class="mcplegend">Interest</text></svg><script> function ttpieShowTT(evt, color, text) { let tooltip = document.getElementById("ttpiett"); tooltip.innerHTML = text; tooltip.style.display = "block"; if (evt.pageX>(window.innerWidth/2)){ tooltip.style.left = evt.pageX - 2 - tooltip.offsetWidth + "px"; }else{ tooltip.style.left = evt.pageX + 16 + "px"; } tooltip.style.top = evt.pageY + 0 + "px"; tooltip.style.backgroundColor = color; } function ttpieHideTT() { var tooltip = document.getElementById("ttpiett"); tooltip.style.display = "none"; }</script><style>#ttpiett {background: cornsilk;opacity: 0.92;border: 1px solid #11233a;border-radius: 5px;padding: 5px;font-size:13px;font-family:arial,helvetica,sans-serif;color:#fff;} #ttpiett div{font-size:13px;color:#fff;}</style><div id="ttpiett" style="position: absolute; display: none;text-align:left;"></div></g></div></div><div id="clear"></div>
-<h2 style="padding-bottom: 10px;">Amortization schedule</h2><div class="crighthalf"><div style="text-align:center;"><svg width="318" height="160"><style>.mclgrid{stroke:#999;stroke-width:0.5;} .mcllegend{font-size:13;font-family:arial,helvetica,sans-serif;fill:#0d233a;} .mcltitle{fill: #000; font-family:arial,helvetica,sans-serif; font-size: 15px; dominant-baseline:middle;text-anchor:middle;} .mcllabely{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:middle; text-anchor:end;} .mcllabelx{fill: #666; font-family:arial,helvetica,sans-serif; font-size: 12px; dominant-baseline:hanging; text-anchor:middle;} .mcldot:hover {stroke-width:10;} .mcldot {stroke-width:0;}</style><text x="128" y="152" class="mcltitle">Year</text><line x1="45" y1="125" x2="218" y2="125" class="mclgrid" /><text x="43" y="125" class="mcllabely">$0</text><line x1="45" y1="106.66" x2="218" y2="106.66" class="mclgrid" /><text x="43" y="106.66" class="mcllabely">$50K</text><line x1="45" y1="88.32" x2="218" y2="88.32" class="mclgrid" /><text x="43" y="88.32" class="mcllabely">$100K</text><line x1="45" y1="69.981" x2="218" y2="69.981" class="mclgrid" /><text x="43" y="69.981" class="mcllabely">$150K</text><line x1="45" y1="51.641" x2="218" y2="51.641" class="mclgrid" /><text x="43" y="51.641" class="mcllabely">$200K</text><line x1="45" y1="33.301" x2="218" y2="33.301" class="mclgrid" /><text x="43" y="33.301" class="mcllabely">$250K</text><line x1="45" y1="14.961" x2="218" y2="14.961" class="mclgrid" /><text x="43" y="14.961" class="mcllabely">$300K</text><line x1="48" y1="8" x2="48" y2="129" class="mclgrid" /><text x="48" y="130" class="mcllabelx">0</text><line x1="104.667" y1="8" x2="104.667" y2="129" class="mclgrid" /><text x="104.667" y="130" class="mcllabelx">5</text><line x1="161.333" y1="8" x2="161.333" y2="129" class="mclgrid" /><text x="161.333" y="130" class="mcllabelx">10</text><line x1="218" y1="8" x2="218" y2="129" class="mclgrid" /><text x="218" y="130" class="mcllabelx">15</text><path d="M 48 51.641 L 48 51.893 L 48.944 52.146 L 49.889 52.401 L 50.833 52.657 L 51.778 52.915 L 52.722 53.173 L 53.667 53.433 L 54.611 53.694 L 55.556 53.957 L 56.5 54.221 L 57.444 54.486 L 58.389 54.752 L 59.333 55.02 L 60.278 55.289 L 61.222 55.56 L 62.167 55.832 L 63.111 56.105 L 64.056 56.379 L 65 56.655 L 65.944 56.933 L 66.889 57.211 L 67.833 57.492 L 68.778 57.773 L 69.722 58.056 L 70.667 58.34 L 71.611 58.626 L 72.556 58.913 L 73.5 59.202 L 74.444 59.492 L 75.389 59.783 L 76.333 60.076 L 77.278 60.371 L 78.222 60.667 L 79.167 60.964 L 80.111 61.263 L 81.056 61.563 L 82 61.865 L 82.944 62.168 L 83.889 62.473 L 84.833 62.78 L 85.778 63.088 L 86.722 63.397 L 87.667 63.708 L 88.611 64.021 L 89.556 64.335 L 90.5 64.651 L 91.444 64.968 L 92.389 65.287 L 93.333 65.607 L 94.278 65.929 L 95.222 66.253 L 96.167 66.578 L 97.111 66.905 L 98.056 67.234 L 99 67.564 L 99.944 67.896 L 100.889 68.23 L 101.833 68.565 L 102.778 68.902 L 103.722 69.24 L 104.667 69.58 L 105.611 69.922 L 106.556 70.266 L 107.5 70.611 L 108.444 70.959 L 109.389 71.307 L 110.333 71.658 L 111.278 72.01 L 112.222 72.364 L 113.167 72.72 L 114.111 73.078 L 115.056 73.437 L 116 73.799 L 116.944 74.162 L 117.889 74.527 L 118.833 74.893 L 119.778 75.262 L 120.722 75.632 L 121.667 76.004 L 122.611 76.378 L 123.556 76.754 L 124.5 77.132 L 125.444 77.512 L 126.389 77.893 L 127.333 78.277 L 128.278 78.662 L 129.222 79.05 L 130.167 79.439 L 131.111 79.83 L 132.056 80.223 L 133 80.619 L 133.944 81.016 L 134.889 81.415 L 135.833 81.816 L 136.778 82.219 L 137.722 82.624 L 138.667 83.031 L 139.611 83.441 L 140.556 83.852 L 141.5 84.265 L 142.444 84.681 L 143.389 85.098 L 144.333 85.518 L 145.278 85.939 L 146.222 86.363 L 147.167 86.789 L 148.111 87.217 L 149.056 87.647 L 150 88.079 L 150.944 88.514 L 151.889 88.95 L 152.833 89.389 L 153.778 89.83 L 154.722 90.273 L 155.667 90.719 L 156.611 91.166 L 157.556 91.616 L 158.5 92.068 L 159.444 92.523 L 160.389 92.979 L 161.333 93.438 L 162.278 93.9 L 163.222 94.363 L 164.167 94.829 L 165.111 95.297 L 166.056 95.768 L 167 96.241 L 167.944 96.716 L 168.889 97.193 L 169.833 97.674 L 170.778 98.156 L 171.722 98.641 L 172.667 99.128 L 173.611 99.618 L 174.556 100.11 L 175.5 100.604 L 176.444 101.101 L 177.389 101.601 L 178.333 102.103 L 179.278 102.608 L 180.222 103.115 L 181.167 103.624 L 182.111 104.137 L 183.056 104.651 L 184 105.169 L 184.944 105.688 L 185.889 106.211 L 186.833 106.736 L 187.778 107.264 L 188.722 107.794 L 189.667 108.327 L 190.611 108.863 L 191.556 109.401 L 192.5 109.942 L 193.444 110.486 L 194.389 111.033 L 195.333 111.582 L 196.278 112.134 L 197.222 112.688 L 198.167 113.246 L 199.111 113.806 L 200.056 114.369 L 201 114.935 L 201.944 115.504 L 202.889 116.075 L 203.833 116.65 L 204.778 117.227 L 205.722 117.807 L 206.667 118.39 L 207.611 118.976 L 208.556 119.565 L 209.5 120.157 L 210.444 120.752 L 211.389 121.35 L 212.333 121.951 L 213.278 122.554 L 214.222 123.161 L 215.167 123.771 L 216.111 124.384 L 217.056 125" fill="none" stroke="#2b7ddb" stroke-width="3" /><path d="M 48 125 L 48 124.633 L 48.944 124.268 L 49.889 123.903 L 50.833 123.54 L 51.778 123.179 L 52.722 122.818 L 53.667 122.459 L 54.611 122.101 L 55.556 121.745 L 56.5 121.39 L 57.444 121.036 L 58.389 120.683 L 59.333 120.332 L 60.278 119.982 L 61.222 119.633 L 62.167 119.286 L 63.111 118.94 L 64.056 118.596 L 65 118.253 L 65.944 117.911 L 66.889 117.571 L 67.833 117.232 L 68.778 116.894 L 69.722 116.558 L 70.667 116.223 L 71.611 115.89 L 72.556 115.558 L 73.5 115.228 L 74.444 114.899 L 75.389 114.571 L 76.333 114.245 L 77.278 113.921 L 78.222 113.597 L 79.167 113.276 L 80.111 112.956 L 81.056 112.637 L 82 112.32 L 82.944 112.004 L 83.889 111.69 L 84.833 111.377 L 85.778 111.066 L 86.722 110.757 L 87.667 110.449 L 88.611 110.142 L 89.556 109.837 L 90.5 109.534 L 91.444 109.232 L 92.389 108.932 L 93.333 108.633 L 94.278 108.336 L 95.222 108.041 L 96.167 107.747 L 97.111 107.455 L 98.056 107.165 L 99 106.876 L 99.944 106.589 L 100.889 106.303 L 101.833 106.019 L 102.778 105.737 L 103.722 105.457 L 104.667 105.178 L 105.611 104.901 L 106.556 104.625 L 107.5 104.352 L 108.444 104.08 L 109.389 103.81 L 110.333 103.541 L 111.278 103.274 L 112.222 103.009 L 113.167 102.746 L 114.111 102.485 L 115.056 102.225 L 116 101.967 L 116.944 101.711 L 117.889 101.457 L 118.833 101.205 L 119.778 100.954 L 120.722 100.706 L 121.667 100.459 L 122.611 100.214 L 123.556 99.971 L 124.5 99.73 L 125.444 99.49 L 126.389 99.253 L 127.333 99.017 L 128.278 98.784 L 129.222 98.552 L 130.167 98.322 L 131.111 98.094 L 132.056 97.869 L 133 97.645 L 133.944 97.423 L 134.889 97.203 L 135.833 96.985 L 136.778 96.769 L 137.722 96.555 L 138.667 96.343 L 139.611 96.133 L 140.556 95.926 L 141.5 95.72 L 142.444 95.516 L 143.389 95.315 L 144.333 95.115 L 145.278 94.918 L 146.222 94.722 L 147.167 94.529 L 148.111 94.338 L 149.056 94.149 L 150 93.962 L 150.944 93.778 L 151.889 93.595 L 152.833 93.415 L 153.778 93.237 L 154.722 93.061 L 155.667 92.888 L 156.611 92.716 L 157.556 92.547 L 158.5 92.38 L 159.444 92.215 L 160.389 92.053 L 161.333 91.893 L 162.278 91.735 L 163.222 91.58 L 164.167 91.426 L 165.111 91.276 L 166.056 91.127 L 167 90.981 L 167.944 90.837 L 168.889 90.696 L 169.833 90.557 L 170.778 90.42 L 171.722 90.286 L 172.667 90.154 L 173.611 90.025 L 174.556 89.898 L 175.5 89.773 L 176.444 89.651 L 177.389 89.532 L 178.333 89.415 L 179.278 89.3 L 180.222 89.188 L 181.167 89.079 L 182.111 88.972 L 183.056 88.868 L 184 88.766 L 184.944 88.667 L 185.889 88.57 L 186.833 88.476 L 187.778 88.385 L 188.722 88.296 L 189.667 88.21 L 190.611 88.127 L 191.556 88.046 L 192.5 87.968 L 193.444 87.893 L 194.389 87.82 L 195.333 87.751 L 196.278 87.683 L 197.222 87.619 L 198.167 87.558 L 199.111 87.499 L 200.056 87.443 L 201 87.39 L 201.944 87.339 L 202.889 87.292 L 203.833 87.247 L 204.778 87.206 L 205.722 87.167 L 206.667 87.131 L 207.611 87.098 L 208.556 87.068 L 209.5 87.04 L 210.444 87.016 L 211.389 86.995 L 212.333 86.977 L 213.278 86.961 L 214.222 86.949 L 215.167 86.94 L 216.111 86.934 L 217.056 86.931" fill="none" stroke="#8bbc21" stroke-width="3" /><path d="M 48 125 L 48 124.381 L 48.944 123.762 L 49.889 123.143 L 50.833 122.524 L 51.778 121.905 L 52.722 121.286 L 53.667 120.667 L 54.611 120.048 L 55.556 119.429 L 56.5 118.81 L 57.444 118.19 L 58.389 117.571 L 59.333 116.952 L 60.278 116.333 L 61.222 115.714 L 62.167 115.095 L 63.111 114.476 L 64.056 113.857 L 65 113.238 L 65.944 112.619 L 66.889 112 L 67.833 111.381 L 68.778 110.762 L 69.722 110.143 L 70.667 109.524 L 71.611 108.905 L 72.556 108.286 L 73.5 107.667 L 74.444 107.048 L 75.389 106.429 L 76.333 105.81 L 77.278 105.19 L 78.222 104.571 L 79.167 103.952 L 80.111 103.333 L 81.056 102.714 L 82 102.095 L 82.944 101.476 L 83.889 100.857 L 84.833 100.238 L 85.778 99.619 L 86.722 99 L 87.667 98.381 L 88.611 97.762 L 89.556 97.143 L 90.5 96.524 L 91.444 95.905 L 92.389 95.286 L 93.333 94.667 L 94.278 94.048 L 95.222 93.429 L 96.167 92.81 L 97.111 92.19 L 98.056 91.571 L 99 90.952 L 99.944 90.333 L 100.889 89.714 L 101.833 89.095 L 102.778 88.476 L 103.722 87.857 L 104.667 87.238 L 105.611 86.619 L 106.556 86 L 107.5 85.381 L 108.444 84.762 L 109.389 84.143 L 110.333 83.524 L 111.278 82.905 L 112.222 82.286 L 113.167 81.667 L 114.111 81.048 L 115.056 80.429 L 116 79.81 L 116.944 79.19 L 117.889 78.571 L 118.833 77.952 L 119.778 77.333 L 120.722 76.714 L 121.667 76.095 L 122.611 75.476 L 123.556 74.857 L 124.5 74.238 L 125.444 73.619 L 126.389 73 L 127.333 72.381 L 128.278 71.762 L 129.222 71.143 L 130.167 70.524 L 131.111 69.905 L 132.056 69.286 L 133 68.667 L 133.944 68.048 L 134.889 67.429 L 135.833 66.81 L 136.778 66.19 L 137.722 65.571 L 138.667 64.952 L 139.611 64.333 L 140.556 63.714 L 141.5 63.095 L 142.444 62.476 L 143.389 61.857 L 144.333 61.238 L 145.278 60.619 L 146.222 60 L 147.167 59.381 L 148.111 58.762 L 149.056 58.143 L 150 57.524 L 150.944 56.905 L 151.889 56.286 L 152.833 55.667 L 153.778 55.048 L 154.722 54.429 L 155.667 53.81 L 156.611 53.19 L 157.556 52.571 L 158.5 51.952 L 159.444 51.333 L 160.389 50.714 L 161.333 50.095 L 162.278 49.476 L 163.222 48.857 L 164.167 48.238 L 165.111 47.619 L 166.056 47 L 167 46.381 L 167.944 45.762 L 168.889 45.143 L 169.833 44.524 L 170.778 43.905 L 171.722 43.286 L 172.667 42.667 L 173.611 42.048 L 174.556 41.429 L 175.5 40.81 L 176.444 40.19 L 177.389 39.571 L 178.333 38.952 L 179.278 38.333 L 180.222 37.714 L 181.167 37.095 L 182.111 36.476 L 183.056 35.857 L 184 35.238 L 184.944 34.619 L 185.889 34 L 186.833 33.381 L 187.778 32.762 L 188.722 32.143 L 189.667 31.524 L 190.611 30.905 L 191.556 30.286 L 192.5 29.667 L 193.444 29.048 L 194.389 28.429 L 195.333 27.81 L 196.278 27.19 L 197.222 26.571 L 198.167 25.952 L 199.111 25.333 L 200.056 24.714 L 201 24.095 L 201.944 23.476 L 202.889 22.857 L 203.833 22.238 L 204.778 21.619 L 205.722 21 L 206.667 20.381 L 207.611 19.762 L 208.556 19.143 L 209.5 18.524 L 210.444 17.905 L 211.389 17.286 L 212.333 16.667 L 213.278 16.048 L 214.222 15.429 L 215.167 14.81 L 216.111 14.19 L 217.056 13.571" fill="none" stroke="#910000" stroke-width="3" /><rect x="48" y="8" width="170" height="117" style="stroke:#666;stroke-width:0.5;fill:none;" /><rect x="223" y="17" width="20" height="6" style="fill:#2b7ddb;" /><text x="248" y="24" class="mcvsblegend">Balance</text><rect x="223" y="35" width="20" height="6" style="fill:#8bbc21;" /><text x="248" y="42" class="mcvsblegend">Interest</text><rect x="223" y="53" width="20" height="6" style="fill:#910000;" /><text x="248" y="60" class="mcvsblegend">Payment</text></svg></div><br></div><div class="clefthalf"><div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div><div id="monthlyamo" style="display:none;"><table class="cinfoT"><tr align="center"><th>Month</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>$1,000.00</td><td>$687.71</td><td>$199,312.29</td></tr><tr align="right"><td>2</td><td>$996.56</td><td>$691.15</td><td>$198,621.13</td></tr><tr align="right"><td>3</td><td>$993.11</td><td>$694.61</td><td>$197,926.53</td></tr><tr align="right"><td>4</td><td>$989.63</td><td>$698.08</td><td>$197,228.45</td></tr><tr align="right"><td>5</td><td>$986.14</td><td>$701.57</td><td>$196,526.87</td></tr><tr align="right"><td>6</td><td>$982.63</td><td>$705.08</td><td>$195,821.79</td></tr><tr align="right"><td>7</td><td>$979.11</td><td>$708.60</td><td>$195,113.19</td></tr><tr align="right"><td>8</td><td>$975.57</td><td>$712.15</td><td>$194,401.04</td></tr><tr align="right"><td>9</td><td>$972.01</td><td>$715.71</td><td>$193,685.33</td></tr><tr align="right"><td>10</td><td>$968.43</td><td>$719.29</td><td>$192,966.05</td></tr><tr align="right"><td>11</td><td>$964.83</td><td>$722.88</td><td>$192,243.16</td></tr><tr align="right"><td>12</td><td>$961.22</td><td>$726.50</td><td>$191,516.67</td></tr><tr><td colspan="5" align="center">End of year 1</td></tr><tr align="right"><td>13</td><td>$957.58</td><td>$730.13</td><td>$190,786.53</td></tr><tr align="right"><td>14</td><td>$953.93</td><td>$733.78</td><td>$190,052.75</td></tr><tr align="right"><td>15</td><td>$950.26</td><td>$737.45</td><td>$189,315.30</td></tr><tr align="right"><td>16</td><td>$946.58</td><td>$741.14</td><td>$188,574.17</td></tr><tr align="right"><td>17</td><td>$942.87</td><td>$744.84</td><td>$187,829.32</td></tr><tr align="right"><td>18</td><td>$939.15</td><td>$748.57</td><td>$187,080.76</td></tr><tr align="right"><td>19</td><td>$935.40</td><td>$752.31</td><td>$186,328.45</td></tr><tr align="right"><td>20</td><td>$931.64</td><td>$756.07</td><td>$185,572.38</td></tr><tr align="right"><td>21</td><td>$927.86</td><td>$759.85</td><td>$184,812.52</td></tr><tr align="right"><td>22</td><td>$924.06</td><td>$763.65</td><td>$184,048.87</td></tr><tr align="right"><td>23</td><td>$920.24</td><td>$767.47</td><td>$183,281.40</td></tr><tr align="right"><td>24</td><td>$916.41</td><td>$771.31</td><td>$182,510.10</td></tr><tr><td colspan="5" align="center">End of year 2</td></tr><tr align="right"><td>25</td><td>$912.55</td><td>$775.16</td><td>$181,734.93</td></tr><tr align="right"><td>26</td><td>$908.67</td><td>$779.04</td><td>$180,955.89</td></tr><tr align="right"><td>27</td><td>$904.78</td><td>$782.93</td><td>$180,172.96</td></tr><tr align="right"><td>28</td><td>$900.86</td><td>$786.85</td><td>$179,386.11</td></tr><tr align="right"><td>29</td><td>$896.93</td><td>$790.78</td><td>$178,595.33</td></tr><tr align="right"><td>30</td><td>$892.98</td><td>$794.74</td><td>$177,800.59</td></tr><tr align="right"><td>31</td><td>$889.00</td><td>$798.71</td><td>$177,001.88</td></tr><tr align="right"><td>32</td><td>$885.01</td><td>$802.70</td><td>$176,199.18</td></tr><tr align="right"><td>33</td><td>$881.00</td><td>$806.72</td><td>$175,392.46</td></tr><tr align="right"><td>34</td><td>$876.96</td><td>$810.75</td><td>$174,581.71</td></tr><tr align="right"><td>35</td><td>$872.91</td><td>$814.81</td><td>$173,766.90</td></tr><tr align="right"><td>36</td><td>$868.83</td><td>$818.88</td><td>$172,948.02</td></tr><tr><td colspan="5" align="center">End of year 3</td></tr><tr align="right"><td>37</td><td>$864.74</td><td>$822.97</td><td>$172,125.05</td></tr><tr align="right"><td>38</td><td>$860.63</td><td>$827.09</td><td>$171,297.96</td></tr><tr align="right"><td>39</td><td>$856.49</td><td>$831.22</td><td>$170,466.74</td></tr><tr align="right"><td>40</td><td>$852.33</td><td>$835.38</td><td>$169,631.36</td></tr><tr align="right"><td>41</td><td>$848.16</td><td>$839.56</td><td>$168,791.80</td></tr><tr align="right"><td>42</td><td>$843.96</td><td>$843.75</td><td>$167,948.05</td></tr><tr align="right"><td>43</td><td>$839.74</td><td>$847.97</td><td>$167,100.07</td></tr><tr align="right"><td>44</td><td>$835.50</td><td>$852.21</td><td>$166,247.86</td></tr><tr align="right"><td>45</td><td>$831.24</td><td>$856.47</td><td>$165,391.39</td></tr><tr align="right"><td>46</td><td>$826.96</td><td>$860.76</td><td>$164,530.63</td></tr><tr align="right"><td>47</td><td>$822.65</td><td>$865.06</td><td>$163,665.57</td></tr><tr align="right"><td>48</td><td>$818.33</td><td>$869.39</td><td>$162,796.18</td></tr><tr><td colspan="5" align="center">End of year 4</td></tr><tr align="right"><td>49</td><td>$813.98</td><td>$873.73</td><td>$161,922.45</td></tr><tr align="right"><td>50</td><td>$809.61</td><td>$878.10</td><td>$161,044.35</td></tr><tr align="right"><td>51</td><td>$805.22</td><td>$882.49</td><td>$160,161.86</td></tr><tr align="right"><td>52</td><td>$800.81</td><td>$886.90</td><td>$159,274.95</td></tr><tr align="right"><td>53</td><td>$796.37</td><td>$891.34</td><td>$158,383.61</td></tr><tr align="right"><td>54</td><td>$791.92</td><td>$895.80</td><td>$157,487.82</td></tr><tr align="right"><td>55</td><td>$787.44</td><td>$900.27</td><td>$156,587.54</td></tr><tr align="right"><td>56</td><td>$782.94</td><td>$904.78</td><td>$155,682.77</td></tr><tr align="right"><td>57</td><td>$778.41</td><td>$909.30</td><td>$154,773.47</td></tr><tr align="right"><td>58</td><td>$773.87</td><td>$913.85</td><td>$153,859.62</td></tr><tr align="right"><td>59</td><td>$769.30</td><td>$918.42</td><td>$152,941.20</td></tr><tr align="right"><td>60</td><td>$764.71</td><td>$923.01</td><td>$152,018.20</td></tr><tr><td colspan="5" align="center">End of year 5</td></tr><tr align="right"><td>61</td><td>$760.09</td><td>$927.62</td><td>$151,090.57</td></tr><tr align="right"><td>62</td><td>$755.45</td><td>$932.26</td><td>$150,158.31</td></tr><tr align="right"><td>63</td><td>$750.79</td><td>$936.92</td><td>$149,221.39</td></tr><tr align="right"><td>64</td><td>$746.11</td><td>$941.61</td><td>$148,279.78</td></tr><tr align="right"><td>65</td><td>$741.40</td><td>$946.31</td><td>$147,333.47</td></tr><tr align="right"><td>66</td><td>$736.67</td><td>$951.05</td><td>$146,382.42</td></tr><tr align="right"><td>67</td><td>$731.91</td><td>$955.80</td><td>$145,426.62</td></tr><tr align="right"><td>68</td><td>$727.13</td><td>$960.58</td><td>$144,466.04</td></tr><tr align="right"><td>69</td><td>$722.33</td><td>$965.38</td><td>$143,500.66</td></tr><tr align="right"><td>70</td><td>$717.50</td><td>$970.21</td><td>$142,530.45</td></tr><tr align="right"><td>71</td><td>$712.65</td><td>$975.06</td><td>$141,555.39</td></tr><tr align="right"><td>72</td><td>$707.78</td><td>$979.94</td><td>$140,575.45</td></tr><tr><td colspan="5" align="center">End of year 6</td></tr><tr align="right"><td>73</td><td>$702.88</td><td>$984.84</td><td>$139,590.61</td></tr><tr align="right"><td>74</td><td>$697.95</td><td>$989.76</td><td>$138,600.85</td></tr><tr align="right"><td>75</td><td>$693.00</td><td>$994.71</td><td>$137,606.14</td></tr><tr align="right"><td>76</td><td>$688.03</td><td>$999.68</td><td>$136,606.46</td></tr><tr align="right"><td>77</td><td>$683.03</td><td>$1,004.68</td><td>$135,601.78</td></tr><tr align="right"><td>78</td><td>$678.01</td><td>$1,009.70</td><td>$134,592.07</td></tr><tr align="right"><td>79</td><td>$672.96</td><td>$1,014.75</td><td>$133,577.32</td></tr><tr align="right"><td>80</td><td>$667.89</td><td>$1,019.83</td><td>$132,557.49</td></tr><tr align="right"><td>81</td><td>$662.79</td><td>$1,024.93</td><td>$131,532.57</td></tr><tr align="right"><td>82</td><td>$657.66</td><td>$1,030.05</td><td>$130,502.52</td></tr><tr align="right"><td>83</td><td>$652.51</td><td>$1,035.20</td><td>$129,467.32</td></tr><tr align="right"><td>84</td><td>$647.34</td><td>$1,040.38</td><td>$128,426.94</td></tr><tr><td colspan="5" align="center">End of year 7</td></tr><tr align="right"><td>85</td><td>$642.13</td><td>$1,045.58</td><td>$127,381.36</td></tr><tr align="right"><td>86</td><td>$636.91</td><td>$1,050.81</td><td>$126,330.55</td></tr><tr align="right"><td>87</td><td>$631.65</td><td>$1,056.06</td><td>$125,274.49</td></tr><tr align="right"><td>88</td><td>$626.37</td><td>$1,061.34</td><td>$124,213.15</td></tr><tr align="right"><td>89</td><td>$621.07</td><td>$1,066.65</td><td>$123,146.50</td></tr><tr align="right"><td>90</td><td>$615.73</td><td>$1,071.98</td><td>$122,074.52</td></tr><tr align="right"><td>91</td><td>$610.37</td><td>$1,077.34</td><td>$120,997.18</td></tr><tr align="right"><td>92</td><td>$604.99</td><td>$1,082.73</td><td>$119,914.45</td></tr><tr align="right"><td>93</td><td>$599.57</td><td>$1,088.14</td><td>$118,826.31</td></tr><tr align="right"><td>94</td><td>$594.13</td><td>$1,093.58</td><td>$117,732.73</td></tr><tr align="right"><td>95</td><td>$588.66</td><td>$1,099.05</td><td>$116,633.68</td></tr><tr align="right"><td>96</td><td>$583.17</td><td>$1,104.55</td><td>$115,529.13</td></tr><tr><td colspan="5" align="center">End of year 8</td></tr><tr align="right"><td>97</td><td>$577.65</td><td>$1,110.07</td><td>$114,419.07</td></tr><tr align="right"><td>98</td><td>$572.10</td><td>$1,115.62</td><td>$113,303.45</td></tr><tr align="right"><td>99</td><td>$566.52</td><td>$1,121.20</td><td>$112,182.25</td></tr><tr align="right"><td>100</td><td>$560.91</td><td>$1,126.80</td><td>$111,055.45</td></tr><tr align="right"><td>101</td><td>$555.28</td><td>$1,132.44</td><td>$109,923.01</td></tr><tr align="right"><td>102</td><td>$549.62</td><td>$1,138.10</td><td>$108,784.91</td></tr><tr align="right"><td>103</td><td>$543.92</td><td>$1,143.79</td><td>$107,641.13</td></tr><tr align="right"><td>104</td><td>$538.21</td><td>$1,149.51</td><td>$106,491.62</td></tr><tr align="right"><td>105</td><td>$532.46</td><td>$1,155.26</td><td>$105,336.36</td></tr><tr align="right"><td>106</td><td>$526.68</td><td>$1,161.03</td><td>$104,175.33</td></tr><tr align="right"><td>107</td><td>$520.88</td><td>$1,166.84</td><td>$103,008.49</td></tr><tr align="right"><td>108</td><td>$515.04</td><td>$1,172.67</td><td>$101,835.82</td></tr><tr><td colspan="5" align="center">End of year 9</td></tr><tr align="right"><td>109</td><td>$509.18</td><td>$1,178.53</td><td>$100,657.29</td></tr><tr align="right"><td>110</td><td>$503.29</td><td>$1,184.43</td><td>$99,472.86</td></tr><tr align="right"><td>111</td><td>$497.36</td><td>$1,190.35</td><td>$98,282.51</td></tr><tr align="right"><td>112</td><td>$491.41</td><td>$1,196.30</td><td>$97,086.21</td></tr><tr align="right"><td>113</td><td>$485.43</td><td>$1,202.28</td><td>$95,883.93</td></tr><tr align="right"><td>114</td><td>$479.42</td><td>$1,208.29</td><td>$94,675.63</td></tr><tr align="right"><td>115</td><td>$473.38</td><td>$1,214.34</td><td>$93,461.30</td></tr><tr align="right"><td>116</td><td>$467.31</td><td>$1,220.41</td><td>$92,240.89</td></tr><tr align="right"><td>117</td><td>$461.20</td><td>$1,226.51</td><td>$91,014.38</td></tr><tr align="right"><td>118</td><td>$455.07</td><td>$1,232.64</td><td>$89,781.74</td></tr><tr align="right"><td>119</td><td>$448.91</td><td>$1,238.80</td><td>$88,542.93</td></tr><tr align="right"><td>120</td><td>$442.71</td><td>$1,245.00</td><td>$87,297.94</td></tr><tr><td colspan="5" align="center">End of year 10</td></tr><tr align="right"><td>121</td><td>$436.49</td><td>$1,251.22</td><td>$86,046.71</td></tr><tr align="right"><td>122</td><td>$430.23</td><td>$1,257.48</td><td>$84,789.23</td></tr><tr align="right"><td>123</td><td>$423.95</td><td>$1,263.77</td><td>$83,525.46</td></tr><tr align="right"><td>124</td><td>$417.63</td><td>$1,270.09</td><td>$82,255.38</td></tr><tr align="right"><td>125</td><td>$411.28</td><td>$1,276.44</td><td>$80,978.94</td></tr><tr align="right"><td>126</td><td>$404.89</td><td>$1,282.82</td><td>$79,696.12</td></tr><tr align="right"><td>127</td><td>$398.48</td><td>$1,289.23</td><td>$78,406.89</td></tr><tr align="right"><td>128</td><td>$392.03</td><td>$1,295.68</td><td>$77,111.21</td></tr><tr align="right"><td>129</td><td>$385.56</td><td>$1,302.16</td><td>$75,809.05</td></tr><tr align="right"><td>130</td><td>$379.05</td><td>$1,308.67</td><td>$74,500.38</td></tr><tr align="right"><td>131</td><td>$372.50</td><td>$1,315.21</td><td>$73,185.17</td></tr><tr align="right"><td>132</td><td>$365.93</td><td>$1,321.79</td><td>$71,863.38</td></tr><tr><td colspan="5" align="center">End of year 11</td></tr><tr align="right"><td>133</td><td>$359.32</td><td>$1,328.40</td><td>$70,534.99</td></tr><tr align="right"><td>134</td><td>$352.67</td><td>$1,335.04</td><td>$69,199.95</td></tr><tr align="right"><td>135</td><td>$346.00</td><td>$1,341.71</td><td>$67,858.23</td></tr><tr align="right"><td>136</td><td>$339.29</td><td>$1,348.42</td><td>$66,509.81</td></tr><tr align="right"><td>137</td><td>$332.55</td><td>$1,355.16</td><td>$65,154.65</td></tr><tr align="right"><td>138</td><td>$325.77</td><td>$1,361.94</td><td>$63,792.71</td></tr><tr align="right"><td>139</td><td>$318.96</td><td>$1,368.75</td><td>$62,423.96</td></tr><tr align="right"><td>140</td><td>$312.12</td><td>$1,375.59</td><td>$61,048.36</td></tr><tr align="right"><td>141</td><td>$305.24</td><td>$1,382.47</td><td>$59,665.89</td></tr><tr align="right"><td>142</td><td>$298.33</td><td>$1,389.38</td><td>$58,276.51</td></tr><tr align="right"><td>143</td><td>$291.38</td><td>$1,396.33</td><td>$56,880.18</td></tr><tr align="right"><td>144</td><td>$284.40</td><td>$1,403.31</td><td>$55,476.86</td></tr><tr><td colspan="5" align="center">End of year 12</td></tr><tr align="right"><td>145</td><td>$277.38</td><td>$1,410.33</td><td>$54,066.53</td></tr><tr align="right"><td>146</td><td>$270.33</td><td>$1,417.38</td><td>$52,649.15</td></tr><tr align="right"><td>147</td><td>$263.25</td><td>$1,424.47</td><td>$51,224.68</td></tr><tr align="right"><td>148</td><td>$256.12</td><td>$1,431.59</td><td>$49,793.09</td></tr><tr align="right"><td>149</td><td>$248.97</td><td>$1,438.75</td><td>$48,354.35</td></tr><tr align="right"><td>150</td><td>$241.77</td><td>$1,445.94</td><td>$46,908.40</td></tr><tr align="right"><td>151</td><td>$234.54</td><td>$1,453.17</td><td>$45,455.23</td></tr><tr align="right"><td>152</td><td>$227.28</td><td>$1,460.44</td><td>$43,994.80</td></tr><tr align="right"><td>153</td><td>$219.97</td><td>$1,467.74</td><td>$42,527.06</td></tr><tr align="right"><td>154</td><td>$212.64</td><td>$1,475.08</td><td>$41,051.98</td></tr><tr align="right"><td>155</td><td>$205.26</td><td>$1,482.45</td><td>$39,569.52</td></tr><tr align="right"><td>156</td><td>$197.85</td><td>$1,489.87</td><td>$38,079.66</td></tr><tr><td colspan="5" align="center">End of year 13</td></tr><tr align="right"><td>157</td><td>$190.40</td><td>$1,497.32</td><td>$36,582.34</td></tr><tr align="right"><td>158</td><td>$182.91</td><td>$1,504.80</td><td>$35,077.54</td></tr><tr align="right"><td>159</td><td>$175.39</td><td>$1,512.33</td><td>$33,565.21</td></tr><tr align="right"><td>160</td><td>$167.83</td><td>$1,519.89</td><td>$32,045.33</td></tr><tr align="right"><td>161</td><td>$160.23</td><td>$1,527.49</td><td>$30,517.84</td></tr><tr align="right"><td>162</td><td>$152.59</td><td>$1,535.12</td><td>$28,982.72</td></tr><tr align="right"><td>163</td><td>$144.91</td><td>$1,542.80</td><td>$27,439.92</td></tr><tr align="right"><td>164</td><td>$137.20</td><td>$1,550.51</td><td>$25,889.40</td></tr><tr align="right"><td>165</td><td>$129.45</td><td>$1,558.27</td><td>$24,331.13</td></tr><tr align="right"><td>166</td><td>$121.66</td><td>$1,566.06</td><td>$22,765.08</td></tr><tr align="right"><td>167</td><td>$113.83</td><td>$1,573.89</td><td>$21,191.19</td></tr><tr align="right"><td>168</td><td>$105.96</td><td>$1,581.76</td><td>$19,609.43</td></tr><tr><td colspan="5" align="center">End of year 14</td></tr><tr align="right"><td>169</td><td>$98.05</td><td>$1,589.67</td><td>$18,019.76</td></tr><tr align="right"><td>170</td><td>$90.10</td><td>$1,597.61</td><td>$16,422.15</td></tr><tr align="right"><td>171</td><td>$82.11</td><td>$1,605.60</td><td>$14,816.55</td></tr><tr align="right"><td>172</td><td>$74.08</td><td>$1,613.63</td><td>$13,202.92</td></tr><tr align="right"><td>173</td><td>$66.01</td><td>$1,621.70</td><td>$11,581.22</td></tr><tr align="right"><td>174</td><td>$57.91</td><td>$1,629.81</td><td>$9,951.41</td></tr><tr align="right"><td>175</td><td>$49.76</td><td>$1,637.96</td><td>$8,313.45</td></tr><tr align="right"><td>176</td><td>$41.57</td><td>$1,646.15</td><td>$6,667.31</td></tr><tr align="right"><td>177</td><td>$33.34</td><td>$1,654.38</td><td>$5,012.93</td></tr><tr align="right"><td>178</td><td>$25.06</td><td>$1,662.65</td><td>$3,350.28</td></tr><tr align="right"><td>179</td><td>$16.75</td><td>$1,670.96</td><td>$1,679.32</td></tr><tr align="right"><td>180</td><td>$8.40</td><td>$1,679.32</td><td>$0.00</td></tr><tr><td colspan="5" align="center">End of year 15</td></tr></table></div><div id="yearlyamo"><table class="cinfoT"><tr align="center"><th>Year</th><th>Interest</th><th>Principal</th><th>Ending Balance</th></tr><tr align="right"><td>1</td><td>$11,769.23</td><td>$8,483.33</td><td>$191,516.67</td></tr><tr align="right"><td>2</td><td>$11,246.00</td><td>$9,006.57</td><td>$182,510.10</td></tr><tr align="right"><td>3</td><td>$10,690.49</td><td>$9,562.07</td><td>$172,948.02</td></tr><tr align="right"><td>4</td><td>$10,100.72</td><td>$10,151.84</td><td>$162,796.18</td></tr><tr align="right"><td>5</td><td>$9,474.58</td><td>$10,777.98</td><td>$152,018.20</td></tr><tr align="right"><td>6</td><td>$8,809.82</td><td>$11,442.75</td><td>$140,575.45</td></tr><tr align="right"><td>7</td><td>$8,104.05</td><td>$12,148.51</td><td>$128,426.94</td></tr><tr align="right"><td>8</td><td>$7,354.76</td><td>$12,897.80</td><td>$115,529.13</td></tr><tr align="right"><td>9</td><td>$6,559.25</td><td>$13,693.31</td><td>$101,835.82</td></tr><tr align="right"><td>10</td><td>$5,714.68</td><td>$14,537.89</td><td>$87,297.94</td></tr><tr align="right"><td>11</td><td>$4,818.01</td><td>$15,434.55</td><td>$71,863.38</td></tr><tr align="right"><td>12</td><td>$3,866.04</td><td>$16,386.52</td><td>$55,476.86</td></tr><tr align="right"><td>13</td><td>$2,855.36</td><td>$17,397.21</td><td>$38,079.66</td></tr><tr align="right"><td>14</td><td>$1,782.34</td><td>$18,470.23</td><td>$19,609.43</td></tr><tr align="right"><td>15</td><td>$643.13</td><td>$19,609.43</td><td>$0.00</td></tr></table></div></div><div id="clear"></div><script>
-function amoChange(acVal){
-	if (acVal==1){
-		document.getElementById("monthlyamo").style.display = "block";
-		document.getElementById("yearlyamo").style.display = "none";
-		document.getElementById("amoselect").innerHTML = "<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule</b>";
-	}else{
-		document.getElementById("monthlyamo").style.display = "none";
-		document.getElementById("yearlyamo").style.display = "block";
-		document.getElementById("amoselect").innerHTML = "Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
-	}
-}
-amoChange(0);
-</script>
-
-<p><br><fieldset><legend>Related</legend><a href="/loan-calculator.html">Loan Calculator</a> | <a href="/auto-loan-calculator.html">Auto Loan Calculator</a></fieldset></p>
-<br>
-<p>A loan is a contract between a borrower and a lender in which the borrower receives an amount of money (principal) that they are obligated to pay back in the future. Loans can be customized based on various factors. The number of available options can be overwhelming. Two of the most common deciding factors are the term and monthly payment amount, which are separated by tabs in the calculator above.</p>
-
-<h3>Fixed Term</h3>
-<p>Mortgages, auto, and many other loans tend to use the time limit approach to the repayment of loans. For mortgages, in particular, choosing to have routine monthly payments between 30 years or 15 years or other terms can be a very important decision because how long a debt obligation lasts can affect a person's long-term financial goals. Some examples include:</p>
-<ul>
-	<li>Choosing a shorter mortgage term because of the uncertainty of long-term job security or preference for a lower interest rate while there is a sizable amount in savings</li>
-	<li>Choosing a longer mortgage term in order to time it correctly with the release of Social Security retirement benefits, which can be used to pay off the mortgage</li>
-</ul>
-<p>The Payment Calculator can help sort out the fine details of such considerations. It can also be used when deciding between financing options for a car, which can range from 12 months to 96 months periods. Even though many car buyers will be tempted to take the longest option that results in the lowest monthly payment, the shortest term typically results in the lowest total paid for the car (interest + principal). Car buyers should experiment with the variables to see which term is best accommodated by their budget and situation. For additional information about or to do calculations involving mortgages or auto loans, please visit the <a href="/mortgage-calculator.html">Mortgage Calculator</a> or <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>.</p>
-
-<h3>Fixed Monthly Payment Amount</h3>
-<p>This method helps determine the time required to pay off a loan and is often used to find how fast the debt on a credit card can be repaid. This calculator can also estimate how early a person who has some extra money at the end of each month can pay off their loan. Simply add the extra into the "Monthly Pay" section of the calculator.</p>
-<p>It is possible that a calculation may result in a certain monthly payment that is not enough to repay the principal and interest on a loan. This means that interest will accrue at such a pace that repayment of the loan at the given "Monthly Pay" cannot keep up. If so, simply adjust one of the three inputs until a viable result is calculated. Either "Loan Amount" needs to be lower, "Monthly Pay" needs to be higher, or "Interest Rate" needs to be lower.</p>
-
-<h3>Interest Rate (APR)</h3>
-<p>When using a figure for this input, it is important to make the distinction between interest rate and annual percentage rate (APR). Especially when very large loans are involved, such as mortgages, the difference can be up to thousands of dollars. By definition, the interest rate is simply the cost of borrowing the principal loan amount. On the other hand, APR is a broader measure of the cost of a loan, which rolls in other costs such as broker fees, discount points, closing costs, and administrative fees. In other words, instead of upfront payments, these additional costs are added onto the cost of borrowing the loan and prorated over the life of the loan instead. If there are no fees associated with a loan, then the interest rate equals the APR. For more information about or to do calculations involving APR or Interest Rate, please visit the <a href="/apr-calculator.html">APR Calculator</a> or <a href="/interest-rate-calculator.html">Interest Rate Calculator</a>.</p>
-<p>Borrowers can input both interest rate and APR (if they know them) into the calculator to see the different results. Use interest rate in order to determine loan details without the addition of other costs. To find the total cost of the loan, use APR. The advertised APR generally provides more accurate loan details.</p>
-
-<h3>Variable vs. Fixed</h3>
-<p>When it comes to loans, there are generally two available interest options to choose from: variable (sometimes called adjustable or floating) or fixed. The majority of loans have fixed interest rates, such as conventionally amortized loans like mortgages, auto loans, or student loans. Examples of variable loans include adjustable-rate mortgages, home equity lines of credit (HELOC), and some personal and student loans. For more information about or to do calculations involving any of these other loans, please visit the <a href="/mortgage-calculator.html">Mortgage Calculator</a>, <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>, <a href="/student-loan-calculator.html">Student Loan Calculator</a>, or <a href="/personal-loan-calculator.html">Personal Loan Calculator</a>.</p>
-
-<h3>Variable Rate Information</h3>
-<p>In variable rate loans, the interest rate may change based on indices such as inflation or the central bank rate (all of which are usually in movement with the economy). The most common financial index that lenders reference for variable rates is the key index rate set by the U.S. Federal Reserve or the London Interbank Offered Rate (Libor).</p>
-<p>Because rates of variable loans vary over time, fluctuations in rates will alter routine payment amounts; the rate change in one month changes the monthly payment due for that month as well as the total expected interest owed over the life of the loan. Some lenders may place caps on variable loan rates, which are maximum limits on the interest rate charged, regardless of how much the index interest rate changes. Lenders only update interest rates periodically at a frequency agreed to by the borrower, most likely disclosed in a loan contract. As a result, a change to an indexed interest rate does not necessarily mean an immediate change to a variable loan's interest rate. Broadly speaking, variable rates are more favorable to the borrower when indexed interest rates are trending downward.</p>
-<p>Credit card rates can be fixed or variable. Credit card issuers aren't required to give advanced notice of an interest rate increase for credit cards with variable interest rates. It is possible for borrowers with excellent credit to request more favorable rates on their variable loans or credit cards. For more information or to perform calculations that involve paying off a credit card, use the <a href="/credit-card-calculator.html">Credit Card Calculator</a> or use the <a href="/credit-card-payoff-calculator.html">Credit Cards Payoff Calculator</a> for paying off multiple credit cards.</p>
-
-
-<script>
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("cloanamount");
-proComma2("cmonthlypay");
-
-function popNMenu(inval, insubmit){
-	if (inval == "fixterm"){
-		document.getElementById("ctype").value="fixterm";
-		document.getElementById("fixtermtable").style.display = 'block';
-		document.getElementById("fixpaytable").style.display = 'none';
-		document.getElementById("topmenu").innerHTML = "<ul><li id='menuon'><a href=\"#\" onclick=\"popNMenu('fixterm',1);\">Fixed Term</a></li> <li><a href=\"#\" onclick=\"popNMenu('fixpay',1);\">Fixed Payments</a></li></ul>";
-	}else{
-		document.getElementById("ctype").value="fixpay";
-		document.getElementById("fixtermtable").style.display = 'none';
-		document.getElementById("fixpaytable").style.display = 'block';
-		document.getElementById("topmenu").innerHTML = "<ul><li><a href=\"#\" onclick=\"popNMenu('fixterm',1);\">Fixed Term</a></li> <li id='menuon'><a href=\"#\" onclick=\"popNMenu('fixpay',1);\">Fixed Payments</a></li></ul>";
-	}
-	//if (insubmit==1) document.calform.submit();
-}
-popNMenu('fixterm',0);</script>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- ===== Primary SEO ===== -->
+	<title>Payment Calculator – Monthly Loan Payment &amp; Payoff Time | adxcal.com</title>
+	<meta name="description" content="Free payment calculator: find your monthly loan payment for a fixed term or see how long it takes to pay off a loan with a fixed payment. Includes amortization schedule." />
+	<meta name="keywords" content="payment calculator, monthly payment calculator, loan payment calculator, loan payoff calculator, amortization schedule, fixed term loan, fixed payment loan" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="author" content="adxcal.com" />
+	<meta name="theme-color" content="#0d233a" />
+	
+	<link rel="alternate" hreflang="en" href="https://www.adxcal.com/payment-calculator.html" />
+	<link rel="alternate" hreflang="x-default" href="https://www.adxcal.com/payment-calculator.html" />
+
+	<!-- ===== Open Graph / Twitter ===== -->
+	
+	
+	
+	
+	
+	
+	<meta property="og:image" content="https://www.adxcal.com/apple-touch-icon.png" />
+	
+	
+	
+	<meta name="twitter:image" content="https://www.adxcal.com/apple-touch-icon.png" />
+
+	<!-- ===== Existing assets (unchanged) ===== -->
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+	<script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	<!-- ===== Structured data (JSON-LD) ===== -->
+	
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/payment-calculator.html">
+
+<meta property="og:title" content="Payment Calculator – Monthly Loan Payment &amp; Payoff Time | adxcal.com">
+<meta property="og:description" content="Free payment calculator: find your monthly loan payment for a fixed term or see how long it takes to pay off a loan with a fixed payment. Includes amortization schedule.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/payment-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Payment Calculator – Monthly Loan Payment &amp; Payoff Time | adxcal.com">
+<meta name="twitter:description" content="Free payment calculator: find your monthly loan payment for a fixed term or see how long it takes to pay off a loan with a fixed payment. Includes amortization schedule.">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Payment Calculator – Monthly Loan Payment &amp; Payoff Time | adxcal.com","url":"https://calculator.bhuvanesh-s3602.workers.dev/payment-calculator.html","description":"Free payment calculator: find your monthly loan payment for a fixed term or see how long it takes to pay off a loan with a fixed payment. Includes amortization schedule.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Payment Calculator – Monthly Loan Payment &amp; Payoff Time | adxcal.com","item":"https://calculator.bhuvanesh-s3602.workers.dev/payment-calculator.html"}]}</script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+
+<div id="contentout"><div id="content" role="main">
+
+<div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/payment-calculator.html" itemprop="item"><span itemprop="name">payment calculator</span></a><meta itemprop="position" content="3" /></span></div>
+
+<div id="printit"><a href="#" rel="nofollow" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>
+
+<h1>Payment Calculator</h1>
+
+<p>The Payment Calculator can determine the monthly payment amount or loan term for a fixed interest loan. Use the "Fixed Term" tab to calculate the monthly payment of a fixed-term loan. Use the "Fixed Payments" tab to calculate the time to pay off a loan with a fixed monthly payment. For more information about or to do calculations specifically for car payments, please use the <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>. To find net payment of salary after taxes and deductions, use the <a href="/take-home-pay-calculator.html">Take-Home-Pay Calculator</a>.</p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use the payment calculator"></div>
+
+<div class="leftinput">
+<form name="calform" action="/payment-calculator.html#result" aria-label="Payment calculator form">
+<div id="topmenu"><ul><li id='menuon'><a href="#" onclick="popNMenu('fixterm',1);">Fixed Term</a></li> <li ><a href="#" onclick="popNMenu('fixpay',1);">Fixed Payments</a></li></ul></div>
+<div class="panel2"><table align="center"><tr><td>
+<input type="hidden" name="ctype" id="ctype" value="fixterm">
+<table width="310" cellpadding="6">
+<tr><td width="145"><label for="cloanamount">Loan Amount</label></td><td width="165"><input type="text" name="cloanamount" id="cloanamount" value="200000" class="inhalf indollar" inputmode="decimal" aria-label="Loan amount in dollars"></td></tr>
+</table>
+<table id="fixtermtable" width="310" cellpadding="6">
+<tr><td width="145"><label for="cloanterm">Loan Term</label></td><td width="165"><input type="text" name="cloanterm" id="cloanterm" value="15" class="inhalf inuiyear" inputmode="decimal" aria-label="Loan term in years"><span class="inuiyearspan">years</span></td></tr>
+</table>
+<table id="fixpaytable" width="310" cellpadding="6" style="display:none;">
+<tr><td width="145"><label for="cmonthlypay">Monthly Pay</label></td><td width="165"><input type="text" name="cmonthlypay" id="cmonthlypay" value="2000" class="inhalf indollar" inputmode="decimal" aria-label="Monthly payment in dollars"></td></tr>
+</table>
+<table width="310" cellpadding="6">
+<tr><td width="145"><label for="cinterestrate">Interest Rate</label></td><td width="165"><input type="text" name="cinterestrate" id="cinterestrate" value="6" class="inhalf inpct" inputmode="decimal" aria-label="Annual interest rate in percent"></td></tr>
+<tr><td colspan="2" align="center" style="padding-top: 8px;">
+	<input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td></tr>
+</table>
+</td></tr></table></div>
+</form>
+</div>
+
+<div class="rightresult"><a name="result" id="result"></a><div class="espaceforM">&nbsp;</div>
+<h2 class="h2result">Monthly Payment: &nbsp; $1,687.71<img src="/img/save.svg" width="19" height="20" alt="Save this calculation" title="Save this calculation" style="float:right;padding-top:3px;cursor: pointer;" onClick="saveCalResult('UGF5bWVudCBDYWxjdWxhdG9y', 0, 'UGF5bWVudCBDYWxjdWxhdG9y', 'TW9udGhseSBQYXltZW50', 'JDEsNjg3Ljcx');"></h2>
+<div style="padding: 3px">You will need to pay $1,687.71 every month for 15 years to payoff the debt.</div>
+<table width="100%" class="cinfoT"><tr><td>Total of 180 Payments</td><td align='right'>$303,788.46</td></tr><tr><td>Total Interest</td><td align='right'>$103,788.46</td></tr></table>
+
+<!-- ===== KEEP YOUR ORIGINAL SERVER-GENERATED PIE CHART BLOCK HERE (the <div style="text-align:center..."><g onclick...><svg>...</svg>...</div>) ===== -->
+</div>
+<div id="clear"></div>
+
+<h2 style="padding-bottom: 10px;">Amortization schedule</h2>
+<div class="crighthalf">
+<!-- ===== KEEP YOUR ORIGINAL SERVER-GENERATED LINE-CHART SVG BLOCK HERE ===== -->
+</div>
+<div class="clefthalf">
+<div id="amoselect" style="padding-bottom:5px;font-weight:bold;"></div>
+<div id="monthlyamo" style="display:none;">
+<!-- ===== KEEP YOUR ORIGINAL SERVER-GENERATED MONTHLY <table class="cinfoT"> HERE ===== -->
+</div>
+<div id="yearlyamo">
+<!-- ===== KEEP YOUR ORIGINAL SERVER-GENERATED YEARLY <table class="cinfoT"> HERE ===== -->
+</div>
+</div>
+<div id="clear"></div>
+
+<script>
+function amoChange(acVal){
+	if (acVal==1){
+		document.getElementById("monthlyamo").style.display = "block";
+		document.getElementById("yearlyamo").style.display = "none";
+		document.getElementById("amoselect").innerHTML = "<a href='#' onclick='amoChange(0);return false;'>Annual Schedule</a> &nbsp; &nbsp; Monthly Schedule</b>";
+	}else{
+		document.getElementById("monthlyamo").style.display = "none";
+		document.getElementById("yearlyamo").style.display = "block";
+		document.getElementById("amoselect").innerHTML = "Annual Schedule &nbsp; &nbsp; <a href='#' onclick='amoChange(1);return false;'>Monthly Schedule</a>";
+	}
+}
+amoChange(0);
+</script>
+
+<p><br></p>
+<fieldset><legend>Related</legend><a href="/loan-calculator.html">Loan Calculator</a> | <a href="/auto-loan-calculator.html">Auto Loan Calculator</a> | <a href="/mortgage-calculator.html">Mortgage Calculator</a> | <a href="/amortization-calculator.html">Amortization Calculator</a> | <a href="/interest-rate-calculator.html">Interest Rate Calculator</a></fieldset>
+<br>
+
+<p>A loan is a contract between a borrower and a lender in which the borrower receives an amount of money (principal) that they are obligated to pay back in the future. Loans can be customized based on various factors. The number of available options can be overwhelming. Two of the most common deciding factors are the term and monthly payment amount, which are separated by tabs in the calculator above.</p>
+
+<h3>Fixed Term</h3>
+<p>Mortgages, auto, and many other loans tend to use the time limit approach to the repayment of loans. For mortgages, in particular, choosing to have routine monthly payments between 30 years or 15 years or other terms can be a very important decision because how long a debt obligation lasts can affect a person's long-term financial goals. Some examples include:</p>
+<ul>
+	<li>Choosing a shorter mortgage term because of the uncertainty of long-term job security or preference for a lower interest rate while there is a sizable amount in savings</li>
+	<li>Choosing a longer mortgage term in order to time it correctly with the release of Social Security retirement benefits, which can be used to pay off the mortgage</li>
+</ul>
+<p>The Payment Calculator can help sort out the fine details of such considerations. It can also be used when deciding between financing options for a car, which can range from 12 months to 96 months periods. Even though many car buyers will be tempted to take the longest option that results in the lowest monthly payment, the shortest term typically results in the lowest total paid for the car (interest + principal). Car buyers should experiment with the variables to see which term is best accommodated by their budget and situation. For additional information about or to do calculations involving mortgages or auto loans, please visit the <a href="/mortgage-calculator.html">Mortgage Calculator</a> or <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>.</p>
+
+<h3>Fixed Monthly Payment Amount</h3>
+<p>This method helps determine the time required to pay off a loan and is often used to find how fast the debt on a credit card can be repaid. This calculator can also estimate how early a person who has some extra money at the end of each month can pay off their loan. Simply add the extra into the "Monthly Pay" section of the calculator.</p>
+<p>It is possible that a calculation may result in a certain monthly payment that is not enough to repay the principal and interest on a loan. This means that interest will accrue at such a pace that repayment of the loan at the given "Monthly Pay" cannot keep up. If so, simply adjust one of the three inputs until a viable result is calculated. Either "Loan Amount" needs to be lower, "Monthly Pay" needs to be higher, or "Interest Rate" needs to be lower.</p>
+
+<h3>Interest Rate (APR)</h3>
+<p>When using a figure for this input, it is important to make the distinction between interest rate and annual percentage rate (APR). Especially when very large loans are involved, such as mortgages, the difference can be up to thousands of dollars. By definition, the interest rate is simply the cost of borrowing the principal loan amount. On the other hand, APR is a broader measure of the cost of a loan, which rolls in other costs such as broker fees, discount points, closing costs, and administrative fees. In other words, instead of upfront payments, these additional costs are added onto the cost of borrowing the loan and prorated over the life of the loan instead. If there are no fees associated with a loan, then the interest rate equals the APR. For more information about or to do calculations involving APR or Interest Rate, please visit the <a href="/apr-calculator.html">APR Calculator</a> or <a href="/interest-rate-calculator.html">Interest Rate Calculator</a>.</p>
+<p>Borrowers can input both interest rate and APR (if they know them) into the calculator to see the different results. Use interest rate in order to determine loan details without the addition of other costs. To find the total cost of the loan, use APR. The advertised APR generally provides more accurate loan details.</p>
+
+<h3>Variable vs. Fixed</h3>
+<p>When it comes to loans, there are generally two available interest options to choose from: variable (sometimes called adjustable or floating) or fixed. The majority of loans have fixed interest rates, such as conventionally amortized loans like mortgages, auto loans, or student loans. Examples of variable loans include adjustable-rate mortgages, home equity lines of credit (HELOC), and some personal and student loans. For more information about or to do calculations involving any of these other loans, please visit the <a href="/mortgage-calculator.html">Mortgage Calculator</a>, <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>, <a href="/student-loan-calculator.html">Student Loan Calculator</a>, or <a href="/personal-loan-calculator.html">Personal Loan Calculator</a>.</p>
+
+<h3>Variable Rate Information</h3>
+<p>In variable rate loans, the interest rate may change based on indices such as inflation or the central bank rate (all of which are usually in movement with the economy). The most common financial index that lenders reference for variable rates is the key index rate set by the U.S. Federal Reserve or a benchmark such as the Secured Overnight Financing Rate (SOFR), which has replaced the London Interbank Offered Rate (LIBOR).</p>
+<p>Because rates of variable loans vary over time, fluctuations in rates will alter routine payment amounts; the rate change in one month changes the monthly payment due for that month as well as the total expected interest owed over the life of the loan. Some lenders may place caps on variable loan rates, which are maximum limits on the interest rate charged, regardless of how much the index interest rate changes. Lenders only update interest rates periodically at a frequency agreed to by the borrower, most likely disclosed in a loan contract. As a result, a change to an indexed interest rate does not necessarily mean an immediate change to a variable loan's interest rate. Broadly speaking, variable rates are more favorable to the borrower when indexed interest rates are trending downward.</p>
+<p>Credit card rates can be fixed or variable. Credit card issuers aren't required to give advanced notice of an interest rate increase for credit cards with variable interest rates. It is possible for borrowers with excellent credit to request more favorable rates on their variable loans or credit cards. For more information or to perform calculations that involve paying off a credit card, use the <a href="/credit-card-calculator.html">Credit Card Calculator</a> or use the <a href="/credit-card-payoff-calculator.html">Credit Cards Payoff Calculator</a> for paying off multiple credit cards.</p>
+
+<h2>Payment Calculator Formulas</h2>
+<p>The calculator uses the standard loan amortization formulas, where <strong>P</strong> is the loan amount, <strong>r</strong> is the monthly interest rate (annual rate ÷ 12 ÷ 100), <strong>n</strong> is the number of monthly payments and <strong>M</strong> is the monthly payment.</p>
+<ul>
+	<li><strong>Monthly payment (Fixed Term):</strong> M = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</li>
+	<li><strong>Number of payments (Fixed Payments):</strong> n = −ln(1 − r × P ÷ M) ÷ ln(1 + r)</li>
+</ul>
+<p><strong>Example:</strong> a $200,000 loan at 6% for 15 years gives r = 0.005 and n = 180, so M = $1,687.71. Over 180 payments you pay $303,788.46 in total, of which $103,788.46 is interest.</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<h3>How do I calculate my monthly loan payment?</h3>
+<p>Enter the loan amount, loan term in years and annual interest rate on the <strong>Fixed Term</strong> tab, then click Calculate. The calculator applies the amortization formula above. For example, a $200,000 loan at 6% over 15 years has a monthly payment of $1,687.71.</p>
+
+<h3>How can I find out how long it will take to pay off a loan?</h3>
+<p>Use the <strong>Fixed Payments</strong> tab. Enter the loan amount, what you can pay each month and the interest rate. For example, paying $2,000 per month on a $200,000 loan at 6% takes about 139 months, or roughly 11.6 years.</p>
+
+<h3>What is the difference between Fixed Term and Fixed Payments?</h3>
+<p>Fixed Term answers "how much do I pay each month?" when the loan length is set, as with most mortgages and auto loans. Fixed Payments answers "how long will it take?" when the monthly payment is set, as with credit cards or when you choose to pay a specific amount each month.</p>
+
+<h3>What is the difference between interest rate and APR?</h3>
+<p>The interest rate is the cost of borrowing the principal. APR also includes fees such as broker fees, discount points, closing costs and administrative fees, spread over the life of the loan. If a loan has no fees, the interest rate and APR are the same. Use the interest rate to see loan details without extra costs, and the APR to estimate the total cost of the loan.</p>
+
+<h3>Does a shorter loan term save money?</h3>
+<p>In most cases, yes. A shorter term means higher monthly payments but much less total interest. For a $200,000 loan at 6%, a 15-year term costs $103,788.46 in interest, while a 30-year term costs about $231,676 in interest but has a lower payment of about $1,199.10 per month.</p>
+
+<h3>How can I pay off my loan faster?</h3>
+<p>Add extra money to your monthly payment and enter the higher amount on the Fixed Payments tab to see the months and interest you save. Other options include making one extra payment per year, paying bi-weekly, or refinancing to a lower rate. Make sure your lender does not charge prepayment penalties and applies extra money to principal.</p>
+
+<h3>Why does the calculator say my monthly payment is too low?</h3>
+<p>If your monthly payment is not larger than the interest charged each month (loan amount × annual rate ÷ 12), the balance never decreases. Lower the loan amount, raise the monthly payment, or lower the interest rate until a valid result appears.</p>
+
+<h3>What is an amortization schedule?</h3>
+<p>An amortization schedule is a table showing, for each payment, how much goes to interest, how much goes to principal and the remaining balance. Early payments are mostly interest; later payments are mostly principal. This calculator provides both annual and monthly schedules.</p>
+
+<h3>Is this calculator suitable for car loans, personal loans and credit cards?</h3>
+<p>It works for any fixed-interest installment loan, including car, personal, student and mortgage-style loans. For trade-in value, sales tax and fees on a car, use the <a href="/auto-loan-calculator.html">Auto Loan Calculator</a>. For credit cards, use the <a href="/credit-card-calculator.html">Credit Card Calculator</a>.</p>
+
+<h3>Can I use this calculator for variable-rate loans?</h3>
+<p>The calculator assumes a constant rate, so for a variable-rate loan the result is only an estimate at the current rate. Re-run the calculation with the new rate each time the rate adjusts.</p>
+
+<p><em>This calculator is for informational purposes only and does not constitute financial advice. Actual payments may differ based on lender fees, rounding and payment timing.</em></p>
+
+<script>
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+proComma2("cloanamount");
+proComma2("cmonthlypay");
+
+function popNMenu(inval, insubmit){
+	if (inval == "fixterm"){
+		document.getElementById("ctype").value="fixterm";
+		document.getElementById("fixtermtable").style.display = 'block';
+		document.getElementById("fixpaytable").style.display = 'none';
+		document.getElementById("topmenu").innerHTML = "<ul><li id='menuon'><a href=\"#\" onclick=\"popNMenu('fixterm',1);\">Fixed Term</a></li> <li><a href=\"#\" onclick=\"popNMenu('fixpay',1);\">Fixed Payments</a></li></ul>";
+	}else{
+		document.getElementById("ctype").value="fixpay";
+		document.getElementById("fixtermtable").style.display = 'none';
+		document.getElementById("fixpaytable").style.display = 'block';
+		document.getElementById("topmenu").innerHTML = "<ul><li><a href=\"#\" onclick=\"popNMenu('fixterm',1);\">Fixed Term</a></li> <li id='menuon'><a href=\"#\" onclick=\"popNMenu('fixpay',1);\">Fixed Payments</a></li></ul>";
+	}
+}
+popNMenu('fixterm',0);
+</script>
+
+</div>
+
+<div id="right" role="complementary" aria-label="Search and other calculators">
+	<div style="padding-top:10px;  min-height:280px; text-align:center;"></div>
+	<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();" aria-label="Search calculators"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form>
+	<div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>
+</div>
+</div>
+<div id="clear"></div>
+
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

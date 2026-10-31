@@ -1,20 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Tire Size Calculator</title>
-	<meta name="description" content="Free calculator to find the dimensions of a tire based on its code. It also helps in choosing alternative tire sizes based on rim size or comparing two tires." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)</title>
+	<meta name="description" content="Free tire size calculator. Enter a tire code like 265/70R17 to find the section height, tire diameter and circumference, compare two tires, and check alternative sizes for a new wheel. Includes tire code guide and FAQs." />
+	<meta name="keywords" content="tire size calculator, tire diameter calculator, tire size comparison, how to read tire size, tire code, aspect ratio, 265/70R17, tire size chart, speedometer error tire size" />
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+	
+	
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html","description":"Free tire size calculator. Enter a tire code like 265/70R17 to find the section height, tire diameter and circumference, compare two tires, and check alternative sizes for a new wheel. Includes tire code guide and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)">
+<meta property="og:description" content="Free tire size calculator. Enter a tire code like 265/70R17 to find the section height, tire diameter and circumference, compare two tires, and check alternative sizes for a new wheel. Includes tire code guide and FAQs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)">
+<meta name="twitter:description" content="Free tire size calculator. Enter a tire code like 265/70R17 to find the section height, tire diameter and circumference, compare two tires, and check alternative sizes for a new wheel. Includes tire code guide and FAQs.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)","url":"https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html","description":"Free tire size calculator. Enter a tire code like 265/70R17 to find the section height, tire diameter and circumference, compare two tires, and check alternative sizes for a new wheel. Includes tire code guide and FAQs.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Other"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Tire Size Calculator – Tire Diameter, Width &amp; Comparison (Free)","item":"https://calculator.bhuvanesh-s3602.workers.dev/tire-size-calculator.html"}]}</script></head>
 <body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
 <div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/other-calculator.html" itemprop="item"><span itemprop="name">other</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tire-size-calculator.html" itemprop="item"><span itemprop="name">tire size calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Tire Size Calculator</h1>
-<p>Use the following calculators to find the dimensions of a tire based on its code. It can also provide a comparison of alternative tires that are compatible with a given wheel size.</p>
+<p>This free tire size calculator finds the dimensions of a tire, such as the section height, overall diameter and circumference, based on its tire code (for example 265/70R17). It can also provide a comparison of alternative tires that are compatible with a given wheel size, and compare two tires side by side.</p>
 <div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div><form action="/tire-size-calculator.html" name="calform">
 <table class="panel" ><tr><td>
 	<table align="center">
@@ -99,9 +150,34 @@ shNewSize('n');</script>
 </td></tr></table></form>
 <br><br>
 
+<h2>How to Use the Tire Size Calculator</h2>
+<p>Read the tire code on the sidewall of your tire, for example <b>265/70R17</b>. Enter the width (265), the aspect ratio (70) and the wheel diameter (17) into the first calculator. To see alternative tire sizes for a different rim, choose "Yes" for a new wheel size and enter the new diameter in inches. To compare two tires, enter both codes in the comparison calculator and click Calculate.</p>
+
+<h3>Example: 265/70R17</h3>
+<table class="cinfoT">
+	<tr><td>Tire width</td><td class="cinfoBodL">265 mm (10.43 in)</td></tr>
+	<tr><td>Section height</td><td class="cinfoBodL">0.70 &times; 265 = 185.5 mm (7.30 in)</td></tr>
+	<tr><td>Wheel diameter</td><td class="cinfoBodL">17 in = 431.8 mm</td></tr>
+	<tr><td>Overall tire diameter</td><td class="cinfoBodL">431.8 + 2 &times; 185.5 = 802.8 mm (about 31.6 in)</td></tr>
+	<tr><td>Circumference</td><td class="cinfoBodL">&pi; &times; 802.8 = about 2,522 mm (about 99.3 in)</td></tr>
+</table>
+
+<h3>Quick Reference: Reading a Tire Code</h3>
+<table class="cinfoT">
+	<tr><td><b>Part of the code</b></td><td class="cinfoBodL"><b>Meaning</b></td></tr>
+	<tr><td>P, LT, ST, T</td><td class="cinfoBodL">Intended use: passenger, light truck, special trailer, temporary</td></tr>
+	<tr><td>265</td><td class="cinfoBodL">Nominal section width in millimeters</td></tr>
+	<tr><td>70</td><td class="cinfoBodL">Aspect ratio: sidewall height as a percentage of width</td></tr>
+	<tr><td>R</td><td class="cinfoBodL">Internal construction: radial</td></tr>
+	<tr><td>17</td><td class="cinfoBodL">Wheel diameter in inches</td></tr>
+	<tr><td>95</td><td class="cinfoBodL">Load index (maximum load)</td></tr>
+	<tr><td>H</td><td class="cinfoBodL">Speed rating (maximum speed)</td></tr>
+</table>
+<br>
+
 <h3>Tire code</h3>
 <p>Car tires are described by an alphanumeric code, as shown in the figure below. Being able to read the tire code can be important, particularly when considering getting new wheels or tires, as being able to read the tire code is necessary for calculating things like tire size. Each part of the code describes some characteristic of the tire; refer to the figure below.</p>
-<p style="text-align:center;"><img src="/img/tire/tire-code.svg" width="456" height="322" alt="tire code" class="scaleimg"></p>
+<p style="text-align:center;"><img src="/img/tire/tire-code.svg" width="456" height="322" alt="tire code diagram showing width, aspect ratio, construction, wheel diameter, load index and speed rating" class="scaleimg"></p>
 <p><b>Intended use:</b> The first part of the code is made up of 1 or 2 letters (P, LT, ST, T) that describe the type of vehicle that the tire is intended to be used with. There are 4 vehicle classes:</p>
 <ul>
 	<li><b>P</b> stands for passenger car. Tires with the P specification are intended for use with cars, SUVs, crossovers, minivans, and smaller pickup trucks.</li>
@@ -137,26 +213,61 @@ shNewSize('n');</script>
 <p>On top of replacing tires for aesthetic reasons, people also change their tires as a result of blowouts or wear and tear. When replacing tires, it is ideal to change all of the tires at the same time. If this is not possible, at least the front two or back two tires should be changed together, depending on whether the tire that must be replaced is in the front or back. If only one or some of the tires are being changed, it is highly recommended that the tire(s) be of the same type and brand. Differences in tires can cause a number of issues including loss of control or spinouts when driving, inaccurate speedometer readings, or even damage to the vehicle's stability system calibrations.</p>
 <p>Changing tires also affects the speedometers and odometers of a car, since they are calibrated based on stock tires. Thus, while it is possible to safely use different-sized rims and tires on a car, it will still result in changes to the car. Larger rims and tires increase the total circumference of the wheel, which in turn increases the distance around the tire. This results in inaccurate speedometer and odometer readings because both are based on how many revolutions the tire makes. Specifically, a larger tire will result in a speedometer reading that is lower than the actual speed that the car is traveling; similarly, it will result in an odometer reading that is lower than the actual distance traveled. Conversely, a smaller tire will result in a speedometer reading that is higher than the actual speed the car is traveling, and an odometer reading that is higher than the distance traveled.</p>
 
+<h2>Frequently Asked Questions</h2>
+<p>Click a question to see the answer.</p>
+<details>
+<summary><b>How do you read a tire size like 265/70R17?</b></summary>
+<p>265 is the tire width in millimeters, 70 is the aspect ratio (the sidewall height is 70% of the width), R means radial construction, and 17 is the wheel diameter in inches.</p>
+</details>
+<br>
+<details>
+<summary><b>How do you calculate tire diameter?</b></summary>
+<p>Section height = aspect ratio &times; tire width. Tire diameter = wheel diameter + 2 &times; section height. For a 265/70R17 tire, the section height is 185.5 mm and the diameter is 17 &times; 25.4 + 2 &times; 185.5 = 802.8 mm, or about 31.6 inches.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the aspect ratio of a tire?</b></summary>
+<p>The aspect ratio is the second number in the tire code. It is the height of the sidewall as a percentage of the tire width. In 265/70R17, the sidewall height is 70% of 265 mm.</p>
+</details>
+<br>
+<details>
+<summary><b>What does the R in a tire size mean?</b></summary>
+<p>R stands for radial construction, which is used by almost all passenger car tires. Other letters are D for diagonal and B for bias-belted.</p>
+</details>
+<br>
+<details>
+<summary><b>How much difference in tire size is safe?</b></summary>
+<p>It is generally recommended to choose tires with an overall diameter within 3% of the factory recommended tires. Check your owner's manual or a tire professional before changing size.</p>
+</details>
+<br>
+<details>
+<summary><b>Does changing tire size affect the speedometer?</b></summary>
+<p>Yes. A larger overall diameter makes the speedometer and odometer read lower than the true speed and distance. A smaller diameter makes them read higher. For example, a tire that is 3% larger makes a true 60 mph show as about 58 mph.</p>
+</details>
+<br>
+<details>
+<summary><b>What is the load index and speed rating?</b></summary>
+<p>The load index is a number showing the maximum weight a tire can carry at a given pressure. The speed rating is a letter showing the maximum speed at which the tire can carry that load. For example, a load index of 95 carries 1,520 lb (690 kg), and the speed rating H allows up to 130 mph (210 km/h).</p>
+</details>
+<br>
+<details>
+<summary><b>How do I find the age of a tire?</b></summary>
+<p>Check the DOT code on the sidewall. The last four digits show the week and year of production. For example, 1326 means the 13th week of 2026. Tires older than 10 years should not be used, and some manufacturers recommend replacement after six years.</p>
+</details>
+<br>
+
+</div>
+
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
 
 
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html" class="topNavOn">Other</a>
-</div>
+</div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/other-calculator.html">Other Calculators</a></div><div id="occontent"><a href="/age-calculator.html">Age</a><a href="/date-calculator.html">Date</a><a href="/time-calculator.html">Time</a><a href="/hours-calculator.html">Hours</a><a href="/gpa-calculator.html">GPA</a><a href="/grade-calculator.html">Grade</a><a href="/height-calculator.html">Height</a><a href="/concrete-calculator.html">Concrete</a><a href="/ip-subnet-calculator.html">IP Subnet</a><a href="/bra-size-calculator.html">Bra Size</a><a href="/password-generator.html">Password Generator</a><a href="/dice-roller.html">Dice Roller</a><a href="/conversion-calculator.html">Conversion</a><a href="/other-calculator.html">More Other Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

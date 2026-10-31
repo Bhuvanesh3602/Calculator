@@ -1,207 +1,298 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Pregnancy Weight Gain Calculator</title>
-	<meta name="description" content="This pregnancy weight gain calculator provides a recommended weight gain schedule on a week-by-week basis based on pre-pregnancy bodyweight and IOM guidelines." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/pregnancy-weight-gain-calculator.html" itemprop="item"><span itemprop="name">pregnancy weight gain calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Pregnancy Weight Gain Calculator</h1>
-<p>The Pregnancy Weight Gain Calculator estimates a schedule for healthy weight gain based on guidelines from the Institute of Medicine.</p><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li></ul></div>
-<div class="panel2" style="padding:5px;">
-<form name="calform"><table id="calinputtable" width="620">
-<input type="hidden" name="ctype" id="ctype" value="standard">
-<tr>
-	<td width="240">Your Current Pregnancy Stage</td>
-	<td width="380">
-		<select name="pstage" class="infull">
-			<option value="1">Week 1</option><option value="2">Week 2</option><option value="3">Week 3</option><option value="4">Week 4</option><option value="5">Week 5</option><option value="6">Week 6</option><option value="7">Week 7</option><option value="8">Week 8</option><option value="9">Week 9</option><option value="10">Week 10</option><option value="11">Week 11</option><option value="12">Week 12</option><option value="13">Week 13</option><option value="14">Week 14</option><option value="15">Week 15</option><option value="16">Week 16</option><option value="17">Week 17</option><option value="18">Week 18</option><option value="19">Week 19</option><option value="20" selected>Week 20</option><option value="21">Week 21</option><option value="22">Week 22</option><option value="23">Week 23</option><option value="24">Week 24</option><option value="25">Week 25</option><option value="26">Week 26</option><option value="27">Week 27</option><option value="28">Week 28</option><option value="29">Week 29</option><option value="30">Week 30</option><option value="31">Week 31</option><option value="32">Week 32</option><option value="33">Week 33</option><option value="34">Week 34</option><option value="35">Week 35</option><option value="36">Week 36</option><option value="37">Week 37</option><option value="38">Week 38</option><option value="39">Week 39</option><option value="40">Week 40</option>		</select>
-	</td>
-</tr>
-<tr>
-	<td>Pregnant with Twins</td>
-	<td>
-		<label for="twins1" class="cbcontainer"><input name="twins" id="twins1" value="0" type="radio" checked><span class="rbmark"></span>No </label>&nbsp;
-		<label for="twins2" class="cbcontainer"><input name="twins" id="twins2" value="1" type="radio" ><span class="rbmark"></span>Yes</label>
-	</td>
-</tr>
-</table>
-<table width="620" id="standardheightweight">
-<tr>
-	<td width="240">Your Height</td>
-	<td width="380">
-		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
-			<input type="text" name="cheightfeet" value="5" class="inhalf inuifoot" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
-		</td><td>&nbsp;</td><td>
-			<input type="text" name="cheightinch" value="6" class="inhalf inuiinch" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
-		</td></tr></table>
-	</td>
-</tr>
-<tr>
-	<td>Your Weight Before Pregnancy</td>
-	<td><input type="text" name="cpoundbefore" value="120" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
-</tr>
-<tr>
-	<td>Your Weight Now</td>
-	<td><input type="text" name="cpoundnow" value="130" class="infull inuipound" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
-</tr>
-</table>
-<table width="620" id="metricheightweight">
-<tr>
-	<td width="240">Your Height</td>
-	<td width="380"><input type="text" name="cheightmeter" id="cheightmeter" value="165" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
-</tr>
-<tr>
-	<td>Your Weight Before Pregnancy</td>
-	<td><input type="text" name="ckgbefore" value="50" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
-</tr>
-<tr>
-	<td>Your Weight Now</td>
-	<td><input type="text" name="ckgnow" value="55" class="infull inuick" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
-</tr>
-</table>
-<table width="620">
-<tr>
-	<td align="center" style="padding-top: 8px;">
-		<input name="printit" value="0" type="hidden">
-		<input type="submit" name="x" value="Calculate">
-		<input type="button" value="Clear" onClick="clearForm(document.calform);">
-	</td>
-</tr>
-</table></form>
-</div>
-
-
-<br>
-<h3>Recommended weight gain during pregnancy</h3>
-<p>Pregnancy can lead to significant changes to women's bodies and daily routines. One such change is weight gain to ensure that there are enough nutrients for the development of the fetus as well as to store enough nutrients in preparation for breastfeeding. While weight gain during pregnancy is normal and necessary, studies have shown that certain ranges of weight gain given a specific body mass index (BMI) result in more positive outcomes for both fetus and mother.<sup>1</sup></p>
-<p>Generally, it is recommended that pregnant women gain only 1-4 pounds during the first 3 months of pregnancy, and 1 pound per week during the remainder of the pregnancy. It is possible to achieve 1 pound per week by consuming an additional ~300 calories per day,<sup>2</sup> which is roughly equivalent to eating an extra sandwich plus a glass of milk or a baked potato plus 2 ounces of meat plus an apple.</p>
-<p>The Institute of Medicine provides a weight gain guideline based on Prepregnancy BMI, which is shown in the table below. But note that these are only recommendations and that weight gain between women varies. As such, a health care provider should be consulted to more accurately determine each person's specific needs.</p>
-<p align="center"><br><b>Recommendations for total weight gain during pregnancy by prepregnancy BMI</b><sup>1</sup></p>
-<table border="1" class="cinfoT" align="center">
-	<tr>
-		<td class="cinfoHd">Prepregnancy<br>BMI (kg/m<sup>2</sup>)</td>
-		<td class="cinfoHdL" valign="bottom">Category</td>
-		<td class="cinfoHdL">Total Weight<br>Gain Range</td>
-		<td class="cinfoHdL">Total Weight Gain Range<br>for Pregnancy with Twins</td>
-	</tr>
-	<tr>
-		<td>&lt;18.5</td>
-		<td>Underweight</td>
-		<td>28-40 lbs</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td>18.5-24.9</td>
-		<td>Normal Weight</td>
-		<td>25-35 lbs</td>
-		<td>37-54 lbs</td>
-	</tr>
-	<tr>
-		<td>25.0-29.9</td>
-		<td>Overweight</td>
-		<td>15-25 lbs</td>
-		<td>31-50 lbs</td>
-	</tr>
-	<tr>
-		<td><u>&gt;</u>30.0</td>
-		<td>Obese</td>
-		<td>11-20 lbs</td>
-		<td>25-42 lbs</td>
-	</tr>
-</table><br>
-
-<p>Weight gain during pregnancy is not just attributed to the weight of the fetus. Most of the weight gain goes to the development of tissues that allow fetal development, growth, and prepare the body for breastfeeding. The table below is a list.</p>
-<p align="center"><br><b>Pregnancy weight gain distribution<sup>2</sup></b></p>
-<table border="1" class="cinfoT" align="center">
-	<tr><td>Enlarged breasts</td><td>1-3 pounds</td></tr>
-	<tr><td>Enlarged uterus</td><td>2 pounds</td></tr>
-	<tr><td>Placenta</td><td>1.5 pounds</td></tr>
-	<tr><td>Amniotic fluid</td><td>2 pounds</td></tr>
-	<tr><td>Increased blood volume</td><td>3-4 pounds</td></tr>
-	<tr><td>Increased fluid volume</td><td>2-3 pounds</td></tr>
-	<tr><td>Fat stores</td><td>6-8 pounds</td></tr>
-</table><br>
-
-<h3>Potential complications of suboptimal weight gain</h3>
-<p>There are adverse effects for either insufficient or excessive weight gain during pregnancy. Insufficient weight gain can compromise the health of the fetus and cause preterm, or premature birth; excessive weight gain can cause labor complications, giving birth to significantly larger than average fetuses, postpartum weight retention, as well as increase the risk of requiring a cesarean section (C-section).</p>
-
-<h3>What to eat during pregnancy?</h3>
-<p>What a person eats, or doesn't eat, during pregnancy can significantly affect the health of their baby. Although what a person should or shouldn't eat during their pregnancy is often heavily debated, and can be different between cultures, there is no particular formula that guarantees a healthy baby, and though a parent should be careful and cognizant of what they choose to put in their bodies, it is not absolutely necessary to follow some heavily strict, nutritional guideline during pregnancy. General advice for eating healthy applies, such as eating a balance of vegetables, fruits, whole grains, lean proteins, and healthy fats. Certain nutrients can, however, be particularly helpful for the growth and development of a healthy baby. Some of these will be discussed below.</p>
-<p><b>Folate and folic acid:</b></p>
-<p>Folate and folic acid can help prevent birth defects. Folate, in particular, protects against neural tube defects as well as potential abnormalities in the brain and spinal cord. It has also been shown to decrease the risk of premature birth. Folic acid is the synthetic form of folate, a B vitamin, and can be consumed in the form of supplements, or fortified foods. Aside from using supplements, folic acid can be consumed through eating certain leafy green vegetables (spinach), citrus fruits (oranges), dried beans, and peas.</p>
-<p><b>Calcium:</b></p>
-<p>Calcium helps support strong bones and teeth, and is also necessary for the proper day-to-day functioning of the body's circulatory, muscular, and nervous systems. Calcium can be found in dairy products such as milk, yogurt, and cheese. It can also be found in non-dairy foods such as spinach, salmon, broccoli, and kale.</p>
-<p><b>Vitamin D:</b></p>
-<p>Like calcium, vitamin D can help promote bone strength while also building the baby's bones and teeth. It can be found in fortified milk, orange juice, fish, and eggs, among other foods.</p>
-<p><b>Protein:</b></p>
-<p>Protein, while being important for your own health, is also highly important for the growth of the baby throughout pregnancy. Good sources of protein include lean meat, poultry, fish, eggs, beans, peas, nuts, and soy products, among others.</p>
-<p><b>Iron:</b></p>
-<p>Iron is another nutrient that is highly important for the development of your baby. A pregnant person should consume double the amount of iron than they otherwise would, because iron is essential for the body to produce more blood to supply oxygen to the baby. In the case where the mother is not consuming sufficient iron, the mother could suffer from iron deficiency anemia, resulting in fatigue, and increasing the risk of having a premature birth. Iron can be found in lean red meat, poultry, fish, iron-fortified foods, beans, and vegetables, among other foods. Iron from animal products is most easily absorbed through pairing iron from plant sources with foods or drinks that contain high amounts of vitamin C can increase the absorption of iron.</p>
-<p>Most of the nutrients listed above can be obtained through some form of supplements, and taking prenatal vitamins is fairly common. Depending on your diet, you may consider speaking to a healthcare professional to determine if you should take a prenatal vitamin or any other special supplements.</p>
-<p><b>Foods to avoid:</b></p>
-<p>It is as important to avoid certain foods and activities during pregnancy as it is to consume foods with specific nutrients. Some of these include foods that are high in mercury, like many kinds of seafood. Generally, the bigger and the older a fish is, the more mercury it likely contains. The FDA recommends that pregnant women avoid eating shark, swordfish, king mackerel, and tilefish. The kinds of seafood that are generally considered safe include shrimp, salmon, pollock, catfish, anchovies, trout, cod, tilapia, and light canned tuna, among others.</p>
-<p>Pregnant women should also avoid consuming foods that are raw, undercooked, or of course, contaminated. These include foods such as sushi, sashimi, and raw shellfish like oysters, scallops, and clams. Similarly, undercooked meat, poultry, and eggs should also be avoided, since pregnant women are at higher risk of food poisoning due to bacteria in undercooked foods.</p>
-<p>Unpasteurized foods, which include many dairy products, should also be avoided since they can lead to food-borne illnesses.</p>
-<p>Pregnant women also should not eat unwashed fruits and vegetables, again because of the potential for consuming harmful bacteria. Certain sprouts like alfalfa, clover, radish, and mung bean can contain disease-causing bacteria, and should be cooked thoroughly and not eaten raw.</p>
-<p>Excess caffeine should also be avoided, since it can cross the placenta, and the effects on the baby are not well known. Herbal teas are also not well studied, and the effects they may have on the baby are not well known.</p>
-<p>Under no circumstances should a pregnant woman consume alcohol, as no study has found a level of alcohol that has been proven to be safe during pregnancy. Alcohol increases the risk of miscarriage and stillbirth. It also can cause fetal alcohol syndrome, which can result in the development of intellectual disabilities as well as facial deformities.</p>
-<p>Smoking should also be avoided before, during, and after pregnancy, as smoking during any of these periods can negatively affect the baby, as well as the mother. Smoking during pregnancy can result in many detrimental health outcomes, including premature birth, fetal death, cesarean section (which can cause maternal hemorrhage), and more. It has also been found to increase the risk of sudden infant death syndrome, birth defects such as altered brainstem development and lung structure as well as cerebral palsy. Some studies have further shown that smoking during pregnancy can increase the likelihood of the child being obese as a teen, and obesity has numerous undesirable implications for mortality and morbidity.</p>
-<p>This is not an exhaustive list of all the foods that should be avoided during pregnancy, and if unsure, consult a medical professional. Generally, keeping yourself healthy while paying special attention to foods that are known to be beneficial or detrimental to babies, in particular, will give your baby a better chance of being healthy.</p>
-
-<br><ol class="reference">
-	<li>Institute of Medicine. "<a href="/pdf/weight-gain-during-pregnancy.pdf">Weight Gain During Pregnancy: Reexamining The Guidelines.</a>"</li>
-	<li>Mayo Clinic. "Pregnancy weight gain: What's healthy?" https://www.mayoclinic.org/healthy-lifestyle/pregnancy-week-by-week/in-depth/pregnancy-weight-gain/art-20044360?pg=1. </li>
-</ol>
-
-
-<script>
-function popMenu(inval){
-	htmlVal = "";
-	if (inval == "metric"){
-		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
-		document.getElementById("ctype").value="metric";
-		document.getElementById("standardheightweight").style.display = 'none';
-		document.getElementById("metricheightweight").style.display = 'block';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}else{
-		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
-		document.getElementById("ctype").value="standard";
-		document.getElementById("standardheightweight").style.display = 'block';
-		document.getElementById("metricheightweight").style.display = 'none';
-		htmlVal = "<ul>" + htmlVal + "</ul>";
-	}
-	document.getElementById("topmenu").innerHTML = htmlVal;
-	return false;
-}
-popMenu("standard");
-</script>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)</title>
+	<meta name="description" content="Free pregnancy weight gain calculator with a week-by-week schedule based on your pre-pregnancy weight, height and Institute of Medicine guidelines, incl. twins." />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css"><script src="/js/common.js" async></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)","url":"https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html","description":"Free pregnancy weight gain calculator with a week-by-week schedule based on your pre-pregnancy weight, height and Institute of Medicine guidelines, incl. twins.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)","item":"https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html"}]}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)">
+<meta property="og:description" content="Free pregnancy weight gain calculator with a week-by-week schedule based on your pre-pregnancy weight, height and Institute of Medicine guidelines, incl. twins.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)">
+<meta name="twitter:description" content="Free pregnancy weight gain calculator with a week-by-week schedule based on your pre-pregnancy weight, height and Institute of Medicine guidelines, incl. twins.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)","url":"https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html","description":"Free pregnancy weight gain calculator with a week-by-week schedule based on your pre-pregnancy weight, height and Institute of Medicine guidelines, incl. twins.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Fitness & Health","item":"https://calculator.bhuvanesh-s3602.workers.dev/fitness-and-health-calculator.html"},{"@type":"ListItem","position":3,"name":"Pregnancy Weight Gain Calculator | Week-by-Week Chart (IOM)","item":"https://calculator.bhuvanesh-s3602.workers.dev/pregnancy-weight-gain-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+
+<div id="clear"></div><div id="contentout"><div id="content" role="main"><div id="breadcrumbs" role="navigation" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/pregnancy-weight-gain-calculator.html" itemprop="item"><span itemprop="name">pregnancy weight gain calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" rel="nofollow" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Pregnancy Weight Gain Calculator</h1>
+<p>The Pregnancy Weight Gain Calculator estimates a schedule for healthy weight gain based on guidelines from the Institute of Medicine.</p><div id="topmenu" class="topmenucenter"><ul><li id='menuon'><a href="#" onclick="popMenu('standard');">US units</a></li> <li><a href="#" onclick="popMenu('metric');">metric units</a></li></ul></div>
+
+<div class="panel2" style="padding:5px;">
+<form name="calform" aria-label="Pregnancy weight gain calculator"><table id="calinputtable" width="620">
+<input type="hidden" name="ctype" id="ctype" value="standard">
+<tr>
+	<td width="240">Your Current Pregnancy Stage</td>
+	<td width="380">
+		<select name="pstage" class="infull" aria-label="Your current pregnancy stage (week)">
+			<option value="1">Week 1</option><option value="2">Week 2</option><option value="3">Week 3</option><option value="4">Week 4</option><option value="5">Week 5</option><option value="6">Week 6</option><option value="7">Week 7</option><option value="8">Week 8</option><option value="9">Week 9</option><option value="10">Week 10</option><option value="11">Week 11</option><option value="12">Week 12</option><option value="13">Week 13</option><option value="14">Week 14</option><option value="15">Week 15</option><option value="16">Week 16</option><option value="17">Week 17</option><option value="18">Week 18</option><option value="19">Week 19</option><option value="20" selected>Week 20</option><option value="21">Week 21</option><option value="22">Week 22</option><option value="23">Week 23</option><option value="24">Week 24</option><option value="25">Week 25</option><option value="26">Week 26</option><option value="27">Week 27</option><option value="28">Week 28</option><option value="29">Week 29</option><option value="30">Week 30</option><option value="31">Week 31</option><option value="32">Week 32</option><option value="33">Week 33</option><option value="34">Week 34</option><option value="35">Week 35</option><option value="36">Week 36</option><option value="37">Week 37</option><option value="38">Week 38</option><option value="39">Week 39</option><option value="40">Week 40</option>		</select>
+	</td>
+</tr>
+<tr>
+	<td>Pregnant with Twins</td>
+	<td>
+		<label for="twins1" class="cbcontainer"><input name="twins" id="twins1" value="0" type="radio" checked><span class="rbmark"></span>No </label>&nbsp;
+		<label for="twins2" class="cbcontainer"><input name="twins" id="twins2" value="1" type="radio" ><span class="rbmark"></span>Yes</label>
+	</td>
+</tr>
+</table>
+<table width="620" id="standardheightweight">
+<tr>
+	<td width="240">Your Height</td>
+	<td width="380">
+		<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+			<input type="text" name="cheightfeet" value="5" class="inhalf inuifoot" inputmode="numeric" aria-label="Your height, feet" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuifootspan">feet</span>
+		</td><td>&nbsp;</td><td>
+			<input type="text" name="cheightinch" value="6" class="inhalf inuiinch" inputmode="numeric" aria-label="Your height, inches" onKeyUp="iptfieldCheck(this, '', 'pzn');"><span class="inuiinchspan">inches</span>
+		</td></tr></table>
+	</td>
+</tr>
+<tr>
+	<td>Your Weight Before Pregnancy</td>
+	<td><input type="text" name="cpoundbefore" value="120" class="infull inuipound" inputmode="decimal" aria-label="Your weight before pregnancy, pounds" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+<tr>
+	<td>Your Weight Now</td>
+	<td><input type="text" name="cpoundnow" value="130" class="infull inuipound" inputmode="decimal" aria-label="Your weight now, pounds" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuipoundspan">pounds</span></td>
+</tr>
+</table>
+<table width="620" id="metricheightweight">
+<tr>
+	<td width="240">Your Height</td>
+	<td width="380"><input type="text" name="cheightmeter" id="cheightmeter" value="165" class="infull inuick" inputmode="decimal" aria-label="Your height, centimeters" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+</tr>
+<tr>
+	<td>Your Weight Before Pregnancy</td>
+	<td><input type="text" name="ckgbefore" value="50" class="infull inuick" inputmode="decimal" aria-label="Your weight before pregnancy, kilograms" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+<tr>
+	<td>Your Weight Now</td>
+	<td><input type="text" name="ckgnow" value="55" class="infull inuick" inputmode="decimal" aria-label="Your weight now, kilograms" onKeyUp="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+</tr>
+</table>
+<table width="620">
+<tr>
+	<td align="center" style="padding-top: 8px;">
+		<input name="printit" value="0" type="hidden">
+		<input type="submit" name="x" value="Calculate" title="Calculate recommended weight gain">
+		<input type="button" value="Clear" title="Clear the form" onClick="clearForm(document.calform);">
+	</td>
+</tr>
+</table></form>
+</div>
+
+
+<br>
+<h3 id="recommended-weight-gain">Recommended weight gain during pregnancy</h3>
+<p>Pregnancy can lead to significant changes to women's bodies and daily routines. One such change is weight gain to ensure that there are enough nutrients for the development of the fetus as well as to store enough nutrients in preparation for breastfeeding. While weight gain during pregnancy is normal and necessary, studies have shown that certain ranges of weight gain given a specific body mass index (BMI) result in more positive outcomes for both fetus and mother.<sup>1</sup></p>
+<p>Generally, it is recommended that pregnant women gain only 1-4 pounds during the first 3 months of pregnancy, and 1 pound per week during the remainder of the pregnancy. It is possible to achieve 1 pound per week by consuming an additional ~300 calories per day,<sup>2</sup> which is roughly equivalent to eating an extra sandwich plus a glass of milk or a baked potato plus 2 ounces of meat plus an apple.</p>
+<p>The Institute of Medicine provides a weight gain guideline based on Prepregnancy BMI, which is shown in the table below. But note that these are only recommendations and that weight gain between women varies. As such, a health care provider should be consulted to more accurately determine each person's specific needs.</p>
+<p align="center"><br><b>Recommendations for total weight gain during pregnancy by prepregnancy BMI</b><sup>1</sup></p>
+<table border="1" class="cinfoT" align="center">
+	<tr>
+		<td class="cinfoHd">Prepregnancy<br>BMI (kg/m<sup>2</sup>)</td>
+		<td class="cinfoHdL" valign="bottom">Category</td>
+		<td class="cinfoHdL">Total Weight<br>Gain Range</td>
+		<td class="cinfoHdL">Total Weight Gain Range<br>for Pregnancy with Twins</td>
+	</tr>
+	<tr>
+		<td>&lt;18.5</td>
+		<td>Underweight</td>
+		<td>28-40 lbs</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>18.5-24.9</td>
+		<td>Normal Weight</td>
+		<td>25-35 lbs</td>
+		<td>37-54 lbs</td>
+	</tr>
+	<tr>
+		<td>25.0-29.9</td>
+		<td>Overweight</td>
+		<td>15-25 lbs</td>
+		<td>31-50 lbs</td>
+	</tr>
+	<tr>
+		<td><u>&gt;</u>30.0</td>
+		<td>Obese</td>
+		<td>11-20 lbs</td>
+		<td>25-42 lbs</td>
+	</tr>
+</table><br>
+
+<p>Weight gain during pregnancy is not just attributed to the weight of the fetus. Most of the weight gain goes to the development of tissues that allow fetal development, growth, and prepare the body for breastfeeding. The table below is a list.</p>
+<p align="center"><br><b>Pregnancy weight gain distribution<sup>2</sup></b></p>
+<table border="1" class="cinfoT" align="center">
+	<tr><td>Enlarged breasts</td><td>1-3 pounds</td></tr>
+	<tr><td>Enlarged uterus</td><td>2 pounds</td></tr>
+	<tr><td>Placenta</td><td>1.5 pounds</td></tr>
+	<tr><td>Amniotic fluid</td><td>2 pounds</td></tr>
+	<tr><td>Increased blood volume</td><td>3-4 pounds</td></tr>
+	<tr><td>Increased fluid volume</td><td>2-3 pounds</td></tr>
+	<tr><td>Fat stores</td><td>6-8 pounds</td></tr>
+</table><br>
+
+<h3 id="complications">Potential complications of suboptimal weight gain</h3>
+<p>There are adverse effects for either insufficient or excessive weight gain during pregnancy. Insufficient weight gain can compromise the health of the fetus and cause preterm, or premature birth; excessive weight gain can cause labor complications, giving birth to significantly larger than average fetuses, postpartum weight retention, as well as increase the risk of requiring a cesarean section (C-section).</p>
+
+<h3 id="what-to-eat">What to eat during pregnancy?</h3>
+<p>What a person eats, or doesn't eat, during pregnancy can significantly affect the health of their baby. Although what a person should or shouldn't eat during their pregnancy is often heavily debated, and can be different between cultures, there is no particular formula that guarantees a healthy baby, and though a parent should be careful and cognizant of what they choose to put in their bodies, it is not absolutely necessary to follow some heavily strict, nutritional guideline during pregnancy. General advice for eating healthy applies, such as eating a balance of vegetables, fruits, whole grains, lean proteins, and healthy fats. Certain nutrients can, however, be particularly helpful for the growth and development of a healthy baby. Some of these will be discussed below.</p>
+<p><b>Folate and folic acid:</b></p>
+<p>Folate and folic acid can help prevent birth defects. Folate, in particular, protects against neural tube defects as well as potential abnormalities in the brain and spinal cord. It has also been shown to decrease the risk of premature birth. Folic acid is the synthetic form of folate, a B vitamin, and can be consumed in the form of supplements, or fortified foods. Aside from using supplements, folic acid can be consumed through eating certain leafy green vegetables (spinach), citrus fruits (oranges), dried beans, and peas.</p>
+<p><b>Calcium:</b></p>
+<p>Calcium helps support strong bones and teeth, and is also necessary for the proper day-to-day functioning of the body's circulatory, muscular, and nervous systems. Calcium can be found in dairy products such as milk, yogurt, and cheese. It can also be found in non-dairy foods such as spinach, salmon, broccoli, and kale.</p>
+<p><b>Vitamin D:</b></p>
+<p>Like calcium, vitamin D can help promote bone strength while also building the baby's bones and teeth. It can be found in fortified milk, orange juice, fish, and eggs, among other foods.</p>
+<p><b>Protein:</b></p>
+<p>Protein, while being important for your own health, is also highly important for the growth of the baby throughout pregnancy. Good sources of protein include lean meat, poultry, fish, eggs, beans, peas, nuts, and soy products, among others.</p>
+<p><b>Iron:</b></p>
+<p>Iron is another nutrient that is highly important for the development of your baby. A pregnant person should consume double the amount of iron than they otherwise would, because iron is essential for the body to produce more blood to supply oxygen to the baby. In the case where the mother is not consuming sufficient iron, the mother could suffer from iron deficiency anemia, resulting in fatigue, and increasing the risk of having a premature birth. Iron can be found in lean red meat, poultry, fish, iron-fortified foods, beans, and vegetables, among other foods. Iron from animal products is most easily absorbed, while pairing iron from plant sources with foods or drinks that contain high amounts of vitamin C can increase the absorption of iron.</p>
+<p>Most of the nutrients listed above can be obtained through some form of supplements, and taking prenatal vitamins is fairly common. Depending on your diet, you may consider speaking to a healthcare professional to determine if you should take a prenatal vitamin or any other special supplements.</p>
+<p><b>Foods to avoid:</b></p>
+<p>It is as important to avoid certain foods and activities during pregnancy as it is to consume foods with specific nutrients. Some of these include foods that are high in mercury, like many kinds of seafood. Generally, the bigger and the older a fish is, the more mercury it likely contains. The FDA recommends that pregnant women avoid eating shark, swordfish, king mackerel, and tilefish. The kinds of seafood that are generally considered safe include shrimp, salmon, pollock, catfish, anchovies, trout, cod, tilapia, and light canned tuna, among others.</p>
+<p>Pregnant women should also avoid consuming foods that are raw, undercooked, or of course, contaminated. These include foods such as sushi, sashimi, and raw shellfish like oysters, scallops, and clams. Similarly, undercooked meat, poultry, and eggs should also be avoided, since pregnant women are at higher risk of food poisoning due to bacteria in undercooked foods.</p>
+<p>Unpasteurized foods, which include many dairy products, should also be avoided since they can lead to food-borne illnesses.</p>
+<p>Pregnant women also should not eat unwashed fruits and vegetables, again because of the potential for consuming harmful bacteria. Certain sprouts like alfalfa, clover, radish, and mung bean can contain disease-causing bacteria, and should be cooked thoroughly and not eaten raw.</p>
+<p>Excess caffeine should also be avoided, since it can cross the placenta, and the effects on the baby are not well known. Herbal teas are also not well studied, and the effects they may have on the baby are not well known.</p>
+<p>Under no circumstances should a pregnant woman consume alcohol, as no study has found a level of alcohol that has been proven to be safe during pregnancy. Alcohol increases the risk of miscarriage and stillbirth. It also can cause fetal alcohol syndrome, which can result in the development of intellectual disabilities as well as facial deformities.</p>
+<p>Smoking should also be avoided before, during, and after pregnancy, as smoking during any of these periods can negatively affect the baby, as well as the mother. Smoking during pregnancy can result in many detrimental health outcomes, including premature birth, fetal death, cesarean section (which can cause maternal hemorrhage), and more. It has also been found to increase the risk of sudden infant death syndrome, birth defects such as altered brainstem development and lung structure as well as cerebral palsy. Some studies have further shown that smoking during pregnancy can increase the likelihood of the child being obese as a teen, and obesity has numerous undesirable implications for mortality and morbidity.</p>
+<p>This is not an exhaustive list of all the foods that should be avoided during pregnancy, and if unsure, consult a medical professional. Generally, keeping yourself healthy while paying special attention to foods that are known to be beneficial or detrimental to babies, in particular, will give your baby a better chance of being healthy.</p>
+
+<section id="faq" aria-labelledby="faq-title">
+<h3 id="faq-title">Pregnancy weight gain FAQ: frequently asked questions</h3>
+<p><b>How much weight should I gain during pregnancy?</b></p>
+<p>It depends on your pre-pregnancy BMI. The Institute of Medicine (now the National Academy of Medicine) recommends a total gain of 28-40 lbs (12.5-18 kg) if you were underweight (BMI under 18.5), 25-35 lbs (11.5-16 kg) at a normal weight (18.5-24.9), 15-25 lbs (7-11.5 kg) if overweight (25.0-29.9), and 11-20 lbs (5-9 kg) if obese (30.0 or higher). These are general recommendations, so ask your health care provider what is right for you.</p>
+<p><b>How much weight should I gain if I am pregnant with twins?</b></p>
+<p>For twin pregnancies, the Institute of Medicine suggests 37-54 lbs if you had a normal pre-pregnancy weight, 31-50 lbs if you were overweight, and 25-42 lbs if you were obese. No range is given for underweight women, so talk to your health care provider. Select "Yes" under Pregnant with Twins in the calculator to see a twin schedule.</p>
+<p><b>How do I use this pregnancy weight gain calculator?</b></p>
+<p>Choose your current week of pregnancy, say whether you are expecting twins, pick US or metric units, and enter your height, your weight before pregnancy and your weight now. Click Calculate to get a recommended weight gain schedule based on Institute of Medicine guidelines. Click Clear to start over.</p>
+<p><b>How is pre-pregnancy BMI calculated?</b></p>
+<p>BMI is your weight in kilograms divided by your height in meters squared (kg/m²). In pounds and inches, multiply your weight in pounds by 703 and divide by your height in inches squared. A BMI under 18.5 is underweight, 18.5-24.9 is normal weight, 25.0-29.9 is overweight, and 30.0 or higher is obese. The calculator works this out from your height and pre-pregnancy weight.</p>
+<p><b>How much weight should I gain each week?</b></p>
+<p>In general, 1-4 lbs in total during the first 3 months, then about 1 pound per week for the rest of the pregnancy. The Institute of Medicine's weekly rates for the second and third trimesters vary by pre-pregnancy BMI: about 1-1.3 lbs per week if underweight, 0.8-1 lb if normal weight, 0.5-0.7 lb if overweight, and 0.4-0.6 lb if obese.</p>
+<p><b>Is it normal to gain very little weight in the first trimester?</b></p>
+<p>Yes. A gain of only 1-4 pounds in the first 3 months is typical, and some women gain nothing at all or lose a little because of nausea and vomiting. If you cannot keep food down or are losing weight, contact your health care provider.</p>
+<p><b>Where does the weight go during pregnancy?</b></p>
+<p>Only part of the weight is the baby, who weighs roughly 7-8 pounds at full term. The rest is tissue that supports the pregnancy: enlarged breasts (1-3 lbs), an enlarged uterus (about 2 lbs), the placenta (about 1.5 lbs), amniotic fluid (about 2 lbs), extra blood volume (3-4 lbs), extra fluid (2-3 lbs) and fat stores for breastfeeding (6-8 lbs).</p>
+<p><b>How many extra calories do I need during pregnancy?</b></p>
+<p>About 300 extra calories per day is commonly cited as enough to gain around 1 pound per week. That is roughly an extra sandwich and a glass of milk. Needs vary with your weight, activity level and stage of pregnancy, so check with your health care provider or a dietitian.</p>
+<p><b>What happens if I gain too much or too little weight?</b></p>
+<p>Gaining too little can compromise the baby's health and raises the risk of preterm birth. Gaining too much can cause labor complications, a significantly larger than average baby, more weight retained after birth, and a higher chance of needing a cesarean section (C-section).</p>
+<p><b>Should I go on a diet during pregnancy?</b></p>
+<p>Do not start a weight-loss diet on your own. Aim for a balanced mix of vegetables, fruits, whole grains, lean proteins and healthy fats, and let your health care provider guide any changes, especially if you are above the recommended range.</p>
+<p><b>What should I eat and avoid during pregnancy?</b></p>
+<p>Nutrients that matter most include folate or folic acid, calcium, vitamin D, protein and iron. Avoid high-mercury fish (shark, swordfish, king mackerel, tilefish), raw or undercooked meat, eggs and seafood, unpasteurized foods, unwashed produce and raw sprouts. Limit caffeine, and avoid alcohol and smoking, because no safe level of alcohol in pregnancy has been established. See the sections above for details.</p>
+<p><b>Can this calculator replace advice from my doctor?</b></p>
+<p>No. The calculator gives general guidance based on Institute of Medicine recommendations, and weight gain varies between women. Always talk to your doctor, midwife or other health care provider about your own target, particularly with twins, a high-risk pregnancy or a medical condition.</p>
+</section>
+
+<br><ol class="reference">
+	<li>Institute of Medicine. "<a href="/pdf/weight-gain-during-pregnancy.pdf">Weight Gain During Pregnancy: Reexamining The Guidelines.</a>"</li>
+	<li>Mayo Clinic. "Pregnancy weight gain: What's healthy?" <a href="https://www.mayoclinic.org/healthy-lifestyle/pregnancy-week-by-week/in-depth/pregnancy-weight-gain/art-20044360?pg=1" rel="noopener" target="_blank">https://www.mayoclinic.org/healthy-lifestyle/pregnancy-week-by-week/in-depth/pregnancy-weight-gain/art-20044360?pg=1</a>. </li>
+</ol>
+
+
+<script>
+function popMenu(inval){
+	htmlVal = "";
+	if (inval == "metric"){
+		htmlVal = htmlVal + "<li><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li id='menuon'><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
+		document.getElementById("ctype").value="metric";
+		document.getElementById("standardheightweight").style.display = 'none';
+		document.getElementById("metricheightweight").style.display = 'block';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}else{
+		htmlVal = htmlVal + "<li id='menuon'><a href=\"#\" onclick=\"return popMenu('standard');\">US Units</a></li> <li><a href=\"#\" onclick=\"return popMenu('metric');\">Metric Units</a></li>";
+		document.getElementById("ctype").value="standard";
+		document.getElementById("standardheightweight").style.display = 'block';
+		document.getElementById("metricheightweight").style.display = 'none';
+		htmlVal = "<ul>" + htmlVal + "</ul>";
+	}
+	document.getElementById("topmenu").innerHTML = htmlVal;
+	return false;
+}
+popMenu("standard");
+</script>
+
+</div>
+
+	<div id="right" role="complementary">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;">
+
+
+
+
+</div>
+
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off" role="search" aria-label="Search calculators"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
+</div>
+
+<div id="clear"></div>
+
+<div id="footer" role="contentinfo"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+
+<div class="topNavAbs" role="navigation" aria-label="Calculator categories">
+<a href="/financial-calculator.html">Financial</a>
+<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
+<a href="/math-calculator.html">Math</a>
+<a href="/other-calculator.html">Other</a>
+</div>
+
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

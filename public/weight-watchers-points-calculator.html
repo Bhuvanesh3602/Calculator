@@ -1,273 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Weight Watcher Points Calculator</title>
-	<meta name="description" content="This free Weight Watcher points calculator estimates the point values of different foods." />
-	<link rel="stylesheet" href="//d26tpo4cm8sb6k.cloudfront.net/style.css" /><script src="/js/common.js"></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json">
-</head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">fitness &amp; health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/weight-watchers-points-calculator.html" itemprop="item"><span itemprop="name">weight watcher points calculator</span></a><meta itemprop="position" content="3" /></span></div>		<h1>Weight Watcher Points Calculator</h1>
-
-<p class="panel"><font color="red">Disclaimer:</font> adxcal.com has no affiliation with Weight Watchers<sup>&reg;</sup>, and information provided on this page was obtained from Wikipedia under the GNU Free Documentation License. adxcal.com does not purport to have any relationship with Weight Watchers<sup>&reg;</sup> and has no intent to present Weight Watchers'<sup>&reg;</sup> product as its own. This calculator's intent is to provide a convenient method for estimating point values based on formulas from Wikipedia.</p>
-<p>The weight watcher point system is a tool intended to help people control or lose weight in a way that influences a person's overall lifestyle and eating habits. This calculator can be used to estimate the point value of a food with known parameters.</p>
-
-<a name="lastestpoint"></a>
-<h2>Latest Calculator</h2>
-<p>The point program changes approximately every 2 years. This calculator uses the point system in effect from December 2015 to November 2021. In this system, points were based on calories, sugar, saturated fat, and protein. Fruits and most vegetables are zero-point foods in this system, and the nutrients from fruits and vegetables are only factored in if they are mixed with other food.</p>
-<p>In 2018, a new program was implemented. This program still used the same algorithm for determining the point value of foods, but also included over 200 new zero point foods, including lean proteins, eggs, most seafoods, tofu, skinless chicken breast, and many more. The new system also allowed the rollover of 4 unused points per day into a person's weekly point allotment. As a result of these changes, a person's daily point allotment slightly decreased. However, the changes still allowed a person more flexibility than the previous system, due to the numerous new zero point foods.</p>
-<p>In 2020, another new program was implemented that involved 3 different plans. Each of the plans differed in terms of daily point allocation, number of zero point foods available, and categories for zero point foods. The algorithm used for determining the point value of foods still remained the same within each of these different programs, so the point values of foods used on this calculator are still relevant through November 2021.</p>
-<p>In 2022, along with a new program being implemented, the algorithm used to calculate the point value of foods was also changed. Rather than being based on calories, saturated fat, sugar, and protein, the new point system is based on fiber, protein, unsaturated fats, added sugars, and saturated fats. In general, saturated fats and added sugars increase the point value of foods while unsaturated fats, fiber, and protein decrease the point value. This new point system was simplified and streamlined with fewer choices for 2023. In 2023, everyone except for diabetics will be on the same plan with the same zero points foods list. A recipe's points will once again be the same for everyone.</p>
-
-<form name="calcf" action="/weight-watchers-points-calculator.html#lastestpoint">
-<table border="0" cellspacing="0" cellpadding="4" id="standard" class="panel" >
-	<tr>
-		<td align="right">food energy</td><td>			<input type="text" name="w5energy" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="w5energyunit" >
-				<option value="1" selected>food calorie</option>
-				<option value="0.2388">kilojoules [kJ]</option>
-				<option value="0.0002388">joules [J]</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">sugar</td><td>			<input type="text" name="w5sugar" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="w5sugarunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">saturated fat</td><td>			<input type="text" name="w5sfat" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="w5sfatunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">protein</td><td>			<input type="text" name="w5protein" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="w5proteinunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-
-	<tr>
-		<td>&nbsp;</td><td>		<input type="hidden" name="caltype" value="5"><input type="submit" name="x" value="Calculate"></td>
-	</tr>
-</table>
-</form>
-
-<a name="olderpoints"></a>
-<h2>Old Points Calculator (U.S.)</h2>
-<p>Used between November 2010 and December 2015 in the U.S.</p>
-
-<form name="calcf" action="/weight-watchers-points-calculator.html#olderpoints">
-<table border="0" cellspacing="0" cellpadding="4" id="standard" class="panel" >
-	<tr>
-			<td align="right">protein</td><td>			<input type="text" name="proteinus" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="proteinusunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">carbohydrates</td><td>			<input type="text" name="carbohydratesus" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="carbohydratesusunit" id="fatunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">fat</td><td>			<input type="text" name="fatus" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="fatusunit" id="fatunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">fiber</td><td>			<input type="text" name="fiberus" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="fiberusunit" id="fiberusunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-
-	<tr>
-		<td>&nbsp;</td><td>		<input type="hidden" name="caltype" value="1"><input type="submit" name="x" value="Calculate"></td>
-	</tr>
-</table>
-</form>
-
-
-<a name="oldestpoint"></a>
-<h2>Old Points Calculator</h2>
-<p>Used before November 2010.</p>
-<br>
-<form name="calcf" action="/weight-watchers-points-calculator.html#oldestpoint">
-<table border="0" cellspacing="0" cellpadding="4" class="panel" id="standard" >
-	<tr>
-			<td align="right">food energy</td><td>			<input type="text" name="calories" id="calories" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="energyunit" id="energyunit" >
-				<option value="1" selected>food calories</option>
-				<option value="4.1868">kilojoules (KJ)</option>
-				<option value="4186.8">joule (J)</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">fat</td><td>			<input type="text" name="fat" id="fat" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="fatunit" id="fatunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">fiber</td><td>			<input type="text" name="fiber" id="fiber" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="fiberunit" id="fiberunit">
-				<option value="1" selected>grams</option>
-				<option value="1000">kilograms</option>
-				<option value="28.3495">ounce</option>
-				<option value="453.592">pound</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td><td>		<input type="hidden" name="caltype" value="3"><input type="submit" name="x" value="Calculate"></td>
-	</tr>
-</table>
-</form>
-<script>
-function calc(){
-	calories = (document.getElementById("calories").value + "").trim();
-	fat = (document.getElementById("fat").value + "").trim();
-	fiber = (document.getElementById("fiber").value + "").trim();
-
-	energyunit = (document.getElementById("energyunit").value + "").trim();
-	fatunit = (document.getElementById("fatunit").value + "").trim();
-	fiberunit = (document.getElementById("fiberunit").value + "").trim();
-
-	if (!isNumber(calories)){
-		showquickmsg("calories need to be numeric",true);return;
-	}else if (!isNumber(fat)){
-		showquickmsg("fat need to be numeric",true);return;
-	}else if (!isNumber(fiber)){
-		showquickmsg("fiber need to be numeric",true);return;
-	}
-
-	if (!isNumber(energyunit)) energyunit="1";
-	if (!isNumber(fatunit)) fatunit="1";
-	if (!isNumber(fiberunit)) fiberunit="1";
-
-	calories = parseFloat(calories)/parseFloat(energyunit);
-	fat = parseFloat(fat)*parseFloat(fatunit);
-	fiber = parseFloat(fiber)*parseFloat(fiberunit);
-	if (fiber > 4) fiber=4;
-	showquickmsg("older points: <font color=green><b>" + Math.round((calories/50)+(fat/12)-(fiber/5)) + "</b></font>",false);
-}
-</script>
-
-
-<a name="pointstarget"></a>
-<h2>Old Daily Target Calculator</h2>
-<p>Used between November 2010 and December 2015. This calculator can also be used to estimate the daily points target.</p>
-
-<form name="calcf" action="/weight-watchers-points-calculator.html#pointstarget">
-<table border="0" cellspacing="0" cellpadding="4" class="panel" id="standard" >
-	<tr>
-			<td align="right">body weight</td><td>			<input type="text" name="pptweight" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="pptweightunit">
-				<option value="pound">pound</option>
-				<option value="kg" selected>kilograms</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">body height</td><td>			<input type="text" name="pptheight" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-			<select name="pptheightunit">
-				<option value="inch">inch</option>
-				<option value="foot">foot</option>
-				<option value="cm" selected>cm</option>
-			</select> 1 foot = 12 inches		</td>
-	</tr>
-	<tr>
-			<td align="right">age</td><td>			<input type="text" name="pptage" value="" class="inhalf" onKeyUp="iptfieldCheck(this, 'r', 'pzn');">
-		</td>
-	</tr>
-	<tr>
-			<td align="right">gender</td><td><div style="text-align:center;">
-				<label for="csex1" class="cbcontainer"><input type="radio" name="pptgender" id="csex1" value="male" checked><span class="rbmark"></span>Male</label> &nbsp;
-				<label for="csex2" class="cbcontainer"><input type="radio" name="pptgender" id="csex2" value="female" ><span class="rbmark"></span>Female</label>
-			</div>
-		</td>
-	</tr>
-	<tr>
-			<td align="right">activity</td><td>			<select name="pptactivity" class="infull">
-			<option value="sit" selected>mostly sit during the day</option>
-			<option value="stand" >mostly stand during the day</option>
-			<option value="walk" >mostly walk during the day</option>
-			<option value="hardwork" >doing physically hard work during the day</option>
-		</select> </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td><td>		<input type="hidden" name="caltype" value="4"><input type="submit" name="x" value="Calculate"></td>
-	</tr>
-</table>
-</form>
-
-
-<br><p><fieldset><legend>Related</legend><a href="/bmi-calculator.html">BMI Calculator</a> | <a href="/body-fat-calculator.html">Body Fat Calculator</a> | <a href="/calorie-calculator.html">Calorie Calculator</a></fieldset></p>
-
-
-		</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/fitness-and-health-calculator.html">Fitness and Health Calculators</a></div><div id="occontent"><a href="/bmi-calculator.html">BMI</a><a href="/calorie-calculator.html">Calorie</a><a href="/body-fat-calculator.html">Body Fat</a><a href="/bmr-calculator.html">BMR</a><a href="/macro-calculator.html">Macro</a><a href="/ideal-weight-calculator.html">Ideal Weight</a><a href="/pregnancy-calculator.html">Pregnancy</a><a href="/pregnancy-weight-gain-calculator.html">Pregnancy Weight Gain</a><a href="/pregnancy-conception-calculator.html">Pregnancy Conception</a><a href="/due-date-calculator.html">Due Date</a><a href="/pace-calculator.html">Pace</a><a href="/fitness-and-health-calculator.html">More Fitness and Health Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html">Financial</a>
-<a href="/fitness-and-health-calculator.html" class="topNavOn">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Watchers Points Calculator – SmartPoints &amp; PointsPlus Estimator (Free)</title>
+<meta name="description" content="Free Weight Watchers points calculator. Estimate SmartPoints, PointsPlus and original points from calories, fat, carbs, fiber, sugar and protein. Includes formulas, examples and FAQs." />
+<meta name="keywords" content="weight watchers points calculator, smartpoints calculator, pointsplus calculator, ww points calculator, food points calculator, free points calculator" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Weight Watchers Points Calculator – SmartPoints &amp; PointsPlus Estimator (Free)">
+<meta property="og:description" content="Free Weight Watchers points calculator. Estimate SmartPoints, PointsPlus and original points from calories, fat, carbs, fiber, sugar and protein.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Weight Watchers Points Calculator – SmartPoints &amp; PointsPlus Estimator (Free)">
+<meta name="twitter:description" content="Free Weight Watchers points calculator. Estimate SmartPoints, PointsPlus and original points from calories, fat, carbs, fiber, sugar and protein.">
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/common.js" async></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Weight Watchers Points Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html","description":"Free Weight Watchers points calculator. Estimate SmartPoints, PointsPlus and original points from calories, fat, carbs, fiber, sugar and protein.","applicationCategory":"HealthApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Fitness & Health"}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Other","item":"https://calculator.bhuvanesh-s3602.workers.dev/other-calculator.html"},{"@type":"ListItem","position":3,"name":"Weight Watchers Points Calculator","item":"https://calculator.bhuvanesh-s3602.workers.dev/weight-watchers-points-calculator.html"}]}</script>
+<style>
+.calc{margin:16px 0;padding:16px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;}
+.row{display:flex;gap:10px;align-items:center;margin:8px 0;}
+label{min-width:140px;font-weight:600;color:#334155;}
+input[type=number],select{padding:8px 10px;border:1px solid #cbd5e1;border-radius:6px;width:130px;}
+button[type=submit]{background:#10b981;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:15px;font-weight:700;cursor:pointer;}
+button[type=submit]:hover{background:#059669;}
+.out{margin-top:10px;padding:10px;background:#f0fdf4;border:1px solid #86efac;border-radius:6px;color:#166534;}
+.note{background:#fff8e5;border:1px solid #f0d28a;padding:10px 14px;border-radius:6px;font-size:.9em;color:#7a5a00;}
+.scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;margin:12px 0;}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;}
+details{margin:8px 0;padding:8px 12px;border:1px solid #e2e8f0;border-radius:6px;}
+summary{cursor:pointer;list-style:none;font-weight:600;color:#0f172a;}
+</style>
+</head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div><div id="contentout"><div id="content">
+<div id="breadcrumbs" aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/fitness-and-health-calculator.html" itemprop="item"><span itemprop="name">Fitness &amp; Health</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Weight Watchers Points Calculator</span><meta itemprop="position" content="3" /></span></div>
+<header>
+  <h1>Weight Watchers Points Calculator</h1>
+  <p>Type in a food's nutrition facts to estimate its points under three older point systems. Results update when you press Calculate.</p>
+  <p class="note"><strong>Disclaimer:</strong> This is an independent tool, not affiliated with or endorsed by Weight Watchers. It cannot give your current plan's points. Not medical advice.</p>
+</header>
+<main>
+  <section class="calc" aria-labelledby="s">
+    <h2 id="s">SmartPoints calculator (2015–2021)</h2>
+    <form data-t="smart" name="calform">
+      <div class="row">
+        <label for="sc">Calories</label>
+        <input id="sc" name="sc" type="number" min="0" step="any" inputmode="decimal">
+        <select id="scu" name="scu" aria-label="Energy unit">
+          <option value="1">kcal</option>
+          <option value="4.184">kJ</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="ss">Sugar</label>
+        <input id="ss" name="ss" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="sf">Saturated fat</label>
+        <input id="sf" name="sf" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="sp">Protein</label>
+        <input id="sp" name="sp" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <button type="submit" name="x" value="Calculate">Calculate</button>
+      <div class="out" role="status" aria-live="polite">Enter values to see points.</div>
+    </form>
+  </section>
+  <section class="calc" aria-labelledby="p">
+    <h2 id="p">PointsPlus calculator (2010–2015)</h2>
+    <form data-t="plus" name="calform2">
+      <div class="row">
+        <label for="pp">Protein</label>
+        <input id="pp" name="pp" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="pc">Carbohydrates</label>
+        <input id="pc" name="pc" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="pf">Fat</label>
+        <input id="pf" name="pf" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="pb">Fiber</label>
+        <input id="pb" name="pb" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <button type="submit" name="x" value="Calculate">Calculate</button>
+      <div class="out" role="status" aria-live="polite">Enter values to see points.</div>
+    </form>
+  </section>
+  <section class="calc" aria-labelledby="o">
+    <h2 id="o">Original points calculator (before 2010)</h2>
+    <form data-t="orig" name="calform3">
+      <div class="row">
+        <label for="oc">Calories</label>
+        <input id="oc" name="oc" type="number" min="0" step="any" inputmode="decimal">
+        <select id="ocu" name="ocu" aria-label="Energy unit">
+          <option value="1">kcal</option>
+          <option value="4.184">kJ</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="of">Fat</label>
+        <input id="of" name="of" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <div class="row">
+        <label for="ob">Fiber</label>
+        <input id="ob" name="ob" type="number" min="0" step="any" inputmode="decimal">
+        <span>g</span>
+      </div>
+      <button type="submit" name="x" value="Calculate">Calculate</button>
+      <div class="out" role="status" aria-live="polite">Enter values to see points.</div>
+    </form>
+  </section>
+  <h2>What are food points and how do they work?</h2>
+  <p>A points system turns a food's nutrition label into one easy number. Foods higher in calories, sugar, or saturated fat cost more points, while protein and fiber lower the cost in some versions. You then stay within a daily points budget instead of counting every nutrient.</p>
+  <h2>How are the points calculated?</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>System</th><th>Years</th><th>Estimate formula</th></tr></thead>
+      <tbody>
+        <tr><td>Original points</td><td>Before 2010</td><td>Calories ÷ 50 + fat ÷ 12 − fiber ÷ 5 (fiber max 4 g)</td></tr>
+        <tr><td>PointsPlus</td><td>2010–2015</td><td>Protein ÷ 10.9375 + carbs ÷ 9.2105 + fat ÷ 3.8928 − fiber ÷ 12.5 (fiber max 4 g)</td></tr>
+        <tr><td>SmartPoints</td><td>2015–2021</td><td>Calories × 0.0305 + sat. fat × 0.275 + sugar × 0.12 − protein × 0.098</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Amounts are in grams. Results are rounded to the nearest whole point and never go below zero.</p>
+  <h3>Worked example</h3>
+  <p>A snack with 250 calories, 4 g saturated fat, 10 g sugar, and 8 g protein: 250 × 0.0305 = 7.63; 4 × 0.275 = 1.10; 10 × 0.12 = 1.20; 8 × 0.098 = 0.78. So 7.63 + 1.10 + 1.20 − 0.78 ≈ 9.14, about <strong>9 SmartPoints</strong>.</p>
+  <h2>What changed in the newer programs?</h2>
+  <p>Since 2022 the program uses a different, personalized method that weighs factors such as fiber, protein, unsaturated fat, added sugar, and saturated fat. Its exact math is not public, so no independent calculator can reproduce it. For today's points, use your official program.</p>
+  <h2>Frequently asked questions</h2>
+  <details><summary>How does the Weight Watchers points system work?</summary><p>Each food gets a points value based on its nutrition, and each person gets a daily points budget. Lower-point foods let you eat more for the same budget.</p></details>
+  <details><summary>How are SmartPoints calculated?</summary><p>SmartPoints ≈ calories × 0.0305 + saturated fat (g) × 0.275 + sugar (g) × 0.12 − protein (g) × 0.098, rounded to the nearest whole number.</p></details>
+  <details><summary>How are PointsPlus values calculated?</summary><p>PointsPlus ≈ protein / 10.9375 + carbohydrates / 9.2105 + fat / 3.8928 − fiber / 12.5, with fiber capped at 4 g. The result is rounded.</p></details>
+  <details><summary>How were the original points calculated?</summary><p>Original points ≈ calories / 50 + fat (g) / 12 − fiber (g) / 5, with fiber capped at 4 g.</p></details>
+  <details><summary>Does this calculator show my current points?</summary><p>No. The current program uses a newer personalized method that is not published, so this tool only estimates the older SmartPoints, PointsPlus and original systems.</p></details>
+  <details><summary>What is the SmartPoints value of 250 calories, 4 g saturated fat, 10 g sugar and 8 g protein?</summary><p>About 9 points: 7.6 + 1.1 + 1.2 − 0.8 = 9.1, which rounds to 9.</p></details>
+  <details><summary>Why does my result differ from a food label or app?</summary><p>Differences come from rounding, the serving size you entered, the fiber cap, and the program version. Always check which version your plan uses.</p></details>
+  <details><summary>Are fruits and vegetables zero points?</summary><p>Programs set their own zero-point food lists, and these lists change. This calculator only applies a formula, so use your program's list for zero-point foods.</p></details>
+  <details><summary>How many points should I eat per day?</summary><p>Daily budgets depend on the program and your personal details. This tool does not set one, so use your program or ask a doctor or dietitian.</p></details>
+  <details><summary>Is this calculator affiliated with Weight Watchers?</summary><p>No. It is an independent estimator. Weight Watchers is a registered trademark of its owner.</p></details>
+  <h2>Related calculators</h2>
+  <ul>
+    <li><a href="/bmi-calculator.html">BMI calculator</a></li>
+    <li><a href="/calorie-calculator.html">Calorie calculator</a></li>
+    <li><a href="/body-fat-calculator.html">Body fat calculator</a></li>
+  </ul>
+</main>
+<footer>
+  <p>Estimates for general information only. Talk to a doctor or dietitian before changing your diet. Weight Watchers is a registered trademark of its owner.</p>
+  <p>&copy; 2008 - 2026 Calculator</p>
+</footer>
+</div></div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
 <script src="/js/calcs-live.js"></script>
-</body>
-</html>
+</body>
+</html>

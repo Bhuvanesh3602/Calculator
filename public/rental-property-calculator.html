@@ -1,212 +1,246 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Rental Property Calculator</title>
-	<meta name="description" content="Free rental property calculator estimates IRR, capitalization rate, cash flow, and other financial indicators of a rental or investment property." />
-	<link rel="stylesheet" href="/style.css" /><script src="/js/common.js" async></script><meta name="viewport" content="width=device-width, initial-scale=1.0">	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
-	<link rel="manifest" href="/manifest.json"></head>
-<body>
-<div id="headerout">
-	<div id="header">
-		<div id="logo"><a href="/"><img src="/img/svg/calculator-white.svg" width="208" height="22" alt="adxcal.com"></a></div>
-		<div id="login"><a href="/my-account/sign-in.php">sign in</a></div>	</div>
-</div>
-<div id="clear"></div><div id="contentout"><div id="content"><div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/rental-property-calculator.html" itemprop="item"><span itemprop="name">rental property calculator</span></a><meta itemprop="position" content="3" /></span></div><div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>		<h1>Rental Property Calculator</h1>
-
-<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
-<form name="calform">
-<div class="panel">
-<div class="clefthalf">
-<table align="center" width="320">
-<tr><td colspan="3" id="sectitle">Purchase</td></tr>
-<tr><td>Purchase Price</td><td align="right"><input type="text" name="cprice" id="cprice" value="200000" class="inlong indollar"></td><td>&nbsp;</td></tr>
-<tr><td colspan="3">
-	Use Loan?
-	<label for="cuseloan1" class="cbcontainer"><input name="cuseloan" id="cuseloan1" value="yes" checked type="radio" onclick="shUseLoan('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cuseloan2" class="cbcontainer"><input name="cuseloan" id="cuseloan2" value="no" type="radio"  onclick="shUseLoan('no');"><span class="rbmark"></span>No</label>
-	<table id="cuseloandiv" style="margin-left:29px;">
-		<tr><td>Down Payment</td><td align="right"><input type="text" name="cdownpayment" id="cdownpayment" value="20" class="innormal inpct"></td><td>&nbsp;</td></tr>
-		<tr><td>Interest Rate</td><td align="right"><input type="text" name="cinterest" id="cinterest" value="6" class="innormal inpct"></td><td>&nbsp;</td></tr>
-		<tr><td>Loan Term</td><td align="right"><input type="text" name="cloanterm" id="cloanterm" value="30" class="innormal"></td><td>years</td></tr>
-	</table>
-</td></tr>
-<tr><td>Closing Cost</td><td align="right"><input type="text" name="cothercost" id="cothercost" value="6000" class="inlong indollar"></td><td>&nbsp;</td></tr>
-<tr><td colspan="3">
-	Need Repairs?
-	<label for="cneedrepair1" class="cbcontainer"><input name="cneedrepair" id="cneedrepair1" value="yes"  type="radio" onclick="shNeedRepair('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cneedrepair2" class="cbcontainer"><input name="cneedrepair" id="cneedrepair2" value="no" type="radio" checked onclick="shNeedRepair('no');"><span class="rbmark"></span>No</label>
-	<table id="cneedrepairdiv" style="margin-left:29px;">
-		<tr><td>Repair Cost</td><td align="right"><input type="text" name="crepaircost" id="crepaircost" value="20000" class="inlong indollar"></td></tr>
-		<tr><td>Value after Repairs</td><td align="right"><input type="text" name="cafterrepairvalue" id="cafterrepairvalue" value="260000" class="inlong indollar"></td></tr>
-	</table>
-</td></tr>
-
-<tr><td colspan="3">&nbsp;</td></tr>
-<tr><td colspan="3" id="sectitle">Recurring Operating Expenses</td></tr>
-<tr valign="bottom"><td>&nbsp;</td><td align="center">Annual</td><td>Annual<br>Increase</td></tr>
-<tr><td>Property Tax</td><td align="right"><input type="text" name="ctax" id="ctax" value="3000" class="innormal indollar"></td><td><input type="text" name="ctaxincrease" id="ctaxincrease" value="3" class="in4char inpct"></td></tr>
-<tr><td>Total Insurance</td><td align="right"><input type="text" name="cinsurance" id="cinsurance" value="1200" class="innormal indollar"></td><td><input type="text" name="cinsuranceincrease" id="cinsuranceincrease" value="3" class="in4char inpct"></td></tr>
-<tr><td>HOA Fee</td><td align="right"><input type="text" name="choa" id="choa" value="0" class="innormal indollar"></td><td><input type="text" name="choaincrease" id="choaincrease" value="3" class="in4char inpct"></td></tr>
-<tr><td>Maintenance</td><td align="right"><input type="text" name="cmaintenance" id="cmaintenance" value="2000" class="innormal indollar"></td><td><input type="text" name="cmaintenanceincrease" id="cmaintenanceincrease" value="3" class="in4char inpct"></td></tr>
-<tr><td>Other Costs</td><td align="right"><input type="text" name="cother" id="cother" value="500" class="innormal indollar"></td><td><input type="text" name="cotherincrease" id="cotherincrease" value="3" class="in4char inpct"></td></tr>
-</table><br>
-</div><div class="crighthalf">
-<table align="center">
-<tr><td colspan="3" id="sectitle">Income</td></tr>
-<tr><td colspan="2">&nbsp;</td><td>Annual<br>Increase</td></tr>
-<tr><td>Monthly Rent</td><td align="right"><input type="text" name="crent" id="crent" value="2000" class="innormal indollar"></td><td><input type="text" name="crentincrease" id="crentincrease" value="3" class="in4char inpct">&nbsp;</td></tr>
-
-<tr><td>Other Monthly Income</td><td align="right"><input type="text" name="cotherincome" id="cotherincome" value="0" class="innormal indollar"></td><td><input type="text" name="cotherincomeincrease" id="cotherincomeincrease" value="3" class="in4char inpct">&nbsp;</td></tr>
-
-<tr><td>Vacancy Rate</td><td align="right"><input type="text" name="cvacancy" id="cvacancy" value="5" class="innormal inpct"></td><td>&nbsp;</td></tr>
-<tr><td>Management Fee</td><td align="right"><input type="text" name="cmanagement" id="cmanagement" value="0" class="innormal inpct"></td><td>&nbsp;</td></tr>
-
-<tr><td colspan="3">&nbsp;</td></tr>
-<tr><td colspan="3" id="sectitle">Sell</td></tr>
-<tr><td colspan="3" style="padding: 8px 0px;">
-	Do You Know the Sell Price?
-	<label for="cknowsellprice1" class="cbcontainer"><input name="cknowsellprice" id="cknowsellprice1" value="yes"  type="radio" onclick="shSellPrice('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cknowsellprice2" class="cbcontainer"><input name="cknowsellprice" id="cknowsellprice2" value="no" type="radio" checked onclick="shSellPrice('no');"><span class="rbmark"></span>No</label>
-</td></tr>
-<tr><td><div id="valueapp1">Value Appreciation</div></td><td align="right"><div id="valueapp2"><input type="text" name="cappreciation" id="cappreciation" value="3" class="innormal inpct"></div></td><td><div id="valueapp3">per year</div></td></tr>
-<tr><td><div id="sellprice1">Sell Price</div></td><td align="right"><div id="sellprice2"><input type="text" name="csellprice" id="csellprice" value="400000" class="innormal indollar"></div></td><td><div id="sellprice3">&nbsp;</div></td></tr>
-<tr><td>Holding Length</td><td align="right" valign="top"><input type="text" name="cholding" id="cholding" value="20" class="innormal"></td><td>years</td></tr>
-<tr><td>Cost to Sell</td><td align="right"><input type="text" name="csellcost" id="csellcost" value="8" class="innormal inpct"></td><td>&nbsp;</td></tr>
-<tr><td colspan="2" align="right">
-	<br><input name="printit" value="0" type="hidden">
-	<input type="submit" name="x" value="Calculate">
-	<input type="button" value="Clear" onClick="clearForm(document.calform);">
-</td><td>&nbsp;</td></tr>
-</table>
-</div>
-<div id="clear"></div>
-</div>
-</form>
-
-<p><fieldset><legend>Related</legend><a href="/investment-calculator.html">Investment Calculator</a> | <a href="/average-return-calculator.html">Average Return Calculator</a> | <a href="/mortgage-calculator.html">Mortgage Calculator</a></fieldset></p>
-
-<br>
-<h3>Rental Property Investments</h3>
-<p>Rental property investment refers to the investment that involves real estate and its purchase, followed by the holding, leasing, and selling of it. Depending on the type of rental property, investors need a certain level of expertise and knowledge to profit from their ventures. Real property can be most properties that are leasable, such as a single unit, a duplex, a single-family home, an entire apartment complex, a commercial retail plaza, or an office space. In some cases, industrial properties can also be used as rental property investments. More commercial rental properties, such as apartment complexes or office buildings, are more complicated and difficult to analyze due to a variety of factors that result from the larger scale. For older properties, it is typical to assume higher maintenance and repair costs.</p>
-<p>Rental property investments are generally capital-intensive and cash flow dependent with low levels of liquidity. However, compared with equity markets, rental property investments are normally more stable, have tax benefits, and are more likely to hedge against inflation. Given proper financial analysis, they can turn out to be profitable and worthwhile investments. The Rental Property Calculator can help run the numbers.</p>
-<p><b>Income</b></p>
-<p>There are several ways in which rental property investments earn income. The first is that investors earn regular cash flow, usually on a monthly basis, in the form of rental payments from tenants. In addition, as with the ownership of any equity, rental properties give the investor the possibility of earning profit from the appreciation, or increase in value over time, of the property. Unlike rental income, a sale provides one large, single return.</p>
-<p><b>Responsibilities</b></p>
-<p>Rental property investing is not passive income. It requires time and work. The investor or owner has to take on the role of the landlord and all the job responsibilities associated with it.</p>
-<p>General responsibilities of owning a rental property include:</p>
-<ul>
-	<li><b>Tenant Management</b>&mdash;finding tenants, performing background screenings for potential tenants, creating legal lease contracts, collecting rent, and evicting tenants if necessary.</li>
-	<li><b>Property Maintenance</b>&mdash;repairs, upkeep, renovations, etc.</li>
-	<li><b>Administrative</b>&mdash;filing paperwork, setting rent, handling taxes, paying employees, budgeting, etc.</li>
-</ul>
-<p>It is common for rental property owners to hire property management companies at a fixed or percentage fee to handle all the responsibilities. Investors who have limited time, who don't live near their rental property, who aren't interested in hands-on management, or who can afford the cost can benefit from hiring a property management company. This is roughly estimated to cost about 10% of rental property income.</p>
-
-<h3>General Guidelines</h3>
-<p>Real estate investing can be complex, but there are some general principles that are useful as quick starting points when analyzing investments. However, every market is different, and it is very possible that these guidelines will not work for certain situations. It is important that they be treated as such, not as replacements for hard financial analysis nor advice from real estate professionals.</p>
-<p><b>50% Rule</b>&mdash;A rental property's sum of operating expenses hovers around 50% of income. Operating expenses do not include mortgage principal or interest. The other 50% can be used to pay the monthly mortgage payment. This can be used to quickly estimate the cash flow and profit of an investment.</p>
-<p><b>1% Rule</b>&mdash;The gross monthly rental income should be 1% or more of the property purchase price, after repairs. It is not uncommon to hear of people who use the 2% or even 3% Rule &ndash; the higher, the better.</p>
-<p>A lesser known rule is the 70% Rule. This is a rule for purchasing and flipping distressed real estate for a profit, which states that the purchase price should be less than 70% of after-repair value (ARV) minus repair costs (rehab).</p>
-
-<h3>Internal Rate of Return</h3>
-<p>Internal rate of return (IRR) or annualized total return is an annual rate earned on each dollar invested for the period it is invested. It is generally used by most, if not all, investors as a way to compare different investments. The higher the IRR, the more desirable the investment.</p>
-<p>IRR is one of, if not the most important measure of the profitability of a rental property; capitalization rate is too basic, and Cash Flow Return on Investment (CFROI) does not account for the time value of money.</p>
-
-<h3>Capitalization Rate</h3>
-<p>Capitalization rate, often called the cap rate, is the ratio of net operating income (NOI) to the investment asset value or current market value.
-<table align="center"><tr>
-<td>Cap rate =&nbsp;</td>
-<td><table cellpadding="0" cellspacing="0"><tr><td>Net Operating Income</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Price</td></tr></table></td>
-</tr></table>
-<p>Cap rate is the best indicator for quick investment property comparisons.</p>
-<p>It can also be useful to evaluate the past cap rates of a property to gain some insight into how the property has performed in the past, which may allow the investor to extrapolate how the property may perform in the future.</p>
-<p>If it is particularly complex to measure net operating income for a given rental property, discounted cash flow analysis can be a more accurate alternative.</p>
-
-<h3>Cash Flow Return on Investment</h3>
-<p>When purchasing rental properties with loans, cash flows need to be examined carefully. Rental property investment failures can be caused by unsustainable, negative cash flows. Cash Flow Return on Investment (CFROI) is a metric for this. Sometimes called Cash-on-Cash Return, CFROI helps investors identify the losses/gains associated with ongoing cash flows. Sustainable rental properties should generally have increasing annual CFROI percentages, usually due to static mortgage payments along with rent incomes that appreciate over time.</p>
-
-<h3>Things to Keep in Mind</h3>
-<p>Generally, the higher an investment's IRR, CFROI, and cap rate, the better. In the real world, it is very unlikely that an investment in a rental property goes exactly as planned or as calculated by this Rental Property Calculator. Making so many financial assumptions extended over long periods of time (usually several decades) may result in undesirable/unexpected surprises. Whether a short recession depreciates the value of a property significantly, or construction of a thriving shopping complex inflates values, both can have drastic influences on cap rate, IRR, and CFROI. Even mid-level changes such as hikes in maintenance costs or vacancy rates can affect the numbers. Monthly rent may also fluctuate drastically from year to year, so taking the estimated rent from a certain time and extrapolating it several decades into the future based on an appreciation rate might not be realistic. Furthermore, while the appreciation of values is accounted for, inflation is not, which might distort such large figures drastically.</p>
-
-<h3>Other Types of Real Estate Investments</h3>
-<p>Aside from rental properties, there are many other ways to invest in real estate. The following lists a few other common investments.</p>
-<p><b>REITs</b></p>
-<p>Real Estate Investment Trusts (REITs) are companies that let investors pool their money to make debt or equity investments in a collection of properties or other real estate assets. REITs can be classified as private, publicly traded, or public non-traded. REITs are ideal for investors who want portfolio exposure to real estate without having to go through a traditional real estate transaction.</p>
-<p>For the most part, REITs are a source of passive income as part of a diversified portfolio of investments that generally includes stocks and bonds.</p>
-<p><b>Buy and Sell</b></p>
-<p>Buying and selling (sometimes called real estate trading) is similar to rental property investing, except there is no or little leasing out involved. Generally, real estate is purchased, improvements are made, and it is then sold for profit, usually in a short time frame. Sometimes no improvements are made. When buying and selling houses, it is commonly called house flipping. Buying and selling real estate for profit generally requires deep market knowledge and expertise.</p>
-<p><b>Wholesaling</b></p>
-<p>Wholesaling is the process of finding real estate deals, writing a contract to acquire the deal, and then selling the contract to another buyer. The wholesaler never actually owns the real estate.</p>
-
-
-<script>
-function shSellPrice(inVal){
-	if (inVal=='yes'){
-		document.getElementById("sellprice1").style.display = 'block';
-		document.getElementById("sellprice2").style.display = 'block';
-		document.getElementById("sellprice3").style.display = 'block';
-
-		document.getElementById("valueapp1").style.display = 'none';
-		document.getElementById("valueapp2").style.display = 'none';
-		document.getElementById("valueapp3").style.display = 'none';
-	}else{
-		document.getElementById("sellprice1").style.display = 'none';
-		document.getElementById("sellprice2").style.display = 'none';
-		document.getElementById("sellprice3").style.display = 'none';
-
-		document.getElementById("valueapp1").style.display = 'block';
-		document.getElementById("valueapp2").style.display = 'block';
-		document.getElementById("valueapp3").style.display = 'block';
-	}
-}
-function shUseLoan(inVal){
-	if (inVal=='yes'){
-		document.getElementById("cuseloandiv").style.display = 'block';
-	}else{
-		document.getElementById("cuseloandiv").style.display = 'none';
-	}
-}
-function shNeedRepair(inVal){
-	if (inVal=='yes'){
-		document.getElementById("cneedrepairdiv").style.display = 'block';
-	}else{
-		document.getElementById("cneedrepairdiv").style.display = 'none';
-	}
-}
-shSellPrice("no");shUseLoan("yes");shNeedRepair("no");
-function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
-function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
-proComma2("cprice");
-proComma2("cothercost");
-proComma2("crepaircost");
-proComma2("cafterrepairvalue");
-proComma2("ctax");
-proComma2("cinsurance");
-proComma2("choa");
-proComma2("cmaintenance");
-proComma2("cother");
-proComma2("crent");
-proComma2("cotherincome");
-proComma2("cmanagement");
-proComma2("csellprice");
-</script>
-
-</div>
-	<div id="right">
-		<div style="padding-top:10px;  min-height:280px; text-align:center;">
-
-
-
-
-</div>
-<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>	</div>
-</div>
-<div id="clear"></div>
-<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
-<div class="topNavAbs">
-<a href="/financial-calculator.html" class="topNavOn">Financial</a>
-<a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
-<a href="/math-calculator.html">Math</a>
-<a href="/other-calculator.html">Other</a>
-</div>
-<script src="/js/calcs-live.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rental Property Calculator: IRR, Cap Rate & Cash Flow</title>
+<meta name="description" content="Free rental property calculator: estimate IRR, cap rate, cash flow, and cash-on-cash return for a rental or investment property, with or without a loan." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+
+
+
+
+
+
+
+
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/common.js" async></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rental Property Calculator: IRR, Cap Rate & Cash Flow","url":"https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html","description":"Free rental property calculator: estimate IRR, cap rate, cash flow, and cash-on-cash return for a rental or investment property, with or without a loan.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Financial"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Financial","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Rental Property Calculator: IRR, Cap Rate & Cash Flow","item":"https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html"}]}</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="canonical" href="https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html">
+<link rel="alternate" hreflang="en" href="https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html">
+<meta name="theme-color" content="#1a5fb4">
+<meta property="og:title" content="Rental Property Calculator: IRR, Cap Rate & Cash Flow">
+<meta property="og:description" content="Free rental property calculator: estimate IRR, cap rate, cash flow, and cash-on-cash return for a rental or investment property, with or without a loan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html">
+<meta property="og:site_name" content="Calculator">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rental Property Calculator: IRR, Cap Rate & Cash Flow">
+<meta name="twitter:description" content="Free rental property calculator: estimate IRR, cap rate, cash flow, and cash-on-cash return for a rental or investment property, with or without a loan.">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rental Property Calculator: IRR, Cap Rate & Cash Flow","url":"https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html","description":"Free rental property calculator: estimate IRR, cap rate, cash flow, and cash-on-cash return for a rental or investment property, with or without a loan.","applicationCategory":"UtilitiesApplication","applicationSubCategory":"Calculator","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Calculator","url":"https://calculator.bhuvanesh-s3602.workers.dev"},"category":"Financial"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculator.bhuvanesh-s3602.workers.dev/"},{"@type":"ListItem","position":2,"name":"Financial","item":"https://calculator.bhuvanesh-s3602.workers.dev/financial-calculator.html"},{"@type":"ListItem","position":3,"name":"Rental Property Calculator: IRR, Cap Rate & Cash Flow","item":"https://calculator.bhuvanesh-s3602.workers.dev/rental-property-calculator.html"}]}</script></head>
+<body>
+<header class="global-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Calculator home">
+      <span class="brand-icon">A</span>
+      <span class="brand-text">adxcal<span class="brand-dot">.com</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/financial-calculator.html">Financial</a>
+      <a href="/fitness-and-health-calculator.html">Fitness &amp; Health</a>
+      <a href="/math-calculator.html">Math</a>
+      <a href="/other-calculator.html">Other</a>
+    </nav>
+    <a href="/my-account/sign-in.php" class="signin" rel="nofollow">Sign in</a>
+  </div>
+</header>
+
+<div id="clear"></div>
+<div id="contentout"><div id="content">
+<div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">home</span></a><meta itemprop="position" content="1" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/financial-calculator.html" itemprop="item"><span itemprop="name">financial</span></a><meta itemprop="position" content="2" /></span> / <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/rental-property-calculator.html" itemprop="item"><span itemprop="name">rental property calculator</span></a><meta itemprop="position" content="3" /></span></div>
+<div id="printit"><a href="#" onClick="document.calform.printit.value=1;document.calform.submit();return false;">Print</a></div>
+<h1>Rental Property Calculator</h1>
+<p>Estimate the IRR, capitalization rate (cap rate), cash flow, and cash-on-cash return of a rental or investment property. Enter the purchase, financing, income, expense, and sale assumptions below. Jump to: <a href="#guide">investment guide</a> | <a href="#faq">FAQ</a></p>
+
+<div id="insmdc"><img src="/img/svg/insm.svg" width="630" height="35" alt="Modify the values and click the calculate button to use"></div>
+<form name="calform">
+<div class="panel">
+<div class="clefthalf">
+<table align="center" width="320">
+<tr><td colspan="3" id="sectitle">Purchase</td></tr>
+<tr><td><label for="cprice">Purchase Price</label></td><td align="right"><input type="text" name="cprice" id="cprice" value="200000" class="inlong indollar"></td><td>&nbsp;</td></tr>
+<tr><td colspan="3">
+	Use Loan?
+	<label for="cuseloan1" class="cbcontainer"><input name="cuseloan" id="cuseloan1" value="yes" checked type="radio" onclick="shUseLoan('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cuseloan2" class="cbcontainer"><input name="cuseloan" id="cuseloan2" value="no" type="radio"  onclick="shUseLoan('no');"><span class="rbmark"></span>No</label>
+	<table id="cuseloandiv" style="margin-left:29px;">
+		<tr><td><label for="cdownpayment">Down Payment</label></td><td align="right"><input type="text" name="cdownpayment" id="cdownpayment" value="20" class="innormal inpct"></td><td>&nbsp;</td></tr>
+		<tr><td><label for="cinterest">Interest Rate</label></td><td align="right"><input type="text" name="cinterest" id="cinterest" value="6" class="innormal inpct"></td><td>&nbsp;</td></tr>
+		<tr><td><label for="cloanterm">Loan Term</label></td><td align="right"><input type="text" name="cloanterm" id="cloanterm" value="30" class="innormal"></td><td>years</td></tr>
+	</table>
+</td></tr>
+<tr><td><label for="cothercost">Closing Cost</label></td><td align="right"><input type="text" name="cothercost" id="cothercost" value="6000" class="inlong indollar"></td><td>&nbsp;</td></tr>
+<tr><td colspan="3">
+	Need Repairs?
+	<label for="cneedrepair1" class="cbcontainer"><input name="cneedrepair" id="cneedrepair1" value="yes"  type="radio" onclick="shNeedRepair('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cneedrepair2" class="cbcontainer"><input name="cneedrepair" id="cneedrepair2" value="no" type="radio" checked onclick="shNeedRepair('no');"><span class="rbmark"></span>No</label>
+	<table id="cneedrepairdiv" style="margin-left:29px;">
+		<tr><td><label for="crepaircost">Repair Cost</label></td><td align="right"><input type="text" name="crepaircost" id="crepaircost" value="20000" class="inlong indollar"></td></tr>
+		<tr><td><label for="cafterrepairvalue">Value after Repairs</label></td><td align="right"><input type="text" name="cafterrepairvalue" id="cafterrepairvalue" value="260000" class="inlong indollar"></td></tr>
+	</table>
+</td></tr>
+
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr><td colspan="3" id="sectitle">Recurring Operating Expenses</td></tr>
+<tr valign="bottom"><td>&nbsp;</td><td align="center">Annual</td><td>Annual<br>Increase</td></tr>
+<tr><td><label for="ctax">Property Tax</label></td><td align="right"><input type="text" name="ctax" id="ctax" value="3000" class="innormal indollar"></td><td><input type="text" name="ctaxincrease" id="ctaxincrease" value="3" class="in4char inpct" aria-label="Property tax annual increase"></td></tr>
+<tr><td><label for="cinsurance">Total Insurance</label></td><td align="right"><input type="text" name="cinsurance" id="cinsurance" value="1200" class="innormal indollar"></td><td><input type="text" name="cinsuranceincrease" id="cinsuranceincrease" value="3" class="in4char inpct" aria-label="Insurance annual increase"></td></tr>
+<tr><td><label for="choa">HOA Fee</label></td><td align="right"><input type="text" name="choa" id="choa" value="0" class="innormal indollar"></td><td><input type="text" name="choaincrease" id="choaincrease" value="3" class="in4char inpct" aria-label="HOA fee annual increase"></td></tr>
+<tr><td><label for="cmaintenance">Maintenance</label></td><td align="right"><input type="text" name="cmaintenance" id="cmaintenance" value="2000" class="innormal indollar"></td><td><input type="text" name="cmaintenanceincrease" id="cmaintenanceincrease" value="3" class="in4char inpct" aria-label="Maintenance annual increase"></td></tr>
+<tr><td><label for="cother">Other Costs</label></td><td align="right"><input type="text" name="cother" id="cother" value="500" class="innormal indollar"></td><td><input type="text" name="cotherincrease" id="cotherincrease" value="3" class="in4char inpct" aria-label="Other costs annual increase"></td></tr>
+</table><br>
+</div><div class="crighthalf">
+<table align="center">
+<tr><td colspan="3" id="sectitle">Income</td></tr>
+<tr><td colspan="2">&nbsp;</td><td>Annual<br>Increase</td></tr>
+<tr><td><label for="crent">Monthly Rent</label></td><td align="right"><input type="text" name="crent" id="crent" value="2000" class="innormal indollar"></td><td><input type="text" name="crentincrease" id="crentincrease" value="3" class="in4char inpct" aria-label="Rent annual increase">&nbsp;</td></tr>
+
+<tr><td><label for="cotherincome">Other Monthly Income</label></td><td align="right"><input type="text" name="cotherincome" id="cotherincome" value="0" class="innormal indollar"></td><td><input type="text" name="cotherincomeincrease" id="cotherincomeincrease" value="3" class="in4char inpct" aria-label="Other income annual increase">&nbsp;</td></tr>
+
+<tr><td><label for="cvacancy">Vacancy Rate</label></td><td align="right"><input type="text" name="cvacancy" id="cvacancy" value="5" class="innormal inpct"></td><td>&nbsp;</td></tr>
+<tr><td><label for="cmanagement">Management Fee</label></td><td align="right"><input type="text" name="cmanagement" id="cmanagement" value="0" class="innormal inpct"></td><td>&nbsp;</td></tr>
+
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr><td colspan="3" id="sectitle">Sell</td></tr>
+<tr><td colspan="3" style="padding: 8px 0px;">
+	Do You Know the Sell Price?
+	<label for="cknowsellprice1" class="cbcontainer"><input name="cknowsellprice" id="cknowsellprice1" value="yes"  type="radio" onclick="shSellPrice('yes');"><span class="rbmark"></span>Yes</label> &nbsp; <label for="cknowsellprice2" class="cbcontainer"><input name="cknowsellprice" id="cknowsellprice2" value="no" type="radio" checked onclick="shSellPrice('no');"><span class="rbmark"></span>No</label>
+</td></tr>
+<tr><td><div id="valueapp1"><label for="cappreciation">Value Appreciation</label></div></td><td align="right"><div id="valueapp2"><input type="text" name="cappreciation" id="cappreciation" value="3" class="innormal inpct"></div></td><td><div id="valueapp3">per year</div></td></tr>
+<tr><td><div id="sellprice1"><label for="csellprice">Sell Price</label></div></td><td align="right"><div id="sellprice2"><input type="text" name="csellprice" id="csellprice" value="400000" class="innormal indollar"></div></td><td><div id="sellprice3">&nbsp;</div></td></tr>
+<tr><td><label for="cholding">Holding Length</label></td><td align="right" valign="top"><input type="text" name="cholding" id="cholding" value="20" class="innormal"></td><td>years</td></tr>
+<tr><td><label for="csellcost">Cost to Sell</label></td><td align="right"><input type="text" name="csellcost" id="csellcost" value="8" class="innormal inpct"></td><td>&nbsp;</td></tr>
+<tr><td colspan="2" align="right">
+	<br><input name="printit" value="0" type="hidden">
+	<input type="submit" name="x" value="Calculate">
+	<input type="button" value="Clear" onClick="clearForm(document.calform);">
+</td><td>&nbsp;</td></tr>
+</table>
+</div>
+<div id="clear"></div>
+</div>
+</form>
+
+<fieldset><legend>Related</legend><a href="/investment-calculator.html">Investment Calculator</a> | <a href="/average-return-calculator.html">Average Return Calculator</a> | <a href="/mortgage-calculator.html">Mortgage Calculator</a></fieldset>
+<br>
+<h2 id="guide">Rental Property Investment Guide</h2>
+<h3>Rental Property Investments</h3>
+<p>Rental property investment refers to the investment that involves real estate and its purchase, followed by the holding, leasing, and selling of it. Depending on the type of rental property, investors need a certain level of expertise and knowledge to profit from their ventures. Real property can be most properties that are leasable, such as a single unit, a duplex, a single-family home, an entire apartment complex, a commercial retail plaza, or an office space. In some cases, industrial properties can also be used as rental property investments. More commercial rental properties, such as apartment complexes or office buildings, are more complicated and difficult to analyze due to a variety of factors that result from the larger scale. For older properties, it is typical to assume higher maintenance and repair costs.</p>
+<p>Rental property investments are generally capital-intensive and cash flow dependent with low levels of liquidity. However, compared with equity markets, rental property investments are normally more stable, have tax benefits, and are more likely to hedge against inflation. Given proper financial analysis, they can turn out to be profitable and worthwhile investments. The Rental Property Calculator can help run the numbers.</p>
+<h4>Income</h4>
+<p>There are several ways in which rental property investments earn income. The first is that investors earn regular cash flow, usually on a monthly basis, in the form of rental payments from tenants. In addition, as with the ownership of any equity, rental properties give the investor the possibility of earning profit from the appreciation, or increase in value over time, of the property. Unlike rental income, a sale provides one large, single return.</p>
+<h4>Responsibilities</h4>
+<p>Rental property investing is not passive income. It requires time and work. The investor or owner has to take on the role of the landlord and all the job responsibilities associated with it.</p>
+<p>General responsibilities of owning a rental property include:</p>
+<ul>
+	<li><b>Tenant Management</b>&mdash;finding tenants, performing background screenings for potential tenants, creating legal lease contracts, collecting rent, and evicting tenants if necessary.</li>
+	<li><b>Property Maintenance</b>&mdash;repairs, upkeep, renovations, etc.</li>
+	<li><b>Administrative</b>&mdash;filing paperwork, setting rent, handling taxes, paying employees, budgeting, etc.</li>
+</ul>
+<p>It is common for rental property owners to hire property management companies at a fixed or percentage fee to handle all the responsibilities. Investors who have limited time, who don't live near their rental property, who aren't interested in hands-on management, or who can afford the cost can benefit from hiring a property management company. This is roughly estimated to cost about 10% of rental property income.</p>
+
+<h3>General Guidelines</h3>
+<p>Real estate investing can be complex, but there are some general principles that are useful as quick starting points when analyzing investments. However, every market is different, and it is very possible that these guidelines will not work for certain situations. It is important that they be treated as such, not as replacements for hard financial analysis nor advice from real estate professionals.</p>
+<p><b>50% Rule</b>&mdash;A rental property's sum of operating expenses hovers around 50% of income. Operating expenses do not include mortgage principal or interest. The other 50% can be used to pay the monthly mortgage payment. This can be used to quickly estimate the cash flow and profit of an investment.</p>
+<p><b>1% Rule</b>&mdash;The gross monthly rental income should be 1% or more of the property purchase price, after repairs. It is not uncommon to hear of people who use the 2% or even 3% Rule &ndash; the higher, the better.</p>
+<p>A lesser known rule is the 70% Rule. This is a rule for purchasing and flipping distressed real estate for a profit, which states that the purchase price should be less than 70% of after-repair value (ARV) minus repair costs (rehab).</p>
+
+<h3>Internal Rate of Return</h3>
+<p>Internal rate of return (IRR) or annualized total return is an annual rate earned on each dollar invested for the period it is invested. It is generally used by most, if not all, investors as a way to compare different investments. The higher the IRR, the more desirable the investment.</p>
+<p>IRR is one of, if not the most important measure of the profitability of a rental property; capitalization rate is too basic, and Cash Flow Return on Investment (CFROI) does not account for the time value of money.</p>
+
+<h3>Capitalization Rate</h3>
+<p>Capitalization rate, often called the cap rate, is the ratio of net operating income (NOI) to the investment asset value or current market value.</p>
+<table align="center"><tr>
+<td>Cap rate =&nbsp;</td>
+<td><table cellpadding="0" cellspacing="0"><tr><td>Net Operating Income</td></tr><tr><td bgcolor="#000000" height="1"></td></tr><tr><td align="center">Price</td></tr></table></td>
+</tr></table>
+<p>Cap rate is the best indicator for quick investment property comparisons.</p>
+<p>It can also be useful to evaluate the past cap rates of a property to gain some insight into how the property has performed in the past, which may allow the investor to extrapolate how the property may perform in the future.</p>
+<p>If it is particularly complex to measure net operating income for a given rental property, discounted cash flow analysis can be a more accurate alternative.</p>
+
+<h3>Cash Flow Return on Investment</h3>
+<p>When purchasing rental properties with loans, cash flows need to be examined carefully. Rental property investment failures can be caused by unsustainable, negative cash flows. Cash Flow Return on Investment (CFROI) is a metric for this. Sometimes called Cash-on-Cash Return, CFROI helps investors identify the losses/gains associated with ongoing cash flows. Sustainable rental properties should generally have increasing annual CFROI percentages, usually due to static mortgage payments along with rent incomes that appreciate over time.</p>
+
+<h3>Things to Keep in Mind</h3>
+<p>Generally, the higher an investment's IRR, CFROI, and cap rate, the better. In the real world, it is very unlikely that an investment in a rental property goes exactly as planned or as calculated by this Rental Property Calculator. Making so many financial assumptions extended over long periods of time (usually several decades) may result in undesirable/unexpected surprises. Whether a short recession depreciates the value of a property significantly, or construction of a thriving shopping complex inflates values, both can have drastic influences on cap rate, IRR, and CFROI. Even mid-level changes such as hikes in maintenance costs or vacancy rates can affect the numbers. Monthly rent may also fluctuate drastically from year to year, so taking the estimated rent from a certain time and extrapolating it several decades into the future based on an appreciation rate might not be realistic. Furthermore, while the appreciation of values is accounted for, inflation is not, which might distort such large figures drastically.</p>
+
+<h3>Other Types of Real Estate Investments</h3>
+<p>Aside from rental properties, there are many other ways to invest in real estate. The following lists a few other common investments.</p>
+<h4>REITs</h4>
+<p>Real Estate Investment Trusts (REITs) are companies that let investors pool their money to make debt or equity investments in a collection of properties or other real estate assets. REITs can be classified as private, publicly traded, or public non-traded. REITs are ideal for investors who want portfolio exposure to real estate without having to go through a traditional real estate transaction.</p>
+<p>For the most part, REITs are a source of passive income as part of a diversified portfolio of investments that generally includes stocks and bonds.</p>
+<h4>Buy and Sell</h4>
+<p>Buying and selling (sometimes called real estate trading) is similar to rental property investing, except there is no or little leasing out involved. Generally, real estate is purchased, improvements are made, and it is then sold for profit, usually in a short time frame. Sometimes no improvements are made. When buying and selling houses, it is commonly called house flipping. Buying and selling real estate for profit generally requires deep market knowledge and expertise.</p>
+<h4>Wholesaling</h4>
+<p>Wholesaling is the process of finding real estate deals, writing a contract to acquire the deal, and then selling the contract to another buyer. The wholesaler never actually owns the real estate.</p>
+
+<h2 id="faq">Rental Property Calculator FAQ: Frequently Asked Questions</h2>
+<h3>How do I calculate rental property cash flow?</h3>
+<p>Cash flow is rental income minus operating expenses and mortgage payments. As an illustration, a $200,000 property with $2,000 monthly rent, 5% vacancy, $6,700 in yearly expenses (tax, insurance, maintenance, other) and a $160,000, 30-year loan at 6% has a mortgage payment of about $959 per month. That leaves roughly $4,600 of annual cash flow before taxes, using a simplified calculation.</p>
+<h3>What is a cap rate and how is it calculated?</h3>
+<p>Cap rate is net operating income (NOI) divided by the property price. NOI is rental income after vacancy minus operating expenses, excluding mortgage payments. In the illustration above, NOI is about $16,100, so the cap rate is about 8.05% on a $200,000 price.</p>
+<h3>What is a good cap rate for a rental property?</h3>
+<p>There is no single number. Cap rates vary by market, property type, and risk, and a higher cap rate usually signals higher risk or a lower-growth area. Use cap rate to compare similar properties in the same market rather than as a standalone target.</p>
+<h3>What is cash-on-cash return (CFROI)?</h3>
+<p>Cash-on-cash return, also called Cash Flow Return on Investment, is annual pre-tax cash flow divided by the cash you actually invested (down payment, closing costs, and repairs). In the illustration above, about $4,600 of cash flow on $46,000 invested ($40,000 down plus $6,000 closing costs) is roughly 10%.</p>
+<h3>What is IRR for a rental property and why does it matter?</h3>
+<p>Internal rate of return (IRR) is the annualized return on your invested cash that accounts for the timing of every cash flow: purchase costs, yearly net income, and the sale proceeds. Unlike cap rate and cash-on-cash return, it includes appreciation and the time value of money, which makes it the best single measure for comparing a rental property with other investments.</p>
+<h3>What is the 1% rule?</h3>
+<p>The 1% rule says gross monthly rent should be at least 1% of the purchase price (after repairs). A $200,000 property should rent for at least $2,000 per month. It is a quick screening tool, not a substitute for a full analysis.</p>
+<h3>What is the 50% rule?</h3>
+<p>The 50% rule estimates that operating expenses, excluding mortgage principal and interest, will be about 50% of rental income. The remaining 50% covers the mortgage, and anything left over is cash flow. It is a rough estimate for quick screening.</p>
+<h3>What is the 70% rule?</h3>
+<p>The 70% rule applies to flipping distressed properties: the purchase price should be no more than 70% of the after-repair value (ARV) minus repair costs. For example, with a $260,000 ARV and $20,000 of repairs, the maximum purchase price is $162,000.</p>
+<h3>What expenses should I include when analyzing a rental property?</h3>
+<p>Include property tax, insurance, HOA fees, maintenance and repairs, property management, vacancy, and other recurring costs, plus one-time closing costs and any renovation costs. Property managers typically charge around 10% of rental income.</p>
+<h3>What vacancy rate should I use?</h3>
+<p>Vacancy depends on the local market and property type. The calculator defaults to 5%. Use your local market's historical vacancy and consider testing a higher rate to see how sensitive your returns are.</p>
+<h3>Does this calculator account for inflation or taxes?</h3>
+<p>The calculator accounts for annual increases in rent and expenses and for property appreciation, but not for inflation or income taxes. Long-term projections are estimates, so test different assumptions before making a decision.</p>
+<h3>Is rental property a passive investment?</h3>
+<p>Not usually. Owners take on tenant management, maintenance, and administrative work unless they hire a property manager. Alternatives with less hands-on work include REITs. This calculator is for estimates only and is not financial advice.</p>
+
+<script>
+function shSellPrice(v){
+	var y = (v=='yes');
+	["sellprice1","sellprice2","sellprice3"].forEach(function(id){ document.getElementById(id).style.display = y ? 'block' : 'none'; });
+	["valueapp1","valueapp2","valueapp3"].forEach(function(id){ document.getElementById(id).style.display = y ? 'none' : 'block'; });
+}
+function shUseLoan(v){ document.getElementById("cuseloandiv").style.display = (v=='yes') ? 'block' : 'none'; }
+function shNeedRepair(v){ document.getElementById("cneedrepairdiv").style.display = (v=='yes') ? 'block' : 'none'; }
+shSellPrice("no");shUseLoan("yes");shNeedRepair("no");
+function insertComma2(t,l){d=t.value.toString().replaceAll(",",""),a="";if("i"==l)a=(d=d.replace(/[^\d.-]/g,"")).toString().split(".")[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");else if("d"==l){let g=(d=d.replace(/[^\d.-]/g,"")).toString().split(".");a=g[0].replace(/\B(?=(\d{3})+(?!\d))/g,","),g.length>1&&(a+="."+g[1])}else"c"==l&&(a=d.replace(/\B(?=(\d{3})+(?!\d))/g,","));t.value=a}
+function proComma2(p){let m=document.getElementById(p);m.onblur=function(){insertComma2(m, 'd');};insertComma2(m, 'd');}
+["cprice","cothercost","crepaircost","cafterrepairvalue","ctax","cinsurance","choa","cmaintenance","cother","crent","cotherincome","cmanagement","csellprice"].forEach(proComma2);
+</script>
+
+</div>
+	<div id="right">
+		<div style="padding-top:10px;  min-height:280px; text-align:center;"></div>
+<form name="calcSearchForm" onsubmit="calcSearch(); return false;" autocomplete="off"><table align="center" id="searchbox"><tr><td><input type="text" name="calcSearchTerm" id="calcSearchTerm" class="inlongest" aria-label="Search calculators" onkeyup="return calcSearch();"></td><td><span id="bluebtn" onClick="return calcSearch();">Search</span></td></tr><tr><td colspan="2"><div id="calcSearchOut"></div></td></tr></table></form><div id="othercalc"><div id="octitle"><a href="/financial-calculator.html">Financial Calculators</a></div><div id="occontent"><a href="/mortgage-calculator.html">Mortgage</a><a href="/loan-calculator.html">Loan</a><a href="/auto-loan-calculator.html">Auto Loan</a><a href="/interest-calculator.html">Interest</a><a href="/payment-calculator.html">Payment</a><a href="/retirement-calculator.html">Retirement</a><a href="/amortization-calculator.html">Amortization</a><a href="/investment-calculator.html">Investment</a><a href="/currency-calculator.html">Currency</a><a href="/inflation-calculator.html">Inflation</a><a href="/finance-calculator.html">Finance</a><a href="/mortgage-payoff-calculator.html">Mortgage Payoff</a><a href="/tax-calculator.html">Income Tax</a><a href="/compound-interest-calculator.html">Compound Interest</a><a href="/salary-calculator.html">Salary</a><a href="/401k-calculator.html">401K</a><a href="/interest-rate-calculator.html">Interest Rate</a><a href="/sales-tax-calculator.html">Sales Tax</a><a href="/financial-calculator.html">More Financial Calculators</a></div><div id="ocother"><a href="/financial-calculator.html">Financial</a> | <a href="/fitness-and-health-calculator.html">Fitness and Health</a> | <a href="/math-calculator.html">Math</a> | <a href="/other-calculator.html">Other</a></div></div>
+	</div>
+</div>
+<div id="clear"></div>
+<div id="footer"><div id="footerin"><div id="footernav"><a href="/about-us.html">about us</a> | <a href="/sitemap.html">sitemap</a> | <a href="/about-us.html#terms">terms of use</a> | <a href="/about-us.html#privacy">privacy policy</a> &nbsp;  &copy; 2008 - 2026 <a href="//www.adxcal.com">adxcal.com</a></div></div></div>
+<script src="/js/calc-core.js"></script>
+<script src="/js/calcs-live.js" defer></script>
+</body>
+</html>
