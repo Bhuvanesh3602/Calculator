@@ -1,2 +1,3 @@
-# Send www to the main domain (Netlify / Cloudflare Pages)
-https://www.ilovecalx.com/* https://ilovecalx.com/:splat 301!
+# Workers static assets only allow relative paths here.
+# The www -> ilovecalx.com redirect must be a Cloudflare Redirect Rule
+# (dashboard: ilovecalx.com zone -> Rules -> Redirect Rules), not this file.
