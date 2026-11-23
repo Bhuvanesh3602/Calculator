@@ -1,0 +1,50 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+
+const paypalEmail = SITE.paypalEmail;
+const paypalUrl = `https://www.paypal.com/donate/?business=${encodeURIComponent(paypalEmail)}&currency_code=USD&item_name=${encodeURIComponent(`Support ${SITE.name}`)}`;
+---
+
+<TextPage
+  title={`Support My Work – Help Keep ${SITE.name} Free`}
+  description={`${SITE.name} is built by an independent student developer. A small PayPal contribution helps add more calculators and keep every tool free.`}
+  h1="Support My Work"
+  accent="keep it free"
+>
+  <p>Hi! I'm a college student and independent developer building free online calculators to help people with everyday calculations.</p>
+  <p>I don't have a big budget to build and maintain large products, but I'm trying my best to create useful tools for everyone.</p>
+  <p>If this website has helped you, please consider supporting me through a small contribution.</p>
+  <p>Your support will help me improve this website, add more calculators, and keep the tools free for everyone.</p>
+  <p><strong>Every little contribution means a lot to me!</strong></p>
+
+  <div class="support-card">
+    <p class="label">Support via PayPal</p>
+    <p class="support-email mono" data-email>{paypalEmail}</p>
+    <div class="support-actions">
+      <a class="btn btn-support" href={paypalUrl} target="_blank" rel="noopener">
+        <span aria-hidden="true">❤️</span> Support with PayPal
+      </a>
+      <button class="btn btn-ghost" type="button" data-copy>Copy email</button>
+    </div>
+    <p class="small muted support-note">
+      Or open PayPal, choose <em>Send</em>, and send to <span class="mono">{paypalEmail}</span>.
+    </p>
+  </div>
+
+  <p>Thank you for supporting an independent student developer! ❤️</p>
+</TextPage>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-copy]');
+  const email = document.querySelector('[data-email]')?.textContent?.trim() ?? '';
+  btn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      btn.textContent = 'Copied ✓';
+    } catch {
+      btn.textContent = 'Copy failed';
+    }
+    setTimeout(() => (btn.textContent = 'Copy email'), 2000);
+  });
+</script>

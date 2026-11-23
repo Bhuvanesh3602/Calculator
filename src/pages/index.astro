@@ -40,6 +40,10 @@ const jsonLd = [
           {calculators.slice(0, 6).map((c) => <li><a href={`/${c.slug}/`}>{c.name.replace(' Calculator', '')}</a></li>)}
         </ul>
         <p class="mono muted hero-meta">TESTED MATH · NO SIGN-UP · RUNS IN YOUR BROWSER</p>
+        <a class="btn btn-support hero-support" href="/support/">
+          <span class="heart" aria-hidden="true">❤</span> Support my work
+          <span class="small support-sub">Keep these tools free</span>
+        </a>
       </div>
       <div class="calc-stage">
         <SciCalc />

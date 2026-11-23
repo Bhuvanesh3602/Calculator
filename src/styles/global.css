@@ -1570,3 +1570,94 @@ body {
     justify-self: start;
   }
 }
+
+/* ---------- support / donate ---------- */
+.btn-support {
+  position: relative;
+  background: var(--grad);
+  background-size: 200% 200%;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.7);
+  animation: support-shift 6s ease infinite;
+}
+.btn-support:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 36px -10px rgba(236, 72, 153, 0.9);
+}
+.btn-support:focus-visible {
+  outline: 3px solid var(--accent-warm);
+  outline-offset: 3px;
+}
+.btn-support .heart {
+  display: inline-block;
+  color: #fff;
+  animation: support-beat 1.6s ease-in-out infinite;
+}
+.hero-support {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  flex-wrap: wrap;
+}
+.support-sub {
+  font-weight: 500;
+  opacity: 0.85;
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+.support-card {
+  margin: 2rem 0;
+  padding: 1.75rem;
+  border-radius: var(--r-lg);
+  background: var(--surface-inverse);
+  color: #fff;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line-dark);
+}
+.support-card .label {
+  margin: 0 0 0.5rem;
+  color: var(--accent-warm);
+}
+.support-email {
+  font-size: clamp(1rem, 0.9rem + 0.6vw, 1.35rem);
+  margin: 0 0 1.25rem;
+  word-break: break-all;
+}
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.support-card .btn-ghost {
+  color: #fff;
+}
+.support-note {
+  margin: 1rem 0 0;
+  color: #a8a29e !important;
+}
+@keyframes support-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes support-beat {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-support,
+  .btn-support .heart {
+    animation: none;
+  }
+}

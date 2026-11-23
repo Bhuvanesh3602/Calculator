@@ -1,6 +1,26 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { copyFile, readdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { SITE } from './src/site.config.ts';
+
+/**
+ * Also publish the sitemap at the conventional /sitemap.xml address.
+ * One chunk (sitemap-0.xml) → copy the full URL list; several chunks → copy the index.
+ */
+function sitemapXmlAlias() {
+  return {
+    name: 'sitemap-xml-alias',
+    hooks: {
+      'astro:build:done': async ({ dir }) => {
+        const out = fileURLToPath(dir);
+        const chunks = (await readdir(out)).filter((f) => /^sitemap-\d+\.xml$/.test(f));
+        const source = chunks.length === 1 ? chunks[0] : 'sitemap-index.xml';
+        await copyFile(`${out}/${source}`, `${out}/sitemap.xml`);
+      },
+    },
+  };
+}
 
 /** Priority hints for the XML sitemap (search engines treat these as hints only). */
 function priorityFor(url) {
@@ -27,5 +47,6 @@ export default defineConfig({
         return item;
       },
     }),
+    sitemapXmlAlias(),
   ],
 });
