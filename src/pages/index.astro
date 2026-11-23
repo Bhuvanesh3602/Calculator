@@ -1,0 +1,147 @@
+---
+import CalcCard from '../components/CalcCard.astro';
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site.config';
+import { calculators, categoryList } from '../lib/registry';
+import { renderChart } from '../lib/chart';
+import SciCalc from '../components/SciCalc.astro';
+
+const keyClass = ['k-orange', 'k-pink', 'k-blue', 'k-green', 'k-yellow'];
+const top = calculators.slice(0, 12);
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${SITE.name} calculators`,
+    itemListElement: calculators.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}/${c.slug}/`, name: c.name })),
+  },
+];
+---
+
+<Base
+  title={`Free Online Calculators – ${calculators.length} Tools with Charts | ${SITE.name}`}
+  description={`${calculators.length} free online calculators for mortgages, loans, BMI, GPA, percentages, dates and more. Instant answers, step-by-step working and original charts.`}
+  jsonLd={jsonLd}
+>
+  <section class="dark">
+    <div class="wrap home-hero">
+      <div class="hero-text">
+        <h1 class="h-hero hero-h1">Free Online Calculators <span class="script" style="color:var(--accent)">that show their working</span></h1>
+        <form class="search" role="search" action="/" data-search>
+          <label for="q" class="sr-only">Search calculators</label>
+          <input id="q" name="q" type="search" placeholder="Mortgage, BMI, GPA, percentage…" autocomplete="off" />
+          <button class="btn btn-accent" type="submit">Search</button>
+        </form>
+        <p class="hero-lead muted">
+          {calculators.length} free calculators for money, health, math and dates. Each page pairs one focused tool with the formula, worked
+          examples, original charts and straight answers to the questions people search.
+        </p>
+        <ul class="hero-links">
+          {calculators.slice(0, 6).map((c) => <li><a href={`/${c.slug}/`}>{c.name.replace(' Calculator', '')}</a></li>)}
+        </ul>
+        <p class="mono muted hero-meta">TESTED MATH · NO SIGN-UP · RUNS IN YOUR BROWSER</p>
+      </div>
+      <div class="calc-stage">
+        <SciCalc />
+        <p class="sci-more"><a href="/scientific-calculator/">Full scientific calculator with step-by-step working →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light sec" id="all">
+    <div class="wrap">
+      {
+        categoryList
+          .filter((c) => c.items.length)
+          .map((cat) => (
+            <div data-cat>
+              <div class="cat-head">
+                <h2>
+                  {cat.name} <span class="script muted" style="font-size:1.4rem">{cat.accent}</span>
+                </h2>
+                <a href={`/${cat.slug}/`}>View all {cat.items.length} →</a>
+              </div>
+              <div class="card-grid">
+                {cat.items.map((c, i) => (
+                  <CalcCard calc={c} index={i} data-name={`${c.name} ${c.variants.join(' ')}`.toLowerCase()} />
+                ))}
+              </div>
+            </div>
+          ))
+      }
+      <p id="no-results" class="muted" hidden>No calculator matches that search yet.</p>
+    </div>
+  </section>
+
+  <section class="dark sec">
+    <div class="wrap">
+      <div class="analysis-block">
+        <div>
+          <Fragment
+            set:html={renderChart({
+              type: 'hbar',
+              title: 'Most-searched calculators, monthly US searches',
+              x: top.map((c) => c.name),
+              series: [{ name: 'Monthly searches', values: top.map((c) => c.volume) }],
+              y: 'int',
+            })}
+          />
+        </div>
+        <div class="analysis-text">
+          <p class="label muted">Our research</p>
+          <h2 class="h-sec">What the world <span class="script" style="color:var(--accent)">calculates</span></h2>
+          <p>
+            We started from keyword research covering about 180 search terms, merged the duplicates (Google groups “auto loan”, “car
+            loan” and “vehicle loan” into one demand pool), and built one dedicated page for each distinct need — {calculators.length} in all.
+          </p>
+          <a class="btn btn-light" href="/methodology/">How we build calculators</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light sec">
+    <div class="wrap">
+      <div class="three-col">
+        <div class="dot-card">
+          <h3>Answer first</h3>
+          <p class="small muted">Every page opens with a direct, worked answer, then the tool, then the detail.</p>
+        </div>
+        <div class="dot-card">
+          <h3>Formulas you can check</h3>
+          <p class="small muted">We print the exact formula and variables, and test every function against known answers.</p>
+        </div>
+        <div class="dot-card">
+          <h3>Private by design</h3>
+          <p class="small muted">Calculations run in your browser. Nothing you type is sent to our servers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const q = document.getElementById('q') as HTMLInputElement;
+  document.querySelector<HTMLFormElement>('[data-search]')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    q.dispatchEvent(new Event('input'));
+    const visible = [...document.querySelectorAll<HTMLAnchorElement>('[data-name]')].filter((a) => !a.hidden);
+    if (q.value.trim() && visible.length === 1) location.href = visible[0].href;
+    else document.getElementById('all')?.scrollIntoView({ behavior: 'smooth' });
+  });
+  q?.addEventListener('input', () => {
+    const t = q.value.trim().toLowerCase();
+    let any = false;
+    document.querySelectorAll<HTMLElement>('[data-cat]').forEach((cat) => {
+      let shown = 0;
+      cat.querySelectorAll<HTMLElement>('[data-name]').forEach((a) => {
+        const ok = !t || a.dataset.name!.includes(t);
+        a.hidden = !ok;
+        if (ok) shown++;
+      });
+      cat.hidden = shown === 0;
+      if (shown) any = true;
+    });
+    document.getElementById('no-results')!.hidden = any;
+  });
+</script>

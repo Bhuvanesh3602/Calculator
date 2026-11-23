@@ -1,0 +1,16 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+---
+<TextPage title={`Methodology – How ${SITE.name} Builds & Tests Calculators`} description="How we choose formulas, cite sources, test results against known answers and keep rates, brackets and data up to date." h1="Our methodology" accent="show the working">
+  <h2>1. Published formulas only</h2>
+  <p>Every calculator uses a formula from a primary source — a government agency (IRS, BLS, CDC, CFPB), a peer-reviewed study or a standards body. Sources are listed at the bottom of each page.</p>
+  <h2>2. Tested code</h2>
+  <p>Each formula lives in a small, pure function with automated tests that compare its output with known correct answers (for example, IRS tax tables and textbook amortization examples). The same functions generate the worked examples and the analysis charts, so a number can’t appear on a page unless the code produced it.</p>
+  <h2>3. Dated data</h2>
+  <p>Anything that changes over time — tax brackets, wage bases, CPI — carries an “as of” date. We review these every January and when agencies publish changes.</p>
+  <h2>4. Honest limits</h2>
+  <p>Calculators simplify reality. Each page explains its assumptions, and finance, tax and health pages carry a disclaimer. Results are estimates, not professional advice.</p>
+  <h2>5. Corrections</h2>
+  <p>If you find an error, tell us. We fix confirmed errors quickly and update the “Last reviewed” date.</p>
+</TextPage>

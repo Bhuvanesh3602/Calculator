@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "lib": ["es2023", "dom"],
+    "types": ["vite/client"]
+  },
+  "include": ["src/algebrite.d.ts", "src/lib/**/*.ts", "src/calculators/*.ts", "tests/*.ts"]
+}

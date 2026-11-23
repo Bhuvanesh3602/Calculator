@@ -1,0 +1,97 @@
+---
+import FieldInput from './FieldInput.astro';
+import type { Calculator, Values } from '../lib/types';
+interface Props {
+  calc: Calculator;
+  values: Values;
+}
+const { calc, values } = Astro.props;
+const visible = (f: any) => !f.showIf || f.showIf.in.includes(String(values[f.showIf.field]));
+const KEYS = ['7', '8', '9', '/', '(', ')', '4', '5', '6', '*', 'sqrt(', '^', '1', '2', '3', '-', 'sin(', 'cos(', '0', '.', 'pi', '+', 'tan(', 'log(', 'ln(', 'e', '!', '%', 'C', '='];
+---
+
+<form class="calc-form" data-calc={calc.slug} novalidate aria-label={calc.name}>
+  <div class="form-grid">
+    {
+      calc.inputs.map((f) =>
+        f.type === 'rows' ? (
+          <fieldset class="field field-wide" data-rows={f.id} data-max={f.maxRows ?? 30} style="border:0;padding:0;margin:0">
+            <legend class="flabel">{f.label}</legend>
+            <div class="table-wrap">
+              <table class="rows-table">
+                <thead>
+                  <tr>
+                    {f.columns.map((c) => (
+                      <th scope="col">{c.label}</th>
+                    ))}
+                    <th>
+                      <span class="sr-only">Remove</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(values[f.id] as Values[]).map((row, ri) => (
+                    <tr>
+                      {f.columns.map((c) => (
+                        <td data-col={c.id} data-label={c.label}>
+                          <FieldInput f={c} value={row[c.id]} name={`${f.id}.${ri}.${c.id}`} idp={calc.slug} bare />
+                        </td>
+                      ))}
+                      <td>
+                        <button type="button" class="row-del" data-del aria-label="Remove row">
+                          ×
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <template>
+              <tr>
+                {f.columns.map((c) => (
+                  <td data-col={c.id} data-label={c.label}>
+                    <FieldInput f={c} value={c.default} name={`${f.id}.new.${c.id}`} idp={calc.slug + '-new'} bare />
+                  </td>
+                ))}
+                <td>
+                  <button type="button" class="row-del" data-del aria-label="Remove row">
+                    ×
+                  </button>
+                </td>
+              </tr>
+            </template>
+            <button type="button" class="btn btn-ghost btn-sm" data-add style="margin-top:.5rem">
+              + {f.addLabel}
+            </button>
+            {f.help && <span class="help">{f.help}</span>}
+          </fieldset>
+        ) : (
+          <div
+            class:list={['field', f.type === 'text' && 'field-wide']}
+            data-field={f.id}
+            data-showif={f.showIf ? JSON.stringify(f.showIf) : undefined}
+            hidden={!visible(f)}
+          >
+            <FieldInput f={f} value={values[f.id]} name={f.id} idp={calc.slug} />
+          </div>
+        ),
+      )
+    }
+  </div>
+  {
+    calc.keypad && (
+      <div class="keypad" role="group" aria-label="Calculator keypad">
+        {KEYS.map((k) => (
+          <button type="button" data-key={k} class:list={[k === "=" && "k-eq"]} aria-label={k === "*" ? "multiply" : k === "/" ? "divide" : k === "sqrt(" ? "square root" : k === "C" ? "clear" : undefined}>
+            {k === '*' ? '×' : k === '/' ? '÷' : k === 'sqrt(' ? '√' : k.length > 1 ? k.replace('(', '') : k}
+          </button>
+        ))}
+      </div>
+    )
+  }
+  <div class="form-actions">
+    <button type="submit" class="btn btn-accent"><span class="face" aria-hidden="true">=</span>Calculate</button>
+    <button type="button" class="btn btn-ghost" data-reset>Reset</button>
+  </div>
+</form>

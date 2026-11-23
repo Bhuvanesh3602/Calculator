@@ -1,0 +1,32 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Contact ${SITE.name}`,
+    url: `${SITE.url}/contact/`,
+    mainEntity: {
+      '@type': 'Organization',
+      name: SITE.operator,
+      url: SITE.url + '/',
+      email: SITE.email,
+      telephone: SITE.phone.replace(/\s/g, ''),
+      contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: SITE.email, availableLanguage: ['English'] },
+    },
+  },
+];
+---
+<TextPage title={`Contact Us | ${SITE.name}`} description={`Contact the ${SITE.name} team (${SITE.operator}) to report an error, suggest a calculator or ask a question about our tools.`} h1="Contact us" accent="we read everything" jsonLd={jsonLd}>
+  <p>Found a number that looks wrong, want a calculator we don’t have yet, or have a question about our privacy practices? We’d like to hear from you.</p>
+  <ul>
+    <li><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+    <li><strong>Phone:</strong> <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+    <li><strong>Website operator:</strong> {SITE.operator}</li>
+  </ul>
+  <h2>Reporting an error</h2>
+  <p>Please include the page address, the values you entered (the “Share link” button copies them) and the result you expected. We check every report and correct confirmed errors quickly.</p>
+  <h2>Before you write</h2>
+  <p>Our calculators give estimates for general information. We can’t give personal financial, tax, legal or medical advice — for that, please speak to a qualified professional.</p>
+</TextPage>

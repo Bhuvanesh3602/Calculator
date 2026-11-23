@@ -1,0 +1,69 @@
+---
+import type { SimpleField } from '../lib/types';
+interface Props {
+  f: SimpleField;
+  value: any;
+  name: string;
+  idp: string;
+  bare?: boolean; // inside a rows table: no label
+}
+const { f, value, name, idp, bare = false } = Astro.props;
+const id = `${idp}-${name.replace(/\W/g, '-')}`;
+---
+
+{
+  !bare && (
+    <label for={id}>
+      {f.label}
+    </label>
+  )
+}
+<div class:list={['input', f.type === 'text' && (f as any).mono && 'mono']}>
+  {f.type === 'number' && f.prefix && <span class="affix" aria-hidden="true">{f.prefix}</span>}
+  {
+    f.type === 'number' && (
+      <input
+        id={id}
+        name={name}
+        data-type="number"
+        type="number"
+        inputmode="decimal"
+        value={value}
+        min={f.min}
+        max={f.max}
+        step={f.step ?? 'any'}
+        aria-label={bare ? f.label : undefined}
+      />
+    )
+  }
+  {
+    f.type === 'select' && (
+      <select id={id} name={name} data-type="select" aria-label={bare ? f.label : undefined}>
+        {f.options.map((o) => (
+          <option value={o.value} selected={o.value === value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    )
+  }
+  {f.type === 'date' && <input id={id} name={name} data-type="date" type="date" value={value} aria-label={bare ? f.label : undefined} />}
+  {f.type === 'time' && <input id={id} name={name} data-type="time" type="time" value={value} aria-label={bare ? f.label : undefined} />}
+  {
+    f.type === 'text' && (
+      <input
+        id={id}
+        name={name}
+        data-type="text"
+        type="text"
+        value={value}
+        placeholder={f.placeholder}
+        autocomplete="off"
+        spellcheck="false"
+        aria-label={bare ? f.label : undefined}
+      />
+    )
+  }
+  {f.type === 'number' && f.suffix && <span class="affix" aria-hidden="true">{f.suffix}</span>}
+</div>
+{!bare && f.help && <span class="help">{f.help}</span>}

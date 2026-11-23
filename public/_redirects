@@ -1,0 +1,2 @@
+# Send www to the main domain (Netlify / Cloudflare Pages)
+https://www.ilovecalx.com/* https://ilovecalx.com/:splat 301!

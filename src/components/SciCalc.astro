@@ -1,0 +1,764 @@
+---
+/**
+ * Home-page scientific calculator — wide two-block layout:
+ *   [ display bar across the full width ]
+ *   [ scientific functions 5×5 ] [ number pad + memory 5×5 ]
+ * Styled with DESIGN.md tokens. The math engine (mathjs) loads lazily on
+ * first interaction so the home page stays fast.
+ */
+type Key = { k: string; label: string; cls?: string; aria: string };
+/** Accessible name must contain the visible text (WCAG 2.5.3 "label in name"). */
+const name = (x: Key) => {
+  const visible = x.label.replace(/<[^>]+>/g, '');
+  if (!/[a-z0-9]/i.test(visible) || x.aria.toLowerCase().startsWith(visible.toLowerCase())) return x.aria;
+  return `${visible}, ${x.aria}`;
+};
+const sciKeys: (Key | 'ANGLE')[] = [
+  { k: 'sin(', label: 'sin', aria: 'sin, sine' },
+  { k: 'cos(', label: 'cos', aria: 'cos, cosine' },
+  { k: 'tan(', label: 'tan', aria: 'tan, tangent' },
+  'ANGLE',
+  { k: 'asin(', label: 'sin<sup>-1</sup>', aria: 'sin inverse, arcsine' },
+  { k: 'acos(', label: 'cos<sup>-1</sup>', aria: 'cos inverse, arccosine' },
+  { k: 'atan(', label: 'tan<sup>-1</sup>', aria: 'tan inverse, arctangent' },
+  { k: 'pi', label: 'π', aria: 'pi' },
+  { k: 'e', label: 'e', aria: 'e, Euler number' },
+  { k: '^', label: 'x<sup>y</sup>', aria: 'x to the power y' },
+  { k: '^3', label: 'x<sup>3</sup>', aria: 'x cubed' },
+  { k: '^2', label: 'x<sup>2</sup>', aria: 'x squared' },
+  { k: 'exp(', label: 'e<sup>x</sup>', aria: 'e to the power x' },
+  { k: '10^(', label: '10<sup>x</sup>', aria: '10 to the power x' },
+  { k: '^(1/', label: '<sup>y</sup>√x', aria: 'y root of x' },
+  { k: 'cbrt(', label: '<sup>3</sup>√x', aria: '3 root x, cube root' },
+  { k: 'sqrt(', label: '√x', aria: 'square root' },
+  { k: 'ln(', label: 'ln', aria: 'ln, natural logarithm' },
+  { k: 'log(', label: 'log', aria: 'log, base 10 logarithm' },
+  { k: '(', label: '(', aria: 'open bracket' },
+  { k: ')', label: ')', aria: 'close bracket' },
+  { k: '^(-1)', label: '1/x', aria: '1/x, reciprocal' },
+  { k: '/100', label: '%', aria: 'percent' },
+  { k: '!', label: 'n!', aria: 'n!, factorial' },
+];
+const numKeys: Key[] = [
+  { k: '7', label: '7', cls: 'num', aria: '7' },
+  { k: '8', label: '8', cls: 'num', aria: '8' },
+  { k: '9', label: '9', cls: 'num', aria: '9' },
+  { k: '+', label: '+', cls: 'op', aria: 'plus' },
+  { k: 'DEL', label: 'Back', cls: 'back', aria: 'Back, delete last' },
+  { k: '4', label: '4', cls: 'num', aria: '4' },
+  { k: '5', label: '5', cls: 'num', aria: '5' },
+  { k: '6', label: '6', cls: 'num', aria: '6' },
+  { k: '-', label: '–', cls: 'op', aria: 'minus' },
+  { k: 'ans', label: 'Ans', cls: 'mem', aria: 'Ans, previous answer' },
+  { k: '1', label: '1', cls: 'num', aria: '1' },
+  { k: '2', label: '2', cls: 'num', aria: '2' },
+  { k: '3', label: '3', cls: 'num', aria: '3' },
+  { k: '*', label: '×', cls: 'op', aria: 'multiply' },
+  { k: 'M+', label: 'M+', cls: 'mem', aria: 'M+, add to memory' },
+  { k: '0', label: '0', cls: 'num', aria: '0' },
+  { k: '.', label: '.', cls: 'num', aria: 'decimal point' },
+  { k: '*10^(', label: 'EXP', cls: 'fn2', aria: 'EXP, times ten to the power' },
+  { k: '/', label: '/', cls: 'op', aria: 'divide' },
+  { k: 'M-', label: 'M-', cls: 'mem', aria: 'M-, subtract from memory' },
+  { k: 'NEG', label: '±', cls: 'fn2', aria: 'change sign' },
+  { k: 'RND', label: 'RND', cls: 'fn2', aria: 'RND, random number' },
+  { k: 'AC', label: 'AC', cls: 'clr', aria: 'AC, all clear' },
+  { k: '=', label: '=', cls: 'eq', aria: 'equals' },
+  { k: 'MR', label: 'MR', cls: 'mem', aria: 'MR, memory recall' },
+];
+---
+
+<div class="sci" data-sci>
+  <div class="screen" aria-label="Calculator display">
+    <div class="flags mono" aria-hidden="true">
+      <span data-flag-angle>DEG</span>
+      <span data-flag-mem hidden>M</span>
+    </div>
+    <div class="expr mono" data-expr>&nbsp;</div>
+    <output class="res" data-res aria-live="polite">0</output>
+  </div>
+
+  <div class="blocks">
+    <div class="block sci-block" role="group" aria-label="Scientific functions">
+      {
+        sciKeys.map((x) =>
+          x === 'ANGLE' ? (
+            <fieldset class="angle" data-angle-group>
+              <legend class="sr-only">Angle unit</legend>
+              <label>
+                <input type="radio" name="ilx-angle" value="deg" checked />
+                <span>Deg</span>
+              </label>
+              <label>
+                <input type="radio" name="ilx-angle" value="rad" />
+                <span>Rad</span>
+              </label>
+            </fieldset>
+          ) : (
+            <button type="button" class="sk fn" data-k={x.k} aria-label={name(x)} set:html={x.label} />
+          ),
+        )
+      }
+    </div>
+    <div class="block num-block" role="group" aria-label="Numbers and operations">
+      {numKeys.map((x) => <button type="button" class:list={['sk', x.cls]} data-k={x.k} aria-label={name(x)} set:html={x.label} />)}
+    </div>
+  </div>
+
+  <div class="hist" data-hist-wrap hidden>
+    <div class="hist-head">
+      <span class="mono">HISTORY</span>
+      <button type="button" class="hist-clear" data-hist-clear>Clear all</button>
+    </div>
+    <ol data-hist></ol>
+  </div>
+</div>
+
+<style>
+  .sci {
+    width: 100%;
+    background: var(--surface-inverse);
+    border: 1px solid #262626;
+    border-radius: var(--r-lg);
+    padding: 1rem;
+    box-shadow:
+      0 40px 80px -40px rgba(249, 115, 22, 0.45),
+      0 30px 60px -30px rgba(0, 0, 0, 0.9);
+    color: #fff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* display bar — brand gradient (DESIGN.md "gradient as emotional amplifier") */
+  .screen {
+    position: relative;
+    background: var(--grad);
+    border-radius: var(--r-md);
+    padding: 0.55rem 1.1rem 0.6rem;
+    margin-bottom: 0.9rem;
+    text-align: right;
+    min-height: 5.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  }
+  .flags {
+    position: absolute;
+    left: 1rem;
+    top: 0.55rem;
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .flags span {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 9999px;
+    padding: 0.1rem 0.5rem;
+  }
+  .expr {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+    min-height: 1.3rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    padding-left: 5.5rem;
+  }
+  .expr::-webkit-scrollbar {
+    display: none;
+  }
+  .res {
+    display: block;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .res.preview {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .res.err {
+    color: #fde68a;
+    font-size: 1.5rem;
+  }
+  .res.pop {
+    animation: pop 0.25s ease;
+  }
+  @keyframes pop {
+    from {
+      transform: scale(0.97);
+      opacity: 0.6;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  /* two key blocks side by side */
+  .blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .block {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.35rem;
+  }
+
+  .sk {
+    height: 2.6rem;
+    min-width: 0;
+    border: 0;
+    border-radius: var(--r-sm);
+    font: 600 0.95rem var(--font-sans);
+    color: #fff;
+    background: #222;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 2px 0 #050505;
+    cursor: pointer;
+    transition:
+      transform 0.06s ease,
+      background 0.15s;
+    white-space: nowrap;
+  }
+  .sk :global(sup) {
+    font-size: 0.62em;
+    line-height: 0;
+    position: relative;
+    top: -0.15em;
+  }
+  .sk:hover {
+    background: #2c2c2c;
+  }
+  .sk:active,
+  .sk.press {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #050505;
+  }
+  .sk:focus-visible {
+    outline: 2px solid var(--accent-warm);
+    outline-offset: 2px;
+  }
+  .sk.fn {
+    background: #1a1a1a;
+    color: #e7e5e4;
+    font-size: 0.88rem;
+  }
+  .sk.fn:hover {
+    background: #262626;
+  }
+  /* number keys stand out — white surface, ink text */
+  .sk.num {
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 2px 0 #a8a29e;
+  }
+  .sk.num:hover {
+    background: #f5f5f4;
+  }
+  .sk.op {
+    background: #2a2a2a;
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .sk.mem,
+  .sk.fn2 {
+    background: #1a1a1a;
+    color: #d6d3d1;
+    font-size: 0.85rem;
+  }
+  .sk.back {
+    background: #3b1d2e;
+    color: #f9a8d4;
+    font-size: 0.85rem;
+  }
+  .sk.clr {
+    background: var(--accent-pink);
+    color: var(--ink);
+    font-weight: 800;
+    box-shadow: 0 2px 0 #9d174d;
+  }
+  .sk.eq {
+    background: var(--accent);
+    color: var(--ink);
+    font-size: 1.35rem;
+    font-weight: 800;
+    box-shadow: 0 2px 0 #9a3412;
+  }
+  .sk.eq:hover {
+    filter: brightness(1.07);
+  }
+
+  /* Deg / Rad segmented toggle (spans two columns) */
+  .angle {
+    grid-column: span 2;
+    display: flex;
+    margin: 0;
+    padding: 0.2rem;
+    border: 1px solid #333;
+    border-radius: 9999px;
+    min-width: 0;
+  }
+  .angle label {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+  }
+  .angle input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .angle span {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    border-radius: 9999px;
+    font: 700 0.75rem var(--font-mono);
+    letter-spacing: 0.04em;
+    color: #a8a29e;
+    transition: all 0.15s;
+  }
+  .angle input:checked + span {
+    background: var(--accent-warm);
+    color: var(--ink);
+  }
+  .angle input:focus-visible + span {
+    outline: 2px solid var(--accent-warm);
+    outline-offset: 2px;
+  }
+
+  /* history */
+  .hist {
+    margin-top: 0.9rem;
+    border-top: 1px solid #222;
+    padding-top: 0.6rem;
+  }
+  .hist-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #78716c;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+  .hist-clear {
+    background: none;
+    border: 0;
+    color: #a8a29e;
+    font: 600 0.75rem var(--font-sans);
+    cursor: pointer;
+    padding: 0.3rem 0;
+  }
+  .hist ol {
+    list-style: none;
+    margin: 0.3rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.15rem;
+    max-height: 6.5rem;
+    overflow: auto;
+  }
+  .hist :global(li) {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .hist :global(li button) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    color: #a8a29e;
+    font: 0.8rem var(--font-mono);
+    cursor: pointer;
+    text-align: left;
+  }
+  .hist :global(li .h-use) {
+    flex: 1;
+    min-width: 0;
+  }
+  .hist :global(li button:hover) {
+    background: #1a1a1a;
+    color: #fff;
+  }
+  .hist :global(li b) {
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .hist :global(li span) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .hist :global(li .h-del) {
+    flex: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font: 600 1rem var(--font-sans);
+    color: #78716c;
+    opacity: 0.6;
+  }
+  .hist :global(li:hover .h-del),
+  .hist :global(li .h-del:focus-visible) {
+    opacity: 1;
+  }
+  .hist :global(li .h-del:hover) {
+    background: #3b1d2e;
+    color: #f9a8d4;
+  }
+
+  /* phones: stack the two blocks, number pad first */
+  @media (max-width: 640px) {
+    .sci {
+      padding: 0.75rem;
+    }
+    .blocks {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+    .num-block {
+      order: -1;
+    }
+    .sk {
+      height: 2.75rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .res.pop {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  type ExprMod = typeof import('../lib/expr');
+  let mathMod: ExprMod | null = null;
+  let loading: Promise<ExprMod> | null = null;
+  const getMath = () => (mathMod ? Promise.resolve(mathMod) : (loading ??= import('../lib/expr').then((m) => (mathMod = m))));
+
+  const pretty = (s: string) =>
+    s
+      .replace(/\*10\^\(/g, 'E(')
+      .replace(/\^\(-1\)/g, '⁻¹')
+      .replace(/\/100/g, '%')
+      .replace(/sqrt\(/g, '√(')
+      .replace(/cbrt\(/g, '∛(')
+      .replace(/exp\(/g, 'e^(')
+      .replace(/\*/g, '×')
+      .replace(/\//g, '÷')
+      .replace(/-/g, '−')
+      .replace(/\bpi\b/g, 'π')
+      .replace(/\bans\b/g, 'Ans')
+      .replace(/\^2/g, '²')
+      .replace(/\^3/g, '³');
+
+  function fmt(n: unknown): string {
+    if (typeof n !== 'number') return String(n);
+    if (!isFinite(n)) return n > 0 ? '∞' : n < 0 ? '−∞' : 'Error';
+    const a = Math.abs(n);
+    if (a !== 0 && (a >= 1e15 || a < 1e-9)) return n.toExponential(9).replace(/\.?0+e/, 'e').replace('e+', 'e');
+    const r = parseFloat(n.toPrecision(14));
+    return r.toLocaleString('en-US', { maximumFractionDigits: 10 }).replace(/-/g, '−');
+  }
+  const num = (v: number) => String(parseFloat(v.toPrecision(14)));
+
+  document.querySelectorAll<HTMLElement>('[data-sci]').forEach((root) => {
+    const exprEl = root.querySelector<HTMLElement>('[data-expr]')!;
+    const resEl = root.querySelector<HTMLElement>('[data-res]')!;
+    const histWrap = root.querySelector<HTMLElement>('[data-hist-wrap]')!;
+    const histEl = root.querySelector<HTMLElement>('[data-hist]')!;
+    const angleFlag = root.querySelector<HTMLElement>('[data-flag-angle]')!;
+    const memFlag = root.querySelector<HTMLElement>('[data-flag-mem]')!;
+    const radios = root.querySelectorAll<HTMLInputElement>('input[name="ilx-angle"]');
+
+    let expr = '';
+    let ans = 0;
+    let mem = 0;
+    let justEvaluated = false;
+    let angle: 'deg' | 'rad' = 'deg';
+    let history: { e: string; r: string; v: number }[] = [];
+    try {
+      history = JSON.parse(localStorage.getItem('ilx-sci-history') || '[]').slice(0, 20);
+      angle = (localStorage.getItem('ilx-sci-angle') as 'deg' | 'rad') || 'deg';
+      mem = parseFloat(localStorage.getItem('ilx-sci-mem') || '0') || 0;
+    } catch {}
+
+    const balanced = (s: string) => {
+      const open = (s.match(/\(/g) || []).length - (s.match(/\)/g) || []).length;
+      return s + ')'.repeat(Math.max(0, open));
+    };
+    const save = (k: string, v: string) => {
+      try {
+        localStorage.setItem(k, v);
+      } catch {}
+    };
+
+    function renderFlags() {
+      angleFlag.textContent = angle.toUpperCase();
+      radios.forEach((r) => (r.checked = r.value === angle));
+      memFlag.hidden = mem === 0;
+    }
+
+    function renderHistory() {
+      histWrap.hidden = history.length === 0;
+      histEl.innerHTML = '';
+      history.forEach((h, i) => {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'h-use';
+        b.title = 'Use this result';
+        const s = document.createElement('span');
+        s.textContent = pretty(h.e) + ' =';
+        const r = document.createElement('b');
+        r.textContent = h.r;
+        b.append(s, r);
+        b.addEventListener('click', () => {
+          insertValue(h.v);
+          render();
+        });
+        const del = document.createElement('button');
+        del.type = 'button';
+        del.className = 'h-del';
+        del.textContent = '×';
+        del.title = 'Delete';
+        del.setAttribute('aria-label', `Delete ${pretty(h.e)} = ${h.r} from history`);
+        del.addEventListener('click', () => {
+          history.splice(i, 1);
+          renderHistory();
+          const next = histEl.querySelectorAll<HTMLButtonElement>('.h-del')[Math.min(i, history.length - 1)];
+          (next ?? root.querySelector<HTMLButtonElement>('.sk[data-k="AC"]'))?.focus();
+        });
+        li.append(b, del);
+        histEl.append(li);
+      });
+      save('ilx-sci-history', JSON.stringify(history.slice(0, 20)));
+    }
+
+    let seq = 0;
+    async function preview() {
+      if (!expr || justEvaluated) return;
+      const my = ++seq;
+      const m = await getMath();
+      if (my !== seq || justEvaluated) return;
+      try {
+        const v = m.evaluate(balanced(expr), angle, { ans });
+        if (typeof v === 'number' && /[^\d.]/.test(expr)) {
+          resEl.textContent = '= ' + fmt(v);
+          resEl.className = 'res preview';
+        }
+      } catch {}
+    }
+
+    function render() {
+      exprEl.textContent = expr ? pretty(expr) : ' ';
+      exprEl.scrollLeft = exprEl.scrollWidth;
+      if (!justEvaluated) {
+        resEl.className = 'res preview';
+        resEl.textContent = expr ? '' : '0';
+        preview();
+      }
+    }
+
+    /** Current value: last answer if just evaluated, otherwise evaluate the expression. */
+    async function currentValue(): Promise<number | null> {
+      if (justEvaluated) return ans;
+      if (!expr) return 0;
+      const m = await getMath();
+      try {
+        const v = m.evaluate(balanced(expr), angle, { ans });
+        return typeof v === 'number' && isFinite(v) ? v : null;
+      } catch {
+        return null;
+      }
+    }
+
+    async function equals() {
+      if (!expr) return;
+      const m = await getMath();
+      const full = balanced(expr);
+      try {
+        const v = m.evaluate(full, angle, { ans });
+        if (typeof v !== 'number') throw new Error('not a number');
+        const r = fmt(v);
+        exprEl.textContent = pretty(full) + ' =';
+        resEl.textContent = r;
+        resEl.className = 'res pop';
+        ans = v;
+        history.unshift({ e: full, r, v });
+        history = history.slice(0, 20);
+        renderHistory();
+        expr = num(v);
+        justEvaluated = true;
+      } catch {
+        resEl.textContent = 'Error';
+        resEl.className = 'res err';
+      }
+    }
+
+    /** Insert a numeric value as its own token (bracketed if negative). */
+    function insertValue(v: number) {
+      const tok = v < 0 ? `(${num(v)})` : num(v);
+      if (justEvaluated || !expr) {
+        expr = tok;
+        justEvaluated = false;
+        return;
+      }
+      if (/[\d.)!]$|pi$|ans$|(^|[^a-z])e$/.test(expr)) expr += '*';
+      expr += tok;
+    }
+
+    function negate() {
+      if (justEvaluated) {
+        ans = -ans;
+        expr = ans < 0 ? `(${num(ans)})` : num(ans);
+        resEl.textContent = fmt(ans);
+        resEl.className = 'res';
+        return;
+      }
+      const wrapped = /\(-(\d*\.?\d+)\)$/.exec(expr);
+      if (wrapped) {
+        expr = expr.slice(0, -wrapped[0].length) + wrapped[1];
+        return;
+      }
+      const lastNum = /(\d*\.?\d+)$/.exec(expr);
+      if (lastNum) {
+        expr = expr.slice(0, -lastNum[0].length) + `(-${lastNum[1]})`;
+        return;
+      }
+      if (expr) expr = `-(${expr})`;
+    }
+
+    async function press(k: string) {
+      switch (k) {
+        case 'AC':
+          expr = '';
+          justEvaluated = false;
+          resEl.className = 'res';
+          resEl.textContent = '0';
+          exprEl.textContent = ' ';
+          return;
+        case 'DEL':
+          if (justEvaluated) {
+            justEvaluated = false;
+            expr = '';
+          } else {
+            const fn = expr.match(/(asin|acos|atan|sin|cos|tan|sqrt|cbrt|exp|ln|log)\($|\*10\^\($|10\^\($|\^\(-1\)$|\^\(1\/$|\/100$|ans$|pi$/);
+            expr = fn ? expr.slice(0, -fn[0].length) : expr.slice(0, -1);
+          }
+          render();
+          return;
+        case '=':
+          equals();
+          return;
+        case 'NEG':
+          negate();
+          if (!justEvaluated) render();
+          else exprEl.textContent = '±';
+          return;
+        case 'RND':
+          insertValue(Math.round(Math.random() * 1e10) / 1e10);
+          render();
+          return;
+        case 'MR':
+          insertValue(mem);
+          render();
+          return;
+        case 'M+':
+        case 'M-': {
+          const v = await currentValue();
+          if (v === null) {
+            resEl.textContent = 'Error';
+            resEl.className = 'res err';
+            return;
+          }
+          mem = parseFloat((mem + (k === 'M+' ? v : -v)).toPrecision(14));
+          save('ilx-sci-mem', String(mem));
+          renderFlags();
+          return;
+        }
+      }
+      const isOperatorStart = /^[+\-*/^!]|^\/100|^\*10/.test(k);
+      if (justEvaluated) {
+        expr = isOperatorStart ? 'ans' + k : k;
+        justEvaluated = false;
+      } else {
+        // implicit multiplication: 2π, 3(…), )(…, 2sin(…)
+        const endsValue = /[\d.)!]$|pi$|ans$|(^|[^a-z])e$/.test(expr);
+        const startsValue = /^(\(|pi$|e$|ans$|[a-z]+\(|10\^\()/.test(k);
+        if (endsValue && startsValue) expr += '*';
+        else if (/(^|[^a-z])e$|pi$|ans$|\)$|!$/.test(expr) && /^[\d.]/.test(k)) expr += '*';
+        expr += k;
+      }
+      render();
+    }
+
+    root.addEventListener('pointerenter', () => getMath(), { once: true });
+    root.addEventListener('focusin', () => getMath(), { once: true });
+    root.addEventListener('touchstart', () => getMath(), { once: true, passive: true });
+    root.querySelector('.blocks')!.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.sk');
+      if (b) press(b.dataset.k!);
+    });
+    radios.forEach((r) =>
+      r.addEventListener('change', () => {
+        angle = r.value as 'deg' | 'rad';
+        save('ilx-sci-angle', angle);
+        renderFlags();
+        if (justEvaluated && history[0]) {
+          expr = history[0].e;
+          justEvaluated = false;
+          equals();
+        } else render();
+      }),
+    );
+    root.querySelector('[data-hist-clear]')!.addEventListener('click', () => {
+      history = [];
+      renderHistory();
+    });
+
+    // Keyboard support (not while typing in a text field such as the search box)
+    const keyMap: Record<string, string> = { Enter: '=', '=': '=', Backspace: 'DEL', Escape: 'AC', Delete: 'AC', x: '*', X: '*', '%': '/100', p: 'pi' };
+    document.addEventListener('keydown', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('input:not([type="radio"]), textarea, select, [contenteditable]') || e.ctrlKey || e.metaKey || e.altKey) return;
+      const k = keyMap[e.key] ?? (/^[0-9.+\-*/^()!]$/.test(e.key) ? e.key : '');
+      if (!k) return;
+      e.preventDefault();
+      getMath();
+      const btn = root.querySelector<HTMLElement>(`.sk[data-k="${CSS.escape(k)}"]`);
+      if (btn) {
+        btn.classList.add('press');
+        setTimeout(() => btn.classList.remove('press'), 110);
+      }
+      press(k);
+    });
+
+    renderFlags();
+    renderHistory();
+  });
+</script>

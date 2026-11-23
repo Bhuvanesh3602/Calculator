@@ -1,0 +1,185 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+const updated = new Date(SITE.policyUpdated + 'T12:00').toLocaleDateString('en-US', { dateStyle: 'long' });
+const host = new URL(SITE.url).host;
+---
+
+<TextPage
+  title={`Privacy Policy | ${SITE.name}`}
+  description={`How ${SITE.name} (operated by ${SITE.operator}) handles information: calculators run in your browser, plus cookies, analytics, advertising and your rights.`}
+  h1="Privacy Policy"
+>
+  <p><strong>Last updated: {updated}</strong></p>
+
+  <h2>1. Introduction</h2>
+  <p>
+    Welcome to {SITE.name} (<a href={SITE.url}>{host}</a>), a website operated by {SITE.operator} (“we”, “us”, “our”). We respect your privacy and are committed
+    to protecting the personal information of visitors who use our website and online calculators.
+  </p>
+  <p>
+    This Privacy Policy explains what information may be collected when you visit our website, how it may be used, how it is protected, and what choices
+    you have. By accessing or using our website, you acknowledge that you have read this Privacy Policy.
+  </p>
+
+  <h2>2. Information We Collect</h2>
+  <h3>2.1 Personal information</h3>
+  <p>We may collect personal information when you voluntarily:</p>
+  <ul>
+    <li>Contact us by email or phone.</li>
+    <li>Submit feedback or suggestions.</li>
+    <li>Report errors or technical problems.</li>
+    <li>Request help with our services.</li>
+  </ul>
+  <p>This information may include your name, email address, phone number (if provided) and the contents of your message.</p>
+
+  <h3>2.2 Non-personal information</h3>
+  <p>When you visit our website, certain technical information may be collected automatically by our hosting provider or, where enabled, analytics tools, including:</p>
+  <ul>
+    <li>Internet Protocol (IP) address.</li>
+    <li>Browser type and version.</li>
+    <li>Device and operating system information.</li>
+    <li>Pages visited and the date and time of visits.</li>
+    <li>Referring website addresses.</li>
+    <li>General website usage statistics.</li>
+  </ul>
+  <p>This information helps us understand website performance and improve the user experience.</p>
+
+  <h2>3. Calculator Information and Your Inputs</h2>
+  <p>
+    {SITE.name} provides free online calculators. <strong>All calculations run directly in your web browser.</strong> The numbers and values you type into
+    our calculators are not sent to or stored on our servers.
+  </p>
+  <ul>
+    <li>
+      <strong>Share links:</strong> if you use the “Share link” button, your inputs are added to the page address (URL) so the link can recreate your
+      result. Anyone you send that link to can see those inputs.
+    </li>
+    <li>
+      <strong>Calculator history:</strong> the scientific calculator on our home page saves your recent calculations and your degree/radian setting in your
+      browser’s local storage, on your own device, so they are still there next time. You can delete individual items with the × button, remove all of them
+      with “Clear all”, or clear this website’s data in your browser settings. This data is never sent to us.
+    </li>
+  </ul>
+  <p>
+    Even so, we recommend that you avoid entering sensitive personal, financial, medical or confidential information into any online tool unless it is
+    necessary.
+  </p>
+
+  <h2>4. Cookies and Similar Technologies</h2>
+  <p>Our website may use cookies and similar technologies to improve functionality and understand how visitors use our services. Cookies may be used for:</p>
+  <ul>
+    <li>Essential website functionality.</li>
+    <li>Remembering your preferences.</li>
+    <li>Website analytics and performance monitoring.</li>
+    <li>Advertising and measurement.</li>
+    <li>Improving website usability.</li>
+  </ul>
+  <p>
+    You can manage or disable cookies in your browser settings. Disabling some cookies may affect certain features. Where the law requires it, we will ask
+    for your consent before using non-essential cookies or similar technologies.
+  </p>
+
+  <h2>5. Third-Party Advertising and Google AdSense</h2>
+  <p>Our website may display advertisements from third-party advertising networks, including Google AdSense. These providers may use cookies, web beacons or similar technologies to:</p>
+  <ul>
+    <li>Display advertisements.</li>
+    <li>Measure advertising performance.</li>
+    <li>Limit how often you see the same advertisement.</li>
+    <li>Provide personalised or non-personalised advertising, depending on your settings and applicable consent requirements.</li>
+  </ul>
+  <p>
+    Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this and other websites. Google’s use of advertising
+    cookies enables it and its partners to serve ads to you based on your visits to our site and/or other sites on the Internet.
+  </p>
+  <p>
+    Learn how Google uses information from sites that use its services at
+    <a href="https://policies.google.com/technologies/ads" rel="noopener" target="_blank">policies.google.com/technologies/ads</a>. You can opt out of
+    personalised advertising at <a href="https://adssettings.google.com/" rel="noopener" target="_blank">adssettings.google.com</a>, or opt out of some
+    third-party vendors’ use of cookies at <a href="https://www.aboutads.info/choices/" rel="noopener" target="_blank">aboutads.info/choices</a>.
+  </p>
+
+  <h2>6. Analytics and Website Performance</h2>
+  <p>We may use third-party analytics services, such as Google Analytics, to understand website traffic. These services may collect information such as:</p>
+  <ul>
+    <li>Number of visitors.</li>
+    <li>Pages viewed and time spent on pages.</li>
+    <li>Traffic sources.</li>
+    <li>Device and browser information.</li>
+  </ul>
+  <p>We use these insights to improve our calculators, website performance and user experience.</p>
+
+  <h2>7. Third-Party Services and External Links</h2>
+  <p>
+    Our pages link to external websites, such as the government agencies and research we cite as sources. We may also use third-party services for hosting,
+    analytics, advertising, security and website functionality. These third parties process information under their own privacy policies.
+  </p>
+  <p>
+    {SITE.operator} does not control the privacy practices or content of external websites. We encourage you to review the privacy policy of any website you
+    visit.
+  </p>
+
+  <h2>8. How We Use Information</h2>
+  <ul>
+    <li>To provide and maintain our online calculators.</li>
+    <li>To respond to questions and support requests.</li>
+    <li>To improve website functionality and performance.</li>
+    <li>To understand visitor preferences and website usage.</li>
+    <li>To detect and prevent spam, fraud and security threats.</li>
+    <li>To comply with applicable legal obligations.</li>
+    <li>To manage advertising and measure website performance.</li>
+  </ul>
+  <p>We use personal information only for legitimate purposes and in accordance with applicable privacy laws.</p>
+
+  <h2>9. Data Security</h2>
+  <p>
+    We take reasonable technical and organisational measures to protect information against unauthorised access, alteration, disclosure or destruction. Our
+    website is served over an encrypted HTTPS connection. However, no method of transmitting or storing data over the Internet is completely secure, so we
+    cannot guarantee absolute security.
+  </p>
+
+  <h2>10. Data Retention and Deletion</h2>
+  <p>
+    We keep personal information only for as long as reasonably necessary for the purposes in this policy, subject to legal requirements. If you have sent us
+    personal information and want it deleted, contact us using the details below. We will review and process eligible requests in accordance with applicable
+    laws and verification requirements.
+  </p>
+
+  <h2>11. Children’s Privacy</h2>
+  <p>
+    Our website is intended for a general audience and is not directed at children. We do not knowingly collect personal information from children without
+    any consent required by law. If you believe a child has provided personal information to us inappropriately, please contact us so we can investigate and
+    take appropriate action.
+  </p>
+
+  <h2>12. Your Privacy Rights</h2>
+  <p>Depending on where you live and the laws that apply, you may have the right to:</p>
+  <ul>
+    <li>Request access to your personal information.</li>
+    <li>Request correction of inaccurate information.</li>
+    <li>Request deletion of eligible personal information.</li>
+    <li>Withdraw consent where processing is based on consent.</li>
+    <li>Object to or restrict certain processing.</li>
+    <li>Lodge a complaint with the appropriate data-protection authority.</li>
+  </ul>
+  <p>To exercise these rights, contact us using the details below.</p>
+
+  <h2>13. International Visitors</h2>
+  <p>
+    {SITE.name} can be accessed from many countries. Depending on your location, your information may be processed in countries other than your own. We take
+    reasonable steps to handle personal information in line with applicable data-protection requirements.
+  </p>
+
+  <h2>14. Changes to This Privacy Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be published on this page with a new “Last updated” date. Please review it periodically.</p>
+
+  <h2>15. Contact Us</h2>
+  <p>If you have questions, concerns or requests about this Privacy Policy, contact us:</p>
+  <ul>
+    <li><strong>Website operator:</strong> {SITE.operator}</li>
+    <li><strong>Website:</strong> <a href={SITE.url}>{host}</a></li>
+    <li><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+    <li><strong>Phone:</strong> <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
+  </ul>
+  <p>We appreciate your feedback and will make reasonable efforts to respond to privacy-related enquiries.</p>
+</TextPage>

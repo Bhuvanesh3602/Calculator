@@ -1,0 +1,31 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+import { calculators } from '../lib/registry';
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: `About ${SITE.name}`,
+    url: `${SITE.url}/about/`,
+    publisher: { '@id': SITE.url + '/#org' },
+  },
+];
+---
+<TextPage title={`About ${SITE.name} – Free Calculators That Show Their Working`} description={`${SITE.name} is a library of ${calculators.length} free calculators by ${SITE.operator}, each with its formula, worked examples, original charts and cited sources.`} h1={`About ${SITE.name}`} accent="why we exist" jsonLd={jsonLd}>
+  <p>{SITE.name} is a library of {calculators.length} free online calculators operated by {SITE.operator}. It is built around one idea: a number is only useful if you can understand where it came from.</p>
+  <h2>What makes our calculators different</h2>
+  <ul>
+    <li><strong>One page, one job.</strong> Each calculator answers a single question well, rather than cramming everything onto one screen.</li>
+    <li><strong>Formula on the page.</strong> We print the exact formula and variables used, so you can check the maths yourself.</li>
+    <li><strong>Original analysis.</strong> Every page includes charts generated from the same tested code that powers the calculator.</li>
+    <li><strong>Cited sources.</strong> Tax brackets, inflation data and health formulas come from official agencies and published research, linked on each page.</li>
+    <li><strong>Private.</strong> Calculations run in your browser. We don’t store what you type.</li>
+  </ul>
+  <h2>How we check our work</h2>
+  <p>Every formula is covered by automated tests that compare results with known correct answers, and rates that change over time carry an “as of” date. Read our <a href="/methodology/">methodology</a> for details.</p>
+  <h2>Who is behind it</h2>
+  <p>{SITE.name} is run by {SITE.operator}. [Add the founder’s name, background and any reviewers’ qualifications here — named, qualified authors build trust with readers and search engines, especially on finance, tax and health pages.]</p>
+  <h2>Contact</h2>
+  <p>Found an error or want a calculator we don’t have? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or visit our <a href="/contact/">contact page</a>.</p>
+</TextPage>

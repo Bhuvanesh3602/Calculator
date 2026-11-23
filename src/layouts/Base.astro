@@ -1,0 +1,167 @@
+---
+import '@fontsource-variable/figtree/wght.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '../styles/global.css';
+import figtreeWoff2 from '@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url';
+import serifWoff2 from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
+import { SITE } from '../site.config';
+import { categoryList } from '../lib/registry';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  noindex?: boolean;
+  ogType?: string;
+  image?: { url: string; width: number; height: number; alt: string };
+}
+const { title, description, jsonLd = [], noindex = false, ogType = 'website', image } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const sitewide = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': SITE.url + '/#org',
+    name: SITE.name,
+    url: SITE.url + '/',
+    logo: SITE.url + '/favicon.svg',
+    email: SITE.email,
+    parentOrganization: { '@type': 'Organization', name: SITE.operator },
+    contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: SITE.email },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': SITE.url + '/#website',
+    name: SITE.name,
+    url: SITE.url + '/',
+    publisher: { '@id': SITE.url + '/#org' },
+  },
+];
+const nav = categoryList.filter((c) => c.items.length).slice(0, 6);
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href={figtreeWoff2} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifWoff2} as="font" type="font/woff2" crossorigin />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="alternate" hreflang="en-US" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    {
+      image && (
+        <>
+          <meta property="og:image" content={image.url} />
+          <meta property="og:image:width" content={String(image.width)} />
+          <meta property="og:image:height" content={String(image.height)} />
+          <meta property="og:image:alt" content={image.alt} />
+          <meta name="twitter:image" content={image.url} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {SITE.googleVerification && <meta name="google-site-verification" content={SITE.googleVerification} />}
+    {SITE.bingVerification && <meta name="msvalidate.01" content={SITE.bingVerification} />}
+    {[...sitewide, ...jsonLd].map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="/" aria-label={`${SITE.name} home`}>
+          <span class="brand-dots" aria-hidden="true"
+            ><i style="background:#F97316;margin-left:0"></i><i style="background:#EC4899"></i><i style="background:#2563EB"></i><i
+              style="background:#22C55E"></i></span
+          >
+          {SITE.name}
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <ul class="nav-links" id="nav-links">
+          {nav.map((c) => <li><a href={`/${c.slug}/`}>{c.name.replace(' Calculators', '').replace(' & Payroll', '')}</a></li>)}
+          <li><a href="/#all">All calculators</a></li>
+        </ul>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="/" style="color:#fff">
+              <span class="brand-dots" aria-hidden="true"
+                ><i style="background:#F97316;margin-left:0;border-color:#111"></i><i style="background:#EC4899;border-color:#111"></i><i
+                  style="background:#2563EB;border-color:#111"></i></span
+              >{SITE.name}
+            </a>
+            <p class="small" style="margin-top:1rem;max-width:18rem">
+              {SITE.tagline}. Every number on this site is generated by tested formulas, not typed in by hand.
+            </p>
+          </div>
+          {
+            categoryList
+              .filter((c) => c.items.length)
+              .slice(0, 3)
+              .map((c) => (
+                <div>
+                  <h3>{c.name.replace(' Calculators', '')}</h3>
+                  <ul>
+                    {c.items.slice(0, 6).map((i) => (
+                      <li>
+                        <a href={`/${i.slug}/`}>{i.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+          }
+          <div>
+            <h3>About</h3>
+            <ul>
+              <li><a href="/about/">About us</a></li>
+              <li><a href="/methodology/">Methodology</a></li>
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/terms/">Terms</a></li>
+              <li><a href="/contact/">Contact</a></li>
+              <li><a href="/sitemap/">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-base">
+          <span>© {year} {SITE.name} · operated by {SITE.operator}. Results are estimates — not financial, tax or medical advice.</span>
+          <span class="mono">BUILT WITH TESTED MATH</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const t = document.querySelector('.nav-toggle');
+      const l = document.getElementById('nav-links');
+      t?.addEventListener('click', () => {
+        const open = l!.classList.toggle('open');
+        t.setAttribute('aria-expanded', String(open));
+      });
+    </script>
+    <script>
+      import { initCharts } from '../lib/chart-hover';
+      initCharts(document);
+    </script>
+  </body>
+</html>

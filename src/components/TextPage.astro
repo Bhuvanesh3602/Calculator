@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  accent?: string;
+  noindex?: boolean;
+  jsonLd?: object[];
+}
+const { title, description, h1, accent, noindex, jsonLd } = Astro.props;
+---
+
+<Base title={title} description={description} noindex={noindex} jsonLd={jsonLd}>
+  <section class="dark calc-hero">
+    <div class="wrap">
+      <h1 class="h-hero">{h1} {accent && <span class="script" style="color:var(--accent)">{accent}</span>}</h1>
+    </div>
+  </section>
+  <section class="light sec">
+    <div class="wrap prose">
+      <slot />
+    </div>
+  </section>
+</Base>

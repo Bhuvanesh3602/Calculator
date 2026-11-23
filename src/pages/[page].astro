@@ -1,0 +1,18 @@
+---
+import CalculatorPage from '../components/CalculatorPage.astro';
+import HubPage from '../components/HubPage.astro';
+import { calculators, categoryList } from '../lib/registry';
+
+export function getStaticPaths() {
+  return [
+    ...calculators.map((c) => ({ params: { page: c.slug }, props: { kind: 'calc' as const, slug: c.slug } })),
+    ...categoryList.filter((c) => c.items.length).map((c) => ({ params: { page: c.slug }, props: { kind: 'hub' as const, slug: c.key } })),
+  ];
+}
+const { kind, slug } = Astro.props;
+const calc = calculators.find((c) => c.slug === slug);
+const hub = categoryList.find((c) => c.key === slug);
+---
+
+{kind === 'calc' && calc && <CalculatorPage calc={calc} />}
+{kind === 'hub' && hub && <HubPage hub={hub} />}

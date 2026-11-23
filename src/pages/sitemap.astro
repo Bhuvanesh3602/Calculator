@@ -1,0 +1,33 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+import { categoryList } from '../lib/registry';
+---
+<TextPage title={`Sitemap – All Calculators & Pages | ${SITE.name}`} description={`Every page on ${SITE.name} in one place: all calculators grouped by category, plus our about, methodology, contact, privacy and terms pages.`} h1="Sitemap" accent="every page">
+  {
+    categoryList
+      .filter((c) => c.items.length)
+      .map((c) => (
+        <>
+          <h2><a href={`/${c.slug}/`}>{c.name}</a></h2>
+          <ul>
+            {c.items.map((i) => (
+              <li>
+                <a href={`/${i.slug}/`}>{i.name}</a> — {i.accent}
+              </li>
+            ))}
+          </ul>
+        </>
+      ))
+  }
+  <h2>About {SITE.name}</h2>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About us</a></li>
+    <li><a href="/methodology/">Methodology</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/privacy/">Privacy Policy</a></li>
+    <li><a href="/terms/">Terms of Use</a></li>
+  </ul>
+  <p class="small">For search engines: <a href="/sitemap-index.xml">XML sitemap</a>.</p>
+</TextPage>

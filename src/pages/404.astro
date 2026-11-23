@@ -1,0 +1,7 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../site.config';
+---
+<TextPage title={`Page Not Found | ${SITE.name}`} description="Sorry, this page doesn’t exist. Browse all of our free calculators for mortgages, loans, health, math, dates and more." h1="Page not found" accent="404" noindex>
+  <p>That page doesn’t exist. <a href="/">Browse all calculators</a> or use the menu above.</p>
+</TextPage>
