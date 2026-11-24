@@ -22,7 +22,7 @@ export const SITE = {
    * Paste ONLY the content="..." value from the HTML-tag method, e.g. 'AbC123…'.
    * Leave empty if you verify by DNS (recommended for Google "Domain" properties).
    */
-  googleVerification: '',
+  googleVerification: 'jdiswQnnT_N7mrX1QKKcwKe34Q37dei5QKJAJbUYi-Q',
   bingVerification: '',
 
   /** IndexNow key — the file public/<key>.txt must contain exactly this value. */
