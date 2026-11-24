@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { copyFile, readdir } from 'node:fs/promises';
+import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { SITE } from './src/site.config.ts';
 
@@ -22,15 +23,20 @@ function sitemapXmlAlias() {
   };
 }
 
-/** Priority hints for the XML sitemap (search engines treat these as hints only). */
-function priorityFor(url) {
-  const path = new URL(url).pathname;
-  if (path === '/') return 1.0;
-  if (path.endsWith('-calculator/')) return 0.9;
-  if (path.endsWith('-calculators/')) return 0.7;
-  if (['/about/', '/methodology/', '/contact/', '/sitemap/'].includes(path)) return 0.4;
-  return 0.3;
+/**
+ * Hub pages with fewer than 2 calculators are noindexed (see HubPage.astro), so they are
+ * left out of the sitemap too. Counted from the calculator files' `category:` lines.
+ */
+const HUB_SLUGS = {
+  finance: 'finance-calculators', payroll: 'payroll-calculators', health: 'health-calculators', math: 'math-calculators',
+  education: 'education-calculators', 'date-time': 'date-time-calculators', construction: 'construction-calculators', everyday: 'everyday-calculators',
+};
+const counts = {};
+for (const f of readdirSync(new URL('./src/calculators/', import.meta.url))) {
+  const m = readFileSync(new URL(`./src/calculators/${f}`, import.meta.url), 'utf8').match(/^\s*category: '([\w-]+)'/m);
+  if (m) counts[m[1]] = (counts[m[1]] ?? 0) + 1;
 }
+const thinHubs = Object.entries(HUB_SLUGS).filter(([k]) => (counts[k] ?? 0) < 2).map(([, slug]) => `/${slug}/`);
 
 export default defineConfig({
   site: SITE.url,
@@ -39,11 +45,12 @@ export default defineConfig({
   build: { format: 'directory', inlineStylesheets: 'auto' },
   integrations: [
     sitemap({
-      filter: (p) => !p.includes('/404'),
+      filter: (p) => !p.includes('/404') && !thinHubs.some((h) => p.endsWith(h)),
       serialize(item) {
-        item.lastmod = new Date(SITE.lastReviewed + 'T00:00:00Z').toISOString();
-        item.changefreq = item.url.endsWith('-calculator/') ? 'monthly' : 'yearly';
-        item.priority = priorityFor(item.url);
+        // Google ignores changefreq and priority; lastmod is the date the content was last reviewed.
+        item.lastmod = SITE.lastReviewed;
+        delete item.changefreq;
+        delete item.priority;
         return item;
       },
     }),

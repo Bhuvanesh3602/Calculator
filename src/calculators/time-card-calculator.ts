@@ -33,7 +33,7 @@ const calc: Calculator = {
   variants: ['timesheet calculator', 'weekly time card calculator', 'time clock calculator', 'punch card calculator'],
   title: 'Time Card Calculator – Weekly Timesheet with Overtime & Pay',
   description:
-    'Fill in a weekly time card with clock-in, clock-out and breaks for each day. Get total hours, overtime over 40, and gross pay, with optional quarter-hour rounding.',
+    'Fill in a weekly time card with clock-in, clock-out and breaks. Get total hours, overtime over 40, and gross pay, with optional quarter-hour rounding.',
   accent: 'a full week, totalled',
   icon: '▤',
   inputs: [
@@ -122,7 +122,7 @@ const calc: Calculator = {
       },
       {
         title: 'Rounding: neutral on average, not every day',
-        insight: 'Under the 7-minute rule, a punch at 8:07 counts as 8:00 and 8:08 counts as 8:15. Over many punches that are randomly early or late, the gains and losses roughly cancel. A policy that only ever rounds in the employer’s favour is not allowed.',
+        insight: 'Under the 7-minute rule, a punch at 8:07 counts as 8:00 and 8:08 counts as 8:15. Over many punches that are randomly early or late, the gains and losses roughly cancel. A policy that only ever rounds in the employer’s favor is not allowed.',
         table: { head: ['Actual punch', 'Rounded to'], rows: [['8:52', '8:45'], ['8:53', '9:00'], ['9:07', '9:00'], ['9:08', '9:15'], ['5:22', '5:15'], ['5:23', '5:30']] },
       },
     ];

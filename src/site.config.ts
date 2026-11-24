@@ -5,13 +5,16 @@ export const SITE = {
   locale: 'en-US',
   currency: 'USD',
   lastReviewed: '2026-11-23',
+  /** Public launch date (schema foundingDate / datePublished). */
+  launched: '2026-11-23',
 
   /** Legal operator of the website (shown on Privacy, Terms, About, Contact). */
   operator: 'Vugaconnect',
+  /** Person who builds and maintains the site (About page, Person schema). */
+  founder: 'Bhuvanesh S',
   email: 'bhuvan.s1337@gmail.com',
   /** PayPal account that receives contributions on /support/. */
   paypalEmail: 'bhuvan.s1337@gmail.com',
-  phone: '+91 74184 97603',
   policyUpdated: '2026-11-23',
 
   /**

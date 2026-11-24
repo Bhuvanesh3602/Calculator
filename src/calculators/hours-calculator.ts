@@ -16,7 +16,7 @@ const calc: Calculator = {
   keyword: 'hours calculator',
   volume: 301000,
   variants: ['work hours calculator', 'hours worked calculator', 'shift hours calculator', 'hours between times'],
-  title: 'Hours Calculator – Hours Worked Between Two Times, Minus Breaks',
+  title: 'Hours Calculator – Hours Worked Between Times, Minus Breaks',
   description:
     'Calculate hours worked between a start and end time minus unpaid breaks, in hours:minutes and decimal, with pay at your hourly rate. Overnight shifts OK.',
   accent: 'minus the breaks',

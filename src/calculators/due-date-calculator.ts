@@ -25,7 +25,7 @@ const calc: Calculator = {
   keyword: 'due date calculator',
   volume: 301000,
   variants: ['pregnancy due date calculator', 'ivf due date calculator', 'conception date calculator', 'when is my baby due'],
-  title: 'Due Date Calculator – From Last Period, Conception, IVF or Scan',
+  title: 'Due Date Calculator – From Last Period, Conception or IVF',
   description:
     'Estimate your due date from your last period, conception, IVF transfer (day 3 or 5) or an ultrasound, and see the window when birth is likely.',
   accent: 'five ways to date it',
@@ -114,7 +114,7 @@ const calc: Calculator = {
     ];
   },
   variantQs: [
-    { q: 'How does an IVF due date calculator work?', a: 'IVF gives an exact embryo age. A day-5 blastocyst is already 5 days past fertilisation, so the due date is the transfer date plus 261 days (263 for day-3 embryos).' },
+    { q: 'How does an IVF due date calculator work?', a: 'IVF gives an exact embryo age. A day-5 blastocyst is already 5 days past fertilization, so the due date is the transfer date plus 261 days (263 for day-3 embryos).' },
     { q: 'Can I calculate my conception date from my due date?', a: 'Roughly: conception is about 266 days (38 weeks) before the due date, give or take a few days.' },
   ],
   tips: [

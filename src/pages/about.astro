@@ -9,6 +9,13 @@ const jsonLd = [
     name: `About ${SITE.name}`,
     url: `${SITE.url}/about/`,
     publisher: { '@id': SITE.url + '/#org' },
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${SITE.url}/about/#founder`,
+      name: SITE.founder,
+      url: `${SITE.url}/about/`,
+      worksFor: { '@id': SITE.url + '/#org' },
+    },
   },
 ];
 ---
@@ -17,7 +24,7 @@ const jsonLd = [
   <h2>What makes our calculators different</h2>
   <ul>
     <li><strong>One page, one job.</strong> Each calculator answers a single question well, rather than cramming everything onto one screen.</li>
-    <li><strong>Formula on the page.</strong> We print the exact formula and variables used, so you can check the maths yourself.</li>
+    <li><strong>Formula on the page.</strong> We print the exact formula and variables used, so you can check the math yourself.</li>
     <li><strong>Original analysis.</strong> Every page includes charts generated from the same tested code that powers the calculator.</li>
     <li><strong>Cited sources.</strong> Tax brackets, inflation data and health formulas come from official agencies and published research, linked on each page.</li>
     <li><strong>Private.</strong> Calculations run in your browser. We don’t store what you type.</li>
@@ -25,7 +32,8 @@ const jsonLd = [
   <h2>How we check our work</h2>
   <p>Every formula is covered by automated tests that compare results with known correct answers, and rates that change over time carry an “as of” date. Read our <a href="/methodology/">methodology</a> for details.</p>
   <h2>Who is behind it</h2>
-  <p>{SITE.name} is run by {SITE.operator}. [Add the founder’s name, background and any reviewers’ qualifications here — named, qualified authors build trust with readers and search engines, especially on finance, tax and health pages.]</p>
+  <p>{SITE.name} is built and maintained by {SITE.founder} and operated by {SITE.operator}. {SITE.founder} writes each calculator’s code and the automated tests that check it against known answers, and updates the tax, inflation and health data when the official sources change.</p>
+  <p>The tax and health calculators follow the official guidance and published research linked on each page. They are not reviewed by a licensed tax professional or clinician, so treat their results as estimates and confirm important decisions with a qualified advisor.</p>
   <h2>Contact</h2>
   <p>Found an error or want a calculator we don’t have? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or visit our <a href="/contact/">contact page</a>.</p>
 </TextPage>

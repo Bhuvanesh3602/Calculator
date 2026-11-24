@@ -147,7 +147,7 @@ const calc: Calculator = {
   },
   variantQs: [
     { q: 'Is a car loan calculator the same as an auto loan calculator?', a: 'Yes. Car loan, auto loan, vehicle loan and automobile loan calculators all use the same formula. This one adds tax, trade-in and fees so the result matches a dealer’s quote more closely.' },
-    { q: 'How do I use a financing a car calculator for a new vs used car?', a: 'The maths is identical; what changes is the APR (used-car rates are usually higher) and fees. Get a pre-approval from a bank or credit union and enter that APR.' },
+    { q: 'How do I use a financing a car calculator for a new vs used car?', a: 'The math is identical; what changes is the APR (used-car rates are usually higher) and fees. Get a pre-approval from a bank or credit union and enter that APR.' },
     { q: 'Can I calculate a vehicle loan with no down payment?', a: 'Yes — set cash down to $0. You will finance tax and fees too, so watch the amount-financed line and the total interest.' },
   ],
   tips: [

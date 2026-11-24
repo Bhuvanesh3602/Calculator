@@ -34,7 +34,7 @@ const calc: Calculator = {
   keyword: 'concrete calculator',
   volume: 450000,
   variants: ['concrete figuring calculator', 'concrete measurement calculator', 'concrete bag calculator', 'cubic yards of concrete calculator'],
-  title: 'Concrete Calculator – Cubic Yards, Bags & Cost for Slabs, Columns',
+  title: 'Concrete Calculator – Cubic Yards, Bags & Cost for Slabs',
   description:
     'Work out how much concrete you need for a slab, footing, column or steps, in cubic yards and 40/60/80 lb bags, with a waste allowance and cost estimate.',
   accent: 'yards, bags and cost',
@@ -72,7 +72,7 @@ const calc: Calculator = {
       primary: { label: 'Concrete needed', value: `${num(yd, 2)} cubic yards` },
       rows: [
         { label: 'Cubic feet', value: num(cuft, 1) },
-        { label: 'Cubic metres', value: num(cuft * 0.0283168, 2) },
+        { label: 'Cubic meters', value: num(cuft * 0.0283168, 2) },
         ...BAG_YIELD.map(([s, y]) => ({ label: `${s} bags`, value: String(Math.ceil(cuft / y)) })),
         { label: 'Ready-mix cost (estimate)', value: usd(yd * (+v.price || 0)) },
       ],
@@ -85,7 +85,7 @@ const calc: Calculator = {
   },
   intro: [
     'A concrete calculator tells you how much concrete to order for a project. Ready-mix is sold by the cubic yard; bagged mix by weight. Under-ordering is expensive — a second delivery or a cold joint — so we add a waste allowance by default.',
-    'Choose a slab (also patios, driveways, footings and walls), round columns and post holes, or steps. You get cubic yards, cubic feet, cubic metres, the number of 40, 60 and 80 lb bags, and a cost estimate at your local ready-mix price.',
+    'Choose a slab (also patios, driveways, footings and walls), round columns and post holes, or steps. You get cubic yards, cubic feet, cubic meters, the number of 40, 60 and 80 lb bags, and a cost estimate at your local ready-mix price. To size tanks, planters or other shapes, use the <a href="/volume-calculator/">volume calculator</a>.',
   ],
   formula: {
     expr: 'Slab:    L(ft) × W(ft) × T(in)/12\nColumn:  π × (D(in)/24)² × H(ft)\nSteps:   Σ run × (rise × i) × width,  i = 1…n\nCubic yards = cubic feet ÷ 27\nBags = cubic feet ÷ yield (0.30 / 0.45 / 0.60 ft³)',

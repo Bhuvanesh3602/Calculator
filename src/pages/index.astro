@@ -2,12 +2,10 @@
 import CalcCard from '../components/CalcCard.astro';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../site.config';
-import { calculators, categoryList } from '../lib/registry';
-import { renderChart } from '../lib/chart';
+import { calculators, categoryList, featured } from '../lib/registry';
 import SciCalc from '../components/SciCalc.astro';
 
 const keyClass = ['k-orange', 'k-pink', 'k-blue', 'k-green', 'k-yellow'];
-const top = calculators.slice(0, 12);
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -29,7 +27,7 @@ const jsonLd = [
         <h1 class="h-hero hero-h1">Free Online Calculators <span class="script" style="color:var(--accent)">that show their working</span></h1>
         <form class="search" role="search" action="/" data-search>
           <label for="q" class="sr-only">Search calculators</label>
-          <input id="q" name="q" type="search" placeholder="Mortgage, BMI, GPA, percentage…" autocomplete="off" />
+          <input id="q" name="q" type="search" placeholder="Mortgage, BMI, GPA…" autocomplete="off" />
           <button class="btn btn-accent" type="submit">Search</button>
         </form>
         <p class="hero-lead muted">
@@ -40,14 +38,24 @@ const jsonLd = [
           {calculators.slice(0, 6).map((c) => <li><a href={`/${c.slug}/`}>{c.name.replace(' Calculator', '')}</a></li>)}
         </ul>
         <p class="mono muted hero-meta">TESTED MATH · NO SIGN-UP · RUNS IN YOUR BROWSER</p>
-        <a class="btn btn-support hero-support" href="/support/">
-          <span class="heart" aria-hidden="true">❤</span> Support my work
-          <span class="small support-sub">Keep these tools free</span>
-        </a>
       </div>
       <div class="calc-stage">
         <SciCalc />
         <p class="sci-more"><a href="/scientific-calculator/">Full scientific calculator with step-by-step working →</a></p>
+        <p class="small hero-support-link"><a href="/support/"><span aria-hidden="true">❤</span> Support my work: keep these tools free</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light sec" id="quick">
+    <div class="wrap">
+      <div class="cat-head">
+        <h2>
+          Quick math and measuring tools <span class="script muted" style="font-size:1.4rem">answers in seconds</span>
+        </h2>
+      </div>
+      <div class="card-grid">
+        {featured.map((c, i) => <CalcCard calc={c} index={i} />)}
       </div>
     </div>
   </section>
@@ -63,7 +71,7 @@ const jsonLd = [
                 <h2>
                   {cat.name} <span class="script muted" style="font-size:1.4rem">{cat.accent}</span>
                 </h2>
-                <a href={`/${cat.slug}/`}>View all {cat.items.length} →</a>
+                {cat.items.length > 1 && <a href={`/${cat.slug}/`}>View all {cat.items.length} →</a>}
               </div>
               <div class="card-grid">
                 {cat.items.map((c, i) => (
@@ -74,33 +82,6 @@ const jsonLd = [
           ))
       }
       <p id="no-results" class="muted" hidden>No calculator matches that search yet.</p>
-    </div>
-  </section>
-
-  <section class="dark sec">
-    <div class="wrap">
-      <div class="analysis-block">
-        <div>
-          <Fragment
-            set:html={renderChart({
-              type: 'hbar',
-              title: 'Most-searched calculators, monthly US searches',
-              x: top.map((c) => c.name),
-              series: [{ name: 'Monthly searches', values: top.map((c) => c.volume) }],
-              y: 'int',
-            })}
-          />
-        </div>
-        <div class="analysis-text">
-          <p class="label muted">Our research</p>
-          <h2 class="h-sec">What the world <span class="script" style="color:var(--accent)">calculates</span></h2>
-          <p>
-            We started from keyword research covering about 180 search terms, merged the duplicates (Google groups “auto loan”, “car
-            loan” and “vehicle loan” into one demand pool), and built one dedicated page for each distinct need — {calculators.length} in all.
-          </p>
-          <a class="btn btn-light" href="/methodology/">How we build calculators</a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -136,6 +117,8 @@ const jsonLd = [
   q?.addEventListener('input', () => {
     const t = q.value.trim().toLowerCase();
     let any = false;
+    const quick = document.getElementById('quick');
+    if (quick) quick.hidden = !!t;
     document.querySelectorAll<HTMLElement>('[data-cat]').forEach((cat) => {
       let shown = 0;
       cat.querySelectorAll<HTMLElement>('[data-name]').forEach((a) => {

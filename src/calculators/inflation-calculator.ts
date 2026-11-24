@@ -18,7 +18,7 @@ const calc: Calculator = {
   variants: ['calculator for inflation rate', 'cpi inflation calculator', 'value of a dollar over time', 'purchasing power calculator'],
   title: 'Inflation Calculator – What Money Was Worth (CPI 1913–2024)',
   description:
-    'See what a dollar amount from any year since 1913 is worth today using official US CPI data, find the average inflation rate between years, or project future prices.',
+    'See what a dollar amount from any year since 1913 is worth today using official US CPI data, find the average inflation rate between years or project prices.',
   accent: 'using official CPI data',
   icon: '↑',
   inputs: [

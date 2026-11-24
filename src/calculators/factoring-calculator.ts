@@ -118,7 +118,7 @@ const calc: Calculator = {
   keyword: 'factoring calculator',
   volume: 165000,
   variants: ['factor calculator', 'prime factorization calculator', 'factor trinomials calculator', 'factoring quadratics calculator'],
-  title: 'Factoring Calculator – Quadratics & Prime Factorization, Steps',
+  title: 'Factoring Calculator – Quadratics & Prime Factors, Steps',
   description:
     'Factor quadratic trinomials like 2x² + 7x + 3 into binomials, or find the prime factorization and all factors of a whole number, with steps and a graph.',
   accent: 'numbers and quadratics',
@@ -146,7 +146,7 @@ const calc: Calculator = {
   },
   intro: [
     'Factoring rewrites an expression as a product. For whole numbers, that means breaking them into prime factors (360 = 2³ × 3² × 5). For quadratics, it means writing ax² + bx + c as two binomials, which reveals where the graph crosses the x-axis.',
-    'This factoring calculator does both, shows the working, and graphs the quadratic so you can see the roots. If a quadratic cannot be factored over the integers, it tells you why and gives the exact roots instead.',
+    'This factoring calculator does both, shows the working, and graphs the quadratic so you can see the roots. If a quadratic cannot be factored over the integers, it tells you why and gives the exact roots instead. To find only the greatest common factor of a set of numbers, use the <a href="/gcf-calculator/">GCF calculator</a>.',
   ],
   formula: {
     expr: 'ax² + bx + c = a(x − r₁)(x − r₂)\nr = (−b ± √(b² − 4ac)) / 2a\nFactors over integers ⇔ b² − 4ac is a perfect square',

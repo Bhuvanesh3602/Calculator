@@ -10,7 +10,7 @@ const calc: Calculator = {
   keyword: 'graphing calculator',
   volume: 450000,
   variants: ['graph calculator', 'calculator that graphs', 'graphs and functions calculator', 'solve by graphing calculator', 'online graphing calculator'],
-  title: 'Graphing Calculator – Plot Functions, Find Roots & Intersections',
+  title: 'Graphing Calculator – Plot Functions, Roots & Intersections',
   description:
     'Plot up to three functions of x in your own window and find roots, y-intercepts and intersections. A free online graphing calculator with a table of values.',
   accent: 'plot, zoom, solve',
@@ -63,7 +63,7 @@ const calc: Calculator = {
   },
   intro: [
     'A graphing calculator turns equations into pictures, so you can see roots, turning points, asymptotes and where two curves meet. This free online graphing calculator plots up to three functions of x at once, in any window you choose.',
-    'Beyond the graph, it solves numerically: it reports every root in the window, each function’s y-intercept, and the intersection points of f and g — the “solve by graphing” method from algebra class, done precisely. A table of values is included for homework.',
+    'Beyond the graph, it solves numerically: it reports every root in the window, each function’s y-intercept, and the intersection points of f and g — the “solve by graphing” method from algebra class, done precisely. A table of values is included for homework. For the slope of a line through two points, use the <a href="/slope-calculator/">slope calculator</a>.',
   ],
   formula: {
     expr: 'Roots: sign changes of f(x) on a fine grid, refined by bisection to 1e-12\nIntersections: roots of f(x) − g(x)\nSyntax: x^2, sqrt(x), sin(x) [radians], ln(x), log(x) [base 10], abs(x), exp(x)',
@@ -83,7 +83,7 @@ const calc: Calculator = {
     return [
       {
         title: 'Function families at a glance',
-        insight: 'Linear functions grow at a constant rate, quadratics curve with a single turning point, and cubics can turn twice. Recognising the family from a graph tells you how many roots to look for.',
+        insight: 'Linear functions grow at a constant rate, quadratics curve with a single turning point, and cubics can turn twice. Recognizing the family from a graph tells you how many roots to look for.',
         chart: {
           type: 'line',
           title: 'Linear, quadratic and cubic on [−2, 2]',

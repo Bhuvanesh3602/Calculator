@@ -31,7 +31,7 @@ const calc: Calculator = {
   keyword: 'loan calculator',
   volume: 673000,
   variants: ['lending calculator', 'lender loan calculator', 'loan and calculator', 'personal loan calculator', 'how much can I borrow'],
-  title: 'Loan Calculator – Monthly Payment, True APR & Borrowing Power',
+  title: 'Loan Calculator – Monthly Payment, APR & Borrowing Power',
   description:
     'Calculate any loan’s monthly payment and total interest, see the true APR once fees are included, or work backwards to find how much you can afford to borrow.',
   accent: 'with the true APR',
@@ -150,7 +150,7 @@ const calc: Calculator = {
     ];
   },
   variantQs: [
-    { q: 'Is a lending calculator different from a loan calculator?', a: 'No — “lending calculator”, “lender loan calculator” and “loan calculator” all describe the same maths. Lenders use the amortization formula shown above to set your payment.' },
+    { q: 'Is a lending calculator different from a loan calculator?', a: 'No — “lending calculator”, “lender loan calculator” and “loan calculator” all describe the same math. Lenders use the amortization formula shown above to set your payment.' },
     { q: 'How much can I borrow with a loan calculator?', a: 'Switch the mode to “How much I can borrow”, enter a monthly payment you are comfortable with, and the calculator solves for the largest principal at your rate and term.' },
     { q: 'Does this work as a personal loan calculator?', a: 'Yes. Personal loans are fixed-rate installment loans, often with an origination fee — which is why the APR line is included.' },
   ],

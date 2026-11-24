@@ -32,7 +32,7 @@ const calc: Calculator = {
   keyword: 'mortgage calculator',
   volume: 2240000,
   variants: ['mortgage payment calculator', 'home loan calculator', 'house payment calculator', 'mortgage calculator with taxes and insurance'],
-  title: 'Mortgage Calculator (2026) – Monthly Payment with PMI & Tax',
+  title: `Mortgage Calculator (${new Date().getFullYear()}) – Monthly Payment with PMI & Tax`,
   description:
     'Free mortgage calculator: see your monthly payment with property tax, insurance, PMI and HOA, plus how extra payments cut years and interest off your loan.',
   accent: 'with real payoff math',
@@ -70,7 +70,7 @@ const calc: Calculator = {
       { label: 'Home insurance', value: usd2(m.ins) },
     ];
     if (m.hoa) rows.push({ label: 'HOA', value: usd2(m.hoa) });
-    if (m.pmiMonthly) rows.push({ label: `PMI (about ${Math.ceil(m.pmiMonths / 12)} yrs)`, value: usd2(m.pmiMonthly) });
+    if (m.pmiMonthly) rows.push({ label: `PMI (for ${Math.floor(m.pmiMonths / 12)} yrs ${m.pmiMonths % 12} mo)`, value: usd2(m.pmiMonthly) });
     rows.push(
       { label: 'Loan amount', value: usd(m.loan) },
       { label: 'Total interest', value: usd(m.interest) },
@@ -100,7 +100,7 @@ const calc: Calculator = {
   answer: {
     text: (r, v) => {
       const m = mortgage(v);
-      return `A <strong>$${(+v.price).toLocaleString("en-US")}</strong> home with ${v.down}% down at ${v.rate}% for ${v.term} years costs about <strong>${usd(m.total)} a month</strong> including tax and insurance — ${usd(m.pi)} of that is principal and interest. Over the full term you would pay roughly <strong>${usd(m.interest)} in interest</strong>.`;
+      return `A <strong>$${(+v.price).toLocaleString("en-US")}</strong> home with ${v.down}% down at ${v.rate}% for ${v.term} years costs about <strong>${usd(m.total)} a month</strong> including ${v.tax}% property tax and ${usd(+v.insurance)} a year of home insurance — ${usd(m.pi)} of that is principal and interest. Over the full term you would pay roughly <strong>${usd(m.interest)} in interest</strong>.`;
     },
   },
   intro: [
@@ -221,7 +221,7 @@ const calc: Calculator = {
     },
     {
       q: 'Is a home loan calculator the same as a mortgage calculator?',
-      a: 'Yes. "Home loan" and "mortgage" describe the same product in the US, and the payment maths is identical. The terms differ only by region and lender marketing.',
+      a: 'Yes. "Home loan" and "mortgage" describe the same product in the US, and the payment math is identical. The terms differ only by region and lender marketing.',
     },
     {
       q: 'How do I use a house payment calculator to set a budget?',

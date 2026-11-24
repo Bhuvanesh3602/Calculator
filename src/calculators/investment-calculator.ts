@@ -79,7 +79,7 @@ const calc: Calculator = {
   },
   intro: [
     'An investment calculator projects how a portfolio could grow from a starting amount and regular contributions at an assumed rate of return. Because real returns are never smooth, it is best used to compare scenarios rather than to predict an exact number.',
-    'This one adds two things most calculators leave out: an annual contribution step-up (as in a SIP top-up, or raising your 401(k) contribution with each pay rise) and the fund’s expense ratio, so you can see how much a seemingly small fee takes from your final balance.',
+    'This one adds two things most calculators leave out: an annual contribution step-up (as in a SIP top-up, or raising your 401(k) contribution with each pay rise) and the fund’s expense ratio, so you can see how much a seemingly small fee takes from your final balance. For a guaranteed rate over a fixed term, compare it with the <a href="/cd-calculator/">CD calculator</a>.',
   ],
   formula: {
     expr: 'Net return  g = (1 + R) / (1 + F) − 1\nMonthly rate m = (1 + g)^(1/12) − 1\nBalance_(k+1) = Balance_k × (1 + m) + C_year\nC_(year+1) = C_year × (1 + step-up)',
@@ -122,7 +122,7 @@ const calc: Calculator = {
     ];
   },
   variantQs: [
-    { q: 'Can I use this as a SIP calculator?', a: 'Yes. A Systematic Investment Plan is a fixed monthly investment, and a “step-up SIP” raises it each year — both are modelled here. Enter amounts in your own currency; the maths is the same.' },
+    { q: 'Can I use this as a SIP calculator?', a: 'Yes. A Systematic Investment Plan is a fixed monthly investment, and a “step-up SIP” raises it each year — both are modeled here. Enter amounts in your own currency; the math is the same.' },
     { q: 'How do I calculate investment returns?', a: 'Use the expected annual return of your asset mix. Historical stock market averages are higher than bonds or cash but come with large year-to-year swings; the ±2% scenarios show a range.' },
   ],
   tips: [

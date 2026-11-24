@@ -30,9 +30,9 @@ const calc: Calculator = {
   keyword: 'gpa calculator',
   volume: 823000,
   variants: ['grades calculator gpa', 'college gpa calculator', 'cumulative gpa calculator', 'weighted gpa calculator', 'gradebook calculator'],
-  title: 'GPA Calculator – Semester & Cumulative, Weighted or Unweighted',
+  title: 'GPA Calculator – Semester & Cumulative, Weighted GPA',
   description:
-    'Calculate your semester and cumulative GPA on a 4.0 scale, weighted for honors and AP classes or unweighted, and find the GPA you need next term to reach your goal.',
+    'Calculate semester and cumulative GPA on a 4.0 scale, weighted for honors and AP or unweighted, and find the GPA you need next term to reach your goal.',
   accent: 'and what you need next',
   icon: 'A',
   inputs: [
@@ -105,7 +105,7 @@ const calc: Calculator = {
   },
   intro: [
     'GPA (grade point average) converts letter grades into a number on a 4.0 scale and averages them, weighted by each course’s credit hours. Colleges, scholarships and employers use it as a quick summary of academic performance.',
-    'This GPA calculator handles unweighted and weighted GPAs (honors +0.5, AP/IB +1.0, as many US high schools use), combines your term with previous credits for a cumulative GPA, and tells you the GPA you would need next term to hit a target.',
+    'This GPA calculator handles unweighted and weighted GPAs (honors +0.5, AP/IB +1.0, as many US high schools use), combines your term with previous credits for a cumulative GPA, and tells you the GPA you would need next term to hit a target. For a plain average of test scores, use the <a href="/average-calculator/">average calculator</a>.',
   ],
   formula: {
     expr: 'GPA = Σ(grade points × credits) ÷ Σ credits\nCumulative = (term points + prior GPA × prior credits) ÷ all credits\nNeeded = (target × (credits so far + next) − current × credits so far) ÷ next',

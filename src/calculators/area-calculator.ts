@@ -43,7 +43,7 @@ const calc: Calculator = {
   variants: ['area of a triangle calculator', 'area of a circle calculator', 'surface area calculator', 'land area calculator'],
   title: 'Area Calculator – 9 Shapes with Formulas & Unit Conversions',
   description:
-    'Calculate the area of rectangles, squares, triangles, circles, trapezoids, ellipses, parallelograms and sectors in any unit, converted to sq ft, m², acres and more.',
+    'Calculate the area of rectangles, squares, triangles, circles, trapezoids, ellipses and sectors in any unit, converted to sq ft, m², acres and more.',
   accent: 'any shape, any unit',
   icon: '▲',
   inputs: [
@@ -63,7 +63,7 @@ const calc: Calculator = {
       primary: { label: `Area of ${s.label.toLowerCase()}`, value: `${num(A, 4)} ${v.unit}²` },
       rows: [
         { label: 'Square feet', value: num(m2 / 0.09290304, 4) },
-        { label: 'Square metres', value: num(m2, 4) },
+        { label: 'Square meters', value: num(m2, 4) },
         { label: 'Square inches', value: num(m2 / 0.00064516, 2) },
         { label: 'Acres', value: num(m2 / 4046.8564224, 6) },
         { label: 'Hectares', value: num(m2 / 10000, 6) },
@@ -73,11 +73,11 @@ const calc: Calculator = {
   },
   answer: {
     text: (r) =>
-      `The area of a <strong>triangle with base 8 ft and height 5 ft</strong> is <strong>${r.primary.value.replace('ft²', 'sq ft')}</strong>: half of base × height = ½ × 8 × 5. Pick another shape — circle, trapezoid, ellipse and more — and any unit, and the area is converted to square feet, square metres and acres.`,
+      `The area of a <strong>triangle with base 8 ft and height 5 ft</strong> is <strong>${r.primary.value.replace('ft²', 'sq ft')}</strong>: half of base × height = ½ × 8 × 5. Pick another shape — circle, trapezoid, ellipse and more — and any unit, and the area is converted to square feet, square meters and acres.`,
   },
   intro: [
     'Area is the amount of flat surface inside a shape, measured in square units. Each shape has its own formula, and mixing units (feet with inches) is the most common error.',
-    'Choose from nine shapes, enter dimensions in any unit, and get the area with the formula and working shown, converted into square feet, metres, inches, acres and hectares. For whole rooms or floors, use our square footage calculator.',
+    'Choose from nine shapes, enter dimensions in any unit, and get the area with the formula and working shown, converted into square feet, meters, inches, acres and hectares. For whole rooms or floors, use our <a href="/square-footage-calculator/">square footage calculator</a>; for the space inside a 3D shape, use the <a href="/volume-calculator/">volume calculator</a>.',
   ],
   formula: {
     expr: Object.values(SHAPES)
@@ -112,7 +112,7 @@ const calc: Calculator = {
   },
   variantQs: [
     { q: 'How do I find the area of a triangle?', a: 'Half of base times height. If you only know the three sides, choose “Triangle (three sides)” to use Heron’s formula.' },
-    { q: 'How do I calculate land area in acres?', a: 'Measure in feet or metres, calculate the area, and read the acres line. One acre is 43,560 square feet.' },
+    { q: 'How do I calculate land area in acres?', a: 'Measure in feet or meters, calculate the area, and read the acres line. One acre is 43,560 square feet.' },
   ],
   tips: [
     'Convert all measurements to the same unit before calculating.',

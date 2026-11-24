@@ -23,7 +23,7 @@ const calc: Calculator = {
   variants: ['find square footage calculator', 'sq ft calculator', 'room square footage calculator', 'flooring calculator'],
   title: 'Square Footage Calculator – Rooms, Flooring & Cost per Sq Ft',
   description:
-    'Add up the square footage of several rooms or shapes, include a waste factor for flooring, tile or paint, and estimate material cost at your price per square foot.',
+    'Add up the square footage of several rooms or shapes, include a waste factor for flooring, tile or paint, and estimate material cost per square foot.',
   accent: 'room by room',
   icon: '⬚',
   inputs: [
@@ -64,7 +64,7 @@ const calc: Calculator = {
       primary: { label: 'Total area', value: `${num(total, 1)} sq ft` },
       rows: [
         { label: `With ${v.waste}% waste`, value: `${num(withWaste, 1)} sq ft` },
-        { label: 'Square metres', value: num(total * 0.092903, 2) + ' m²' },
+        { label: 'Square meters', value: num(total * 0.092903, 2) + ' m²' },
         { label: 'Square yards (carpet)', value: num(total / 9, 2) + ' yd²' },
         { label: 'Boxes needed', value: +v.box > 0 ? String(Math.ceil(withWaste / +v.box)) : '—' },
         { label: 'Material cost', value: usd(withWaste * (+v.price || 0)) },
@@ -118,7 +118,7 @@ const calc: Calculator = {
     'Measure wall to wall at floor level, and round up to the nearest inch.',
     'Convert inches to feet by dividing by 12 (10 ft 6 in = 10.5 ft).',
     'Closets count if you are flooring them.',
-    'Buy all boxes from the same lot to avoid colour differences.',
+    'Buy all boxes from the same lot to avoid color differences.',
   ],
   faqs: [
     { q: 'How do you calculate square feet?', a: 'Multiply length by width, both in feet. A 12 × 15 ft room is 180 sq ft.' },

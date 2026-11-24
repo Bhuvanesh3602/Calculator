@@ -49,11 +49,17 @@ const disclaimers: Record<string, string> = {
     'This calculator gives general estimates and is not medical advice. Formulas describe populations, not individuals. Talk to a doctor or registered dietitian before making health decisions.',
   general: 'Results are estimates. Double-check anything important before relying on it.',
 };
+const pregnancySlugs = new Set(['pregnancy-calculator', 'ovulation-calculator', 'due-date-calculator']);
+const disclaimer = pregnancySlugs.has(calc.slug)
+  ? 'This calculator gives general estimates and is not medical advice. Cycles and pregnancies vary. Talk to your obstetrician, midwife or fertility clinic about your own dates.'
+  : disclaimers[calc.disclaimer ?? 'general'];
+const founder = { '@id': SITE.url + '/about/#founder' };
 
 const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
+    '@id': url + '#app',
     name: calc.name,
     url,
     applicationCategory: appCat[calc.category] ?? 'UtilitiesApplication',
@@ -67,18 +73,25 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': url + '#webpage',
     name: calc.title,
     url,
     description: calc.description,
+    datePublished: SITE.launched,
     dateModified: SITE.lastReviewed,
     inLanguage: 'en-US',
     isPartOf: { '@id': SITE.url + '/#website' },
-    about: calc.keyword,
+    author: founder,
+    publisher: { '@id': SITE.url + '/#org' },
+    mainEntity: { '@id': url + '#app' },
+    breadcrumb: { '@id': url + '#breadcrumb' },
+    about: { '@type': 'Thing', name: calc.keyword },
     ...(ogImage ? { primaryImageOfPage: { '@type': 'ImageObject', url: ogImage.url, width: ogImage.width, height: ogImage.height } } : {}),
   },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': url + '#breadcrumb',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url + '/' },
       { '@type': 'ListItem', position: 2, name: cat.name, item: `${SITE.url}/${cat.slug}/` },
@@ -110,6 +123,10 @@ const jsonLd = [
       </nav>
       <h1 class="h-hero">{calc.name} <span class="script" style="color:var(--accent)">{calc.accent}</span></h1>
       <p class="answer" set:html={answer} />
+      <p class="small muted byline">
+        By <a href="/about/">{SITE.founder}</a> · Last reviewed
+        <time datetime={SITE.lastReviewed}>{new Date(SITE.lastReviewed + 'T12:00').toLocaleDateString('en-US', { dateStyle: 'long' })}</time>
+      </p>
       <div class="calc-grid">
         <div class="panel">
           <CalcForm calc={calc} values={values} />
@@ -298,7 +315,7 @@ const jsonLd = [
         <div class="orb" aria-hidden="true">+</div>
         <div>
           <h2 class="h-sec" style="color:#fff">Keep going with <span class="script">related tools</span></h2>
-          <p>These calculators use the same inputs, so your numbers carry across.</p>
+          <p>Calculators for the next question people usually ask after this one.</p>
         </div>
         <div class="card-grid" style="grid-column:1/-1">
           {
@@ -333,10 +350,10 @@ const jsonLd = [
         <div>
           <h2 style="font-size:1.25rem">Last reviewed</h2>
           <p class="small muted">
-            <time datetime={SITE.lastReviewed}>{new Date(SITE.lastReviewed + 'T12:00').toLocaleDateString('en-US', { dateStyle: 'long' })}</time> ·
-            Formula verified against known answers in our automated test suite.
+            <time datetime={SITE.lastReviewed}>{new Date(SITE.lastReviewed + 'T12:00').toLocaleDateString('en-US', { dateStyle: 'long' })}</time> by
+            <a href="/about/">{SITE.founder}</a>. Runs through our automated test suite on every build.
           </p>
-          <p class="small muted">{disclaimers[calc.disclaimer ?? 'general']}</p>
+          <p class="small muted">{disclaimer}</p>
         </div>
       </div>
     </div>

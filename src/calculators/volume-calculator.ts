@@ -20,10 +20,10 @@ const calc: Calculator = {
   keyword: 'volume calculator',
   volume: 165000,
   variants: ['cubic feet calculator', 'cylinder volume calculator', 'tank volume calculator', 'gallons calculator'],
-  title: 'Volume Calculator – Cylinder, Sphere, Box in Gallons & Liters',
+  title: 'Volume Calculator – Box, Cylinder & Sphere in Gallons',
   description:
-    'Calculate the volume of boxes, cubes, cylinders, spheres, cones, pyramids and capsules in any unit, converted to cubic feet, cubic metres, liters and US gallons.',
-  accent: 'in gallons, litres, cubic feet',
+    'Calculate the volume of boxes, cylinders, spheres, cones, pyramids and capsules in any unit, converted to cubic feet, cubic meters, liters and US gallons.',
+  accent: 'in gallons, liters, cubic feet',
   icon: '◫',
   inputs: [
     { id: 'shape', label: 'Shape', type: 'select', default: 'cyl', options: Object.entries(SHAPES).map(([value, s]) => ({ value, label: s.label })) },
@@ -43,7 +43,7 @@ const calc: Calculator = {
         { label: 'US gallons', value: num(m3 * 264.172052, 3) },
         { label: 'Liters', value: num(m3 * 1000, 3) },
         { label: 'Cubic feet', value: num(m3 * 35.3146667, 4) },
-        { label: 'Cubic metres', value: num(m3, 5) },
+        { label: 'Cubic meters', value: num(m3, 5) },
         { label: 'Cubic yards', value: num(m3 * 1.30795062, 4) },
         { label: 'Water weight', value: `${num(m3 * 1000, 1)} kg / ${num(m3 * 1000 * 2.20462, 1)} lb` },
       ],
@@ -56,7 +56,7 @@ const calc: Calculator = {
   },
   intro: [
     'Volume is the amount of space a 3D shape occupies, measured in cubic units. It tells you how much a tank, pool, planter, box or room can hold.',
-    'Pick a shape, enter its dimensions in any unit, and get the volume converted to US gallons, liters, cubic feet, cubic metres and cubic yards — plus the weight if it were filled with water.',
+    'Pick a shape, enter its dimensions in any unit, and get the volume converted to US gallons, liters, cubic feet, cubic meters and cubic yards — plus the weight if it were filled with water.',
   ],
   formula: {
     expr: Object.values(SHAPES)
@@ -94,7 +94,7 @@ const calc: Calculator = {
   faqs: [
     { q: 'How many gallons are in a cubic foot?', a: 'About 7.48 US gallons.' },
     { q: 'What is the volume of a cylinder?', a: 'π × radius² × height.' },
-    { q: 'How many liters are in a cubic metre?', a: '1,000 liters.' },
+    { q: 'How many liters are in a cubic meter?', a: '1,000 liters.' },
     { q: 'How do I find the volume of an irregular object?', a: 'Submerge it in water and measure the volume of water displaced, or split it into simple shapes.' },
   ],
   sources: [{ label: 'NIST Handbook 44 – Appendix C, units of volume', url: 'https://www.nist.gov/pml/owm/publications/nist-handbooks/handbook-44' }],

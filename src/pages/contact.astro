@@ -7,14 +7,8 @@ const jsonLd = [
     '@type': 'ContactPage',
     name: `Contact ${SITE.name}`,
     url: `${SITE.url}/contact/`,
-    mainEntity: {
-      '@type': 'Organization',
-      name: SITE.operator,
-      url: SITE.url + '/',
-      email: SITE.email,
-      telephone: SITE.phone.replace(/\s/g, ''),
-      contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: SITE.email, availableLanguage: ['English'] },
-    },
+    isPartOf: { '@id': SITE.url + '/#website' },
+    mainEntity: { '@id': SITE.url + '/#org' },
   },
 ];
 ---
@@ -22,7 +16,6 @@ const jsonLd = [
   <p>Found a number that looks wrong, want a calculator we don’t have yet, or have a question about our privacy practices? We’d like to hear from you.</p>
   <ul>
     <li><strong>Email:</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-    <li><strong>Phone:</strong> <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></li>
     <li><strong>Website operator:</strong> {SITE.operator}</li>
   </ul>
   <h2>Reporting an error</h2>

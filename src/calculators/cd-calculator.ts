@@ -14,9 +14,9 @@ const calc: Calculator = {
   keyword: 'cd calculator',
   volume: 165000,
   variants: ['certificate of deposit calculator', 'cd interest calculator', 'cd rates calculator', 'cd early withdrawal penalty'],
-  title: 'CD Calculator – Interest Earned, APY vs APR & Early Withdrawal',
+  title: 'CD Calculator – Interest Earned, APY & Early Withdrawal',
   description:
-    'Calculate what a certificate of deposit earns by maturity, convert APY and APR, and see what an early withdrawal penalty would cost before you lock your money in.',
+    'Calculate what a certificate of deposit earns by maturity, convert APY and APR, and see what an early withdrawal penalty would cost before you commit.',
   accent: 'before you lock it in',
   icon: '◎',
   inputs: [

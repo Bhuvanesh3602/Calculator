@@ -105,7 +105,7 @@ const calc: Calculator = {
   ],
   tips: [
     'For official forms, check whether the cut-off counts age “on” or “before” the date.',
-    'Leap-day birthdays are legally recognised on Feb 28 or Mar 1 depending on the jurisdiction.',
+    'Leap-day birthdays are legally recognized on Feb 28 or Mar 1 depending on the jurisdiction.',
     'Use the milestone table to plan Social Security or Medicare decisions.',
   ],
   faqs: [

@@ -1,7 +1,7 @@
 import { num } from '../lib/format';
 import type { Calculator, Values } from '../lib/types';
 
-/** Approximate city-centre coordinates (decimal degrees). */
+/** Approximate city-center coordinates (decimal degrees). */
 export const CITIES: Record<string, [string, number, number]> = {
   nyc: ['New York', 40.7128, -74.006],
   la: ['Los Angeles', 34.0522, -118.2437],
@@ -74,7 +74,7 @@ const calc: Calculator = {
     return {
       primary: { label: `${name('from')} → ${name('to')}`, value: `${num(km * 0.621371, 0)} miles` },
       rows: [
-        { label: 'Kilometres', value: num(km, 0) },
+        { label: 'Kilometers', value: num(km, 0) },
         { label: 'Nautical miles', value: num(km / 1.852, 0) },
         { label: 'Initial bearing', value: `${num(b, 1)}° (${compass(b)})` },
         { label: 'Rough flight time', value: km < 1 ? '—' : `${Math.floor(km / 800 + 0.5)}h ${String(Math.round(((km / 800 + 0.5) % 1) * 60)).padStart(2, '0')}m` },
@@ -88,7 +88,7 @@ const calc: Calculator = {
   },
   intro: [
     'A distance calculator measures the shortest path between two points on the globe — the great-circle distance, or “as the crow flies”. It is the basis for flight distances, radio range and shipping estimates.',
-    'Pick two cities or enter latitude and longitude for any place. You get miles, kilometres and nautical miles, the compass bearing to start out on, and a rough flight time.',
+    'Pick two cities or enter latitude and longitude for any place. You get miles, kilometers and nautical miles, the compass bearing to start out on, and a rough flight time.',
   ],
   formula: {
     expr: 'a = sin²(Δφ/2) + cos φ₁ · cos φ₂ · sin²(Δλ/2)\nd = 2R · asin(√a)',
@@ -134,7 +134,7 @@ const calc: Calculator = {
   ],
   faqs: [
     { q: 'How far is New York from Los Angeles?', a: `About ${num(haversine(40.7128, -74.006, 34.0522, -118.2437) * 0.621371, 0)} miles in a straight line.` },
-    { q: 'What is a nautical mile?', a: 'Exactly 1,852 metres, about 1.15 statute miles. It is used in aviation and shipping.' },
+    { q: 'What is a nautical mile?', a: 'Exactly 1,852 meters, about 1.15 statute miles. It is used in aviation and shipping.' },
     { q: 'Why is the shortest flight path curved on a map?', a: 'Flat maps distort the round Earth; the shortest path on a sphere (a great circle) appears curved.' },
     { q: 'How accurate is this distance?', a: 'Within about 0.5% of the true ellipsoidal distance — more than enough for travel planning.' },
   ],

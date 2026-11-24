@@ -15,11 +15,31 @@ const calc: Calculator = {
     'Calculate your body mass index in pounds or kilograms, see your WHO category, your healthy weight range for your height, and what BMI can and cannot tell you.',
   accent: 'and what it misses',
   icon: 'B',
-  inputs: bodyFields({ age: false }),
+  inputs: [
+    {
+      id: 'ageGroup',
+      label: 'Age group',
+      type: 'select',
+      default: 'adult',
+      options: [
+        { value: 'adult', label: 'Adult (20 or older)' },
+        { value: 'child', label: 'Child or teen (2–19)' },
+      ],
+      help: 'Adult BMI categories do not apply under 20.',
+    },
+    ...bodyFields({ age: false }),
+  ],
   compute(v) {
     const b = body(v);
     if (!(b.m > 0.5) || !(b.kg > 10)) return { primary: { label: '', value: '' }, error: 'Enter a valid height and weight.' };
     const val = bmi(b.kg, b.m);
+    if (v.ageGroup === 'child') {
+      return {
+        primary: { label: 'BMI number (adult categories do not apply)', value: num(val, 1) },
+        rows: [{ label: 'What to do with it', value: 'Look up the BMI-for-age percentile' }],
+        note: 'For ages 2–19, BMI is judged against growth charts for the child’s exact age and sex, so the adult cut-offs (18.5, 25, 30) would mislabel the result. Use the CDC Child and Teen BMI Calculator (cdc.gov/bmi) to get the percentile and category, and talk to your child’s doctor about it.',
+      };
+    }
     const lo = 18.5 * b.m * b.m,
       hi = 24.9 * b.m * b.m;
     const toHealthy = val > 24.9 ? b.kg - hi : val < 18.5 ? lo - b.kg : 0;
@@ -51,7 +71,7 @@ const calc: Calculator = {
   },
   intro: [
     'Body mass index (BMI) is your weight divided by the square of your height. It is a quick screening number that health services use to flag possible underweight, overweight or obesity in adults — not a diagnosis.',
-    'This BMI calculator works in pounds and feet or kilograms and centimetres, shows your World Health Organization category, and converts the healthy BMI range into an actual weight range for your height. The same adult cut-offs apply to women and men.',
+    'This BMI calculator works in pounds and feet or kilograms and centimeters, shows your World Health Organization category, and converts the healthy BMI range into an actual weight range for your height. The same adult cut-offs apply to women and men.',
   ],
   formula: {
     expr: 'BMI = weight (kg) ÷ height (m)²\nBMI = 703 × weight (lb) ÷ height (in)²',

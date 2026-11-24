@@ -1,3 +1,4 @@
+import { gcd } from '../lib/math';
 import { num } from '../lib/format';
 import type { Calculator } from '../lib/types';
 
@@ -9,22 +10,45 @@ const calc: Calculator = {
   keyword: 'slope calculator',
   volume: 165000,
   variants: ['slope intercept form calculator', 'point slope form calculator', 'rise over run calculator', 'gradient calculator'],
-  title: 'Slope Calculator – Slope, Line Equation & Angle from 2 Points',
+  title: 'Slope Calculator – Line Equation & Angle from Two Points',
   description:
     'Find the slope between two points, the line’s equation in slope-intercept and point-slope form, its angle, distance and midpoint — graphed, with steps.',
   accent: 'from two points',
   icon: '/',
   inputs: [
-    { id: 'x1', label: 'x₁', type: 'number', default: 1 },
-    { id: 'y1', label: 'y₁', type: 'number', default: 2 },
-    { id: 'x2', label: 'x₂', type: 'number', default: 5 },
-    { id: 'y2', label: 'y₂', type: 'number', default: 10 },
+    {
+      id: 'mode',
+      label: 'What do you know?',
+      type: 'select',
+      default: 'two',
+      options: [
+        { value: 'two', label: 'Two points' },
+        { value: 'pointslope', label: 'One point and the slope' },
+        { value: 'riserun', label: 'Rise and run' },
+      ],
+    },
+    { id: 'x1', label: 'x₁', type: 'number', default: 1, showIf: { field: 'mode', in: ['two', 'pointslope'] } },
+    { id: 'y1', label: 'y₁', type: 'number', default: 2, showIf: { field: 'mode', in: ['two', 'pointslope'] } },
+    { id: 'x2', label: 'x₂', type: 'number', default: 5, showIf: { field: 'mode', in: ['two'] } },
+    { id: 'y2', label: 'y₂', type: 'number', default: 10, showIf: { field: 'mode', in: ['two'] } },
+    { id: 'm', label: 'Slope m', type: 'number', default: 2, step: 0.1, showIf: { field: 'mode', in: ['pointslope'] } },
+    { id: 'rise', label: 'Rise (change in y)', type: 'number', default: 3, showIf: { field: 'mode', in: ['riserun'] } },
+    { id: 'run', label: 'Run (change in x)', type: 'number', default: 12, showIf: { field: 'mode', in: ['riserun'] } },
   ],
   compute(v) {
-    const x1 = +v.x1,
+    let x1 = +v.x1,
       y1 = +v.y1,
       x2 = +v.x2,
       y2 = +v.y2;
+    if (v.mode === 'pointslope') {
+      x2 = x1 + 1;
+      y2 = y1 + +v.m;
+    } else if (v.mode === 'riserun') {
+      x1 = 0;
+      y1 = 0;
+      x2 = +v.run;
+      y2 = +v.rise;
+    }
     if ([x1, y1, x2, y2].some((n) => !isFinite(n))) return { primary: { label: '', value: '' }, error: 'Enter both points.' };
     if (x1 === x2 && y1 === y2) return { primary: { label: '', value: '' }, error: 'The two points are identical.' };
     const dx = x2 - x1,
@@ -46,13 +70,16 @@ const calc: Calculator = {
     return {
       primary: { label: 'Slope m', value: num(m, 6) },
       rows: [
-        { label: 'Slope-intercept', value: `y = ${num(m, 4)}x ${b >= 0 ? '+' : '−'} ${num(Math.abs(b), 4)}` },
+        { label: 'Slope-intercept', value: `y = ${num(m, 4)}x${num(Math.abs(b), 4) === '0' ? '' : ` ${b >= 0 ? '+' : '−'} ${num(Math.abs(b), 4)}`}` },
         { label: 'Point-slope', value: `y − ${num(y1, 4)} = ${num(m, 4)}(x − ${num(x1, 4)})` },
         { label: 'Angle with x-axis', value: num((Math.atan(m) * 180) / Math.PI, 3) + '°' },
         { label: 'Grade', value: num(m * 100, 2) + '%' },
         { label: 'Distance between points', value: num(dist, 6) },
         { label: 'Midpoint', value: `(${num((x1 + x2) / 2, 4)}, ${num((y1 + y2) / 2, 4)})` },
         { label: 'x-intercept', value: m !== 0 ? num(-b / m, 4) : 'none' },
+        ...(Number.isInteger(dy) && Number.isInteger(dx) && dy % dx !== 0
+          ? [{ label: 'Exact slope (fraction)', value: `${(dx < 0 ? -dy : dy) / gcd(Math.abs(dy), Math.abs(dx))}/${Math.abs(dx) / gcd(Math.abs(dy), Math.abs(dx))}` }]
+          : []),
       ],
       steps: [`Rise: y₂ − y₁ = ${y2} − ${y1} = ${dy}`, `Run: x₂ − x₁ = ${x2} − ${x1} = ${dx}`, `m = rise ÷ run = ${dy} ÷ ${dx} = ${num(m, 6)}`, `b = y₁ − m·x₁ = ${y1} − ${num(m, 4)} × ${x1} = ${num(b, 4)}`],
       chart: { type: 'line', title: 'The line through both points', x: xs, series: [{ name: 'y', values: xs.map((x) => m * x + b) }], y: 'num', numericX: true, xTitle: 'x' },
@@ -64,7 +91,7 @@ const calc: Calculator = {
   },
   intro: [
     'Slope measures how steep a line is: how much y changes for each one-unit change in x. Positive slopes rise left to right, negative slopes fall, zero is flat, and vertical lines have undefined slope.',
-    'Enter any two points to get the slope, the equation in slope-intercept and point-slope form, the angle in degrees, the percent grade used for roads and ramps, plus distance and midpoint — with a graph of the line.',
+    'Enter two points, one point and the slope, or a rise and run to get the slope, the equation in slope-intercept and point-slope form, the angle in degrees, the percent grade used for roads and ramps, plus distance and midpoint — with a graph of the line.',
   ],
   formula: {
     expr: 'm = (y₂ − y₁) / (x₂ − x₁)\ny = mx + b,  b = y₁ − m·x₁\nAngle θ = arctan(m)\nDistance = √((x₂ − x₁)² + (y₂ − y₁)²)',

@@ -4,9 +4,9 @@ import { SITE } from '../site.config';
 ---
 <TextPage title={`Methodology – How ${SITE.name} Builds & Tests Calculators`} description="How we choose formulas, cite sources, test results against known answers and keep rates, brackets and data up to date." h1="Our methodology" accent="show the working">
   <h2>1. Published formulas only</h2>
-  <p>Every calculator uses a formula from a primary source — a government agency (IRS, BLS, CDC, CFPB), a peer-reviewed study or a standards body. Sources are listed at the bottom of each page.</p>
+  <p>Every calculator uses a formula from a primary or recognized reference source — usually a government agency (IRS, BLS, CDC, CFPB), a peer-reviewed study or a standards body, and for everyday math a standard textbook or etiquette reference. Sources are listed at the bottom of each page.</p>
   <h2>2. Tested code</h2>
-  <p>Each formula lives in a small, pure function with automated tests that compare its output with known correct answers (for example, IRS tax tables and textbook amortization examples). The same functions generate the worked examples and the analysis charts, so a number can’t appear on a page unless the code produced it.</p>
+  <p>Each formula lives in a small, pure function. Our automated test suite runs every calculator on every build, and the core formulas (for example tax brackets, amortization, BMI, dates and fractions) are compared with known correct answers such as IRS tax tables and textbook examples. The same functions generate the worked examples and the analysis charts, so a number can’t appear on a page unless the code produced it.</p>
   <h2>3. Dated data</h2>
   <p>Anything that changes over time — tax brackets, wage bases, CPI — carries an “as of” date. We review these every January and when agencies publish changes.</p>
   <h2>4. Honest limits</h2>

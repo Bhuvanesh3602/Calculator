@@ -12,7 +12,7 @@ const calc: Calculator = {
   keyword: 'tdee calculator',
   volume: 550000,
   variants: ['total daily energy expenditure calculator', 'maintenance calories calculator', 'how many calories do I burn a day'],
-  title: 'TDEE Calculator – Total Daily Energy Expenditure & Maintenance',
+  title: 'TDEE Calculator – Total Daily Energy Expenditure',
   description:
     'Find your total daily energy expenditure — the calories you burn in a day — for every activity level, plus a breakdown of BMR, exercise and digestion.',
   accent: 'your maintenance number',

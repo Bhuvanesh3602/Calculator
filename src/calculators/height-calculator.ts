@@ -21,7 +21,7 @@ const calc: Calculator = {
   keyword: 'height calculator',
   volume: 165000,
   variants: ['child height predictor', 'how tall will I be', 'adult height calculator', 'mid parental height calculator'],
-  title: 'Height Calculator – How Tall Will My Child Be? (Mid-Parental)',
+  title: 'Height Calculator – How Tall Will My Child Be?',
   description:
     'Predict a child’s adult height from both parents’ heights using the mid-parental method pediatricians use, with the likely range and what affects it.',
   accent: 'from both parents',
@@ -34,7 +34,7 @@ const calc: Calculator = {
       default: 'us',
       options: [
         { value: 'us', label: 'Feet & inches' },
-        { value: 'metric', label: 'Centimetres' },
+        { value: 'metric', label: 'Centimeters' },
       ],
     },
     {

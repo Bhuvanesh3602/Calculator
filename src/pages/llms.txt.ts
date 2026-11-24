@@ -7,6 +7,10 @@ export function GET() {
     for (const i of c.items) body += `- [${i.name}](${SITE.url}/${i.slug}/): ${i.description}\n`;
     body += '\n';
   }
-  body += `## About\n\n- [Methodology](${SITE.url}/methodology/): how formulas are sourced and tested\n`;
+  body += `## About\n\n`;
+  body += `- [About](${SITE.url}/about/): who builds ${SITE.name} (${SITE.founder}, operated by ${SITE.operator})\n`;
+  body += `- [Methodology](${SITE.url}/methodology/): how formulas are sourced and tested\n`;
+  body += `- [Contact](${SITE.url}/contact/): report an error or request a calculator\n`;
+  body += `- [Privacy](${SITE.url}/privacy/): calculations run in the browser\n`;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 }

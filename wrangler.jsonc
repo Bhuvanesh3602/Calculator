@@ -2,9 +2,20 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ilovecalx",
   "compatibility_date": "2026-11-23",
+  "main": "worker/index.js",
   "workers_dev": true,
+  // Attach both hostnames to this Worker. Wrangler creates the DNS records and
+  // certificates; www is then 301-redirected to the apex by worker/index.js.
+  "routes": [
+    { "pattern": "ilovecalx.com", "custom_domain": true },
+    { "pattern": "www.ilovecalx.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Run the Worker before serving assets, so www requests are redirected
+    // instead of being answered directly from the asset store.
+    "run_worker_first": true
   }
 }

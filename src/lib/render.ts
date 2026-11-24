@@ -53,7 +53,13 @@ export function describeInputs(fields: Field[], v: Values): string {
     .map((f) => {
       const val = v[f.id];
       if (f.type === 'select') return `${f.label}: ${f.options.find((o) => o.value === val)?.label ?? val}`;
-      if (f.type === 'number') return `${f.label}: ${f.prefix ?? ''}${Number(val).toLocaleString('en-US')}${f.suffix ? ' ' + f.suffix : ''}`;
+      if (f.type === 'number') {
+        const n = Number(val);
+        // Years (e.g. birth year 1951) read wrong with a thousands separator.
+        const shown = /year|birth/i.test(f.id) && Number.isInteger(n) && n >= 1000 && n <= 9999 ? String(n) : n.toLocaleString('en-US');
+        const suffix = f.suffix === 'people' && n === 1 ? 'person' : f.suffix;
+        return `${f.label}: ${f.prefix ?? ''}${shown}${suffix ? ' ' + suffix : ''}`;
+      }
       return `${f.label}: ${val}`;
     })
     .join(' · ');

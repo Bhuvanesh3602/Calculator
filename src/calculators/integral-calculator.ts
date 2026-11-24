@@ -21,7 +21,7 @@ const calc: Calculator = {
   variants: ['antiderivative calculator', 'definite integral calculator', 'integration calculator', 'area under curve calculator'],
   title: 'Integral Calculator – Antiderivatives & Definite Integrals',
   description:
-    'Find the antiderivative of a function symbolically and evaluate definite integrals with high-precision numerical integration. See the area under the curve plotted.',
+    'Find the antiderivative of a function symbolically and evaluate definite integrals with precise numerical integration. See the area under the curve plotted.',
   accent: 'symbolic and numeric',
   icon: '∫',
   inputs: [

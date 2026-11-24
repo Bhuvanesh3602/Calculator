@@ -43,7 +43,10 @@ for (const file of htmlFiles) {
   const head = html.slice(0, html.indexOf('</head>'));
   const noindex = /<meta name="robots" content="noindex/.test(head);
   if (!noindex) indexable.add(p);
-  if (noindex && p !== '/404.html') err(p, 'is noindex but is not the 404 page');
+  // Deliberate noindex: the 404 page, and hub pages that hold fewer than 2 calculators (HubPage.astro).
+  const thinHub = /-calculators\/$/.test(p) && (html.match(/class="calc-card"/g) ?? []).length < 2;
+  if (noindex && p !== '/404.html' && !thinHub) err(p, 'is noindex but is not the 404 page');
+  if (!noindex && thinHub) warn(p, 'hub with fewer than 2 calculators should be noindex');
 
   if (!/<html lang="en/.test(html)) err(p, 'missing <html lang>');
   if (!/<meta name="viewport"/.test(head)) err(p, 'missing viewport meta');
@@ -139,7 +142,8 @@ else {
 const robots = existsSync(join(DIST, 'robots.txt')) ? readFileSync(join(DIST, 'robots.txt'), 'utf8') : '';
 if (!robots) err('/robots.txt', 'missing');
 else {
-  if (!robots.includes(`Sitemap: ${SITE_URL}/sitemap-index.xml`)) err('/robots.txt', 'does not point to the sitemap');
+  if (!/Sitemap: \S+\/sitemap(-index)?\.xml/.test(robots) || !robots.includes(`Sitemap: ${SITE_URL}/`))
+    err('/robots.txt', 'does not point to the sitemap');
   if (/^Disallow:\s*\/\s*$/m.test(robots)) err('/robots.txt', 'blocks the whole site');
 }
 const key = /indexNowKey:\s*'([^']+)'/.exec(cfg)?.[1];

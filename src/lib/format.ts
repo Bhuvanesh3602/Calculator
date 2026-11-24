@@ -1,12 +1,18 @@
 export type Fmt = 'usd' | 'usd2' | 'pct' | 'pct2' | 'num' | 'num2' | 'int' | 'raw';
 
 const cache: Record<string, Intl.NumberFormat> = {};
+
+/** Values that round to zero at the shown precision print as 0, never "-0". */
+function noNegZero(n: number, digits: number): number {
+  return Math.abs(n) < 0.5 * 10 ** -digits ? 0 : n;
+}
 function nf(key: string, opts: Intl.NumberFormatOptions) {
   return (cache[key] ??= new Intl.NumberFormat('en-US', opts));
 }
 
 export function usd(n: number, digits = 0): string {
   if (!isFinite(n)) return '—';
+  n = noNegZero(n, digits);
   return nf('usd' + digits, {
     style: 'currency',
     currency: 'USD',
@@ -18,6 +24,7 @@ export const usd2 = (n: number) => usd(n, 2);
 
 export function num(n: number, digits = 2): string {
   if (!isFinite(n)) return '—';
+  n = noNegZero(n, digits);
   return nf('num' + digits, { maximumFractionDigits: digits }).format(n);
 }
 export function pct(n: number, digits = 1): string {
@@ -48,6 +55,7 @@ export function fmt(n: number, kind: Fmt = 'num'): string {
 
 /** Compact axis labels: $1.2M, 45k */
 export function compact(n: number, kind: Fmt = 'num'): string {
+  if (Math.abs(n) < 1e-9) n = 0;
   const a = Math.abs(n);
   const money = kind === 'usd' || kind === 'usd2';
   const p = money ? (n < 0 ? '-$' : '$') : n < 0 ? '-' : '';

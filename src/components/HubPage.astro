@@ -2,16 +2,17 @@
 import CalcCard from './CalcCard.astro';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../site.config';
-import { renderChart } from '../lib/chart';
 import type { categoryList } from '../lib/registry';
 
 interface Props {
   hub: (typeof categoryList)[number];
 }
 const { hub } = Astro.props;
-const keyClass = ['k-orange', 'k-pink', 'k-blue', 'k-green', 'k-yellow'];
 const url = `${SITE.url}/${hub.slug}/`;
-const top = hub.items.slice(0, 10);
+const n = hub.items.length;
+const fullTitle = `${hub.name} – ${n} Free ${n === 1 ? 'Tool' : 'Tools'} | ${SITE.name}`;
+// Keep titles within ~60 characters so search results don't truncate them.
+const title = fullTitle.length <= 60 ? fullTitle : `${hub.name} – ${n} Free ${n === 1 ? 'Tool' : 'Tools'}`;
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -32,7 +33,7 @@ const jsonLd = [
 ];
 ---
 
-<Base title={`${hub.name} – ${hub.items.length} Free Tools | ${SITE.name}`} description={`${hub.blurb} ${hub.items.length} free calculators with charts, worked examples and FAQs.`.slice(0, 160)} jsonLd={jsonLd}>
+<Base noindex={n < 2} title={title} description={`${hub.blurb} ${n} free ${n === 1 ? 'calculator' : 'calculators'} with charts, worked examples and FAQs.`.slice(0, 160)} jsonLd={jsonLd}>
   <section class="dark calc-hero">
     <div class="wrap">
       <nav aria-label="Breadcrumb">
@@ -49,33 +50,12 @@ const jsonLd = [
       </div>
     </div>
   </section>
-  {
-    top.length > 1 && (
-      <section class="dark sec" style="padding-top:0">
-        <div class="wrap">
-          <div class="analysis-block">
-            <div>
-              <Fragment
-                set:html={renderChart({
-                  type: 'hbar',
-                  title: `Monthly US searches for ${hub.name.toLowerCase()}`,
-                  x: top.map((c) => c.name),
-                  series: [{ name: 'Monthly searches', values: top.map((c) => c.volume) }],
-                  y: 'int',
-                })}
-              />
-            </div>
-            <div class="analysis-text">
-              <h2 style="font-size:1.5rem">What people calculate most</h2>
-              <p>
-                Approximate monthly search demand from our keyword research (Google Keyword Planner, November 2026). The {top[0].name.toLowerCase()} leads this group, which is why we built it with the most scenarios.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
+  <section class="dark sec" style="padding-top:0">
+    <div class="wrap prose">
+      <h2 style="font-size:1.5rem">What these calculators cover</h2>
+      <p>{hub.intro}</p>
+    </div>
+  </section>
   <section class="light sec">
     <div class="wrap prose">
       <h2>Which {hub.name.replace(' Calculators', '').toLowerCase()} calculator do I need?</h2>

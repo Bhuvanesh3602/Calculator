@@ -390,6 +390,10 @@ p {
 .answer strong {
   color: #fff;
 }
+.answer + .byline {
+  margin: -1.25rem 0 2rem;
+  padding-left: calc(1rem + 3px);
+}
 .calc-grid {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
@@ -1659,5 +1663,39 @@ body {
   .btn-support,
   .btn-support .heart {
     animation: none;
+  }
+}
+
+/* ---------- touch targets (44px minimum on touch screens) ---------- */
+.hero-support-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+.hero-support-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+}
+@media (pointer: coarse), (max-width: 760px) {
+  .nav-toggle,
+  .btn-sm,
+  .table-toggle summary,
+  .hero-links a,
+  .calc-form input,
+  .calc-form select {
+    min-height: 44px;
+  }
+  .crumbs a,
+  .footer a,
+  .prose li > a,
+  .src-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .prose li,
+  .footer li {
+    margin-block: 0.15rem;
   }
 }

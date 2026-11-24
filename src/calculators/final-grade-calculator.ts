@@ -56,7 +56,7 @@ const calc: Calculator = {
   },
   intro: [
     'A final grade calculator works backwards from the grade you want to the exam score you need. It uses your current grade (everything before the final) and how much the final counts toward the course total.',
-    'It also lists the score you need for every letter grade and charts how your course grade moves with each possible exam score, so you can decide where to focus study time.',
+    'It also lists the score you need for every letter grade and charts how your course grade moves with each possible exam score, so you can decide where to focus study time. To average a list of scores first, use the <a href="/average-calculator/">average calculator</a>.',
   ],
   formula: {
     expr: 'Needed = (Target − Current × (1 − w)) ÷ w\nCourse grade = Current × (1 − w) + Final × w',

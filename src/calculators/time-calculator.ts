@@ -18,9 +18,9 @@ const calc: Calculator = {
   keyword: 'time calculator',
   volume: 673000,
   variants: ['add time calculator', 'time duration calculator', 'time between calculator', 'hours and minutes calculator', 'decimal time converter'],
-  title: 'Time Calculator – Add, Subtract & Time Between (Hours, Minutes)',
+  title: 'Time Calculator – Add, Subtract & Time Between Two Times',
   description:
-    'Add or subtract hours, minutes and seconds from a time, find the duration between two clock times (even past midnight), and convert between H:MM and decimal hours.',
+    'Add or subtract hours, minutes and seconds, find the duration between two clock times (even past midnight), and convert between H:MM and decimal hours.',
   accent: 'hours, minutes, seconds',
   icon: '⏱',
   inputs: [

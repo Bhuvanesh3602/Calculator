@@ -132,7 +132,7 @@ const calc: Calculator = {
       ['Health', 'Section 125 premium; reduces income tax and FICA'],
     ],
     notes: [
-      'State tax is simplified: we apply flat-rate states’ rates to wages after pre-tax deductions; for graduated-rate states enter your effective rate. Local taxes, credits (such as the Child Tax Credit), supplemental-wage withholding on bonuses and W-4 adjustments are not modelled.',
+      'State tax is simplified: we apply flat-rate states’ rates to wages after pre-tax deductions; for graduated-rate states enter your effective rate. Local taxes, credits (such as the Child Tax Credit), supplemental-wage withholding on bonuses and W-4 adjustments are not modeled.',
     ],
   },
   examples: [
@@ -184,7 +184,7 @@ const calc: Calculator = {
   },
   variantQs: [
     { q: 'Is this a take-home pay calculator?', a: 'Yes. Take-home pay, net pay and “salary after tax” all mean the amount deposited in your account after taxes and deductions — the headline figure above.' },
-    { q: 'How does the hourly paycheck calculator work?', a: 'Choose “Hourly wage”, enter your rate and weekly hours. The calculator annualises your pay (rate × hours × 52) to apply the yearly brackets, then divides by your pay frequency.' },
+    { q: 'How does the hourly paycheck calculator work?', a: 'Choose “Hourly wage”, enter your rate and weekly hours. The calculator annualizes your pay (rate × hours × 52) to apply the yearly brackets, then divides by your pay frequency.' },
     { q: 'What about my employer’s payroll tool?', a: 'Payroll providers use the same IRS withholding tables plus your exact W-4 and local taxes, so their number is authoritative. Use this calculator to understand and plan, then check your actual pay stub.' },
   ],
   tips: [

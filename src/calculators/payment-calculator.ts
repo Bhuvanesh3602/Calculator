@@ -132,7 +132,7 @@ const calc: Calculator = {
   ],
   tips: [
     'Round your payment up to the next $25 or $50 — the extra goes straight to principal.',
-    'Pay high-APR balances first (the “avalanche” method) to minimise total interest.',
+    'Pay high-APR balances first (the “avalanche” method) to minimize total interest.',
     'If a payment barely beats the interest, consider a 0% balance transfer or a lower-rate consolidation loan.',
   ],
   faqs: [

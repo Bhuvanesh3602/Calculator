@@ -102,7 +102,7 @@ const calc: Calculator = {
   ],
   tips: [
     'Track 3–6 cycles to find your true average cycle length.',
-    'Having sex every 1–2 days during the fertile window maximises chances.',
+    'Having sex every 1–2 days during the fertile window maximizes chances.',
     'See a doctor if you are under 35 and haven’t conceived after 12 months of trying (6 months if 35+).',
     'Calendar methods are not reliable birth control.',
   ],

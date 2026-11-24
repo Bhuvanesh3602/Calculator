@@ -19,7 +19,7 @@ const calc: Calculator = {
   ],
   title: 'Compound Interest Calculator – Growth with Monthly Deposits',
   description:
-    'See how savings grow with compound interest and monthly deposits. Choose daily, monthly or yearly compounding, adjust for inflation and find your time to a goal.',
+    'See how savings grow with compound interest and monthly deposits. Pick daily, monthly or yearly compounding, adjust for inflation and find your time to a goal.',
   accent: 'watch it snowball',
   icon: '%',
   inputs: [
@@ -91,7 +91,7 @@ const calc: Calculator = {
   },
   intro: [
     'Compound interest means you earn interest on your original money <em>and</em> on the interest it has already earned. The effect is small at first and then accelerates, which is why time matters more than almost anything else in saving.',
-    'This compound interest calculator models a starting deposit plus regular monthly contributions, any compounding frequency, contributions at the start or end of each month, and an inflation adjustment so you can see what the final balance is worth in today’s money. It also tells you how long it takes to reach a savings goal.',
+    'This compound interest calculator models a starting deposit plus regular monthly contributions, any compounding frequency, contributions at the start or end of each month, and an inflation adjustment so you can see what the final balance is worth in today’s money. It also tells you how long it takes to reach a savings goal. For a fixed-term deposit at a set APY, use the <a href="/cd-calculator/">CD calculator</a>.',
   ],
   formula: {
     expr: 'A = P(1 + r/n)^(n·t) + PMT × [((1 + i)^(12t) − 1) / i]\ni = (1 + r/n)^(n/12) − 1',

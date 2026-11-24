@@ -1,3 +1,40 @@
-node_modules
-dist
-.astro
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Cloudflare Wrangler local state
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Test and coverage output
+coverage/
+.vitest/
+
+# Editors and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local Claude Code settings (personal permissions)
+.claude/settings.local.json
+
+# Local SEO audit runs (reports, screenshots, scratch JSON). Remove this line to commit them.
+ilovecalx-audit/

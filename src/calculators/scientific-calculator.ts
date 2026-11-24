@@ -17,7 +17,7 @@ const calc: Calculator = {
   variants: ['sci calculator', 'online scientific calculator', 'trig calculator', 'scientific calculator calculators'],
   title: 'Scientific Calculator Online – Trig, Logs, Powers & Roots',
   description:
-    'Free online scientific calculator with sin, cos, tan, logs, exponents, roots, factorials, constants and degree/radian mode. Type or tap, see the parsed expression.',
+    'Scientific calculator with sin, cos, tan, logs, exponents, roots, factorials, constants and degree/radian mode. Type or tap, see the parsed expression.',
   accent: 'type it or tap it',
   icon: 'ƒ',
   keypad: true,

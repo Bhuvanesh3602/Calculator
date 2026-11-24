@@ -63,7 +63,7 @@ const calc: Calculator = {
   keyword: 'fraction calculator',
   volume: 368000,
   variants: ['mixed number calculator', 'adding fractions calculator', 'simplify fractions calculator', 'fraction to decimal calculator'],
-  title: 'Fraction Calculator – Add, Subtract, Multiply & Divide with Steps',
+  title: 'Fraction Calculator – Add, Subtract, Multiply & Divide',
   description:
     'Add, subtract, multiply and divide fractions and mixed numbers. Get the simplified answer, mixed number and decimal, with every step of the working shown.',
   accent: 'with every step',
@@ -107,7 +107,7 @@ const calc: Calculator = {
   },
   intro: [
     'A fraction calculator performs arithmetic on fractions and returns the answer in simplest form. It handles proper fractions, improper fractions, mixed numbers like 2 1/3, negative numbers and decimals.',
-    'Every result comes with the steps a teacher would expect: finding the least common denominator, rewriting, combining numerators and simplifying with the greatest common factor.',
+    'Every result comes with the steps a teacher would expect: finding the least common denominator, rewriting, combining numerators and simplifying with the <a href="/gcf-calculator/">greatest common factor</a>. To compare two quantities instead of combining them, use the <a href="/ratio-calculator/">ratio calculator</a>.',
   ],
   formula: {
     expr: 'a/b + c/d = (a·d + c·b) / (b·d)   (we use the LCD to keep numbers small)\na/b × c/d = (a·c) / (b·d)\na/b ÷ c/d = (a·d) / (b·c)\nSimplify: divide top and bottom by GCF(n, d)',

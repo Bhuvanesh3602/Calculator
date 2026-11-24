@@ -21,7 +21,7 @@ const calc: Calculator = {
   keyword: 'macro calculator',
   volume: 90500,
   variants: ['macronutrient calculator', 'iifym calculator', 'keto macro calculator', 'macros for weight loss'],
-  title: 'Macro Calculator – Protein, Carbs & Fat in Grams for Your Goal',
+  title: 'Macro Calculator – Protein, Carbs & Fat Grams for Your Goal',
   description:
     'Turn your calorie target into daily grams of protein, carbs and fat. Compare balanced, high-protein, low-carb, endurance and keto splits for your body and goal.',
   accent: 'calories into grams',

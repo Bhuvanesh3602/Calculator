@@ -214,7 +214,7 @@ const calc: Calculator = {
     },
     {
       q: 'What is negative amortization?',
-      a: 'Negative amortization happens when a payment is smaller than the interest due, so unpaid interest is added to the balance and the debt grows. Standard fixed-rate loans like the ones modelled here never negatively amortize.',
+      a: 'Negative amortization happens when a payment is smaller than the interest due, so unpaid interest is added to the balance and the debt grows. Standard fixed-rate loans like the ones modeled here never negatively amortize.',
     },
   ],
   sources: [
