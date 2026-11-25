@@ -59,6 +59,14 @@ const year = new Date().getFullYear();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtm.js?id=GTM-NSDF5JXV"></script>
     <link rel="preload" href={figtreeWoff2} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={serifWoff2} as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
@@ -89,6 +97,7 @@ const year = new Date().getFullYear();
     {[...sitewide, ...jsonLd].map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
   </head>
   <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSDF5JXV" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     <a class="skip" href="#main">Skip to content</a>
     <header class="nav">
       <div class="wrap">
