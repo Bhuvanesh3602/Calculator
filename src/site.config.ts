@@ -15,6 +15,8 @@ export const SITE = {
   email: 'bhuvan.s1337@gmail.com',
   /** PayPal account that receives contributions on /support/. */
   paypalEmail: 'bhuvan.s1337@gmail.com',
+  /** Amount (USD) pre-selected on /support/. */
+  supportDefaultAmount: 7.9,
   policyUpdated: '2026-11-23',
 
   /**
