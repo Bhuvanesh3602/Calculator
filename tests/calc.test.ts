@@ -126,9 +126,9 @@ describe('dates & everyday', () => {
 });
 
 describe('every calculator', () => {
-  it('has 50 calculators with unique slugs', () => {
-    expect(calculators.length).toBe(50);
-    expect(new Set(calculators.map((c) => c.slug)).size).toBe(50);
+  it('has 67 calculators with unique slugs', () => {
+    expect(calculators.length).toBe(67);
+    expect(new Set(calculators.map((c) => c.slug)).size).toBe(67);
   });
   for (const c of calculators) {
     it(`${c.slug}: defaults compute, SEO fields valid, related links exist`, () => {

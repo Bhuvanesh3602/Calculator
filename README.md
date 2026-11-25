@@ -1,4 +1,4 @@
-# ilovecalx – 50 SEO-friendly calculators (Astro)
+# ilovecalx – 67 SEO-friendly calculators (Astro)
 
 Static Astro site: one calculator per page, each with an answer block, live calculator,
 result chart, formula, worked examples, original chart analysis, variant questions, FAQ
@@ -9,7 +9,7 @@ result chart, formula, worked examples, original chart analysis, variant questio
 ```bash
 npm install          # first time only
 npm run dev          # dev server with hot reload → http://localhost:4321
-npm test             # 88 known-answer + content tests (Vitest)
+npm test             # 159 known-answer + content tests (Vitest)
 npm run typecheck    # strict TypeScript check of all calculator code
 npm run build        # production build → dist/
 npm run preview      # serve the built dist/ → http://localhost:4321

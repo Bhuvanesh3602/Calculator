@@ -2,12 +2,17 @@ import type { ChartSpec } from './chart';
 
 export type Values = Record<string, any>;
 
+export interface ShowIf {
+  field: string;
+  in: string[];
+}
+
 interface BaseField {
   id: string;
   label: string;
   help?: string;
-  /** Only show this field when another field has one of these values. */
-  showIf?: { field: string; in: string[] };
+  /** Only show this field when another field has one of these values (an array means all must match). */
+  showIf?: ShowIf | ShowIf[];
 }
 export interface NumberField extends BaseField {
   type: 'number';
@@ -104,6 +109,10 @@ export interface Calculator {
   icon: string; // one or two characters for the key badge
   inputs: Field[];
   keypad?: boolean;
+  /** Recompute in the browser on page load (generators: never reuse the build-time result). */
+  liveOnLoad?: boolean;
+  /** Label for the submit button (default "Calculate"). */
+  actionLabel?: string;
   compute: (v: Values) => Result;
   /** 40-60 word answer block. Built from a real computed example. */
   answer: { inputs?: Values; text: (r: Result, v: Values) => string };

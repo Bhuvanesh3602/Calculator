@@ -17,8 +17,8 @@ const jsonLd = [
 ---
 
 <Base
-  title={`Free Online Calculators – ${calculators.length} Tools with Charts | ${SITE.name}`}
-  description={`${calculators.length} free online calculators for mortgages, loans, BMI, GPA, percentages, dates and more. Instant answers, step-by-step working and original charts.`}
+  title={`Free Online Calculators – Unlimited, No Sign-Up | ${SITE.name}`}
+  description="Free online calculators for mortgages, loans, tax, BMI, GPA, math and dates. Unlimited use with no sign-up or download, real formulas and step-by-step working."
   jsonLd={jsonLd}
 >
   <section class="dark">
@@ -31,13 +31,13 @@ const jsonLd = [
           <button class="btn btn-accent" type="submit">Search</button>
         </form>
         <p class="hero-lead muted">
-          {calculators.length} free calculators for money, health, math and dates. Each page pairs one focused tool with the formula, worked
-          examples, original charts and straight answers to the questions people search.
+          Real calculators for money, health, math and dates, free to use as often as you like. No account, no sign-up, no download:
+          open a page and calculate. Each tool shows its formula, step-by-step working and charts, so you can check every answer.
         </p>
         <ul class="hero-links">
           {calculators.slice(0, 6).map((c) => <li><a href={`/${c.slug}/`}>{c.name.replace(' Calculator', '')}</a></li>)}
         </ul>
-        <p class="mono muted hero-meta">TESTED MATH · NO SIGN-UP · RUNS IN YOUR BROWSER</p>
+        <p class="mono muted hero-meta">UNLIMITED &amp; FREE · NO SIGN-UP · RUNS IN YOUR BROWSER</p>
       </div>
       <div class="calc-stage">
         <SciCalc />
@@ -89,8 +89,8 @@ const jsonLd = [
     <div class="wrap">
       <div class="three-col">
         <div class="dot-card">
-          <h3>Answer first</h3>
-          <p class="small muted">Every page opens with a direct, worked answer, then the tool, then the detail.</p>
+          <h3>Unlimited, no sign-up</h3>
+          <p class="small muted">Use every calculator as often as you like. There is no account, login, paywall or daily limit.</p>
         </div>
         <div class="dot-card">
           <h3>Formulas you can check</h3>

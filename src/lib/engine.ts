@@ -1,5 +1,5 @@
 /** Browser-side calculator engine: reads the form, computes, re-renders, syncs URL. */
-import { resolveDefault, resultExtraHtml, resultHtml } from './render';
+import { isShown, resolveDefault, resultExtraHtml, resultHtml } from './render';
 import type { Calculator, Values } from './types';
 
 const loaders = import.meta.glob<{ default: Calculator }>('../calculators/*.ts');
@@ -29,9 +29,7 @@ function readForm(form: HTMLFormElement, calc: Calculator): Values {
 
 function applyShowIf(form: HTMLFormElement) {
   form.querySelectorAll<HTMLElement>('[data-showif]').forEach((el) => {
-    const s = JSON.parse(el.dataset.showif!);
-    const ctrl = form.querySelector<HTMLInputElement>(`[name="${s.field}"]`);
-    el.hidden = !!ctrl && !s.in.includes(ctrl.value);
+    el.hidden = !isShown(JSON.parse(el.dataset.showif!), (k) => form.querySelector<HTMLInputElement>(`[name="${k}"]`)?.value);
   });
 }
 
@@ -185,7 +183,7 @@ export async function initCalculator(form: HTMLFormElement) {
   // inputs came from a shared link or depend on today's date — re-rendering identical
   // content would cause a layout shift (bad for Core Web Vitals / CLS).
   const usesToday = calc.inputs.some((f) => f.type === 'date' && f.default.startsWith('today'));
-  if (fromUrl || usesToday) run(fromUrl);
+  if (fromUrl || usesToday || calc.liveOnLoad) run(fromUrl);
   else if (window.innerWidth < 700) {
     // Phones: redraw the result chart at a narrow size so its labels are readable.
     // It sits below the first screen, so this does not count as a layout shift.

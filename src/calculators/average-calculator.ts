@@ -30,7 +30,7 @@ const calc: Calculator = {
   category: 'math',
   keyword: 'average calculator',
   volume: 74000,
-  variants: ['mean calculator', 'mean median mode calculator', 'standard deviation calculator', 'weighted average calculator'],
+  variants: ['mean calculator', 'mean median mode calculator', 'weighted average calculator'],
   title: 'Average Calculator – Mean, Median, Mode & Standard Deviation',
   description:
     'Paste a list of numbers to get the mean, median, mode, range, sum and standard deviation, with a chart showing how outliers pull the mean from the median.',
@@ -116,6 +116,6 @@ const calc: Calculator = {
     { q: 'What does standard deviation tell you?', a: 'How spread out the values are around the mean. A small SD means values cluster tightly.' },
   ],
   sources: [{ label: 'NIST/SEMATECH e-Handbook of Statistical Methods – Measures of location and scale', url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm' }],
-  related: ['percentage-calculator', 'gpa-calculator', 'final-grade-calculator', 'percent-change-calculator', 'scientific-calculator'],
+  related: ['standard-deviation-calculator', 'percentage-calculator', 'gpa-calculator', 'final-grade-calculator', 'percent-change-calculator', 'scientific-calculator'],
 };
 export default calc;

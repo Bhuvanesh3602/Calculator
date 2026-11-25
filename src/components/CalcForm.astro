@@ -1,12 +1,13 @@
 ---
 import FieldInput from './FieldInput.astro';
 import type { Calculator, Values } from '../lib/types';
+import { isShown } from '../lib/render';
 interface Props {
   calc: Calculator;
   values: Values;
 }
 const { calc, values } = Astro.props;
-const visible = (f: any) => !f.showIf || f.showIf.in.includes(String(values[f.showIf.field]));
+const visible = (f: any) => isShown(f.showIf, (k) => String(values[k]));
 const KEYS = ['7', '8', '9', '/', '(', ')', '4', '5', '6', '*', 'sqrt(', '^', '1', '2', '3', '-', 'sin(', 'cos(', '0', '.', 'pi', '+', 'tan(', 'log(', 'ln(', 'e', '!', '%', 'C', '='];
 ---
 
@@ -91,7 +92,7 @@ const KEYS = ['7', '8', '9', '/', '(', ')', '4', '5', '6', '*', 'sqrt(', '^', '1
     )
   }
   <div class="form-actions">
-    <button type="submit" class="btn btn-accent"><span class="face" aria-hidden="true">=</span>Calculate</button>
+    <button type="submit" class="btn btn-accent"><span class="face" aria-hidden="true">=</span>{calc.actionLabel ?? 'Calculate'}</button>
     <button type="button" class="btn btn-ghost" data-reset>Reset</button>
   </div>
 </form>

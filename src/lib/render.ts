@@ -1,7 +1,16 @@
 import { renderChart } from './chart';
 import { esc } from './format';
 import { addDays, isoDate } from './math';
-import type { Field, Result, Table, Values } from './types';
+import type { Field, Result, ShowIf, Table, Values } from './types';
+
+/** True when every showIf condition matches the current values. */
+export function isShown(showIf: ShowIf | ShowIf[] | undefined, get: (field: string) => string | undefined): boolean {
+  if (!showIf) return true;
+  return (Array.isArray(showIf) ? showIf : [showIf]).every((c) => {
+    const val = get(c.field);
+    return val === undefined || c.in.includes(val);
+  });
+}
 
 export function tableHtml(t: Table, cls = 'data-table') {
   return (
@@ -49,7 +58,7 @@ export function defaults(fields: Field[], over: Values = {}): Values {
 /** Human summary of inputs for worked examples. */
 export function describeInputs(fields: Field[], v: Values): string {
   return fields
-    .filter((f) => f.type !== 'rows' && (!f.showIf || f.showIf.in.includes(String(v[f.showIf.field]))))
+    .filter((f) => f.type !== 'rows' && isShown(f.showIf, (k) => String(v[k])))
     .map((f) => {
       const val = v[f.id];
       if (f.type === 'select') return `${f.label}: ${f.options.find((o) => o.value === val)?.label ?? val}`;

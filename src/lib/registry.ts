@@ -32,42 +32,42 @@ export const CATEGORIES: Record<Category, { name: string; slug: string; blurb: s
   finance: {
     name: 'Finance Calculators',
     slug: 'finance-calculators',
-    blurb: 'Mortgages, loans, interest and investing — every payment shown month by month.',
+    blurb: 'Mortgages, loans, interest, retirement and investing — every payment shown month by month.',
     accent: 'money, made legible',
     intro:
-      'These calculators cover borrowing, saving and investing: mortgages, car and personal loans, amortization schedules, CDs, compound interest, inflation and long-term investment growth. Each one prints the formula it uses and a month-by-month or year-by-year table, so you can check every number.',
+      'These calculators cover borrowing, saving and investing: mortgages, car and personal loans, amortization schedules, simple and compound interest, implied interest rates, CDs, inflation, retirement planning, investment growth and a full time-value-of-money (TVM) solver. Each one prints the formula it uses and a month-by-month or year-by-year table, so you can check every number.',
   },
   payroll: {
-    name: 'Paycheck & Payroll Calculators',
+    name: 'Paycheck, Salary & Tax Calculators',
     slug: 'payroll-calculators',
-    blurb: 'Take-home pay, employer cost and retirement withdrawals using 2026 US rules.',
+    blurb: 'Take-home pay, salary conversion, income tax, employer cost and RMDs using 2026 US rules.',
     accent: 'know your net',
     intro:
-      'These calculators estimate take-home pay for employees, total payroll cost for employers and required minimum distributions from retirement accounts. They use 2026 US federal rules and state income tax rates, and each page lists the tax tables it relies on.',
+      'These calculators estimate take-home pay, convert hourly pay to salary, work out federal income tax and refunds bracket by bracket, total payroll cost for employers and required minimum distributions from retirement accounts. They use 2026 US federal rules and state income tax rates, and each page lists the tax tables it relies on.',
   },
   health: {
     name: 'Health & Fitness Calculators',
     slug: 'health-calculators',
-    blurb: 'BMI, calories, macros, body fat and pregnancy dates, using published clinical formulas.',
+    blurb: 'BMI, ideal weight, calories, running pace, body fat and pregnancy dates, using published formulas.',
     accent: 'numbers for your body',
     intro:
-      'These calculators cover body measurements, energy needs, nutrition, strength and pregnancy dates. Each one names the clinical formula or guideline it follows, such as Mifflin-St Jeor or Naegele’s rule, and links the published source. Results are estimates, not medical advice.',
+      'These calculators cover body measurements and ideal weight, energy needs, nutrition, strength, running pace and race prediction, and pregnancy and conception dates. Each one names the clinical formula or guideline it follows, such as Mifflin-St Jeor or Naegele’s rule, and links the published source. Results are estimates, not medical advice.',
   },
   math: {
     name: 'Math Calculators',
     slug: 'math-calculators',
-    blurb: 'Percentages, fractions, algebra, calculus and graphing, with step-by-step working.',
+    blurb: 'Percentages, fractions, triangles, statistics, algebra and calculus, with step-by-step working.',
     accent: 'show the working',
     intro:
-      'These calculators cover arithmetic, ratios, averages, fractions, factoring, slope, algebra, calculus and graphing. Every answer comes with the working, step by step, so you can follow the method as well as the result.',
+      'These calculators cover arithmetic, ratios, averages, standard deviation, fractions, factoring, slope, triangles, algebra, calculus, graphing and secure random numbers. Every answer comes with the working, step by step, so you can follow the method as well as the result.',
   },
   education: {
     name: 'Education Calculators',
     slug: 'education-calculators',
-    blurb: 'GPA and final-exam grade planning for students.',
+    blurb: 'Weighted class grades, GPA and final-exam planning for students.',
     accent: 'plan the grade',
     intro:
-      'These calculators help students work out a GPA on a 4.0 scale, weighted or unweighted, and the final exam score needed for a target course grade. Both show how each grade feeds into the result.',
+      'These calculators help students work out a weighted class grade from assignments and tests, a GPA on a 4.0 scale, weighted or unweighted, and the final exam score needed for a target course grade. Each one shows how each grade feeds into the result.',
   },
   'date-time': {
     name: 'Date & Time Calculators',
@@ -88,10 +88,10 @@ export const CATEGORIES: Record<Category, { name: string; slug: string; blurb: s
   everyday: {
     name: 'Everyday Calculators',
     slug: 'everyday-calculators',
-    blurb: 'Quick, practical tools such as tipping and splitting the bill.',
+    blurb: 'Tips, sales tax, unit conversion, passwords and IP subnets.',
     accent: 'small sums, sorted',
     intro:
-      'This group holds quick, practical tools for everyday sums, starting with tipping and splitting a bill. Each one shows the arithmetic, so you can check it at the table.',
+      'This group holds quick, practical tools: tipping and splitting a bill, adding or removing sales tax, converting units, generating strong passwords and working out IPv4 subnets. Each one shows its working, so you can check the result.',
   },
 };
 
