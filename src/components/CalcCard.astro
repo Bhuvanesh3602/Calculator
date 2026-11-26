@@ -18,7 +18,7 @@ const img = calcImages[calc.slug];
 <a class="calc-card" href={`/${calc.slug}/`} {...rest}>
   {
     img ? (
-      <Image src={img} alt="" width={96} height={96} densities={[1, 2]} fit="cover" class="calc-thumb" loading="lazy" decoding="async" />
+      <Image src={img} alt={`${calc.name} illustration`} width={96} height={96} densities={[1, 2]} fit="cover" class="calc-thumb" loading="lazy" decoding="async" />
     ) : (
       <span class:list={['key-badge', keyClass[index % 5]]} aria-hidden="true">
         {calc.icon}
