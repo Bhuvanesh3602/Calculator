@@ -2,6 +2,7 @@
 import CalcCard from './CalcCard.astro';
 import Base from '../layouts/Base.astro';
 import { SITE } from '../site.config';
+import { guides } from '../lib/guides';
 import type { categoryList } from '../lib/registry';
 
 interface Props {
@@ -71,6 +72,14 @@ const jsonLd = [
           ))
         }
       </ul>
+      {
+        guides[hub.slug]?.map((g) => (
+          <>
+            <h2>{g.h}</h2>
+            {g.p.map((x) => (/^<(ul|ol)>/.test(x) ? <Fragment set:html={x} /> : <p set:html={x} />))}
+          </>
+        ))
+      }
     </div>
   </section>
 </Base>

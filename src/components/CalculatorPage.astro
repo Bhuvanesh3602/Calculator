@@ -9,6 +9,7 @@ import { defaults, describeInputs, resultExtraHtml, resultHtml, tableHtml } from
 import type { Calculator } from '../lib/types';
 import { Image, getImage } from 'astro:assets';
 import { calcImages, imageAlt } from '../lib/images';
+import { guides } from '../lib/guides';
 
 interface Props {
   calc: Calculator;
@@ -288,6 +289,22 @@ const jsonLd = [
       </div>
     </div>
   </section>
+
+  {
+    guides[calc.slug] && (
+      <section class="light sec" style="padding-top:0" aria-labelledby="guide-h">
+        <div class="wrap prose">
+          <p class="label muted" id="guide-h">{calc.short} guide</p>
+          {guides[calc.slug].map((g) => (
+            <>
+              <h2>{g.h}</h2>
+              {g.p.map((x) => (/^<(ul|ol)>/.test(x) ? <Fragment set:html={x} /> : <p set:html={x} />))}
+            </>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   <!-- 5. LIGHT: FAQ accordion -->
   <section class="light sec" style="padding-top:0" aria-labelledby="faq-h">
